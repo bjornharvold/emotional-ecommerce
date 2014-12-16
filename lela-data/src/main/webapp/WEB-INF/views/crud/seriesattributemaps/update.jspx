@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_SeriesAttributeMap" modelAttribute="seriesAttributeMap" path="/crud/seriesattributemaps" versionField="Version" z="0vbQJfTI9vlsW+1Wg+CSG3I7snk=">
+        <field:datetime dateTimePattern="${seriesAttributeMap_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_SeriesAttributeMap_dateCreated" z="d59oz4SlYczWXXuh0v7iS3SYqV4="/>
+        <field:datetime dateTimePattern="${seriesAttributeMap_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_SeriesAttributeMap_dateModified" z="oeWBBCatXkKp7cBpMtL98tF60TQ="/>
+        <field:select field="category" id="c_com_lela_data_domain_entity_SeriesAttributeMap_category" itemValue="id" items="${categorys}" path="/crud/categorys" z="2v4fdBZaOvh3MRjDHDXUc+OoXno="/>
+        <field:select field="seriesType" id="c_com_lela_data_domain_entity_SeriesAttributeMap_seriesType" itemValue="id" items="${seriestypes}" path="/crud/seriestypes" z="wQI3nS0cpTjZJkeN7AzUKoH+Uvw="/>
+        <field:select field="attributeType" id="c_com_lela_data_domain_entity_SeriesAttributeMap_attributeType" itemValue="id" items="${attributetypes}" path="/crud/attributetypes" z="BIDHui5aRvMzsTv23od5awf1R74="/>
+    </form:update>
+</div>

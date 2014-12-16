@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_MerchantImageItem" items="${merchantimageitems}" z="+vNWlBKLo3YLltvwmUPqpEggy44=">
+        <table:table data="${merchantimageitems}" id="l_com_lela_data_domain_entity_MerchantImageItem" path="/crud/merchantimageitems" z="8vCTCIZAWhILVFcBi/uU7FS82pM=">
+            <table:column date="true" dateTimePattern="${merchantImageItem_datecreated_date_format}" id="c_com_lela_data_domain_entity_MerchantImageItem_dateCreated" property="dateCreated" z="sD35ZHwQp9o3EYZH5HagxwE+9GU="/>
+            <table:column date="true" dateTimePattern="${merchantImageItem_datemodified_date_format}" id="c_com_lela_data_domain_entity_MerchantImageItem_dateModified" property="dateModified" z="XoEAvTDKeF5jL1HC+v+le3f5Q4w="/>
+            <table:column id="c_com_lela_data_domain_entity_MerchantImageItem_item" property="item" z="DYXY/4LL4GxTyL0qgWBx7m1kBao="/>
+            <table:column id="c_com_lela_data_domain_entity_MerchantImageItem_merchantImage" property="productImage" z="kNRh9UxSqiUB1iYKBavbhyjoT/g="/>
+            <table:column id="c_com_lela_data_domain_entity_MerchantImageItem_primary" property="primary" z="JwcRhCBuXN+XViAf4eXUcRxHbq4="/>
+            <table:column id="c_com_lela_data_domain_entity_MerchantImageItem_doNotUse" property="doNotUse" z="TCHS40mJeRjCCQUNBbhVqMl5kj8="/>
+        </table:table>
+    </page:list>
+</div>

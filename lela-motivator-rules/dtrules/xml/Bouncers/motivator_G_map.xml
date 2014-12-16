@@ -1,0 +1,37 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+ 			<setattribute tag='BouncerID' RAttribute='BouncerID' enclosure='job' type='integer' subtype=''/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer' subtype=''/>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date' subtype=''/>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string' subtype=''/>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer' subtype=''/>
+
+			<setattribute tag='BouncerID' RAttribute='BouncerID' enclosure='bouncer' type='integer' subtype=''/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='bouncer' type='integer' subtype=''/>
+			<setattribute tag='ListPrice' RAttribute='ListPrice' enclosure='bouncer' type='double' subtype=''/>
+			<setattribute tag='motivatorTotal' RAttribute='motivatorTotal' enclosure='bouncer' type='integer' subtype=''/>
+			<setattribute tag='PowerSource' RAttribute='PowerSource' enclosure='bouncer' type='string' subtype=''/>
+
+
+			<createentity entity='bouncer' tag='bouncer' id='id'/>
+			<createentity entity='constants' tag='constants' id='id'/>
+			<createentity entity='job' tag='job' id='id'/>
+		</map>
+
+		<entities>
+			<entity name='bouncer' number='*'/>
+			<entity name='constants' number='1'/>
+			<entity name='job' number='1'/>
+		</entities>
+
+		<initialization>
+			<initialentity entity='job' epush='true'/>
+			<initialentity entity='constants' epush='true'/>
+		</initialization>
+	</XMLtoEDD>
+</mapping>
+
+
+
+

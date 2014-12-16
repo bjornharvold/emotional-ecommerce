@@ -1,0 +1,97 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+     id="wrapper">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="user.form.input.tip" var="inputTip"/>
+    <spring:message code="user.form.email.tip" var="emailTip"/>
+    <spring:message code="user.form.question.tip" var="questionTip"/>
+    <spring:message code="user.form.answer.tip" var="answerTip"/>
+    <spring:message code="user.form.error.email" var="userErrorEmail" htmlEscape="false"/>
+    <spring:message code="user.form.error.empty" var="userErrorEmpty" htmlEscape="false"/>
+    <spring:url value="/invitation" var="invitationUrl" />
+    <spring:url value="/static/images/invitation/go.gif" var="goImgUrl" />
+
+     <h1 id="form-logo" title="LELA"><span class="h-text">LELA</span></h1>
+
+     <div id="main">
+
+         <h2>
+          Hi there, ${userDto.fnm}! 
+          <span>Log in and get started!</span>
+         </h2>
+
+         <c:choose>
+             <c:when test="${!empty errors}">
+                 <h3><spring:message code="${errors.message}" htmlEscape="false" arguments="${errors.params}"/></h3>
+             </c:when>
+             <c:otherwise>
+
+                 <form action="${invitationUrl}" id="reg-form" method="POST" class="custom">
+                     <span class="c-input" id="email-type">
+                         <input name="ml" type="text" value="${param.email}" readonly="readonly" class="email-type required" id="email" />
+                         <span class="check"><!-- --></span>
+                     </span>
+
+                     <span class="c-input" id="password-type">
+                         <input name="psswrd" type="password" id="password" class="password-type required" value="" style="display:none;" autocomplete="off"/>
+                         <input name="psswrd-hint" type="text" id="password-hint" class="password-type required" value="choose a password"/>
+                         <span class="uncheck"><!-- --></span>
+                     </span>
+
+                     <a href="#" id="submit"><img src="${goImgUrl}" alt=""/></a>
+
+                     <strong id="password-info">(your password must be at least 4 character long)</strong>
+                  </form>
+
+             </c:otherwise>
+         </c:choose>
+
+         <a href="#lela-video" id="launch-video" rel="nofollow">How does Lela work?<strong>Watch this short video to find out.</strong></a>
+
+         <!-- <h3>Whoops, that’s not a valid email address!</h3> -->
+
+     </div>
+
+
+
+    <div id="footer">
+        <div id="footer-content">
+            <p class="copyright"><spring:message code="footer.copyright" htmlEscape="false"/></p>
+
+            <spring:url value="/sc/terms" var="termsUrl" />
+            <spring:url value="/page/blog" var="aboutUrl" />
+            <spring:url value="/sc/privacy" var="privacyUrl" />
+            <a href="${termsUrl}" rel="nofollow"><spring:message code="footer.link.terms" htmlEscape="false"/></a>
+            <a href="${privacyUrl}" rel="nofollow"><spring:message code="footer.link.policy" htmlEscape="false"/></a>
+            <a href="${aboutUrl}"><spring:message code="footer.link.about" htmlEscape="false"/></a>
+            <a href="mailto:info@lela.com"><spring:message code="footer.link.contact" htmlEscape="false"/></a>
+
+            <spring:url value="/static/images/icons/fb_footer.gif" var="fbImgUrl" />
+            <spring:url value="/static/images/icons/tw_footer.gif" var="twitterImgUrl" />
+            <a href="http://twitter.com/lelaknows" class="social-link"><img src="${twitterImgUrl}" alt="Follow on Twitter"/><spring:message code="footer.link.twitter" htmlEscape="false"/></a>
+            <a href="http://www.facebook.com/lelaknows?sk=app_203119206385978" class="social-link"><img src="${fbImgUrl}" alt="Follow on Facebook"/><spring:message code="footer.link.facebook" htmlEscape="false"/></a>
+
+        </div>
+    </div>
+
+    <div style="display:none;">
+        <div id="lela-video">
+            <object width="720" height="405"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=31055610&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1&amp;autoplay=1&amp;loop=0" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=31055610&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1&amp;autoplay=1&amp;loop=0" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="720" height="405"></embed></object>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+        id="fb-wrapper">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <lela:findUser/>
+    <script lela-url="/" src="/api/resource/quiz/quiz-loader.js?affiliateId=lela&amp;applicationId=lela-quiz-noreg" type="text/javascript"><!-- --></script>
+
+    <h2 class="facebook-introduction"><spring:message code="fb.introduction" htmlEscape="false"/></h2>
+
+    <div id="categories">
+        <div class="image-switcher" id="category-carousel">
+            <c:forEach var="category" items="${categories}" varStatus="status">
+                <spring:url value="/static/images/placeholders/categories/fb/${category.rlnm}_fbcat.jpg" var="categoryImgUrl" />
+                <div id="cat-d-${category.rlnm}" class="cat-c ${status.index != 0 ? 'hidden' : ''} carousel-row" row-num="${status.index}">
+                    <img class="cat-img" src="${categoryImgUrl}" /><br/>
+
+                    <h2><spring:message code="grid.cat.${category.rlnm}" htmlEscape="false"/></h2>
+                    <spring:url value="/${category.srlnm}/c?rlnm=${category.rlnm}" var="categoryUrl" />
+                    <a href="${categoryUrl}" target="_blank" class="l-grid"><span><spring:message code="grid.cat.${category.rlnm}.button" htmlEscape="false"/></span></a>
+                </div>
+            </c:forEach>
+        </div>
+        <div id="cat-l">
+            <c:forEach var="category" items="${categories}" varStatus="status">
+                <spring:url value="/${category.srlnm}/c?rlnm=${category.rlnm}" var="categoryUrl" />
+                <a href="${categoryUrl}" class="${status.index == 0 ? 'selected' : ''} carousel-control" title="${category.nm}" row-num="${status.index}" key="cat-d-${category.rlnm}"><!-- --></a>
+            </c:forEach>
+        </div>
+    </div>
+
+    <div style="clear:both; height:20px;"><!-- --></div>
+
+    <div id="lela-quiz"><!-- Quiz content goes here --></div>
+
+
+    <h2 class="fb-header"><span><spring:message code="quiz.fb.why" htmlEscape="false" /></span></h2>
+    <div id="lela-fb-video">
+        <object width="428" height="245">
+            <param name="allowfullscreen" value="true" />
+            <param name="wmode" value="transparent" />
+            <param name="allowscriptaccess" value="always" />
+            <param name="flashvars" value="api=1" />
+            <param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=31055610&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1&amp;autoplay=0&amp;loop=0&amp;api=1&amp;player_id=vimeo-player" />
+            <embed src="http://vimeo.com/moogaloop.swf?clip_id=31055610&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1&amp;autoplay=0&amp;loop=0&amp;api=1&amp;player_id=vimeo-player" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="428" height="245" wmode="transparent" id="vimeo-player"/>
+        </object>
+
+        <div id="lela-works-fb">
+            <h3><spring:message code="quiz.fb.title" htmlEscape="false" /></h3>
+            <p><spring:message code="quiz.fb.content" htmlEscape="false" /></p>
+        </div>
+    </div>
+
+</div>

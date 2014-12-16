@@ -1,0 +1,54 @@
+<html xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:tiles="http://tiles.apache.org/tags-tiles" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" >
+
+<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+
+<jsp:directive.page contentType="text/html;charset=UTF-8" />
+<jsp:directive.page pageEncoding="UTF-8" />
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=8" />
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE" />
+  <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE" />
+
+  <util:load-scripts />
+
+  <spring:url value="/js/jquery-1.7.2.js" var="jquery_url" />
+  <spring:url value="/js/jquery-ui-1.8.22.custom.min.js" var="jquery_ui_url" />
+  <spring:url value="/js/ember-latest.js" var="ember_url" />
+  <spring:url value="/js/handlebars-1.0.0.beta6.min.js" var="handlebars_url" />
+  <spring:url value="/js/jquery.jqGrid.src.js" var="jqgrid_url" />
+  <spring:url value="/js/i18n/grid.locale-en.js" var="jqgrid_i18n_url" />
+
+
+  <script src="${jquery_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>
+  <script src="${jquery_ui_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>
+  <script src="${handlebars_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>
+  <script src="${ember_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>
+  <script src="${jqgrid_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>
+  <script src="${jqgrid_i18n_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>
+
+  <spring:url value="/styles/jquery-ui-1.8.22.custom.css" var="jquery_ui_css_url" />
+  <spring:url value="/styles/ui.jqgrid.css" var="jqgrid_css_url" />
+
+  <link rel="stylesheet" type="text/css" media="screen" href="${jqgrid_css_url}" />
+  <link rel="stylesheet" type="text/css" media="screen" href="${jquery_ui_css_url}" />
+
+
+  <spring:message code="application_name" var="app_name" htmlEscape="false"/>
+  <title><spring:message code="welcome_h3" arguments="${app_name}" /></title>
+</head>
+
+<body class="tundra spring">
+
+<tiles:insertAttribute name="header" ignore="true" />
+<div>
+  <tiles:insertAttribute name="menu" ignore="true" />
+</div>
+<div>
+  <tiles:insertAttribute name="body"/>
+</div>
+<tiles:insertAttribute name="footer" ignore="true"/>
+
+</body>
+</html>

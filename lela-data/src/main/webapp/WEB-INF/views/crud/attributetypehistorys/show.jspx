@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_AttributeTypeHistory" object="${attributetypehistory}" path="/crud/attributetypehistorys" z="5sLG2PSHVGAgcUCT6PCsCw9nvHc=">
+        <field:display date="true" dateTimePattern="${attributeTypeHistory_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_AttributeTypeHistory_dateCreated" object="${attributetypehistory}" z="a5zEz4uurs+ol8RTlgv4rKfytx0="/>
+        <field:display date="true" dateTimePattern="${attributeTypeHistory_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_AttributeTypeHistory_dateModified" object="${attributetypehistory}" z="8sKoVq0NmM04EwjvM9/8PuZx8As="/>
+        <field:display field="attributeType" id="s_com_lela_data_domain_entity_AttributeTypeHistory_attributeType" object="${attributetypehistory}" z="0/p+qzCg5eOy74CyTMWulMPcv6E="/>
+        <field:display field="attributeName" id="s_com_lela_data_domain_entity_AttributeTypeHistory_attributeName" object="${attributetypehistory}" z="ZhdlH3BTezRD/EHFhLJ/A3YNe5w="/>
+        <field:display field="attributeSourceNameOld" id="s_com_lela_data_domain_entity_AttributeTypeHistory_attributeSourceNameOld" object="${attributetypehistory}" z="D4KmVY3Dlyddghlu2KaLB9V/+Rg="/>
+        <field:display field="attributeSourceNameNew" id="s_com_lela_data_domain_entity_AttributeTypeHistory_attributeSourceNameNew" object="${attributetypehistory}" z="VkuOHGNz+dBgJrCH1FPtt4mpv94="/>
+        <field:display date="true" dateTimePattern="${attributeTypeHistory_changedate_date_format}" field="changeDate" id="s_com_lela_data_domain_entity_AttributeTypeHistory_changeDate" object="${attributetypehistory}" z="MbfUgpVv34aRlmoKusx6RUEJ/S0="/>
+    </page:show>
+</div>

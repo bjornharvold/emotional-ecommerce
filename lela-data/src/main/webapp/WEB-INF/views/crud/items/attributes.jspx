@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:display="http://displaytag.sf.net/el"
+     xmlns:spring="http://www.springframework.org/tags" version="2.0" xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:data="http://www.lela.com/jsp/data">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+
+  <spring:url value="/crud/items/category/${categoryId}/attributes" var="item_attribute_url"/>
+  <display:table name="items" id="item" style="width:85%" export="true" requestURI="${item_attribute_url}" decorator="com.com.lela.data.web.decorator.AttributeMotivatorHtmlDecorator"  pagesize="20">
+    <display:setProperty name="export.excel.filename" value="attributes.xls"/>
+    <display:column property="productModelName" sortable="true" title="Product Name"/>
+    <display:column property="category.categoryName" sortable="true" title="Category"/>
+    <display:column property="brand.brandName" sortable="true" title="Brand"/>
+    <display:column property="itemId" url="${item_url}" sortable="true" title="ID"/>
+    <c:forEach items="${motivators}" var="motivator">
+      <c:forEach items="${motivator.value}" var="attributeType">
+        <display:column title="Motivator:${motivator.key}&lt;br&gt;${data:splitCamelCase(attributeType.lelaAttributeName)}">
+          ${item.itemAttributesMap[attributeType].attributeValue}
+        </display:column>
+      </c:forEach>
+    </c:forEach>
+  </display:table>
+</div>
+
+

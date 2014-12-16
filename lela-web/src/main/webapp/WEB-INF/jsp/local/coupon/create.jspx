@@ -1,0 +1,89 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+
+    <div class="cp-content">
+
+        <h2>Cool! you’re now eligible to get ${offer.vlndtrms}. <br/><strong>Here's how to get it:</strong></h2>
+
+        <spring:url value="/user/local/coupon/create" var="createCouponUrl"/>
+        <spring-form:form id="create-coupon" cssClass="custom" action="${createCouponUrl}" method="POST" modelAttribute="coupon">
+
+            <spring:url value="/static/images/local/create_step1.png" var="step1ImgUrl"/>
+            <spring:url value="/static/images/local/create_step2.png" var="step2ImgUrl"/>
+            <spring:url value="/static/images/local/create_step3.png" var="step3ImgUrl"/>
+
+            <table cellpadding="0" cellspacing="0" border="0" id="create-steps">
+                <tr>
+                    <td><img src="${step1ImgUrl}" alt="Coupon Step 1"/></td>
+                    <td class="step-c">
+                        <ol start="1">
+                            <li>Deal code email will be sent to: <strong>${user.ml}</strong></li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="${step2ImgUrl}" alt="Coupon Step 2"/></td>
+                    <td class="step-c">
+                        <ol start="2">
+                            <li>Bring your smart phone or a print out of the deal code to the store.</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="${step3ImgUrl}" alt="Coupon Step 3"/></td>
+                    <td class="step-c">
+                        <ol start="3">
+                            <li>Show an ID or Credit Card for:</li>
+                        </ol>
+                        <p>
+                            <input data-theme="d" type="text" name="firstName" value="${us.fnm}" id="fnm"/>
+                            <input data-theme="d" type="text" name="lastName" value="${us.lnm}" id="lnm"/>
+                        </p>
+
+                        <p>
+                            <c:if test="${!empty error}">
+                                <span class="errors"><spring:message code="${error}"/></span>
+                            </c:if>
+                            <span class="fnm-error error">We need your first name!<br/></span>
+                            <span class="lnm-error error">We need your last name!</span>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+            <input type="hidden" value="${param.itemUrlName}" name="itemUrlName"/>
+            <input type="hidden" value="${offer.rlnm}" name="offerUrlName"/>
+            <p><a href="#" data-role="button" data-theme="b" id="create-cpn" class="button">Email me the deal code ></a></p>
+
+
+            <p><em>${offer.dscrptn}</em><br/>
+            <spring:url value="/sc/deals-terms" var="termsUrl" />
+            <a href="${termsUrl}" target="_blank" rel="nofollow">Details, terms &amp; conditions</a></p>
+        </spring-form:form>
+    </div>
+
+    <script type="text/javascript">
+        $().ready(function($) {
+            initCreate();
+            trackEvent('local', 'create coupon', '${fn:escapeXml(offer.rlnm)}', 1);
+        });
+    </script>
+
+</jsp:root>

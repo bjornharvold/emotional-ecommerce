@@ -1,0 +1,129 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="link.view" var="view"/>
+    <spring:message code="link.edit" var="edit"/>
+    <spring:message code="link.delete" var="delete"/>
+
+    <h1><spring:message code="page.admin.product.grid.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/productgrid/list" var="quizListUrl"/>
+        <a class="action" href="${quizListUrl}">&lt; <spring:message code="product.grid.back.to.list"/></a>
+
+        <spring:url value="/administration/productgrid/form" var="editProductGridUrl">
+            <spring:param name="urlName" value="${productGrid.rlnm}"/>
+        </spring:url>
+        <a class="action" href="${editProductGridUrl}"><spring:message code="link.edit"/></a>
+
+        <spring:url value="/administration/productgrid/${productGrid.rlnm}/preview" var="previewProductGridUrl"/>
+        <a class="action" href="${previewProductGridUrl}"><spring:message code="link.preview"/></a>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <h3><spring:message code="product.grid.overview"/></h3>
+
+    <div id="account-details">
+        <dl>
+            <dt><spring:message code="product.grid.url.name"/></dt>
+            <dd>${productGrid.rlnm}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="product.grid.name"/></dt>
+            <dd>${productGrid.nm}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="product.grid.header"/></dt>
+            <dd>${productGrid.hdr}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="product.grid.locale"/></dt>
+            <dd>${productGrid.lcl}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="product.grid.category"/></dt>
+            <dd>${productGrid.crlnm}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="product.grid.category.seo.url.name"/></dt>
+            <dd>${productGrid.srlnm}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="product.grid.sort"/></dt>
+            <dd>${productGrid.srt}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="product.grid.override"/></dt>
+            <dd>${productGrid.vrrd}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="product.grid.published"/></dt>
+            <dd>${productGrid.pblshd}</dd>
+        </dl>
+    </div>
+
+    <hr/>
+
+    <div class="actions">
+        <spring:url value="/administration/productgrid/${productGrid.rlnm}/filter" var="newUrl">
+            <spring:param name="categoryUrlName" value="${productGrid.crlnm}"/>
+        </spring:url>
+        <a class="action" href="${newUrl}"><spring:message code="product.grid.filter.create.entry"/> </a>
+        <div class="clear"><!-- --></div>
+    </div>
+    <h3><spring:message code="product.grid.filters"/></h3>
+    <c:if test="${empty productGrid.fltrs}">
+        <spring:message code="product.grid.filter.list.empty"/>
+    </c:if>
+
+    <c:if test="${not empty productGrid.fltrs}">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th><spring:message code="product.grid.filter.key"/></th>
+                <th><spring:message code="product.grid.filter.value"/></th>
+                <th>&#160;</th>
+            </tr>
+            </thead>
+        <c:forEach items="${productGrid.fltrs}" var="entry">
+            <tbody>
+            <tr>
+                <td>${entry.ky}</td>
+                <td>${entry.vl}</td>
+                <td>
+                    <spring:message code="link.delete" var="delete"/>
+                    <spring:url value="/administration/productgrid/${productGrid.rlnm}/filter" var="deleteUrl">
+                        <spring:param name="key" value="${entry.ky}"/>
+                    </spring:url>
+                    <spring-form:form action="${deleteUrl}" method="DELETE">
+                        <input type="submit" name="${delete}" value="${delete}"/>
+                    </spring-form:form>
+                </td>
+            </tr>
+            </tbody>
+        </c:forEach>
+        </table>
+    </c:if>
+</div>

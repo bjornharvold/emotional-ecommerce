@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ConditionType" items="${conditiontypes}" z="FR+g8jW5+WV7D7T5d0izWczuZzc=">
+        <table:table data="${conditiontypes}" id="l_com_lela_data_domain_entity_ConditionType" path="/crud/conditiontypes" z="69vhj54jo57sT2CecCpgxuFUVhM=">
+            <table:column date="true" dateTimePattern="${conditionType_datecreated_date_format}" id="c_com_lela_data_domain_entity_ConditionType_dateCreated" property="dateCreated" z="PSqLCxfeOB0gxOPyNUSdu8PfWI0="/>
+            <table:column date="true" dateTimePattern="${conditionType_datemodified_date_format}" id="c_com_lela_data_domain_entity_ConditionType_dateModified" property="dateModified" z="lVSDNOC99H3wayQhaWClNb0AiPE="/>
+            <table:column id="c_com_lela_data_domain_entity_ConditionType_conditionTypeName" property="conditionTypeName" z="Uy5o3rBuZ4L9Nqd4rE+k+H/wxUw="/>
+            <table:column id="c_com_lela_data_domain_entity_ConditionType_useInLela" property="useInLela" z="8KDKG5kREKLSdLlLl7FawCER8Tk="/>
+        </table:table>
+    </page:list>
+</div>

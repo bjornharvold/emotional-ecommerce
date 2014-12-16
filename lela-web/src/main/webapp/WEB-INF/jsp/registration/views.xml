@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+	<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+	<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="registration.master" extends="template.page.master">
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/registration/registration.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/registration/registration.js" />
+        </put-list-attribute>
+    </definition>
+
+	<definition name="login" extends="registration.master">
+		<put-attribute type="string" name="title" value="page.login.name" />
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/registration/login.jspx" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.listenForChange.js" />
+        </put-list-attribute>
+        <put-list-attribute name="mobileStyles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-mobile/jquery.mobile-1.0.min.css" />
+            <add-attribute type="string" value="/static/styles/registration/mobile.css" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="login.mobile" extends="template.mobile.master">
+        <put-attribute type="string" name="title" value="page.login.name" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/registration/registration.css" />
+            <add-attribute type="string" value="/static/mobile/styles/registration.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.listenForChange.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/mobile/js/registration.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/registration/login.jspx" />
+        </put-list-attribute>
+    </definition>
+
+	<definition name="register" extends="registration.master">
+		<put-attribute type="string" name="title" value="page.registration.name" />
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/registration/registration.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="register.mobile" extends="template.mobile.master">
+        <put-attribute type="string" name="title" value="page.registration.name" />
+
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/registration/registration.css" />
+            <add-attribute type="string" value="/static/mobile/styles/registration.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/mobile/js/registration.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+        </put-list-attribute>
+
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/registration/registration.jspx" />
+        </put-list-attribute>
+    </definition>
+
+	<definition name="register.friend" extends="registration.master">
+		<put-attribute type="string" name="title" value="page.registration.name" />
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/registration/registration_share.jspx"/>
+		</put-list-attribute>
+	</definition>
+
+	<definition name="forgot.password" extends="registration.master">
+		<put-attribute type="string" name="title" value="page.forgotpassword.name" />
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/registration/forgot_password.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="invitation" extends="template.simple.master">
+		<put-attribute type="string" name="title" value="page.invitation.name" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/registration/invitation.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/registration/invitation.js" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/registration/invitation.jspx" />
+		</put-list-attribute>
+	</definition>
+
+
+</tiles-definitions>

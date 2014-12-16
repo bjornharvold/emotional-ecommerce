@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ItemAttribute" object="${itemattribute}" path="/crud/itemattributes" z="bLM5gpmN5shWISubWjlt2DVSBYs=">
+        <field:display date="true" dateTimePattern="${itemAttribute_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ItemAttribute_dateCreated" object="${itemattribute}" z="vj90+HgIfXpAYojpzIP08iAzT48="/>
+        <field:display date="true" dateTimePattern="${itemAttribute_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ItemAttribute_dateModified" object="${itemattribute}" z="agFkiAiFZOch1Lnaz5AJmVF8a9M="/>
+        <field:display field="item" id="s_com_lela_data_domain_entity_ItemAttribute_item" object="${itemattribute}" z="Vb//b8xwap1Oq9oLyrUB8Ehnen4="/>
+        <field:display field="attributeType" id="s_com_lela_data_domain_entity_ItemAttribute_attributeType" object="${itemattribute}" z="T2WtqiDjhaq6AgkWkds6mJO/Q2g="/>
+        <field:display field="attributeSequence" id="s_com_lela_data_domain_entity_ItemAttribute_attributeSequence" object="${itemattribute}" z="pdh/DUy7Vj8ldaf+WWDdyDM20pY="/>
+        <field:display field="attributeValue" id="s_com_lela_data_domain_entity_ItemAttribute_attributeValue" object="${itemattribute}" z="/3HmGRUeG3HHHtlxttB6mwJ6aJE="/>
+    </page:show>
+</div>

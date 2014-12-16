@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_BrandMotivator" items="${brandmotivators}" z="5tjMKhxF/jWebiED/o3QeEzpb60=">
+        <table:table data="${brandmotivators}" id="l_com_lela_data_domain_entity_BrandMotivator" path="/crud/brandmotivators" z="pqID5z4b40YMF0NSuDfZCXLjgVM=">
+            <table:column date="true" dateTimePattern="${brandMotivator_datecreated_date_format}" id="c_com_lela_data_domain_entity_BrandMotivator_dateCreated" property="dateCreated" z="yuh/wrA1kbK3BMXm4oZc1Q3X9g0="/>
+            <table:column date="true" dateTimePattern="${brandMotivator_datemodified_date_format}" id="c_com_lela_data_domain_entity_BrandMotivator_dateModified" property="dateModified" z="M3D4dn+++6WyHRA06D5xe3IeOdg="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandMotivator_brand" property="brand" z="d+lrRuRclBtD+FBlA6aLhfhaN84="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandMotivator_motivator" property="motivator" z="/i58H2QuK08OrDP8rZgIqkAaIUs="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandMotivator_motivatorScore" property="motivatorScore" z="hy6jyjn8yte7Mx2ALhHsxoowWmk="/>
+        </table:table>
+    </page:list>
+</div>

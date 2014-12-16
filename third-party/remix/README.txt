@@ -1,0 +1,1 @@
+This is a library for accessing Best Buy's web services.

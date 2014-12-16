@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_MerchantSource" modelAttribute="merchantSource" path="/crud/merchantsources" versionField="Version" z="MEXIdpFoK1DvNIvHiTVk0oZx7ko=">
+      <field:datetime dateTimePattern="${merchantSource_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_MerchantSource_dateCreated"  z="user-managed" render="false"/>
+      <field:datetime dateTimePattern="${merchantSource_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_MerchantSource_dateModified"  z="user-managed" render="false"/>
+      <field:input field="sourceName" id="c_com_lela_data_domain_entity_MerchantSource_sourceName" z="oNflsdnO+FKEDW9MATXBuvGg2jA="/>
+      <field:select field="merchantSourceType" id="c_com_lela_data_domain_entity_MerchantSource_merchantSourceType" itemValue="id" items="${merchantsourcetypes}" path="/crud/merchantsourcetypes" z="user-managed"/>
+      <field:input field="sourceId" id="c_com_lela_data_domain_entity_MerchantSource_sourceId" required="true" validationMessageCode="field_invalid_integer" z="Sk3nj61o+gZZlL7a8wiOG3FfoYM="/>
+    </form:update>
+</div>

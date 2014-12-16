@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ManufacturerIdentifier" object="${manufactureridentifier}" path="/crud/manufactureridentifiers" z="DLgJLYn3iCk1EtVmRHaQziHeoE0=">
+        <field:display date="true" dateTimePattern="${manufacturerIdentifier_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ManufacturerIdentifier_dateCreated" object="${manufactureridentifier}" z="MSGpM4ubkTPGT0BZMDIfcqhS94E="/>
+        <field:display date="true" dateTimePattern="${manufacturerIdentifier_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ManufacturerIdentifier_dateModified" object="${manufactureridentifier}" z="KYYhw/UD+Jf5mnrbBgUB9iG1M5E="/>
+        <field:display field="manufacturer" id="s_com_lela_data_domain_entity_ManufacturerIdentifier_manufacturer" object="${manufactureridentifier}" z="E/WONw6SDK6KCJQJWijIAYoSYWc="/>
+        <field:display field="identifierType" id="s_com_lela_data_domain_entity_ManufacturerIdentifier_identifierType" object="${manufactureridentifier}" z="2vBLIrDBDEpla9q2Z1gqHf1mtU8="/>
+        <field:display field="identifierValue" id="s_com_lela_data_domain_entity_ManufacturerIdentifier_identifierValue" object="${manufactureridentifier}" z="K+RsQcSI6KgsKNZ51d+3zlelFvY="/>
+    </page:show>
+</div>

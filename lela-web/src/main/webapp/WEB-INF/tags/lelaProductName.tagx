@@ -1,0 +1,23 @@
+<!--
+~ Copyright (c) 2012. Lela.com
+-->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          version="2.0">
+
+    <jsp:directive.tag body-content="empty"/>
+    <jsp:directive.attribute name="item" rtexprvalue="true" required="true" type="com.lela.domain.document.AbstractItem" />
+
+    <c:choose>
+        <c:when test="${fn:startsWith(item.nm, item.subAttributes['Brand']) eq true}">${item.nm}</c:when>
+        <c:otherwise>${item.subAttributes['Brand']} ${item.nm}</c:otherwise>
+    </c:choose>
+
+</jsp:root>

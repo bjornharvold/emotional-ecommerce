@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_FunctionalFilter" modelAttribute="functionalFilter" path="/crud/functionalfilters" versionField="Version" z="+Uqf4c8Bsw4kxWnBudYuoOaMrfs=">
+        <field:datetime dateTimePattern="${functionalFilter_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_FunctionalFilter_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${functionalFilter_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_FunctionalFilter_dateModified" render="false" z="user-managed"/>
+        <field:select field="category" id="c_com_lela_data_domain_entity_FunctionalFilter_category" itemLabel="categoryName" itemValue="id" items="${categorys}" path="/categorys" z="user-managed"/>
+        <field:select field="functionalFilterType" id="c_com_lela_data_domain_entity_FunctionalFilter_functionalFilterType" itemLabel="tunerTypeName" itemValue="id" items="${functionalfiltertypes}" path="/functionalfiltertypes" z="user-managed"/>
+        <field:select field="locale" id="c_com_lela_data_domain_entity_FunctionalFilter_locale" itemLabel="localeName" itemValue="id" items="${locales}" path="/locales" z="user-managed"/>
+        <field:input field="functionalFilterAnswers" id="c_com_lela_data_domain_entity_FunctionalFilter_functionalFilterAnswers" render="false" z="user-managed"/>
+        <field:input field="functionalFilterName" id="c_com_lela_data_domain_entity_FunctionalFilter_functionalFilterName" z="FQ1ua86KlAG33J0At1BzR47WJQM="/>
+        <field:input field="dataKey" id="c_com_lela_data_domain_entity_FunctionalFilter_dataKey" z="KpMsCY06Q80Swx7QlIuhTw8F144="/>
+        <field:input field="functionalFilterOrder" id="c_com_lela_data_domain_entity_FunctionalFilter_functionalFilterOrder" validationMessageCode="field_invalid_integer" z="04SxGvAxaFAXZvErshXyHHPRKzo="/>
+        <field:checkbox field="dirty" id="c_com_lela_data_domain_entity_FunctionalFilter_dirty" z="df2rqvtHIdDWFG8cJ1uEZ1k50Eg="/>
+        <field:input field="objectId" id="c_com_lela_data_domain_entity_FunctionalFilter_objectId" z="CDlzj/BGDhEJFx6PD88SDucXHA4="/>
+        <field:input field="functionalFilterLabel" id="c_com_lela_data_domain_entity_FunctionalFilter_functionalFilterLabel" required="true" z="BZhZC+4SIimeDHqIYjSVpNzyNfY="/>
+    </form:update>
+</div>

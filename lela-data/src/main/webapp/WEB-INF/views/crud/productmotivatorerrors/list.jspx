@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ProductMotivatorError" items="${productmotivatorerrors}" z="QHC6alLHWCQU3MJFUcRdrVEx350=">
+        <table:table data="${productmotivatorerrors}" id="l_com_lela_data_domain_entity_ProductMotivatorError" path="/crud/productmotivatorerrors" z="DT0JXokr26rEZVR6zaWb6kcz22Y=">
+            <table:column date="true" dateTimePattern="${productMotivatorError_datecreated_date_format}" id="c_com_lela_data_domain_entity_ProductMotivatorError_dateCreated" property="dateCreated" z="yDKOwC6UbXW8nSm+qlPvHrsTZoE="/>
+            <table:column date="true" dateTimePattern="${productMotivatorError_datemodified_date_format}" id="c_com_lela_data_domain_entity_ProductMotivatorError_dateModified" property="dateModified" z="uKHyF9vq/IGkiqfvNHQl+Cte3kw="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductMotivatorError_item" property="item" z="tOkvw7lXCtRqmABG/fHpIUoq5lk="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductMotivatorError_motivator" property="motivator" z="MVB6GwIIq+auCjSchz+sOLIFeyo="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductMotivatorError_error" property="error" z="VvVqCJrykBmKQwkaB3BHFm10QQc="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductMotivatorError_stackTrace" property="stackTrace" z="gXh8W8n6vmoVL7rjDyaeahLx59k="/>
+        </table:table>
+    </page:list>
+</div>

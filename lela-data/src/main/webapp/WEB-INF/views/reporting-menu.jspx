@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="user-managed">
+        <menu:navcategory id="t_main" label="Top">
+        <menu:category id="c_affiliatereport" z="RhvWQpg2RmIr4xycgcGMUW2mDSU=">
+            <menu:item id="i_affiliatereport_new" messageCode="global_menu_new" url="/crud/affiliatereports?form" z="O+5W+oX2dKDDMtZtymnyN/XZQog="/>
+            <menu:item id="i_affiliatereport_list" messageCode="global_menu_list" url="/crud/affiliatereports?page=1&amp;size=${empty param.size ? 10 : param.size}" z="0FWg+GEdhzrtP29aSdMC5u/vUwY="/>
+        </menu:category>
+        <menu:category id="c_affiliatetransaction" z="5y5Uf+oK0mJKSZH7IXO9VKfgss0=">
+            <menu:item id="i_affiliatetransaction_new" messageCode="global_menu_new" url="/crud/affiliatetransactions?form" z="HWVJR6B7Ulw55vAlz3C255q8IZ4="/>
+            <menu:item id="i_affiliatetransaction_list" messageCode="global_menu_list" url="/crud/affiliatetransactions?page=1&amp;size=${empty param.size ? 10 : param.size}" z="X1IxwD1UsmGgfKH6W/e5UzL5kKc="/>
+        </menu:category>
+        </menu:navcategory>
+    </menu:menu>
+</div>

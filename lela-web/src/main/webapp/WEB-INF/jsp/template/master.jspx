@@ -1,0 +1,293 @@
+<!--
+  ~ Copyright (c) 2012. Lela.com.
+  -->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          version="2.0">
+
+<jsp:directive.page import="com.lela.commons.web.utils.WebConstants"/>
+<jsp:output doctype-root-element="html" doctype-system="about:legacy-compat" />
+<jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" />
+<jsp:output omit-xml-declaration="true" />
+
+<jsp:scriptlet>
+    try {
+</jsp:scriptlet>
+<spring:message code="build.number" var="buildNumber"/>
+<spring:url value="/" var="baseUrl" />
+<spring:url value="/static/images/icons/lela_loader.gif" var="loaderUrl" />
+<spring:url value="/quiz" var="quizUrl" />
+<spring:message code="environment" var="environment"/>
+
+<c:set var="loggedIn" value="false"/>
+<c:set var="wideLayout" value="true" scope="session" />
+
+<lela:findUser/>
+<c:if test="${loggedInUser != 'anonymousUser'}"><c:set var="loggedIn" value="true"/></c:if>
+
+<!-- Update your html tag to include the itemscope and itemtype attributes. -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <![CDATA[
+<!--
+    Environment: ${environment}
+    Revision: ${buildNumber}
+-->
+]]>
+    <tiles:importAttribute name="title"/>
+    <tiles:importAttribute name="description"/>
+    <tiles:importAttribute name="keywords"/>
+    <tiles:importAttribute name="pageTitle"/>
+
+    <c:choose>
+        <c:when test="${!empty pageTitle}"><tiles:insertTemplate template="${pageTitle}" flush="true"/></c:when>
+        <c:otherwise>
+            <title><spring:message code="company.domain.name" text="Lela.com"/> : <spring:message code="${title}" text="Lela.com"/><c:if test="${environment == 'development' or environment == 'latest'}"> | ${buildNumber}</c:if></title>
+            <spring:message code="${title}" var="metaTitle"/>
+            <spring:message code="${keywords}" var="metaKeywords"/>
+            <spring:message code="${description}" var="metaDescription"/>
+            <meta name="title" content="${metaTitle}"/>
+            <meta name="keywords" content="${metaKeywords}"/>
+            <meta name="description" content="${metaDescription}"/>
+        </c:otherwise>
+    </c:choose>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <spring:url value="/static/images/icons/favicon.ico" var="favicon"/>
+    <link rel="SHORTCUT ICON" href="${favicon}" type="image/x-icon"/>
+
+    <tiles:useAttribute id="styles" name="styles" classname="java.util.List"/>
+    <c:forEach var="item" items="${styles}">
+        <spring:url value="${item}" var="styleUrl"/>
+        <link rel="stylesheet" type="text/css" media="screen, print" href="${styleUrl}?ver=${buildNumber}" />
+    </c:forEach>
+
+    <tiles:useAttribute id="printStyles" name="printStyles" classname="java.util.List"/>
+    <c:forEach var="item" items="${printStyles}">
+        <spring:url value="${item}" var="styleUrl"/>
+        <link rel="stylesheet" type="text/css" media="print" href="${styleUrl}?ver=${buildNumber}" />
+    </c:forEach>
+
+    <tiles:useAttribute id="javascripts" name="javascripts" classname="java.util.List"/>
+    <c:forEach var="item" items="${javascripts}">
+        <spring:url value="${item}" var="scriptsUrl"/>
+        <script language="javascript" type="text/javascript" src="${scriptsUrl}?ver=${buildNumber}"><!----></script>
+    </c:forEach>
+
+    <script type="text/javascript">
+        var urls = {
+            "quizUrl" : '${quizUrl}',
+            "swapQuestionUrl": '${swapQuestionUrl}',
+            "imageQuestionPath": '${imageQuestionPath}'
+        };
+
+        var device = 'normal';
+        var sessionId = '${pageContext.session.id}';
+        var quizSrc = 'lela.com';
+        var loggedIn = '${loggedIn}';
+        var baseUrl = '${baseUrl}';
+        var loaderUrl = '${loaderUrl}';
+        var _sf_startpt=(new Date()).getTime();
+        var lq = null;
+    </script>
+
+    <c:if test="${environment eq 'www'}">
+      <c:choose>
+        <c:when test="${not empty domainAffiliate and not empty domainAffiliate.gglsnltcsd}">
+          <c:set var="googleAnalytics">
+            ['_setAccount', 'UA-26275943-1'],
+            ['_trackPageview'],
+            ['b._setAccount', '${domainAffiliate.gglsnltcsd}'],
+            ['b._trackPageview']
+          </c:set>
+        </c:when>
+        <c:otherwise>
+          <c:set var="googleAnalytics">
+            ['_setAccount', 'UA-26275943-1'],
+            ['_trackPageview']
+          </c:set>
+        </c:otherwise>
+      </c:choose>
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(
+              ${googleAnalytics}
+            );
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </c:if>
+
+    <c:if test="${empty domainAffiliate}">
+        <script type="text/javascript" src="//use.typekit.com/tcx5sdu.js"><!-- --></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    </c:if>
+    <c:if test="${not empty domainAffiliate}">
+        <jsp:include page="/WEB-INF/jsp/affiliate/subdomain.styles.jspx"/>
+    </c:if>
+  <!-- Load Product Category Specific CSS -->
+  <c:if test="${!empty currentDepartment}">
+    <spring:url value="/static/styles/skins/${currentDepartment}.css" var="styleUrl"/>
+    <link rel="stylesheet" type="text/css" media="screen, print" href="${styleUrl}?ver=${buildNumber}" />
+  </c:if>
+
+
+</head>
+
+<body>
+
+<div id="fb-root"><!-- --></div>
+<div id="wrapper">
+    <tiles:useAttribute id="navbars" name="navbars" classname="java.util.List"/>
+    <c:if test="${empty domainAffiliate}">
+        <div id="menu">
+            <c:forEach var="item" items="${navbars}">
+                <tiles:insertAttribute value="${item}" flush="true"/>
+            </c:forEach>
+        </div>
+    </c:if>
+    <c:if test="${not empty domainAffiliate}">
+        <div id="menu">
+            <jsp:include page="/WEB-INF/jsp/affiliate/subdomain.header.jspx"/>
+        </div>
+    </c:if>
+    <div id="main">
+        <tiles:useAttribute id="contents" name="contents" classname="java.util.List"/>
+        <c:forEach var="item" items="${contents}" varStatus="status">
+            <tiles:insertAttribute value="${item}" flush="true" />
+        </c:forEach>
+    </div>
+    <div id="push"><!-- --></div>
+</div>
+<c:if test="${empty domainAffiliate}">
+    <div id="footer">
+        <spring:url value="/sc/terms" var="termsUrl" />
+        <spring:url value="/sc/about" var="aboutUrl" />
+        <spring:url value="/sc/about#whysignup" var="whysignupUrl" />
+        <spring:url value="/press" var="pressUrl" />
+        <spring:url value="/sc/about#team" var="teamUrl" />
+        <spring:url value="/sc/about#directors" var="directorsUrl" />
+        <spring:url value="/sc/about#advisors" var="advisorsUrl" />
+        <spring:url value="/sc/privacy" var="privacyUrl" />
+        <spring:url value="/blog" var="blogUrl" />
+        <spring:url value="/stores" var="storesUrl" />
+        <spring:url value="/brands" var="brandsUrl" />
+        <spring:url value="/sc/jobs" var="jobsUrl" />
+
+        <div class="footer-col">
+            <h3>About</h3>
+            <ul>
+                <li><a href="${aboutUrl}"><spring:message code="footer.link.about" htmlEscape="false"/></a></li>
+                <li><a href="${whysignupUrl}">Why Sign Up</a></li>
+                <li><a href="${pressUrl}">Press &amp; Buzz</a></li>
+                <li><a href="${teamUrl}">The Team</a></li>
+                <li><a href="${directorsUrl}">Our Directors</a></li>
+                <li><a href="${jobsUrl}">Jobs</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Help</h3>
+            <ul>
+                <li><a href="mailto:info@lela.com"><spring:message code="footer.link.contact" htmlEscape="false"/></a></li>
+                <li><a href="http://lela.zendesk.com" target="_blank"><spring:message code="footer.link.support" htmlEscape="false"/></a></li>
+                <li><a href="${storesUrl}"><spring:message code="footer.link.stores" htmlEscape="false"/></a></li>
+                <li><a href="${brandsUrl}"><spring:message code="footer.link.brands" htmlEscape="false"/></a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="${privacyUrl}" rel="nofollow"><spring:message code="footer.link.policy" htmlEscape="false"/></a></li>
+                <li><a href="${termsUrl}" rel="nofollow"><spring:message code="footer.link.terms" htmlEscape="false"/></a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>More</h3>
+            <ul>
+                <li><a href="${blogUrl}"><spring:message code="footer.link.blog" htmlEscape="false"/></a></li>
+                <li><a href="http://www.facebook.com/lelaknows?sk=app_203119206385978" target="_blank">Facebook</a></li>
+                <li><a href="http://www.twitter.com/lelaknows" target="_blank">Twitter</a></li>
+                <li><a href="http://pinterest.com/lelaknows" target="_blank">Pinterest</a></li>
+                <li><a href="https://plus.google.com/u/1/115743254511181410035/posts" target="_blank">Google+</a></li>
+            </ul>
+        </div>
+
+        <p class="copyright"><spring:message code="footer.copyright" htmlEscape="false"/></p>
+
+    </div>
+</c:if>
+<c:if test="${not empty domainAffiliate}">
+    <div id="footer">
+        <jsp:include page="/WEB-INF/jsp/affiliate/subdomain.footer.jspx"/>
+    </div>
+</c:if>
+
+<jsp:include page="/WEB-INF/jsp/quiz/quiz_alert.jspx"/>
+
+<c:choose>
+    <c:when test="${environment eq 'www'}">
+        <!-- Begin Chartbeat -->
+        <script type="text/javascript">
+            var analyticsEnabled = true;
+
+            var _sf_async_config={uid:30012,domain:"lela.com"};
+            (function(){
+                function loadChartbeat() {
+                    window._sf_endpt=(new Date()).getTime();
+                    var e = document.createElement('script');
+                    e.setAttribute('language', 'javascript');
+                    e.setAttribute('type', 'text/javascript');
+                    e.setAttribute('src',
+                            (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+                                    "js/chartbeat.js");
+                    document.body.appendChild(e);
+                }
+                var oldonload = window.onload;
+                window.onload = (typeof window.onload != 'function') ?
+                        loadChartbeat : function() { oldonload(); loadChartbeat(); };
+            })();
+        </script>
+        <!-- End Chartbeat -->
+    </c:when>
+    <c:otherwise>
+        <script type="text/javascript">
+            var analyticsEnabled = false;
+        </script>
+    </c:otherwise>
+</c:choose>
+
+<c:if test="${!empty param.lq and param.lq == 1 and us.profileStatus != 'FULL'}">
+    <!-- Launch quiz automatically -->
+    <script type="text/javascript">
+        window.location = '${quizUrl}';
+    </script>
+</c:if>
+
+<c:if test="${loggedInUser == 'anonymousUser' and ((empty domainAffiliate) || (domainAffiliate.shwrgprmpt))}">
+    <tiles:insertTemplate template="/WEB-INF/jsp/common/registration_popup.jspx" flush="true" />
+</c:if>
+
+</body>
+</html>
+<jsp:scriptlet>
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+</jsp:scriptlet>
+</jsp:root>

@@ -1,0 +1,43 @@
+{
+    "list":[
+        {
+            "clientId":"my-trusted-client",
+            "authorizedGrantTypes": ["password","authorization_code","refresh_token","implicit"],
+            "authorities":["ROLE_CLIENT","ROLE_TRUSTED_CLIENT"],
+            "scope":["read","write","trust"]
+        },
+        {
+            "clientId":"my-trusted-client-with-secret",
+            "authorizedGrantTypes": ["password","authorization_code","refresh_token"],
+            "authorities":["ROLE_CLIENT","ROLE_TRUSTED_CLIENT"],
+            "clientSecret":"somesecret"
+        },
+        {
+            "clientId":"my-less-trusted-client",
+            "authorizedGrantTypes":["authorization_code","implicit"],
+            "authorities":["ROLE_CLIENT"]
+        },
+        {
+            "clientId":"my-client-with-registered-redirect",
+            "authorizedGrantTypes":["authorization_code","client_credentials"],
+            "authorities":["ROLE_CLIENT"],
+            "webServerRedirectUri":"http://anywhere",
+            "scope":["trust"]
+        },
+        {
+            "clientId":"my-untrusted-client-with-registered-redirect",
+            "authorizedGrantTypes":["authorization_code"],
+            "authorities":["ROLE_CLIENT"],
+            "webServerRedirectUri":"http://anywhere",
+            "scope":["read"]
+        },
+        {
+            "clientId":"lela_mobile",
+            "resourceIds":["lela"],
+            "authorizedGrantTypes":["authorization_code"],
+            "authorities":["appuser"],
+            "scope":["read","write"],
+            "clientSecret":"secret"
+        }
+    ]
+}

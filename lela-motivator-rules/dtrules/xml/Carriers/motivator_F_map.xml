@@ -1,0 +1,44 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='CarrierID' RAttribute='CarrierID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+
+			<setattribute tag='CarrierID' RAttribute='CarrierID' enclosure='carrier' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='carrier' type='string'></setattribute>
+			<setattribute tag='AdjustableStraps' RAttribute='AdjustableStraps' enclosure='carrier' type='string'></setattribute>
+			<setattribute tag='AdultCupHolder' RAttribute='AdultCupHolder' enclosure='carrier' type='string'></setattribute>
+			<setattribute tag='Bib' RAttribute='Bib' enclosure='carrier' type='string'></setattribute>
+			<setattribute tag='Canopy' RAttribute='Canopy' enclosure='carrier' type='string'></setattribute>
+			<setattribute tag='PacifierHolder' RAttribute='PacifierHolder' enclosure='carrier' type='string'></setattribute>
+			<setattribute tag='PaddedFabric' RAttribute='PaddedFabric' enclosure='carrier' type='string'></setattribute>
+			<setattribute tag='PaddedStraps' RAttribute='PaddedStraps' enclosure='carrier' type='string'></setattribute>
+			<setattribute tag='RainCover' RAttribute='RainCover' enclosure='carrier' type='string'></setattribute>
+			<setattribute tag='RemovableFront' RAttribute='RemovableFront' enclosure='carrier' type='string'></setattribute>
+			<setattribute tag='SideEntry' RAttribute='SideEntry' enclosure='carrier' type='string'></setattribute>
+			<setattribute tag='SunCover' RAttribute='SunCover' enclosure='carrier' type='string'></setattribute>																								
+			<setattribute tag='Ventilation' RAttribute='Ventilation' enclosure='carrier' type='string'></setattribute>																								
+			<setattribute tag='WeightDistribution' RAttribute='WeightDistribution' enclosure='carrier' type='string'></setattribute>																								
+												
+			<createentity entity='job' 			tag='job' 			id='id'></createentity>
+			<createentity entity='carrier' 	tag='carrier' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+
+			<entity name='carrier' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>
+

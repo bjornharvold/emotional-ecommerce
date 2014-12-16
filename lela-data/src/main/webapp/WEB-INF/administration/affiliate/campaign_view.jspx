@@ -1,0 +1,112 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     id="campaign-page">
+
+    <jsp:output omit-xml-declaration="yes"/>
+    <c:set var="dateFormat" value="MM/dd/yyyy HH:mm.ss"/>
+
+    <spring:url value="/administration/campaign/list" var="listUrl"/>
+    <div class="actions">
+        <a class="action" href="${listUrl}">&lt; <spring:message code="campaign.back.to.list"/> </a>
+
+        <c:if test="${campaign.id != null}">
+	        <spring:url value="/administration/campaign/form/edit" var="editUrl">
+                            <spring:param name="urlName" value="${campaign.rlnm}"/>
+            </spring:url>           
+            <a class="action" href="${editUrl}"><spring:message code="campaign.edit"/> </a>
+        </c:if>
+        <div class="clear"><!-- --></div>
+    </div>
+<!--     <spring:url value="/administration/campaign" var="updateUrl"/> -->
+
+    <h1>${campaign.nm}</h1>
+    <div id="campaign-account-details">
+        <dl>
+            <dt>Campaign Url</dt>
+            <dd>&#160;${campaign.rlnm}</dd>
+        </dl>
+        <dl>
+            <dt>Description</dt>
+            <dd>&#160;${campaign.dscrptn}</dd>
+        </dl>
+        <dl>
+            <dt>Is Active?</dt>
+            <dd>
+                <c:if test="${campaign.ctv}">Yes</c:if>
+                <c:if test="${not campaign.ctv}">No</c:if>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Redirect URL</dt>
+            <dd>
+                 <dd>&#160;${campaign.rdrctrl}</dd>
+            </dd>
+        </dl>
+        <dl>
+            <dt>View Name</dt>
+            <dd>
+                 <dd>&#160;${campaign.vwnm}</dd>
+            </dd>
+        </dl>     
+        <dl>
+            <dt>Static Content</dt>
+            <dd>
+                 <dd>&#160;${campaign.sttccntnt}</dd>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Affiliate Account</dt>
+            <dd>
+                 <dd>&#160;${campaign.ffltrlnm}</dd>
+            </dd>
+        </dl>    
+                                      
+        <dl>
+            <dt>Start Date</dt>
+            <dd>&#160;<fmt:formatDate value="${campaign.strtdt}" pattern="${dateFormat}"/></dd>
+        </dl>
+        <dl>
+            <dt>End Date</dt>
+            <dd>&#160;<fmt:formatDate value="${campaign.nddt}" pattern="${dateFormat}"/></dd>
+        </dl>
+        <dl>
+            <dt>Excel User Report</dt>
+            <dd>
+                <spring:url var="downloadUrl" value="/administration/campaign/users/download?urlName=${campaign.rlnm}"/>
+                <a class="action" href="${downloadUrl}" id="download-campaign-user-report">Download</a>
+                <div class="clear"><!-- --></div>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Excel Daily Total Breakdown</dt>
+            <dd>
+                <spring:url var="dailyDownloadUrl" value="/administration/campaign/breakdown/download?urlName=${campaign.rlnm}"/>
+                <a class="action" href="${dailyDownloadUrl}" id="download-campaign-breakdown-report">Download</a>
+                <div class="clear"><!-- --></div>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Partner Marketing Metrics Report (Excel)</dt>
+            <dd>
+                <spring:url var="metricsDownloadUrl" value="/administration/campaign/trackingreport/download?urlName=${campaign.rlnm}"/>
+                <a class="action" href="${metricsDownloadUrl}" id="download-campaign-user-tracking-report">Download</a>
+                <div class="clear"><!-- --></div>
+            </dd>
+        </dl>
+    </div>
+
+
+</div>

@@ -1,0 +1,125 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <div class="lela-page-container page-static page-static-${staticContent.rlnm}">
+
+        <c:if test="${staticContent.rlnm == 'techlicious'}">
+
+            <div class="techlicious-banner">
+                <a href="#">Click to take the ONE-minute quiz</a>
+            </div>
+
+            <script type="text/javascript">
+                $('.techlicious-banner a').click(function() {
+                    $('.techlicious-banner').fadeOut('fast');
+                    $('.static-content').fadeIn('fast');
+                });
+            </script>
+
+        </c:if>
+
+        <div class="lela-page-content static-content">
+
+            <div class="static-${staticContent.rlnm}">
+
+                <h2>${staticContent.nm}</h2>
+                ${staticContent.bdy}
+
+            </div>
+
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <c:if test="${staticContent.rlnm == 'techlicious'}">
+            <div class="lela-page-content department-contents department-contents-techlicious">
+                <h3><spring:message code="category.departments.browse.by.category" htmlEscape="false" /></h3>
+
+                <div id="cat-e">
+                    <span><spring:message code="categories.browsefor" htmlEscape="false"/></span>
+                </div>
+
+                <div id="categories-list">
+
+                    <c:forEach var="navGroup" items="${navigationBar.grps}" varStatus="status">
+                        <c:forEach var="children" items="${navGroup.chldrn}">
+                            <c:forEach var="category" items="${children.ctgrs}" varStatus="status">
+                                <c:if test="${category.rlnm eq 'digitalcamera' or category.rlnm eq 'ilccamera' or category.rlnm eq 'brdvd' or category.rlnm eq 'ebookreader' or category.rlnm eq 'gameconsole' or category.rlnm eq 'smartphone' or category.rlnm eq 'television' or category.rlnm eq 'kidcamera' or category.rlnm eq 'learningcomputer'}">
+                                    <spring:url value="/static/images/placeholders/categories/categories_landing/2.0/${navGroup.rlnm}_${category.rlnm}.jpg" var="categoryImgUrl" />
+                                    <spring:url value="/static/images/placeholders/categories/categories_landing/2.0/${navGroup.rlnm}_${category.rlnm}_white.jpg" var="categoryImgUrlOver" />
+                                    <div id="cat-d-${category.rlnm}" class="cat">
+                                        <spring:url value="/${category.srlnm}/c?rlnm=${category.rlnm}&amp;drlnm=${navGroup.rlnm}" var="categoryUrl" />
+                                        <a href="${categoryUrl}">
+                                            <img class="cat-img" src="${categoryImgUrl}" />
+                                            <img class="cat-img-over hidden" src="${categoryImgUrlOver}" />
+                                            <!-- <span><spring:message code="categories.${category.rlnm}" htmlEscape="false"/></span> -->
+                                        </a>
+                                    </div>
+                                </c:if>
+                            </c:forEach>
+                        </c:forEach>
+                        <c:forEach var="category" items="${navGroup.ctgrs}" varStatus="status">
+                            <c:if test="${category.rlnm eq 'digitalcamera' or category.rlnm eq 'ilccamera' or category.rlnm eq 'brdvd' or category.rlnm eq 'ebookreader' or category.rlnm eq 'gameconsole' or category.rlnm eq 'smartphone' or category.rlnm eq 'television' or category.rlnm eq 'kidcamera' or category.rlnm eq 'learningcomputer'}">
+                                <spring:url value="/static/images/placeholders/categories/categories_landing/2.0/${navGroup.rlnm}_${category.rlnm}.jpg" var="categoryImgUrl" />
+                                <spring:url value="/static/images/placeholders/categories/categories_landing/2.0/${navGroup.rlnm}_${category.rlnm}_white.jpg" var="categoryImgUrlOver" />
+                                <div id="cat-d-${category.rlnm}" class="cat">
+                                    <spring:url value="/${category.srlnm}/c?rlnm=${category.rlnm}&amp;drlnm=${navGroup.rlnm}" var="categoryUrl" />
+                                    <a href="${categoryUrl}">
+                                        <img class="cat-img" src="${categoryImgUrl}" />
+                                        <img class="cat-img-over hidden" src="${categoryImgUrlOver}" />
+                                        <!-- <span><spring:message code="categories.${category.rlnm}" htmlEscape="false"/></span> -->
+                                    </a>
+                                </div>
+                            </c:if>
+                        </c:forEach>
+                    </c:forEach>
+
+                    <c:choose>
+                        <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                            <spring:url value="/static/images/placeholders/departments/landing/244x244_tile_orange_guest.png" var="ctaImg" />
+                            <spring:url value="/quiz" var="ctaUrl" />
+                        </c:when>
+                        <c:otherwise>
+                            <spring:url value="/static/images/placeholders/departments/landing/244x244_tile_orange_registered.png" var="ctaImg" />
+                            <spring:url value="/user/list" var="ctaUrl" />
+                        </c:otherwise>
+                    </c:choose>
+                    <div id="cat-d-cta" class="cat">
+                        <a href="${ctaUrl}">
+                            <img class="cat-img" src="${ctaImg}" />
+                            <img class="cat-img-over hidden" src="${ctaImg}" />
+                        </a>
+                    </div>
+
+                    <div class="clear"><!-- --></div>
+                </div>
+            </div>
+        </c:if>
+
+        <c:if test="${staticContent.rlnm == 'puntomio'}">
+
+                <tiles:insertTemplate template="/WEB-INF/jsp/items/categories_list2.jspx" flush="true">
+                    <tiles:putAttribute name="categories" value="${categories}" />
+                </tiles:insertTemplate>
+
+                <div class="clear"><!-- --></div>
+
+        </c:if>
+
+    </div>
+
+</jsp:root>

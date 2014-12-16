@@ -1,0 +1,204 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="cache.evict" var="evictButton"/>
+    <spring:message code="cache.evict.all.items" var="evictAllButton"/>
+    <spring:message code="cache.evict.all.filters" var="evictAllFiltersButton"/>
+    <spring:message code="cache.evict.all.categories" var="evictAllCategoriesButton"/>
+    <spring:message code="cache.test.button" var="cacheTestButton"/>
+    <spring:message code="solr.reindex" var="reindexButton"/>
+
+    <h1><spring:message code="page.admin.cache.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+	<h3><spring:message code="cache.test.title"/></h3>
+    <spring:url value="/administration/cache/test" var="testCacheUrl"/>
+    <spring-form:form method="POST" action="${testCacheUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+         <spring:message code="cache.test.cache.name"/>
+         <spring-form:input path="cacheName"  value="${cacheName}"/>
+         <spring:message code="cache.test.cache.key"/>
+         <spring-form:input path="urlName" value="${urlName}"/>
+         <input type="submit" name="submit" value="${cacheTestButton}"/>
+         <c:if test="${not empty value}">
+            <br/><b>Cached value as JSON:</b> ${value} 
+         </c:if>
+    </spring-form:form> 
+    
+    <hr/>
+    
+    <h3><spring:message code="cache.categories.title"/></h3>
+
+    <c:if test="${not empty categories}">
+        <spring:url value="/administration/cache/evict/category" var="evictUrl"/>
+        <spring-form:form method="POST" action="${evictUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+            <spring-form:select path="urlName" items="${categories}" itemLabel="nm" itemValue="rlnm"/>
+            <input type="submit" name="submit" value="${evictButton}"/>
+        </spring-form:form>
+    </c:if>
+    <spring:url value="/administration/cache/evict/categories/all" var="evictAllUrl"/>
+    <spring-form:form method="POST" action="${evictAllUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+         <input type="submit" name="submit" value="${evictAllCategoriesButton}"/>
+    </spring-form:form>     
+
+    <hr/>
+    <h3><spring:message code="cache.items.title"/></h3>
+
+    <spring:url value="/administration/cache/evict/item" var="evictUrl"/>
+    <spring-form:form method="POST" action="${evictUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+        <spring-form:input path="urlName"/>
+        <input type="submit" name="submit" value="${evictButton}"/>
+    </spring-form:form>
+    
+    <spring:url value="/administration/cache/evict/items" var="evictAllUrl"/>
+    <spring-form:form method="POST" action="${evictAllUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+         <input type="submit" name="submit" value="${evictAllButton}"/>
+    </spring-form:form>    
+           
+
+    <hr/>
+    <h3><spring:message code="cache.filters.title"/></h3>
+
+    <c:if test="${not empty categories}">
+        <spring:url value="/administration/cache/evict/filters" var="evictUrl"/>
+        <spring-form:form method="POST" action="${evictUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+            <spring-form:select path="urlName" items="${categories}" itemLabel="nm" itemValue="rlnm"/>
+            <input type="submit" name="submit" value="${evictButton}"/>
+        </spring-form:form>
+    </c:if>
+    <spring:url value="/administration/cache/evict/filters/all" var="evictAllUrl"/>
+    <spring-form:form method="POST" action="${evictAllUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+         <input type="submit" name="submit" value="${evictAllFiltersButton}"/>
+    </spring-form:form>    
+
+    <hr/>
+    <h3><spring:message code="cache.campaign.title"/></h3>
+
+    <c:if test="${not empty campaigns}">
+        <spring:url value="/administration/cache/evict/campaign" var="evictUrl"/>
+        <spring-form:form method="POST" action="${evictUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+            <spring-form:select path="urlName" items="${campaigns}" itemLabel="nm" itemValue="rlnm"/>
+            <input type="submit" name="submit" value="${evictButton}"/>
+        </spring-form:form>
+    </c:if>
+
+    <hr/>
+    <h3><spring:message code="cache.affiliateaccount.title"/></h3>
+
+    <c:if test="${not empty affiliateAccounts}">
+        <spring:url value="/administration/cache/evict/affiliateaccount" var="evictUrl"/>
+        <spring-form:form method="POST" action="${evictUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+            <spring-form:select path="urlName" items="${affiliateAccounts}" itemLabel="nm" itemValue="rlnm"/>
+            <input type="submit" name="submit" value="${evictButton}"/>
+        </spring-form:form>
+    </c:if>
+
+    <hr/>
+    <h3><spring:message code="cache.question.title"/></h3>
+
+    <c:if test="${not empty questions}">
+        <spring:url value="/administration/cache/evict/question" var="evictUrl"/>
+        <spring-form:form method="POST" action="${evictUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+            <spring-form:select path="urlName" items="${questions}" itemLabel="rlnm" itemValue="rlnm"/>
+            <input type="submit" name="submit" value="${evictButton}"/>
+        </spring-form:form>
+    </c:if>
+
+    <hr/>
+    <h3><spring:message code="cache.quiz.title"/></h3>
+
+    <c:if test="${not empty quizzes}">
+        <spring:url value="/administration/cache/evict/quiz" var="evictUrl"/>
+        <spring-form:form method="POST" action="${evictUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+            <spring-form:select path="urlName" items="${quizzes}" itemLabel="rlnm" itemValue="rlnm"/>
+            <input type="submit" name="submit" value="${evictButton}"/>
+        </spring-form:form>
+    </c:if>
+
+    <hr/>
+    <h3><spring:message code="cache.press.title"/></h3>
+
+    <c:if test="${not empty presses}">
+        <spring:url value="/administration/cache/evict/press" var="evictUrl"/>
+        <spring-form:form method="POST" action="${evictUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+            <spring-form:select path="urlName" items="${presses}" itemLabel="rlnm" itemValue="rlnm"/>
+            <input type="submit" name="submit" value="${evictButton}"/>
+        </spring-form:form>
+    </c:if>
+
+    <hr/>
+    <h3><spring:message code="cache.store.title"/></h3>
+
+    <spring:message code="cache.store.aggregates" var="aggregateStores"/>
+    <c:if test="${not empty stores}">
+        <spring:url value="/administration/cache/evict/store" var="evictUrl"/>
+        <spring-form:form method="POST" action="${evictUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+            <spring-form:select path="urlName">
+                <spring-form:option value="all" label="${aggregateStores}"/>
+                <spring-form:options items="${stores}" itemLabel="rlnm" itemValue="rlnm"/>
+            </spring-form:select>
+            <input type="submit" name="submit" value="${evictButton}"/>
+        </spring-form:form>
+    </c:if>
+
+    <hr/>
+    <h3><spring:message code="cache.owner.title"/></h3>
+
+    <spring:message code="cache.owner.aggregates" var="aggregateOwners"/>
+    <c:if test="${not empty owners}">
+        <spring:url value="/administration/cache/evict/owner" var="evictUrl"/>
+        <spring-form:form method="POST" action="${evictUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+            <spring-form:select path="urlName">
+                <spring-form:option value="all" label="${aggregateOwners}"/>
+                <spring-form:options items="${owners}" itemLabel="rlnm" itemValue="rlnm"/>
+            </spring-form:select>
+            <input type="submit" name="submit" value="${evictButton}"/>
+        </spring-form:form>
+    </c:if>
+
+    <hr/>
+    
+    <h3><spring:message code="cache.navigationbar.title"/></h3>
+
+    <c:if test="${not empty navigationBars}">
+        <spring:url value="/administration/cache/evict/navigationbar" var="evictUrl"/>
+        <spring-form:form method="POST" action="${evictUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+            <spring-form:select path="urlName">
+                <spring-form:options items="${navigationBars}" itemLabel="rlnm" itemValue="rlnm"/>
+            </spring-form:select>
+            <input type="submit" name="submit" value="${evictButton}"/>
+        </spring-form:form>
+    </c:if>
+
+    <hr/>    
+    <h1><spring:message code="solr.index.title"/></h1>
+
+    <c:if test="${not empty categories}">
+        <spring:url value="/administration/cache/reindex" var="evictUrl"/>
+        <spring:message code="reindex.all" var="reindexAll"/>
+        <spring-form:form method="POST" action="${evictUrl}" commandName="evictCacheRequest" modelAttribute="evictCacheRequest">
+            <spring-form:select path="urlName">
+                <spring-form:option value="all" label="${reindexAll}"/>
+                <spring-form:options items="${categories}" itemLabel="nm" itemValue="rlnm"/>
+            </spring-form:select>
+            <input type="submit" name="submit" value="${reindexButton}"/>
+        </spring-form:form>
+    </c:if>
+</div>

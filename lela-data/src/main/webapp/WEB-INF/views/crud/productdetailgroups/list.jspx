@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ProductDetailGroup" items="${productdetailgroups}" z="S/BnIrZV1oeiMHoQMCYRc3EYARI=">
+        <table:table data="${productdetailgroups}" id="l_com_lela_data_domain_entity_ProductDetailGroup" path="/crud/productdetailgroups" z="auLi0IE4u6nX8CwrTZuV6Otcu7E=">
+            <table:column date="true" dateTimePattern="${productDetailGroup_datecreated_date_format}" id="c_com_lela_data_domain_entity_ProductDetailGroup_dateCreated" property="dateCreated" z="yvChtZfz51G9yu9jZC9cJFi7c0U="/>
+            <table:column date="true" dateTimePattern="${productDetailGroup_datemodified_date_format}" id="c_com_lela_data_domain_entity_ProductDetailGroup_dateModified" property="dateModified" z="6mSr+j27lJCjYdoB8mupH9kisyE="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductDetailGroup_section" property="section" z="q2oHYt5aHF2DFWj9UzKEhhaDwTA="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductDetailGroup_groupId" property="groupId" z="QaQ8P5wbCn7FgwND3DNmlWnU2sA="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductDetailGroup_groupName" property="groupName" z="FwfTR/ACoV1H6DtMCL/29zIvans="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductDetailGroup_productDetailGroupAttributes" property="productDetailGroupAttributes" z="wwsSJNcpKo0kwOa30JxqiL63N+Q="/>
+        </table:table>
+    </page:list>
+</div>

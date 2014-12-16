@@ -1,0 +1,60 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<!--                 -->
+			<!-- Map Attributes  -->
+			<!--                 -->
+			<!--brdvd-->
+			<setattribute tag='AudioSystem_THXcertified' RAttribute='AudioSystem_THXcertified' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='Battery_RunTimeUpTo' RAttribute='Battery_RunTimeUpTo' enclosure='brdvd' type='double' subtype=''></setattribute>
+			<setattribute tag='BDProfiles' RAttribute='BDProfiles' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='BDProfiles_Number' RAttribute='BDProfiles_Number' enclosure='brdvd' type='double' subtype=''></setattribute>
+			<setattribute tag='BrandName' RAttribute='BrandName' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='brdvd' type='integer' subtype=''></setattribute>
+			<setattribute tag='BrDvdID' RAttribute='BrDvdID' enclosure='brdvd' type='integer' subtype=''></setattribute>
+			<setattribute tag='CNETEditorsRating' RAttribute='CNETEditorsRating' enclosure='brdvd' type='double' subtype=''></setattribute>
+			<setattribute tag='ConsumerReportsOverallScore' RAttribute='ConsumerReportsOverallScore' enclosure='brdvd' type='double' subtype=''></setattribute>
+			<setattribute tag='ConsumerReportsRecommended' RAttribute='ConsumerReportsRecommended' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='Display_ImageAspectRatio' RAttribute='Display_ImageAspectRatio' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='Display_ImageAspectRatio2' RAttribute='Display_ImageAspectRatio2' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='DVD_Type' RAttribute='DVD_Type' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='DVD_Type_Derived' RAttribute='DVD_Type_Derived' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='FormFactor' RAttribute='FormFactor' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='HorizontalResolution' RAttribute='HorizontalResolution' enclosure='brdvd' type='integer' subtype=''></setattribute>
+			<setattribute tag='ManufacturerWarranty' RAttribute='ManufacturerWarranty' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='motivatorTotal' RAttribute='motivatorTotal' enclosure='brdvd' type='integer' subtype=''></setattribute>
+			<setattribute tag='NetworkInternetMultimedia_NetworkConnection' RAttribute='NetworkInternetMultimedia_NetworkConnection' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='Power_PowerDevice_Derived' RAttribute='Power_PowerDevice_Derived' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='Power_RechargeTime' RAttribute='Power_RechargeTime' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='Upscaling' RAttribute='Upscaling' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<!--constants-->
+			<!--job-->
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer' subtype=''></setattribute>
+			<setattribute tag='BrDvdID' RAttribute='BrDvdID' enclosure='job' type='integer' subtype=''></setattribute>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date' subtype=''></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string' subtype=''></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer' subtype=''></setattribute>
+			<!--                 -->
+			<!-- Create Entities -->
+			<!--                 -->
+			<createentity entity='brdvd' tag='brdvd' id='id'></createentity>
+			<createentity entity='constants' tag='constants' id='id'></createentity>
+			<createentity entity='job' tag='job' id='id'></createentity>
+		</map>
+		<!--                 -->
+		<!-- Entity List     -->
+		<!--                 -->
+		<entities>
+			<entity name='brdvd' number='*'></entity>
+			<entity name='constants' number='1'></entity>
+			<entity name='job' number='1'></entity>
+		</entities>
+		<!--                 -->
+		<!-- Initialization  -->
+		<!--                 -->
+		<initialization>
+			<initialentity entity='job' epush='true'></initialentity>
+			<initialentity entity='constants' epush='true'></initialentity>
+		</initialization>
+	</XMLtoEDD>
+</mapping>

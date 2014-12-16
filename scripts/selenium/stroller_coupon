@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>stroller_coupon</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stroller_coupon</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>${baseUrlLocation}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=terms</td>
+	<td>bugaboo</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=img[alt=&quot;Bee - Bugaboo&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=buy-tab2</td>
+	<td>Online stores</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//div[@id='buy-t']/a[1]@class</td>
+	<td>selected</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=buy-tab3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>id=loc-data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>id=zipcode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zipcode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zipcode</td>
+	<td>10014</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=fancybox-close</td>
+	<td></td>
+</tr>
+<!--Currently no offers available-->
+</tbody></table>
+</body>
+</html>

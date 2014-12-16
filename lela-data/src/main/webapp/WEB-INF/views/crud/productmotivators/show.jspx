@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ProductMotivator" object="${productmotivator}" path="/crud/productmotivators" z="UDpYOpo+vXcPpt4T73/mVSMnRqg=">
+        <field:display date="true" dateTimePattern="${productMotivator_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ProductMotivator_dateCreated" object="${productmotivator}" z="3sAHM2Psr1bZsFNamB7MAk8UN8E="/>
+        <field:display date="true" dateTimePattern="${productMotivator_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ProductMotivator_dateModified" object="${productmotivator}" z="AYf0HSpWPECs/XsVUA47Y71MHXY="/>
+        <field:display field="item" id="s_com_lela_data_domain_entity_ProductMotivator_item" object="${productmotivator}" z="LBo8h96wFQ7AGM0sQ3GiuoGlXjw="/>
+        <field:display field="motivator" id="s_com_lela_data_domain_entity_ProductMotivator_motivator" object="${productmotivator}" z="JRHS2WFlL7WIM4+gDnfF3z5rKqU="/>
+        <field:display field="motivatorScore" id="s_com_lela_data_domain_entity_ProductMotivator_motivatorScore" object="${productmotivator}" z="2NMVoW4ipbX1VDEstMjqDTdNKgg="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_ProductMotivator_dirty" object="${productmotivator}" z="CgsLinSAevkhZbxPlIwjWy3buMg="/>
+    </page:show>
+</div>

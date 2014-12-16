@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <!-- data creators -->
+    <bean id="dataCreationManager" class="com.lela.commons.bootstrap.impl.OnStartupBootStrapperService" init-method="init">
+
+        <property name="bootstrappers">
+            <list>
+                <bean class="com.lela.commons.bootstrap.impl.DbRepairBootstrapper">
+                    <constructor-arg index="0" ref="mongoTemplate"/>
+                    <constructor-arg index="1" value="${bootstrapper.repair.db.enabled}"/>
+                </bean>
+                <bean class="com.lela.commons.bootstrap.impl.EmptyCollectionsBootstrapper">
+                    <constructor-arg index="0" ref="mongoTemplate"/>
+                    <constructor-arg index="1">
+                        <list>
+                            <ref bean="functionalFilterRepository"/>
+                            <ref bean="categoryRepository"/>
+                            <ref bean="fooRepository"/>
+                            <ref bean="metricRepository"/>
+                            <ref bean="fooRepository"/>
+                            <ref bean="itemRepository"/>
+                            <ref bean="ownerRepository"/>
+                            <ref bean="branchRepository"/>
+                            <ref bean="storeRepository"/>
+                            <ref bean="postalCodeRepository"/>
+                            <ref bean="questionRepository"/>
+                            <ref bean="roleRepository"/>
+                            <ref bean="oAuthClientDetailsRepository"/>
+                            <ref bean="offerRepository"/>
+                            <!-- if we clean out users remember-me functionality won't work -->
+                            <!--<ref bean="userRepository"/>-->
+                        </list>
+                    </constructor-arg>
+                    <constructor-arg index="2" value="${bootstrapper.empty.collections.enabled}"/>
+                </bean>
+                <ref bean="roleBootstrapper"/>
+                <ref bean="categoryBootstrapper"/>
+                <ref bean="functionalFilterBootstrapper"/>
+                <ref bean="questionBootstrapper"/>
+                <ref bean="ownerBootstrapper"/>
+                <ref bean="branchBootstrapper"/>
+                <ref bean="storeBootstrapper"/>
+                <ref bean="postalCodeBootstrapper"/>
+                <ref bean="itemBootstrapper"/>
+                <ref bean="userBootstrapper"/>
+                <ref bean="oAuthClientDetailsBootstrapper"/>
+                <ref bean="offerBootstrapper"/>
+                <ref bean="cacheCategoryItemsBootstrapper"/>
+                <ref bean="solrIndexerBootstrapper"/>
+                <!--
+                <bean class="com.lela.commons.bootstrap.impl.DbCompactBootstrapper">
+                    <constructor-arg index="0" ref="mongoTemplate"/>
+                    <constructor-arg index="1">
+                        <list>
+                            <bean class="com.lela.domain.document.FunctionalFilter"/>
+                            <bean class="com.lela.domain.document.Category"/>
+                            <bean class="com.lela.domain.document.Item"/>
+                            <bean class="com.lela.domain.document.Owner"/>
+                            <bean class="com.lela.domain.document.Branch"/>
+                            <bean class="com.lela.domain.document.Store"/>
+                            <bean class="com.lela.domain.document.PostalCode"/>
+                            <bean class="com.lela.domain.document.Question"/>
+                            <bean class="com.lela.domain.document.Role"/>
+                            <bean class="com.lela.domain.document.Redirect"/>
+                            <bean class="com.lela.domain.document.OAuthClientDetail"/>
+                        </list>
+                    </constructor-arg>
+                    <constructor-arg index="2" value="${bootstrapper.compress.db.enabled}"/>
+                </bean>
+                -->
+            </list>
+        </property>
+    </bean>
+    
+    <!-- This bean postprocessor has been added so that individual unit tests are able to override the enabling/disabling of the  -->
+    <!-- com.lela.commons.bootstrap.impl.OnStartupBootStrapperService by setting the enabled flag in a special test context.-->
+    <!-- The alternative, that of setting the value of the data.creation.enabled property in the test.properties would affect ALL tests. -->
+    <!-- See the CacheServiceFunctionalTest and disable-bootstrap.xml for example -->
+    <bean id="dataCreationManagerPostProcessor" class="com.lela.commons.bootstrap.impl.DataCreationManagerPostProcessor" >
+      <property name="dataCreationManagerEnabler" >
+         <ref bean="dataCreationManagerEnabler" />
+      </property>
+    </bean>
+    <bean id="dataCreationManagerEnabler" class="com.lela.commons.bootstrap.impl.DataCreationManagerEnabler" >
+        <property name="enabled" value="${data.creation.enabled}"/>
+    </bean>
+</beans>

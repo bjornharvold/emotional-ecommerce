@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_ItemChanged" modelAttribute="itemChanged" path="/crud/itemchangeds" versionField="Version" z="tViuUOZQgFMAUBR911j5OQhVOpw=">
+        <field:datetime dateTimePattern="${itemChanged_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_ItemChanged_dateCreated" z="WghjZndysvdQUsukrTyfkGpjHow="/>
+        <field:datetime dateTimePattern="${itemChanged_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_ItemChanged_dateModified" z="PF0dfc2o0afZtsUSN5coeC3AOsc="/>
+        <field:select field="item" id="c_com_lela_data_domain_entity_ItemChanged_item" itemValue="id" items="${items}" path="/items" z="JDvqdJX53ytAkXJDQoiI4mnEGWw="/>
+        <field:checkbox field="dirty" id="c_com_lela_data_domain_entity_ItemChanged_dirty" z="2AP+IQbO+9bC5bP/gf3KEucZQKQ="/>
+        <field:checkbox field="dirtyInDevelopment" id="c_com_lela_data_domain_entity_ItemChanged_dirtyInDevelopment" z="MwIP0kk/kLG+cNq2MGCgxQx7kas="/>
+        <field:checkbox field="dirtyInLatest" id="c_com_lela_data_domain_entity_ItemChanged_dirtyInLatest" z="oWVwgvFVa1qYSRCHxY8Ci57G6KE="/>
+        <field:checkbox field="dirtyInQA" id="c_com_lela_data_domain_entity_ItemChanged_dirtyInQA" z="u0Ik8OXy8DzdW3WIx9+5kMncsKE="/>
+        <field:checkbox field="dirtyInWWW" id="c_com_lela_data_domain_entity_ItemChanged_dirtyInWWW" z="UtExO3BOiWi3/jp1KSXicWPDdZ4="/>
+        <field:checkbox field="dirtyInSandbox" id="c_com_lela_data_domain_entity_ItemChanged_dirtyInSandbox" z="29wcDjTEV013x3q3ZFECtSwGoYQ="/>
+    </form:update>
+</div>

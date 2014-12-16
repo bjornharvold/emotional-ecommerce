@@ -1,0 +1,90 @@
+.dijitTitlePane {
+
+    -overflow: scroll;
+    overflow:visible;
+}
+.span3
+{
+  margin:10px;
+}
+
+.span9
+{
+    -position:relative;
+    -margin-left:240px;
+    -width:100%;
+}
+.dijitValidationContainer
+{
+    display:none;
+}
+
+.tundra .dijitTitlePaneContentOuter
+{
+    border:none;
+}
+.nav-header
+{
+    font-weight: bold;
+}
+.control-group {
+    margin-bottom: 10px;
+}
+.control-label {
+    width: 150px;
+}
+
+.dijitTitlePaneTitle
+{
+    -font-weight: bold;
+    -background-color: orange;
+    -padding: 5px;
+    -margin-bottom:5px;
+    -border-radius: 4px;
+}
+
+.container-fluid
+{
+    margin-bottom: 10px;
+}
+
+#footer
+{
+    clear:both;
+}
+
+table.small
+{
+    width:80%;
+}
+
+table
+{
+    background: none;
+}
+
+.individual-image
+{
+   vertical-align: top;
+   min-width: 130px;
+   display:inline-block;
+   border-right:1px solid lightgray;
+   padding-right: 5px;
+   margin-right:5px;
+}
+
+a, a:visited, a:link
+{
+    color:orange;
+}
+
+.small
+{
+   font-size:80%;
+   font-style: italic;
+}
+
+.red
+{
+    color: red;
+}

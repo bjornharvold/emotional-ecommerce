@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_ItemRecall" modelAttribute="itemRecall" path="/crud/itemrecalls" versionField="Version" z="mZllvr8mXjoq1WoJFvq/b7vrY4Q=">
+      <field:datetime dateTimePattern="${itemRecall_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_ItemRecall_dateCreated"  z="user-managed" render="false"/>
+      <field:datetime dateTimePattern="${itemRecall_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_ItemRecall_dateModified"  z="user-managed" render="false"/>
+      <field:select field="item" id="c_com_lela_data_domain_entity_ItemRecall_item" itemValue="id" items="${items}" path="/items" z="user-managed"/>
+      <field:datetime dateTimePattern="${itemRecall_recalldate_date_format}" field="recallDate" id="c_com_lela_data_domain_entity_ItemRecall_recallDate" required="true" z="RJE1QhL4C6/XKrLCs89LDKoGJWY="/>
+      <field:input field="recallEvent" id="c_com_lela_data_domain_entity_ItemRecall_recallEvent" z="FHxnOjG9nFgJYe89lcdmJ1Wxuhw="/>
+      <field:input field="recallUrl" id="c_com_lela_data_domain_entity_ItemRecall_recallUrl" z="HN/1+KCMRCQkDK81Nbip3MeIDjw="/>
+      <field:input field="recallUnits" id="c_com_lela_data_domain_entity_ItemRecall_recallUnits" z="z5Om7EbSheIYdEVhzzOy/4th5kM="/>
+      <field:input field="recallHazard" id="c_com_lela_data_domain_entity_ItemRecall_recallHazard" z="E72QSzVbHqqdYvulVyeBsOj30gM="/>
+      <field:input field="recallIncidentsInjuries" id="c_com_lela_data_domain_entity_ItemRecall_recallIncidentsInjuries" z="3nqfuUKg2E4wl2VwPMUbsZdnxQw="/>
+      <field:input field="recallSeverity" id="c_com_lela_data_domain_entity_ItemRecall_recallSeverity" z="427DNM13gQ4W+ASOHSWpxG6IfNY="/>
+
+    </form:update>
+</div>

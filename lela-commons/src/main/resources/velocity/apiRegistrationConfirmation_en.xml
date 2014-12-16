@@ -1,0 +1,199 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Facebook sharing information tags -->
+    <meta property="og:title" content="Welcome to Lela.com!" />
+
+    <title>Welcome to Lela.com!</title>
+    <style type="text/css">
+        body {
+        margin-top: 0px;
+        }
+
+        /* Client-specific Styles */
+        #outlook a{padding:0;} /* Force Outlook to provide a "view in browser" button. */
+        body{width:100% !important;} /* Force Hotmail to display emails at full width */
+        body{-webkit-text-size-adjust:none;} /* Prevent Webkit platforms from changing default text sizes. */
+
+        /* Reset Styles */
+        body{margin:0; padding:0;}
+        img{border:none; font-size:14px; font-weight:bold; height:auto; line-height:100%; outline:none; text-decoration:none; text-transform:capitalize; display: block;}
+        #backgroundTable{height:100% !important; margin:0; padding:0; width:100% !important;}
+    </style>
+</head>
+<body bgcolor="#efefef" text="#3f3f3f" link="#3f3f3f" vlink="#3f3f3f" alink="#3f3f3f" style="font-family:Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif; font-size:15px; line-height:18px;">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" bgcolor="#efefef">
+        <tr>
+            <td><table align="center" border="0" cellpadding="0" cellspacing="0" width="640" bgcolor="#ffffff">
+            <tr>
+                <td width="91" align="left" valign="top" style="padding: 20px 0 0 30px;"><a href="http://www.lela.com" title="Lela.com" target="_blank"><img src="${baseUrl}/static/images/emails/welcome/lela_logo.png" alt="Lela.com" width="61" height="68" border="0" longdesc="http://www.lela.com" /></a></td>
+                <td width="549" align="center" valign="top" nowrap="nowrap" bgcolor="#FFFFFF" style="padding:53px 100px 0 20px; color:#3f3f3f; font-size:30px; line-height:35px;font-weight:bold;">Welcome to Lela!</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="left" style="padding:30px 30px 10px 30px;">Hi there ${userFirstName}.<br />
+                    <br />
+                    Thank you for signing up with Lela.com. We're here to help you make shopping decisions that are more meaningful and delightful.<br />
+                    <br />
+                    Lela will help you find products that are perfectly matched to you and your family’s taste, needs, and lifestyle. When you find what you love, you’ll love what you buy. <br />
+                    <br />
+                    Your password is <b>${password}</b>. <br />
+                    <br />
+                    xoxo,<br />
+                    Team Lela<br /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="left" valign="top" style="padding:30px 30px 20px 30px;"><h2 style="margin:0 0 5px 0; font-size:20px;">What makes Lela special?
+                </h2>Once you answer your profile questions you can...</td>
+            </tr>
+            <tr>
+                <td height="25" colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="65" valign="top" style="padding-left:30px;"><img src="${baseUrl}/static/images/emails/welcome/icon_question.jpg" width="65" height="65" /></td>
+                        <td width="210" align="left" valign="top" style="padding-right:10px;"><table width="210" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td><h3 style="margin: 10px 0; font-size:16px;">See products rated <br />
+                                    with you in mind</h3></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; line-height:16px;">Your Personal Compatibility Ratings&trade; show how well you match to every product on the site, based on your values and lifestyle. Receive meaningful results, no ads, and it’s free.</td>
+                            </tr>
+                        </table></td>
+                        <td width="65" valign="top" style="padding:0 10px 0 10px;"><img src="${baseUrl}/static/images/emails/welcome/icon_heart.jpg" width="65" height="65" /></td>
+                        <td align="left" valign="top" style="padding-right:30px;"><table width="210" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td><h3 style="margin: 10px 0; font-size:16px; line-height:36px">Create your Lela List<br />
+                                </h3></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; line-height:16px;">It’s a wish list, reimagined. Save your favorites, share with friends, make several shopping lists, get alerts to your phone or mail when prices change, and more.<br />
+                                    <br />
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td width="19"><img src="${baseUrl}/static/images/emails/welcome/lela_fave.png" width="19" height="17" /></td>
+                                            <td width="5">&nbsp;</td>
+                                            <td align="left">Your Favorites</td>
+                                        </tr>
+                                    </table>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td width="20%" style="line-height:22px;">Shop</td>
+                                            <td width="21%"><a href="http://www.lela.com/Baby/d?rlnm=baby"><font color="#ff9900" style="text-decoration: none;">BABY</font></a></td>
+                                            <td width="21%"><a href="http://www.lela.com/Toys/d?rlnm=toys"><font color="#ff9900" style="text-decoration: none;">TOYS</font></a></td>
+                                            <td width="21%"><a href="http://www.lela.com/Electronics/d?rlnm=electronics"><font color="#ff9900" style="text-decoration: none;">TECH</font></a></td>
+                                            <td width="17%">&nbsp;</td>
+                                        </tr>
+                                    </table></td>
+                            </tr>
+                        </table></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" valign="top" style="height:30px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td valign="top" style="padding-left:30px;"><img src="${baseUrl}/static/images/emails/welcome/icon_check.jpg" width="65" height="65" /></td>
+                        <td align="left" valign="top"><table width="210" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td><h3 style="margin: 10px 0; font-size:16px;">                    Compare and purchase<br />
+                                    at your favorite retailers</h3></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; line-height:16px;">The Comparison Tool blows others out of the water. See specs on every product on the site, view up to three products side-by-side and purchase at the best price from the retailer you want.<br /></td>
+                            </tr>
+                        </table></td>
+                        <td width="65" valign="top" style="padding:0 10px;"><img src="${baseUrl}/static/images/emails/welcome/icon_pc.jpg" width="65" height="65" /></td>
+                        <td align="left" valign="top" style="padding-right:30px;"><table width="210" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td><h3 style="margin: 10px 0; font-size:16px;">Filter based on what’s<br />
+                                    right for your life</h3></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; line-height:16px;">Lela puts an end to searching and researching. Super-enhanced filters help you find exactly what’s right for your life! See strollers for urban living, eco-friendly wooden bikes, TVs for sports viewing, and more. <br /></td>
+                            </tr>
+                        </table></td>
+                    </tr>
+                </table></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" style="padding: 45px 30px 20px 30px;"><h2 style="margin:0; font-size:20px;lign-height: 32px;">Find what you love! Love what you buy!</h2></td>
+            </tr>
+            <tr>
+                <td colspan="2" bgcolor="#ffffff"><table align="left" border="0" cellpadding="0" cellspacing="0" width="640">
+                    <tr>
+                        <td style="padding:0 20px 0 30px; border-collapse: collapse;" valign="top" width="180"><table border="0" cellpadding="0" cellspacing="0" width="180">
+                            <tbody>
+                                <tr>
+                                    <td width="180" height="180"><a href="http://www.lela.com/Baby/d?rlnm=baby" title="Discover Baby Products" target="_blank"><img src="${baseUrl}/static/images/emails/welcome/baby.jpg" alt="Discover Baby Products" width="180" height="180" style="display:block" border="0" /></a></td>
+                                </tr>
+                            </tbody>
+                        </table></td>
+                        <td style="padding:0 20px 0 0; border-collapse: collapse;" valign="top" width="180"><table border="0" cellpadding="0" cellspacing="0" width="180">
+                            <tbody>
+                                <tr>
+                                    <td width="180" height="180"><a href="http://www.lela.com/Toys/d?rlnm=toys" title="Discover Toys" target="_blank"><img src="${baseUrl}/static/images/emails/welcome/toys.jpg" alt="Discover Toys" width="180" height="180" style="display:block" border="0" /></a></td>
+                                </tr>
+                            </tbody>
+                        </table></td>
+                        <td style="padding:0 30px 0 0; border-collapse: collapse;" valign="top" width="180"><table border="0" cellpadding="0" cellspacing="0" width="180">
+                            <tbody>
+                                <tr>
+                                    <td width="180" height="180"><a href="http://www.lela.com/Electronics/d?rlnm=electronics" title="Discover Electronics" target="_blank"><img src="${baseUrl}/static/images/emails/welcome/electronics.jpg" alt="Discover Electronics" width="180" height="180" style="display:block" border="0" /></a></td>
+                                </tr>
+                            </tbody>
+                        </table></td>
+                    </tr>
+                </table></td>
+            </tr>
+            <tr>
+                <td height="30" colspan="2" style="height=30px;"><br /></td>
+            </tr>
+            <tr bgcolor="#efefef">
+                <td colspan="2" align="center" valign="middle"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td height="8">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td height="10" align="center" valign="top"><table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td align="right" valign="middle" nowrap="nowrap" style="color:#666666; font-size:14px; font-weight:bold;">Are your friends on Lela? Share on </td>
+                                <td width="10"></td>
+                                <td width="19"><a href="http://www.facebook.com/lelaknows" title="facebook" target="_blank"><img src="${baseUrl}/static/images/emails/welcome/icon_fb.png" alt="facebook" width="19" height="19" border="0" /></a></td>
+                                <td width="10">&nbsp;</td>
+                                <td width="19"><a href="https://twitter.com/#!/lelaknows" title="Twitter" target="_blank"><img src="${baseUrl}/static/images/emails/welcome/icon_t.png" alt="Twitter" width="19" height="19" border="0" /></a></td>
+                                <td width="10">&nbsp;</td>
+                                <td width="19"><a href="http://pinterest.com/lelaknows/" title="Pinterest" target="_blank"><img src="${baseUrl}/static/images/emails/welcome/icon_pin.png" alt="Pinterest" width="19" height="19" border="0" longdesc="http://pinterest.com/lelaknows/" /></a></td>
+                                <td width="10">&nbsp;</td>
+                                <td width="19"><a href="https://plus.google.com/u/1/115743254511181410035/posts" title="Google+" target="_blank"><img src="${baseUrl}/static/images/emails/welcome/icon_gp.png" alt="Google+" width="19" height="19" border="0" longdesc="http://pinterest.com/lelaknows/" /></a></td>
+                            </tr>
+                        </table></td>
+                    </tr>
+                    <tr>
+                        <td height="10" align="center" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top" style="font-size:11px;"><a href="http://www.lela.com/sc/about" target="_blank" style="text-decoration:none;"> <font color="#666666" style="text-decoration:none; margin-right:20px;">About us</font></a><a href="http://www.lela.com/sc/terms" target="_blank" style="text-decoration:none;"> <font color="#666666" style="text-decoration:none; margin-right:20px;">Terms of service</font></a><a href="http://www.lela.com/sc/privacy" target="_blank" style="text-decoration:none;"> <font color="#666666" style="text-decoration:none; margin-right:20px;">Privacy policy</font></a><a href="mailto:info@lela.com;" target="_blank" style="text-decoration:none;"> <font color="#666666" style="text-decoration:none;">Contact  us</font></a></td>
+                    </tr>
+                    <tr>
+                        <td height="10" align="center" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top"><div style="font-size:10px; color:#3f3f3f; width:460px;">You received this email because you are registered with <a href="http://www.lela.com"
+                                                                                                                                                                            target="_blank" style="color:#ff9900; text-decoration:none;">Lela.com</a> with the email address (<a href="mailto:${to};" target="_blank"  style="color:#3f3f3f; text-decoration:none;">${to}</a>).If you believe this has been sent to you in error, please <a href="http://lela.us2.list-manage.com/unsubscribe?u=73946fc8ef61683024602269d&id=${mailChimpListId}" target="_blank"  style="color:#ff9900; text-decoration:none;"><font color="#ff9900" style="text-decoration:none;">unsubscribe</font></a>.</div></td>
+                    </tr>
+                    <tr>
+                        <td height="10" align="center" valign="top">&nbsp;</td>
+                    </tr>
+                </table></td>
+            </tr>
+        </table>
+        </tr>
+        <tr>
+            <td>
+        </tr>
+    </table>
+</body>
+</html>

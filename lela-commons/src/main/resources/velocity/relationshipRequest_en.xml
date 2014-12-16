@@ -1,0 +1,72 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Welcome to Lela</title>
+    </head>
+
+    <body>
+
+        <!-- COPY BELOW -->
+
+        <div style="background:#efefef; font-family: 'Helvetica Neue';">
+        <table id="Table_01" width="680" height="800" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+            <tr>
+                <td>
+                    <a href="${baseUrl}"><img src="${baseUrl}/static/images/emails/t1_01.jpg" width="168" height="154" alt="LELA - Choose Happy" border="0"/></a></td>
+                <td colspan="3" width="512" height="154" align="right" valign="top">
+                    <div style="padding:20px;">
+                        <a href="http://www.facebook.com/lelaknows?sk=app_203119206385978"><img src="${baseUrl}/static/images/emails/fb.gif"  alt="" border="0" hspace="5"/></a>
+                        <a href="http://twitter.com/lelaknows"><img src="${baseUrl}/static/images/emails/tw.gif"  alt="" border="0"/></a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" width="680" height="108" >
+                    <div style="color:#333333; font-size:38px; font-weight:bold; line-height:38px; text-align:center; padding:0 30px;"><span style="color:#ff9900;">Someone on Lela</span><br/> loves you!</div>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top" style="padding:17px 35px 0 0;">
+                    <img src="${baseUrl}/static/images/emails/icons/smiley.png" alt="" style="display:block;"/>
+                </td>
+                <td colspan="3" valign="top" align="left" style="font-size:14px; color:#666; padding:15px 80px 0 0;">
+                    <p style="margin:0;"><b style="color:#333;">${userFirstName} ${userLastName} has requested to add you to Lela.</b><br/>
+                    ${userFirstName} ${userLastName} has requested to add you as a friend or family<br/>
+                    member on Lela. If you know ${userFirstName} ${userLastName}, please confirm the<br/>
+                    request at <a href="${baseUrl}">lela.com</a></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td bgcolor="#fff" valign="bottom" colspan="4" align="right">
+                    <img src="${baseUrl}/static/images/emails/phone_1.jpg" alt="" style="display:block;"/></td>
+            </tr>
+            <tr>
+                <td bgcolor="#333333" valign="top"><!-- --></td>
+                <td width="171" bgcolor="#333333" valign="top" style="padding:10px 10px 0 0;"><!-- --></td>
+
+                <td width="170" bgcolor="#333333" valign="top" style="padding:10px 0px 0 30px;">
+                    <p style="margin:0;"><b style="color:#fff; font-size:18px; line-height:20px; margin-bottom:5px; display:block;">Coming very soon to your iPhone</b></p>
+                    <p style="color:#fff; font-size:11px; line-height:12px;">When you're shopping out in the real world, use our app to find  the products that will suit you best. (Also coming to Android!)</p>
+                </td>
+                <td bgcolor="#333333" valign="top" align="right">
+                    <img src="${baseUrl}/static/images/emails/phone_2.jpg" alt="" style="display:block;"/></td>
+            </tr>
+
+            <tr>
+                <td colspan="4" width="680" height="106">
+                    <p style="color:#635f5f; font-size:11px; padding:0 20px;">
+                        You received this email because you are registered with <strong><a href="${baseUrl}" style="color:#d08310;">lela.com</a></strong> with the email address: ${to}. <br/>
+                        We respect your privacy. View our <strong><a href="${baseUrl}/sc/privacy" style="color:#d08310;">privacy policy</a></strong>.
+                    </p>
+                </td>
+            </tr>
+        </table>
+        </div>
+    </body>
+</html>

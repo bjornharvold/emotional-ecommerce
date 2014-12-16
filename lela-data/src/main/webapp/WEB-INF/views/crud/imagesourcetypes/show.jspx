@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ImageSourceType" object="${imagesourcetype}" path="/crud/imagesourcetypes" z="SQiiPhcRCKP4DGxIDeFnHRjzWf4=">
+        <field:display date="true" dateTimePattern="${imageSourceType_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ImageSourceType_dateCreated" object="${imagesourcetype}" z="4UxXPj8TdfZVuAsrvAqRumpHF28="/>
+        <field:display date="true" dateTimePattern="${imageSourceType_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ImageSourceType_dateModified" object="${imagesourcetype}" z="C9u2ugRRm6/NRptqxW9M594rrU0="/>
+        <field:display field="sourceTypeName" id="s_com_lela_data_domain_entity_ImageSourceType_sourceTypeName" object="${imagesourcetype}" z="nkxLyj0rq/woj4+EKDnt/mjLPq0="/>
+    </page:show>
+</div>

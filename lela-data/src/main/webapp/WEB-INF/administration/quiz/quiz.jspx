@@ -1,0 +1,143 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="link.view" var="view"/>
+    <spring:message code="link.edit" var="edit"/>
+    <spring:message code="link.delete" var="delete"/>
+
+    <h1><spring:message code="page.admin.quiz.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/quiz/list" var="quizListUrl"/>
+        <a class="action" href="${quizListUrl}">&lt; <spring:message code="quiz.back.to.list"/> </a>
+
+        <spring:url value="/administration/quiz/form" var="editQuizUrl">
+            <spring:param name="urlName" value="${quiz.rlnm}"/>
+        </spring:url>
+        <a class="action" href="${editQuizUrl}"><spring:message code="link.edit"/></a>
+
+        <spring:url value="/administration/quiz/${quiz.rlnm}/preview" var="previewQuizUrl"/>
+        <a class="action" href="${previewQuizUrl}"><spring:message code="link.preview"/></a>
+        
+        <spring:url value="/administration/quiz/duplicate/${quiz.rlnm}" var="duplicateQuizUrl"/>
+        <a class="action" href="${duplicateQuizUrl}"><spring:message code="quiz.duplicate"/> </a> 
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <h3><spring:message code="quiz.overview"/></h3>
+
+    <p>
+        <spring:message code="quiz.name"/>: ${quiz.nm}
+    </p>
+
+    <p>
+        <spring:message code="quiz.url.name"/>: ${quiz.rlnm}
+    </p>
+
+    <p>
+        <spring:message code="quiz.seo.url.name"/>: ${quiz.srlnm}
+    </p>
+
+    <p>
+        <spring:message code="quiz.locale"/>: ${quiz.lng}
+    </p>
+
+    <p>
+        <spring:message code="quiz.theme"/>: ${quiz.thm}
+    </p>
+
+    <p>
+        <spring:message code="quiz.complete.url"/>: ${quiz.cmpltrl}
+    </p>
+
+    <p>
+        <spring:message code="quiz.entry.complete.static.content"/>: ${quiz.cmpltcntnt}
+    </p>
+
+    <p>
+        <spring:message code="quiz.entry.return.static.content"/>: ${quiz.rtrncntnt}
+    </p>
+
+    <p>
+        <spring:message code="quiz.published"/>: ${quiz.pblshd}
+    </p>
+
+    <p>
+        <spring:message code="quiz.default"/>: ${quiz.dflt}
+    </p>
+
+    <hr/>
+
+    <div class="actions">
+        <spring:url value="/administration/quiz/${quiz.rlnm}/step/form" var="quizStepUrl"/>
+        <a class="action" href="${quizStepUrl}"><spring:message code="quiz.step.create.entry"/></a>
+
+        <div class="clear"><!----></div>
+    </div>
+    <h3><spring:message code="quiz.steps"/></h3>
+    <c:if test="${empty quiz.stps}">
+        <spring:message code="quiz.steps.empty"/>
+    </c:if>
+    <c:if test="${not empty quiz.stps}">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th width="5%"><spring:message code="quiz.step.type"/></th>
+                <th width="20%"><spring:message code="quiz.step.name"/></th>
+                <th width="20%"><spring:message code="quiz.step.url.name"/></th>
+                <th width="20%"><spring:message code="quiz.step.seo.url.name"/></th>
+                <th width="10%"><spring:message code="quiz.step.order"/></th>
+                <th width="5%"><spring:message code="quiz.entries"/></th>
+                <th width="15%">&#160;</th>
+            </tr>
+            </thead>
+            <c:forEach items="${quiz.stps}" var="step">
+                <tr>
+                    <td>${step.tp}</td>
+                    <td>${step.nm}</td>
+                    <td>${step.rlnm}</td>
+                    <td>${step.srlnm}</td>
+                    <td>${step.rdr}</td>
+                    <td><c:if test="${not empty step.ntrs}">
+                            ${fn:length(step.ntrs)}
+                        </c:if></td>
+                    <td>
+                        <spring:url value="/administration/quiz/${quiz.rlnm}/step/${step.d}" var="viewStepUrl"/>
+                        <a class="action" href="${viewStepUrl}">${view}</a>
+
+                        <spring:url value="/administration/quiz/${quiz.rlnm}/step/form" var="editStepUrl">
+                            <spring:param name="quizStepId" value="${step.d}"/>
+                        </spring:url>
+                        <a class="action" href="${editStepUrl}">${edit}</a>
+
+                        <spring:url value="/administration/quiz/${quiz.rlnm}/step/${step.d}" var="deleteStepUrl"/>
+                        <spring-form:form action="${deleteStepUrl}" method="DELETE">
+                            <input type="submit" name="${delete}" value="${delete}"/>
+                        </spring-form:form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </c:if>
+    
+</div>

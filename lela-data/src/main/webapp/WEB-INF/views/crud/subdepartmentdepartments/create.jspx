@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_lela_data_domain_entity_SubdepartmentDepartment" modelAttribute="subdepartmentDepartment" path="/crud/subdepartmentdepartments" render="${empty dependencies}" z="tQOLuaSoBHx1I8r5BFZA0nzUVrw=">
+      <field:datetime dateTimePattern="${subdepartmentDepartment_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_SubdepartmentDepartment_dateCreated" z="user-managed" render="false"/>
+      <field:datetime dateTimePattern="${subdepartmentDepartment_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_SubdepartmentDepartment_dateModified" z="user-managed" render="false"/>
+      <field:input field="subdepartmentOrder" id="c_com_lela_data_domain_entity_SubdepartmentDepartment_subdepartmentOrder" required="true" validationMessageCode="field_invalid_integer" z="kX3Fkodq+oOcK5il5xoD+Kb6an0="/>
+      <field:select field="subdepartment" id="c_com_lela_data_domain_entity_SubdepartmentDepartment_subdepartment" itemValue="id" items="${subdepartments}" path="/crud/subdepartments" required="true" z="pm/IhdDs0Gi9G0qofG54I0LHbBc="/>
+      <field:select field="department" id="c_com_lela_data_domain_entity_SubdepartmentDepartment_department" itemValue="id" items="${departments}" path="/crud/departments" required="true" z="tIpfZP0TWzrKH1qxiDLanoUlg3c="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_lela_data_domain_entity_SubdepartmentDepartment" render="${not empty dependencies}" z="XcISD/5WYGgHb4Ga9d7gYbAp3j8="/>
+</div>

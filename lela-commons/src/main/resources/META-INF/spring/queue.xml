@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="account" class="com.polarrose.amazon.aws.AwsAccount">
+        <property name="accessKeyId" value="${amazon.access.key}"/>
+        <property name="secretAccessKey" value="${amazon.secret.key}"/>
+    </bean>
+
+    <bean id="queueService" class="com.polarrose.amazon.sqs.impl.SqsServiceImpl">
+        <property name="account" ref="account"/>
+    </bean>
+
+    <bean id="queue" class="com.polarrose.amazon.sqs.SqsQueue">
+        <property name="url" value="${amazon.sqs.queue}"/>
+    </bean>
+
+    <bean id="queueListener" class="com.polarrose.amazon.spring.sqs.impl.SimpleQueueListener">
+        <property name="threadPoolSize" value="10"/>
+        <property name="pollInterval" value="${amazon.sqs.pollInteral:60}"/>
+        <property name="service" ref="queueService"/>
+        <property name="queue" ref="queue"/>
+        <property name="messageHandler" ref="localCacheEvictionService"/>
+    </bean>
+
+    <bean id="queueObjectMapper" class="com.lela.util.utilities.jackson.CustomObjectMapper"/>
+
+</beans>

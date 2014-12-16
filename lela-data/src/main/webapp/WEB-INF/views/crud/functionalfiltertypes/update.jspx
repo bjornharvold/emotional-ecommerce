@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_FunctionalFilterType" modelAttribute="functionalFilterType" path="/crud/functionalfiltertypes" versionField="Version" z="FQrny39TCdLuTj7k7UNOfYPab4g=">
+        <field:datetime dateTimePattern="${functionalFilterType_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_FunctionalFilterType_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${functionalFilterType_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_FunctionalFilterType_dateModified" render="false" z="user-managed"/>
+        <field:input field="functionalFilters" id="c_com_lela_data_domain_entity_FunctionalFilterType_functionalFilters" z="pV9fk7DDBeDBuJRAsc91hff1ztM="/>
+        <field:input field="functionalFilterTypeName" id="c_com_lela_data_domain_entity_FunctionalFilterType_functionalFilterTypeName" z="vWCmBZv6Ad50akj9IXXJ4Opuj2E="/>
+    </form:update>
+</div>

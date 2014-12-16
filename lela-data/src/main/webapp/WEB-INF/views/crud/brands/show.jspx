@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Brand" object="${brand}" path="/crud/brands" z="JFmTnaXSoehuuqIV7aNcgck4JOo=">
+        <field:display date="true" dateTimePattern="${brand_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Brand_dateCreated" object="${brand}" z="qkLJpHOnvHHHVsiNbsxLhfu+odM="/>
+        <field:display date="true" dateTimePattern="${brand_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Brand_dateModified" object="${brand}" z="z8C1wr/Rhl92fRdawuUVaFNbZhI="/>
+        <field:display field="brandName" id="s_com_lela_data_domain_entity_Brand_brandName" object="${brand}" z="94o/dA83AItKcYgdJlMl1YsH3Ts="/>
+        <field:display field="manufacturerName" id="s_com_lela_data_domain_entity_Brand_manufacturerName" object="${brand}" z="YzOfcYhfhKAzv3AAwMzW5gPDUPk="/>
+        <field:display field="facebookUrl" id="s_com_lela_data_domain_entity_Brand_facebookUrl" object="${brand}" z="Kn8gHEzhaDi2CpyHvay8NZvI1eU="/>
+        <field:display field="facebookAccess" id="s_com_lela_data_domain_entity_Brand_facebookAccess" object="${brand}" z="y+5qciTH0QkDw9lrlUcDn5wHYUQ="/>
+        <field:display field="facebookLikes" id="s_com_lela_data_domain_entity_Brand_facebookLikes" object="${brand}" z="rAX2p1qSs5tbvM8p59wEe8YVNyw="/>
+        <field:display field="twitterUrl" id="s_com_lela_data_domain_entity_Brand_twitterUrl" object="${brand}" z="G8xNAq1SOV5f7CYNl60QvcPzJiA="/>
+        <field:display field="twitterName" id="s_com_lela_data_domain_entity_Brand_twitterName" object="${brand}" z="qUtqjvQRQ+PY+Ce2za2VoZjR05w="/>
+        <field:display field="twitterFollowers" id="s_com_lela_data_domain_entity_Brand_twitterFollowers" object="${brand}" z="M839No/oskViEG0HFipE++chxZU="/>
+        <field:display field="popshopsBrandId" id="s_com_lela_data_domain_entity_Brand_popshopsBrandId" object="${brand}" z="PFICz7I+Z2Ga/MWmMfl12IIN6Mc="/>
+        <field:display field="urlname" id="s_com_lela_data_domain_entity_Brand_urlname" object="${brand}" z="65/XedaiAX/8No5JcsjBH6S5OEo="/>
+        <field:display field="lelaUrl" id="s_com_lela_data_domain_entity_Brand_lelaUrl" object="${brand}" z="7GbXOf5rRQ+iMXKY3mr9iZmhafU="/>
+        <field:display field="objectId" id="s_com_lela_data_domain_entity_Brand_objectId" object="${brand}" z="HaPVoqHSc3v8aARoKQM0mn09Eak="/>
+        <field:display field="popshopsSuccess" id="s_com_lela_data_domain_entity_Brand_popshopsSuccess" object="${brand}" z="FPccmI6VRslvLzvEl1nIvTfb6nw="/>
+        <field:display field="isDirty" id="s_com_lela_data_domain_entity_Brand_isDirty" object="${brand}" z="QUFj40ohure8ChSR7P/tSmoHZkM="/>
+        <field:display field="manufacturer" id="s_com_lela_data_domain_entity_Brand_manufacturer" object="${brand}" z="zfyRQ8sT/K90u7BkzBPUZyoQ9E0="/>
+        <field:display field="brandCategories" id="s_com_lela_data_domain_entity_Brand_brandCategories" object="${brand}" z="ajyU9946CZjmK2vgnq60vSdJyxU="/>
+        <field:display field="brandCategoryMotivators" id="s_com_lela_data_domain_entity_Brand_brandCategoryMotivators" object="${brand}" z="DA9JQni3JoaV9takYAQcP/1XjNg="/>
+        <field:display field="brandCountries" id="s_com_lela_data_domain_entity_Brand_brandCountries" object="${brand}" z="k69KxeiZrbcx4e+NgxWSDiCCF/I="/>
+        <field:display field="brandHistories" id="s_com_lela_data_domain_entity_Brand_brandHistories" object="${brand}" z="wLeTMhmJ+q3QPs21dxSd7uRNv5k="/>
+        <field:display field="brandIdentifiers" id="s_com_lela_data_domain_entity_Brand_brandIdentifiers" object="${brand}" z="gN/o90v6vlwPLuJJuJ48Mr8GW2w="/>
+        <field:display field="brandMotivators" id="s_com_lela_data_domain_entity_Brand_brandMotivators" object="${brand}" z="sgw626OcHaH8Rb6W7Scns4YHZtw="/>
+        <field:display field="brandNames" id="s_com_lela_data_domain_entity_Brand_brandNames" object="${brand}" z="wG9nGRdmGUHDfZFX7yoq8mIk56Y="/>
+    </page:show>
+</div>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_FunctionalFilterType" object="${functionalfiltertype}" path="/crud/functionalfiltertypes" z="JqxW59t839VcdMD/Fo1KAXL8O1Y=">
+        <field:display date="true" dateTimePattern="${functionalFilterType_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_FunctionalFilterType_dateCreated" object="${functionalfiltertype}" z="l+jNr60hWuqnmtoF6qSU0EDrP3M="/>
+        <field:display date="true" dateTimePattern="${functionalFilterType_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_FunctionalFilterType_dateModified" object="${functionalfiltertype}" z="F8FWBPoFOsLogRfUz3v2up9SSTI="/>
+        <field:display field="functionalFilters" id="s_com_lela_data_domain_entity_FunctionalFilterType_functionalFilters" object="${functionalfiltertype}" z="IATNsliMv5bAUNobvZ+h4eo+AkY="/>
+        <field:display field="functionalFilterTypeName" id="s_com_lela_data_domain_entity_FunctionalFilterType_functionalFilterTypeName" object="${functionalfiltertype}" z="qpF8zThspwNfRUoM5Wpb5NsjktI="/>
+    </page:show>
+</div>

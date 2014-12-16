@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_InputValidationList" items="${inputvalidationlists}" z="SKdOuanchG0XnBV/y4RFQSz25rg=">
+        <table:table data="${inputvalidationlists}" id="l_com_lela_data_domain_entity_InputValidationList" path="/crud/inputvalidationlists" z="x/nEyqeLRFiT5GR5fzdSO5oApNI=">
+            <table:column date="true" dateTimePattern="${inputValidationList_datecreated_date_format}" id="c_com_lela_data_domain_entity_InputValidationList_dateCreated" property="dateCreated" z="AIBvNPzTnBBkJemvV4S3rJFE9iU="/>
+            <table:column date="true" dateTimePattern="${inputValidationList_datemodified_date_format}" id="c_com_lela_data_domain_entity_InputValidationList_dateModified" property="dateModified" z="xdMP+fZzS2fcoH4B6K5djjRY89A="/>
+            <table:column id="c_com_lela_data_domain_entity_InputValidationList_listName" property="listName" z="3PXgPJS/7hFms/IEIQgXVAha9I4="/>
+        </table:table>
+    </page:list>
+</div>

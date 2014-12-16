@@ -1,0 +1,60 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <tiles:importAttribute name="page" ignore="true"/>
+
+    <spring:url value="/user/dashboard/overview" var="overviewUrl" />
+    <spring:url value="/user/dashboard/rewards" var="rewardsUrl" />
+    <spring:url value="/user/profile/picture" var="profileImageUrl" />
+    <spring:url value="/user/profile" var="profileUrl" />
+    <spring:url value="/user/deactivate" var="deactivateUrl" />
+    <spring:url value="/user/dashboard/personality" var="personalityUrl" />
+    <spring:url value="/user/dashboard/network" var="networkUrl" />
+    <spring:url value="/user/dashboard/notifications" var="notificationsUrl" />
+    <spring:url value="/user/dashboard/coupons" var="couponsUrl" />
+    <spring:url value="/user/list/own" var="alreadyOwnUrl" />
+
+    <script type="text/javascript">
+        var accountType = "${account}";
+    </script>
+
+    <div id="account-profile-nav" class="p-list">
+        <h2><spring:message code="user.account.nav.my.account.profile"/></h2>
+        <ul>
+            <li><a id="account-overview" class="l-type ${page eq 'overview' ? 'selected' : ''}" href="${overviewUrl}"><spring:message code="user.account.nav.account.overview"/></a></li>
+            <li><a id="account-image" class="l-type ${page eq 'picture' ? 'selected' : ''}" href="${profileImageUrl}"><spring:message code="user.account.nav.account.profile.image"/></a></li>
+            <li><a id="account-deactivate" class="l-type ${page eq 'deactivate' ? 'selected' : ''}" href="${deactivateUrl}"><spring:message code="user.account.nav.account.deactivate"/></a></li>
+            <!--<li><a id="account-rewards" class="l-type" href="${rewardsUrl}"><spring:message code="user.account.nav.rewards.status.history"/></a></li>-->
+            <!--<li><a id="account-info" class="l-type" href="${profileUrl}"><spring:message code="user.account.nav.personal.information"/></a></li>-->
+            <!--<li><a id="account-personality" class="l-type" href="${personalityUrl}"><spring:message code="user.account.nav.personality"/></a></li>-->
+            <!--<li><a id="account-coupons" class="l-type" href="${couponsUrl}"><spring:message code="user.account.nav.coupons"/></a></li> -->
+            <!--<li><a id="account-network" class="l-type" href="${networkUrl}"><spring:message code="user.account.nav.friends.family"/></a></li>-->
+            <!--<li><a id="account-notifications" class="l-type" href="${notificationsUrl}"><spring:message code="user.account.nav.lela.notifications"/></a></li>-->
+        </ul>
+    </div>
+    <!--
+    <div id="my-lela-lists" class="p-list">
+        <h2><spring:message code="user.account.nav.my.lela.lists"/></h2>
+        <ul>
+            <li><a class="l-type" href="#"><spring:message code="user.account.nav.saved.products"/></a></li>
+            <li><a class="l-type" href="#"><spring:message code="user.account.nav.saved.store"/></a></li>
+            <li><a class="l-type" href="${alreadyOwnUrl}"><spring:message code="user.account.nav.already.own"/></a></li>
+        </ul>
+    </div>
+    -->
+</jsp:root>

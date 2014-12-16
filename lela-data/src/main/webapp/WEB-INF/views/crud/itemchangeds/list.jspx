@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ItemChanged" items="${itemchangeds}" z="+CgrRHuDIxYMCYcwVAlPM+GIBxU=">
+        <table:table data="${itemchangeds}" id="l_com_lela_data_domain_entity_ItemChanged" path="/crud/itemchangeds" z="YeRNKNHaPOhjQ0L+nPSPJ9pCuz8=">
+            <table:column date="true" dateTimePattern="${itemChanged_datecreated_date_format}" id="c_com_lela_data_domain_entity_ItemChanged_dateCreated" property="dateCreated" z="f2Xf2IgBHU1ycLp4XY40p8YFFAY="/>
+            <table:column date="true" dateTimePattern="${itemChanged_datemodified_date_format}" id="c_com_lela_data_domain_entity_ItemChanged_dateModified" property="dateModified" z="EQMCTbdwjJUSVhs0HvptwUkZHz0="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemChanged_item" property="item" z="A0izTmOMcUzlBGfj46IIn62lEcI="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemChanged_dirty" property="dirty" z="oDOcFUlXajkrxabW84nCnC2gqZg="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemChanged_dirtyInDevelopment" property="dirtyInDevelopment" z="NsPPWcQfW0+X7icoIP3jVdfSybI="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemChanged_dirtyInLatest" property="dirtyInLatest" z="VyH1h5kGnCgrxNkHOTAG4los+vU="/>
+        </table:table>
+    </page:list>
+</div>

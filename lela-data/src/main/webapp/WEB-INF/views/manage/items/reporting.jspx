@@ -1,0 +1,35 @@
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags">
+  <spring:url value="/js/item/reporting/app.js" var="app_url"/>
+  <jsp:directive.include file="/static/html/reporting-templates.html"/>
+
+  <style>
+    .menu
+    {
+      position: absolute;
+      width: 300px;
+    }
+    .results
+    {
+      position: absolute;
+      left: 301px;
+    }
+    #app
+    {
+      clear:both;
+      height:600px;
+    }
+  </style>
+
+  <script type="text/javascript" src="${app_url}"><!-- placeholder--></script>
+  <script type="text/x-handlebars">
+      <div id="app">
+      {{view App.SearchFormView}}
+
+      {{view App.SearchResultsView}}
+      </div>
+  </script>
+
+
+
+</div>

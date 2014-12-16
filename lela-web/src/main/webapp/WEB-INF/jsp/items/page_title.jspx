@@ -1,0 +1,232 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+    <spring:message code="build.number" var="buildNumber"/>
+    <spring:message code="environment" var="environment"/>
+    <spring:message code="company.domain.name" var="siteTitle"/>
+
+    <title>
+        <c:if test="${empty item and (empty categoryUrlName or !empty itemDetails)}">
+            ${siteTitle} :
+        </c:if>
+
+        <!-- Category Title -->
+        <c:if test="${!empty categoryUrlName and empty itemDetails}">
+            <spring:message code="meta.title.${categoryUrlName}" var="catPageTitle"/>
+            <c:choose>
+                <c:when test="${currentDepartment eq 'baby'}">
+                    <c:choose>
+                        <c:when test="${fn:startsWith(catPageTitle, 'Baby') eq true}">
+                            ${catPageTitle}, Best ${catPageTitle}, ${catPageTitle} Ratings and Reviews : ${siteTitle}
+                        </c:when>
+                        <c:otherwise>
+                            Baby ${catPageTitle}, Best Infant ${catPageTitle}, ${catPageTitle} Ratings and Reviews : ${siteTitle}
+                        </c:otherwise>
+                    </c:choose>
+                </c:when>
+                <c:when test="${currentDepartment eq 'electronics'}">
+                    Best ${catPageTitle} for your family, ${catPageTitle} Ratings and Reviews : ${siteTitle}
+                </c:when>
+                <c:otherwise>
+                    ${!empty seo ? seo.nm : catPageTitle} : ${siteTitle}
+                </c:otherwise>
+            </c:choose>
+        </c:if>
+
+        <!-- Item Brand and Title -->
+        <c:if test="${itemDetails.rlvnttm != null}">
+            <c:set var="item" value="${itemDetails.rlvnttm}"/>
+        </c:if>
+
+        <c:if test="${itemDetails.tm != null}">
+            <c:set var="item" value="${itemDetails.tm}"/>
+        </c:if>
+
+        <c:if test="${!empty item}">
+            <lela:lelaProductName item="${item}" /> : <spring:message code="meta.title.${item.ctgry.rlnm}"/> : ${siteTitle}
+        </c:if>
+
+        <c:if test="${!empty blog}">
+            ${blog.nm} : <spring:message code="meta.title.blog.page"/>
+        </c:if>
+
+        <c:if test="${empty blog and !empty blogs}">
+            <spring:message code="meta.title.blog"/>
+        </c:if>
+
+        <!-- Static Page Title -->
+        <c:choose>
+            <c:when test="${!empty view}">
+                <spring:message code="page.${view}.name"/>
+            </c:when>
+            <c:when test="${!empty staticContent}">
+                ${staticContent.nm}
+            </c:when>
+        </c:choose>
+
+        <!-- Event Page Title -->
+        <c:if test="${event.nm != null}">
+            ${event.nm}
+        </c:if>
+
+        <!-- Comparison page -->
+        <c:if test="${!empty items}">
+            <spring:message code="meta.title.comparison" />
+        </c:if>
+
+        <!-- Store Landing Page Title -->
+        <c:if test="${!empty store}">
+            <spring:message code="meta.title.store" arguments="${store.nm}"/>
+        </c:if>
+
+        <!-- Brands Page Title -->
+        <c:if test="${!empty owner}">
+            <spring:message code="meta.title.brand" arguments="${owner.nm}"/>
+        </c:if>
+
+        <!-- Z100 Affiliate page -->
+        <c:if test="${!empty affiliate.rlnm and affiliate.rlnm eq 'z100'}">
+            <spring:message code="page.index.z100"/>
+        </c:if>
+
+        <c:if test="${environment == 'development' or environment == 'latest'}">
+        | ${buildNumber}
+        </c:if>
+
+    </title>
+
+
+    <!-- Event Meta Tags -->
+    <c:if test="${event.nm != null}">
+        <spring:url var="eventImageUrl" value="/static/images/events/${event.rlnm}.jpg"/>
+        <meta name="title" content="${event.nm}"/>
+        <link rel="image_src" href="${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}${pageContext.request.contextPath}${eventImageUrl}" />
+        <meta property="og:title" content="${event.nm}"/>
+        <meta property="og:image" content="${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}${eventImageUrl}"/>
+        <meta property="og:site_name" content="${siteTitle}"/>
+    </c:if>
+
+    <!-- Category page meta tags -->
+    <c:if test="${!empty categoryUrlName and empty itemDetails}">
+        <spring:message code="meta.title.${categoryUrlName}" var="title"/>
+        <spring:message code="meta.keywords.${categoryUrlName}" var="keywords"/>
+        <spring:message code="nav.cat.${categoryUrlName}" var="categoryName"/>
+        <spring:message code="meta.description.category" var="description" arguments="${categoryName}"/>
+
+        <meta name="title" content="${!empty seo ? seo.nm : title} : ${siteTitle}"/>
+        <meta name="keywords" content="${keywords}"/>
+        <meta name="description" content="${!empty seo ? seo.dsc : description}"/>
+        <link rel="canonical" href="/${category.srlnm}/c?rlnm=${categoryUrlName}" />
+    </c:if>
+
+    <!-- Item page meta tags -->
+    <c:if test="${!empty categoryUrlName and !empty item}">
+
+        <c:set var="summary" value=""/>
+        <c:forEach var="attribute" items="${itemDetails.sctns[0].grps[0].attrs}">
+            <spring:message code="attribute.attr.${attribute.ky}" var="attrName"/>
+            <c:set var="summary" value="${attrName}: ${attribute.vl}, ${summary}"/>
+        </c:forEach>
+
+        <spring:message code="grid.results.category.${categoryUrlName}" var="categoryText"/>
+        <spring:message code="nav.cat.${categoryUrlName}" var="categoryName"/>
+        <spring:message code="meta.description.item" var="description" arguments="${item.subAttributes['Brand']} ${item.nm},${categoryName}"/>
+        <c:set value="${description} ${summary}" var="itemDescription"/>
+
+        <spring:message code="meta.title.${item.ctgry.rlnm}" var="categoryTitle"/>
+        <meta name="title" content="${item.subAttributes['Brand']} ${item.nm} : ${categoryTitle} : ${siteTitle}"/>
+        <meta name="description" content="${itemDescription}"/>
+
+        <meta property="og:title" content="${item.subAttributes['Brand']} ${item.nm}"/>
+        <meta property="og:image" content="${item.imgs[0].sz['large']}"/>
+        <meta property="og:site_name" content="${siteTitle}"/>
+        <meta property="og:description" content="${itemDescription}"/>
+
+        <link rel="canonical" href="/${item.srlnm}/p?rlnm=${item.rlnm}" />
+
+        <c:if test="${!empty print}">
+            <meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
+        </c:if>
+    </c:if>
+
+    <!-- Static page meta tags -->
+    <c:if test="${!empty view}">
+        <spring:message code="meta.title.${view}" var="title"/>
+        <spring:message code="meta.keywords.${view}" var="keywords"/>
+        <spring:message code="meta.description.${view}" var="description"/>
+        <meta name="title" content="${title}"/>
+        <meta name="keywords" content="${keywords}"/>
+        <meta name="description" content="${description}"/>
+    </c:if>
+
+    <!-- Blog page meta tags -->
+    <c:if test="${!empty blog}">
+        <spring:message code="meta.title.${blog.ctgry.rlnm}" var="categoryText"/>
+        <c:set var="title" value="${categoryText} Comparison &amp; Reviews - ${blog.nm}"/>
+        <meta name="title" content="${title}"/>
+        <meta name="keywords" content="${blog.mtkywrd}"/>
+        <meta name="description" content="${blog.mtdscrptn}"/>
+
+        <spring:message code="blog.four.comparison.reviews.title" var="blogTitle" />
+        <spring:url var="rssUrl" value="/rssfeed/blog" />
+        <link rel="alternate" type="application/rss+xml" title="${blogTitle}" href="${rssUrl}" />
+
+        <c:if test="${blog.itemsDetails[0].rlvnttm != null}">
+            <c:set var="item" value="${blog.itemsDetails[0].rlvnttm}"/>
+        </c:if>
+
+        <c:if test="${blog.itemsDetails[0].tm != null}">
+            <c:set var="item" value="${blog.itemsDetails[0].tm}"/>
+        </c:if>
+
+        <meta property="og:title" content="${title}"/>
+        <meta property="og:image" content="${item.imgs[0].sz['large']}"/>
+        <meta property="og:site_name" content="${siteTitle}"/>
+        <meta property="og:description" content="${blog.mtdscrptn}"/>
+    </c:if>
+
+    <!-- Blog page meta tags -->
+    <c:if test="${empty blog and !empty blogs}">
+        <meta name="title" content="Lela Fave Four Comparison and Reviews"/>
+        <!-- <meta name="keywords" content="${blog.mtkywrd}"/>
+        <meta name="description" content="${blog.mtdscrptn}"/> -->
+
+        <spring:message code="blog.four.comparison.reviews.title" var="blogTitle" />
+        <spring:url var="rssUrl" value="/rssfeed/blog" />
+        <link rel="alternate" type="application/rss+xml" title="${blogTitle}" href="${rssUrl}" />
+
+        <c:set var="item" value="${blog.itemsDetails[0].rlvnttm}"/>
+        <meta property="og:title" content="Lela Fave Four Comparison and Reviews"/>
+        <meta property="og:image" content="${item.imgs[0].sz['large']}"/>
+        <meta property="og:site_name" content="${siteTitle}"/>
+        <meta property="og:description" content="${blog.mtdscrptn}"/>
+    </c:if>
+
+
+    <!-- Z100 Affiliate meta tags -->
+    <c:if test="${!empty affiliate.rlnm and affiliate.rlnm eq 'z100'}">
+        <spring:message code="page.index.z100" var="z100Title"/>
+        <meta name="title" content="${z100Title}"/>
+        <meta name="description" content="Win your choice of any stroller, car seat, high chair or crib featured on Lela.com ... up to $500!"/>
+
+        <meta property="og:title" content="${z100Title}"/>
+        <meta property="og:image" content="https://s3.amazonaws.com/lela-editorial/z100/z100_babygear_sweeps.png"/>
+        <meta property="og:site_name" content="${siteTitle}"/>
+        <meta property="og:description" content="Win your choice of any stroller, car seat, high chair or crib featured on Lela.com ... up to $500!"/>
+    </c:if>
+
+</jsp:root>

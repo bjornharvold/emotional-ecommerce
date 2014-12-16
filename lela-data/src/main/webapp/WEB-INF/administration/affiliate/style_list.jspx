@@ -1,0 +1,72 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="link.delete" var="delete"/>
+
+    <h1><spring:message code="page.admin.style.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/style/form" var="newStyleUrl"/>
+        <a class="action" href="${newStyleUrl}"><spring:message code="style.create.entry"/></a>
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <c:if test="${empty styles.content}">
+        <p><spring:message code="style.list.empty"/></p>
+    </c:if>
+
+    <c:if test="${not empty styles.content}">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th width="10%"><spring:message code="style.name"/></th>
+                <th width="10%"><spring:message code="style.url.name"/></th>
+                <th width="20%"><spring:message code="style.selector"/></th>
+                <th width="20%"><spring:message code="style.default"/></th>
+                <th width="25%"><spring:message code="style.description"/></th>
+                <th width="15%">&#160;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${styles.content}" var="style">
+                <tr>
+                    <td>${style.nm}</td>
+                    <td>${style.rlnm}</td>
+                    <td>${style.slctr}</td>
+                    <td>{ ${style.dflt} }</td>
+                    <td>${style.dsc}</td>
+                    <td>
+                        <spring:url value="/administration/style/${style.rlnm}" var="styleUrl"/>
+                        <a class="action" href="${styleUrl}"><spring:message code="link.view"/></a>
+
+                        <spring:url value="/administration/style/form" var="editStyleUrl">
+                            <spring:param name="urlName" value="${style.rlnm}"/>
+                        </spring:url>
+                        <a class="action" href="${editStyleUrl}"><spring:message code="link.edit"/></a>
+
+                        <spring:url value="/administration/style/${style.rlnm}" var="deleteStyleUrl"/>
+                        <spring-form:form action="${deleteStyleUrl}" method="DELETE">
+                            <input type="submit" name="${delete}" value="${delete}"/>
+                        </spring-form:form>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+
+        <lela:lelaPagination url="/administration/style/list" totalElements="${styles.totalElements}" totalPages="${styles.totalPages}" pageNumber="${styles.number}" pageSize="${styles.size}"/>
+    </c:if>
+</div>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Series" object="${series}" path="/crud/series" z="l9BQWnzzFLEeGa8nVZrnQ3VoQks=">
+        <field:display date="true" dateTimePattern="${series_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Series_dateCreated" object="${series}" z="FYcbK9hSsPmCI8uFmwBXtvz0Yww="/>
+        <field:display date="true" dateTimePattern="${series_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Series_dateModified" object="${series}" z="2lmOyD3A0Qf2V9HIt4DY79Ugrkg="/>
+        <field:display field="seriesType" id="s_com_lela_data_domain_entity_Series_seriesType" object="${series}" z="2Zh4+VgJ0X5MVeZjSItNS1DqAqY="/>
+        <field:display field="seriesName" id="s_com_lela_data_domain_entity_Series_seriesName" object="${series}" z="8yNoZJLx/VxJ4IxZlNmij8AB2YI="/>
+        <field:display field="seriesDisplayName" id="s_com_lela_data_domain_entity_Series_seriesDisplayName" object="${series}" z="oINFPP7LdktQkbUlwNodYQUllQA="/>
+        <field:display field="useThisSeries" id="s_com_lela_data_domain_entity_Series_useThisSeries" object="${series}" z="wMNG9iCmTKTgSYXeAc/4QZ4X4KY="/>
+    </page:show>
+</div>

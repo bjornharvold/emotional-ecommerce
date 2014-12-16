@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_SeriesType" object="${seriestype}" path="/crud/seriestypes" z="TWPW9NT5k/4qUl2kkvZPKqeghJs=">
+        <field:display date="true" dateTimePattern="${seriesType_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_SeriesType_dateCreated" object="${seriestype}" z="kwD6YXgvMk+vO8FTTSXBBQIjCuc="/>
+        <field:display date="true" dateTimePattern="${seriesType_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_SeriesType_dateModified" object="${seriestype}" z="s68X7hCOAMCyXBUN8RnMPIEIUmI="/>
+        <field:display field="seriesTypeName" id="s_com_lela_data_domain_entity_SeriesType_seriesTypeName" object="${seriestype}" z="7UnmCIgHvpIDqWedRGD+vQhp9I8="/>
+    </page:show>
+</div>

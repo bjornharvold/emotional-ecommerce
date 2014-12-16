@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_FunctionalFilterAnswer" items="${functionalfilteranswers}" z="ahrY9n7LgmCg284UqYakhycf3Ss=">
+        <table:table data="${functionalfilteranswers}" id="l_com_lela_data_domain_entity_FunctionalFilterAnswer" path="/crud/functionalfilteranswers" z="42zYV7Yq0tNUw8mDy8nuXS9OcMk=">
+            <table:column date="true" dateTimePattern="${functionalFilterAnswer_datecreated_date_format}" id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_dateCreated" property="dateCreated" z="L1FIcAhLxi+RSLJNz367qj6kb5E="/>
+            <table:column date="true" dateTimePattern="${functionalFilterAnswer_datemodified_date_format}" id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_dateModified" property="dateModified" z="dYVQjN7MCXkq5f03GYaVLiPwPM4="/>
+            <table:column id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_functionalFilter" property="functionalFilter" z="8TOMWhom8Xd/nR4PX35q6zU+Sa8="/>
+            <table:column id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_answer" property="answer" z="NTSa2BiwiJ4zqSW9ZTu1ZgebgR0="/>
+            <table:column id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_answerKey" property="answerKey" z="MYqZDFC2zB53idh8P7s5bTQtfI0="/>
+            <table:column id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_functionalFilterAnswerValues" property="functionalFilterAnswerValues" z="JeJNLhzmr2EYViC5ZuQOyBPlV+o="/>
+        </table:table>
+    </page:list>
+</div>

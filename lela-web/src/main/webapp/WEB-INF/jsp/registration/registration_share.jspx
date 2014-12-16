@@ -1,0 +1,117 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="user.form.input.tip" var="inputTip" htmlEscape="false"/>
+    <spring:message code="user.form.email.tip" var="emailTip" htmlEscape="false"/>
+    <spring:message code="user.form.question.tip" var="questionTip" htmlEscape="false"/>
+    <spring:message code="user.form.answer.tip" var="answerTip" htmlEscape="false"/>
+    <spring:message code="user.form.error.email" var="userErrorEmail" htmlEscape="false"/>
+    <spring:message code="user.form.error.empty" var="userErrorEmpty" htmlEscape="false"/>
+    <spring:url value="/login" var="loginUrl" />
+    <spring:url value="/user/feedback" var="surveyUrl" />
+    <spring:url value="/static/images/icons/love_ic.gif" var="loveIconUrl"/>
+    <spring:url value="/static/images/icons/money_ic.gif" var="moneyIconUrl"/>
+
+    <script type="text/javascript">
+        var serverError = false;
+
+        var types = {
+            "email-type": "${emailTip}",
+            "name-type": "${inputTip}",
+            "password-type": "",
+            "question-type": "${questionTip}",
+            "answer-type": "${answerTip}"
+         };
+
+        var messages = {
+            "user.form.error.email" : "${userErrorEmail}",
+            "user.form.error.empty" : "${userErrorEmpty}"
+        }
+    </script>
+
+    <div class="r-form">
+
+        <c:set var="blog" value="blog"/>
+        <c:forEach var="ssctn" items="${inviter.ssctns}">
+            <c:if test="${ssctn.tp eq 'BLOG'}">
+                <c:set var="blog" value="${ssctn.nm}"/>
+            </c:if>
+        </c:forEach>
+
+        <h2>Welcome, ${blog} reader!</h2>
+        <p>Please provide your information below to create your Lela account. <br/>
+        Then play around on the site, and let us know what you think by answering <br/>
+        <a href="${surveyUrl}" target="_blank">these short questions</a> - and we'll send you $20 with our thanks!</p>
+
+        <c:choose>
+            <c:when test="${!empty errors}">
+                <h3 style="color:red; margin-top:40px;"><spring:message code="${errors.message}"/></h3>
+            </c:when>
+            <c:otherwise>
+
+                <spring:bind path="shareWithFriendUserDto.*">
+                    <c:if test="${status.error}">
+                        <script type="text/javascript">
+                            var serverError = true;
+                        </script>
+                    </c:if>
+                </spring:bind>
+                
+                <spring-form:form id="reg-form" method="POST" commandName="shareWithFriendUserDto" class="custom">
+
+                    <div class="f-row">
+
+                        <div class="h-row">
+                            <spring-form:label path="fnm"><spring:message code="user.form.firstname"/></spring-form:label>
+                            <spring-form:input path="fnm" class="name-type"/> <spring-form:errors path="fnm" cssClass="error"/>
+                        </div>
+
+                        <div class="h-row">
+                            <spring-form:label path="lnm"><spring:message code="user.form.lastname"/></spring-form:label>
+                            <spring-form:input path="lnm" class="name-type"/> <spring-form:errors path="lnm" cssClass="error"/>
+                        </div>
+                    </div>
+
+                    <div class="f-row">
+                        <spring-form:label path="ml"><spring:message code="user.email"/></spring-form:label>
+                        <spring-form:input path="ml" class="email-type required"/> <spring-form:errors path="ml" cssClass="error"/>
+                        <div class="error"><!-- --></div>
+                    </div>
+
+                    <div class="f-row">
+                        <spring-form:label path="psswrd"><spring:message code="user.password"/></spring-form:label>
+                        <spring-form:password path="psswrd" class="password-type required"/> <spring-form:errors path="psswrd" cssClass="error"/>
+                        <div class="error"><!-- --></div>
+                    </div>
+
+                    <div class="f-row radio">
+                        <spring-form:radiobutton path="gndr" value="MALE"/><label><spring:message code="user.gender.male"/></label>
+                        <spring-form:radiobutton path="gndr" value="FEMALE"/><label><spring:message code="user.gender.female"/></label>
+                    </div>
+
+                    <div class="f-row">
+                        <a href="#" class="r-submit">Sign me up!</a>
+                    </div>
+                </spring-form:form>
+            </c:otherwise>
+        </c:choose>
+
+
+
+    </div>
+</div>

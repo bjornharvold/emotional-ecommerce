@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="crud/locales/list">
+        <put-attribute name="body" value="/WEB-INF/views/crud/locales/list.jspx"/>
+    </definition>
+<definition extends="default" name="crud/locales/show">
+        <put-attribute name="body" value="/WEB-INF/views/crud/locales/show.jspx"/>
+    </definition>
+<definition extends="default" name="crud/locales/create">
+        <put-attribute name="body" value="/WEB-INF/views/crud/locales/create.jspx"/>
+    </definition>
+<definition extends="default" name="crud/locales/update">
+        <put-attribute name="body" value="/WEB-INF/views/crud/locales/update.jspx"/>
+    </definition>
+</tiles-definitions>

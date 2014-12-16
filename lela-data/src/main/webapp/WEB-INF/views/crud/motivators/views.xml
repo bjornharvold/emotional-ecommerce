@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="crud/motivators/list">
+        <put-attribute name="body" value="/WEB-INF/views/crud/motivators/list.jspx"/>
+    </definition>
+<definition extends="default" name="crud/motivators/show">
+        <put-attribute name="body" value="/WEB-INF/views/crud/motivators/show.jspx"/>
+    </definition>
+<definition extends="default" name="crud/motivators/create">
+        <put-attribute name="body" value="/WEB-INF/views/crud/motivators/create.jspx"/>
+    </definition>
+<definition extends="default" name="crud/motivators/update">
+        <put-attribute name="body" value="/WEB-INF/views/crud/motivators/update.jspx"/>
+    </definition>
+</tiles-definitions>

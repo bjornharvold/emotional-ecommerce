@@ -1,0 +1,39 @@
+{ "list": [
+        {
+            "rlnm":"gigglesoho-offer1",
+            "brnchrlnm":"giggle-2574-1",
+            "vlndtrms":"$50 off at Giggle",
+            "strtdt":"Thu, 15 Dec 2011 15:07:31 GMT -05:00",
+            "xprtndt":"Tue, 31 Jan 2012 23:59:59 GMT -05:00",
+            "dscrptn":"Get $50 off any $500 purchase at any Giggle store in New York City",
+            "nprprsn":false,
+            "frqncy":"0",
+            "sdltd":false,
+            "crtddt":"Thu, 15 Dec 2011 15:07:37 GMT -05:00"
+        },
+        {
+            "rlnm":"giggleuppereastside-offer1",
+            "brnchrlnm":"giggle-2574-2",
+            "vlndtrms":"$50 off at Giggle",
+            "strtdt":"Thu, 15 Dec 2011 15:07:31 GMT -05:00",
+            "xprtndt":"Tue, 31 Jan 2012 23:59:59 GMT -05:00",
+            "dscrptn":"Get $50 off any $500 purchase at any Giggle store in New York City",
+            "nprprsn":false,
+            "frqncy":"0",
+            "sdltd":false,
+            "crtddt":"Thu, 15 Dec 2011 15:07:37 GMT -05:00"
+        },
+        {
+            "rlnm":"giggleupperwestside-offer1",
+            "brnchrlnm":"giggle-2574-3",
+            "vlndtrms":"$50 off at Giggle",
+            "strtdt":"Thu, 15 Dec 2011 15:07:31 GMT -05:00",
+            "xprtndt":"Tue, 31 Jan 2012 23:59:59 GMT -05:00",
+            "dscrptn":"Get $50 off any $500 purchase at any Giggle store in New York City",
+            "nprprsn":false,
+            "sdltd":false,
+            "frqncy":"0",
+            "crtddt":"Thu, 15 Dec 2011 15:07:37 GMT -05:00"
+        }
+    ]
+}

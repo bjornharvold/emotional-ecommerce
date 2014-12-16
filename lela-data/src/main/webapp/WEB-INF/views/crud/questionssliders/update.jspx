@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_QuestionsSlider" modelAttribute="questionsSlider" path="/crud/questionssliders" versionField="Version" z="o/Qu44t6vJm/O7kn2LNtlQCFcuY=">
+        <field:datetime dateTimePattern="${questionsSlider_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_QuestionsSlider_dateCreated"  z="user-managed" render="false"/>
+        <field:datetime dateTimePattern="${questionsSlider_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_QuestionsSlider_dateModified"  z="user-managed" render="false"/>
+        <field:input field="active" id="c_com_lela_data_domain_entity_QuestionsSlider_active" z="VaJwTidg4ER8bpe0PtAJDNmSfEg="/>
+        <field:input field="groupName" id="c_com_lela_data_domain_entity_QuestionsSlider_groupName" validationMessageCode="field_invalid_integer" z="x+e3ERqtBm8xofZfNUbdpYITjoM="/>
+        <field:input field="questionSerial" id="c_com_lela_data_domain_entity_QuestionsSlider_questionSerial" validationMessageCode="field_invalid_integer" z="m0rpMDOzuU9on21xWYmWya87HK8="/>
+        <field:input field="instructions" id="c_com_lela_data_domain_entity_QuestionsSlider_instructions" z="Dei8c6nvJroFHEJqC2R+kwHORyQ="/>
+        <field:input field="scale" id="c_com_lela_data_domain_entity_QuestionsSlider_scale" z="IVRhym8BinDaxJRpYSDcJV4ljQ0="/>
+        <field:input field="leftSide" id="c_com_lela_data_domain_entity_QuestionsSlider_leftSide" z="H4sUfUrBPrPSqUeWVoaZTHimSFo="/>
+        <field:input field="rightSide" id="c_com_lela_data_domain_entity_QuestionsSlider_rightSide" z="SUB4oSFkRRr5Enmnp0H4QXrEvQQ="/>
+    </form:update>
+</div>

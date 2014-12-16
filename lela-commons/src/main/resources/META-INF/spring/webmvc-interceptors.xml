@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+    <!--
+         register "global" interceptor beans to apply to all registered
+         HandlerMappings
+     -->
+    <mvc:interceptors>
+        <!-- On pre-handle, resolve the device that originated the web request -->
+        <bean class="org.springframework.mobile.device.DeviceResolverHandlerInterceptor">
+            <constructor-arg ref="wurflDeviceResolver"/>
+        </bean>
+        <!-- On pre-handle, manage the user's site preference (declare after DeviceResolverHandlerInterceptor) -->
+        <bean class="org.springframework.mobile.device.site.SitePreferenceHandlerInterceptor"/>
+        <bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor"/>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="lang"/>
+
+        <ref bean="userSessionAndTrackingHandlerInterceptor"/>
+    </mvc:interceptors>
+
+    <!-- On post-handle, track page clicks -->
+    <bean id="userSessionAndTrackingHandlerInterceptor" class="com.lela.commons.spring.analytics.UserSessionAndTrackingHandlerInterceptor"
+          c:userSessionTrackingHelper-ref="userSessionTrackingHelper"
+          c:userTrackerService-ref="userTrackerService"
+          c:affiliateService-ref="affiliateService"
+          c:campaignService-ref="campaignService">
+        <constructor-arg name="mappingExclusions">
+            <list>
+                <value>/static</value>
+                <value>/api</value>
+                <value>/uncaughtException</value>
+                <value>/resourceNotFound</value>
+                <value>/dataAccessFailure</value>
+                <value>/internalServerError</value>
+                <value>/404</value>
+                <value>/500</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- mobile device resolver -->
+    <bean id="wurflDeviceResolver" class="com.lela.commons.spring.mobile.WurflDeviceResolver" c:wurflManager-ref="wurflManager"/>
+
+    <bean id="wurflManager" class="com.lela.commons.spring.mobile.WurflManagerFactoryBean"
+          c:rootLocation="/WEB-INF/wurfl/wurfl.zip"/>
+
+</beans>

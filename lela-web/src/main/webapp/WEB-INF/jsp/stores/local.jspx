@@ -1,0 +1,92 @@
+<!--
+  ~ Copyright (c) 2012. Lela.com.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+
+    <lela:findUser/>
+
+    <spring:url value="/item/bobrevolutionce/stores" var="localStoreUrl" />
+    <spring:url value="/login" var="loginUrl" />
+    <spring:url value="/local" var="localUrl" />
+
+    <script type="text/javascript">
+        var localStoreUrl = '${localStoreUrl}';
+    </script>
+
+    <div class="lela-page-container page-local-stores">
+
+        <div class="lela-page-header">
+            <h2><spring:message code="stores.on.lela.title" /></h2>
+            <spring:url value="/static/images/icons/my_faves_off_outline.png" var="faveImg" />
+            <h3><spring:message code="stores.on.lela.lead" htmlEscape="false" arguments="${faveImg}" /></h3>
+
+            <spring:url value="/stores" var="onlineLink" />
+            <spring:url value="/local" var="localLink" />
+            <div class="horizontal">
+                <a href="${onlineLink}" style="margin-right: 30px;"><spring:message code="stores.on.lela.online" /></a>
+                <spring:message code="stores.on.lela.local" />
+            </div>
+            <div class="horizontal-shade"><!-- --></div>
+        </div>
+
+        <div class="lela-page-content">
+
+            <script type="text/javascript">
+                var localUrl = '${localUrl}';
+            </script>
+
+            <div class="store-filter">
+
+                <div class="store-count">
+                    <c:choose>
+                        <c:when test="${fn:length(zipcode) == 0}">
+                            <span><spring:message code="stores.on.lela.local.zip" /></span>
+                        </c:when>
+                        <c:when test="${fn:length(branches.stores) == 0}">
+                            <span><spring:message code="stores.on.lela.local.nostores" /></span>
+                        </c:when>
+                        <c:otherwise>
+                            <spring:message code="stores.on.lela.local.numberofstores" htmlEscape="false" arguments="${fn:length(branches.stores)}, ${zipcode}" />
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+
+                <form action="#" class="custom" id="zip-f">
+                    <label><spring:message code="user.zip.your" htmlEscape="false"/></label>
+                    <input name="zipcode" id="zipcode" value="${!empty zipcode ? zipcode : us.czp}"/>
+                    <a href="#"><spring:message code="button.update"/></a>
+                </form>
+
+                <div class="clearfix"><!-- --></div>
+
+            </div>
+
+            <div id="local-stores">
+                <tiles:insertTemplate template="/WEB-INF/jsp/stores/local_stores.jspx" flush="true">
+                    <tiles:putAttribute name="branches" value="${branches}" />
+                </tiles:insertTemplate>
+            </div>
+
+            <div class="clearfix"><!-- --></div>
+
+        </div>
+
+    </div>
+
+</jsp:root>

@@ -1,0 +1,103 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <spring:url value="/#lela-summary" var="homeUrl" />
+
+    <div id="blog-content">
+        
+        <h1>Welcome to Lela.<br/>
+        <span>Here’s what we’re all about.</span></h1>
+
+        <object width="720" height="405"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=31055610&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1&amp;autoplay=0&amp;loop=0" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=31055610&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1&amp;autoplay=0&amp;loop=0" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="720" height="405"></embed></object>
+
+         <p>
+            <b>Dear mom or dad (or parent-to-be),</b>
+        </p>
+        <p>
+            A bunch of us on Team Lela are parents of young kids. We found that we had a shared frustration: shopping for baby products. You do a search for
+            “strollers” and instantly, you’re up to your eyeballs in strollers! With a new baby, you don’t even have time to sleep – let alone spend hours
+            browsing through a gazillion options, wondering which stroller is the right one.
+        </p>
+        <p>
+            So we decided to do something about it. 
+        </p>
+        <p>
+            <b>Understanding what matters to you</b>
+        </p>
+        <p>
+            Every parent shopping for a baby product has a unique perspective on what matters most. But once we go online, we face a barrage of advertising,
+            millions of search results, conflicting product reviews ... it’s easy to drown in the flood of information.
+        </p>
+        <p>
+            Our solution is to make a shopping assistant that can cut through the clutter and truly understand what matters to you. If you’re shopping for a
+            stroller, for example, it matters whether you live in a city, or have twins, or if you’re a frequent traveler. Lela can understand and remember
+            these details – so the next time you come back, you don’t have to enter them again.
+        </p>
+        <p>
+            <b>The Lela Compatibility Engine</b>
+        </p>
+        <p>
+            But even once you’ve decided that you want a city stroller or a travel-friendly one, you’re often left with still too many options. How do you
+            find the exact one that’s right for you? That’s when the Lela Compatibility Engine flies in to save the day.
+        </p>
+        <p>
+            On an emotional level, each person is totally unique. Each of us finds satisfaction and contentment from different things. Our <a href="${homeUrl}">Compatibility Quiz</a>
+            is designed to understand what makes YOU happy. Your answers to this test are fed into the Lela Compatibility Engine which then finds the products
+            that match you best. 
+        </p>
+        <p>
+            Which means that, out of those gazillion strollers, we can find the one that will best fit you – and only you. And there are no advertising dollars
+            or corporate subsidies behind us: just our honest recommendations on stuff you’ll love.
+        </p>
+        <p>
+            You really have to see it to believe it, so we suggest you get shopping!
+        </p>
+        <p>
+            <b>The fun is just beginning.</b>
+        </p>
+        <p>
+            We’re just getting warmed up! We’re starting small, but we’ll be adding more baby products each week. And soon, we’ll add other stuff that parents
+            need, like cameras and electronics. If there’s anything specific you’d like to see on Lela, <a href="mailto:info@lela.com">let us know</a>.
+        </p>
+        <p>
+            We’d love to hear your thoughts. We admit, this place is far from perfect yet, so please let us now how we can improve things. Or even better, tell
+            us what you’re loving about Lela! :)
+        </p>
+        <p>
+            <a href="mailto:info@lela.com">Email us</a>, <a href="http://twitter.com/lelaknows">Tweet</a> us, ping us on <a href="http://www.facebook.com/lelaknows?sk=app_203119206385978">Facebook</a>. We’d love, love, love to hear from you.
+        </p>
+        <p>
+            <b>
+                xoxo,
+                <br/>
+            </b>
+            <b>Team Lela</b>
+        </p>
+
+    </div>
+
+    <!--
+    <div id="blog-archive">
+        <h2>Latest Posts</h2>
+
+        <p><a href="#">Welcome to Lela.</a><br/>
+        Posted: October 13, 2011</p>
+        
+    </div>
+    -->
+</jsp:root>

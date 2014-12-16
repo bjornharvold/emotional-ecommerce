@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_Item" modelAttribute="item" path="/items" versionField="Version" z="Uej0wYYYTkMfNET1tHw5mWAx90k=">
+        <field:datetime dateTimePattern="${item_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_Item_dateCreated"  z="user-managed" render="false"/>
+        <field:datetime dateTimePattern="${item_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_Item_dateModified"  z="user-managed" render="false"/>
+        <field:input field="itemAttributes" id="c_com_lela_data_domain_entity_Item_itemAttributes" render="false" z="user-managed"/>
+        <field:input field="itemColors" id="c_com_lela_data_domain_entity_Item_itemColors" render="false" z="user-managed"/>
+        <field:input field="itemColorMerchants" id="c_com_lela_data_domain_entity_Item_itemColorMerchants" render="false" z="user-managed"/>
+        <field:input field="itemIdentifiers" id="c_com_lela_data_domain_entity_Item_itemIdentifiers" render="false" z="user-managed"/>
+        <field:input field="itemRecalls" id="c_com_lela_data_domain_entity_Item_itemRecalls" render="false" z="user-managed"/>
+        <field:input field="itemVideos" id="c_com_lela_data_domain_entity_Item_itemVideos" render="false" z="user-managed"/>
+        <field:input field="productImageItems" id="c_com_lela_data_domain_entity_Item_merchantImageItems" render="false" z="user-managed"/>
+        <field:input field="merchantOfferItems" id="c_com_lela_data_domain_entity_Item_merchantOfferItems" render="false" z="user-managed"/>
+        <field:select field="category" id="c_com_lela_data_domain_entity_Item_category" itemValue="id" items="${categorys}" path="/categorys" z="user-managed"/>
+        <field:select field="brand" id="c_com_lela_data_domain_entity_Item_brand" itemValue="id" items="${brands}" path="/brands" z="user-managed"/>
+        <field:select field="reviewStatus" id="c_com_lela_data_domain_entity_Item_reviewStatus" itemValue="id" items="${reviewStatuses}" path="/reviewstatus" z="user-managed"/>
+        <field:input field="itemId" id="c_com_lela_data_domain_entity_Item_itemId" required="false" validationMessageCode="field_invalid_integer" z="user-managed" render="false"/>
+        <field:input field="validated" id="c_com_lela_data_domain_entity_Item_validated" z="ZB2YkNIyOqW35S14xKLfBHuykmc="/>
+        <field:input field="priority" id="c_com_lela_data_domain_entity_Item_priority" z="Zz/1zPfzHQcJoZp+3WtEJ5TCwVw="/>
+        <field:input field="lelaUrl" id="c_com_lela_data_domain_entity_Item_lelaUrl" z="PCUj2CzeMZEygYR+H1GjV/9nMk4="/>
+        <field:input field="itemType" id="c_com_lela_data_domain_entity_Item_itemType" z="2tvKeL10FOh+Wjawr7GBiJjiME4="/>
+        <field:input field="productOverview" id="c_com_lela_data_domain_entity_Item_productOverview" z="nnmDcH+RMH0dgkcwjM+ck/3W8pU="/>
+        <field:input field="designStyle" id="c_com_lela_data_domain_entity_Item_designStyle" z="CKSGbrW4hhhHyOerPVqtrPEHO4c="/>
+        <field:input field="researcherInitials" id="c_com_lela_data_domain_entity_Item_researcherInitials" z="Fw2dAlBHsaGaA/NdlQEPeR2Mtqw="/>
+        <field:input field="researcherNotes" id="c_com_lela_data_domain_entity_Item_researcherNotes" z="jjsIMbxRzKu0Kh+2wzOgeSd/4XU="/>
+        <field:input field="productModelName" id="c_com_lela_data_domain_entity_Item_productModelName" z="9SjE40pgdBnLvgWZd8ZdXqH+u40="/>
+        <field:input field="modelNumber" id="c_com_lela_data_domain_entity_Item_modelNumber" z="vNfqrG15GKTXkG9AroYv6sUmcdQ="/>
+        <field:input field="modelUrl" id="c_com_lela_data_domain_entity_Item_modelUrl" z="/iMLuo/mUDNTU/xUQM8tLz288/M="/>
+        <field:input field="listPrice" id="c_com_lela_data_domain_entity_Item_listPrice" z="FEUeDaxkvP+AydwF+CzWzpsMYIw="/>
+        <field:input field="listPriceRange" id="c_com_lela_data_domain_entity_Item_listPriceRange" z="qVjz1jaEZGp7li/NsZOkzvr7cww="/>
+        <field:input field="salePrice" id="c_com_lela_data_domain_entity_Item_salePrice" z="X5YlhHs4lSmYH3744sY7y8hnEeM="/>
+        <field:checkbox field="useThisItem" id="c_com_lela_data_domain_entity_Item_useThisItem" z="8k5TqaoTW2iYZiVfG1t9f9FD5R0="/>
+        <field:checkbox field="deleteThisItem" id="c_com_lela_data_domain_entity_Item_deleteThisItem" z="GL6Hw6kMAmZZc8DXqdHm3m3P7nw="/>
+        <field:checkbox field="researchComplete" id="c_com_lela_data_domain_entity_Item_researchComplete" z="o55Jh/gTihaKFVSiCqqC/VLgm5Q="/>
+        <field:input field="objectId" id="c_com_lela_data_domain_entity_Item_objectId" z="KJ77btrYUyRknrPqBQCGawfYWu4="/>
+        <field:input field="urlName" id="c_com_lela_data_domain_entity_Item_urlName" z="xiW1JHeoNmjiIR4h2Q/ZWIhwz1g="/>
+        <field:checkbox field="testingComplete" id="c_com_lela_data_domain_entity_Item_testingComplete" z="hgV5YA1Le+2kb34mVSSFDwji6Zk="/>
+        <field:checkbox field="blockFeedUpdates" id="c_com_lela_data_domain_entity_Item_blockFeedUpdates" z="iQi49f6rLNmux10r3OytKrd3tyA="/>
+        <field:input field="conditionType" id="c_com_lela_data_domain_entity_Item_conditionType" z="uTbnGgHmBdgvq3G5sEvjf6BSd4U="/>
+        <field:checkbox field="doNotUse" id="c_com_lela_data_domain_entity_Item_doNotUse" z="5P7MgHQe2i8oRcI/cT21ZhvbXJA="/>
+    </form:update>
+</div>

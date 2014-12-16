@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_FunctionalFilter" object="${functionalfilter}" path="/crud/functionalfilters" z="gSY0kYx/5irqGe3LakmCxgdPE+A=">
+        <field:display date="true" dateTimePattern="${functionalFilter_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_FunctionalFilter_dateCreated" object="${functionalfilter}" z="SFwM6lcEjvOATiksmjb0dshiQgg="/>
+        <field:display date="true" dateTimePattern="${functionalFilter_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_FunctionalFilter_dateModified" object="${functionalfilter}" z="3fhXnJwt6DZmVDgTE0wwOPeT5oo="/>
+        <field:display field="functionalFilterType" id="s_com_lela_data_domain_entity_FunctionalFilter_functionalFilterType" object="${functionalfilter}" z="f6aEE4PHQr03xF5BfQ6Il2leGQQ="/>
+        <field:display field="locale" id="s_com_lela_data_domain_entity_FunctionalFilter_locale" object="${functionalfilter}" z="DLNOew0HUt1Pe5BsftWkQxKUxFs="/>
+        <field:display field="functionalFilterAnswers" id="s_com_lela_data_domain_entity_FunctionalFilter_functionalFilterAnswers" object="${functionalfilter}" z="3UU+WGzXG+l5ZDXGiY2KpM8J7A0="/>
+        <field:display field="functionalFilterName" id="s_com_lela_data_domain_entity_FunctionalFilter_functionalFilterName" object="${functionalfilter}" z="a3bveXTlOLsuq/ZWRUqh89HIcXU="/>
+        <field:display field="dataKey" id="s_com_lela_data_domain_entity_FunctionalFilter_dataKey" object="${functionalfilter}" z="ju00Ez59L0NCsXIHYHx7VHRczBs="/>
+        <field:display field="functionalFilterOrder" id="s_com_lela_data_domain_entity_FunctionalFilter_functionalFilterOrder" object="${functionalfilter}" z="S7uTs2qiDbIJomgFxLcnHB8DeVQ="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_FunctionalFilter_dirty" object="${functionalfilter}" z="xXQuZAgtCQtXPnmpYOARkl6bgcY="/>
+        <field:display field="objectId" id="s_com_lela_data_domain_entity_FunctionalFilter_objectId" object="${functionalfilter}" z="aeQj4M748hJRwvSYKXUcOuU8dcs="/>
+        <field:display field="functionalFilterLabel" id="s_com_lela_data_domain_entity_FunctionalFilter_functionalFilterLabel" object="${functionalfilter}" z="ImnAHmHfUgAu5lIXuFwDIySCMlw="/>
+    </page:show>
+</div>

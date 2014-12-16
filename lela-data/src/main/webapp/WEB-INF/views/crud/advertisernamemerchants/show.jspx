@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_AdvertiserNameMerchant" object="${advertisernamemerchant}" path="/crud/advertisernamemerchants" z="DEPzglVyvRtFBk+rWCXaW24yO5A=">
+        <field:display date="true" dateTimePattern="${advertiserNameMerchant_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_AdvertiserNameMerchant_dateCreated" object="${advertisernamemerchant}" z="fh2fIFHCk8NaRfLQKJ92HkyrGWU="/>
+        <field:display date="true" dateTimePattern="${advertiserNameMerchant_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_AdvertiserNameMerchant_dateModified" object="${advertisernamemerchant}" z="SyTWEcP2EMXCcAut2jHg+XGnBPo="/>
+        <field:display field="merchant" id="s_com_lela_data_domain_entity_AdvertiserNameMerchant_merchant" object="${advertisernamemerchant}" z="ajLMXfeEsZ7BPP+2n5fdWDVJUxM="/>
+        <field:display field="advertiserName" id="s_com_lela_data_domain_entity_AdvertiserNameMerchant_advertiserName" object="${advertisernamemerchant}" z="1x0oxcwRtbU1vuHFfYuXbE8zWh8="/>
+    </page:show>
+</div>

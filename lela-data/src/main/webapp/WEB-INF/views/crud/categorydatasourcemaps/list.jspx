@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_CategoryDataSourceMap" items="${categorydatasourcemaps}" z="RPhVx6t0KjnlfSx4kItyhtN2rvI=">
+        <table:table data="${categorydatasourcemaps}" id="l_com_lela_data_domain_entity_CategoryDataSourceMap" path="/crud/categorydatasourcemaps" z="WqYeU9chnpaM5ntZmtKVvBOUl1M=">
+            <table:column date="true" dateTimePattern="${categoryDataSourceMap_datecreated_date_format}" id="c_com_lela_data_domain_entity_CategoryDataSourceMap_dateCreated" property="dateCreated" z="wLnrxD/JtuuFC5Wgqzh/ccR/HxY="/>
+            <table:column date="true" dateTimePattern="${categoryDataSourceMap_datemodified_date_format}" id="c_com_lela_data_domain_entity_CategoryDataSourceMap_dateModified" property="dateModified" z="K1rh3jSR211uuY6TFbkV0TIm260="/>
+            <table:column id="c_com_lela_data_domain_entity_CategoryDataSourceMap_dataSource" property="dataSource" z="K7/LELQCPmwGdEbiad59bdFKryw="/>
+            <table:column id="c_com_lela_data_domain_entity_CategoryDataSourceMap_dataSoureceString" property="dataSoureceString" z="KEe5Yjf0c8dB8BEqek95ht0N26w="/>
+            <table:column id="c_com_lela_data_domain_entity_CategoryDataSourceMap_attributeName" property="attributeName" z="XlH3mcpd3Q67P7pMFsQ/u9enxOY="/>
+            <table:column id="c_com_lela_data_domain_entity_CategoryDataSourceMap_attributeValue" property="attributeValue" z="hEc51qDmRNax8glxf8Mz24FfI4o="/>
+        </table:table>
+    </page:list>
+</div>

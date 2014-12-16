@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+	<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+	<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="ingest.job.list" extends="template.page.master">
+		<put-attribute type="string" name="title" value="ingest.job.list.title" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/ingest/ingest.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/ingest/jobs.js" />
+        </put-list-attribute>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/jobs/index.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="ingest.job.parameters" extends="template.page.master">
+        <put-attribute type="string" name="title" value="ingest.job.parameters.title" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/ingest/ingest.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/ingest/jobs.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/jobs/parameters.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="etl.job.details" extends="template.page.master">
+		<put-attribute type="string" name="title" value="ingest.job.details.title" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/ingest/ingest.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/ingest/jobs.js" />
+        </put-list-attribute>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/jobs/details-etl.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="etl.job.context" extends="template.page.master">
+        <put-attribute type="string" name="title" value="ingest.job.context.title" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/ingest/ingest.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/ingest/jobs.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/jobs/context-etl.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="sync.job.details" extends="template.page.master">
+        <put-attribute type="string" name="title" value="ingest.job.details.title" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/ingest/ingest.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/ingest/jobs.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/jobs/details-sync.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="sync.job.context" extends="template.page.master">
+        <put-attribute type="string" name="title" value="ingest.job.context.title" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/ingest/ingest.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/ingest/jobs.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/jobs/context-etl.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="talend.job.details" extends="template.page.master">
+        <put-attribute type="string" name="title" value="ingest.job.details.title" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/ingest/ingest.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/ingest/jobs.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/jobs/details-talend.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="talend.job.context" extends="template.page.master">
+        <put-attribute type="string" name="title" value="ingest.job.context.title" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/ingest/ingest.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/ingest/jobs.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/jobs/context-talend.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="chain.job.details" extends="template.page.master">
+        <put-attribute type="string" name="title" value="ingest.job.details.title" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/ingest/ingest.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/ingest/jobs.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/jobs/details-chain.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="chain.job.context" extends="template.page.master">
+        <put-attribute type="string" name="title" value="ingest.job.context.title" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/ingest/ingest.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/ingest/jobs.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/jobs/context-chain.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="java.job.details" extends="template.page.master">
+        <put-attribute type="string" name="title" value="ingest.job.details.title" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/ingest/ingest.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/ingest/jobs.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/jobs/details-java.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="java.job.context" extends="template.page.master">
+        <put-attribute type="string" name="title" value="ingest.job.context.title" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/ingest/ingest.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/ingest/jobs.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/jobs/context-java.jspx" />
+        </put-list-attribute>
+    </definition>
+
+</tiles-definitions>

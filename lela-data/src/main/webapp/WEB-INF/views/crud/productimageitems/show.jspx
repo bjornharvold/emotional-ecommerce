@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ProductImageItem" object="${productimageitem}" path="/crud/productimageitems" z="35+X1rAbhKEx9n5MOLc5w3wnBGg=">
+        <field:display date="true" dateTimePattern="${productImageItem_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ProductImageItem_dateCreated" object="${productimageitem}" z="/VywE9zY70H6Hk87A+o2pFaOPdM="/>
+        <field:display date="true" dateTimePattern="${productImageItem_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ProductImageItem_dateModified" object="${productimageitem}" z="K/c4IKqd12FgHG0wDbf7vU2A69A="/>
+        <field:display field="item" id="s_com_lela_data_domain_entity_ProductImageItem_item" object="${productimageitem}" z="ytDu+g7BoESWBdzFbs8mUIZU7F4="/>
+        <field:display field="productImage" id="s_com_lela_data_domain_entity_ProductImageItem_productImage" object="${productimageitem}" z="x6sf8dwf+Ui45J2FZERLle7t5mU="/>
+        <field:display field="doNotUse" id="s_com_lela_data_domain_entity_ProductImageItem_doNotUse" object="${productimageitem}" z="GEDY83vUi2CAMWW8FkX4KLe0ab0="/>
+        <field:display field="duplicate" id="s_com_lela_data_domain_entity_ProductImageItem_duplicate" object="${productimageitem}" z="yqploZk+fjCIvftEFLzfvMPKoNw="/>
+        <field:display field="productImageItemStatus" id="s_com_lela_data_domain_entity_ProductImageItem_productImageItemStatus" object="${productimageitem}" z="nOxnJ8NqJnq4aaEJupvbu1H4Rwk="/>
+    </page:show>
+</div>

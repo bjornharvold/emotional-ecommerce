@@ -1,0 +1,131 @@
+<!--
+~ Copyright (c) 2012. Purple Door Systems, BV.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:spring="http://www.springframework.org/tags"
+          xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/xml; charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="false"/>
+
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+        <!-- home page -->
+        <spring:url value="${pageContext.request.scheme}://${pageContext.request.serverName}/" var="root"/>
+        <url>
+            <loc>${root}</loc>
+            <changefreq>daily</changefreq>
+            <priority>1.00</priority>
+        </url>
+
+        <c:if test="${!empty sitemap}">
+
+            <!-- print out categories -->
+            <c:if test="${!empty sitemap.ctgrs}">
+                <c:forEach items="${sitemap.ctgrs}" var="category">
+
+                    <spring:url value="${pageContext.request.scheme}://${pageContext.request.serverName}/${category.srlnm}/c" var="categoryUrl">
+                        <spring:param name="rlnm" value="${category.rlnm}"/>
+                    </spring:url>
+
+                    <url>
+                        <loc>${categoryUrl}</loc>
+                        <changefreq>daily</changefreq>
+                        <priority>0.80</priority>
+                    </url>
+
+                </c:forEach>
+            </c:if>
+
+            <!-- print out items -->
+            <c:if test="${!empty sitemap.tms}">
+                <c:forEach items="${sitemap.tms}" var="mapEntry">
+
+                    <c:forEach items="${mapEntry.value}" var="item">
+
+                        <spring:url value="${pageContext.request.scheme}://${pageContext.request.serverName}/${item.srlnm}/p" var="itemUrl">
+                            <spring:param name="rlnm" value="${item.rlnm}"/>
+                        </spring:url>
+
+                        <url>
+                            <loc>${itemUrl}</loc>
+                            <changefreq>daily</changefreq>
+                            <priority>0.64</priority>
+                        </url>
+
+                    </c:forEach>
+
+                </c:forEach>
+            </c:if>
+
+            <!-- print out stores -->
+            <c:if test="${!empty sitemap.strs}">
+                <c:forEach items="${sitemap.strs}" var="store">
+
+                    <spring:url value="${pageContext.request.scheme}://${pageContext.request.serverName}/${store.srlnm}/s" var="storeUrl">
+                        <spring:param name="rlnm" value="${store.rlnm}"/>
+                    </spring:url>
+
+                    <url>
+                        <loc>${storeUrl}</loc>
+                        <changefreq>daily</changefreq>
+                        <priority>0.50</priority>
+                    </url>
+
+                </c:forEach>
+            </c:if>
+
+            <!-- print out owners -->
+            <c:if test="${!empty sitemap.wnrs}">
+                <c:forEach items="${sitemap.wnrs}" var="owner">
+
+                    <spring:url value="${pageContext.request.scheme}://${pageContext.request.serverName}/${owner.srlnm}/b" var="ownerUrl">
+                        <spring:param name="rlnm" value="${owner.rlnm}"/>
+                    </spring:url>
+
+                    <url>
+                        <loc>${ownerUrl}</loc>
+                        <changefreq>daily</changefreq>
+                        <priority>0.50</priority>
+                    </url>
+
+                </c:forEach>
+            </c:if>
+
+            <!-- print out blogs -->
+            <c:if test="${!empty sitemap.blgs}">
+                <c:forEach items="${sitemap.blgs}" var="blog">
+
+                    <spring:url value="${pageContext.request.scheme}://${pageContext.request.serverName}/blog/${blog.rlnm}" var="blogUrl"/>
+
+                    <url>
+                        <loc>${blogUrl}</loc>
+                        <changefreq>daily</changefreq>
+                        <priority>0.50</priority>
+                    </url>
+
+                </c:forEach>
+            </c:if>
+
+            <!-- print out static content -->
+            <c:if test="${!empty sitemap.sttc}">
+                <c:forEach items="${sitemap.sttc}" var="sc">
+
+                    <spring:url value="${pageContext.request.scheme}://${pageContext.request.serverName}/sc/${sc.rlnm}" var="staticContentUrl"/>
+
+                    <url>
+                        <loc>${staticContentUrl}</loc>
+                        <changefreq>daily</changefreq>
+                        <priority>0.25</priority>
+                    </url>
+
+                </c:forEach>
+            </c:if>
+
+
+        </c:if>
+    </urlset>
+</jsp:root>

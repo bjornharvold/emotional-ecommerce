@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ActionType" object="${actiontype}" path="/crud/actiontypes" z="eL8s+xEPfm/FBABpOIUKLhVRd7w=">
+        <field:display date="true" dateTimePattern="${actionType_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ActionType_dateCreated" object="${actiontype}" z="AwEfar2LlZwYDE2bljrI7RPT9wk="/>
+        <field:display date="true" dateTimePattern="${actionType_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ActionType_dateModified" object="${actiontype}" z="x2kp/VcKZDxKRx20z2Wrd8C29Ms="/>
+        <field:display field="actionTypeName" id="s_com_lela_data_domain_entity_ActionType_actionTypeName" object="${actiontype}" z="rcA7OIT8GHVSRBaSEeNIhH4ZCXA="/>
+    </page:show>
+</div>

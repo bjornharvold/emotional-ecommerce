@@ -1,0 +1,41 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript">
+    $().ready(function($) {
+
+        var height = $('iframe').height();
+
+        // alert(height);
+
+        // $('iframe').css('height', height-20);
+        $('iframe').css('overflow', 'hidden');
+    });
+    </script>
+
+
+    <div id="survey">
+        <h2>We're still potty-training.<span>Tell us, how can we do better?</span></h2>
+        <p>So your opinion is incredibly valuable to us. Please, pretty please?</p>
+
+        <div id="surveyMonkeyInfo"><!-- --></div>
+        <script type="text/javascript" src="http://www.surveymonkey.com/jsEmbed.aspx?sm=PMYnCiGSjSAvFoTZeChZIg_3d_3d"><!-- --></script>
+
+    </div>
+
+
+</jsp:root>

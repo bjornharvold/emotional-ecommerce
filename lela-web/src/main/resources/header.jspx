@@ -1,0 +1,58 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+<div class="top-header">
+
+    <div class="logout">
+        <spring:url var="backToSite" value="/"/>
+        <spring:url var="adminHome" value="/administration/dashboard"/>
+        <spring:url var="logout" value="/logout"/>
+
+        Hello, ${us.fnm}&#160;${us.lnm}!
+        <div class="clear"><!-- --></div>
+        <a href="${logout}"><spring:message code="button.logout" text="Sign off"/></a>
+        <a href="${backToSite}"><spring:message code="lela.com"/></a>
+        <div class="clear"><!-- --></div>
+    </div>
+    <a href="${adminHome}"><div class="logo"><!-- --></div></a>
+    <div class="menu">
+
+        <h1><spring:message code="administration.dashboard"/></h1>
+
+        <ul>
+            <security:authorize ifAllGranted="RIGHT_LOGIN_ADMIN">
+            <li class="secondary">
+                <a class="secondary" href="#"><spring:message code="administration.data"/></a>
+                <div class="secondary">
+                    <ul>
+                        <li>
+                            <spring:url var="cacheUrl" value="/administration/cache/console"/>
+                            <a href="${cacheUrl}"><spring:message code="page.admin.cache.title"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            </security:authorize>
+        </ul>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+</div>
+
+
+</div>

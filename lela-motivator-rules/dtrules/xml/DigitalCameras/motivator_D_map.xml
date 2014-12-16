@@ -1,0 +1,60 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'/>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'/>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'/>
+			<setattribute tag='CameraID' RAttribute='CameraID' enclosure='job' type='integer'/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'/>
+
+			<setattribute tag='CameraID' RAttribute='CameraID' enclosure='camera' type='string'/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='camera' type='string'/>
+			<setattribute tag='Brand' RAttribute='Brand' enclosure='camera' type='string'/>
+			<setattribute tag='CameraType' RAttribute='CameraType' enclosure='camera' type='string'/>			
+			<setattribute tag='CameraFlash_EffectiveFlashRangeMax' RAttribute='CameraFlash_EffectiveFlashRangeMax' enclosure='camera' type='double'/>
+			<setattribute tag='CameraFlash_Features' RAttribute='CameraFlash_Features' enclosure='camera' type='string'/>
+			<setattribute tag='CameraFlash_FlashModes' RAttribute='CameraFlash_FlashModes' enclosure='camera' type='string'/>
+			<setattribute tag='CameraFlash_RedEyeReduction' RAttribute='CameraFlash_RedEyeReduction' enclosure='camera' type='string'/>
+			<setattribute tag='CameraFlash_Type' RAttribute='CameraFlash_Type' enclosure='camera' type='string'/>
+			<setattribute tag='CNETImageQuality' RAttribute='CNETImageQuality' enclosure='camera' type='string'/>
+			<setattribute tag='Connections_ConnectorType' RAttribute='Connections_ConnectorType' enclosure='camera' type='string'/>
+			<setattribute tag='Display_DisplayFormat' RAttribute='Display_DisplayFormat' enclosure='camera' type='integer'/>
+			<setattribute tag='DisplayProjector_Type' RAttribute='DisplayProjector_Type' enclosure='camera' type='string'/>
+			<setattribute tag='FocusAdjustment' RAttribute='FocusAdjustment' enclosure='camera' type='string'/>
+			<setattribute tag='General_BodyMaterial' RAttribute='General_BodyMaterial' enclosure='camera' type='string'/>
+			<setattribute tag='ImageStabilizer' RAttribute='ImageStabilizer' enclosure='camera' type='string'/>
+			<setattribute tag='LensSystem_LensAperture' RAttribute='LensSystem_LensAperture' enclosure='camera' type='string'/>
+			<setattribute tag='ApertureLo' RAttribute='ApertureLo' enclosure='camera' type='double'/>
+			<setattribute tag='ApertureHi' RAttribute='ApertureHi' enclosure='camera' type='double'/>
+			<setattribute tag='LensSystem_OpticalZoom' RAttribute='LensSystem_OpticalZoom' enclosure='camera' type='double'/>
+			<setattribute tag='MainFeatures_AEAFControl' RAttribute='MainFeatures_AEAFControl' enclosure='camera' type='string'/>
+			<setattribute tag='MainFeatures_ContinuousShootingSpeed' RAttribute='MainFeatures_ContinuousShootingSpeed' enclosure='camera' type='string'/>
+			<setattribute tag='MainFeatures_FaceDetection' RAttribute='MainFeatures_FaceDetection' enclosure='camera' type='string'/>
+			<setattribute tag='OpticalSensor_OpticalSensorType' RAttribute='OpticalSensor_OpticalSensorType' enclosure='camera' type='string'/>
+			<setattribute tag='VideoInput_ISOMax' RAttribute='VideoInput_ISOMax' enclosure='camera' type='integer'/>
+			<setattribute tag='VideoInput_StillImageFormat' RAttribute='VideoInput_StillImageFormat' enclosure='camera' type='string'/>
+			<setattribute tag='Viewfinder_ViewfinderType' RAttribute='Viewfinder_ViewfinderType' enclosure='camera' type='string'/>
+			<setattribute tag='AdditionalFeatures_AdditionalFeatures' RAttribute='AdditionalFeatures_AdditionalFeatures' enclosure='camera' type='string'/>
+			<setattribute tag='IntelligentFeatures' RAttribute='IntelligentFeatures' enclosure='camera' type='string'/>
+			<setattribute tag='TopFramesPS' RAttribute='TopFramesPS' enclosure='camera' type='double'/>
+			<setattribute tag='motivatorTotalDecimal' RAttribute='motivatorTotalDecimal' enclosure='camera' type='double'/>
+			
+			<createentity entity='job' 			tag='job' 			id='id'/>
+			<createentity entity='camera' 		tag='camera' 		id='id'/>
+			<createentity entity='constants' 	tag='constants' 	id='id'/>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'/>
+			<entity name='job'		 	number='1'/>	
+			<entity name='camera' 		number='*'/>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'/>
+			<initialentity entity='job' 		epush='true'/>
+        </initialization>
+    </XMLtoEDD>
+</mapping>
+
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ItemSeries" object="${itemseries}" path="/crud/itemseries" z="user-managed">
+        <field:display date="true" dateTimePattern="${itemSeries_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ItemSeries_dateCreated" object="${itemseries}" z="EOIAWG7ozHlpY3UlP2zZ+Z5XlZA="/>
+        <field:display date="true" dateTimePattern="${itemSeries_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ItemSeries_dateModified" object="${itemseries}" z="4CxgUogSpjEShdlQsVWjWOlztgM="/>
+        <field:display field="series" id="s_com_lela_data_domain_entity_ItemSeries_series" object="${itemseries}" z="eA4drc3ko3c9s9o1I5IzNE+j0Ic="/>
+        <field:display field="item" id="s_com_lela_data_domain_entity_ItemSeries_item" object="${itemseries}" z="AcYhnTbrWNFKmW3r8KFTEWgwXXo="/>
+        <field:display field="primaryFlag" id="s_com_lela_data_domain_entity_ItemSeries_primaryFlag" object="${itemseries}" z="jwmE/cFacGl86IkDtTMx2lbehOE="/>
+    </page:show>
+</div>

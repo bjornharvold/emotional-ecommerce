@@ -1,0 +1,229 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+    <spring:message code="environment" var="environment"/>
+
+    <!-- Show grid header only first time -->
+    <c:if test="${filtered eq false}">
+
+        <!-- Load card when shared url -->
+        <c:if test="${!empty param.card}">
+            <script type="text/javascript">
+                $().ready(function($) {
+                    $('#card-${param.card} a.card-l').trigger('click');
+                });
+            </script>
+        </c:if>
+
+        <!-- Load card when editing alert from email -->
+        <c:if test="${publicList eq false and !empty param.alert}">
+            <script type="text/javascript">
+                $().ready(function($) {
+                    $('#card-${param.alert} a.btn-alert').trigger('click');
+                });
+            </script>
+        </c:if>
+
+        <!-- Load image upload -->
+        <c:if test="${publicList eq false and !empty param.image}">
+            <script type="text/javascript">
+                $().ready(function($) {
+                    $('#add-image').trigger('click');
+                });
+            </script>
+        </c:if>
+
+        <div class="list-header ${publicList eq false ? 'private' : 'public'}">
+
+            <spring:message var="listName" code="${userList.nm}"/>
+
+            <c:choose>
+                <c:when test="${publicList eq false}">
+                    <spring:url value="/user/list" var="userListUrl"/>
+                    <h2>${listName}
+
+                        <spring:url value="/list/${us.cd}?boardCode=${userList.cd}" var="publicListUrl"/>
+
+                        <c:if test="${!empty param.showdebug}">
+                            <!-- Show temporary debugging links -->
+                            <br/><a href="${publicListUrl}">View your public list</a><br/>
+
+                            <c:choose>
+                                <c:when test="${environment eq 'development'}">
+                                    <a href="javascript:(function(){window._lelalist_env='dev';var jsCode=document.createElement('script');jsCode.setAttribute('src','http://dev.lela.com:8080/static/js/list/grab.js');document.body.appendChild(jsCode); }())">Grab It! Dev</a>
+                                </c:when>
+                                <c:when test="${environment eq 'latest'}">
+                                    <a href="javascript:(function(){window._lelalist_env='latest';var jsCode=document.createElement('script');jsCode.setAttribute('src','http://latest.lela.com/static/js/list/grab.js');document.body.appendChild(jsCode); }())">Grab It! Latest</a>
+                                </c:when>
+                                <c:when test="${environment eq 'qa'}">
+                                    <a href="javascript:(function(){window._lelalist_env='qa';var jsCode=document.createElement('script');jsCode.setAttribute('src','http://qa.lela.com/static/js/list/grab.js');document.body.appendChild(jsCode); }())">Grab It! QA</a>
+                                </c:when>
+                                <c:when test="${environment eq 'www'}">
+                                    <a href="javascript:(function(){window._lelalist_env='www';var jsCode=document.createElement('script');jsCode.setAttribute('src','http://www.lela.com/static/js/list/grab.js');document.body.appendChild(jsCode); }())">Grab It! WWW</a>
+                                </c:when>
+                            </c:choose>
+                        </c:if>
+
+                        <spring:url value="/user/lists" var="allListsUrl"/>
+                        <a href="${allListsUrl}">View all lists</a>
+
+                    </h2>
+
+                    <a href="#" id="comment-toggle">Comments hidden</a>
+
+                    <!-- Share list -->
+                    <c:set var="shareName">${listName} - My Lela List - </c:set>
+                    <c:set var="shareImg"><lela:listCardName listCard="${userList.cards[0]}" type="imgList"/></c:set>
+                    <c:set var="shareUrl"><lela:referralUrl format="domain"/>/list/${userList.prfl.cd}?boardCode=${userList.cd}</c:set>
+                    <c:set var="shareCaption" value=""/>
+                    <c:set var="shareDescription">Lela.com is the best way to find products you'll love.</c:set>
+
+                    <tiles:insertTemplate template="/WEB-INF/jsp/list/card_share.jspx" flush="true">
+                        <tiles:putAttribute name="shareName" value="${shareName}" />
+                        <tiles:putAttribute name="shareImg" value="${shareImg}" />
+                        <tiles:putAttribute name="shareUrl" value="${shareUrl}" />
+                        <tiles:putAttribute name="shareCaption" value="${shareCaption}" />
+                        <tiles:putAttribute name="shareDescription" value="${shareDescription}" />
+                    </tiles:insertTemplate>
+
+                    <spring:url value="/user/list/external?boardCode=${userList.cd}" var="externalFormUrl"/>
+                    <a id="about-list" href="#" onclick="initTutorial(true); return false;">About</a>
+                    <a id="add-image" href="${externalFormUrl}" class="modal">Add item</a>
+
+                </c:when>
+                <c:otherwise>
+                    <spring:url value="/list/${userList.prfl.cd}?boardCode=${userList.cd}" var="userListUrl"/>
+
+                    <c:choose>
+                        <c:when test="${empty userList.prfl.fnm}">
+                            <c:set var="userListName">Lela  List</c:set>
+                        </c:when>
+                        <c:otherwise>
+                            <c:set var="userListName">${userList.prfl.fnm} ${userList.prfl.lnm}'s  List</c:set>
+                        </c:otherwise>
+                    </c:choose>
+
+                    <h2>
+                        <img alt="" src="${userList.prfl.mg}"/>
+                        <span>
+                            ${userListName}
+                            <strong>${listName}</strong>
+                        </span>
+                    </h2>
+                </c:otherwise>
+            </c:choose>
+
+        </div>
+
+        <!-- List Custom Filters and Dropdowns -->
+        <form id="list-filters" action="${userListUrl}" method="POST" class="${publicList eq false ? 'private' : 'public'}">
+
+            <input name="boardCode" type="hidden" value="${userList.cd}" id="boardCode"/>
+
+            <div class="fltr-sec">
+                <a href="#" class="fltr-active ${empty userList.categories ? 'empty' : 'active'}">
+                    Show <span><spring:message code="nav.cat.allProducts"/></span>
+                </a>
+                <ul>
+                    <li><a href="#" data=""><spring:message code="nav.cat.allProducts"/></a></li>
+                    <c:forEach items="${userList.categories}" var="category">
+                        <spring:message code="nav.cat.${category.rlnm}" var="categoryName" />
+                        <li><a href="#" data="${category.rlnm}">${categoryName}</a></li>
+                    </c:forEach>
+                </ul>
+                <input type="hidden" name="categoryUrlName" id="categoryUrlName" value=""/>
+            </div>
+
+            <div class="fltr-sec">
+                <a href="#" class="fltr-active ${empty userList.stores ? 'empty' : 'active'}">
+                    Show <span><spring:message code='nav.cat.allStores'/></span>
+                </a>
+                <ul>
+                    <li><a href="#" data=""><spring:message code="nav.cat.allStores"/></a></li>
+                    <c:forEach items="${userList.stores}" var="store">
+                        <li><a href="#" data="${store.rlnm}">${store.nm}</a></li>
+                    </c:forEach>
+                </ul>
+                <input type="hidden" name="storeUrlName" id="storeUrlName" value=""/>
+            </div>
+
+            <div class="fltr-sec">
+                <a href="#" class="fltr-active ${empty userList.owners ? 'empty' : 'active'}">
+                    Show <span><spring:message code='nav.cat.allBrands'/></span>
+                </a>
+                <ul>
+                    <li><a href="#" data=""><spring:message code="nav.cat.allBrands"/></a></li>
+                    <c:forEach items="${userList.owners}" var="owner">
+                        <li><a href="#" data="${owner.rlnm}">${owner.nm}</a></li>
+                    </c:forEach>
+                </ul>
+                <input type="hidden" name="ownerUrlName" id="ownerUrlName" value=""/>
+            </div>
+
+            <c:if test="${publicList eq false}">
+                <div class="fltr-sec">
+                    <a href="#" class="fltr-active ${empty userList.cards ? 'empty' : 'active'}">
+                        Sort by <span>${publicList eq false ? 'My' : 'Default'} Ordering</span>
+                    </a>
+                    <ul>
+                        <li><a href="#" data="CUSTOM_ORDER">${publicList eq false ? 'My' : 'Default'} Ordering</a></li>
+                        <li><a href="#" data="CREATED_DATE">Date Posted</a></li>
+                        <li><a href="#" data="ALERT_DATE">My Alerts First</a></li>
+                        <li><a href="#" data="REVIEW_DATE">My Reviews First</a></li>
+                        <li><a href="#" data="PRICE_LOW">Lowest Price First</a></li>
+                        <li><a href="#" data="PRICE_HIGH">Highest Price First</a></li>
+                    </ul>
+                    <input type="hidden" name="sortType" id="sortType" value="${!empty userList.query.sortType  ? userList.query.sortType : ''}"/>
+                </div>
+            </c:if>
+        </form>
+    </c:if>
+
+    <div id="list-container" class="${publicList eq false ? 'private' : 'public'}">
+
+        <c:if test="${!empty userList.cards}">
+
+            <c:forEach items="${userList.cards}" var="listCard" varStatus="status">
+                <!-- Common listCard template -->
+                <tiles:insertTemplate template="/WEB-INF/jsp/list/list_card.jspx" flush="true">
+                    <tiles:putAttribute name="publicList" value="${publicList}" />
+                    <tiles:putAttribute name="listCard" value="${listCard}" />
+                </tiles:insertTemplate>
+            </c:forEach>
+        </c:if>
+    </div>
+
+    <tiles:insertTemplate template="/WEB-INF/jsp/list/tutorial.jspx" flush="true">
+        <tiles:putAttribute name="location" value="grid" />
+    </tiles:insertTemplate>
+
+    <c:choose>
+        <c:when test="${!empty param.remoteImg and publicList eq false}">
+            <a id="add-image-remote" style="display:none;" href="${externalFormUrl}&amp;remoteWidth=${param.remoteWidth}&amp;remoteUrl=${param.remoteUrl}&amp;remoteImg=${param.remoteImg}&amp;remoteTitle=${param.remoteTitle}" class="modal"><!-- --></a>
+        </c:when>
+        <c:when test="${empty param.remoteImg and empty userList.cards and empty param.image}">
+            <script type="text/javascript">
+                $().ready(function($) {
+                    initTutorial(true);
+                });
+            </script>
+        </c:when>
+    </c:choose>
+
+</jsp:root>

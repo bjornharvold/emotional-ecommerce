@@ -1,0 +1,79 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="link.edit" var="edit"/>
+    <spring:message code="link.delete" var="delete"/>
+
+    <h1><spring:message code="page.admin.quiz.step.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/quiz/list" var="quizListUrl"/>
+        <a class="action" href="${quizListUrl}">&lt; <spring:message code="quiz.back.to.list"/> </a>
+        <spring:url value="/administration/quiz/${urlName}" var="quizUrl"/>
+        <a class="action" href="${quizUrl}">&lt; <spring:message code="quiz.back.to.quiz"/> </a>
+        <spring:url value="/administration/quiz/${urlName}/step/form" var="editQuizStepUrl">
+            <spring:param name="quizStepId" value="${quizStep.d}"/>
+        </spring:url>
+        <a class="action" href="${editQuizStepUrl}"><spring:message code="link.edit"/></a>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <h3><spring:message code="quiz.step.overview"/></h3>
+
+    <p>
+        <spring:message code="quiz.step.type"/>: ${quizStep.tp}
+    </p>
+
+    <p>
+        <spring:message code="quiz.step.name"/>: ${quizStep.nm}
+    </p>
+
+    <p>
+        <spring:message code="quiz.step.url.name"/>: ${quizStep.rlnm}
+    </p>
+
+    <p>
+        <spring:message code="quiz.step.seo.url.name"/>: ${quizStep.srlnm}
+    </p>
+
+    <p>
+        <spring:message code="quiz.step.order"/>: ${quizStep.rdr}
+    </p>
+
+    <hr/>
+
+    <c:choose>
+        <c:when test="${quizStep.tp == 'QUESTION'}">
+            <jsp:include page="quiz_step_question.jspx" flush="true"/>
+        </c:when>
+        <c:when test="${quizStep.tp == 'SPLASH'}">
+            <jsp:include page="quiz_step_static_content.jspx" flush="true"/>
+        </c:when>
+        <c:otherwise>
+            <p>
+                <spring:message code="quiz.step.type.not.supported"/>
+            </p>
+        </c:otherwise>
+    </c:choose>
+
+</div>

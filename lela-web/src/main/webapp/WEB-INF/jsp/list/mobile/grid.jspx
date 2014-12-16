@@ -1,0 +1,88 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+
+    <div id="list-container">
+
+        <h2>My Lela List</h2>
+
+        <c:if test="${!empty userList.cards}">
+
+            <c:forEach items="${userList.cards}" var="listCard" varStatus="status">
+                <!-- Common listCard template -->
+
+                <div class="card lay-card" rlnm="${listCard.rlnm}" id="card-${listCard.rlnm}">
+                    <c:set var="itemDetailName"><lela:listCardName listCard="${listCard}" type="name"/></c:set>
+                    <c:set var="itemDetailUrl"><lela:listCardName listCard="${listCard}" type="url"/></c:set>
+                    <c:set var="itemImgUrl"><lela:listCardName listCard="${listCard}" type="imgLarge"/></c:set>
+                    <c:set var="shareUrl"><lela:referralUrl format="domain"/>/list/${listCard.prfl.cd}?card=${listCard.rlnm}</c:set>
+
+                    <!-- Card image -->
+                    <div class="card-img imgtype-${listCard.tp}">
+                        <spring:url value="/list/card/${listCard.rlnm}?cd=${publicList eq true ? listCard.prfl.cd : ''}" var="cardUrl"/>
+                        <a href="${itemDetailUrl}" class="card-l">
+                            <c:choose>
+                                <c:when test="${listCard.tp eq 'OWNER'}">
+                                    ${itemDetailName}
+                                </c:when>
+                                <c:otherwise>
+                                    <img class="p-img" src="${itemImgUrl}" alt="${itemDetailName}"/>
+                                </c:otherwise>
+                            </c:choose>
+                        </a>
+                    </div>
+
+                    <a href="${itemDetailUrl}" class="tm-rl linktype-${listCard.tp}">${itemDetailName}</a>
+
+                    <div class="cd-nfo">
+
+                        <c:choose>
+                            <c:when test="${!empty listCard.prfl.mg}">
+                                <spring:url var="profileImgUrl" value="${listCard.prfl.mg}"/>
+                            </c:when>
+                            <c:otherwise>
+                                <spring:url var="profileImgUrl" value="/static/images/icons/default_profile.png"/>
+                            </c:otherwise>
+                        </c:choose>
+
+                        <img src="${profileImgUrl}" alt="" class="us-img"/>
+                        <p>
+                            <c:choose>
+                                <c:when test="${listCard.prfl.cd eq us.cd and publicList eq false}">
+                                    Added on
+                                </c:when>
+                                <c:otherwise>
+                                    <strong>${listCard.prfl.fnm} ${listCard.prfl.lnm}</strong>
+                                </c:otherwise>
+                            </c:choose><br/>
+                            <lela:dateFormat date="${listCard.dt}" zone="false"/>
+                        </p>
+
+                        <c:if test="${!empty listCard.relevantItem and listCard.relevantItem.ttlrlvncynmbr > 0}">
+                            <spring:url value="/static/images/icons/relevancy/relevancy_meter_${listCard.relevantItem.ttlrlvncynmbr}_${publicList eq true ? 'purple' : 'orange'}.png" var="lelaRatingImgUrl" />
+                            <a href="${itemDetailUrl}" class="item-rating"><img src="${lelaRatingImgUrl}" alt="${listCard.relevantItem.ttlrlvncynmbr}%" class="lela-rating"/></a>
+                        </c:if>
+                    </div>
+
+                </div>
+            </c:forEach>
+        </c:if>
+    </div>
+
+</jsp:root>

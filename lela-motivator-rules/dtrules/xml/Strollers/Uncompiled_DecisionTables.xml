@@ -1,0 +1,237 @@
+<decision_tables>
+	<decision_table>
+		<table_name>MG_Calculate</table_name>
+		<xls_file>StrollerMotivator_G_dt.xls</xls_file>
+		<attribute_fields>
+			<TYPE>FIRST</TYPE>
+			<COMMENTS></COMMENTS>
+			<POLICY_REFERENCE></POLICY_REFERENCE>
+		</attribute_fields>
+		<contexts></contexts>
+		<initial_actions></initial_actions>
+		<conditions>
+			<condition_details>
+				<condition_number>1</condition_number>
+				<condition_comment>Execute these things</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>perform when called</condition_description>
+				<condition_column column_number='1' column_value='*'></condition_column>
+			</condition_details>
+		</conditions>
+		<actions>
+			<action_details>
+				<action_number>1</action_number>
+				<action_comment>Calculate price-range based results</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>Perform MG_Ranges</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>3</action_number>
+				<action_comment>Return result</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>Perform MG_Result</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+		</actions>
+		<policy_statements></policy_statements>
+	</decision_table>
+	<decision_table>
+		<table_name>MG_Ranges</table_name>
+		<xls_file>StrollerMotivator_G_dt.xls</xls_file>
+		<attribute_fields>
+			<TYPE>FIRST</TYPE>
+			<COMMENTS></COMMENTS>
+			<POLICY_REFERENCE></POLICY_REFERENCE>
+		</attribute_fields>
+		<contexts>
+			<context_details>
+				<context_number>1</context_number>
+				<context_comment></context_comment>
+				<context_description>for all strollers</context_description>
+			</context_details>
+		</contexts>
+		<initial_actions></initial_actions>
+		<conditions>
+			<condition_details>
+				<condition_number>1</condition_number>
+				<condition_comment>Full Multi-Function Price range check</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>FullMultiFunctionPrice &gt;= 1000</condition_description>
+				<condition_column column_number='1' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>2</condition_number>
+				<condition_comment>Full Multi-Function Price range check</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>FullMultiFunctionPrice &gt;= 800 &amp;&amp; FullMultiFunctionPrice &lt;= 999.99</condition_description>
+				<condition_column column_number='2' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>3</condition_number>
+				<condition_comment>Full Multi-Function Price range check</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>FullMultiFunctionPrice &gt;= 650 &amp;&amp; FullMultiFunctionPrice &lt;= 799.99</condition_description>
+				<condition_column column_number='3' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>4</condition_number>
+				<condition_comment>Full Multi-Function Price range check</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>FullMultiFunctionPrice &gt;= 500 &amp;&amp; FullMultiFunctionPrice &lt;= 649.99</condition_description>
+				<condition_column column_number='4' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>5</condition_number>
+				<condition_comment>Full Multi-Function Price range check</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>FullMultiFunctionPrice &gt;= 350 &amp;&amp; FullMultiFunctionPrice &lt;= 499.99</condition_description>
+				<condition_column column_number='5' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>6</condition_number>
+				<condition_comment>Full Multi-Function Price range check</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>FullMultiFunctionPrice &gt;= 240 &amp;&amp; FullMultiFunctionPrice &lt;= 349.99</condition_description>
+				<condition_column column_number='6' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>7</condition_number>
+				<condition_comment>Full Multi-Function Price range check</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>FullMultiFunctionPrice &gt;= 140 &amp;&amp; FullMultiFunctionPrice &lt;= 239.99</condition_description>
+				<condition_column column_number='7' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>8</condition_number>
+				<condition_comment>Full Multi-Function Price range check</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>FullMultiFunctionPrice &gt;= 70 &amp;&amp; FullMultiFunctionPrice &lt;= 139.99</condition_description>
+				<condition_column column_number='8' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>9</condition_number>
+				<condition_comment>Full Multi-Function Price range check</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>FullMultiFunctionPrice &gt;= 0 &amp;&amp; FullMultiFunctionPrice &lt;= 69.99</condition_description>
+				<condition_column column_number='9' column_value='Y'></condition_column>
+			</condition_details>
+		</conditions>
+		<actions>
+			<action_details>
+				<action_number>1</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =1</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>2</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =2</action_description>
+				<action_column column_number='2' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>3</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =3</action_description>
+				<action_column column_number='3' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>4</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =4</action_description>
+				<action_column column_number='4' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>5</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =5</action_description>
+				<action_column column_number='5' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>6</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =6</action_description>
+				<action_column column_number='6' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>7</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =7</action_description>
+				<action_column column_number='7' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>8</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =8</action_description>
+				<action_column column_number='8' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>9</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =9</action_description>
+				<action_column column_number='9' column_value='X'></action_column>
+			</action_details>
+		</actions>
+		<policy_statements></policy_statements>
+	</decision_table>
+	<decision_table>
+		<table_name>MG_Result</table_name>
+		<xls_file>StrollerMotivator_G_dt.xls</xls_file>
+		<attribute_fields>
+			<TYPE>FIRST</TYPE>
+			<COMMENTS></COMMENTS>
+			<POLICY_REFERENCE></POLICY_REFERENCE>
+		</attribute_fields>
+		<contexts>
+			<context_details>
+				<context_number>1</context_number>
+				<context_comment></context_comment>
+				<context_description>for all strollers</context_description>
+			</context_details>
+		</contexts>
+		<initial_actions></initial_actions>
+		<conditions>
+			<condition_details>
+				<condition_number>1</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>perform when called</condition_description>
+				<condition_column column_number='1' column_value='*'></condition_column>
+			</condition_details>
+		</conditions>
+		<actions>
+			<action_details>
+				<action_number>1</action_number>
+				<action_comment>Set the result</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set job.result = motivatorTotal</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>2</action_number>
+				<action_comment>Set the StrollerID</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set job.StrollerID =  StrollerID</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>3</action_number>
+				<action_comment>Set the BrandID</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set job.BrandID =  BrandID</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+		</actions>
+		<policy_statements></policy_statements>
+	</decision_table>
+</decision_tables>

@@ -1,0 +1,292 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+<div class="top-header">
+
+    <div class="logout">
+        <spring:url var="backToSite" value="/"/>
+        <spring:url var="adminHome" value="/administration/dashboard"/>
+        <spring:url var="logout" value="/j_spring_security_logout"/>
+
+        Hello, ${us.fnm}&#160;${us.lnm}!
+        <div class="clear"><!-- --></div>
+        <a href="${logout}"><spring:message code="button.logout" text="Sign off"/></a>
+        <a href="${backToSite}"><spring:message code="home"/></a>
+        <div class="clear"><!-- --></div>
+    </div>
+    <a href="${adminHome}"><div class="logo"><!-- --></div></a>
+    <div class="menu">
+
+        <h1><spring:message code="administration.dashboard"/></h1>
+
+        <ul>
+            <!-- As we get more advanced with our privileges, we can make these more specific and fine-grained -->
+            <!-- For now, if you can log in to the admin console, you have access to everything -->
+            <security:authorize ifAllGranted="RIGHT_LOGIN_ADMIN">
+            <li class="secondary">
+                <spring:url var="usersUrl" value="/administration/user/list"/>
+                <a class="secondary" href="${usersUrl}"><spring:message code="administration.users"/></a>
+                <div class="secondary">
+                    <ul>
+                        <li>
+                            <a href="${usersUrl}"><spring:message code="administration.user.list"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="userFacebookData" value="/administration/user/facebook"/>
+                            <a href="${userFacebookData}"><spring:message code="administration.users.fetch.facebook.data"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="motivatorReportUrl" value="/administration/user/report/motivator"/>
+                            <a href="${motivatorReportUrl}"><spring:message code="download.report.user.motivator"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="registrationsByAffiliateReportUrl" value="/administration/affiliateaccount/report/registrationsbyaffiliate/generate"/>
+                            <a href="${registrationsByAffiliateReportUrl}"><spring:message code="download.report.registrations.affiliate"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            </security:authorize>
+            <security:authorize ifAllGranted="RIGHT_LOGIN_ADMIN">
+            <li class="secondary">
+                <spring:url var="blogsUrl" value="/administration/blog/list"/>
+                <a class="secondary" href="${blogsUrl}"><spring:message code="administration.blogs"/></a>
+                <div class="secondary">
+                    <ul>
+                        <li>
+                            <a href="${blogsUrl}"><spring:message code="administration.blog.list"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="createBlogUrl" value="/administration/blog"/>
+                            <a href="${createBlogUrl}"><spring:message code="administration.blog.create"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            </security:authorize>
+            <security:authorize ifAllGranted="RIGHT_LOGIN_ADMIN">
+            <li class="secondary">
+                <spring:url var="pressesUrl" value="/administration/press/list"/>
+                <a class="secondary" href="${pressesUrl}"><spring:message code="administration.presses" htmlEscape="false"/></a>
+                <div class="secondary">
+                    <ul>
+                        <li>
+                            <a href="${pressesUrl}"><spring:message code="administration.press.list" htmlEscape="false"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="createPressUrl" value="/administration/press/form"/>
+                            <a href="${createPressUrl}"><spring:message code="administration.press.create"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            </security:authorize>
+            <security:authorize ifAllGranted="RIGHT_READ_APPLICATION">
+            <li class="secondary">
+                <spring:url var="applicationsUrl" value="/administration/application/list"/>
+                <a class="secondary" href="${applicationsUrl}"><spring:message code="page.admin.applications.title"/></a>
+                <div class="secondary">
+                    <ul>
+                        <li>
+                            <a href="${applicationsUrl}"><spring:message code="page.applications.list.title"/></a>
+                        </li>
+                        <security:authorize ifAllGranted="RIGHT_READ_QUIZ">
+                        <li>
+                            <spring:url var="quizzesUrl" value="/administration/quiz/list"/>
+                            <a href="${quizzesUrl}"><spring:message code="page.admin.quiz.list.title"/></a>
+                        </li>
+                        </security:authorize>
+                        <security:authorize ifAllGranted="RIGHT_INSERT_QUIZ">
+                        <li>
+                            <spring:url var="createQuizUrl" value="/administration/quiz/form"/>
+                            <a href="${createQuizUrl}"><spring:message code="quiz.create.entry"/></a>
+                        </li>
+                        </security:authorize>
+                        <security:authorize ifAllGranted="RIGHT_READ_QUIZ">
+                        <li>
+                            <spring:url var="questionsUrl" value="/administration/question/list"/>
+                            <a href="${questionsUrl}"><spring:message code="page.admin.questions.list.title"/></a>
+                        </li>
+                        </security:authorize>
+                        <security:authorize ifAllGranted="RIGHT_INSERT_QUIZ">
+                        <li>
+                            <spring:url var="createQuestionUrl" value="/administration/question/form"/>
+                            <a href="${createQuestionUrl}"><spring:message code="question.create.entry"/></a>
+                        </li>
+                        </security:authorize>
+                        <security:authorize ifAllGranted="RIGHT_READ_PRODUCT_GRID">
+                        <li>
+                            <spring:url var="productGridsUrl" value="/administration/productgrid/list"/>
+                            <a href="${productGridsUrl}"><spring:message code="page.admin.product.grid.list.title"/></a>
+                        </li>
+                        </security:authorize>
+                        <security:authorize ifAllGranted="RIGHT_INSERT_PRODUCT_GRID">
+                        <li>
+                            <spring:url var="createProductGridUrl" value="/administration/productgrid/form"/>
+                            <a href="${createProductGridUrl}"><spring:message code="product.grid.create.entry"/></a>
+                        </li>
+                        </security:authorize>
+                    </ul>
+                </div>
+            </li>
+            </security:authorize>
+            <security:authorize ifAnyGranted="RIGHT_READ_AFFILIATE, RIGHT_READ_CAMPAIGN, RIGHT_READ_CSS_STYLE">
+                <li class="secondary">
+                    <spring:url var="affiliatesUrl" value="/administration/affiliateaccount/list"/>
+                    <a class="secondary" href="${affiliatesUrl}"><spring:message code="affiliate.accounts.title"/></a>
+                    <div class="secondary">
+                        <ul>
+                            <security:authorize ifAllGranted="RIGHT_READ_AFFILIATE">
+                            <li>
+                                <a href="${affiliatesUrl}"><spring:message code="administration.affiliate.accounts"/></a>
+                            </li>
+                            </security:authorize>
+                            <security:authorize ifAllGranted="RIGHT_READ_CAMPAIGN">
+                            <li>
+                                <spring:url var="campaignsUrl" value="/administration/campaign/list"/>
+                                <a href="${campaignsUrl}"><spring:message code="administration.affiliate.campaigns"/></a>
+                            </li>
+                            </security:authorize>
+                            <security:authorize ifAllGranted="RIGHT_READ_CSS_STYLE">
+                                <li>
+                                    <spring:url var="stylesUrl" value="/administration/style/list"/>
+                                    <a href="${stylesUrl}"><spring:message code="administration.styles"/></a>
+                                </li>
+                            </security:authorize>
+                        </ul>
+                    </div>
+                </li>
+            </security:authorize>
+            <security:authorize ifAllGranted="RIGHT_LOGIN_ADMIN">
+            <li class="secondary">
+                <spring:url var="seoUrl" value="/administration/seo/list"/>
+                <a class="secondary" href="${seoUrl}"><spring:message code="administration.seo.url.names"/></a>
+                <div class="secondary">
+                    <ul>
+                        <li>
+                            <a href="${seoUrl}"><spring:message code="administration.seo.url.name.list"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="createSeoUrl" value="/administration/seo"/>
+                            <a href="${createSeoUrl}"><spring:message code="administration.seo.url.name.create"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            </security:authorize>
+            <security:authorize ifAllGranted="RIGHT_LOGIN_ADMIN">
+            <spring:url var="staticContentUrl" value="/administration/static/content/list"/>
+            <li class="secondary">
+                <a class="secondary" href="${staticContentUrl}"><spring:message code="administration.static.pages"/></a>
+                <div class="secondary">
+                    <ul>
+                        <li>
+                            <a href="${staticContentUrl}"><spring:message code="administration.static.page.list"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="staticContentUrl" value="/administration/static/content"/>
+                            <a href="${staticContentUrl}"><spring:message code="administration.static.page.create"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            </security:authorize>
+            <security:authorize ifAllGranted="RIGHT_LOGIN_ADMIN">
+            <spring:url var="navigationBarUrl" value="/administration/navigationbar/list"/>
+            <li class="secondary">
+                <a class="secondary" href="${navigationBarUrl}"><spring:message code="page.admin.navigationbars.title"/></a>
+                <div class="secondary">
+                    <ul>
+                        <li>
+                            <a href="${navigationBarUrl}"><spring:message code="navigationbar.list"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="navigationBarUrl" value="/administration/navigationbar/form"/>
+                            <a href="${navigationBarUrl}"><spring:message code="navigationbar.create.entry"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            </security:authorize>
+            <security:authorize ifAllGranted="RIGHT_LOGIN_ADMIN">
+            <li class="secondary">
+                <spring:url var="eventsUrl" value="/administration/event/list"/>
+                <a class="secondary" href="${eventsUrl}"><spring:message code="administration.events"/></a>
+                <div class="secondary">
+                    <ul>
+                        <li>
+                            <a href="${eventsUrl}"><spring:message code="administration.event.list"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="createEventUrl" value="/administration/event"/>
+                            <a href="${createEventUrl}"><spring:message code="administration.event.create"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            </security:authorize>
+            <security:authorize ifAllGranted="RIGHT_LOGIN_ADMIN">
+            <li class="secondary">
+                <a class="secondary" href="#"><spring:message code="administration.data"/></a>
+                <div class="secondary">
+                    <ul>
+                        <li>
+                            <spring:url var="ownersUrl" value="/administration/owner/list"/>
+                            <a href="${ownersUrl}"><spring:message code="administration.brands"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="storesPerItem" value="/administration/item/storesperitem"/>
+                            <a href="${storesPerItem}"><spring:message code="administration.stores.per.item"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="itemsPerStore" value="/administration/item/itemsperstore"/>
+                            <a href="${itemsPerStore}"><spring:message code="administration.items.per.store"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="cacheUrl" value="/administration/cache/console"/>
+                            <a href="${cacheUrl}"><spring:message code="page.admin.cache.title"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            </security:authorize>
+            <security:authorize ifAllGranted="RIGHT_LOGIN_ADMIN">
+            <li class="secondary">
+                <a class="secondary" href="#"><spring:message code="administration.job"/></a>
+                <div class="secondary">
+                    <ul>
+                        <li>
+                            <spring:url var="triggerListUrl" value="/administration/job/trigger/list"/>
+                            <a href="${triggerListUrl}"><spring:message code="administration.job.trigger.list"/></a>
+                        </li>
+                        <li>
+                            <spring:url var="triggerCreateUrl" value="/administration/job/trigger"/>
+                            <a href="${triggerCreateUrl}"><spring:message code="administration.job.trigger.create"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            </security:authorize>             
+        </ul>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+</div>
+
+
+</div>

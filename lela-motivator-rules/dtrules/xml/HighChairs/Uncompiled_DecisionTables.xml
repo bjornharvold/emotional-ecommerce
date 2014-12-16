@@ -1,0 +1,250 @@
+<decision_tables>
+	<decision_table>
+		<table_name>HighChair_MG_Calculate</table_name>
+		<xls_file>HighChairMotivator_G_dt.xls</xls_file>
+		<attribute_fields>
+			<TYPE>FIRST</TYPE>
+			<COMMENTS></COMMENTS>
+			<POLICY_REFERENCE></POLICY_REFERENCE>
+		</attribute_fields>
+		<contexts></contexts>
+		<initial_actions></initial_actions>
+		<conditions>
+			<condition_details>
+				<condition_number>1</condition_number>
+				<condition_comment>Execute these things</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>perform when called</condition_description>
+				<condition_column column_number='1' column_value='*'></condition_column>
+			</condition_details>
+		</conditions>
+		<actions>
+			<action_details>
+				<action_number>1</action_number>
+				<action_comment>Calculate motivator score</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>Perform HighChair_MG_AllScore</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>2</action_number>
+				<action_comment>Return result</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>Perform HighChair_MG_Result</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+		</actions>
+		<policy_statements></policy_statements>
+	</decision_table>
+	<decision_table>
+		<table_name>HighChair_MG_AllScore</table_name>
+		<xls_file>HighChairMotivator_G_dt.xls</xls_file>
+		<attribute_fields>
+			<TYPE>FIRST</TYPE>
+			<COMMENTS></COMMENTS>
+			<POLICY_REFERENCE></POLICY_REFERENCE>
+		</attribute_fields>
+		<contexts>
+			<context_details>
+				<context_number>1</context_number>
+				<context_comment></context_comment>
+				<context_description>for all highchairs</context_description>
+			</context_details>
+		</contexts>
+		<initial_actions></initial_actions>
+		<conditions>
+			<condition_details>
+				<condition_number>1</condition_number>
+				<condition_comment>List Price range</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt; 350.00</condition_description>
+				<condition_column column_number='1' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>2</condition_number>
+				<condition_comment>List Price range</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt; 300.00 &amp;&amp; ListPrice &lt;= 350.00</condition_description>
+				<condition_column column_number='2' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>3</condition_number>
+				<condition_comment>List Price range</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt; 250.00 &amp;&amp; ListPrice &lt;= 300.00</condition_description>
+				<condition_column column_number='3' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>4</condition_number>
+				<condition_comment>List Price range</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt; 200.00 &amp;&amp; ListPrice &lt;= 250.00</condition_description>
+				<condition_column column_number='4' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>5</condition_number>
+				<condition_comment>List Price range</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt; 150.00 &amp;&amp; ListPrice &lt;= 200.00</condition_description>
+				<condition_column column_number='5' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>6</condition_number>
+				<condition_comment>List Price range</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt; 100.00 &amp;&amp; ListPrice &lt;= 150.00</condition_description>
+				<condition_column column_number='6' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>7</condition_number>
+				<condition_comment>List Price range</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt; 75.00 &amp;&amp; ListPrice &lt;= 100.00</condition_description>
+				<condition_column column_number='7' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>8</condition_number>
+				<condition_comment>List Price range</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt; 50.00 &amp;&amp; ListPrice &lt;= 75.00</condition_description>
+				<condition_column column_number='8' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>9</condition_number>
+				<condition_comment>List Price range</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt;= 0 &amp;&amp; ListPrice &lt;= 50.00</condition_description>
+				<condition_column column_number='9' column_value='Y'></condition_column>
+			</condition_details>
+		</conditions>
+		<actions>
+			<action_details>
+				<action_number>1</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =1</action_description>
+				<action_column column_number='9' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>2</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =2</action_description>
+				<action_column column_number='8' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>3</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =3</action_description>
+				<action_column column_number='7' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>4</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =4</action_description>
+				<action_column column_number='6' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>5</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =5</action_description>
+				<action_column column_number='5' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>6</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =6</action_description>
+				<action_column column_number='4' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>7</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =7</action_description>
+				<action_column column_number='3' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>8</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =8</action_description>
+				<action_column column_number='2' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>9</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotal =9</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+		</actions>
+		<policy_statements></policy_statements>
+	</decision_table>
+	<decision_table>
+		<table_name>HighChair_MG_Result</table_name>
+		<xls_file>HighChairMotivator_G_dt.xls</xls_file>
+		<attribute_fields>
+			<TYPE>FIRST</TYPE>
+			<COMMENTS></COMMENTS>
+			<POLICY_REFERENCE></POLICY_REFERENCE>
+		</attribute_fields>
+		<contexts>
+			<context_details>
+				<context_number>1</context_number>
+				<context_comment></context_comment>
+				<context_description>for all highchairs</context_description>
+			</context_details>
+		</contexts>
+		<initial_actions>
+			<initial_action_details>
+				<intial_action_number>1</intial_action_number>
+				<initial_action_comment>Prevent zero</initial_action_comment>
+				<initial_action_requirement></initial_action_requirement>
+				<initial_action_description>if motivatorTotal &lt; 1 then {set motivatorTotal =1;} endif</initial_action_description>
+			</initial_action_details>
+			<initial_action_details>
+				<intial_action_number>2</intial_action_number>
+				<initial_action_comment>Prevent overflow</initial_action_comment>
+				<initial_action_requirement></initial_action_requirement>
+				<initial_action_description>if motivatorTotal &gt; motivatorMax then {set motivatorTotal =motivatorMax;} endif</initial_action_description>
+			</initial_action_details>
+		</initial_actions>
+		<conditions>
+			<condition_details>
+				<condition_number>1</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>perform when called</condition_description>
+				<condition_column column_number='1' column_value='*'></condition_column>
+			</condition_details>
+		</conditions>
+		<actions>
+			<action_details>
+				<action_number>1</action_number>
+				<action_comment>Set the result</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set job.result = motivatorTotal</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>2</action_number>
+				<action_comment>Set the HighChair_ID</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set job.HighChair_ID =  HighChair_ID</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>3</action_number>
+				<action_comment>Set the Brand_ID</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set job.Brand_ID =  Brand_ID</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+		</actions>
+		<policy_statements></policy_statements>
+	</decision_table>
+</decision_tables>

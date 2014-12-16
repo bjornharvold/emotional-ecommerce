@@ -1,0 +1,57 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+    <spring:url value="/categories" var="categoriesUrl"/>
+    <spring:url value="/quiz" var="quizUrl"/>
+
+    <!-- Show Progress Animation -->
+    <div class="anim-steps" id="waiting-animation">
+        <h2><spring:message code="task.modal.progress.title"/></h2>
+
+        <spring:url value="/static/mobile/images/quiz/how_lela_works_300px_1min.gif" var="lelaAnimUrl1"/>
+
+        <img src="${lelaAnimUrl1}" alt="How Lela Works"/>
+
+        <a class="next-steps" href="${categoriesUrl}"><span>Continue Browsing</span></a>
+
+    </div>
+
+    <!-- User has enough motivators, show start shopping modal -->
+    <div class="anim-steps" style="display: none;" id="profile-complete">
+        <h2><spring:message code="task.modal.complete.title"/></h2>
+
+        <spring:url value="/static/mobile/images/quiz/loading_done_mobile.gif" var="lelaAnimUrl2"/>
+
+        <img src="${lelaAnimUrl2}" alt="How Lela Works"/>
+
+        <a class="next-steps active" href="${categoriesUrl}"><span><spring:message code="task.modal.complete.link"/></span></a>
+    </div>
+
+    <!-- User does not have enough motivators, take full quiz -->
+    <div class="anim-steps" style="display: none;" id="profile-incomplete">
+        <h2><spring:message code="task.modal.incomplete.title"/></h2>
+
+        <spring:url value="/static/mobile/images/quiz/loading_done_mobile.gif" var="lelaAnimUrl2"/>
+
+        <img src="${lelaAnimUrl2}" alt="How Lela Works"/>
+
+        <a class="next-steps active" href="${quizUrl}"><span><spring:message code="task.modal.incomplete.link"/></span></a>
+    </div>
+
+</jsp:root>

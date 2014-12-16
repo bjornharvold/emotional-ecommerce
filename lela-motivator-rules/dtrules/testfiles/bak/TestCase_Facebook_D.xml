@@ -1,0 +1,10 @@
+<job>
+    <currentdate>2/14/2012</currentdate>
+	<motivator>D</motivator>
+  <user>
+   <UserId>aaa111</UserId>
+    <NumberOfPhotos>150</NumberOfPhotos>
+    <FrequencyOfPosts>daily</FrequencyOfPosts>
+    <HasFamilyMembers>true</HasFamilyMembers>
+   </user>
+</job>

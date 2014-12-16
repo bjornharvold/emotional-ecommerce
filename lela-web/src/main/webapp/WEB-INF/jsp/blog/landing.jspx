@@ -1,0 +1,92 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <spring:url value="/blog" var="blogListUrl" />
+    <spring:message code="environment" var="environment"/>
+    <lela:findUser/>
+
+    <div id="wrapper" style="margin-bottom: 40px;">
+
+        <jsp:include page="/WEB-INF/jsp/blog/header.jspx" flush="true"/>
+
+        <c:set var="count" value="0"/>
+        <c:set var="realCount" value="0"/>
+
+        <c:forEach items="${blogs.content}" var="blogCategory" varStatus="status">
+            <c:forEach items="${blogCategory.blgs}" var="blog" varStatus="status">
+
+                <c:set var="count" value="${count + 1}"/>
+
+                <c:if test="${empty param.cat or (!empty param.cat and param.cat eq blog.ctgry.rlnm)}">
+
+                    <c:set var="realCount" value="${realCount + 1}"/>
+
+                    <div class="blog-sum ${realCount % 3 != 0 ? '' : 'last-row'}">
+                        <spring:url var="blogUrl" value="/blog/${blog.rlnm}"/>
+                        <a href="${blogUrl}" title="${blog.nm}"><img src="${blog.mgrl}" alt="${blog.nm}" class="b-img"/></a>
+
+                        <spring:url var="catImgUrl" value="/static/images/blog/icons/${blog.ctgry.rlnm}.png"/>
+                        <img src="${catImgUrl}" alt="${blog.ctgry.nm}"/>
+                        <h2 title=" ${blog.nm}">
+                            <a href="${blogUrl}">
+                                <span><lela:dateFormat date="${blog.ldt}" zone="false"/></span>
+                                <lela:truncate maxLength="50" text="${blog.nm}"/>
+                            </a>
+                        </h2>
+                    </div>
+                </c:if>
+
+                <c:if test="${count eq 2}">
+                    <c:set var="count" value="${count + 1}"/>
+                    <c:set var="realCount" value="${realCount + 1}"/>
+
+                    <div id="landing-list">
+                        <div class="side-s" style="margin:0;"><!-- --></div>
+
+                        <div class="prev-posts">
+                            <h3>
+                                <spring:message code="blog.posts.previous" /> (<strong>${blogs.totalElements}</strong>)
+                                <span><a href="${blogListUrl}" class="${empty param.sort ? 'selected' : ''}" sort="D"><spring:message code="blog.posts.bydate" /></a>  |  <a href="${blogListUrl}" class="${param.sort eq 'C' ? 'selected' : ''}" sort="C"><spring:message code="blog.posts.bycategory" /></a></span>
+                            </h3>
+
+                            <div id="prev-list">
+                                <tiles:insertTemplate template="/WEB-INF/jsp/blog/previous.jspx" flush="true">
+                                    <tiles:putAttribute name="blogs" value="${blogs}" />
+                                </tiles:insertTemplate>
+                            </div>
+                        </div>
+
+                        <div class="side-s"><!-- --></div>
+                    </div>
+                </c:if>
+
+            </c:forEach>
+        </c:forEach>
+
+        <c:set var="blogPagUrl" value="/blog"/>
+        <c:if test="${!empty param.sort and !empty param.cat}">
+            <c:set var="blogPagUrl" value="/blog?sort=C&amp;cat=${param.cat}"/>
+        </c:if>
+        <c:if test="${!empty param.sort and empty param.cat}">
+            <c:set var="blogPagUrl" value="/blog?sort=C"/>
+        </c:if>
+
+        <lela:lelaPagination url="${blogPagUrl}" totalElements="${blogs.totalElements}" totalPages="${blogs.totalPages}" pageNumber="${blogs.number}" pageSize="${blogs.size}"/>
+    </div>
+
+    <jsp:include page="/WEB-INF/jsp/blog/footer.jspx" flush="true"/>
+</jsp:root>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_BrandHistory" items="${brandhistorys}" z="BNgbwDi+AGRDO+jWHKleI2j4tzA=">
+        <table:table data="${brandhistorys}" id="l_com_lela_data_domain_entity_BrandHistory" path="/crud/brandhistorys" z="VXBmVXVt4+vZRMZNothgnoT8C7Q=">
+            <table:column date="true" dateTimePattern="${brandHistory_datecreated_date_format}" id="c_com_lela_data_domain_entity_BrandHistory_dateCreated" property="dateCreated" z="61SgiQhjRUL5vJTD3jtR/FA7Rjo="/>
+            <table:column date="true" dateTimePattern="${brandHistory_datemodified_date_format}" id="c_com_lela_data_domain_entity_BrandHistory_dateModified" property="dateModified" z="BuR7rebEDVpIvj76fcKMLQGi5bA="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandHistory_brand" property="brand" z="fzZSaGwGyD8aTYpkyQRUELoBhPc="/>
+            <table:column date="true" dateTimePattern="${brandHistory_asofdate_date_format}" id="c_com_lela_data_domain_entity_BrandHistory_asOfDate" property="asOfDate" z="q3zJfYC+GuzN4Pk1W2o2QecGJsc="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandHistory_facebookLikes" property="facebookLikes" z="P6IvPieOIdsJ43rdGXLX2iJ38eI="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandHistory_twitterFollowers" property="twitterFollowers" z="EYvOAtFB56p4rkqTMl2TLNmIW8I="/>
+        </table:table>
+    </page:list>
+</div>

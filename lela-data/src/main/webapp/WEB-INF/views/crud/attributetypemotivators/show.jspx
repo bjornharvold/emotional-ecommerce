@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_AttributeTypeMotivator" object="${attributetypemotivator}" path="/crud/attributetypemotivators" z="5ACm1O0PGEut2avOhYGttddJpgQ=">
+        <field:display date="true" dateTimePattern="${attributeTypeMotivator_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_AttributeTypeMotivator_dateCreated" object="${attributetypemotivator}" z="xy/Wko4CT7A9ZVR+7Zq93knBBCo="/>
+        <field:display date="true" dateTimePattern="${attributeTypeMotivator_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_AttributeTypeMotivator_dateModified" object="${attributetypemotivator}" z="pfx8Gu99BUAMXJpxjcX/Mp9TUHo="/>
+        <field:display field="motivator" id="s_com_lela_data_domain_entity_AttributeTypeMotivator_motivator" object="${attributetypemotivator}" z="my6iCT2AASfvMmm8Ck/srhJee0M="/>
+        <field:display field="eddDataType" id="s_com_lela_data_domain_entity_AttributeTypeMotivator_eddDataType" object="${attributetypemotivator}" z="wcPasZwIsjpM5IKkEg0yP/Acey0="/>
+        <field:display field="required" id="s_com_lela_data_domain_entity_AttributeTypeMotivator_required" object="${attributetypemotivator}" z="JDIA26ZK1KxeCT+dqbtOOkBek1o="/>
+        <field:display field="category" id="s_com_lela_data_domain_entity_AttributeTypeMotivator_category" object="${attributetypemotivator}" z="KEai4LiHhplsyfYZ04DPDIH7iuo="/>
+        <field:display field="attributeType" id="s_com_lela_data_domain_entity_AttributeTypeMotivator_attributeType" object="${attributetypemotivator}" z="BN77JTfO9++/9C/Tm3C+osL9Dvs="/>
+    </page:show>
+</div>

@@ -1,0 +1,62 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <div id="account-nav">
+        <ul>
+            <li>
+                <!-- Left nav content -->
+                <tiles:insertTemplate template="/WEB-INF/jsp/user/account_nav.jspx" flush="true"/>
+            </li>
+        </ul>
+    </div>
+    <div id="account-content">
+        
+        <h2><spring:message code="page.local.coupon" /></h2>
+
+        <c:choose>
+            <c:when test="${empty user.cpns}">
+                <p><spring:message code="local.coupons.empty" /></p>
+            </c:when>
+            <c:otherwise>
+                <ul id="cpn-list">
+                    <c:forEach var="coupon" items="${user.cpns}">
+                        <li>
+                            <spring:url value="/static/images/local/branches/offer_${coupon.ffrrlnm}.png" var="offerImgUrl"/>
+                            <img src="${offerImgUrl}" alt="Giggle - Lela Local"/>
+                            <p><spring:message code="local.coupons.for" />: ${coupon.fnm} ${coupon.lnm}<br/>
+                            <spring:message code="local.coupons.code" />: ${coupon.cpncd}<br/>
+                            <spring:message code="local.coupons.created" /> <lela:dateFormat date="${coupon.crtddt}"/></p>
+
+                            <c:choose>
+                                <c:when test="${empty coupon.rdmptndt}">
+                                    <spring:url value="/user/local/coupon/confirmation?couponCode=${coupon.cpncd}&amp;offerUrlName=${coupon.ffrrlnm}" var="redeemCouponUrl"/>
+                                    <a href="${redeemCouponUrl}" target="_blank"><spring:message code="local.coupons.redeem" /> ></a>
+                                </c:when>
+                                <c:otherwise>
+                                    <span><spring:message code="local.coupons.redeemed" />: <lela:dateFormat date="${coupon.rdmptndt}"/></span>
+                                </c:otherwise>
+                            </c:choose>
+
+                        </li>
+                    </c:forEach>
+                </ul>
+            </c:otherwise>
+        </c:choose>
+
+        
+    </div>
+</div>

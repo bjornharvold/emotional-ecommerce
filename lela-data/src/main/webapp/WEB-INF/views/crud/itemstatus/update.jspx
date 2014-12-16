@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_ItemStatus" modelAttribute="itemStatus" path="/crud/itemstatus" versionField="Version" z="JAlczNgjPvNwiS22CzQPMM3iJ0c=">
+        <field:datetime dateTimePattern="${itemStatus_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_ItemStatus_dateCreated" z="gW13GCrGcp6uAi08vJ/4C5/sc2c="/>
+        <field:datetime dateTimePattern="${itemStatus_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_ItemStatus_dateModified" z="ybkdjaQJnC3HOgEGUJnkGrVvbPg="/>
+        <field:input field="itemStatusName" id="c_com_lela_data_domain_entity_ItemStatus_itemStatusName" z="ScisintRXNLnpoVtOGZ6jFOZ7xo="/>
+    </form:update>
+</div>

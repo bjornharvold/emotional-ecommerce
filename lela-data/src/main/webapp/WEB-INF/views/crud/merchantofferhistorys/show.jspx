@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_MerchantOfferHistory" object="${merchantofferhistory}" path="/crud/merchantofferhistorys" z="kJzn39/AG1E0v71F8i49O8+QeWw=">
+        <field:display date="true" dateTimePattern="${merchantOfferHistory_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_MerchantOfferHistory_dateCreated" object="${merchantofferhistory}" z="oH8H8oOJ58j/YpXz35Zi3K0JZmA="/>
+        <field:display date="true" dateTimePattern="${merchantOfferHistory_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_MerchantOfferHistory_dateModified" object="${merchantofferhistory}" z="S1cAzuU4kSy1UA/I6NcTxrdqTy0="/>
+        <field:display field="item" id="s_com_lela_data_domain_entity_MerchantOfferHistory_item" object="${merchantofferhistory}" z="Rcg3rzAbKg2rWuPqFcQjbReOYaE="/>
+        <field:display field="available" id="s_com_lela_data_domain_entity_MerchantOfferHistory_available" object="${merchantofferhistory}" z="c6ROG1ougiVDksen3FpIw3xPUhs="/>
+        <field:display field="merchant" id="s_com_lela_data_domain_entity_MerchantOfferHistory_merchant" object="${merchantofferhistory}" z="MdZ9QK9LM33aWOqYCFXek9pF8k8="/>
+        <field:display field="offerItemName" id="s_com_lela_data_domain_entity_MerchantOfferHistory_offerItemName" object="${merchantofferhistory}" z="MgPf5+As7adZd77tl+k/WLJ2sOM="/>
+        <field:display field="offerPrice" id="s_com_lela_data_domain_entity_MerchantOfferHistory_offerPrice" object="${merchantofferhistory}" z="05dWdicFAcE72evkbTuneKUKf/w="/>
+        <field:display field="offerSalePrice" id="s_com_lela_data_domain_entity_MerchantOfferHistory_offerSalePrice" object="${merchantofferhistory}" z="RjuqkKRaI03qayf8aU2DAkLXDVw="/>
+        <field:display date="true" dateTimePattern="${merchantOfferHistory_startdate_date_format}" field="startDate" id="s_com_lela_data_domain_entity_MerchantOfferHistory_startDate" object="${merchantofferhistory}" z="9VgRpRYyBxDtviUShR1q3ScpsmA="/>
+        <field:display date="true" dateTimePattern="${merchantOfferHistory_enddate_date_format}" field="endDate" id="s_com_lela_data_domain_entity_MerchantOfferHistory_endDate" object="${merchantofferhistory}" z="pAjTcbzwiL7Tprdo+O3IWuLPC8Q="/>
+        <field:display field="offerId" id="s_com_lela_data_domain_entity_MerchantOfferHistory_offerId" object="${merchantofferhistory}" z="Yxm5yd2vRsLWKNrpz1ckL57AmY0="/>
+        <field:display field="sourceId" id="s_com_lela_data_domain_entity_MerchantOfferHistory_sourceId" object="${merchantofferhistory}" z="kU1RftYW5Bf8/W+miGb5dChYHcw="/>
+        <field:display field="sourceKey" id="s_com_lela_data_domain_entity_MerchantOfferHistory_sourceKey" object="${merchantofferhistory}" z="VlMDqfDP1L7BUsexaJFV9CvoHh8="/>
+        <field:display field="sourceTypeId" id="s_com_lela_data_domain_entity_MerchantOfferHistory_sourceTypeId" object="${merchantofferhistory}" z="vBCwo+dOdCkCePt49pAOUN55Zyk="/>
+    </page:show>
+</div>

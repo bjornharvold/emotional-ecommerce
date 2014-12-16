@@ -1,0 +1,171 @@
+/*
+ * Copyright (c) 2011. Purple Door Systems, BV.
+ */
+
+.float-right {
+    float:right;
+}
+
+.float-left {
+    float:left;
+}
+
+/* Resize main wrapper */
+body {
+    background:#ffffff;
+    margin:0;
+}
+
+strong {
+    font-weight: bold;
+}
+
+#wrapper {
+    padding:15px;
+    width:100% !important;
+}
+
+#head, #quiz-wrapper, #lela-summary, #lela-mobile, #footer-content {
+    width:984px;
+    margin:0 auto;
+}
+
+#main {
+    clear:both;
+    margin-top:20px;
+    overflow:hidden;
+}
+
+#footer {
+    margin-top:0px;
+}
+
+.block {
+    margin-bottom: 10px;
+}
+
+/** FORMAT JOB LIST **/
+#job-list dl {
+    margin-bottom:50px;
+}
+
+#job-list dl dt {
+    float:left;
+    font-weight:bold;
+    margin-right:10px;
+    padding:5px;
+    width:400px;
+}
+
+#job-list dl dd {
+    margin:2px 0;
+    padding:5px 0;
+}
+
+.job-status, .job-status {
+    border: 1px solid black;
+    height: 20px;
+    left: 0;
+    margin: 3px;
+    padding: 5px;
+    padding-right: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.job-status-NOT_STARTED {
+    background-color: #5f9be3;
+    color: white;
+}
+
+.job-status-RUNNING {
+    background-color: #999119;
+    color: white;
+}
+
+.job-status-DONE {
+    background-color: #009900;
+    color: white;
+}
+
+.job-status-SUCCESS {
+    background-color: #009900;
+    color: white;
+}
+
+.job-status-ERROR {
+    background-color: #990000;
+    color: white;
+}
+
+.job-status-FATAL {
+    background-color: #000000;
+    color: white;
+}
+
+#status-bar strong {
+    font-size: 14px;
+}
+
+.status-dates {
+    height: 20px;
+    right: 0;
+    margin: 3px;
+    padding: 5px;
+    padding-right: 20px;
+    position: fixed;
+    top: 0;
+}
+
+#status-bar .button {
+    color: white;
+}
+
+#status-bar a.button:hover {
+    text-decoration: underline;
+}
+
+.status-nav {
+    margin-right: 20px;
+}
+
+.job-output pre {
+    overflow: auto;
+}
+
+.job-output dt {
+    float: left;
+    clear: left;
+    padding-top: 1px;
+    margin-right: 10px;
+    width: 300px;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+.job-output dt:after {
+    content: ":";
+}
+
+.job-output dd {
+    margin-bottom: 3px;
+}
+
+#job-parameters dt {
+    float: left;
+    clear: left;
+    padding-top: 1px;
+    margin-right: 10px;
+    width: 300px;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+#job-parameters dt:after {
+    content: ":";
+}
+
+#job-parameters dd {
+    margin-bottom: 3px;
+}

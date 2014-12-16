@@ -1,0 +1,70 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+
+
+    <div id="footer">
+        <spring:url value="/sc/terms" var="termsUrl" />
+        <spring:url value="/sc/about" var="aboutUrl" />
+        <spring:url value="/sc/privacy" var="privacyUrl" />
+        <spring:url value="/rssfeed/blog" var="rssUrl" />
+
+        <div class="product-categories">
+
+            <h2><spring:message code="meta.title.blog.footer.products.title" htmlEscape="false" /></h2>
+
+            <c:forEach var="navGroup" items="${navigationBar.grps}" varStatus="status">
+                <div class="category-group">
+                    <spring:url value="/department/${navGroup.rlnm}" var="NavGroupUrl" />
+                    <a href="${NavGroupUrl}"><spring:message code="nav.group.${navGroup.rlnm}.wide" />:</a>
+                    <c:forEach var="children" items="${navGroup.chldrn}">
+                        <c:forEach items="${children.ctgrs}" var="cat">
+                            <spring:url value="/${cat.srlnm}/c/?rlnm=${cat.rlnm}" var="CategorySeoUrl" />
+                            <a href="${CategorySeoUrl}"><spring:message code="nav.cat.${cat.rlnm}.full" /></a>
+                        </c:forEach>
+                    </c:forEach>
+                    <c:forEach items="${navGroup.ctgrs}" var="cat">
+                        <spring:url value="/${cat.srlnm}/c/?rlnm=${cat.rlnm}" var="CategorySeoUrl" />
+                        <a href="${CategorySeoUrl}"><spring:message code="nav.cat.${cat.rlnm}.full" /></a>
+                    </c:forEach>
+                </div>
+            </c:forEach>
+
+        </div>
+
+        <a href="${aboutUrl}" target="_blank"><spring:message code="blog.footer.about" /></a>
+        <a href="${privacyUrl}" target="_blank" rel="nofollow"><spring:message code="blog.footer.privacy" /></a>
+        <a href="${termsUrl}" target="_blank" rel="nofollow"><spring:message code="blog.footer.terms" htmlEscape="false" /></a>
+
+            <span id="sc-l">
+                <spring:url value="/static/images/blog/fb_l.png" var="fbLinkImg" />
+                <a href="http://www.facebook.com/lelaknows" target="_blank"><img src="${fbLinkImg}" alt="Follow us on Facebook"/></a>
+
+                <spring:url value="/static/images/blog/tw_l.png" var="twLinkImg" />
+                <a href="http://www.twitter.com/lelaknows" target="_blank"><img src="${twLinkImg}" alt="Follow us on Twitter"/></a>
+
+                <spring:url value="/static/images/blog/pinterest_l.png" var="twLinkImg" />
+                <a href="http://www.pinterest.com/lelaknows" target="_blank"><img src="${twLinkImg}" alt="Follow us on Pinterest" /></a>
+
+                <spring:url value="/static/images/blog/gplus_l.png" var="gLinkImg" />
+                <a href="https://plus.google.com/u/1/115743254511181410035/posts" target="_blank"><img src="${gLinkImg}" alt="Follow us on Google+"/></a>
+
+                <spring:url value="/static/images/blog/rss_l.png" var="rssLinkImg" />
+                <a href="${rssUrl}"><img src="${rssLinkImg}" alt="Follow our RSS feed"/></a>
+            </span>
+    </div>
+
+</jsp:root>

@@ -1,0 +1,126 @@
+.nav .g-tab.selected, .nav .g-tab.selected-on {
+    background:#fdc52f url('../../images/skins/electronics/caret_grp_down.gif') no-repeat right ;
+}
+
+#p-nav a.selected {
+    color:#fdc52f;
+}
+.color-img a.selected {
+    border: 3px solid #666;
+}
+
+.tbl tr.row-even td {
+    background:#f6f6f6;
+}
+
+a.l-list-add, a.l-list-saved {
+    color:#ff9900;
+}
+
+.l-compare-saved, .l-compare, .l-compare-waiting, .page-grid .compare-btn {
+    color:#fff;
+    background: #fdc52f url('/static/images/skins/electronics/Compare_Button_ON.png') no-repeat 5px 3px;
+}
+
+.l-compare:hover, .page-grid .compare-btn:hover, .page-grid .waiting {
+    color:white;
+    text-decoration: none !important;
+    background: #d6d6d6 url('/static/images/skins/electronics/Compare_Button_ON.png') no-repeat 5px 3px !important;
+}
+
+#buy-t a, #buy-t span#buy-tab3 {
+    background-repeat: no-repeat;
+    color:#ff9900;
+}
+
+#buy-t a.selected {
+    background-repeat: no-repeat;
+    color:#666;
+}
+
+
+#zip-f a {
+    background:#ff9900;
+}
+
+
+.save-now, .remove-now {
+    background:url('../../images/skins/electronics/Add_lela_list_OFF.png') no-repeat left center;
+}
+
+.remove-now {
+    background:url('../../images/skins/electronics/Add_lela_list_RM.png') no-repeat left center;
+}
+
+
+#quiz-start-compat .lquiz {
+    background:#ff9900 url('../../images/buttons/s_quiz.png') no-repeat right 14px;
+}
+
+#product-info .c-btn, .page-grid .c-btn {
+    background: transparent url('../../images/skins/toys/Compare_unchecked.png') no-repeat top left;
+}
+
+#product-info .c-btn-checked, .page-grid .c-btn-checked {
+    background: transparent url('../../images/skins/toys/Compare_checked.png') no-repeat top left !important;
+}
+
+.item-over .store-name a {
+    color: #ff9900;
+}
+
+#price-range .ui-slider-range, .price-range .ui-slider-range {
+    background:#dee8f1 url('/static/images/skins/toys/slide_back1.png') repeat-x !important;
+}
+
+#price-range .ui-slider-handle, .price-range .ui-slider-handle {
+    background: transparent url('/static/images/skins/toys/slider_handle.png') no-repeat 0px 0px !important;
+}
+
+#d-tuners-tmp .filter-options .filter-option-selected, #d-tuners .filter-options .filter-option-selected {
+    border-color: #fdc52f !important;
+    background-color: #fdc52f !important;
+    color: white !important;
+}
+
+.filter-options .filter-option:hover {
+    border-color: #fdc52f;
+    -webkit-box-shadow:  0px 0px 0px 3px rgba(253, 197, 47, 100);
+    box-shadow:  0px 0px 0px 3px rgba(253, 197, 47, 100);
+    color: #3f3f3f;
+}
+
+#data-sort .jqTransformSelectWrapper {
+    background: transparent url('/static/images/skins/toys/select_left.png') repeat-x 0px 0px !important;
+}
+
+#data-sort .jqTransformSelectOpen {
+    background: transparent url('/static/images/skins/toys/select_right.png') no-repeat 0px 0px !important;
+}
+
+.page-grid .color-header {
+    background-image: linear-gradient(bottom, rgb(247,177,34) 25%, rgb(253,197,47) 75%);
+    background-image: -o-linear-gradient(bottom, rgb(247,177,34) 25%, rgb(253,197,47) 75%);
+    background-image: -moz-linear-gradient(bottom, rgb(247,177,34) 25%, rgb(253,197,47) 75%);
+    background-image: -webkit-linear-gradient(bottom, rgb(247,177,34) 25%, rgb(253,197,47) 75%);
+    background-image: -ms-linear-gradient(bottom, rgb(247,177,34) 25%, rgb(253,197,47) 75%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.25, rgb(247,177,34)),
+        color-stop(0.75, rgb(253,197,47))
+    );
+    background-color: #fdc52f;
+    text-shadow: 0px 0px 5px #f7b122;
+    filter: dropshadow(color=#f7b122, offx=0, offy=0);
+}
+
+h2.filters-enabled {
+    background-color: #fdc52f !important;
+    text-shadow: 0px 0px 5px #f7b122;
+    filter: dropshadow(color=#f7b122, offx=0, offy=0);
+}
+
+.brand-header h1 { color:#fdc52f !important; }

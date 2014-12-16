@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:display="http://displaytag.sf.net/el"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:images="urn:jsptagdir:/WEB-INF/tags/images"
+     xmlns:input="urn:jsptagdir:/WEB-INF/tags/input"
+     xmlns:data="http://www.lela.com/jsp/data" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <script type="text/javascript">
+    dojo.require('dijit.form.Button');
+    dojo.require('dijit.form.Select');
+    dojo.require('dijit.form.MultiSelect');
+    dojo.require('dijit.Dialog');
+    dojo.require("dijit.form.CheckBox");
+    dojo.require("dijit.form.RadioButton");
+    dojo.require("dojo.io.iframe");
+    dojo.addOnLoad(
+        function()
+        {
+          if(window.initOnLoad != undefined)
+          {
+            while(window.initOnLoad.length > 0)
+            {
+              window.initOnLoad.pop().call();
+            }
+          }
+        }
+    );
+  </script>
+  <spring:url value="/manage/items/images/category/${categoryId}" var="product_image_url"/>
+  <spring:url value="/manage/items/images/api/doNotUse" var="do_not_use_image_url"/>
+  <spring:url value="/manage/items/images/api/preferred" var="preferred_image_url"/>
+  <spring:url value="/manage/items/images/api/upload" var="upload_image_url"/>
+  <spring:url value="/manage/items/images/api/reviewStatus" var="item_review_status_image_url"/>
+  <spring:url value="/manage/items/images/api/imageStatus" var="product_image_item_status_url"/>
+  <form method="GET">
+    <h3><spring:message code="images.header.filterBy"/>:</h3>
+    <div class="control-group"><label for="brandId"><spring:message code="label.brand"/>:</label><input:select items="${brands}" selected="${param['brandId']}" defaultOption="All" name="brandId" optionLabel="brandName" optionValue="id" id="brand"/></div>
+    <div class="control-group"><label for="itemStatusId"><spring:message code="label.itemSiteStatus"/>:</label><input:select items="${itemStatuses}" selected="${param['itemStatusId']}" defaultOption="All" name="itemStatusId" optionLabel="itemStatusName" optionValue="id" id="itemStatus"/></div>
+    <div class="control-group"><label for="reviewStatusId"><spring:message code="label.reviewStatus"/>:</label><input:multiple items="${reviewStatuses}" multiselected="${paramValues['reviewStatusId']}" defaultOption="All" name="reviewStatusId" optionLabel="reviewStatusName" optionValue="id" dojo="true"/></div>
+    <div class="control-group"><label for="itemId"><spring:message code="label.id"/>:</label><input:text name="itemId" value="${param['itemId']}"/></div>
+    <div class="control-group"><label for="productModelName"><spring:message code="label.productName"/>:</label><input:text name="productModelName" value="${param['productModelName']}"/></div>
+    <div class="control-group"><label for="itemsWithNewImages"><spring:message code="label.itemsWithNewImages"/>:</label><input:checkbox name="itemsWithNewImages" value="${itemsWithNewImages}"/></div>
+    <div class="control-group"><label for="displayHiddenImages"><spring:message code="label.displayHidden"/>:</label><input:checkbox name="displayHiddenImages" value="${displayHiddenImages}"/></div>
+    <div>
+    <button id="button${productImageItem.id}" dojoType="dijit.form.Button" type="submit">
+      Filter
+    </button>
+    </div>
+  </form>
+  <div class="displaytag">
+  <display:table name="items" id="item" requestURI="${product_image_url}" sort="external" partialList="true" pagesize="20" size="resultSize" defaultsort="6" class="displaytag">
+    <display:setProperty name="paging.banner.placement" value="both"/>
+    <display:setProperty name="paging.banner.group_size" value="20"/>
+
+    <display:column property="productModelName" sortable="true" title="Product Name" sortName="o.productModelName" />
+    <display:column property="category.categoryName" sortable="false" title="Category"/>
+    <display:column property="brand.brandName" sortable="true" title="Brand" sortName="o.brand.brandName"/>
+    <display:column property="itemStatus.itemStatusName" sortable="true" title="Item Status" sortName="o.itemStatus.itemStatusName"/>
+    <display:column sortable="true" title="Review Status" sortName="o.reviewStatus.reviewStatusName">
+      <input:select items="${reviewStatuses}" name="reviewStatus" optionLabel="reviewStatusName" optionValue="id" selected="${item.reviewStatus.id}" id="reviewStatus_${item.id}" dojo="true"/>
+      <script>
+        dojo.addOnLoad(function() {
+          dojo.connect(dijit.byId("reviewStatus_${item.id}"), 'onChange', function(){
+            dojo.xhrPost({
+              url:"${item_review_status_image_url}",
+              content:{uniqueItemId:'${item.id}', reviewStatusId:dijit.byId('reviewStatus_${item.id}').get('value')},
+              load: function(data, ioArgs){
+                console.log('success' + data);
+                var successDialog = new dijit.Dialog({
+                  title: "Success",
+                  content: "Review Status saved.&lt;br&gt;&lt;span class='small'&gt;Press ESC to close.&lt;/span&gt;"
+                });
+                successDialog.show();
+              },
+              error: function(err, ioArgs){
+                // again, ioArgs is useful, but not in simple cases
+                var errorDialog = new dijit.Dialog({
+                  title: "Error Dialog",
+                  content: "An error occurred.&lt;br&gt;&lt;span class='small'&gt;Press ESC to close.&lt;/span&gt;"
+                });
+                errorDialog.show();
+
+              }
+            });
+          });
+        });
+      </script>
+    </display:column>
+    <display:column property="itemId" url="${item_url}" sortable="true" title="ID" sortName="o.itemId"/>
+    <display:column property="mostRecentProductImageDateCreated" sortable="true" title="Created Image" sortName="[itemSearchDateCreated]"/>
+    <display:column property="mostRecentProductImageDateModified" sortable="true" title="Recent Modified Image" sortName="[itemSearchDateModified]"/>
+    <display:column media="html" title="Color">
+      ${data:itemAttribute(item, 'LelaNormalizedColor').attributeValue}
+    </display:column>
+    <display:column sortable="false" title="Add Image">
+      <button id="button_addImageDialog_${item.id}" dojoType="dijit.form.Button" type="button">
+        <spring:message code="label.addAnImage"/>:
+        <script type="dojo/method" event="onClick" args="evt">
+          dijit.byId("addImageDialog_${item.id}").show();
+        </script>
+      </button>
+    </display:column>
+    <display:column media="html" title="images">
+          <div id="item_${item.id}_images" style="overflow:auto; white-space:nowrap; display:inline">
+          <c:forEach items="${item.productImageItems}" var="productImageItem" varStatus="status">
+            <c:if test="${(productImageItem.productImageItemStatus.id != 2 and productImageItem.productImageItemStatus.id != 4) || displayHiddenImages}">
+              <div class="individual-image ${productImageItem.duplicate?'duplicate':''}">
+                <images:image item="${item}" productImageItem="${productImageItem}" product_image_item_status_url="${product_image_item_status_url}" preferred_image_url="${preferred_image_url}" do_not_use_image_url="${do_not_use_image_url}"/>
+              </div>
+            </c:if>
+          </c:forEach>
+          </div>
+
+      <div id="addImageDialog_${item.id}" title="Add an Image" dojoType="dijit.Dialog" style="display:none;">
+        <script>
+          function sendForm_${item.id}() {
+            var form = dojo.byId("saveImageForm_${item.id}");
+
+            dojo.connect(form, "onsubmit", function(event) {
+              //Stop the submit event since we want to control form submission.
+              dojo.stopEvent(event);
+              dijit.byId('saveImage_${item.id}').set('disabled',true);
+              dojo.io.iframe.send({
+                url:"${upload_image_url}",
+                method : "post",
+                handleAs : "html",
+                form : dojo.byId("saveImageForm_${item.id}"),
+                load: function(data, ioArgs){
+                    var checkError = dojo.query(".ajax-error", data.activeElement.childNodes[0]);
+                    if(checkError.length == 0)
+                    {
+                      var div = dojo.doc.createElement("div");
+                      dojo.addClass(div, "individual-image");
+                      div.appendChild(data.activeElement.childNodes[0]);
+                      var scripts = dojo.query("script", div);
+                      for(var i = 0; i &lt; scripts.length; i++)
+                      {
+                        console.log(scripts[i].innerHTML);
+                        eval(scripts[i].innerHTML);
+                      }
+                      dojo.byId("item_${item.id}_images").appendChild(div);
+                      dojo.parser.parse();
+                      while(window.initOnLoad.length > 0)
+                      {
+                        window.initOnLoad.pop().call();
+                      }
+                      var successDialog = new dijit.Dialog({
+                        title: "Success",
+                        content: "The image was successfully saved.  Add another or close the dialog by clicking the X or pressing ESC."
+                      });
+                      successDialog.show();
+                      dijit.byId('saveImage_${item.id}').set('disabled',false);
+                    }
+                    else
+                    {
+                      var errorDialog = new dijit.Dialog({
+                        title: "Error Dialog",
+                        content: data.activeElement.childNodes[0]
+                      });
+                      errorDialog.show();
+                      dijit.byId('saveImage_${item.id}').set('disabled',false);
+                    }
+                },
+                error: function(err, ioArgs){
+                  var message = err.getMessage();
+                  alert("Well this is embarrassing, we've encountered an error.  You'll have to check the logs.  " + message);
+                  dijit.byId('saveImage_${item.id}').set('disabled',false);
+                }
+              });
+            });
+          }
+          dojo.addOnLoad(sendForm_${item.id});
+        </script>
+
+        <form id="saveImageForm_${item.id}" class="form-horizontal" enctype="multipart/form-data" method="POST">
+          <input type="hidden" name="itemId" value="${item.id}" />
+          <label for="imageAngle"><spring:message code="label.imageAngle"/>:</label>
+          <select name="imageAngle">
+             <c:forEach var="entry" items="${imageAngleMap}">
+                 <option value="${entry.key}">${entry.value}</option>
+             </c:forEach>
+          </select><br/>
+          <label for="sourceKey"><spring:message code="label.imageSource"/>:</label>
+          <select name="sourceKey">
+            <c:forEach var="entry" items="${manualSourceKeyMap}">
+              <option value="${entry.key}">${entry.value}</option>
+            </c:forEach>
+          </select><br/>
+          <label for="file"><spring:message code="label.chooseAFile"/>:</label><input name="file" type="file" /><br/>
+          <div class="submit">
+            <spring:message code="button_save" var="save_button" htmlEscape="false" />
+            <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'saveImage_${item.id}', event:'onclick'}));</script>
+            <button dojoType="dijit.form.Button" id="saveImage_${item.id}" type="submit" value="Save" class="btn btn-primary">${fn:escapeXml(save_button)}</button>
+          </div>
+
+        </form>
+
+      </div>
+    </display:column>
+
+  </display:table>
+  </div>
+</div>
+
+

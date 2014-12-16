@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_CleanseRule" modelAttribute="cleanseRule" path="/crud/cleanserules" versionField="Version" z="AkzpxOdAsY+gqp37ZUv/p8CMXqA=">
+        <field:datetime dateTimePattern="${cleanseRule_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_CleanseRule_dateCreated" z="w+ezAux5CzTUWN6LQhkEZa0u/MY="/>
+        <field:datetime dateTimePattern="${cleanseRule_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_CleanseRule_dateModified" z="ymyBxJ6F4FKFYUWYHCu4SRBynrI="/>
+        <field:input field="cleanseRuleValue" id="c_com_lela_data_domain_entity_CleanseRule_cleanseRuleValue" z="lp+2MPrYSnCnsa1A3/gx/jVdgzs="/>
+    </form:update>
+</div>

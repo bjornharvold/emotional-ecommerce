@@ -1,0 +1,194 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="page.user.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <p>
+        <strong>${message}</strong>
+        </p>
+    </c:if>
+
+    <spring:url var="deactivateUrl" value="/administration/user/${user.id}/deactivate"/>
+    <spring:url var="sendAlertsUrl" value="/administration/user/${user.id}/alerts/send"/>
+    <a href="${deactivateUrl}"><spring:message code="button.deactivate"/></a> |
+    <a href="${sendAlertsUrl}"><spring:message code="button.alerts"/></a>
+
+    <p>
+        <b><spring:message code="user.roles"/></b>:
+
+        <c:if test="${not empty roles}">
+            <ul>
+                <c:forEach items="${roles}" var="role">
+                    <spring:url value="/administration/user/${user.id}/role/${role.rlnm}/add" var="addRoleUrl"/>
+                    <li>${role.nm} <a href="${addRoleUrl}"><spring:message code="link.add"/></a></li>
+                </c:forEach>
+            </ul>
+        </c:if>
+
+        <c:if test="${not empty user.rrlnms}">
+            <ul>
+                <c:forEach items="${user.rrlnms}" var="role">
+                    <li>
+                        <spring:url value="/administration/user/${user.id}/role/${role}/remove" var="removeRoleUrl"/>
+                        ${role} <a href="${removeRoleUrl}"><spring:message code="link.delete"/></a>
+                    </li>
+                </c:forEach>
+            </ul>
+        </c:if>
+    </p>
+
+    <p><b><spring:message code="user.last.login"/></b>: ${user.lgndt} </p>
+    <p><b><spring:message code="user.last.login.address"/></b>: ${user.lgnrmtddrss} </p>
+    <p><b><spring:message code="user.name"/></b>: ${us.fnm} ${us.lnm} </p>
+    <p><b><spring:message code="user.email"/></b>: ${us.ml} </p>
+    <p><b><spring:message code="user.email.verified"/></b>: ${us.vrfd} </p>
+    <p><b><spring:message code="user.phone.number"/></b>: ${us.phn} </p>
+    <p><b><spring:message code="user.gender"/></b>: ${us.gndr} </p>
+    <p><b><spring:message code="user.account.overview.friendship.level"/></b>: ${us.frndlvl} </p>
+    <p><b><spring:message code="user.locale"/></b>: ${us.lcl} </p>
+    <p><b><spring:message code="user.account.enabled"/></b>: ${user.nbld} </p>
+    <p><b><spring:message code="user.account.expired"/></b>: ${user.nxprd} </p>
+    <p><b><spring:message code="user.account.locked"/></b>: ${user.nlckd} </p>
+    <p><b><spring:message code="user.account.credentials.expired"/></b>: ${user.crdnxprd} </p>
+    <p><b><spring:message code="user.code"/></b>: ${user.cd} </p>
+    <p><b><spring:message code="user.zipcode"/></b>: ${us.czp} </p>
+    <p><b><spring:message code="user.zipcode.home"/></b>: ${us.hzp} </p>
+    <p><b><spring:message code="user.country"/></b>: ${us.cntry} </p>
+    <p><b><spring:message code="user.dob"/></b>: ${us.db} </p>
+    <p><b><spring:message code="user.organization.id"/></b>: ${user.rgd} </p>
+    <p><b><spring:message code="user.attributes"/></b>: ${us.attrs} </p>
+
+    <p>
+        <b><spring:message code="user.answers"/></b>:
+
+        <c:if test="${not empty us.nswrs}">
+            <ul>
+                <c:forEach items="${us.nswrs}" var="answer">
+                    <li>${answer.qstn.tp} - ${answer.qstn.nm} - ${answer.ky}</li>
+                </c:forEach>
+            </ul>
+        </c:if>
+    </p>
+
+    <p>
+        <b><spring:message code="user.socials"/></b>:
+
+        <c:if test="${not empty us.scls}">
+            <ul>
+                <c:forEach items="${us.scls}" var="social">
+                    <li>${social.providerId}</li>
+                </c:forEach>
+            </ul>
+        </c:if>
+    </p>
+
+    <p>
+        <b><spring:message code="user.metrics"/></b>:
+
+        <c:if test="${not empty us.mtrcs}">
+            <ul>
+                <c:forEach items="${us.mtrcs}" var="metric">
+                    <li>${entry.key} - ${entry.value}</li>
+                </c:forEach>
+            </ul>
+        </c:if>
+    </p>
+
+    <p>
+        <b><spring:message code="user.list.card.boards"/></b>:
+
+        <c:if test="${not empty us.brds}">
+            <ul>
+                <c:forEach items="${us.brds}" var="board">
+                    <li>${board.nm}</li>
+                </c:forEach>
+            </ul>
+        </c:if>
+    </p>
+
+    <p>
+        <b><spring:message code="user.rewards"/></b>:
+
+        <c:if test="${not empty us.rwrds}">
+            <ul>
+                <c:forEach items="${us.rwrds}" var="reward">
+                    <li>${rewards.prdctnm} - ${rewards.prchsdt} - ${rewards.slprc} - ${rewards.rwrdamnt} - ${rewards.clmdt} - ${rewards.clmstts}</li>
+                </c:forEach>
+            </ul>
+        </c:if>
+    </p>
+
+    <p>
+        <b><spring:message code="user.associations"/></b>:
+
+        <c:if test="${not empty us.ssctns}">
+            <ul>
+                <c:forEach items="${us.ssctns}" var="association">
+                    <li>${association.nm} - ${association.rl} - ${association.tp} - ${association.cdt}</li>
+                </c:forEach>
+            </ul>
+        </c:if>
+    </p>
+
+    <p>
+        <b><spring:message code="user.events"/></b>:
+
+        <c:if test="${not empty us.vnts}">
+            <ul>
+                <c:forEach items="${us.vnts}" var="event">
+                    <li>${event.rlnm} - ${event.dt} - ${event.attrs}</li>
+                </c:forEach>
+            </ul>
+        </c:if>
+    </p>
+
+    <p>
+        <b><spring:message code="user.coupons"/></b>:
+
+        <c:if test="${not empty us.cpns}">
+            <ul>
+                <c:forEach items="${us.cpns}" var="coupon">
+                    <li>${coupon.ffrrlnm} - ${coupon.tmrlnm} - ${coupon.cpncd} - ${coupon.fnm} - ${coupon.lnm} - ${coupon.rdmptndt} - ${coupon.crtddt} - ${coupon.trnsctnmnt} - ${coupon.cstmrdscntmnt} - ${coupon.cmmssnmnt} - ${coupon.cmmssnpymntstts}</li>
+                </c:forEach>
+            </ul>
+        </c:if>
+    </p>
+
+    <p>
+        <b><spring:message code="user.redirects"/></b>:
+
+        <c:if test="${not empty userTracker}">
+            <ul>
+
+                <c:forEach items="${userTracker.rdrcts}" var="redirect">
+                	<li><b><spring:message code="user.redirects.total.sales"/>:</b> $${redirect.ttlsls}</li>
+                	<li><b><spring:message code="user.redirects.total.commission"/>:</b> $${redirect.ttlcmmssn}</li>                
+                    <li><b>URL:</b>${redirect.rl}</li>
+                    <ul>
+                    <li><b><spring:message code="user.redirects.sale"/></b>:</li>
+                    <c:forEach items="${redirect.sls}" var="sale">
+	                    <li><b><spring:message code="user.redirects.sale.amount"/></b>: $${sale.slmnt}, <b><spring:message code="user.redirects.commission.amount"/></b>: $${sale.cmmssnmnt }</li>
+	                </c:forEach>
+	                </ul>
+                </c:forEach>
+            </ul>
+        </c:if>
+    </p>
+    
+</div>

@@ -1,0 +1,54 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+    <tiles:importAttribute name="listCard" ignore="true"/>
+    <tiles:importAttribute name="formType" ignore="true"/>
+
+    <h4 class="card-header form-header">
+        <c:set var="cardImg"><lela:listCardName listCard="${listCard}" type="img"/></c:set>
+        <img alt="" src="${cardImg}" class="img-header"/>
+        <c:set var="itemDetailUrl"><lela:listCardName listCard="${listCard}" type="url"/></c:set>
+        <a href="${itemDetailUrl}" class="header-l"><lela:listCardName listCard="${listCard}" type="name"/></a>
+
+        <span class="btn-share">
+            <spring:url value="/static/images/list/btn_${formType}_over.png" var="formTypeImg"/>
+            <img src="${formTypeImg}" alt="${formType}"/>
+
+            <c:choose>
+                <c:when test="${!empty listCard.prfl.mg}">
+                    <spring:url var="profileImgUrl" value="${listCard.prfl.mg}"/>
+                </c:when>
+                <c:otherwise>
+                    <spring:url var="profileImgUrl" value="/static/images/icons/default_profile.png"/>
+                </c:otherwise>
+            </c:choose>
+
+            <img alt="${listCard.prfl.fnm} ${listCard.prfl.lnm}" title="${listCard.prfl.fnm} ${listCard.prfl.lnm}" src="${profileImgUrl}"/>
+        </span>
+
+        <!-- Card store information for items only -->
+        <c:if test="${listCard.tp eq 'ITEM'}">
+            <span class="store-info">
+                <strong><fmt:formatNumber type="CURRENCY" value="${!empty listCard.item ? listCard.item.subAttributes['LowestPrice'] : listCard.relevantItem.subAttributes['LowestPrice']}" /></strong> from
+                ${nbsp}<a href="${itemDetailUrl}#prices"><spring:message code="items.data.price.stores" htmlEscape="false" arguments="${!empty listCard.item ? listCard.item.subAttributes['StoreCount'] : listCard.relevantItem.subAttributes['StoreCount']}" /></a>
+            </span>
+        </c:if>
+    </h4>
+
+</jsp:root>

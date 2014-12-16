@@ -1,0 +1,367 @@
+#main {
+    margin-top: 10px;
+}
+
+a {
+    color: #814f96;
+}
+
+a:hover  {
+    text-decoration: underline;
+}
+
+#press-marquee {
+    position: relative;
+    width: 1000px;
+    height: 444px;
+}
+
+#press-marquee .carousel-row {
+    width: 926px;
+    margin: 0 auto;
+    height: 410px;
+    position: absolute;
+    top: 0;
+    left: 38px;
+    z-index: 1;
+}
+
+#press-marquee .carousel-row .quote {
+    position: absolute;
+    top: 23px;
+    left: 30px;
+    height: 244px;
+    width: 214px;
+}
+
+#press-marquee .carousel-row .quote p {
+    font-size: 14px;
+    margin: 0 0 0 0;
+}
+
+#press-marquee .carousel-row .quote p.heading {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    line-height: 26px;
+}
+
+#press-marquee .carousel-row .quote p span.author {
+    font-weight: bold;
+    display: block;
+    margin-top: 4px;
+}
+
+#press-marquee .carousel-row .quote-container {
+    margin: 0 !important;
+    border: none !important;
+    padding: 0 !important;
+    height: 200px;
+}
+
+#press-marquee .carousel-row .quote a {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#press-marquee .row-0 { background: transparent url('/static/images/press/press_marquee_0.jpg') no-repeat 0 0; }
+#press-marquee .row-1 { background: transparent url('/static/images/press/press_marquee_1.jpg') no-repeat 0 0; display: none; }
+#press-marquee .row-2 { background: transparent url('/static/images/press/press_marquee_2.jpg') no-repeat 0 0; display: none; }
+#press-marquee .row-3 { background: transparent url('/static/images/press/press_marquee_3.jpg') no-repeat 0 0; display: none; }
+#press-marquee .row-4 { background: transparent url('/static/images/press/press_marquee_4.jpg') no-repeat 0 0; display: none; }
+#press-marquee .row-5 { background: transparent url('/static/images/press/press_marquee_5.jpg') no-repeat 0 0; display: none; }
+#press-marquee .row-6 { background: transparent url('/static/images/press/press_marquee_6.jpg') no-repeat 0 0; display: none; }
+#press-marquee .row-7 { background: transparent url('/static/images/press/press_marquee_7.jpg') no-repeat 0 0; display: none; }
+#press-marquee .row-8 { background: transparent url('/static/images/press/press_marquee_8.jpg') no-repeat 0 0; display: none; }
+#press-marquee .row-9 { background: transparent url('/static/images/press/press_marquee_9.jpg') no-repeat 0 0; display: none; }
+
+#press-marquee-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1000px;
+    height: 444px;
+}
+
+#back-button {
+    background: white;
+    width: 46px;
+    float: left;
+    height: 444px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 2;
+}
+
+#next-button {
+    background: white;
+    width: 46px;
+    float: right;
+    height: 444px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    z-index: 2;
+}
+
+.back-on {
+    background: transparent url('/static/images/press/press_marquee_back.png') no-repeat 6px 161px !important;
+}
+
+.next-on {
+    background: transparent url('/static/images/press/press_marquee_next.png') no-repeat 12px 161px !important;
+}
+
+#press-marquee-c {
+    width: 280px;
+    margin: 0 auto;
+    position: relative;
+    top: -16px;
+}
+
+#press-marquee-c .carousel-control {
+    width: 12px;
+    height: 12px;
+    margin-left: 12px;
+    float: left;
+    background-color: #8d5da1;
+    cursor: pointer;
+}
+
+#press-marquee-c .selected {
+    background-color: #999999;
+}
+
+.container-buzz {
+    background: transparent url('/static/images/press/buzz_icon.png') no-repeat 18px 14px;
+    padding: 0 0 0 68px;
+    width: 396px !important;
+    height: 75px;
+}
+
+.container-buzz p {
+    margin: 12px 12px 12px 0;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.lela-page-content .container-50 .or {
+    width: 28px;
+    height: 57px;
+    float: left;
+    background: transparent url('/static/images/press/or-line.png') no-repeat top center;
+    font-size: 24px;
+    padding: 18px 0 0 7px;
+}
+
+.container-thoughts {
+    padding: 23px 0 0 30px;
+    width: 459px !important;
+    font-size: 18px;
+}
+
+.container-thoughts span {
+    float: left;
+    margin-right: 12px;
+}
+
+.fb-icon {
+    overflow: hidden;
+    width: 27px !important;
+    height: 27px !important;
+    text-indent: -9999em !important;
+    background: transparent url('/static/images/press/fb-icon.png') no-repeat 0 0;
+    margin-right: 12px;
+    outline: 0;
+    line-height:0px;
+    display: block;
+    float: left;
+    cursor: pointer;
+}
+
+.tw-icon {
+    overflow: hidden;
+    width: 27px !important;
+    height: 27px !important;
+    text-indent: -9999em !important;
+    background: transparent url('/static/images/press/twitter-icon.png') no-repeat 0 0;
+    outline: 0;
+    line-height:0px;
+    display: block;
+    float: left;
+    cursor: pointer;
+}
+
+.lela-buzz {
+    margin-top: 12px;
+}
+
+.container-quotes {
+    margin-right: 12px !important;
+    margin-left: 12px !important;
+}
+
+.container-quotes .container-left {
+    width: 469px !important;
+}
+
+.container-quotes .container-right {
+    width: 482px !important;
+}
+
+.container-quotes .icon, .container-tweets .icon {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    padding-right: 12px;
+    float: left;
+}
+
+.icon-BABY_CARRIERS { background: white url('/static/images/press/icons/baby_carrier.png') no-repeat 0 0; }
+.icon-BABY_MONITORS { background: white url('/static/images/press/icons/baby_monitor.png') no-repeat 0 0; }
+.icon-CAMERA { background: white url('/static/images/press/icons/camera.png') no-repeat 0 0; }
+.icon-CARSEAT { background: white url('/static/images/press/icons/car_seat.png') no-repeat 0 0; }
+.icon-CRIB { background: white url('/static/images/press/icons/crib.png') no-repeat 0 0; }
+.icon-EBOOK { background: white url('/static/images/press/icons/ebook.png') no-repeat 0 0; }
+.icon-FACEBOOK { background: white url('/static/images/press/icons/facebook.png') no-repeat 0 0; }
+.icon-GAMECONSOLE { background: white url('/static/images/press/icons/game_consoles.png') no-repeat 0 0; }
+.icon-CARSEAT { background: white url('/static/images/press/icons/car_seat.png') no-repeat 0 0; }
+.icon-HIGH_CHAIRS { background: white url('/static/images/press/icons/high_chair.png') no-repeat 0 0; }
+.icon-STROLLER { background: white url('/static/images/press/icons/stroller.png') no-repeat 0 0; }
+.icon-TV { background: white url('/static/images/press/icons/tv_set.png') no-repeat 0 0; }
+
+.container-quotes .quote {
+    float: left;
+    width: 395px;
+    height: 108px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.container-tweets .quote {
+    float: left;
+    width: 399px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.container-quotes .quote p, .container-tweets .quote p {
+    margin: 0 !important;
+}
+
+.container-quotes .quote p.author, .container-tweets .quote p.author {
+    margin-top: 0px;
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.container-tweets .quote .date {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.container-tweets h3 {
+    background: transparent url('/static/images/press/twitter_bird.png') no-repeat 0 3px;
+    padding: 0 0 0 37px;
+    text-align: left;
+    line-height: 20px;
+    margin-right: 12px;
+    margin-left: 12px;
+}
+
+.quote-container {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 17px;
+    margin-right: 12px;
+    margin-left: 12px;
+}
+
+.container-link {
+    float: right;
+    margin-right: 12px;
+    margin-top: 7px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.container-blog h3 {
+    background: transparent url('/static/images/press/lela-blog.png') no-repeat 0 0;
+    width: 80px;
+    height: 26px;
+    line-height: 28px;
+    text-indent: -9999em;
+    margin-right: 12px;
+    margin-left: 12px;
+}
+
+.container-blog .quote {
+    width: 330px;
+    float: right;
+}
+
+.container-blog .quote-container {
+    min-height: 102px;
+}
+
+.container-blog .quote .date {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.container-blog .quote a {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.container-blog .quote p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.container-blog .icon {
+    width: 128px;
+    margin-right: 12px;
+    float: left;
+}
+
+
+.about-lela-top {
+    font-size: 14px;
+    line-height: 22px;
+    background-color: #FFFFFF;
+    padding: 20px 15px 20px 15px;
+    margin-top: 19px;
+    margin-bottom: -9px;
+}
+
+.about-lela-top ul {
+    list-style-type: none;
+    margin-left: 15px;
+}
+
+.about-lela-top ul li {
+    float: left;
+    margin-right: 33px;
+}
+
+.about-lela-top ul li:last-child {
+    margin-right: 0px !important;
+}
+
+.about-lela-top ul li a {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3f3f3f;
+}
+
+.about-lela-top ul li a.selected, .about-lela-top ul li a:hover {
+    color: #56add8;
+}

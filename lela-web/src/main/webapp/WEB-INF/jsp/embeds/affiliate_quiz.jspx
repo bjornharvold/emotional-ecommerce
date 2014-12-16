@@ -1,0 +1,103 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+     id="fb-wrapper">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:url value="/quiz/answer" var="quizUrl" />
+    <spring:url value="/subscribe" var="subscribeUrl" />
+    <spring:url value="/quiz/skip" var="swapQuestionUrl" />
+    <spring:url value="/register" var="registerUrl" />
+    <spring:url value="/static/images/quiz/photos" var="imageQuestionPath" />
+    <spring:url value="/static/images/quiz/mobile_1.jpg" var="mobileAppImg" />
+
+    <lela:findUser/>
+
+    <script type="text/javascript">
+
+        var quizSrc = 'facebook.com';
+        var urls = {
+            "quizUrl" : '${quizUrl}?src=fb&amp;vid=false',
+            "swapQuestionUrl": '${swapQuestionUrl}',
+            "imageQuestionPath": '${imageQuestionPath}'
+        };
+    </script>
+
+
+    <lela:device var="device"/>
+    <c:choose>
+        <c:when test="${!empty param.blank and param.blank eq 'true'}">
+            <script type="text/javascript">
+                trackEvent('babygaga v2.1', 'launch quiz nw', 'header${param['map[crtv]']}', 1);
+                trackCustomVariable(3, 'source', 'babygaga');
+                window.location = '/categories?lq=1';
+            </script>
+        </c:when>
+        <c:otherwise>
+
+            <spring:eval expression="T(java.lang.Math).round(T(java.lang.Math).random() * 5.0)" var="rand"/>
+
+            <spring:url value="/landing/${affiliate.rlnm}/refer/${campaign.rlnm}" var="startQuizUrl">
+                <spring:param name="utm_source" value="Baby%2BGaga" />
+                <spring:param name="utm_medium" value="BabyGaga%2B-%2BFB%2BQuiz%2BLink" />
+                <spring:param name="utm_campaign" value="Baby%2BGaga%2B-%2BFB%2Bv2.1" />
+            </spring:url>
+
+            <h1 id="header-1" class="${!empty param.quiz and param.quiz eq 'start' ? 'hidden-hd' : ''}">
+                <spring:url var="affiliateHeaderImgUrl" value="https://s3.amazonaws.com/lela-editorial/babygaga/baby_gaga_header_${rand}.jpg"/>
+                <a href="${startQuizUrl}" class="launch-quiz"><img src="${affiliateHeaderImgUrl}" alt=""/></a>
+            </h1>
+
+            <c:choose>
+                <c:when test="${(!empty param.quiz and param.quiz eq 'start') or fn:length(us.nswrs) gt 8}">
+
+                    <c:if test="${!empty param['map[crtv]']}">
+                        <script type="text/javascript">
+                            trackEvent('babygaga v2.1', 'launch quiz sw', 'header${param['map[crtv]']}', 1);
+                            trackCustomVariable(3, 'source', 'babygaga');
+                        </script>
+                    </c:if>
+
+                    <div id="quiz-wrapper">
+                        <h2 class="fb-header"><span><spring:message code="quiz.fb.test" htmlEscape="false" /></span></h2>
+                        <div id="quiz"><!-- --></div>
+                    </div>
+
+                </c:when>
+                <c:otherwise>
+
+                    <script type="text/javascript">
+                        var random = '${rand}';
+                    </script>
+
+                    <spring:url var="affiliateSplashImg" value="https://s3.amazonaws.com/lela-editorial/babygaga/affiliate_splash.jpg"/>
+
+                    <form id="start-quiz-form" action="${startQuizUrl}" method="POST" target="${device.mobile eq 'true' ? '_blank' : ''}">
+                        <input type="hidden" name="quiz" value="start"/>
+                        <input type="hidden" name="map[ddt]" value="${param['map[ddt]']}"/>
+                        <input type="hidden" name="map[crtv]" value="${rand}"/>
+                    </form>
+
+                    <a href="${startQuizUrl}" id="affiliate-splash" class="launch-quiz"><img src="${affiliateSplashImg}" alt="Lela Quiz"/></a>
+
+                    <spring:url var="termsConditionsUrl" value="/sc/Lela-onesie-for-baby-gaga"/>
+                    <a href="${termsConditionsUrl}" class="termsLink" target="_blank" rel="nofollow">Read terms &amp; conditions ></a>
+                </c:otherwise>
+            </c:choose>
+
+        </c:otherwise>
+    </c:choose>
+
+</div>

@@ -1,0 +1,41 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='HighChair_ID' RAttribute='HighChair_ID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='Brand_ID' RAttribute='Brand_ID' enclosure='job' type='integer'></setattribute>
+
+			<setattribute tag='HighChair_ID' RAttribute='HighChair_ID' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='Brand_ID' RAttribute='Brand_ID' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='HighChairType' RAttribute='HighChairType' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='FoldType' RAttribute='FoldType' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='Wheels' RAttribute='Wheels' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='SeatCushionWashable' RAttribute='SeatCushionWashable' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='FoodTrayFeatures' RAttribute='FoodTrayFeatures' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='FoodTrayMaintenance' RAttribute='FoodTrayMaintenance' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='CREaseUse' RAttribute='CREaseUse' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='Ergonomic' RAttribute='Ergonomic' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='SeatCushion' RAttribute='SeatCushion' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='SeatFunction' RAttribute='SeatFunction' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='SeatRecline' RAttribute='SeatRecline' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='Footplate' RAttribute='Footplate' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='AdditionalFeatures' RAttribute='AdditionalFeatures' enclosure='highchair' type='string'></setattribute>
+			<createentity entity='job' 	tag='job'	id='id'></createentity>
+			<createentity entity='highchair' 	tag='highchair' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+
+		</map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+			<entity name='highchair' 	number='*'></entity>
+		</entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+		</initialization>
+	</XMLtoEDD>
+</mapping>

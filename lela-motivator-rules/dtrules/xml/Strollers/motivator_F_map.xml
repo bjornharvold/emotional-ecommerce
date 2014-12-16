@@ -1,0 +1,57 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='StrollerID' RAttribute='StrollerID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='StrollerType' RAttribute='StrollerType' enclosure='job' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+
+			<setattribute tag='StrollerID' RAttribute='StrollerID' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='StrollerType' RAttribute='StrollerType' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='AdjustableHandle' RAttribute='AdjustableHandle' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='AdultCupHolder' RAttribute='AdultCupHolder' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='ChildsFoodTray' RAttribute='ChildsFoodTray' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='CushionedOrPaddedSeat' RAttribute='CushionedOrPaddedSeat' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='PeekabooWindow' RAttribute='PeekabooWindow' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='StorageBasket' RAttribute='StorageBasket' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='WeightLbs' RAttribute='WeightLbs' enclosure='stroller' type='Float'></setattribute>			
+			<setattribute tag='DimensionsInchesFull_W' RAttribute='DimensionsInchesFull_W' enclosure='stroller' type='Float'></setattribute>			
+			<setattribute tag='FrontWheelType' RAttribute='FrontWheelType' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='BackWheelType' RAttribute='BackWheelType' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='FoldType' RAttribute='FoldType' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='CRFoldedSize' RAttribute='CRFoldedSize' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='ShockAbsorbingSuspension' RAttribute='ShockAbsorbingSuspension' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='CRManeuverability' RAttribute='CRManeuverability' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='OneTouchBrakesFoot' RAttribute='OneTouchBrakesFoot' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='OneTouchBrakesHand' RAttribute='OneTouchBrakesHand' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='RecliningSeat' RAttribute='RecliningSeat' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='CanopyType' RAttribute='CanopyType' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='FootRest' RAttribute='FootRest' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='LegRest' RAttribute='LegRest' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='InfantHeadrest' RAttribute='InfantHeadrest' enclosure='stroller' type='string'></setattribute>			
+			<setattribute tag='ShoulderPads' RAttribute='ShoulderPads' enclosure='stroller' type='string'></setattribute>	
+			<setattribute tag='RainProtection' RAttribute='RainProtection' enclosure='stroller' type='string'></setattribute>				
+			<setattribute tag='UVProtection' RAttribute='UVProtection' enclosure='stroller' type='string'></setattribute>	
+
+			
+			<createentity entity='job' 			tag='job' 			id='id'></createentity>
+			<createentity entity='stroller' 	tag='stroller' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+
+			<entity name='stroller' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

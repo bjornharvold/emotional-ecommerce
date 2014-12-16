@@ -1,0 +1,40 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'/>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'/>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'/>
+			<setattribute tag='StrollerID' RAttribute='StrollerID' enclosure='job' type='integer'/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'/>
+
+			<setattribute tag='StrollerID' RAttribute='StrollerID' enclosure='stroller' type='string'/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='stroller' type='string'/>
+			<setattribute tag='UPC' RAttribute='UPC' enclosure='stroller' type='string'/>
+			<setattribute tag='FacebookAvailable' RAttribute='FacebookAvailable' enclosure='stroller' type='string'/>
+			<setattribute tag='TwitterAvailable' RAttribute='TwitterAvailable' enclosure='stroller' type='string'/>
+			<setattribute tag='FacebookLikes' RAttribute='FacebookLikes' enclosure='stroller' type='integer'/>
+			<setattribute tag='TwitterFollowers' RAttribute='TwitterFollowers' enclosure='stroller' type='integer'/>
+			<setattribute tag='BabiesRUSTopSelling' RAttribute='BabiesRUSTopSelling' enclosure='stroller' type='string'/>
+			<setattribute tag='BabbleRecognition' RAttribute='BabbleRecognition' enclosure='stroller' type='string'/>
+			<setattribute tag='BabyBargainsRecognition' RAttribute='BabyBargainsRecognition' enclosure='stroller' type='string'/>			
+			<setattribute tag='GiggleListed' RAttribute='GiggleListed' enclosure='stroller' type='string'/>
+						
+			<createentity entity='job' 			tag='job' 			id='id'/>
+			<createentity entity='stroller' 	tag='stroller' 		id='id'/>
+			<createentity entity='constants' 	tag='constants' 	id='id'/>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'/>
+			<entity name='job'		 	number='1'/>
+
+			<entity name='stroller' 	number='*'/>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'/>
+			<initialentity entity='job' 		epush='true'/>
+        </initialization>
+    </XMLtoEDD>
+</mapping>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags"
+     xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" version="2.0" xmlns:display="http://displaytag.sf.net/el">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <spring:message code="label_affiliatereporting_list" htmlEscape="false" var="title"/>
+
+    <spring:message code="application_name" htmlEscape="false" var="app_name"/>
+
+    <spring:url value="/affiliatereporting/detail" var="list_url"/>
+    <display:table name="transactions" id="item" style="width:85%" requestURI="${list_url}" export="true">
+      <display:setProperty name="export.excel.filename" value="AffiliateReport.xls"/>
+      <display:column property="network" sortable="true"/>
+      <display:column property="orderId" sortable="true"/>
+      <display:column property="transactionDate" format="{0,date,MM-dd-yyyy}" sortable="true"/>
+      <display:column property="referralDate" format="{0,date,MM-dd-yyyy}" sortable="true"/>
+      <display:column property="advertiserName" sortable="true"/>
+      <display:column property="salesAmount" sortable="true"/>
+      <display:column property="commissionAmount" sortable="true"/>
+      <display:column property="processDate" format="{0,date,MM-dd-yyyy}" sortable="true"/>
+      <display:column property="revenueId" sortable="true"/>
+      <display:column property="providerId" sortable="true"/>
+      <display:column property="provider" sortable="true"/>
+      <display:column property="organizationId" sortable="true"/>
+      <display:column property="eventDate" format="{0,date,MM-dd-yyyy}" sortable="true"/>
+      <display:column property="clickDate" format="{0,date,MM-dd-yyyy}" sortable="true"/>
+      <display:column property="productName" sortable="true"/>
+      <display:column property="productCategory" sortable="true"/>
+      <display:column property="productId" sortable="true"/>
+      <display:column property="quantity" sortable="true"/>
+      <display:column property="subId" sortable="true"/>
+      <display:column property="trackingId" sortable="true"/>
+      <display:column property="referringProductId" sortable="true"/>
+      <display:column property="redirectId" sortable="true"/>
+      <display:column property="userId" sortable="true"/>
+      <display:column property="firstName" sortable="true"/>
+      <display:column property="lastName" sortable="true"/>
+      <display:column property="email" sortable="true"/>
+      <display:column property="association" sortable="true"/>
+    </display:table>
+</div>

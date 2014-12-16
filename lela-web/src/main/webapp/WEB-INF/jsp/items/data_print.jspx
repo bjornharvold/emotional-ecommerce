@@ -1,0 +1,90 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+<jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+
+    <spring:url value="/login" var="loginUrl" />
+<spring:url value="/register" var="registerUrl" />
+<spring:url value="/quiz?src=grid&amp;vid=true" var="launchQuiz" />
+
+<c:set var="items" value="${page.content}"/>
+
+<c:if test="${empty items and page.number == 0}">
+    <p id="no-results"><spring:message code="grid.results.empty" htmlEscape="false"/></p>
+</c:if>
+
+<spring:message code="nav.cat.${categoryUrlName}" var="categoryName"/>
+<h1 title="${categoryName} : Lela" class="category-title">${categoryName}</h1>
+
+<lela:lelaPagination url="/${category.srlnm}/c?rlnm=${category.rlnm}" totalElements="${page.totalElements}" totalPages="${page.totalPages}" pageNumber="${page.number}" pageSize="${page.size}"/>
+
+<ul id="p-grid" style="display:block !important; width:985px !important;">
+    <c:forEach var="item" varStatus="status" items="${items}">
+
+        <li class="item ${(status.index + 2) % 5 == 1 ? 'row-last' : ''}" id="${item.rlnm}">
+            <spring:url value="/${item.srlnm}/p?rlnm=${item.rlnm}&amp;dx=${status.count}&amp;tl=${fn:length(items)}&amp;pg=${page.number}&amp;sz=${page.size}" var="itemDetailUrl"/>
+
+            <c:if test="${item.class.name eq 'com.lela.domain.document.RelevantItem' or item.class.name eq 'com.lela.domain.document.SavedItem' and item.ttlrlvncynmbr > 0}">
+                <spring:url value="/static/images/icons/rating/relevancy_meter_${item.ttlrlvncynmbr}.png" var="lelaRatingImgUrl" />
+                <img src="${lelaRatingImgUrl}" alt="${item.ttlrlvncynmbr}%" class="lela-rating"/>
+            </c:if>
+
+
+            <a href="${itemDetailUrl}" class="p-img"><img src="${item.imgs[0].sz['medium']}" alt="${item.nm} - ${item.subAttributes['Brand']}"/></a>
+            <a href="${itemDetailUrl}" class="p-info">
+                <c:if test="${page.sortBy eq 'RECOMMENDED' and page.number == 0 and status.count lt 13 and listType == 'false' and item.class.name eq 'com.lela.domain.document.RelevantItem'}">
+                    <span class="rtg-index">#${status.count} pick for you</span>
+                </c:if>
+                <span><strong><lela:lelaProductName item="${item}" /></strong></span>
+                <span class="p-price">
+                    <c:choose>
+                        <c:when test="${item.subAttributes['LowestPrice'] gt 0.0}">
+                            <spring:message code="items.data.bestprice" htmlEscape="false"/>
+                            from ${item.subAttributes['MerchantName']}
+                            <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['LowestPrice']}" /></strong>
+                        </c:when>
+                        <c:otherwise>
+                            <spring:message code="item.details.listPrice"/><br/>
+                            <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></strong>
+                        </c:otherwise>
+                    </c:choose>
+                </span>
+            </a>
+
+            <c:if test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                <div class="p-action p-quiz">
+                    <spring:message code="grid.results.category.${item.ctgry.rlnm}" var="userCategoryText" text="${item.ctgry.rlnm}"/>
+                    <spring:message code="grid.results.right.forme" htmlEscape="false" arguments="${userCategoryText}"/><br/>
+                    <a href="${launchQuiz}&amp;pr=${itemDetailUrl}" class="modal quiz-modal"><spring:message code="grid.results.show.score" htmlEscape="false"/></a>
+                </div>
+            </c:if>
+
+        </li>
+
+    </c:forEach>
+</ul>
+
+<lela:lelaPagination url="/${category.srlnm}/c?rlnm=${category.rlnm}" totalElements="${page.totalElements}" totalPages="${page.totalPages}" pageNumber="${page.number}" pageSize="${page.size}"/>
+
+<!-- When user ends up on the grid from search engine, redirect to real grid. -->
+<spring:url var="redirectUrl" value="/${category.srlnm}/c?rlnm=${category.rlnm}"/>
+<script type="text/javascript">
+    window.location = '${redirectUrl}';
+</script>
+
+</jsp:root>

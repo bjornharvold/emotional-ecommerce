@@ -1,0 +1,9 @@
+<div class="quiz-questions" ng-controller='Lela.QuestionStepController'>
+    <h2><span>{{step.nm}}</span></h2>
+    <div ng-repeat="entry in step.ntrs">
+        <div lela-question="entry.question"></div>
+    </div>
+    <div class="actions">
+        <a ng-click="next($event)" class="next-steps" ng-class="{active:isNextActive}"><span>{{buttonText}}</span></a>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ProductDetailGroupAttribute" object="${productdetailgroupattribute}" path="/crud/productdetailgroupattributes" z="UgHLDy5dHD+A60HRqI9Tvx6x8h0=">
+        <field:display date="true" dateTimePattern="${productDetailGroupAttribute_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ProductDetailGroupAttribute_dateCreated" object="${productdetailgroupattribute}" z="+UsMeukB6XYbaWKhKnHOJnRIo04="/>
+        <field:display date="true" dateTimePattern="${productDetailGroupAttribute_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ProductDetailGroupAttribute_dateModified" object="${productdetailgroupattribute}" z="rInetIGXQxs+RsGkZClh3Z8QxUY="/>
+        <field:display field="orderInGroup" id="s_com_lela_data_domain_entity_ProductDetailGroupAttribute_orderInGroup" object="${productdetailgroupattribute}" z="u9uRqp5MAjnKt5Almalho7rHWa8="/>
+        <field:display field="attrLabel" id="s_com_lela_data_domain_entity_ProductDetailGroupAttribute_attrLabel" object="${productdetailgroupattribute}" z="xNaamWdxhRSokOeg0vF19O9aQbo="/>
+        <field:display field="attrName" id="s_com_lela_data_domain_entity_ProductDetailGroupAttribute_attrName" object="${productdetailgroupattribute}" z="UmjYAwrEYLwUsVnWlxDbQz+gbTY="/>
+        <field:display field="productDetailAttributeValueTypeId" id="s_com_lela_data_domain_entity_ProductDetailGroupAttribute_productDetailAttributeValueTypeId" object="${productdetailgroupattribute}" z="3igbPpHlX7wZVknW+dbWrNyHxxg="/>
+        <field:display field="productDetailGroup" id="s_com_lela_data_domain_entity_ProductDetailGroupAttribute_productDetailGroup" object="${productdetailgroupattribute}" z="xupfsHTGtQntMpy80o/tuKCj6Lg="/>
+        <field:display field="productDetailAttributeTypes" id="s_com_lela_data_domain_entity_ProductDetailGroupAttribute_productDetailAttributeTypes" object="${productdetailgroupattribute}" z="8GHZKwfmKUv9ZvvPCPSBsIgDsLY="/>
+        <field:display field="productDetailParts" id="s_com_lela_data_domain_entity_ProductDetailGroupAttribute_productDetailParts" object="${productdetailgroupattribute}" z="tqqJE8tXKNoTQoCT+DcxnItUk4s="/>
+    </page:show>
+</div>

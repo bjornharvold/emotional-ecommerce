@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="crud/itemserieses/list">
+        <put-attribute name="body" value="/WEB-INF/views/crud/itemseries/list.jspx"/>
+    </definition>
+<definition extends="default" name="crud/itemserieses/show">
+        <put-attribute name="body" value="/WEB-INF/views/crud/itemseries/show.jspx"/>
+    </definition>
+<definition extends="default" name="crud/itemserieses/create">
+        <put-attribute name="body" value="/WEB-INF/views/crud/itemseries/create.jspx"/>
+    </definition>
+<definition extends="default" name="crud/itemserieses/update">
+        <put-attribute name="body" value="/WEB-INF/views/crud/itemseries/update.jspx"/>
+    </definition>
+<definition extends="default" name="crud/itemseries/list">
+        <put-attribute name="body" value="/WEB-INF/views/crud/itemseries/list.jspx"/>
+    </definition>
+<definition extends="default" name="crud/itemseries/show">
+        <put-attribute name="body" value="/WEB-INF/views/crud/itemseries/show.jspx"/>
+    </definition>
+<definition extends="default" name="crud/itemseries/create">
+        <put-attribute name="body" value="/WEB-INF/views/crud/itemseries/create.jspx"/>
+    </definition>
+<definition extends="default" name="crud/itemseries/update">
+        <put-attribute name="body" value="/WEB-INF/views/crud/itemseries/update.jspx"/>
+    </definition>
+</tiles-definitions>

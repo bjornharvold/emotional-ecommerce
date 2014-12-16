@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ZipCode" object="${zipcode}" path="/crud/zipcodes" z="vU5oUcWVO/u+3aD9EKcXjOCQkQQ=">
+        <field:display date="true" dateTimePattern="${zipCode_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ZipCode_dateCreated" object="${zipcode}" z="LN0D1QHJbmeBX8J8uDo3KKi5EeA="/>
+        <field:display date="true" dateTimePattern="${zipCode_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ZipCode_dateModified" object="${zipcode}" z="2JO1mOo76aVVAk9TMxHPXwkZrOU="/>
+        <field:display field="postalCode" id="s_com_lela_data_domain_entity_ZipCode_postalCode" object="${zipcode}" z="y1Quw66fULVPmJ8fOslRLkwcnkg="/>
+        <field:display field="population" id="s_com_lela_data_domain_entity_ZipCode_population" object="${zipcode}" z="7fcwcJl+x301X8wS3fO77iJ1+s8="/>
+        <field:display field="household" id="s_com_lela_data_domain_entity_ZipCode_household" object="${zipcode}" z="f52tSHQhYcjiJfcCQp37YplXrZE="/>
+        <field:display field="white" id="s_com_lela_data_domain_entity_ZipCode_white" object="${zipcode}" z="ErogUsDkNW/Iq6Xz38hDb5U7sog="/>
+        <field:display field="black" id="s_com_lela_data_domain_entity_ZipCode_black" object="${zipcode}" z="PNw3D9ntiKaX4drQNcXg4tlc9vw="/>
+        <field:display field="hispanic" id="s_com_lela_data_domain_entity_ZipCode_hispanic" object="${zipcode}" z="DcxnsMZTsANjar2ubezcRA0IOww="/>
+        <field:display field="asian" id="s_com_lela_data_domain_entity_ZipCode_asian" object="${zipcode}" z="ifHd+wlBKlHQx+mMvmXyvUIfpCI="/>
+        <field:display field="hawaiian" id="s_com_lela_data_domain_entity_ZipCode_hawaiian" object="${zipcode}" z="N9QJK5zZ7QsLnKw2lgQplSgXmjM="/>
+        <field:display field="indian" id="s_com_lela_data_domain_entity_ZipCode_indian" object="${zipcode}" z="VAEuj9IcyAa5jAcRp5cOO7MonkQ="/>
+        <field:display field="other" id="s_com_lela_data_domain_entity_ZipCode_other" object="${zipcode}" z="bb2zc4Gz0nUED/J/5lue4fPIgrY="/>
+        <field:display field="male" id="s_com_lela_data_domain_entity_ZipCode_male" object="${zipcode}" z="2oA6Ity3NaVxF39M98CDn8tRP4Q="/>
+        <field:display field="female" id="s_com_lela_data_domain_entity_ZipCode_female" object="${zipcode}" z="mtfM2aKJ1m7SnJ8a9VS5Q3M4Zbo="/>
+        <field:display field="income" id="s_com_lela_data_domain_entity_ZipCode_income" object="${zipcode}" z="KmyG7bf9HBbhkkXgPq2S1z+92mM="/>
+        <field:display field="age" id="s_com_lela_data_domain_entity_ZipCode_age" object="${zipcode}" z="OTE+tQpQW5CtGSxTpE4Poq2jG3o="/>
+        <field:display field="ageMale" id="s_com_lela_data_domain_entity_ZipCode_ageMale" object="${zipcode}" z="qpiepSaNUFqW8h4gwJYQO3xUvc8="/>
+        <field:display field="ageFemale" id="s_com_lela_data_domain_entity_ZipCode_ageFemale" object="${zipcode}" z="sKVl8GFBVRyh4Pj04apGUJAQVfo="/>
+        <field:display field="lat" id="s_com_lela_data_domain_entity_ZipCode_lat" object="${zipcode}" z="ukkTsDx2n/2T25dHebQ12japM0o="/>
+        <field:display field="lng" id="s_com_lela_data_domain_entity_ZipCode_lng" object="${zipcode}" z="MkWoZG3J7db98a24kyzBTp6FDHI="/>
+        <field:display field="stateCode" id="s_com_lela_data_domain_entity_ZipCode_stateCode" object="${zipcode}" z="gkar3F9PHOUWsJTcKrsWvJC86oQ="/>
+        <field:display field="stateName" id="s_com_lela_data_domain_entity_ZipCode_stateName" object="${zipcode}" z="u1rW8/3QejKcsei79hXxd6W3DbU="/>
+        <field:display field="city" id="s_com_lela_data_domain_entity_ZipCode_city" object="${zipcode}" z="GruXoE6rfKXycC40PrthkN+CwMk="/>
+        <field:display field="cbsa" id="s_com_lela_data_domain_entity_ZipCode_cbsa" object="${zipcode}" z="TglN+EZwRD87N96QpHO0SWD1evs="/>
+        <field:display field="region" id="s_com_lela_data_domain_entity_ZipCode_region" object="${zipcode}" z="dH8JB0ObuZdvAr5CVQoWWvYbqd0="/>
+        <field:display field="division" id="s_com_lela_data_domain_entity_ZipCode_division" object="${zipcode}" z="KWlRljxsogYCCJhyAgZCV7FoRZY="/>
+        <field:display field="objectId" id="s_com_lela_data_domain_entity_ZipCode_objectId" object="${zipcode}" z="+o9VUGNqdA9DZP0hx3bCyK/XtrY="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_ZipCode_dirty" object="${zipcode}" z="yvZkNQRjJF00rOzJFS9nyrJDQMc="/>
+    </page:show>
+</div>

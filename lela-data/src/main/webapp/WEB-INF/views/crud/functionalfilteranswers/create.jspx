@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_lela_data_domain_entity_FunctionalFilterAnswer" modelAttribute="functionalFilterAnswer" path="/crud/functionalfilteranswers" render="${empty dependencies}" z="Fkteecs1AMlQNvSSDy5DTo7hvdU=">
+        <field:datetime dateTimePattern="${functionalFilterAnswer_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${functionalFilterAnswer_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_dateModified" render="false" z="user-managed"/>
+        <field:select field="functionalFilter" id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_functionalFilter" itemLabel="functionalFilterName" itemValue="id" items="${functionalfilters}" path="/functionalfilters" z="user-managed"/>
+        <field:input field="answer" id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_answer" required="true" validationMessageCode="field_invalid_integer" z="ngeQZQbNuMceS/IVjm7551ETGMA="/>
+        <field:input field="answerKey" id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_answerKey" z="qRXYm4m63HQazJS5Cysyi2zmkOA="/>
+        <field:input field="answerValue" id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_answerValue" z="J5dbQ684cthDzArRCvKNdt+oVg0="/>
+        <field:input field="answerOrder" id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_answerOrder" validationMessageCode="field_invalid_integer" z="ZWLiWibQ00GF4NqUtkyDMgczoeg="/>
+        <field:checkbox field="defaultt" id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_defaultt" z="5khiieO7MJ1sdiIARTWuxK5XXKQ="/>
+        <field:input field="functionalFilterAnswerValues" id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_functionalFilterAnswerValues" z="Tg9wG54Uu7ZWRpdb1Hr3jX6KYHU="/>
+        <field:input field="functionalFilterAnswerLabel" id="c_com_lela_data_domain_entity_FunctionalFilterAnswer_functionalFilterAnswerLabel" required="true" z="NY3X1b0YTg3mc2wQGT/2I6zmZEc="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_lela_data_domain_entity_FunctionalFilterAnswer" render="${not empty dependencies}" z="wu9/HSru8mwTmxCqsbbSEUBB384="/>
+</div>

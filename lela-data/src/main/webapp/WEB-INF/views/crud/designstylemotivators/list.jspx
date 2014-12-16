@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_DesignStyleMotivator" items="${designstylemotivators}" z="CRJbuKqoUiIXjuB0cU+Je5XYPhA=">
+        <table:table data="${designstylemotivators}" id="l_com_lela_data_domain_entity_DesignStyleMotivator" path="/crud/designstylemotivators" z="pIqtpHYIV5lXTWEvdcsm9vDuXiQ=">
+            <table:column date="true" dateTimePattern="${designStyleMotivator_datecreated_date_format}" id="c_com_lela_data_domain_entity_DesignStyleMotivator_dateCreated" property="dateCreated" z="edvOVCA5RmMD6e6ubChQl+DK1i0="/>
+            <table:column date="true" dateTimePattern="${designStyleMotivator_datemodified_date_format}" id="c_com_lela_data_domain_entity_DesignStyleMotivator_dateModified" property="dateModified" z="GdsF25nDXKJ8+O4gCaOs4t3JSl0="/>
+            <table:column id="c_com_lela_data_domain_entity_DesignStyleMotivator_category" property="category" z="DP3QhfNUN7kOL2HjgUXwCtjOJeM="/>
+            <table:column id="c_com_lela_data_domain_entity_DesignStyleMotivator_designStyle" property="designStyle" z="ZgCybeACxMkjTJfz0CSXaIHOag8="/>
+            <table:column id="c_com_lela_data_domain_entity_DesignStyleMotivator_h" property="h" z="4anzAyV8ohLdwPh3z+Q6hXxhreI="/>
+            <table:column id="c_com_lela_data_domain_entity_DesignStyleMotivator_i" property="i" z="4o9DoELRkrZQaoGwJ26MOwX1gso="/>
+        </table:table>
+    </page:list>
+</div>

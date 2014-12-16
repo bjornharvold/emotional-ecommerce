@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Subdepartment" object="${subdepartment}" path="/crud/subdepartments" z="JO87NM9RhSCiiwBEtOd/QMlt348=">
+        <field:display date="true" dateTimePattern="${subdepartment_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Subdepartment_dateCreated" object="${subdepartment}" z="L10jxqy0lGUeR/4db23tFSLxRac="/>
+        <field:display date="true" dateTimePattern="${subdepartment_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Subdepartment_dateModified" object="${subdepartment}" z="yBux4//sMBn0pX2XDGU6dD0SBs4="/>
+        <field:display field="subdepartmentName" id="s_com_lela_data_domain_entity_Subdepartment_subdepartmentName" object="${subdepartment}" z="t9nzZqRreGmkeK69GRYnuU7LM0A="/>
+        <field:display field="subdepartmentStatus" id="s_com_lela_data_domain_entity_Subdepartment_subdepartmentStatus" object="${subdepartment}" z="LCNN1jn/Rl/rgGpSxRNFPHGNvaU="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_Subdepartment_dirty" object="${subdepartment}" z="tMYBr05Dv49P4ADhcfSaO8eKswc="/>
+        <field:display field="subdepartmentURLName" id="s_com_lela_data_domain_entity_Subdepartment_subdepartmentURLName" object="${subdepartment}" z="HscKhnpk/tSaNsqCSwut0K4bXpk="/>
+    </page:show>
+</div>

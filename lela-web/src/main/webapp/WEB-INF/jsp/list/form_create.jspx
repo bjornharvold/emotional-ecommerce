@@ -1,0 +1,77 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+
+    <c:choose>
+        <c:when test="${empty message}">
+
+            <div class="card-modal" id="create-list">
+
+                <h4 class="card-header manage-list">${!empty boardCode ? 'Rename list' : 'Create a list'}</h4>
+
+                <spring:url var="createFormUrl" value="/user/list/create?boardCode=${boardCode}"/>
+                <spring-form:form commandName="listCardBoard" action="${createFormUrl}" cssClass="custom" id="create-form">
+
+                    <fieldset>
+                        <p>
+                            <label>List name:</label>
+                            <spring-form:input path="nm" cssStyle="width:300px;"/>
+                            <spring-form:errors path="nm" cssClass="error"/>
+                        </p>
+
+                    </fieldset>
+
+
+
+                    <a href="#" class="submit-alert list-button" type="note">Save</a>
+                    <a href="#" onclick="$.fancybox.close(true); return false;" class="list-button cancel-btn">Cancel</a>
+
+                </spring-form:form>
+            </div>
+
+            <script type="text/javascript">
+                $().ready(function($) {
+                    initModal();
+                    $("form.custom").jqTransform();
+
+                    $('#create-form .submit-alert').click(function() {
+                        $('#create-form').submit();
+                        return false;
+                    });
+
+                    $('#create-form').ajaxForm(function(responseText) {
+                        $('#create-list').replaceWith($(responseText));
+                    });
+                });
+            </script>
+
+        </c:when>
+        <c:otherwise>
+
+            <script type="text/javascript">
+                $().ready(function($) {
+                    window.location = '/user/list?boardCode=${listCardBoard.cd}&amp;image=true';
+                });
+            </script>
+
+        </c:otherwise>
+    </c:choose>
+
+
+</jsp:root>

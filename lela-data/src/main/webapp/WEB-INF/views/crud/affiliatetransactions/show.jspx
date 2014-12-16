@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_AffiliateTransaction" object="${affiliatetransaction}" path="/crud/affiliatetransactions" z="3VLRhQpn57wfShb/pj4WUlrelXs=">
+        <field:display date="true" dateTimePattern="${affiliateTransaction_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_AffiliateTransaction_dateCreated" object="${affiliatetransaction}" z="vM2WorWjVVk4TbtggWqPK4+ArZw="/>
+        <field:display date="true" dateTimePattern="${affiliateTransaction_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_AffiliateTransaction_dateModified" object="${affiliatetransaction}" z="Fkeq3N2gDm0Bx0vgSEKuRVNvRW0="/>
+        <field:display field="network" id="s_com_lela_data_domain_entity_AffiliateTransaction_network" object="${affiliatetransaction}" z="5QQEo6kCrN+LNJCKl84mQaqZVSM="/>
+        <field:display field="orderId" id="s_com_lela_data_domain_entity_AffiliateTransaction_orderId" object="${affiliatetransaction}" z="g+wKwrNTtD9SRwz33yZjGTwOxdI="/>
+        <field:display date="true" dateTimePattern="${affiliateTransaction_transactiondate_date_format}" field="transactionDate" id="s_com_lela_data_domain_entity_AffiliateTransaction_transactionDate" object="${affiliatetransaction}" z="m+qybuplwZX5X5bjQ9xgfHFyJwQ="/>
+        <field:display date="true" dateTimePattern="${affiliateTransaction_referraldate_date_format}" field="referralDate" id="s_com_lela_data_domain_entity_AffiliateTransaction_referralDate" object="${affiliatetransaction}" z="Rf1PEfx7tZw5pRU22RWojz/mAoI="/>
+        <field:display field="advertiserName" id="s_com_lela_data_domain_entity_AffiliateTransaction_advertiserName" object="${affiliatetransaction}" z="Js7k2LjFeEmSc+3WGRTXiD0Ha/U="/>
+        <field:display field="salesAmount" id="s_com_lela_data_domain_entity_AffiliateTransaction_salesAmount" object="${affiliatetransaction}" z="gdaQjigfTQN4oqjdRsRWpsLi3IQ="/>
+        <field:display field="commissionAmount" id="s_com_lela_data_domain_entity_AffiliateTransaction_commissionAmount" object="${affiliatetransaction}" z="6xf0T+APv41bsFZhMnJiBjdrg80="/>
+        <field:display date="true" dateTimePattern="${affiliateTransaction_processdate_date_format}" field="processDate" id="s_com_lela_data_domain_entity_AffiliateTransaction_processDate" object="${affiliatetransaction}" z="zpSvsxebpg34tfkjLfopjb0XxMw="/>
+        <field:display field="revenueId" id="s_com_lela_data_domain_entity_AffiliateTransaction_revenueId" object="${affiliatetransaction}" z="liBd5dJWlGp4VTm7EI69feYT97A="/>
+        <field:display field="providerId" id="s_com_lela_data_domain_entity_AffiliateTransaction_providerId" object="${affiliatetransaction}" z="Pdy1IcdKUohPoDrCAlXuSy7Mp9Y="/>
+        <field:display field="provider" id="s_com_lela_data_domain_entity_AffiliateTransaction_provider" object="${affiliatetransaction}" z="EhKndUpGtNZCajI3rHZ1E89iSGU="/>
+        <field:display field="organizationId" id="s_com_lela_data_domain_entity_AffiliateTransaction_organizationId" object="${affiliatetransaction}" z="5hxdrcZ5YR5OkD5wKcqaCUbu9HE="/>
+        <field:display date="true" dateTimePattern="${affiliateTransaction_eventdate_date_format}" field="eventDate" id="s_com_lela_data_domain_entity_AffiliateTransaction_eventDate" object="${affiliatetransaction}" z="o0ssrjwXg+cai13rR3S2bJaaaoM="/>
+        <field:display date="true" dateTimePattern="${affiliateTransaction_clickdate_date_format}" field="clickDate" id="s_com_lela_data_domain_entity_AffiliateTransaction_clickDate" object="${affiliatetransaction}" z="33rCtIzaU1cBehZ0uhgiafQIos8="/>
+        <field:display field="productName" id="s_com_lela_data_domain_entity_AffiliateTransaction_productName" object="${affiliatetransaction}" z="s6tnSfQBvIv3awsrtbBUNSzQVTQ="/>
+        <field:display field="productCategory" id="s_com_lela_data_domain_entity_AffiliateTransaction_productCategory" object="${affiliatetransaction}" z="9+1xzmfW2TcT6NvrQXTrTe0KOac="/>
+        <field:display field="quantity" id="s_com_lela_data_domain_entity_AffiliateTransaction_quantity" object="${affiliatetransaction}" z="f8oBJqbUYMe/Wosi3+92TaUeGGc="/>
+        <field:display field="subId" id="s_com_lela_data_domain_entity_AffiliateTransaction_subId" object="${affiliatetransaction}" z="YcN8wG2ApdTGPOXqbn71aGIVZkQ="/>
+        <field:display field="trackingId" id="s_com_lela_data_domain_entity_AffiliateTransaction_trackingId" object="${affiliatetransaction}" z="Sfxql4xyNHIK5bWh2kH0R/nVAew="/>
+        <field:display field="referringProductId" id="s_com_lela_data_domain_entity_AffiliateTransaction_referringProductId" object="${affiliatetransaction}" z="Chxce+5q658dxIVD/o81pVYYWDc="/>
+        <field:display field="redirectId" id="s_com_lela_data_domain_entity_AffiliateTransaction_redirectId" object="${affiliatetransaction}" z="RLRL0mjMs7V4WsUEpujKrNo51Ss="/>
+        <field:display field="affiliateReport" id="s_com_lela_data_domain_entity_AffiliateTransaction_affiliateReport" object="${affiliatetransaction}" z="LLLUGM9nd1vBAG2LqSsEt7qXhlw="/>
+        <field:display field="productId" id="s_com_lela_data_domain_entity_AffiliateTransaction_productId" object="${affiliatetransaction}" z="QAsnTRF8YnOGscGUrLOvFeYNtLI="/>
+        <field:display field="userId" id="s_com_lela_data_domain_entity_AffiliateTransaction_userId" object="${affiliatetransaction}" z="VmJ2V8YM+7ZWHfku4uwD8AFwMxA="/>
+        <field:display field="redirectUrl" id="s_com_lela_data_domain_entity_AffiliateTransaction_redirectUrl" object="${affiliatetransaction}" z="8FumWldikHnDKqNNfqzKKeJxGlQ="/>
+        <field:display field="firstName" id="s_com_lela_data_domain_entity_AffiliateTransaction_firstName" object="${affiliatetransaction}" z="xHd1l7RPh8yUaNrGBf1mpjq+q14="/>
+        <field:display field="lastName" id="s_com_lela_data_domain_entity_AffiliateTransaction_lastName" object="${affiliatetransaction}" z="MYAXd0zxQ91fCsNuXlaaN4Kjsfo="/>
+        <field:display field="association" id="s_com_lela_data_domain_entity_AffiliateTransaction_association" object="${affiliatetransaction}" z="0lqE4KPPtUP9bNDknoWz4lpsJ1o="/>
+        <field:display field="email" id="s_com_lela_data_domain_entity_AffiliateTransaction_email" object="${affiliatetransaction}" z="N6I+GYI8LWCy4iBN/SqvG/8D0hE="/>
+        <field:display field="syncdMongo" id="s_com_lela_data_domain_entity_AffiliateTransaction_syncdMongo" object="${affiliatetransaction}" z="JcLgXdXkJsy0kz1KBnOpMRZiTQo="/>
+    </page:show>
+</div>

@@ -1,0 +1,119 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+    <spring:url value="/login" var="loginUrl" />
+    <spring:url value="/brands" var="brandsLink" />
+    <spring:url value="/list/owner" var="lelaOwnerUrl" />
+    <spring:url value="/user/list/card/delete" var="lelaOwnerDeleteUrl" />
+
+    <lela:findUser/>
+
+    <div class="lela-page-container page-brands">
+
+        <div class="lela-page-header">
+            <h2><spring:message code="brands.on.lela.title" /></h2>
+            <div class="horizontal-shade"><!-- --></div>
+
+            <ul class="alphabet">
+                <li><a href="${brandsLink}" class="alphabet-all selected"><spring:message code="stores.on.lela.all" /></a></li>
+                <c:forEach var="a" items="${owners.alphabet}" varStatus="alphabetStatus">
+                    <spring:url var="alphaLink" value="/brands/${a.nm}" />
+                    <c:choose>
+                        <c:when test="${a.selected == 'true'}">
+                            <li><a class="selected ${selectedLetter eq a.nm ? 'current-letter' : ''}" href="${alphaLink}">${a.nm}</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li>${a.nm}</li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+            </ul>
+        </div>
+
+        <div class="lela-page-content">
+
+            <c:set var="itemTotal" value="0" />
+
+            <c:forEach var="a" items="${owners.alphabet}" varStatus="alphabetStatus">
+                <div class="lela-page-divider" nm="${a.nm}">${a.nm}</div>
+                <c:set var="i" value="0" />
+
+                <c:forEach var="owner" items="${owners.owners}" varStatus="storeStatus">
+
+                    <c:if test="${fn:startsWith(owner.owner.rlnm, a.nm)==true}">
+                        <div class="lela-brands-item">
+
+                            <spring:url var="brandUrl" value="/${owner.owner.srlnm}/b?rlnm=${owner.owner.rlnm}" />
+                            <div class="lela-brands-name">
+
+                                <c:if test="${empty domainAffiliate or domainAffilate.shwlsts}">
+                                <spring:url var="addListItem" value="/user/list/names?type=owner"/>
+                                <a rel="nofollow" href="${addListItem}" class="l-list l-list-add" rlnm="${owner.owner.rlnm}"><!-- --></a>
+                                </c:if>
+
+                                <a href="${brandUrl}">${owner.owner.nm}</a>
+                            </div>
+
+                            <div class="lela-brands-categories">
+                                <c:set var="catSize" value="${fn:length(owner.categories) - 1}"/>
+
+                                <c:forEach var="cat" items="${owner.categories}" varStatus="catStatus">
+                                    <spring:url var="catUrl" value="/${owner.owner.srlnm}/${cat.category.srlnm}/b?rlnm=${owner.owner.rlnm}&amp;crlnm=${cat.category.rlnm}" />
+                                    <c:choose>
+                                        <c:when test="${catStatus.index lt catSize}">
+                                            <a href="${catUrl}"><spring:message code="nav.cat.${cat.category.rlnm}" /> (${cat.count})</a>,
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="${catUrl}"><spring:message code="nav.cat.${cat.category.rlnm}" /> (${cat.count})</a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                            </div>
+
+                        </div>
+
+                        <c:set var="i" value="${i + 1}" />
+                        <c:set var="itemTotal" value="${itemTotal + 1}" />
+
+                    </c:if>
+                </c:forEach>
+
+                <c:if test="${i == 0}">
+                    <script type="text/javascript">
+                        $('.lela-page-divider[nm=${a.nm}]').remove();
+                    </script>
+                </c:if>
+
+            </c:forEach>
+
+            <c:if test="${itemTotal == 0}">
+
+                <div class="data-not-found">
+                <spring:message code="brands.on.lela.nobrands" htmlEscape="false" arguments="${selectedLetter}" />
+                </div>
+
+            </c:if>
+            <div class="clearfix"><!-- --></div>
+
+        </div>
+
+    </div>
+
+</jsp:root>

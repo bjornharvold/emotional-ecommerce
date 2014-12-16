@@ -1,0 +1,46 @@
+  <!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          version="2.0">
+
+    <jsp:directive.tag body-content="empty"/>
+    <jsp:directive.attribute name="value" rtexprvalue="true" required="false"/>
+    <jsp:directive.attribute name="index" rtexprvalue="true" required="false"/>
+    <jsp:directive.attribute name="total" rtexprvalue="true" required="false"/>
+    <jsp:directive.attribute name="type" rtexprvalue="true" required="false"/>
+
+    <c:set var="rating" value="${value}"/>
+
+    <c:choose>
+
+        <c:when test="${type == 'num' and index eq '0' and total eq '0'}">
+            <div class="lela-rating lela-0-num"><!-- --></div>
+        </c:when>
+        
+        <c:when test="${type == 'num' and !empty index and !empty total}">
+            <!-- Calculate relevancy number based on index and total -->
+
+            <div class="lela-rating lela-25">
+                <span>Lela's #${index} pick for you</span>
+            </div>
+        </c:when>
+        
+        <c:otherwise>
+            <div class="lela-rating lela-${rating}">
+                <span>${rating} %</span>
+            </div>
+        </c:otherwise>
+    </c:choose>
+    
+
+
+</jsp:root>

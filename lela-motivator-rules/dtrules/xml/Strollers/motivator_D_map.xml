@@ -1,0 +1,40 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='StrollerID' RAttribute='StrollerID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+
+			<setattribute tag='StrollerID' RAttribute='StrollerID' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='UPC' RAttribute='UPC' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='ProductModelName' RAttribute='ProductModelName' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='TotalNeon' RAttribute='TotalNeon' enclosure='stroller' type='integer'></setattribute>
+			<setattribute tag='TotalVeryBrightOrPrimary' RAttribute='TotalVeryBrightOrPrimary' enclosure='stroller' type='integer'></setattribute>
+			<setattribute tag='TotalNeutralEarthTones' RAttribute='TotalNeutralEarthTones' enclosure='stroller' type='integer'></setattribute>
+			<setattribute tag='TotalDeepBluePurples' RAttribute='TotalDeepBluePurples' enclosure='stroller' type='integer'></setattribute>
+			<setattribute tag='TotalGrayOrBlack' RAttribute='TotalGrayOrBlack' enclosure='stroller' type='integer'></setattribute>
+			<setattribute tag='DesignStyle' RAttribute='DesignStyle' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='BabbleRecognition' RAttribute='BabbleRecognition' enclosure='stroller' type='string'></setattribute>
+			
+			<createentity entity='job' 			tag='job' 			id='id'></createentity>
+			<createentity entity='stroller' 	tag='stroller' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+
+			<entity name='stroller' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>
+

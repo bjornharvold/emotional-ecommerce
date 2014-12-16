@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_InputType" object="${inputtype}" path="/crud/inputtypes" z="j2SKnWNbe0PXBi1kUksEwbafXQs=">
+        <field:display date="true" dateTimePattern="${inputType_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_InputType_dateCreated" object="${inputtype}" z="2AynopKwMy+2VI7j8gWKkflyUPc="/>
+        <field:display date="true" dateTimePattern="${inputType_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_InputType_dateModified" object="${inputtype}" z="NDx5lENI7Czkm+881UU9wHHaG0w="/>
+        <field:display field="multiValuedType" id="s_com_lela_data_domain_entity_InputType_multiValuedType" object="${inputtype}" z="w2+QQwnyojipdlJ9TDwUyYuFJKM="/>
+        <field:display field="inputTypeName" id="s_com_lela_data_domain_entity_InputType_inputTypeName" object="${inputtype}" z="ZrQwQiWMoarYmRRaH3Zv5F/LBDg="/>
+    </page:show>
+</div>

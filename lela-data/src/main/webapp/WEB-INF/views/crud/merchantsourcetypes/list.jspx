@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_MerchantSourceType" items="${merchantsourcetypes}" z="CBtwrjldtKsa1q03pa1klQGIix8=">
+        <table:table data="${merchantsourcetypes}" id="l_com_lela_data_domain_entity_MerchantSourceType" path="/crud/merchantsourcetypes" z="PzgY6wXjWjQ68uuUpVDh1yGKMjQ=">
+            <table:column date="true" dateTimePattern="${merchantSourceType_datecreated_date_format}" id="c_com_lela_data_domain_entity_MerchantSourceType_dateCreated" property="dateCreated" z="g9eyP7WpasDAvA7pUmQRczhZvN8="/>
+            <table:column date="true" dateTimePattern="${merchantSourceType_datemodified_date_format}" id="c_com_lela_data_domain_entity_MerchantSourceType_dateModified" property="dateModified" z="P0Jj9knlt98IhNFiy2NVDB1YNvg="/>
+            <table:column id="c_com_lela_data_domain_entity_MerchantSourceType_sourceTypeName" property="sourceTypeName" z="0PLSKtYuKvekRA9w3hT2UawM0kM="/>
+        </table:table>
+    </page:list>
+</div>

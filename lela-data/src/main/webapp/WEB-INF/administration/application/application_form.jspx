@@ -1,0 +1,117 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="page.admin.application.title"/></h1>
+
+    <spring:url value="/administration/application/list" var="applicationListUrl"/>
+
+    <div class="actions">
+        <a class="action" href="${applicationListUrl}">&lt; <spring:message code="application.back.to.list"/> </a>
+
+        <c:if test="${application.id != null}">
+            <spring:url value="/administration/application/${application.rlnm}" var="applicationUrl"/>
+            <a class="action" href="${applicationUrl}">&lt; <spring:message code="application.back.to.application"/> </a>
+        </c:if>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <spring:url value="/administration/application/form" var="formUrl"/>
+    <spring-form:form action="${formUrl}" method="POST" commandName="application" modelAttribute="application">
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="nm"><spring:message code="application.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="nm" path="nm"/>&#160;<spring-form:errors path="nm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="rlnm"><spring:message code="application.url.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="rlnm" path="rlnm"/>&#160;<spring-form:errors path="rlnm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="dsc"><spring:message code="application.description"/></label></div>
+
+            <div class="h-col">
+                <spring-form:textarea id="dsc" path="dsc"/>&#160;<spring-form:errors path="dsc" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="tp"><spring:message code="application.type"/></label></div>
+
+            <div class="h-col">
+                <spring-form:select id="tp" path="tp" items="${applicationTypes}"/><br/><spring-form:errors path="tp" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="trlnm"><spring:message code="application.tool.url.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:select id="trlnm" path="trlnm">
+                    <spring-form:option value=""><spring:message code="select.one"/></spring-form:option>
+                    <c:forEach items="${applicationTypes}" var="appType">
+                        <c:if test="${appType == 'QUIZ' and fn:length(quizzes) > 0}">
+                            <optgroup label="${appType}"/>
+                            <spring-form:options items="${quizzes}" itemLabel="nm" itemValue="rlnm"/>
+                        </c:if>
+                        <c:if test="${appType == 'PRODUCT_GRID' and fn:length(productGrids) > 0}">
+                            <optgroup label="${appType}"/>
+                            <spring-form:options items="${productGrids}" itemLabel="nm" itemValue="rlnm"/>
+                        </c:if>
+                        <c:if test="${appType == 'CURATED_PRODUCT_GRID' and fn:length(curatedProductGrids) > 0}">
+                            <optgroup label="${appType}"/>
+                            <spring-form:options items="${curatedProductGrids}" itemLabel="nm" itemValue="rlnm"/>
+                        </c:if>
+                    </c:forEach>
+                </spring-form:select><br/><spring-form:errors path="trlnm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="pblshd"><spring:message code="application.published"/></label></div>
+
+            <div class="h-col">
+                <spring-form:radiobutton id="pblshd" path="pblshd" value="true"/> <spring:message code="radio.button.true"/>,
+                <spring-form:radiobutton id="pblshd" path="pblshd" value="false"/> <spring:message code="radio.button.false"/><br/>
+                <spring-form:errors path="pblshd" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="s-row">
+            <spring-form:hidden path="id"/>
+            <spring:message code="button.save" var="save"/>
+
+            <div class="s-col"><input type="submit" value="${save}"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+    </spring-form:form>
+</div>

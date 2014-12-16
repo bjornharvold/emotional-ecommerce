@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+    <bean id="merchantService" class="com.lela.commons.service.impl.MerchantServiceImpl"
+            c:branchService-ref="branchService"
+            c:merchantClients-ref="merchantClients"
+            c:lookupService-ref="geoipLookupServiceIpv4"
+            c:lookupServiceIpv6-ref="geoipLookupServiceIpv6"
+            c:offerService-ref="offerService"
+            c:storeService-ref="storeService"
+            c:postalCodeService-ref="postalCodeService"
+            c:itemService-ref="itemService">
+    </bean>
+
+    <util:map id="merchantClients">
+        <entry key="POPSHOPS" value-ref="popshopsClient"/>
+        <entry key="AMZN" value-ref="amazonClient"/>
+        <entry key="CJ" value-ref="commissionJunctionClient"/>
+        <entry key="BBY" value-ref="commissionJunctionClient"/>
+        <entry key="GAN" value-ref="googleAffiliateNetworkClient"/>
+        <entry key="LS" value-ref="linkShareNetworkClient"/>
+    </util:map>
+
+    <bean id="popshopsClient" class="com.lela.commons.remote.impl.PopShopsMerchantClient"/>
+
+    <bean id="amazonClient" class="com.lela.commons.remote.impl.AmazonMerchantClient">
+        <constructor-arg index="0" value="${amazon.affiliate.id}"/>
+        <constructor-arg index="1" value="${amazon.affiliate.url}"/>
+        <!--if the following value is false users will be sent directly to amazon instead of going
+        to affiliate reporting for a tracking id-->
+        <constructor-arg index="2" value="${amazon.affiliate.url.enabled}"/>
+        <!--modify the following to allow all users, not just authenticated users to get tracking ids-->
+        <constructor-arg index="3" value="${amazon.affiliate.url.allUsers}"/>
+    </bean>
+
+    <bean id="commissionJunctionClient" class="com.lela.commons.remote.impl.ParameterizedMerchantClient">
+        <constructor-arg index="0" value="SID"/>
+    </bean>
+
+    <bean id="googleAffiliateNetworkClient" class="com.lela.commons.remote.impl.ParameterizedMerchantClient">
+        <constructor-arg index="0" value="mid"/>
+    </bean>
+
+    <bean id="linkShareNetworkClient" class="com.lela.commons.remote.impl.ParameterizedMerchantClient">
+        <constructor-arg index="0" value="U1"/>
+    </bean>
+
+    <bean id="merchantRestTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+
+    <util:list id="includedMerchantIds">
+        <value>8288</value>   <!--JustBabyStrollers-->
+        <value>2260</value>   <!--MyStrollers.com-->
+        <value>12523</value>  <!--Babies 1st-->
+        <value>2412</value>   <!--diapers.com-->
+        <value>1496</value>   <!--Kohls-->
+        <value>1511</value>   <!--Sears-->
+        <value>1515</value>   <!--Target-->
+        <value>1939</value>   <!--Kmart-->
+        <value>2431</value>   <!--BabyCatalog.com-->
+        <value>3456</value>   <!--Everything Furniture-->
+        <value>1300</value>   <!--Walmart-->
+        <value>1754</value>   <!--macy's-->
+        <value>7583</value>   <!--buy.com-->
+        <value>2574</value>   <!--giggle-->
+        <value>7656</value>   <!--BabyBeddingZone.com-->
+        <value>68</value>     <!--GoToBaby.com-->
+        <value>2699</value>   <!--Strollerdepot.com-->
+        <value>742</value>    <!--Dimples and Dandelions-->
+        <value>7394</value>   <!--Magic Beans-->
+        <value>249</value>    <!--PC Mall-->
+        <value>7391</value>   <!--Adorama-->
+        <value>1739</value>   <!--Best Buy-->
+        <value>1520</value>   <!--Drug Store-->
+        <value>1949</value>   <!--J and R-->
+        <value>1607</value>   <!--beauty.com-->
+    </util:list>
+
+</beans>

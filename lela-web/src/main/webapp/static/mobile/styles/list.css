@@ -1,0 +1,73 @@
+#main, #footer {
+    top:70px;
+}
+
+#list-container h2 {
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 20px;
+}
+
+.card {
+    width: 320px;
+    position: relative;
+    border: 1px solid #d2cccc;
+    background: #fff;
+    margin: 0 auto 18px auto;
+}
+
+.card-img {
+    width:300px;
+    background: #fff;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 10px 0 10px;
+}
+
+.imgtype-STORE .p-img {
+    margin-top: 20px;
+}
+.imgtype-ITEM .p-img {
+    width:300px;
+    display: block;
+    margin: 0 auto;
+}
+.imgtype-EXTERNAL .p-img {
+      max-width:300px;
+      display: block;
+  }
+.imgtype-OWNER a {
+    display: block;
+    padding: 20px;
+    padding-bottom: 30px;
+    font-size: 24px;
+    color: #ff9900;
+}
+.tm-rl.linktype-OWNER {
+    display: none !important;
+}
+
+.cd-nfo {
+    background: #ededed;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.cd-nfo p {
+    margin: 0;
+    float: left;
+}
+.cd-nfo img.us-img {
+    float: left;
+    display: block;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+.lela-rating { float: right; position: relative !important; }
+
+.tm-rl {
+    font-weight: bold; color: #ff9900;
+    display: block;
+    padding:10px;
+}

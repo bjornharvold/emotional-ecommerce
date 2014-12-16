@@ -1,0 +1,101 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="link.view" var="view"/>
+    <spring:message code="link.edit" var="edit"/>
+    <spring:message code="link.delete" var="delete"/>
+
+    <h1><spring:message code="page.admin.question.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/question/list" var="questionListUrl"/>
+        <a class="action" href="${questionListUrl}">&lt; <spring:message code="question.back.to.list"/> </a>
+        <spring:url value="/administration/question/form" var="editQuestionUrl">
+            <spring:param name="urlName" value="${question.rlnm}"/>
+        </spring:url>
+        <a class="action" href="${editQuestionUrl}"><spring:message code="link.edit"/></a>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <h3><spring:message code="question.overview"/></h3>
+
+    <p>
+        <spring:message code="question.name"/>: ${question.nm}
+    </p>
+
+    <p>
+        <spring:message code="question.url.name"/>: ${question.rlnm}
+    </p>
+
+    <p>
+        <spring:message code="question.type"/>: ${question.tp}
+    </p>
+
+    <hr/>
+
+    <div class="actions">
+        <spring:url value="/administration/question/${question.rlnm}/answer" var="createAnswerUrl"/>
+        <a class="action" href="${createAnswerUrl}"><spring:message code="question.answer.create.entry"/></a>
+
+        <div class="clear"><!----></div>
+    </div>
+    <h3><spring:message code="question.answers"/></h3>
+    <c:if test="${empty question.nswrs}">
+        <spring:message code="question.answers.empty"/>
+    </c:if>
+    <c:if test="${not empty question.nswrs}">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th width="20%"><spring:message code="answer.name"/></th>
+                <th width="5%"><spring:message code="answer.key"/></th>
+                <th width="35%"><spring:message code="answer.motivators"/></th>
+                <th width="30%"><spring:message code="answer.image"/></th>
+                <th width="10%">&#160;</th>
+            </tr>
+            </thead>
+            <c:forEach items="${question.nswrs}" var="answer">
+                <tr>
+                    <td>${answer.nm}</td>
+                    <td>${answer.ky}</td>
+                    <td>${answer.mtvtrs}</td>
+                    <td><c:if test="${answer.mg != null}">
+                        <a href="${answer.mg}" target="_blank"><spring:message code="click.here"/></a>
+                    </c:if></td>
+                    <td>
+                        <spring:url value="/administration/question/${question.rlnm}/answer" var="editAnswerUrl">
+                            <spring:param name="d" value="${answer.d}"/>
+                        </spring:url>
+                        <a class="action" href="${editAnswerUrl}">${edit}</a>
+
+                        <spring:url value="/administration/question/${question.rlnm}/answer/${answer.d}" var="deleteAnswerUrl"/>
+                        <spring-form:form action="${deleteAnswerUrl}" method="DELETE">
+                            <input type="submit" name="${delete}" value="${delete}"/>
+                        </spring-form:form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </c:if>
+
+</div>

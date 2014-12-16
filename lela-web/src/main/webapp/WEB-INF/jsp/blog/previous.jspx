@@ -1,0 +1,63 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+
+    <c:choose>
+        <c:when test="${blogs.content[0].ctgry == null}">
+            <ul>
+                <c:forEach items="${blogs.content[0].blgs}" var="blog" varStatus="status">
+                    <spring:url value="/blog/${blog.rlnm}" var="blogUrl" />
+                    <li>
+                        <a href="${blogUrl}">
+                            <span class="p-date"><lela:dateFormat date="${blog.ldt}" zone="false"/></span>
+                            <span class="p-title"><lela:truncate maxLength="30" text="${blog.nm}"/></span>
+                        </a>
+                    </li>
+                </c:forEach>
+            </ul>
+
+            <c:if test="${blogs.totalPages gt 1}">
+                <div id="blog-pagination">
+                    <c:forEach var="i" begin="1" end="${blogs.totalPages}">
+                        <spring:url value="/blog?page=${i-1}" var="blogListUrl"/>
+                        <a href="${blogListUrl}" class="${blogs.number eq i-1 ? 'selected' : ''}" rel="nofollow">${i}</a>
+                    </c:forEach>
+                </div>
+            </c:if>
+
+        </c:when>
+        <c:when test="${blogs.content[0].ctgry != null or !empty param.sort}">
+
+            <spring:url value="/blog?sort=C" var="allIndexUrl" />
+            <a href="${allIndexUrl}" class="c-cat"><spring:message code="button.clear.all" /></a>
+
+            <div id="cat-list">
+                <c:forEach items="${blogs.content}" var="blogCategory" varStatus="status">
+                    <spring:url var="blogCatUrl" value="/blog?sort=C&amp;cat=${blogCategory.ctgry.rlnm}"/>
+                    <a href="${blogCatUrl}" class="${blogCategory.ctgry.rlnm eq param.cat ? 'selected' : ''}"><spring:message code="nav.cat.${blogCategory.ctgry.rlnm}"/> (${fn:length(blogCategory.blgs)})</a>
+                </c:forEach>
+            </div>
+
+        </c:when>
+    </c:choose>
+
+    <script type="text/javascript">
+        initPagination();
+    </script>
+
+</jsp:root>    

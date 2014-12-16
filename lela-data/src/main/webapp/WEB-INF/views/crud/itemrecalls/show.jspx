@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ItemRecall" object="${itemrecall}" path="/crud/itemrecalls" z="piugmFIMq0fc9VL77jm82C9vu38=">
+        <field:display date="true" dateTimePattern="${itemRecall_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ItemRecall_dateCreated" object="${itemrecall}" z="FBiBIJAh/LKG3nF/0uhQCO6HKvQ="/>
+        <field:display date="true" dateTimePattern="${itemRecall_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ItemRecall_dateModified" object="${itemrecall}" z="oHsCUw7vd9v6TtLZU+P4CbLH0E8="/>
+        <field:display field="item" id="s_com_lela_data_domain_entity_ItemRecall_item" object="${itemrecall}" z="YlppBEk06MyfFVjgxF3BbeVuaf8="/>
+        <field:display date="true" dateTimePattern="${itemRecall_recalldate_date_format}" field="recallDate" id="s_com_lela_data_domain_entity_ItemRecall_recallDate" object="${itemrecall}" z="iKb4x3p8ZSB8xTy1ZKfjaBi7Bik="/>
+        <field:display field="recallEvent" id="s_com_lela_data_domain_entity_ItemRecall_recallEvent" object="${itemrecall}" z="nFXhj1+lIB8pHTqifrumEBxzdoU="/>
+        <field:display field="recallUrl" id="s_com_lela_data_domain_entity_ItemRecall_recallUrl" object="${itemrecall}" z="RrPhlx3gTqTSPoCtLtgYeJ4/Xqo="/>
+        <field:display field="recallUnits" id="s_com_lela_data_domain_entity_ItemRecall_recallUnits" object="${itemrecall}" z="Y8Etz3jsej/YgHw5sqWyFsQOum0="/>
+        <field:display field="recallHazard" id="s_com_lela_data_domain_entity_ItemRecall_recallHazard" object="${itemrecall}" z="NJdgUCSgvqWoFGWSO/GkUegnGGs="/>
+        <field:display field="recallIncidentsInjuries" id="s_com_lela_data_domain_entity_ItemRecall_recallIncidentsInjuries" object="${itemrecall}" z="fk7KD8+VRM8jL6VAsjyPQhO99rU="/>
+        <field:display field="recallSeverity" id="s_com_lela_data_domain_entity_ItemRecall_recallSeverity" object="${itemrecall}" z="947+9nD7Tmp+VjkoibPpXvwX2As="/>
+    </page:show>
+</div>

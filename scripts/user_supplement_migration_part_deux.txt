@@ -1,0 +1,18 @@
+# move all properties over to UserSupplement
+
+db.user.find({cd : {$exists : true}}).forEach(function(a) {
+  db.userSupplement.find({cd : a.cd}).forEach(function(us) {
+    if (a.ml && a.ml.length > 0) us.ml = a.ml;
+    if (a.fnm && a.fnm.length > 0) us.fnm = a.fnm;
+    if (a.fllnm && a.fllnm.length > 0) us.fllnm = a.fllnm;
+    if (a.lnm && a.lnm.length > 0) us.lnm = a.lnm;
+    if (a.lcl && a.lcl.length > 0) us.lcl = a.lcl;
+    if (a.ptn) us.ptn = a.ptn;
+    if (a.mlVrfd) us.vrfd = a.mlVrfd;
+    db.userSupplement.update({cd : a.cd}, us, false, false);
+  });
+});
+
+# remove same properties on user collection
+
+db.user.update({cd : {$exists : true}}, {$unset : {fnm : 1, lnm : 1, fllnm : 1, lcl : 1, ptn : 1, mlVrfd : 1}}, false, true);

@@ -1,0 +1,83 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <spring:url value="/local/coupon/redeem" var="redeemCouponUrl">
+        <spring:param name="couponCode" value="${coupon.cpncd}"/>
+        <spring:param name="branchUrlName" value="${branch.rlnm}"/>
+    </spring:url>
+
+    <lela:findUser/>
+
+    <div class="cp-content" id="cp-confirmation">
+
+        <h2>${coupon.fnm} ${coupon.lnm}</h2>
+
+        <h1>You’ve got ${offer.vlndtrms}, yay!<br/></h1>
+
+        <c:choose>
+            <c:when test="${!empty error}">
+                <p class="errors"><spring:message code="${error}"/></p>
+            </c:when>
+            <c:otherwise>
+                <c:if test="${duplicate eq 'true'}">
+                    <p style="color:green; font-size:16px;">You have already received this deal code. <br/>We're sending you another copy via email.</p>
+                </c:if>
+
+                <spring:url value="/static/images/local/create_step1.png" var="confMobImgUrl"/>
+                <spring:url value="/static/images/local/conf_print.png" var="confPrintImgUrl"/>
+
+
+                <table cellpadding="0" cellspacing="0" border="0" align="center">
+                    <tr>
+                        <td><img src="${confMobImgUrl}" alt="Confirmation Mobile"/></td>
+                        <td width="80%">
+                            <p>Your deal code will be sent to<br/><strong>${user.ml}</strong></p>
+                        </td>
+                    </tr>
+                    <tr class="mob-h">
+                        <td colspan="2">
+                            <p>Bring your smart phone and ID card to ${branch.nm} store in ${branch.cty}.
+                            The cashier will provide you a code to get your deal: <strong>${offer.vlndtrms}</strong></p>
+                            <a href="javascript:window.print();" class="button">Print this page</a>
+                        </td>
+                    </tr>
+                </table>
+
+            </c:otherwise>
+        </c:choose>
+
+
+        <p><em>Reference Code: ${coupon.cpncd}</em><br/>
+        <strong>Offer Expires: <lela:dateFormat date="${offer.xprtndt}"/></strong><br/>
+        <spring:url value="/sc/deals-terms" var="termsUrl" />
+        <a href="${termsUrl}" target="_blank" rel="nofollow">Details, terms &amp; conditions</a></p>
+
+        <c:if test="${!empty param.print and param.print eq '1'}">
+            <script type="text/javascript">
+                var t = setTimeout("window.print()",500);
+            </script>
+        </c:if>
+
+        <script type="text/javascript">
+            $().ready(function($) {
+                trackEvent('local', 'email coupon', '${fn:escapeXml(offer.rlnm)}', 1);
+            });
+        </script>
+
+    </div>
+</jsp:root>

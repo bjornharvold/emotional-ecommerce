@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_lela_data_domain_entity_Manufacturer" modelAttribute="manufacturer" path="/crud/manufacturers" render="${empty dependencies}" z="lgMgT3swbSOxsrj7e0IkMoRw1yw=">
+        <field:datetime dateTimePattern="${manufacturer_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_Manufacturer_dateCreated" z="user-managed" render="false"/>
+        <field:datetime dateTimePattern="${manufacturer_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_Manufacturer_dateModified" z="user-managed" render="false"/>
+        <field:input field="manufacturerName" id="c_com_lela_data_domain_entity_Manufacturer_manufacturerName" required="true" z="yL9IrTRh1T/E5kF2ezYA3MY1L5M="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_lela_data_domain_entity_Manufacturer" render="${not empty dependencies}" z="xldez+0fquFmnRymvn4kmcIj1ws="/>
+</div>

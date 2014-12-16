@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator" modelAttribute="brandCategoryItemtypeMotivator" path="/crud/brandcategoryitemtypemotivators" versionField="Version" z="efby0BFkR53kgkcI+guK+AqruSw=">
+        <field:datetime dateTimePattern="${brandCategoryItemtypeMotivator_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_dateCreated" z="5mHCoEoDe1GYsrT7rh47ObNMA8k="/>
+        <field:datetime dateTimePattern="${brandCategoryItemtypeMotivator_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_dateModified" z="8eIRPZ93K4spEEpRF8kdDHVXOyo="/>
+        <field:input field="category" id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_category" z="7lNIE90nCyKj/kEY4pgzuDrJhZQ="/>
+        <field:input field="brand" id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_brand" z="fsEcbNDAzyNZ0LiY4jgpWNkdljs="/>
+        <field:input field="itemType" id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_itemType" z="2XSdXhp2NRgfuMN05l0AcG9ZdHA="/>
+        <field:input field="motivator" id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_motivator" validationMessageCode="field_invalid_integer" z="gUvdiqF3gI/F1QtkLkXiPhNTSvs="/>
+        <field:input field="motivatorScore" id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_motivatorScore" validationMessageCode="field_invalid_integer" z="pTi/p22t+7B36q4jbNruSgN0arc="/>
+    </form:update>
+</div>

@@ -1,0 +1,36 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'/>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'/>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'/>
+			<setattribute tag='CameraID' RAttribute='CameraID' enclosure='job' type='integer'/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'/>
+
+			<setattribute tag='CameraID' RAttribute='CameraID' enclosure='camera' type='string'/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='camera' type='string'/>
+			<setattribute tag='ListPrice' RAttribute='ListPrice' enclosure='camera' type='double'/>
+			<setattribute tag='CameraType' RAttribute='CameraType' enclosure='camera' type='string'/>
+			<setattribute tag='Percentile' RAttribute='Percentile' enclosure='camera' type='double'/>
+												
+			<createentity entity='job' 			tag='job' 			id='id'/>
+			<createentity entity='camera' 		tag='camera' 		id='id'/>
+			<createentity entity='constants' 	tag='constants' 	id='id'/>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'/>
+			<entity name='job'		 	number='1'/>
+
+			<entity name='camera' 	number='*'/>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'/>
+			<initialentity entity='job' 		epush='true'/>
+        </initialization>
+    </XMLtoEDD>
+</mapping>
+
+
+

@@ -1,0 +1,371 @@
+<!--
+  ~ Copyright (c) 2012. Lela.com.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+    <spring:url value="/quiz?src=grid&amp;vid=true" var="launchQuiz" />
+
+    <div id="dpt-content" class="department-filter department-${currentDepartment}">
+
+        <div class="lela-page-header department-header department-header-${currentDepartment}">
+            <h2><spring:message code="department.${currentDepartment}.title" /></h2>
+            <h3><spring:message code="department.${currentDepartment}.headline" /></h3>
+        </div>
+
+        <c:forEach var="navGroup" items="${navigationBar.grps}" varStatus="groupStatus">
+            <c:if test="${navGroup.rlnm eq currentDepartment}">
+
+                <c:set var="dataUrl"><lela:referralUrl format="current" /></c:set>
+                <spring:url var="resultDataUrl" value="/${navGroup.srlnm}/d/r?rlnm=${navGroup.rlnm}" />
+
+                <script type="text/javascript">
+                    var dataUrl = '${dataUrl}';
+                    var resultDataUrl = '${resultDataUrl}';
+                    var currentDepartment = '${currentDepartment}';
+                    var returnItem = null;
+                    var availableCategoryUrlNames = [];
+                </script>
+
+                <div class="hidden">
+                    <spring:url var="formUrl" value="/${navGroup.srlnm}/d/results" />
+                    <form name="q" id="search-department-form" method="POST" action="${formUrl}">
+                        <input type="hidden" id="department-rlnm" value="${currentDepartment}" name="rlnm" />
+                        <input type="hidden" class="query" value="" name="query" />
+                        <input type="submit" class="hidden" />
+                    </form>
+                </div>
+
+                <div class="image-switcher image-switcher-marquee" id="marquee-carousel">
+                    <c:forEach var="children" items="${navGroup.chldrn}" varStatus="childStatus">
+                        <c:forEach var="cat" items="${children.ctgrs}" varStatus="status">
+                            <div class="${status.index != 0 ? 'hidden' : ''} carousel-row" row-num="${status.index}">
+                                <spring:url value="/${cat.srlnm}/c?rlnm=${cat.rlnm}" var="categoryUrl" />
+                                <spring:url value="/static/images/placeholders/nav/nav-img/${currentDepartment}_${cat.rlnm}.png" var="catImg" />
+                                <a href="${categoryUrl}"><img src="${catImg}" /></a>
+                            </div>
+                            <c:set var="i" value="${status.index + 1}"/>
+                        </c:forEach>
+                    </c:forEach>
+                    <c:forEach var="cat" items="${navGroup.ctgrs}" varStatus="status">
+                        <div class="${status.index != 0 ? 'hidden' : ''} carousel-row" row-num="${i + status.index}">
+                            <spring:url value="/${cat.srlnm}/c?rlnm=${cat.rlnm}" var="categoryUrl" />
+                            <spring:url value="/static/images/placeholders/nav/nav-img/${currentDepartment}_${cat.rlnm}.png" var="catImg" />
+                            <a href="${categoryUrl}"><img src="${catImg}" /></a>
+                        </div>
+                    </c:forEach>
+                </div>
+            </c:if>
+        </c:forEach>
+
+        <div id="dpt-filters">
+
+            <div class="filters" id="count-filters">
+
+                <h2><spring:message code="department.filters.headline" htmlEscape="false" /></h2>
+
+                <c:forEach var="filter" items="${departmentLandingPage.filters}">
+                    <c:if test="${empty domainAffiliate or filter.tp ne 'STORE' or domainAffiliate.showStores}">
+                    <div class="filter-container filter-container-${filter.ky}" fltr="${filter.ky}">
+
+                        <div class="filter-header">
+                            <div class="closeopen"><!-- --></div>
+                            <h3><spring:message code="tuner.${filter.ky}.title"/></h3>
+                            <div class="closed"><!-- --></div>
+                            <div class="open hidden"><!-- --></div>
+                        </div>
+
+                        <div class="filter-content hidden">
+
+                            <!-- RANGE TYPE -->
+                            <c:if test="${filter.tp eq 'DYNAMIC_RANGE'}">
+                                <div class="f-sec t-range price-range lela-filter" key="${filter.ky}">
+
+                                    <div style="overflow:hidden;">
+                                        <label><spring:message code="tuner.${filter.ky}.min"/>:</label>
+                                        <input type="text" class="amount_min" value="${filter.ptns[0].vl}"/>
+                                        <input type="hidden" class="range_min" value="${filter.ptns[0].vl}"/>
+                                        <label><spring:message code="tuner.${filter.ky}.max"/>:</label>
+                                        <input type="text" class="amount_max" value="${filter.ptns[1].vl}"/>
+                                        <input type="hidden" class="range_max" value="${filter.ptns[1].vl}"/>
+                                    </div>
+
+                                    <div class="slider-range slider"><!-- --></div>
+
+                                </div>
+                            </c:if>
+
+                            <!-- MULTIPLE CHOICE TYPES -->
+                            <c:if test="${filter.tp eq 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_OR' or filter.tp eq 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_AND' or filter.tp eq 'MULTIPLE_CHOICE_SINGLE_ANSWER' or filter.tp eq 'BRAND' or filter.tp eq 'STORE' or filter.tp eq 'CATEGORY' and !empty filter.ptns}">
+                                <div class="f-sec lela-filter t-check ${filter.tp eq 'MULTIPLE_CHOICE_SINGLE_ANSWER' ? 'single-check' : ''} filter-${filter.dtky}" key="${filter.ky}">
+
+                                    <c:set var="filtersPreSelected" value="false" />
+
+                                    <div class="filter-options">
+
+                                        <c:forEach var="filterOption" items="${filter.ptns}" varStatus="status">
+
+                                            <div class="filter-option-container" option="${filterOption.ky}">
+                                                <c:choose>
+                                                    <c:when test="${filterOption.slctd == 'true'}">
+                                                        <a title="${filter.tp == 'BRAND' or filter.tp == 'STORE' ? filterOption.vl : ''}" class="filter-option filter-option-${filterOption.ky} filter-option-selected ${filter.tp == 'BRAND' or filter.tp == 'STORE' ? 'filter-option-truncated' : ''}" km-id="${categoryUrlName}-${filterOption.ky}">
+                                                            <c:choose>
+                                                                <c:when test="${filter.tp eq 'BRAND' or filter.tp eq 'STORE'}">
+                                                                    <lela:truncate maxLength="30" text="${filterOption.vl}"/>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <spring:message code="tuner.${filterOption.ky}.label"/>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                        <input type="${filter.tp == 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_OR' or filter.tp == 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_AND' or filter.tp == 'BRAND' or filter.tp == 'STORE' ? 'checkbox' : 'checkbox'}" class="filter-hidden-input hidden filter-hidden-input-${filterOption.ky}" name="${filterOption.ky}" value="${filterOption.vl}" checked="checked" />
+                                                        <c:if test="${filtersPreSelected eq false}">
+                                                            <c:set var="filtersPreSelected" value="true" />
+                                                            <script type="text/javascript">
+                                                                $('#p-filters h2').addClass('filters-enabled');
+                                                            </script>
+                                                        </c:if>
+
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <a title="${filter.tp == 'BRAND' or filter.tp == 'STORE' ? filterOption.vl : ''}" class="filter-option filter-option-${filterOption.ky} ${filter.tp == 'BRAND' or filter.tp == 'STORE' ? 'filter-option-truncated' : ''}" km-id="${categoryUrlName}-${filterOption.ky}">
+                                                            <c:choose>
+                                                                <c:when test="${filter.tp eq 'BRAND' or filter.tp eq 'STORE'}">
+                                                                    <lela:truncate maxLength="30" text="${filterOption.vl}"/>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <spring:message code="tuner.${filterOption.ky}.label"/>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                        <input type="${filter.tp == 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_OR' or filter.tp == 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_AND' or filter.tp == 'BRAND' or filter.tp == 'STORE' ? 'checkbox' : 'checkbox'}" class="filter-hidden-input hidden filter-hidden-input-${filterOption.ky}" name="${filterOption.ky}" value="${filterOption.vl}" />
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
+
+                                        </c:forEach>
+                                    </div>
+                                </div>
+
+                            </c:if>
+
+                            <div class="clear"><!-- --></div>
+
+                        </div>
+                    </div>
+                    </c:if>
+                </c:forEach>
+
+                <div class="clear"><!-- --></div>
+
+                <div id="active-filters">
+                    <div id="active-filter-count"><span>Active filters: (<strong>0</strong>)</span><div class="remove"><!-- --></div></div>
+                    <div class="active-filter hidden" ky="0" vl="0"><span><!-- --></span><div class="remove"><!-- --></div></div>
+                </div>
+
+                <div class="clear"><!-- --></div>
+
+                <center><a id="search-department-button" style="display: none;" class="search-disabled" href="#"><spring:message code="department.filters.search.${currentDepartment}" htmlEscape="false" /></a></center>
+
+                <div class="clear"><!-- --></div>
+
+                <div class="counts">
+                    <div id="count">
+                        <span class="count-number"><!-- --></span>
+                        <span class="count-copy"><spring:message code="department.filters.count.${currentDepartment}" htmlEscape="false" /></span>
+                    </div>
+
+                    <div id="count-loading">We're calculating..</div>
+                </div>
+
+                <div class="clear"><!-- --></div>
+            </div>
+
+            <c:forEach var="navGroup" items="${navigationBar.grps}" varStatus="groupStatus">
+
+                <c:if test="${navGroup.rlnm eq currentDepartment}">
+
+                    <div class="lela-page-content department-contents">
+
+                        <div class="horizontal-shade"><!-- --></div>
+
+                        <h3><spring:message code="category.departments.browse.by.category" htmlEscape="false" /></h3>
+
+                        <tiles:insertTemplate template="/WEB-INF/jsp/items/categories_list.jspx" flush="true">
+                            <tiles:putAttribute name="categories" value="${categories}" />
+                            <tiles:putAttribute name="onlyDepartment" value="${navGroup.rlnm}" />
+                        </tiles:insertTemplate>
+
+                        <div class="clear"><!-- --></div>
+                    </div>
+
+                    <script type="text/javascript">
+                        $('#${navGroup.rlnm}').addClass('selected-on');
+                    </script>
+
+                </c:if>
+
+            </c:forEach>
+
+        </div>
+
+        <div id="dpt-results" class="department-filter-results hidden">
+
+            <div id="d-tuners">
+
+                <h2><spring:message code="grid.results.filters.header.formatted" htmlEscape="false"/></h2>
+
+                <!--
+                <div class="f-sec reset-t">
+                    <a href="#" class="reset-tuners"><spring:message code="grid.results.filters.reset"/></a>
+                </div>
+                -->
+
+                <c:forEach var="filter" items="${departmentLandingPage.filters}">
+                    <c:if test="${empty domainAffiliate or filter.tp ne 'STORE' or domainAffiliate.showStores}">
+                    <div class="filter-container filter-container-${filter.ky}" fltr="${filter.ky}">
+
+                        <div class="filter-header">
+                            <div class="closeopen"><!-- --></div>
+                            <h3><spring:message code="tuner.${filter.ky}.title"/></h3>
+                        </div>
+
+                        <div class="filter-content">
+                            <!-- RANGE TYPE -->
+                            <c:if test="${filter.tp eq 'DYNAMIC_RANGE'}">
+                                <div class="f-sec lela-filter t-range price-range" key="${filter.ky}">
+
+                                    <div style="overflow:hidden;">
+                                        <label><spring:message code="tuner.${filter.ky}.min"/>:</label>
+                                        <input type="text" class="amount_min" value="${filter.ptns[0].vl}"/>
+                                        <input type="hidden" class="range_min" value="${filter.ptns[0].vl}"/>
+                                        <label><spring:message code="tuner.${filter.ky}.max"/>:</label>
+                                        <input type="text" class="amount_max" value="${filter.ptns[1].vl}"/>
+                                        <input type="hidden" class="range_max" value="${filter.ptns[1].vl}"/>
+                                    </div>
+
+                                    <div class="slider-range slider"><!-- --></div>
+
+                                </div>
+                            </c:if>
+
+                            <!-- MULTIPLE CHOICE TYPES -->
+                            <c:set var="openBrand" value="false"/>
+                            <c:set var="openStore" value="false"/>
+                            <c:if test="${filter.tp eq 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_OR' or filter.tp eq 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_AND' or filter.tp eq 'MULTIPLE_CHOICE_SINGLE_ANSWER' or filter.tp eq 'BRAND' or filter.tp eq 'STORE' or filter.tp eq 'CATEGORY' and !empty filter.ptns}">
+                                <div class="f-sec lela-filter t-check ${filter.tp eq 'MULTIPLE_CHOICE_SINGLE_ANSWER' ? 'single-check' : ''}" key="${filter.ky}" fltr="${filter.dtky}">
+
+                                    <c:if test="${filter.tp eq 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_AND'}">
+                                        <p><spring:message code="grid.results.filters.${filter.ky}"/></p>
+                                    </c:if>
+
+                                    <c:set var="filtersPreSelected" value="false" />
+
+                                    <div class="filter-options">
+
+                                        <c:forEach var="filterOption" items="${filter.ptns}" varStatus="status">
+
+                                            <div class="filter-option-container" option="${filterOption.ky}">
+                                                <c:choose>
+                                                    <c:when test="${filterOption.slctd == 'true'}">
+                                                        <c:if test="${filter.tp eq 'BRAND'}"><c:set var="openBrand" value="true"/></c:if>
+                                                        <c:if test="${filter.tp eq 'STORE'}"><c:set var="openStore" value="true"/></c:if>
+                                                        <a title="${filter.tp == 'BRAND' or filter.tp == 'STORE' ? filterOption.vl : ''}" class="filter-option filter-option-${filterOption.ky} filter-option-selected ${filter.tp == 'BRAND' or filter.tp == 'STORE' ? 'filter-option-truncated' : ''}" km-id="${categoryUrlName}-${filterOption.ky}">
+                                                            <c:choose>
+                                                                <c:when test="${filter.tp eq 'BRAND' or filter.tp eq 'STORE'}">
+                                                                    <lela:truncate maxLength="12" text="${filterOption.vl}"/>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <spring:message code="tuner.${filterOption.ky}.label"/>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                        <input type="${filter.tp == 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_OR' or filter.tp == 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_AND' or filter.tp == 'BRAND' or filter.tp == 'STORE' ? 'checkbox' : 'checkbox'}" class="filter-hidden-input filter-hidden-input-${filterOption.ky} hidden" name="${filterOption.ky}" value="${filterOption.vl}" checked="checked" option="${filterOption.ky}" />
+                                                        <c:if test="${filtersPreSelected eq false}">
+                                                            <c:set var="filtersPreSelected" value="true" />
+                                                            <script type="text/javascript">
+                                                                $('#p-filters h2').addClass('filters-enabled');
+                                                            </script>
+                                                        </c:if>
+
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <a title="${filter.tp == 'BRAND' or filter.tp == 'STORE' ? filterOption.vl : ''}" class="filter-option filter-option-${filterOption.ky} ${filter.tp == 'BRAND' or filter.tp == 'STORE' ? 'filter-option-truncated' : ''}" km-id="${categoryUrlName}-${filterOption.ky}">
+                                                            <c:choose>
+                                                                <c:when test="${filter.tp eq 'BRAND' or filter.tp eq 'STORE'}">
+                                                                    <lela:truncate maxLength="12" text="${filterOption.vl}"/>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <spring:message code="tuner.${filterOption.ky}.label"/>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                        <input type="${filter.tp == 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_OR' or filter.tp == 'MULTIPLE_CHOICE_MULTIPLE_ANSWER_AND' or filter.tp == 'BRAND' or filter.tp == 'STORE' ? 'checkbox' : 'checkbox'}" class="filter-hidden-input filter-hidden-input-${filterOption.ky} hidden" name="${filterOption.ky}" value="${filterOption.vl}" option="${filterOption.ky}" />
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
+
+                                        </c:forEach>
+
+                                    </div>
+                                </div>
+
+                                <c:if test="${filter.tp eq 'BRAND'}">
+                                    <script type="text/javascript">
+                                        var openBrand = '${openBrand}';
+                                    </script>
+                                    <spring:url value="/brands" var="brandsLink" />
+                                    <a class="store-link" href="${brandsLink}"><spring:message code="grid.seeall.brands" /></a>
+                                </c:if>
+
+                                <c:if test="${filter.tp eq 'STORE'}">
+                                    <script type="text/javascript">
+                                        var openStore = '${openStore}';
+                                    </script>
+                                    <spring:url value="/stores" var="storesLink" />
+                                    <a class="store-link" href="${storesLink}"><spring:message code="grid.seeall.stores" /></a>
+                                </c:if>
+                            </c:if>
+
+                            <div class="clear"><!-- --></div>
+
+                        </div>
+                    </div>
+                    </c:if>
+                </c:forEach>
+
+                <!--
+                <div class="f-sec reset-t">
+                    <a href="#" class="reset-tuners"><spring:message code="grid.results.filters.reset"/></a>
+                </div>
+                -->
+            </div>
+
+            <div id="grid-loading">We're calculating your results..</div>
+
+            <div id="d-grid">
+                <!-- -->
+            </div>
+
+
+            <div class="clear"><!-- --></div>
+
+        </div>
+
+    </div>
+
+
+
+</jsp:root>

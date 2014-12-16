@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	
+	
+
+    <import resource="classpath:META-INF/spring/webmvc-config.xml"/>
+    <import resource="classpath:META-INF/spring/webmvc-component-scan.xml"/>
+    <import resource="classpath:META-INF/spring/webmvc-tiles.xml"/>
+    <import resource="classpath:META-INF/spring/webmvc-async.xml"/>
+    
+    <!-- enable listening for SQS messages -->
+    <import resource="classpath:META-INF/spring/spring-property-configurer.xml"/>
+	<import resource="classpath:META-INF/spring/queue.xml"/>
+	
+	<!--  introduced to allow securityContextHolder to be passed into threaded/async method calls -->
+	<!--<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"
+		p:targetClass="org.springframework.security.core.context.SecurityContextHolder"
+		p:targetMethod="setStrategyName"
+	p:arguments="MODE_INHERITABLETHREADLOCAL"/>-->
+
+</beans>

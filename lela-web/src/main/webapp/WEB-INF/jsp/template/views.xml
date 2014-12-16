@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+	<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+	<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+	<!-- =======================================================  -->
+	<!-- Master definition  									-->
+	<!-- =======================================================  -->
+
+    <!-- new master width -->
+    <definition name="template.page.master" template="/WEB-INF/jsp/template/master.jspx" preparer="masterTemplatePreparer">
+        <put-attribute type="string" name="title" value="NA" />
+        <put-attribute type="string" name="description" value="" />
+        <put-attribute type="string" name="keywords" value="" />
+        <put-attribute type="string" name="pageTitle" value="" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.css" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/global.css" />
+            <add-attribute type="string" value="/static/styles/header.css" />
+        </put-list-attribute>
+        <put-list-attribute name="printStyles" inherit="true" />
+
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/jquery-1.7.1.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.blockUI.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.cookie.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/global.js" />
+            <add-attribute type="string" value="/static/js/user/tasks.js" />
+            <add-attribute type="string" value="/static/js/embeds/vimeo.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.listenForChange.js" />
+        </put-list-attribute>
+
+        <put-list-attribute name="navbars">
+            <add-attribute type="template" value="/WEB-INF/jsp/common/navbar.jspx" />
+        </put-list-attribute>
+    </definition>
+
+
+    <!-- page old master -->
+	<definition name="template.simple.master" template="/WEB-INF/jsp/template/master_simple.jspx" preparer="masterTemplatePreparer">
+        <put-attribute type="string" name="title" value="NA" />
+        <put-attribute type="string" name="description" value="" />
+        <put-attribute type="string" name="keywords" value="" />
+        <put-attribute type="string" name="pageTitle" value="" />
+
+        <put-list-attribute name="styles" inherit="true">
+			<add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.css" />
+		</put-list-attribute>
+
+		<put-list-attribute name="javascripts" inherit="true">
+			<add-attribute type="string" value="/static/js/jquery-1.7.1.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.cookie.js" />
+            <add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.js" />
+            <add-attribute type="string" value="/static/js/global.js" />
+            <add-attribute type="string" value="/static/js/embeds/vimeo.js" />
+		</put-list-attribute>
+
+        <put-list-attribute name="mobileStyles" inherit="true"/>
+        <put-list-attribute name="mobileJavascripts" inherit="true"/>
+	</definition>
+
+    <!-- mobile master template -->
+    <definition name="template.mobile.master" template="/WEB-INF/jsp/template/mobile.jspx" preparer="masterTemplatePreparer">
+        <put-attribute type="string" name="title" value="NA" />
+        <put-attribute type="string" name="description" value="" />
+        <put-attribute type="string" name="keywords" value="" />
+        <put-attribute type="string" name="pageTitle" value="" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/mobile/styles/global.css" />
+        </put-list-attribute>
+
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/jquery-1.7.1.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.blockUI.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/mobile/js/global.js" />
+        </put-list-attribute>
+
+        <put-list-attribute name="navbars">
+            <add-attribute type="template" value="/WEB-INF/jsp/common/mobile/navbar.jspx" />
+        </put-list-attribute>
+    </definition>
+
+	<!-- content master  -->
+	<definition name="template.content.master" template="/WEB-INF/jsp/template/content.jspx" />
+    <definition name="max.size.exceeded.exception" template="/WEB-INF/jsp/common/simple_error.jspx" />
+
+
+</tiles-definitions>

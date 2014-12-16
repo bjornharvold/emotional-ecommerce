@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_AttributeTypeNormalization" object="${attributetypenormalization}" path="/crud/attributetypenormalizations" z="SbF7wPm/8p1sraUsKBZ2VZG+nv8=">
+        <field:display date="true" dateTimePattern="${attributeTypeNormalization_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_AttributeTypeNormalization_dateCreated" object="${attributetypenormalization}" z="IO6gQaJ/3zN89nFzokQT1lgfra4="/>
+        <field:display date="true" dateTimePattern="${attributeTypeNormalization_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_AttributeTypeNormalization_dateModified" object="${attributetypenormalization}" z="BjU7Bzq864h+c07eJW/019NQCV0="/>
+        <field:display field="attributeTypeIdNormalized" id="s_com_lela_data_domain_entity_AttributeTypeNormalization_attributeTypeIdNormalized" object="${attributetypenormalization}" z="R3Oc/ZzeUwPBTZ4GkQlHESkTmQ8="/>
+        <field:display field="attributeTypeIdSource" id="s_com_lela_data_domain_entity_AttributeTypeNormalization_attributeTypeIdSource" object="${attributetypenormalization}" z="uc31LPga/XtXGXaXxjv392O+Ktw="/>
+        <field:display field="categoryId" id="s_com_lela_data_domain_entity_AttributeTypeNormalization_categoryId" object="${attributetypenormalization}" z="Em1GUuNhL6Aa+mWc/2oQsAIlf+M="/>
+        <field:display field="attributeTypeOrder" id="s_com_lela_data_domain_entity_AttributeTypeNormalization_attributeTypeOrder" object="${attributetypenormalization}" z="pFXSgrXHhpfaguciDmgrmqAE3CE="/>
+    </page:show>
+</div>

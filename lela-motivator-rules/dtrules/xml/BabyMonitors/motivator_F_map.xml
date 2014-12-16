@@ -1,0 +1,41 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BabyMonitorID' RAttribute='BabyMonitorID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+
+			<setattribute tag='BabyMonitorID' RAttribute='BabyMonitorID' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='CameraFeatures' RAttribute='CameraFeatures' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='Humidifier' RAttribute='Humidifier' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='LCDSize' RAttribute='LCDSize' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='LowBatteryIndicator' RAttribute='LowBatteryIndicator' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='Music' RAttribute='Music' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='NightLight' RAttribute='NightLight' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='Portability' RAttribute='Portability' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='TemperatureDisplay' RAttribute='TemperatureDisplay' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='TouchScreenMenu' RAttribute='TouchScreenMenu' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='VolumeControl' RAttribute='VolumeControl' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='OutOfRangeIndicator' RAttribute='OutOfRangeIndicator' enclosure='babymonitor' type='string'></setattribute>
+																																				
+			<createentity entity='job' 			tag='job' 			id='id'></createentity>
+			<createentity entity='babymonitor' 	tag='babymonitor' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+
+			<entity name='babymonitor' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

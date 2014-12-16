@@ -1,0 +1,27 @@
+{"list":[
+    {
+        "rrlnms":["contentproducer", "superadmin"],
+        "psswrd":"pn3M9-546m|bsUe)0l8j",
+        "ml":"john@lelaknows.com"
+    },
+    {
+        "rrlnms":["contentproducer"],
+        "psswrd":"fgVD3z3KLB@xBz",
+        "ml":"peter.schleifer@lela.com"
+    },
+    {
+        "rrlnms":["superadmin", "developer"],
+        "psswrd":"bkOz38W9e16v:7B'-D0Y",
+        "ml":"bjorn@lelaknows.com"
+    },
+    {
+        "rrlnms":["superadmin"],
+        "psswrd":"Mj7Os312689E",
+        "ml":"fanny.davidson@lela.com"
+    },
+    {
+        "rrlnms":["superadmin"],
+        "psswrd":"IFnV3'@681OXKco752)h",
+        "ml":"thao@lelaknows.com"
+    }
+]}

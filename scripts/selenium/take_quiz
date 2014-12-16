@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>take_quiz</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">take_quiz</td></tr>
+</thead><tbody>
+<tr>
+	<td>deleteCookie</td>
+	<td>JSESSIONID</td>
+	<td>path=/,domain=dev.lela.com,recurse=true</td>
+</tr>
+<tr>
+	<td>deleteCookie</td>
+	<td>JSESSIONID</td>
+	<td>path=/,domain=lela.com,recurse=true</td>
+</tr>
+<tr>
+	<td>deleteCookie</td>
+	<td>JSESSIONID</td>
+	<td>path=/,domain=qa.lela.com,recurse=true</td>
+</tr>
+<tr>
+	<td>deleteCookie</td>
+	<td>JSESSIONID</td>
+	<td>path=/,domain=latest.lela.com,recurse=true</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${baseUrlLocation}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#l-quiz &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=MALE</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=NEXT STEP</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='question-rows']/div[2]/span/div/a[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='question-rows']/div[3]/span/div/a[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='question-rows']/div[4]/span/div/a[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#s-step2 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=image-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=image-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=image-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=image-4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=image-tip</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>id=image-tip</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=image-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=image-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=image-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=image-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=image-4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=image-tip</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>id=image-tip</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=image-4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='question-rows']/div[1]/span/div/a[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='question-rows']/div[2]/span/div/a[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='question-rows']/div[3]/span/div/a[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='question-rows']/div[4]/span/div/a[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='question-rows']/div[5]/span/div/a[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=ALL DONE. SUBMIT MY ANSWERS.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Your Lela Profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a[value=&quot;/category/stroller&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//div[@id='head']/div[6]/a[2]@class</td>
+	<td>s-tab on-nav</td>
+</tr>
+<tr>
+	<td>deleteCookie</td>
+	<td>JSESSIONID</td>
+	<td>path=/,domain=dev.lela.com,recurse=true</td>
+</tr>
+<tr>
+	<td>deleteCookie</td>
+	<td>JSESSIONID</td>
+	<td>path=/,domain=lela.com,recurse=true</td>
+</tr>
+<tr>
+	<td>deleteCookie</td>
+	<td>JSESSIONID</td>
+	<td>path=/,domain=qa.lela.com,recurse=true</td>
+</tr>
+<tr>
+	<td>deleteCookie</td>
+	<td>JSESSIONID</td>
+	<td>path=/,domain=latest.lela.com,recurse=true</td>
+</tr>
+</tbody></table>
+</body>
+</html>

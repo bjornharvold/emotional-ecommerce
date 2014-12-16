@@ -1,0 +1,14 @@
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:display="http://displaytag.sf.net/el"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:images="urn:jsptagdir:/WEB-INF/tags/images">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <spring:url value="/manage/items/images/api/preferred" var="preferred_image_url"/>
+  <spring:url value="/manage/items/images/api/doNotUse" var="do_not_use_image_url"/>
+  <spring:url value="/manage/items/images/api/imageStatus" var="product_image_item_status_url"/>
+
+  <images:image item="${item}" productImageItem="${productImageItem}" product_image_item_status_url="${product_image_item_status_url}" preferred_image_url="${preferred_image_url}" do_not_use_image_url="${do_not_use_image_url}"/>
+
+</div>

@@ -1,0 +1,37 @@
+<div class="lela-grid-container">
+    <h1>{{grid.nm}}</h1>
+    <h3>{{grid.hdr | truncate:140}}</h3>
+
+	<ul class="lela-grid">
+		<li class="lela-grid-item" id="lela-item-{{rlnm}}" ng-repeat="item in items">
+
+            <div class="lela-item-relevancy"><img ng-mouseenter="showTip()" ng-mouseout="showTip()" src="{{relevancyImgUrl(item.ttlrlvncynmbr)}}" /></div>
+
+			<div class="lela-item-image-container">
+                <a href="{{itemDetailUrl(item)}}"><img class="lela-item-image" ng-src="{{images[item.rlnm]}}"/></a>
+                <ul class="lela-item-image-thumbnails">
+                    <li class="lela-item-image-thumbnails-back"><!-- --></li>
+                    <li ng-repeat="clr in item.clrs | limitTo: 3" class="lela-item-image-thumbnail">
+                        <img ng-src="{{clr.sz.small}}" ng-mouseenter="setImage(item.rlnm, clr.sz.medium)" />
+                    </li>
+                    <li class="lela-item-image-thumbnails-forward"><!-- --></li>
+                </ul>
+                <div class="lela-clear"><!-- --></div>
+            </div>
+
+            <div class="lela-item-detail">
+                <p class="lela-item-detail-link-container"><a class="lela-item-detail-link" href="{{itemDetailUrl(item)}}" target="_blank">{{productName(item) | truncate:55}}<br/>by {{ item.wnr.nm | truncate: 25 }}</a></p>
+                <p class="lela-item-detail-bestprice">Best Price from <a href="{{itemDetailUrl(item)}}">{{item.attrmp.StoreCount.vl}} Stores</a></p>
+                <p class="lela-item-detail-lowestprice">${{item.attrmp.LowestPrice.vl}}</p>
+                <a class="lela-item-detail-merchantlink" href="{{merchantUrl(item)}}" target="_blank">{{item.attrmp.MerchantName.vl | truncate:18 }}</a>
+            </div>
+
+        </li>
+	</ul>
+
+    <p class="lela-see-all-items">
+        <a href="{{categoryUrl()}}" target="_blank">See all the products picked just for you on Lela.com &raquo;</a>
+    </p>
+
+    <a class="lela-powered-by-container" href="{{categoryUrl()}}" target="_blank"><span class="lela-powered-by"><!-- --></span></a>
+</div>

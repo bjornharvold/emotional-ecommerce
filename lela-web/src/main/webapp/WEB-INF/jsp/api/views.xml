@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+~ Copyright (c) 2011. Purple Door Systems, BV.
+-->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="api.loader.js" template="/WEB-INF/jsp/api/lela-loader.js.jsp" />
+    <definition name="api.loader.quiz.js" template="/WEB-INF/jsp/api/quiz-loader.js.jsp" />
+    <definition name="api.loader.productgrid.js" template="/WEB-INF/jsp/api/productgrid.js.jsp" />
+
+</tiles-definitions>

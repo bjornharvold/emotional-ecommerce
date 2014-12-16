@@ -1,0 +1,173 @@
+/*
+ * Copyright (c) 2012. Purple Door Systems, BV.
+ */
+package com.lela.tools.kissmetrics;
+
+import com.lela.commons.service.KissMetricsService;
+import com.lela.commons.service.RestartableProcessService;
+import com.lela.commons.service.UserService;
+import com.lela.commons.service.UserTrackerService;
+import com.lela.commons.spring.ApplicationContextLoader;
+import com.lela.domain.document.Motivator;
+import com.lela.domain.document.User;
+import com.lela.domain.document.UserEvent;
+import com.lela.domain.document.UserSupplement;
+import com.lela.domain.document.UserTracker;
+import com.lela.domain.document.UserVisit;
+import com.lela.domain.dto.AffiliateIdentifiers;
+import com.lela.domain.enums.KissMetricsPropertyType;
+import com.lela.domain.enums.RegistrationType;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.Seconds;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * User: Chris Tallent
+ * Date: 9/24/12
+ * Time: 11:02 AM
+ *
+ * This tool can be run via Maven using the command - mvn exec:exec -Pkm-user-import -Denvironment=development
+ */
+public class KissMetricsUserImport {
+    private static final String CLASSPATH_CONTEXT = "META-INF/spring/applicationContext.xml";
+    private static final int COUNT_LOG = 100;
+    private static final String PROCESS_NAME = "KM Base User Import";
+
+    private static final DateTime IMPORT_BEFORE_DATE = new DateTime(2012, 9, 21, 10, 42, 36, 0, DateTimeZone.forOffsetHours(-4));
+
+    @Value("${environment}")
+    private String environment;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserTrackerService userTrackerService;
+
+    @Autowired
+    private RestartableProcessService restartableProcessService;
+
+    @Autowired
+    private KissMetricsService kissMetricsService;
+
+    public void run() {
+
+        out("Kissmetrics User Import - Environment: " + environment);
+
+        out("Loading previously tracked");
+        Set<String> userCodes = restartableProcessService.findAllKeys(PROCESS_NAME);
+        out("Previously processed " + userCodes.size() + " unique users");
+
+        out("Loading Users");
+        List<User> users = userService.findUsersCreatedBetween(null, IMPORT_BEFORE_DATE.toDate());
+
+        out("Beginning Kissmetrics Import");
+        DateTime startTime = new DateTime();
+        int count = 0;
+        int skipped = 0;
+        for (User user : users) {
+            if (!userCodes.contains(user.getCd())) {
+                UserTracker tracker = userTrackerService.findByUserCode(user.getCd());
+                UserSupplement us = userService.findUserSupplement(user.getCd());
+
+                if (++count % COUNT_LOG == 0) {
+                    float average = Seconds.secondsBetween(startTime, new DateTime()).getSeconds() / (float)count;
+                    out(String.format("Processed %d and skipped %d of %d users at %.3f seconds/user", count, skipped, users.size(), average));
+                }
+
+                HashMap<KissMetricsPropertyType, Object> additionalProperties = new HashMap<KissMetricsPropertyType, Object>();
+                additionalProperties.put(KissMetricsPropertyType.TIMESTAMP, user.getCdt().getTime()/1000);
+                additionalProperties.put(KissMetricsPropertyType.USE_CLIENT_TIME, 1);
+
+                // Visited Site
+                if (tracker != null && tracker.getVsts() != null && !tracker.getVsts().isEmpty()) {
+                    UserVisit visit = tracker.getVsts().get(0);
+                    kissMetricsService.trackVisit(user.getCd(), visit.getRfr(), additionalProperties);
+                }
+
+                // Signed Up
+                AffiliateIdentifiers ai = new AffiliateIdentifiers();
+                RegistrationType registrationType = null;
+
+                if (tracker != null) {
+                    if (tracker.getFfltccntrlnm() != null) {
+                        ai.setFfltccntrlnm(tracker.getFfltccntrlnm());
+                    }
+                    if (tracker.getCmpgnrlnm() != null) {
+                        ai.setCmpgnrlnm(tracker.getCmpgnrlnm());
+                    }
+                    if (tracker.getRfrrlnm() != null) {
+                        ai.setRfrrlnm(tracker.getRfrrlnm());
+                    }
+
+                    registrationType = tracker.getRgtp();
+                }
+
+                // If registration type is null, check for a Facebook social
+                if (us.getScls() != null && !us.getScls().isEmpty() && "facebook".equals(us.getScls().get(0).getProviderId())) {
+                    registrationType = RegistrationType.FACEBOOK;
+                } else {
+                    registrationType = RegistrationType.WEBSITE;
+                }
+
+                kissMetricsService.registerUser(us, ai, registrationType, additionalProperties);
+
+                // Motivators
+                if (us != null) {
+                    Motivator motivator = us.getMotivator();
+                    if (motivator != null) {
+                        // See if there is a quiz date on user tracker to use for the motivator date, otherwise use
+                        // the user create date
+                        Date date = tracker != null && tracker.getQzcmpltdt() != null ? tracker.getQzcmpltdt() : user.getCdt();
+
+                        additionalProperties = new HashMap<KissMetricsPropertyType, Object>();
+                        additionalProperties.put(KissMetricsPropertyType.TIMESTAMP, date.getTime()/1000);
+                        additionalProperties.put(KissMetricsPropertyType.USE_CLIENT_TIME, 1);
+
+                        kissMetricsService.recordMotivators(user.getCd(), motivator, additionalProperties);
+                    }
+                }
+
+                // Check for Mother's Day event
+                if (us.getVnts() != null && !us.getVnts().isEmpty()) {
+                    for (UserEvent event : us.getVnts()) {
+                        additionalProperties = new HashMap<KissMetricsPropertyType, Object>();
+                        additionalProperties.put(KissMetricsPropertyType.TIMESTAMP, event.getDt().getTime()/1000);
+                        additionalProperties.put(KissMetricsPropertyType.USE_CLIENT_TIME, 1);
+
+                        kissMetricsService.participatedIn(user.getCd(), event, additionalProperties);
+                    }
+                }
+
+                userCodes.add(user.getCd());
+                restartableProcessService.trackKey(PROCESS_NAME, user.getCd());
+            } else {
+                skipped++;
+            }
+        }
+
+        out("Processed " + count + " total users");
+    }
+
+    private void out(String message) {
+        System.out.println(message);
+    }
+
+    public static void main(String[] args) {
+        ApplicationContextLoader loader = new ApplicationContextLoader();
+        KissMetricsUserImport process = new KissMetricsUserImport();
+        loader.load(process, CLASSPATH_CONTEXT);
+
+        process.run();
+
+        loader.getApplicationContext().close();
+        System.exit(0);
+    }
+}

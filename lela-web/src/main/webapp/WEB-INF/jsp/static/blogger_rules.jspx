@@ -1,0 +1,103 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <spring:url value="/" var="homeUrl" />
+
+    <div style="padding-right:200px;">
+        <h2>PRE-LAUNCH BLOGGER INVITATIONAL</h2>
+        <h3>OFFICIAL RULES</h3>
+        
+        <p> <br/>
+            The owners and operators of the website <a href="${homeUrl}">lela.com</a> (&#8220;Lelaknows&#8221;) is offering selected users of the website <a href="${homeUrl}">lela.com</a> (the &#8220;Website&#8221;) a gift of $20.00 USD sent via the website and service located at        <a href="http://www.paypal.com">www.paypal.com</a> (the &#8220;Gift&#8221;). These rules shall govern the offering contained herein and as advertised.
+            This offer expires December 31, 2011. NO PURCHASE NECESSARY. A PURCHASE WILL NOT IMPROVE CHANCES OF WINNING. VOID WHERE PROHIBITED.
+        </p>
+        <p>
+            Lelaknows has provided certain bloggers with invitations for their users to use the Website prior to its public launch. In order to qualify for the
+            Gift, users must complete the below.
+        </p>
+        <p>
+            1. Follow the link indicated on a bloggers&#8217; website to the registration page of the Website and be one of the first 10 readers from the
+            respective blogger to complete the following steps.
+        </p>
+        <p>
+            2. Register with the Website either with a valid email address or Facebook Connect.
+        </p>
+        <p>
+            3. Take the profile quiz on the Website. (choosing images based on the questions indicating on a slider basis, individual preferences)
+        </p>
+        <p>
+            4. Shortly after you register, you will receive a link to a survey. You must complete the survey.
+        </p>
+        <p>
+            <br/><strong>RESTRICTIONS:</strong>
+        </p>
+        <p>
+    5. You must be over 18, a resident of the United States of America, and have an active account at the website        <a href="http://www.Paypal.com">www.Paypal.com</a> (Paypal Account).
+        </p>
+        <p>
+            6. Only 1 registration per household is permitted.
+        </p>
+        <p>
+            7. Entrants may also mail entries to Lelaknows, Attn: Pre-Launch Blogger Invitational, Purple Key, Inc., 1745 Broadway, 17th floor, New York, NY 10019.
+            Mailed entries must include the contest name, subject line, a valid email and postal address, and any other specific entry information requested in the
+            contest announcement and are subject to the same entry period and rules as emailed entries.
+        </p>
+        <p>
+            8. Incomplete or incorrect entries will not be accepted. Lelaknows is not responsible for and will not consider incomplete or incorrect entries, or
+            emails sent or entries mailed but not received by Lelaknows for any reason, as potential winners.
+        </p>
+        <p>
+            9. Claiming of prizes requires an email to Lelaknows from the winning sender email address within 15 days of being notified of winning at the email
+            used to enter. Failure to respond shall mean that the winner forfeits the prize. Lelaknows is not required to award elsewhere any prizes forfeited by
+            the chosen winner(s).
+        </p>
+        <p>
+            10. Winners are solely responsible for all taxes and/or fees that may be incurred. All cash winners are required to verify proper and legal picture
+            identification and Social Security number within 30 days of notification of winning the cash prize. Winner may forfeit any and all cash winnings if
+            verification cannot or has not been made within 30 days. Upon proper verification, cash winnings will be transferred to the winner via their Paypal
+            account unless specified otherwise within seven (7) business days.
+        </p>
+        <p>
+            11. Each prizewinner must supply Lelaknows with his/her legal name, mailing address, birth date, daytime and nighttime telephone numbers. In the case
+            of a cash winner, winner must also supply social security number.
+        </p>
+        <p>
+            12. Winners may not request substitutions of prize winnings. All winners are solely responsible for any and all taxes and/or fees, and all such
+            additional costs that may be incurred.
+        </p>
+        <p>
+            13. Neither Lelaknows, Lelaknows sponsors, nor employees of Lelaknows or sponsors may be held liable for any warranty, costs, damage, injury, or any
+            other claims incurred as a result of usage of any winners of a prize once possession has been taken of the product by winner. Lelaknows is not liable
+            for any loss arising out of or in connection with or resulting from any contest promoted by Lelaknows.
+        </p>
+        <p>
+            14. If the specified prize becomes unavailable due to unforeseen circumstances, Lelaknows may substitute a prize of like or equal value.
+        </p>
+        <p>
+            15. For a list of contest winner names, mail a letter specifying the contest you are inquiring about and include a self-addressed and prepaid envelope
+            to Purple Key, Inc. Attn: LelaKnows Winner List, 1745 Broadway, 17th floor, New York, NY 10019.
+        </p>
+        <p>
+            16. Management, employees and families of Lelaknows are prohibited from winning any prizes awarded by Lelaknows
+        </p>
+        <p>
+            17. Lelaknows reserves the right to alter any rules of any contest at anytime. If you have any questions or complaints about a Lelaknows contest,
+            please contact <a href="mailto:contest@lela.com">contest@lela.com</a>.
+        </p>
+    </div>
+</jsp:root>

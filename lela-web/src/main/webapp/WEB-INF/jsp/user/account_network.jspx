@@ -1,0 +1,149 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="user.account.network.first.name" var="firstName"/>
+    <spring:message code="user.account.network.last.name" var="secondName"/>
+    <spring:message code="user.account.network.pending" var="pending"/>
+    <spring:message code="user.account.network.accept" var="accept"/>
+    <spring:message code="user.account.network.ignore" var="ignore"/>
+    <spring:url value="/user/dashboard/network" var="networkUrl" />
+    <spring:url value="/user/dashboard/network/reply" var="replyUrl" />
+    <spring:url value="/user/dashboard/network/date" var="dateUrl" />
+    <spring:url value="/user/dashboard/network/invite" var="lelaInviteUrl" />
+
+    <script type="text/javascript">
+        var messages = {
+            "user.account.network.first.name" : "${firstName}",
+            "user.account.network.last.name" : "${secondName}",
+            "user.account.network.accept" : "${accept}",
+            "user.account.network.ignore" : "${ignore}"
+        }
+
+        var networkUrl = "${networkUrl}";
+    </script>
+
+    <div id="account-nav">
+        <ul>
+            <li>
+                <!-- Left nav content -->
+                <tiles:insertTemplate template="/WEB-INF/jsp/user/account_nav.jspx" flush="true">
+                </tiles:insertTemplate>
+            </li>
+        </ul>
+    </div>
+    <div id="account-content">
+        <div id="lela-network" class="d-section">
+            <h2><spring:message code="user.account.network.friends.family"/></h2>
+            <table>
+                <tr>
+                    <th><spring:message code="user.account.network.name"/></th>
+                    <th><spring:message code="user.account.network.relation"/></th>
+                    <th><spring:message code="user.account.network.status"/></th>
+                    <th><spring:message code="user.account.network.lela.friendship"/></th>
+                    <!--<th><spring:message code="user.account.network.key.celebration.dates"/></th>-->
+                    <!--<th><spring:message code="user.account.network.gift.guide"/></th>-->
+                    <th><spring:message code="user.account.network.remove"/></th>
+                </tr>
+                <c:forEach var="socialRelation" items="${network.sclrltns}">
+                    <tr id='${socialRelation}' class="network-connection">
+                        <td>
+                            ${socialRelation.fllnm}
+                            <input class="relation-user-id" type="hidden" value="${socialRelation.uid}"/>
+                            <input class="relation-email" type="hidden" value="${socialRelation.ml}"/>
+                        </td>
+                        <td><spring:message code="dropdown.relation.${socialRelation.tp}"/></td>
+                        <c:choose>
+                            <c:when test="${socialRelation.stts == 'PENDING'}">
+                                <td>
+                                    <select class="status select-status">
+                                        <option value="${pending}">${pending}</option>
+                                        <option value="ACCEPT">${accept}</option>
+                                        <option value="IGNORE">${ignore}</option>
+                                    </select>
+                                </td>
+                            </c:when>
+                            <c:otherwise>
+                                <td>
+                                    <spring:message code="dropdown.relation.status.${socialRelation.stts}"/>
+                                    <input class="status" type="hidden" value="${socialRelation.stts}"/>
+                                </td>
+                            </c:otherwise>
+                        </c:choose>
+                        <td><lela:lelaBar value="${socialRelation.frndlvlnmbr}" format="text"/></td>
+                        <!--<td>
+                            <ul class="celebration-dates">
+                                < ! - - celebration dates - - >
+                                <c:forEach items="${socialRelation.clbrtndts}" var="celebrationDate">
+                                    <li><spring:message code="dropdown.celebration.date.${celebrationDate.tp}"/>: <lela:dateFormat date="${celebrationDate.dt}"/></li>
+                                </c:forEach>
+                            </ul>
+                            <a class="add-date modal" href="${dateUrl}"><spring:message code="user.account.network.add.date"/></a>
+                        </td>-->
+                        <!--<td><a class="gift-guide" href="#"><spring:message code="user.account.network.gift.guide"/></a></td>-->
+                        <td><input class="select-connection" type="checkbox"/></td>
+                    </tr>
+                </c:forEach>
+                <!--
+                <tr>
+                    <td colspan="6">
+                        <input class="first-name-input" type="text" value="${firstName}"/>
+                        <input class="last-name-input" type="text" value="${secondName}"/>
+                        <select class="relation">
+                            <spring:message code="dropdown.relation.select" var="select"/>
+                            <option value="">${select}</option>
+                            <spring:message code="dropdown.relation.FRIEND" var="friend"/>
+                            <option value="FRIEND">${friend}</option>
+                            <spring:message code="dropdown.relation.COLLEAGUE" var="colleague"/>
+                            <option value="COLLEAGUE">${colleague}</option>
+                            <spring:message code="dropdown.relation.HUSBAND" var="husband"/>
+                            <option value="HUSAND">${husband}</option>
+                            <spring:message code="dropdown.relation.WIFE" var="wife"/>
+                            <option value="WIFE">${wife}</option>
+                            <spring:message code="dropdown.relation.SON" var="son"/>
+                            <option value="SON">${son}</option>
+                            <spring:message code="dropdown.relation.DAUGHTER" var="daughter"/>
+                            <option value="DAUGHTER">${daughter}</option>
+                            <spring:message code="dropdown.relation.FATHER" var="father"/>
+                            <option value="FATHER">${father}</option>
+                            <spring:message code="dropdown.relation.MOTHER" var="mother"/>
+                            <option value="MOTHER">${mother}</option>
+                            <spring:message code="dropdown.relation.BROTHER" var="brother"/>
+                            <option value="BROTHER">${brother}</option>
+                            <spring:message code="dropdown.relation.SISTER" var="sister"/>
+                            <option value="SISTER">${sister}</option>
+                            <spring:message code="dropdown.relation.GRANDFATHER" var="grandfather"/>
+                            <option value="GRANDFATHER">${grandfather}</option>
+                            <spring:message code="dropdown.relation.GRANDMOTHER" var="grandmother"/>
+                            <option value="GRANDMOTHER">${grandmother}</option>
+                            <spring:message code="dropdown.relation.UNCLE" var="uncle"/>
+                            <option value="UNCLE">${uncle}</option>
+                            <spring:message code="dropdown.relation.AUNT" var="aunt"/>
+                            <option value="AUNT">${aunt}</option>
+                            <spring:message code="dropdown.relation.COUSIN" var="cousin"/>
+                            <option value="COUSIN">${cousin}</option>
+                        </select>
+                    </td>
+                </tr>
+                -->
+            </table>
+            <div id="invite-to-lela"><a href="${lelaInviteUrl}"><spring:message code="user.account.network.invite"/></a></div>
+            <div class="s-row">
+                <a class="net-submit" href="${replyUrl}"><spring:message code="user.account.network.save.updates"/></a>
+            </div>
+        </div>
+    </div>
+</div>

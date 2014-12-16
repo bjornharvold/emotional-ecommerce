@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+     xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_Item" items="${items}" z="xv/K98C+lbDUwFe2Y+msl46PgFA=">
+
+        <table:table data="${items}" id="l_com_lela_data_domain_entity_Item" path="/crud/items" z="auQGtG+xZ1UqgrVs6G3GIHZIFT0=">
+            <table:column date="true" dateTimePattern="${item_datecreated_date_format}" id="c_com_lela_data_domain_entity_Item_dateCreated" property="dateCreated" z="+WbBWrsSyEiJQDA27mXWFC4uxpA=" render="false"/>
+            <table:column date="true" dateTimePattern="${item_datemodified_date_format}" id="c_com_lela_data_domain_entity_Item_dateModified" property="dateModified" z="crh8NKhgL4d2y9a53qmZ1VmubZ4=" render="false"/>
+
+            <table:column id="c_com_lela_data_domain_entity_Item_category" property="category" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_itemId" property="itemId" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_brand" property="brand" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_lelaUrl" property="lelaUrl" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_validated" property="validated" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_priority" property="priority" z="user-managed" render="true"/>
+
+            <table:column id="c_com_lela_data_domain_entity_Item_productModelName" property="productModelName" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_modelNumber" property="modelNumber" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_modelUrl" property="modelUrl" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_designStyle" property="designStyle" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_listPrice" property="listPrice" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_listPriceRange" property="listPriceRange" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_salePrice" property="salePrice" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_conditionType" property="conditionType" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_doNotUse" property="doNotUse" z="user-managed" render="true"/>
+
+            <table:column id="c_com_lela_data_domain_entity_Item_researchComplete" property="researchComplete" z="user-managed" render="true"/>
+            <table:column id="c_com_lela_data_domain_entity_Item_blockFeedUpdates" property="blockFeedUpdates" z="user-managed" render="true"/>
+
+            <table:column id="c_com_lela_data_domain_entity_Item_itemColors" property="itemColors" z="x1goGVk7lzQwv58KvgRRhGQ+ry8=" render="false"/>
+
+            <table:column id="c_com_lela_data_domain_entity_Item_itemIdentifiers" property="itemIdentifiers" z="wOpiXL4klx4FvCbuykqhxsOHkZg=" render="false"/>
+
+            <table:column id="c_com_lela_data_domain_entity_Item_itemAttributes" property="itemAttributes" z="user-managed" render="false"/>
+
+            <table:subcolumn id="c_com_lela_data_domain_entity_Item_itemAttributes" property="itemAttributes" collection="true" expression="'&lt;b>'.concat(subitem.attributeType.attributeName).concat('&lt;/b>').concat(' : ').concat(subitem.attributeValue).concat(', ')"/>
+            <table:subcolumn id="c_com_lela_data_domain_entity_Item_merchantOffers" property="merchantOffers" collection="true" expression="subitem.merchant.merchantName.concat(' - ').concat(subitem.offerItemName).concat('&lt;br>')"/>
+            <table:subcolumn id="c_com_lela_data_domain_entity_Item_baseMotivator" property="baseMotivator" collection="false"/>
+
+        </table:table>
+    </page:list>
+</div>

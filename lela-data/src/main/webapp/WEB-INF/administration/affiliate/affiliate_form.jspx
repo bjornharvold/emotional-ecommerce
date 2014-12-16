@@ -1,0 +1,134 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="affiliate.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <spring:url value="/administration/affiliateaccount/list" var="listUrl"/>
+
+    <div class="actions">
+        <a class="action" href="${listUrl}">&lt; <spring:message code="affiliate.account.back.to.list"/> </a>
+
+        <spring:url value="/administration/affiliateaccount/${urlName}" var="viewUrl"/>
+        <a class="action" href="${viewUrl}">&lt; <spring:message code="affiliate.account.back.to.affiliate.account"/> </a>
+
+        <c:if test="${affiliate.rlnm != null}">
+            <spring:url value="/administration/affiliateaccount/${urlName}/affiliate/${affiliate.rlnm}" var="affiliateUrl"/>
+            <a class="action" href="${affiliateUrl}">&lt; <spring:message code="affiliate.back.to.affiliate"/> </a>
+        </c:if>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <spring:url value="/administration/affiliateaccount/${urlName}/affiliate/form" var="formUrl"/>
+    <spring-form:form action="${formUrl}" method="POST" commandName="affiliate" modelAttribute="affiliate">
+        <div class="h-row even">
+            <div class="h-col"><label for="nm"><spring:message code="affiliate.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="nm" path="nm"/>&#160;<spring-form:errors path="nm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="rlnm"><spring:message code="affiliate.url.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="rlnm" path="rlnm"/>&#160;<spring-form:errors path="rlnm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="rl"><spring:message code="affiliate.url"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="rl" path="rl"/>&#160;<spring-form:errors path="rl" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="cmmssn"><spring:message code="affiliate.lela.commission"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="cmmssn" path="cmmssn"/>&#160;<spring-form:errors path="cmmssn" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="cstmrcmmssn"><spring:message code="affiliate.customer.commission"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="cstmrcmmssn" path="cstmrcmmssn"/>&#160;<spring-form:errors path="cstmrcmmssn" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="pymntmthd"><spring:message code="affiliate.payment.type"/></label></div>
+
+            <div class="h-col">
+                <spring-form:select id="pymntmthd" path="pymntmthd" items="${affiliatePaymentTypes}"/>&#160;<spring-form:errors path="pymntmthd" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="ctv"><spring:message code="affiliate.active"/></label></div>
+
+            <div class="h-col">
+                <spring-form:radiobutton id="ctv" path="ctv" value="true"/> <spring:message code="radio.button.true"/>,
+                <spring-form:radiobutton id="ctv" path="ctv" value="false"/> <spring:message code="radio.button.false"/><br/>
+                <spring-form:errors path="ctv" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="strtdt"><spring:message code="affiliate.start.date"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="strtdt" path="strtdt"/>&#160;<spring-form:errors path="strtdt" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="nddt"><spring:message code="affiliate.end.date"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="nddt" path="nddt"/>&#160;<spring-form:errors path="nddt" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="s-row">
+            <spring-form:hidden path="d"/>
+            <spring-form:hidden path="affiliateAccountUrlName"/>
+            <spring:message code="button.save" var="save"/>
+
+            <div class="s-col"><input type="submit" value="${save}"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+    </spring-form:form>
+</div>

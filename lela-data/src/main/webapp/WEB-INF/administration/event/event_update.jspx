@@ -1,0 +1,189 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1>Update/Create Event</h1>
+
+    <spring:url value="/administration/event/list" var="eventListUrl"/>
+    <div class="actions">
+        <a class="action" href="${eventListUrl}">&lt; Back to event list</a>
+        <a class="action" href="#event-users" id="view-users">View Users ></a>
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <spring:url value="/administration/event" var="updateUrl"/>
+    <spring-form:form class="" action="${updateUrl}" method="POST" modelAttribute="event">
+
+        <div class="h-row even">
+            <div class="h-col"><spring-form:label path="nm">Name</spring-form:label></div>
+            <div class="h-col"><spring-form:input path="nm" size="60"/></div>
+            <spring-form:errors path="nm" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><spring-form:label path="rlnm">UrlName</spring-form:label></div>
+            <div class="h-col"><spring-form:input path="rlnm" size="60"/></div>
+            <spring-form:errors path="rlnm" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="affiliateAccounts.ffltrlnm">Affiliate Account</label></div>
+
+            <div class="h-col">
+                <spring-form:select path="ffltccntrlnm">
+                    <spring-form:option value="" label="Select" />
+                    <spring-form:options items="${affiliateAccounts}" itemValue="rlnm" itemLabel="nm" />
+                </spring-form:select>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="campaign.ffltrlnm">Campaign</label></div>
+
+            <div class="h-col">
+                <spring-form:select path="cmpgnrlnm">
+                    <spring-form:option value="" label="Select" />
+                    <spring-form:options items="${campaigns}" itemValue="rlnm" itemLabel="nm" />
+                </spring-form:select>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+
+        <div class="h-row even">
+            <div class="h-col"><spring-form:label path="strtdt">Start Date</spring-form:label></div>
+            <div class="h-col"><spring-form:input cssClass="date-pick" path="strtdt" size="60"/></div>
+            <spring-form:errors path="strtdt" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><spring-form:label path="nddt">End Date</spring-form:label></div>
+            <div class="h-col"><spring-form:input cssClass="date-pick" path="nddt" size="60"/></div>
+            <spring-form:errors path="nddt" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><spring-form:label path="trms">Event JSP View Name</spring-form:label></div>
+            <div class="h-col"><spring-form:input path="vwnm" size="60"/></div>
+            <div class="h-col">(Optional)</div>
+            <spring-form:errors path="vwnm" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><spring-form:label path="trms">Expired JSP View Name</spring-form:label></div>
+            <div class="h-col"><spring-form:input path="xprdvwnm" size="60"/></div>
+            <div class="h-col">(Optional)</div>
+            <spring-form:errors path="xprdvwnm" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><spring-form:label path="trms">Terms Accepted Redirect URL</spring-form:label></div>
+            <div class="h-col"><spring-form:input path="rdrctrl" size="60"/></div>
+            <div class="h-col">(Optional)</div>
+            <spring-form:errors path="rdrctrl" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><spring-form:label path="trms">Terms &amp; Conditions</spring-form:label></div>
+            <div class="h-col"><spring-form:textarea path="trms" cols="80" rows="15"/></div>
+            <spring-form:errors path="trms" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><spring-form:label path="vntFlds">Event Fields</spring-form:label></div>
+            <div class="h-col" id="vntFlds">
+                <a href="#" id="add-field">Add A Field</a><br/>
+                <c:forEach items="${event.vntFlds}" var="vntFld" varStatus="status">
+                    <div id="vntFld${status.index}">
+                        <spring-form:input path = "vntFlds[${status.index}].fldNm" size = "15"/>
+                        <span>Required?</span>
+                        <spring-form:checkbox path = "vntFlds[${status.index}].rqrd" value = "true"/>
+                        <a href="#" class="remove-field" data-index="${status.index}">(Remove) </a>
+                        <!--secret field for marking the item as deleted-->
+                        <spring-form:checkbox path = "vntFlds[${status.index}].delete" value = "true" cssStyle="display:none"/>
+                    </div>
+                </c:forEach>
+            </div>
+            <spring-form:errors path="vntFlds" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="s-row">
+            <div class="s-col"><input type="submit" name="Submit" value="Save"/></div>
+        </div>
+
+    </spring-form:form>
+
+    <div style="display:none;">
+        <div id="event-users" style="width:500px; height:500px; padding:40px; overflow:auto;">
+            <h3>${event.nm} - Users</h3>
+
+            <p>
+                <c:forEach items="${users}" var="user" varStatus="status">
+                    ${status.count}. ${user.fnm} ${user.lnm} - ${user.ml}<br/>
+                </c:forEach>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        $('#view-users').fancybox();
+        $( 'textarea#trms' ).ckeditor();
+        Date.format = 'mm/dd/yyyy';
+        $('.date-pick').datePicker();
+        var nextFieldId = ${fn:length(event.vntFlds)};
+        $('#add-field').click(function(event){
+            event.preventDefault();
+            var div = $('<div id="vntFld'+nextFieldId+'"></div>');
+            var remove = $('<a href="#" class="remove-field" data-index="'+nextFieldId+'">(Remove) </a>');
+            var fldNm = $('<input id="vntFlds'+nextFieldId+'.fldNm" name="vntFlds['+nextFieldId+'].fldNm" type="text" value="" size="15"/>');
+            var rqrdLabel = $('<span>Required?</span>');
+            var rqrd = $('<input id="vntFlds'+nextFieldId+'.rqrd'+nextFieldId+'" name="vntFlds['+nextFieldId+'].rqrd" type="checkbox" value="true"/>');
+            var del = $('<input id="vntFlds'+nextFieldId+'.delete'+nextFieldId+'" name="vntFlds['+nextFieldId+'].delete" type="checkbox" value="true" style="display:none"/>');
+            div.append(fldNm, rqrdLabel, rqrd, remove, del);
+            $('#vntFlds').append(div);
+            nextFieldId ++;
+            $(fldNm).focus();
+
+        });
+        $('.remove-field').live('click', function(event){
+            event.preventDefault();
+            var index = $(event.target).data('index');
+            $("#vntFld"+index).hide();
+            $("#vntFlds"+index+"\\.delete"+index).attr('checked', true);
+
+        });
+    </script>
+
+</div>

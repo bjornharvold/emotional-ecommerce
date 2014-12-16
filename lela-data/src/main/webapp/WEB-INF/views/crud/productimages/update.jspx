@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <form:update id="fu_com_lela_data_domain_entity_ProductImage" modelAttribute="productImage" path="/crud/productimages" versionField="Version" z="UY9iUjd+qeghXoV9zMWHqz8rOPI=">
+    <field:datetime dateTimePattern="${productImage_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_ProductImage_dateCreated" z="gRA9G5J8CQAnK3E5D4Z/j4p3B9E="/>
+    <field:datetime dateTimePattern="${productImage_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_ProductImage_dateModified" z="Sn5UYIECUPrSTaDrFb3Vr+SYqAo="/>
+    <field:input field="imageSource" id="c_com_lela_data_domain_entity_ProductImage_imageSource" z="pvG8rDUzmc1rn2UTXLbCiVsJ68Y="/>
+    <field:input field="sourceKey" id="c_com_lela_data_domain_entity_ProductImage_sourceKey" z="FJQgbKK83YHOmt0r09elCr67RlQ="/>
+    <field:input field="imageUrl" id="c_com_lela_data_domain_entity_ProductImage_imageUrl" z="6T8maRF80yidRnmGDSqmFfTcPQY="/>
+    <field:input field="resizedUrl" id="c_com_lela_data_domain_entity_ProductImage_resizedUrl" z="BV5bqNM4DMcuAQutDWvrb/1iGoM="/>
+    <field:input field="imageDate" id="c_com_lela_data_domain_entity_ProductImage_imageDate" z="VQ/kfj0oPyhy/cMDNjiB8bmrDQ0="/>
+    <field:input field="rValue" id="c_com_lela_data_domain_entity_ProductImage_rValue" validationMessageCode="field_invalid_integer" z="s0/nPGny59jFA9DZz9GqrRDmD34="/>
+    <field:input field="gValue" id="c_com_lela_data_domain_entity_ProductImage_gValue" validationMessageCode="field_invalid_integer" z="mtnrivP6kQs60ucDF+Pmwk61W9w="/>
+    <field:input field="bValue" id="c_com_lela_data_domain_entity_ProductImage_bValue" validationMessageCode="field_invalid_integer" z="2kVji6eRWe0GlGvTOjHqv8JIDfo="/>
+    <field:input field="hexValue" id="c_com_lela_data_domain_entity_ProductImage_hexValue" z="JA+X0bQR04X2fOPrzFv5i8jOUhc="/>
+    <field:input field="imageURLSmall" id="c_com_lela_data_domain_entity_ProductImage_imageURLSmall" z="erBASI24T+TwYx7RUJLA0mFPZCI="/>
+    <field:input field="imageURLMedium" id="c_com_lela_data_domain_entity_ProductImage_imageURLMedium" z="q6cWm/Hr2lMPXk6cROHLDSkqRWA="/>
+    <field:input field="imageURLLarge" id="c_com_lela_data_domain_entity_ProductImage_imageURLLarge" z="qrrsybEXNhD4w8Vj2AakKjP1Bww="/>
+    <field:checkbox field="doNotUse" id="c_com_lela_data_domain_entity_ProductImage_doNotUse" z="U0kNRdEhAALPUkJh2llqqksoXoE="/>
+    <field:input field="imageAngle" id="c_com_lela_data_domain_entity_ProductImage_imageAngle" z="HyC9Dj9C2sz75er37Npm6nHY+KE="/>
+    <field:input field="imageType" id="c_com_lela_data_domain_entity_ProductImage_imageType" z="56jd2XrViBy/u193S8h9LI1yEos="/>
+    <field:input field="resolution" id="c_com_lela_data_domain_entity_ProductImage_resolution" z="M5zWiKwmFHx84BQ5pRFVV+tcBd8="/>
+    <field:checkbox field="preferred" id="c_com_lela_data_domain_entity_ProductImage_preferred" z="UvRnFYP94XGMx5Xxsy1za9xTrDQ="/>
+    <field:input field="uploadReason" id="c_com_lela_data_domain_entity_ProductImage_uploadReason" z="tZAauOD+34wcppQZD/vNn2WKRNk="/>
+    <field:input field="imageHeight" id="c_com_lela_data_domain_entity_ProductImage_imageHeight" validationMessageCode="field_invalid_integer" z="HSZZmOwUNp8rEmrMH3rm/i5c++g="/>
+    <field:input field="imageWidth" id="c_com_lela_data_domain_entity_ProductImage_imageWidth" validationMessageCode="field_invalid_integer" z="+E1Jo66ZVNdvINzwnu1F27a3ysA="/>
+    <field:input field="imageURLScaled" id="c_com_lela_data_domain_entity_ProductImage_imageURLScaled" z="Emt9ETQiZXhwvjj+O1L1Ge2nCMI="/>
+  </form:update>
+</div>

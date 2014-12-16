@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_QuestionsSlider" items="${questionssliders}" z="utI4/m1swJBjamQxrpoIs8es5cM=">
+        <table:table data="${questionssliders}" id="l_com_lela_data_domain_entity_QuestionsSlider" path="/crud/questionssliders" z="K8QZYv22qalwB8fIiUNiu4e36f0=">
+            <table:column date="true" dateTimePattern="${questionsSlider_datecreated_date_format}" id="c_com_lela_data_domain_entity_QuestionsSlider_dateCreated" property="dateCreated" z="cTQNDc5w76SPEviIC0bTSNXhcqk="/>
+            <table:column date="true" dateTimePattern="${questionsSlider_datemodified_date_format}" id="c_com_lela_data_domain_entity_QuestionsSlider_dateModified" property="dateModified" z="Vk6sMluhBZeDhkozhrdP8Lls0z0="/>
+            <table:column id="c_com_lela_data_domain_entity_QuestionsSlider_active" property="active" z="3DF252W6Y/HySbA/UUZ4G6xOa+0="/>
+            <table:column id="c_com_lela_data_domain_entity_QuestionsSlider_groupName" property="groupName" z="YTApHzoibrghVkD/xXR9XHqZHEw="/>
+            <table:column id="c_com_lela_data_domain_entity_QuestionsSlider_questionSerial" property="questionSerial" z="fVoCL+LmamfJhSzNxJt/42U5gXc="/>
+            <table:column id="c_com_lela_data_domain_entity_QuestionsSlider_instructions" property="instructions" z="K74qUT5ug7uRpnD7v/Ll9OpW9iI="/>
+        </table:table>
+    </page:list>
+</div>

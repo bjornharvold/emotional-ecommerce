@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_FunctionalFilterAnswerValue" modelAttribute="functionalFilterAnswerValue" path="/crud/functionalfilteranswervalues" versionField="Version" z="Vve7NkPqnrI3i2JFALE4kYwOao8=">
+      <field:datetime dateTimePattern="${functionalFilterAnswerValue_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_FunctionalFilterAnswerValue_dateCreated" render="false" z="user-managed"/>
+      <field:datetime dateTimePattern="${functionalFilterAnswerValue_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_FunctionalFilterAnswerValue_dateModified" render="false" z="user-managed"/>
+      <field:select field="functionalFilterAnswer" id="c_com_lela_data_domain_entity_FunctionalFilterAnswerValue_functionalFilterAnswer" itemLabel="answerKey" itemValue="id" items="${functionalfilteranswers}" path="/functionalfilteranswers" z="user-managed"/>
+      <field:select field="attributeType" id="c_com_lela_data_domain_entity_FunctionalFilterAnswerValue_attributeType" itemLabel="attributeName" itemValue="id" items="${attributetypes}" path="/attributetypes" z="user-managed"/>
+      <field:input field="attributeValue" id="c_com_lela_data_domain_entity_FunctionalFilterAnswerValue_attributeValue" required="true" z="ciijuL4Ka/WeGPq+q8icQlm/krU="/>
+      <field:input field="answerValue" id="c_com_lela_data_domain_entity_FunctionalFilterAnswerValue_answerValue" required="true" z="UUcgiur+flfnNikh6T9q6BhsF8k="/>
+      <field:checkbox field="requiredValue" id="c_com_lela_data_domain_entity_FunctionalFilterAnswerValue_requiredValue" z="UzE0Wk80FlHmt5phvwKoya/ACU8="/>
+    </form:update>
+</div>

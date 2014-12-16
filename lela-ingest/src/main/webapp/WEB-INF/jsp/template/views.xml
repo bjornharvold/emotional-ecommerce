@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+	<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+	<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+	<!-- =======================================================  -->
+	<!-- Master definition  									-->
+	<!-- =======================================================  -->
+	
+	<!-- page old master -->
+	<definition name="template.page.master" template="/WEB-INF/jsp/template/master.jspx">
+		<put-attribute type="string" name="title" value="NA" />
+        <put-attribute type="string" name="pageTitle" value="" />
+        <put-list-attribute name="styles" inherit="true">
+			<add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.css" />
+            <add-attribute type="string" value="/static/styles/global.css" />
+            <add-attribute type="string" value="/static/styles/header.css" />
+		</put-list-attribute>
+
+		<put-list-attribute name="javascripts" inherit="true">
+			<add-attribute type="string" value="/static/js/jquery-1.6.2.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.blockUI.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.cookie.js" />
+            <add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.js" />
+            <add-attribute type="string" value="/static/js/global.js" />
+		</put-list-attribute>
+
+		<put-list-attribute name="navbars">
+			<add-attribute type="template" value="/WEB-INF/jsp/common/navbar.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <!-- page old master -->
+	<definition name="template.simple.master" template="/WEB-INF/jsp/template/master_simple.jspx">
+		<put-attribute type="string" name="title" value="NA" />
+
+        <put-list-attribute name="styles" inherit="true">
+			<add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.css" />
+		</put-list-attribute>
+
+		<put-list-attribute name="javascripts" inherit="true">
+			<add-attribute type="string" value="/static/js/jquery-1.6.2.js" />
+            <add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.js" />
+            <add-attribute type="string" value="/static/js/global.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- content master  -->
+	<definition name="template.content.master" template="/WEB-INF/jsp/template/content.jspx" />
+
+
+</tiles-definitions>

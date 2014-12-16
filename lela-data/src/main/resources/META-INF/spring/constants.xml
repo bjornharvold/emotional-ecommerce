@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+    <util:map id="imageAngleMap" key-type="java.lang.String" value-type="java.lang.String" >
+        <entry key="Back" value="Back"/>
+        <entry key="Bottom" value="Bottom"/>
+        <entry key="Close-up" value="Close-up"/>
+        <entry key="Detail" value="Detail"/>
+        <entry key="Front" value="Front"/>
+        <entry key="In Setting" value="In Setting"/>
+        <entry key="Inside" value="Inside"/>
+        <entry key="Left side" value="Left side"/>
+        <entry key="Left-angle" value="Left-angle"/>
+        <entry key="Multi-angle" value="Multi-angle"/>
+        <entry key="Ports / controls" value="Ports / controls"/>
+        <entry key="Right side" value="Right side"/>
+        <entry key="Right-angle" value="Right-angle"/>
+        <entry key="Segmented" value="Segmented"/>
+        <entry key="Side" value="Side"/>
+        <entry key="Top" value="Top"/>
+    </util:map>
+
+    <util:map id="manualSourceKeyMap" key-type="java.lang.String" value-type="java.lang.String" >
+        <entry key="MANUFACTURER" value="From manufacturer"/>
+        <entry key="SEARCH" value="From internet search"/>
+        <entry key="LELA_PHOTO" value="Photo taken by Lela"/>
+    </util:map>
+
+    <util:map id="itemReportingStatusMap" key-type="java.lang.String" value-type="java.lang.String" >
+        <entry key="ALL_ITEMS" value="All Items"/>
+        <entry key="PRODUCTION" value="Items in Production"/>
+        <entry key="TESTING" value="Items in Testing"/>
+        <entry key="LATEST" value="Items in Latest"/>
+        <entry key="MISSING_IMAGES" value="Items Available but Missing Images"/>
+        <entry key="MISSING_MOTIVATORS" value="Items Available but Missing Motivators"/>
+        <entry key="MISSING_OFFERS" value="Items Available but Missing Offers"/>
+    </util:map>
+
+    <util:map id="repotingMotivatorMap" key-type="java.lang.String" value-type="java.lang.String" >
+        <entry key="1" value="A"/>
+        <entry key="2" value="B"/>
+        <entry key="3" value="C"/>
+        <entry key="4" value="D"/>
+        <entry key="5" value="E"/>
+        <entry key="6" value="F"/>
+        <entry key="7" value="G"/>
+    </util:map>
+
+    <util:map id="bestBuyCategories" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key='abcat0010000' value='Gift Center'/>
+        <entry key='abcat0014000' value='&#032;&#032;Kids'/>
+        <entry key='abcat0020000' value='    Toys'/>
+        <entry key='abcat0020004' value='  Unique Gifts'/>
+        <entry key='pcmcat231900050003' value='  eGift Cards'/>
+        <entry key='pcmcat231900050004' value='    Terms &amp; Conditions'/>
+        <entry key='pcmcat253700050028' value='  QP Test Category'/>
+        <entry key='pcmcat84000050000' value='  Weddings'/>
+        <entry key='pcmcat84000050001' value='  Anniversaries'/>
+        <entry key='pcmcat84000050002' value='  Business Gifts'/>
+        <entry key='pcmcat84000050003' value='  Graduations'/>
+        <entry key='pcmcat84000050004' value='  Baby Showers'/>
+        <entry key='pcmcat94300050028' value='  Birthdays'/>
+        <entry key='abcat0100000' value='TV &amp; Home Theater'/>
+        <entry key='abcat0101000' value='  TVs'/>
+        <entry key='abcat0101001' value='    All Flat-Panel TVs'/>
+        <entry key='abcat0101002' value='    Rear Projection TVs'/>
+        <entry key='abcat0101005' value='    TV/DVD Combos'/>
+        <entry key='abcat0101006' value='    Tube TVs'/>
+        <entry key='pcmcat193400050016' value='    Plasma TVs'/>
+        <entry key='pcmcat193400050017' value='    LCD TVs'/>
+        <entry key='pcmcat193400050018' value='    LED TVs'/>
+        <entry key='pcmcat205800050000' value='    3D TVs'/>
+        <entry key='pcmcat220700050011' value='    Smart TVs'/>
+        <entry key='abcat0102000' value='  Blu-ray &amp; DVD Players'/>
+        <entry key='abcat0102003' value='    Blu-ray Players'/>
+        <entry key='abcat0102005' value='    DVD Players'/>
+        <entry key='abcat0102006' value='    DVD Recorders'/>
+        <entry key='abcat0102007' value='    DVD/VCR Combos'/>
+        <entry key='pcmcat205900050012' value='    3D Blu-ray Players'/>
+        <entry key='pcmcat219900050000' value='    Portable DVD Players'/>
+        <entry key='abcat0103000' value='  Smart TVs &amp; Devices'/>
+        <entry key='pcmcat175600050011' value='    Home Theater Networking'/>
+        <entry key='pcmcat220700050004' value='    Smart  TVs'/>
+        <entry key='pcmcat220700050006' value='    Smart Blu-ray Players'/>
+        <entry key='pcmcat220700050007' value='    Smart Audio'/>
+        <entry key='pcmcat231700050017' value='    Smart Set-Top Boxes'/>
+        <entry key='pcmcat247600050002' value='    Smart Gaming Consoles'/>
+        <entry key='abcat0104000' value='  Digital TV Converters'/>
+        <entry key='abcat0105000' value='  TV &amp; Internet Service Providers'/>
+        <entry key='abcat0105001' value='    Satellite TV Service Providers'/>
+        <entry key='abcat0105004' value='    Cable TV Service Providers'/>
+        <entry key='abcat0514000' value='    High-Speed Internet Services'/>
+        <entry key='pcmcat128700050036' value='    Upgrade DIRECTV'/>
+        <entry key='abcat0106000' value='  TV Stands, Mounts &amp; Storage'/>
+        <entry key='abcat0106001' value='    TV Stands'/>
+        <entry key='abcat0106003' value='    Mounts &amp; Brackets'/>
+        <entry key='pcmcat184500050000' value='    Furniture Assembly'/>
+        <entry key='pcmcat219300050000' value='    Magnolia Home Theater'/>
+        <entry key='abcat0107000' value='  TV &amp; Home Theater Accessories'/>
+        <entry key='abcat0107009' value='    Blank Media'/>
+        <entry key='pcmcat206100050021' value='    3D Accessories'/>
+        <entry key='pcmcat269700050013' value='    Home Theater Cooling &amp; Ventilation'/>
+        <entry key='abcat0203000' value='  Home Theater Systems'/>
+        <entry key='abcat0202003' value='    Receivers'/>
+        <entry key='pcmcat167300050040' value='    All Home Theater Systems'/>
+        <entry key='pcmcat186600050005' value='    Home Theater in a Box'/>
+        <entry key='pcmcat231700050018' value='    Smart  Home Theater Systems'/>
+        <entry key='pcmcat158900050008' value='  Projectors &amp; Screens'/>
+        <entry key='pcmcat158900050018' value='    Projectors'/>
+        <entry key='pcmcat240800050008' value='    Projector Bulbs'/>
+        <entry key='pcmcat267900050007' value='    Projector Remotes &amp; Accessories'/>
+        <entry key='pcmcat200900050008' value='  Portable TV &amp; Video'/>
+        <entry key='pcmcat200900050009' value='    Portable TVs'/>
+        <entry key='pcmcat200900050010' value='    Portable Media Players'/>
+        <entry key='abcat0200000' value='Audio &amp; MP3'/>
+        <entry key='abcat0201000' value='  iPod &amp; MP3 Players'/>
+        <entry key='abcat0201009' value='    iPods'/>
+        <entry key='abcat0201010' value='    MP3 Players'/>
+        <entry key='pcmcat205300050000' value='    iPod &amp; MP3 Player Package Deals'/>
+        <entry key='abcat0204000' value='  Headphones'/>
+        <entry key='pcmcat143000050007' value='    Earbud Headphones'/>
+        <entry key='pcmcat143000050009' value='    Clip-On Headphones'/>
+        <entry key='pcmcat143000050011' value='    Over-Ear &amp; On-Ear Headphones'/>
+        <entry key='pcmcat144700050004' value='    All Headphones'/>
+        <entry key='pcmcat168000050041' value='    Kids&#039; Headphones'/>
+        <entry key='pcmcat223100050018' value='    Earbud Tips'/>
+        <entry key='abcat0206000' value='  Boomboxes, CD Players &amp; Radios'/>
+        <entry key='abcat0206001' value='    Boomboxes'/>
+        <entry key='abcat0206002' value='    CD &amp; Cassette Players'/>
+        <entry key='abcat0206003' value='    Alarm Clock Radios'/>
+        <entry key='abcat0206006' value='    Portable Radios'/>
+        <entry key='abcat0805003' value='    Voice Recorders'/>
+        <entry key='pcmcat246600050000' value='    Shower Radios'/>
+        <entry key='abcat0208000' value='  Audio Accessories'/>
+        <entry key='abcat0107014' value='    Audio Cassette Tapes'/>
+        <entry key='abcat0107015' value='    A/V Cables &amp; Connectors'/>
+        <entry key='abcat0107035' value='    CD &amp; DVD Cleaners &amp; Repairers'/>
+        <entry key='abcat0107039' value='    Remote Controls'/>
+        <entry key='abcat0107045' value='    A/V Surge Protectors &amp; Power'/>
+        <entry key='abcat0208007' value='    iPod &amp; MP3 Player Accessories'/>
+        <entry key='abcat0208015' value='    Speaker Accessories'/>
+        <entry key='abcat0302000' value='  Car Audio'/>
+        <entry key='abcat0301002' value='    In-Dash GPS'/>
+        <entry key='abcat0302001' value='    Car Amplifiers'/>
+        <entry key='abcat0302005' value='    Car Speakers'/>
+        <entry key='abcat0302011' value='    CB Radios &amp; Scanners'/>
+        <entry key='abcat0302012' value='    Car Stereos &amp; Digital Media Receivers'/>
+        <entry key='abcat0302019' value='    Satellite Radios'/>
+        <entry key='abcat0302034' value='    Car Subwoofers &amp; Enclosures'/>
+        <entry key='abcat0303001' value='    In-Dash DVD Players'/>
+        <entry key='abcat0307005' value='    Car Accessories'/>
+        <entry key='abcat0307011' value='    iPod &amp; MP3 Car Connectors'/>
+        <entry key='pcmcat165900050023' value='    Car Installation Parts'/>
+        <entry key='pcmcat271700050015' value='    Car HD Radios'/>
+        <entry key='pcmcat59600050005' value='    Car &amp; GPS Installation Services'/>
+        <entry key='pcmcat138100050024' value='  TV &amp; Home Theater Services'/>
+        <entry key='pcmcat138100050026' value='    In-Home Consultation'/>
+        <entry key='pcmcat138100050027' value='    TV &amp; Home Theater Setup'/>
+        <entry key='pcmcat155200050007' value='    TV Calibration'/>
+        <entry key='pcmcat152100050020' value='  Recording Equipment'/>
+        <entry key='pcmcat152100050022' value='    Audio Interfaces'/>
+        <entry key='pcmcat152100050023' value='    Audio Recorders'/>
+        <entry key='pcmcat152100050024' value='    USB Mixers'/>
+        <entry key='pcmcat152100050025' value='    Studio Monitors'/>
+        <entry key='pcmcat156300050010' value='  Marine Audio'/>
+        <entry key='pcmcat156300050012' value='    Marine Amps'/>
+        <entry key='pcmcat156300050013' value='    Marine Decks'/>
+        <entry key='pcmcat156300050014' value='    Marine Speakers'/>
+        <entry key='pcmcat156500050035' value='    Marine Subwoofers'/>
+        <entry key='pcmcat231000050008' value='    Marine Audio Accessories'/>
+        <entry key='pcmcat156500050009' value='  HD Radio'/>
+        <entry key='pcmcat271700050014' value='    Home HD Radios &amp; Receivers'/>
+        <entry key='pcmcat188200050000' value='  Audio &amp; MP3 Services'/>
+        <entry key='pcmcat241600050001' value='  Home Audio'/>
+        <entry key='abcat0202001' value='    CD Players &amp; Recorders'/>
+        <entry key='abcat0202002' value='    Stereo Shelf Systems'/>
+        <entry key='abcat0202004' value='    Amplifiers'/>
+        <entry key='abcat0202006' value='    Retro Audio'/>
+        <entry key='abcat0202007' value='    Turntables'/>
+        <entry key='abcat0205000' value='    Speakers'/>
+        <entry key='pcmcat186600050004' value='    Wireless &amp; Streaming Audio'/>
+        <entry key='pcmcat253300050003' value='  Audio Stands &amp; Storage'/>
+        <entry key='abcat0106002' value='    Speaker Stands'/>
+        <entry key='abcat0106007' value='    Speaker Wall Mounts'/>
+        <entry key='abcat0106008' value='    A/V Component Towers'/>
+        <entry key='abcat0106010' value='    CD &amp; DVD Storage'/>
+        <entry key='abcat0207000' value='Musical Instruments'/>
+        <entry key='abcat0207005' value='  Karaoke'/>
+        <entry key='pcmcat251600050000' value='    Karaoke Machines'/>
+        <entry key='pcmcat251600050001' value='    Karaoke Accessories'/>
+        <entry key='pcmcat251600050002' value='    Karaoke CDs'/>
+        <entry key='pcmcat151600050002' value='  Guitars'/>
+        <entry key='pcmcat151600050003' value='    Acoustic Guitars'/>
+        <entry key='pcmcat151600050006' value='    Electric Guitars'/>
+        <entry key='pcmcat151600050007' value='    Bass Guitars'/>
+        <entry key='pcmcat151600050008' value='    Guitar Accessories'/>
+        <entry key='pcmcat151600050019' value='  Amps &amp; Effects'/>
+        <entry key='pcmcat151600050022' value='    Acoustic Guitar Amps'/>
+        <entry key='pcmcat151600050024' value='    Electric Guitar Amps'/>
+        <entry key='pcmcat151600050026' value='    Bass Amps'/>
+        <entry key='pcmcat221400050009' value='    Keyboard Amps'/>
+        <entry key='pcmcat221400050011' value='    Effects'/>
+        <entry key='pcmcat151600050037' value='  Keyboards'/>
+        <entry key='pcmcat151600050038' value='    Digital Pianos'/>
+        <entry key='pcmcat151600050039' value='    Midi Keyboards &amp; Controllers'/>
+        <entry key='pcmcat151600050040' value='    Portable Keyboards'/>
+        <entry key='pcmcat151600050041' value='    Synths &amp; Workstations'/>
+        <entry key='pcmcat152100050010' value='  Drums &amp; Percussion'/>
+        <entry key='pcmcat152100050011' value='    Acoustic Drums &amp; Sets'/>
+        <entry key='pcmcat152100050012' value='    Cymbals'/>
+        <entry key='pcmcat152100050016' value='    Electronic Drums'/>
+        <entry key='pcmcat152100050017' value='    World Percussion'/>
+        <entry key='pcmcat152100050018' value='    Drum &amp; Percussion Accessories'/>
+        <entry key='pcmcat152100050027' value='  DJ &amp; Lighting Equipment'/>
+        <entry key='pcmcat152100050028' value='    DJ CD Players'/>
+        <entry key='pcmcat152100050029' value='    DJ Mixers'/>
+        <entry key='pcmcat152100050030' value='    DJ Turntables'/>
+        <entry key='pcmcat152100050031' value='    DJ Console Systems'/>
+        <entry key='pcmcat152100050032' value='    DJ Lighting &amp; Effects'/>
+        <entry key='pcmcat152100050035' value='  Live Sound &amp; Microphones'/>
+        <entry key='pcmcat152100050039' value='    PA Mixers'/>
+        <entry key='pcmcat152200050007' value='    Power Amps'/>
+        <entry key='pcmcat152200050008' value='    Live Sound Speakers'/>
+        <entry key='pcmcat152200050013' value='    Live Sound Accessories'/>
+        <entry key='pcmcat205700050037' value='    Recording Furniture &amp; Stands'/>
+        <entry key='pcmcat219300050003' value='    Studio Headphones'/>
+        <entry key='pcmcat251600050003' value='    Microphones &amp; Accessories'/>
+        <entry key='pcmcat251600050008' value='    Live Sound Equipment Cases'/>
+        <entry key='pcmcat152200050014' value='  Sheet Music &amp; DVDs'/>
+        <entry key='pcmcat202500050007' value='    Instrument Instructional DVDs'/>
+        <entry key='pcmcat202800050013' value='    Sheet Music'/>
+        <entry key='pcmcat251500050009' value='    Instrument Instructional Books'/>
+        <entry key='pcmcat205700050020' value='  Folk Instruments'/>
+        <entry key='pcmcat205700050021' value='    Autoharps'/>
+        <entry key='pcmcat205700050022' value='    Banjos'/>
+        <entry key='pcmcat205700050023' value='    Mandolins'/>
+        <entry key='pcmcat205700050024' value='    Ukuleles'/>
+        <entry key='pcmcat238300050001' value='    Accordions'/>
+        <entry key='pcmcat270600050003' value='    Harmonicas'/>
+        <entry key='pcmcat270600050004' value='    Whistles'/>
+        <entry key='pcmcat222000050000' value='  Music Lessons'/>
+        <entry key='abcat0300000' value='Car, Marine &amp; GPS'/>
+        <entry key='abcat0301000' value='  GPS Navigation'/>
+        <entry key='abcat0301014' value='    Portable GPS'/>
+        <entry key='abcat0307001' value='    GPS Accessories'/>
+        <entry key='pcmcat153700050021' value='    GPS Maps'/>
+        <entry key='pcmcat191100050000' value='    Outdoor GPS'/>
+        <entry key='pcmcat237000050015' value='    Handheld GPS'/>
+        <entry key='abcat0303000' value='  Car DVD Players &amp; Monitors'/>
+        <entry key='abcat0102008' value='    Portable DVD Players'/>
+        <entry key='abcat0303002' value='    Overhead DVD Players'/>
+        <entry key='abcat0307019' value='    Car Video Accessories'/>
+        <entry key='pcmcat220800050017' value='    Headrest DVD Players'/>
+        <entry key='pcmcat220800050021' value='    Car DVD Monitors'/>
+        <entry key='abcat0304000' value='  Car Security, Remote Start &amp; OnStar'/>
+        <entry key='pcmcat211400050011' value='    Car Alarms &amp; Sensors'/>
+        <entry key='pcmcat211400050012' value='    Remote Starters &amp; Keyless Entry'/>
+        <entry key='pcmcat244700050008' value='    OnStar FMV'/>
+        <entry key='pcmcat271800050001' value='    Back-Up Cameras'/>
+        <entry key='abcat0305000' value='  Radar Detectors'/>
+        <entry key='abcat0307000' value='  Car &amp; GPS Accessories'/>
+        <entry key='pcmcat156300050006' value='  Marine Electronics'/>
+        <entry key='pcmcat156500050038' value='    Marine GPS &amp; Navigation'/>
+        <entry key='pcmcat156500050039' value='    Marine Accessories'/>
+        <entry key='pcmcat216600050013' value='    Marine Radio &amp; Communication'/>
+        <entry key='pcmcat247600050017' value='    Marine Security'/>
+        <entry key='pcmcat163500050008' value='  Digital Radio'/>
+        <entry key='pcmcat163500050009' value='    Internet Radio'/>
+        <entry key='pcmcat278000050000' value='  Trailer Hitches, Car Racks &amp; Accessories'/>
+        <entry key='pcmcat278000050001' value='    Trailer Hitches'/>
+        <entry key='pcmcat278000050002' value='    Car Racks'/>
+        <entry key='pcmcat278000050003' value='    Towing &amp; Hitch Accessories'/>
+        <entry key='abcat0400000' value='Cameras &amp; Camcorders'/>
+        <entry key='abcat0401000' value='  Digital Cameras'/>
+        <entry key='abcat0401001' value='    Point &amp; Shoot Cameras'/>
+        <entry key='abcat0410010' value='    All Camera Accessories'/>
+        <entry key='pcmcat286300050023' value='    Refurbished Digital Cameras'/>
+        <entry key='abcat0401005' value='  Digital SLR Cameras'/>
+        <entry key='pcmcat180000050013' value='    DSLR Body Only'/>
+        <entry key='pcmcat180400050000' value='    DSLR Body &amp; Lens'/>
+        <entry key='pcmcat180400050006' value='    DSLR Package Deals'/>
+        <entry key='pcmcat186400050004' value='    All DSLRs'/>
+        <entry key='pcmcat241300050038' value='    DSLR Camera Accessories'/>
+        <entry key='abcat0403000' value='  Camcorders'/>
+        <entry key='abcat0403004' value='    High-Definition Camcorders'/>
+        <entry key='abcat0410022' value='    Camcorder Accessories'/>
+        <entry key='abcat0515046' value='    Webcams'/>
+        <entry key='pcmcat186400050003' value='    All Camcorders'/>
+        <entry key='pcmcat209200050001' value='    Shoot &amp; Share Camcorders'/>
+        <entry key='pcmcat227500050029' value='    Camcorder Package Deals'/>
+        <entry key='pcmcat233600050006' value='    Standard-Definition Camcorders'/>
+        <entry key='pcmcat273800050002' value='    Action Camcorders'/>
+        <entry key='abcat0404000' value='  Memory Cards &amp; Readers'/>
+        <entry key='abcat0404007' value='    Card Readers &amp; Adapters'/>
+        <entry key='pcmcat225800050009' value='    Memory Cards'/>
+        <entry key='abcat0406000' value='  Photo Books &amp; Gifts'/>
+        <entry key='abcat0406002' value='    Photo Books'/>
+        <entry key='abcat0408000' value='  Digital Photo Frames'/>
+        <entry key='pcmcat172000050000' value='    All Digital Photo Frames'/>
+        <entry key='abcat0409000' value='  Binoculars &amp; Telescopes'/>
+        <entry key='abcat0409001' value='    Binoculars'/>
+        <entry key='abcat0409003' value='    Telescopes'/>
+        <entry key='pcmcat163400050000' value='    Rangefinders'/>
+        <entry key='pcmcat258100050016' value='    Monoculars'/>
+        <entry key='pcmcat258100050017' value='    Spotting Scopes'/>
+        <entry key='pcmcat258100050018' value='    Microscopes'/>
+        <entry key='abcat0410000' value='  Camera &amp; Camcorder Accessories'/>
+        <entry key='abcat0410025' value='    Camcorder Blank Discs &amp; Tapes'/>
+        <entry key='abcat0410041' value='    Binocular &amp; Optics Accessories'/>
+        <entry key='pcmcat156200050014' value='    Lens Filters &amp; Caps'/>
+        <entry key='pcmcat240500050025' value='    Lighting &amp; Studio'/>
+        <entry key='pcmcat240500050035' value='    Camera Viewfinders &amp; Eyecups'/>
+        <entry key='pcmcat240500050036' value='    Camera Hoods'/>
+        <entry key='pcmcat240500050057' value='    Action Camcorder Mounts'/>
+        <entry key='pcmcat258000050010' value='    Camera LCD Monitors'/>
+        <entry key='pcmcat258000050011' value='    Camera &amp; Camcorder Microphones'/>
+        <entry key='pcmcat258000050013' value='    Disposable Cameras'/>
+        <entry key='pcmcat258000050014' value='    Film'/>
+        <entry key='pcmcat273300050001' value='    Instructional DVDs - Cameras'/>
+        <entry key='pcmcat284800050006' value='    Bags, Cases &amp; Straps'/>
+        <entry key='pcmcat284800050009' value='    Adapters &amp; Chargers'/>
+        <entry key='abcat0410018' value='  Camera Lenses'/>
+        <entry key='pcmcat195200050005' value='    Lens Accessories'/>
+        <entry key='pcmcat233000050008' value='    DSLR Lenses'/>
+        <entry key='pcmcat233000050009' value='    Compact System Lenses'/>
+        <entry key='abcat0511006' value='  Photo Printers'/>
+        <entry key='pcmcat132700050016' value='  Digital Imaging Tools'/>
+        <entry key='pcmcat132800050032' value='    Tips and Tricks'/>
+        <entry key='pcmcat132800050033' value='    Camera Tips'/>
+        <entry key='pcmcat132800050034' value='    Family Tips'/>
+        <entry key='pcmcat132800050035' value='    Nature Tips'/>
+        <entry key='pcmcat132800050036' value='    Sharing Tips'/>
+        <entry key='pcmcat132800050037' value='    Sports Tips'/>
+        <entry key='pcmcat132800050038' value='    Travel Tips'/>
+        <entry key='pcmcat149600050188' value='    Share &amp; Show'/>
+        <entry key='pcmcat149600050189' value='    Shoot Like a Pro'/>
+        <entry key='pcmcat149600050190' value='    Create &amp; Edit'/>
+        <entry key='pcmcat214000050005' value='  Compact System Cameras'/>
+        <entry key='pcmcat234200050001' value='    All Compact System Cameras'/>
+        <entry key='pcmcat241300050037' value='    Compact System Camera Accessories'/>
+        <entry key='pcmcat250600050010' value='  Online Photo &amp; Video Services'/>
+        <entry key='pcmcat278600050008' value='    Shutterfly Gift Cards'/>
+        <entry key='pcmcat267600050026' value='  Film Cameras &amp; Accessories'/>
+        <entry key='abcat0500000' value='Computers &amp; Tablets'/>
+        <entry key='abcat0501000' value='  Desktop &amp; All-in-One Computers'/>
+        <entry key='abcat0501005' value='    All-in-One Computers'/>
+        <entry key='pcmcat143400050013' value='    All Desktops'/>
+        <entry key='pcmcat212600050008' value='    Towers Only'/>
+        <entry key='pcmcat212600050009' value='    Refurbished Desktops'/>
+        <entry key='pcmcat212600050011' value='    Desktop Packages'/>
+        <entry key='pcmcat268200050003' value='    Apple iMacs, Minis &amp; Mac Pros'/>
+        <entry key='abcat0502000' value='  Laptop &amp; Netbook Computers'/>
+        <entry key='pcmcat138500050001' value='    All Laptops'/>
+        <entry key='pcmcat163300050051' value='    Netbooks'/>
+        <entry key='pcmcat219300050014' value='    Refurbished Laptops'/>
+        <entry key='pcmcat244900050010' value='    Chromebooks'/>
+        <entry key='pcmcat247400050000' value='    PC Laptops'/>
+        <entry key='pcmcat247400050001' value='    MacBooks'/>
+        <entry key='pcmcat259400050000' value='    Ultrabooks'/>
+        <entry key='abcat0503000' value='  Networking &amp; Wireless'/>
+        <entry key='abcat0503001' value='    Wireless Networking'/>
+        <entry key='abcat0503012' value='    Ethernet Hubs &amp; Switches'/>
+        <entry key='abcat0503013' value='    DSL &amp; Cable Modems and Gateways'/>
+        <entry key='abcat0504004' value='    Network &amp; Tablet Hard Drives'/>
+        <entry key='pcmcat161100050039' value='    Home Entertainment Networking'/>
+        <entry key='pcmcat211400050001' value='    Routers'/>
+        <entry key='pcmcat252800050013' value='    Network Cards'/>
+        <entry key='abcat0504001' value='  Hard Drives'/>
+        <entry key='pcmcat186100050005' value='    External Hard Drives'/>
+        <entry key='pcmcat186100050007' value='    Hard Drive Cables &amp; Accessories'/>
+        <entry key='pcmcat201300050005' value='    Solid State Drives'/>
+        <entry key='pcmcat270900050000' value='    All Hard Drives'/>
+        <entry key='pcmcat270900050001' value='    Internal Hard Drives'/>
+        <entry key='pcmcat272200050006' value='    Mac External Hard Drives'/>
+        <entry key='abcat0504010' value='  USB Flash Drives'/>
+        <entry key='abcat0507000' value='  Computer Cards &amp; Components'/>
+        <entry key='abcat0507004' value='    Video Editing Cards'/>
+        <entry key='abcat0507006' value='    Computer Cases &amp; Hard Drive Enclosures'/>
+        <entry key='abcat0507007' value='    Fans &amp; Cooling Kits'/>
+        <entry key='abcat0507009' value='    Computer Power Supplies'/>
+        <entry key='abcat0507011' value='    USB &amp; FireWire Cards'/>
+        <entry key='pcmcat139300050000' value='    TV Tuner Cards'/>
+        <entry key='pcmcat230800050017' value='    Racks, Mounts &amp; Accessories'/>
+        <entry key='abcat0508000' value='  Software'/>
+        <entry key='abcat0508001' value='    Operating Systems'/>
+        <entry key='abcat0508013' value='    Tax, Finance &amp; Legal'/>
+        <entry key='abcat0508018' value='    Imaging, Video &amp; Design Software'/>
+        <entry key='abcat0508028' value='    Home &amp; Hobbies Software'/>
+        <entry key='abcat0508035' value='    Children&#039;s Software'/>
+        <entry key='abcat0508042' value='    Security &amp; Utilities'/>
+        <entry key='pcmcat174700050005' value='    PC Games'/>
+        <entry key='pcmcat209600050012' value='    Education &amp; Reference'/>
+        <entry key='pcmcat253300050007' value='    Music Software'/>
+        <entry key='abcat0510000' value='  Projectors'/>
+        <entry key='pcmcat143700050051' value='    All Projectors'/>
+        <entry key='abcat0515000' value='  Accessories'/>
+        <entry key='abcat0515001' value='    Blank Discs'/>
+        <entry key='abcat0515008' value='    Care &amp; Cleaning'/>
+        <entry key='abcat0515012' value='    Cables &amp; Connectors'/>
+        <entry key='pcmcat221100050003' value='    Monitor Accessories'/>
+        <entry key='pcmcat209000050006' value='  Tablets &amp; iPad'/>
+        <entry key='pcmcat209000050007' value='    iPad'/>
+        <entry key='pcmcat209000050008' value='    Tablets'/>
+        <entry key='pcmcat217900050000' value='    iPad Accessories'/>
+        <entry key='pcmcat231800050009' value='    Tablet Accessories'/>
+        <entry key='pcmcat214700050032' value='  Wireless Internet'/>
+        <entry key='pcmcat223300050025' value='  E-Readers'/>
+        <entry key='pcmcat193100050014' value='    E-Reader Devices'/>
+        <entry key='pcmcat193100050015' value='    E-Reader Accessories'/>
+        <entry key='pcmcat223300050028' value='    E-Book Gift Cards'/>
+        <entry key='pcmcat268200050004' value='  Servers &amp; Thin Clients'/>
+        <entry key='pcmcat285500050002' value='    Servers'/>
+        <entry key='pcmcat285500050003' value='    Thin Clients'/>
+        <entry key='abcat0600000' value='Movies &amp; Music'/>
+        <entry key='abcat0605000' value='  Accessories'/>
+        <entry key='abcat0208024' value='    Musical Instrument Accessories'/>
+        <entry key='cat02001' value='  Music'/>
+        <entry key='cat02002' value='    Blues'/>
+        <entry key='cat02003' value='    Country'/>
+        <entry key='cat02004' value='    Electronic/Dance'/>
+        <entry key='cat02005' value='    Folk'/>
+        <entry key='cat02006' value='    Gospel &amp; Christian'/>
+        <entry key='cat02007' value='    Jazz'/>
+        <entry key='cat02008' value='    New Age'/>
+        <entry key='cat02009' value='    Pop'/>
+        <entry key='cat02010' value='    Rock'/>
+        <entry key='cat02011' value='    R&amp;B &amp; Soul'/>
+        <entry key='cat02012' value='    Rap &amp; Hip-Hop'/>
+        <entry key='cat02013' value='    Soundtracks &amp; Shows'/>
+        <entry key='cat02014' value='    World'/>
+        <entry key='cat02075' value='    Music DVDs'/>
+        <entry key='cat02185' value='    Box Sets'/>
+        <entry key='cat02499' value='    Other Genres'/>
+        <entry key='cat02500' value='    Holiday'/>
+        <entry key='cat02501' value='    Comedy/Spoken'/>
+        <entry key='cat02502' value='    Latin'/>
+        <entry key='cat02504' value='    Children&#039;s'/>
+        <entry key='cat02505' value='    Karaoke'/>
+        <entry key='cat02506' value='    Easy Listening'/>
+        <entry key='cat02507' value='    Reggae'/>
+        <entry key='pcmcat111300050004' value='    Classical Music'/>
+        <entry key='pcmcat11400050003' value='    This Week&#039;s Offers'/>
+        <entry key='pcmcat197800050016' value='    Music CDs'/>
+        <entry key='pcmcat197800050048' value='    Vinyl Records'/>
+        <entry key='pcmcat197800050049' value='    DVD Music Video'/>
+        <entry key='pcmcat197800050050' value='    Blu-ray Music'/>
+        <entry key='pcmcat197800050051' value='    USB Music'/>
+        <entry key='pcmcat197800050052' value='    DVD-Audio'/>
+        <entry key='pcmcat80300050000' value='    Latin Urban'/>
+        <entry key='cat02015' value='  Movies &amp; TV Shows'/>
+        <entry key='pcmcat230800050018' value='  Digital Movies'/>
+        <entry key='pcmcat261300050015' value='    On Demand'/>
+        <entry key='pcmcat264200050008' value='    Prepaid Cards'/>
+        <entry key='pcmcat264200050009' value='    Subscription Cards'/>
+        <entry key='pcmcat281200050013' value='  iTunes Gift Cards'/>
+        <entry key='abcat0201007' value='    iTunes Cards'/>
+        <entry key='abcat0700000' value='Video Games'/>
+        <entry key='abcat0703000' value='  PlayStation 3'/>
+        <entry key='abcat0703001' value='    PS3 Consoles'/>
+        <entry key='abcat0703002' value='    PS3 Games'/>
+        <entry key='abcat0715007' value='    PS3 Accessories'/>
+        <entry key='pcmcat219800050010' value='    PlayStation Move'/>
+        <entry key='abcat0705000' value='  PSP'/>
+        <entry key='abcat0705001' value='    PSP Consoles'/>
+        <entry key='abcat0705002' value='    PSP Games'/>
+        <entry key='abcat0715014' value='    PSP Accessories'/>
+        <entry key='pcmcat140100050010' value='    PSP Movies'/>
+        <entry key='pcmcat169900050005' value='    PlayStation Network'/>
+        <entry key='abcat0706000' value='  Wii'/>
+        <entry key='abcat0706001' value='    Wii Consoles'/>
+        <entry key='abcat0706002' value='    Wii Games'/>
+        <entry key='abcat0715015' value='    Wii Accessories'/>
+        <entry key='pcmcat169900050006' value='    Wii Points Card'/>
+        <entry key='abcat0707000' value='  Nintendo DS'/>
+        <entry key='abcat0707001' value='    Nintendo DS Consoles'/>
+        <entry key='abcat0707002' value='    Nintendo DS Games'/>
+        <entry key='abcat0715016' value='    Nintendo DS Accessories'/>
+        <entry key='abcat0711000' value='  Game Guides'/>
+        <entry key='abcat0711001' value='    Game Guides - Video Games'/>
+        <entry key='abcat0711010' value='    Game Guides - PC Games'/>
+        <entry key='abcat0712000' value='  PC Gaming'/>
+        <entry key='pcmcat159700050051' value='    PC Gaming Hardware'/>
+        <entry key='pcmcat174800050000' value='    Accessories'/>
+        <entry key='abcat0714000' value='  Toys &amp; Kids&#039; Electronics'/>
+        <entry key='abcat0714001' value='    DVD Games'/>
+        <entry key='abcat0714003' value='    Kids&#039; Decor'/>
+        <entry key='abcat0714004' value='    Kids&#039; Electronics'/>
+        <entry key='abcat0714011' value='    Learning Toys'/>
+        <entry key='abcat0714012' value='    Plug &amp; Play Games'/>
+        <entry key='abcat0714013' value='    Radio Control Vehicles'/>
+        <entry key='abcat0715000' value='  Accessories'/>
+        <entry key='pcmcat158100050000' value='    Online Game Cards'/>
+        <entry key='pcmcat230800050019' value='    Gaming Headsets'/>
+        <entry key='pcmcat249400050012' value='    Gaming Eyewear'/>
+        <entry key='pcmcat249400050013' value='    Fitness Gaming Accessories'/>
+        <entry key='pcat17093' value='  Video Game Trade-In'/>
+        <entry key='pcmcat153600050007' value='  Game Downloads'/>
+        <entry key='abcat0701012' value='    Xbox LIVE'/>
+        <entry key='pcmcat247200050001' value='    PS3 Add-Ons'/>
+        <entry key='pcmcat253500050002' value='    PS3 Game Downloads'/>
+        <entry key='pcmcat253500050003' value='    PC Game Downloads'/>
+        <entry key='pcmcat253500050004' value='    PC Game Add-Ons'/>
+        <entry key='pcmcat274000050027' value='    Game Guides - Digital Downloads'/>
+        <entry key='pcmcat171100050004' value='  Video Game Pre-Orders'/>
+        <entry key='pcmcat193100050003' value='  Electronic Games &amp; Learning'/>
+        <entry key='pcmcat203500050000' value='  Pre-Owned &amp; Refurbished'/>
+        <entry key='pcmcat232900050017' value='    Pre-Owned Games'/>
+        <entry key='pcmcat232900050029' value='    Refurbished Consoles'/>
+        <entry key='pcmcat232900050000' value='  Nintendo 3DS'/>
+        <entry key='pcmcat235500050003' value='    Nintendo 3DS Consoles'/>
+        <entry key='pcmcat235500050004' value='    Nintendo 3DS Games'/>
+        <entry key='pcmcat235500050005' value='    Nintendo 3DS Accessories'/>
+        <entry key='pcmcat278100050001' value='    Nintendo 3DS Game Downloads'/>
+        <entry key='pcmcat243400050029' value='  PS Vita'/>
+        <entry key='pcmcat265900050009' value='    PS Vita Consoles'/>
+        <entry key='pcmcat265900050010' value='    PS Vita Games'/>
+        <entry key='pcmcat265900050011' value='    PS Vita Accessories'/>
+        <entry key='pcmcat275800050015' value='    PS Vita Game Downloads'/>
+        <entry key='pcmcat270900050006' value='  Classic Video Game Systems'/>
+        <entry key='abcat0702000' value='    Xbox'/>
+        <entry key='abcat0704000' value='    PlayStation 2'/>
+        <entry key='abcat0708000' value='    Game Boy Advance'/>
+        <entry key='abcat0709000' value='    GameCube'/>
+        <entry key='pcmcat271000050000' value='    Nintendo 64'/>
+        <entry key='pcmcat271000050001' value='  Reward Zone Gamers Club'/>
+        <entry key='pcmcat273800050036' value='  Wii U'/>
+        <entry key='pcmcat274600050016' value='    Wii U Consoles'/>
+        <entry key='pcmcat274600050017' value='    Wii U Games'/>
+        <entry key='pcmcat274600050018' value='    Wii U Accessories'/>
+        <entry key='abcat0800000' value='Mobile Phones'/>
+        <entry key='abcat0801002' value='  No-Contract Phones'/>
+        <entry key='abcat0801003' value='    Prepaid Minutes'/>
+        <entry key='pcmcat158500050014' value='    All No-Contract Phones'/>
+        <entry key='abcat0811002' value='  Mobile Phone Accessories'/>
+        <entry key='abcat0404001' value='    Micro SD Memory'/>
+        <entry key='abcat0811003' value='    Mobile Phone Add-Ons'/>
+        <entry key='abcat0811004' value='    Mobile Phone Batteries'/>
+        <entry key='abcat0811006' value='    Mobile Phone Cases &amp; Clips'/>
+        <entry key='abcat0811007' value='    Mobile Phone Chargers &amp; Adapters'/>
+        <entry key='pcmcat151600050001' value='    Hands-Free'/>
+        <entry key='pcmcat154400050046' value='    Apps &amp; Personalization'/>
+        <entry key='pcmcat171900050028' value='    Mobile Phone Headsets'/>
+        <entry key='pcmcat171900050031' value='    Surface &amp; Screen Protection'/>
+        <entry key='pcmcat172600050005' value='    Mobile Phone Docks &amp; Mounts'/>
+        <entry key='pcmcat191200050015' value='    iPhone Accessories'/>
+        <entry key='pcmcat265100050014' value='    SIM cards'/>
+        <entry key='pcmcat156400050037' value='  Unlocked Mobile Phones'/>
+        <entry key='pcmcat184400050020' value='  Mobile Broadband'/>
+        <entry key='pcmcat184400050021' value='    No-Contract Mobile Broadband'/>
+        <entry key='pcmcat184400050022' value='    Embedded Mobile Broadband'/>
+        <entry key='pcmcat184700050008' value='    Mobile Hotspot Devices'/>
+        <entry key='pcmcat208100050008' value='    Mobile Broadband Plans'/>
+        <entry key='pcmcat209400050003' value='    Mobile Broadband Devices with Plans'/>
+        <entry key='pcmcat203600050025' value='  Mobile Plans'/>
+        <entry key='pcmcat208100050009' value='    All Mobile Phone Plans'/>
+        <entry key='pcmcat208100050001' value='  Sprint'/>
+        <entry key='pcmcat211300050010' value='    Sprint Phones'/>
+        <entry key='pcmcat211300050011' value='    Sprint Plans'/>
+        <entry key='pcmcat211300050021' value='    Sprint Broadband Devices'/>
+        <entry key='pcmcat208100050002' value='  AT&amp;T'/>
+        <entry key='pcmcat211300050006' value='    AT&amp;T Phones'/>
+        <entry key='pcmcat211300050007' value='    AT&amp;T Plans'/>
+        <entry key='pcmcat211300050008' value='    AT&amp;T No-Contract Phones'/>
+        <entry key='pcmcat211300050009' value='    AT&amp;T Broadband Devices'/>
+        <entry key='pcmcat208100050003' value='  Verizon Wireless'/>
+        <entry key='pcmcat211300050002' value='    Verizon Wireless Phones'/>
+        <entry key='pcmcat211300050003' value='    Verizon Wireless Plans'/>
+        <entry key='pcmcat211300050004' value='    Verizon Wireless Broadband Devices'/>
+        <entry key='pcmcat211300050005' value='    Verizon Wireless No-Contract Phones'/>
+        <entry key='pcmcat208100050004' value='  T-Mobile'/>
+        <entry key='pcmcat211300050001' value='    T-Mobile No-Contract Phones'/>
+        <entry key='pcmcat221700050019' value='    T-Mobile Phones'/>
+        <entry key='pcmcat221700050020' value='    T-Mobile Plans'/>
+        <entry key='pcmcat221700050021' value='    T-Mobile Broadband Devices'/>
+        <entry key='pcmcat209400050001' value='  All Mobile Phones with Plans'/>
+        <entry key='abcat0900000' value='Appliances'/>
+        <entry key='abcat0901000' value='  Refrigerators'/>
+        <entry key='abcat0901001' value='    Bottom-Freezer Refrigerators'/>
+        <entry key='abcat0901002' value='    Compact Refrigerators'/>
+        <entry key='abcat0901003' value='    Counter-Depth Refrigerators'/>
+        <entry key='abcat0901004' value='    French Door Refrigerators'/>
+        <entry key='abcat0901005' value='    Side-by-Side Refrigerators'/>
+        <entry key='abcat0901006' value='    Top-Freezer Refrigerators'/>
+        <entry key='abcat0901007' value='    Beverage Coolers &amp; Dispensers'/>
+        <entry key='abcat0916004' value='    Refrigerator Accessories'/>
+        <entry key='pcmcat202800050007' value='    Freezerless Refrigerators'/>
+        <entry key='pcmcat202800050008' value='    Drawer Refrigerators'/>
+        <entry key='pcmcat245700050026' value='    Refrigerator Water Filters &amp; Icemakers'/>
+        <entry key='abcat0902000' value='  Freezers &amp; Ice Makers'/>
+        <entry key='abcat0902001' value='    Chest Freezers'/>
+        <entry key='abcat0902002' value='    Upright Freezers'/>
+        <entry key='abcat0902003' value='    Ice Makers'/>
+        <entry key='abcat0903000' value='  Microwaves'/>
+        <entry key='abcat0903001' value='    Over-the-Range Microwaves'/>
+        <entry key='abcat0903002' value='    Compact Microwaves'/>
+        <entry key='abcat0903003' value='    Mid-Size Microwaves'/>
+        <entry key='abcat0903004' value='    Full-Size Microwaves'/>
+        <entry key='abcat0916015' value='    Microwave Accessories'/>
+        <entry key='pcmcat180700050010' value='    Microwave &amp; Wall Oven Combos'/>
+        <entry key='pcmcat266700050012' value='    Microwave Drawers'/>
+        <entry key='abcat0904000' value='  Ranges &amp; Ovens'/>
+        <entry key='abcat0904001' value='    Cooktops'/>
+        <entry key='abcat0904002' value='    Range Hoods'/>
+        <entry key='abcat0904003' value='    Ranges'/>
+        <entry key='abcat0904004' value='    Wall Ovens'/>
+        <entry key='abcat0904005' value='    Warming Drawers'/>
+        <entry key='abcat0916003' value='    Range &amp; Oven Accessories'/>
+        <entry key='abcat0905000' value='  Dishwashers'/>
+        <entry key='abcat0905001' value='    Built-in Dishwashers'/>
+        <entry key='abcat0905002' value='    Portable &amp; Countertop Dishwashers'/>
+        <entry key='abcat0916001' value='    Dishwasher Accessories'/>
+        <entry key='abcat0906000' value='  Compactors &amp; Disposals'/>
+        <entry key='abcat0906001' value='    Trash Compactors'/>
+        <entry key='abcat0906002' value='    Sink Garbage Disposals'/>
+        <entry key='abcat0907000' value='  Air Conditioners, Fans &amp; Heaters'/>
+        <entry key='abcat0907001' value='    Air Conditioners'/>
+        <entry key='abcat0907006' value='    Fans'/>
+        <entry key='abcat0907007' value='    Heaters'/>
+        <entry key='pcmcat286900050028' value='    Fireplace Accessories'/>
+        <entry key='abcat0908000' value='  Air Purifiers &amp; Dehumidifiers'/>
+        <entry key='abcat0908001' value='    Air Purifiers'/>
+        <entry key='abcat0908002' value='    Dehumidifiers'/>
+        <entry key='abcat0908003' value='    Humidifiers'/>
+        <entry key='abcat0910000' value='  Washers &amp; Dryers'/>
+        <entry key='abcat0910001' value='    Washing Machines'/>
+        <entry key='abcat0910004' value='    Dryers'/>
+        <entry key='abcat0910005' value='    Stacked Units'/>
+        <entry key='abcat0910006' value='    Pedestals &amp; Organization'/>
+        <entry key='pcmcat198600050030' value='    Stacking Kits'/>
+        <entry key='pcmcat198600050031' value='    Washer &amp; Dryer Accessories'/>
+        <entry key='pcmcat198600050035' value='    Cleaners &amp; Detergents'/>
+        <entry key='pcmcat245000050019' value='    Washer Dryer Combos'/>
+        <entry key='abcat0911000' value='  Vacuum Cleaners'/>
+        <entry key='abcat0911002' value='    Canister Vacuums'/>
+        <entry key='abcat0911003' value='    Commercial &amp; Garage Vacuums'/>
+        <entry key='abcat0911004' value='    Handheld &amp; Stick Vacuums'/>
+        <entry key='abcat0911006' value='    Upright Vacuums'/>
+        <entry key='abcat0911007' value='    Hard Floor Cleaners'/>
+        <entry key='abcat0911008' value='    Steam &amp; Deep Cleaners'/>
+        <entry key='abcat0916008' value='    Vacuum &amp; Floor Care Accessories'/>
+        <entry key='pcmcat164800050018' value='    Robot Vacuums'/>
+        <entry key='pcmcat261500050001' value='    Refurbished Vacuum Cleaners'/>
+        <entry key='abcat0912000' value='  Small Appliances'/>
+        <entry key='abcat0912005' value='    Coffee Makers &amp; Espresso'/>
+        <entry key='abcat0912011' value='    Blenders &amp; Juicers'/>
+        <entry key='abcat0912012' value='    Slow Cookers, Crock Pots &amp; Roaster Ovens'/>
+        <entry key='abcat0912013' value='    Deep Fryers'/>
+        <entry key='abcat0912014' value='    Electric Grills &amp; Griddles'/>
+        <entry key='abcat0912016' value='    Food Processors'/>
+        <entry key='abcat0912017' value='    Vacuum Sealers'/>
+        <entry key='abcat0912018' value='    Mixers'/>
+        <entry key='abcat0912019' value='    Popcorn Makers'/>
+        <entry key='abcat0912020' value='    Steamers, Rice Cookers and Pressure Cookers'/>
+        <entry key='abcat0912021' value='    Skillets &amp; Woks'/>
+        <entry key='abcat0912022' value='    Toaster Ovens &amp; Pizza Ovens'/>
+        <entry key='abcat0912023' value='    Toasters'/>
+        <entry key='abcat0912024' value='    Waffle Makers'/>
+        <entry key='abcat0912025' value='    Kitchen Gadgets'/>
+        <entry key='abcat0912027' value='    Bread Machines'/>
+        <entry key='pcmcat150900050000' value='    Ice Cream Makers'/>
+        <entry key='pcmcat161300050013' value='    Water Dispensers'/>
+        <entry key='pcmcat169000050017' value='    Ethnic Cooking'/>
+        <entry key='pcmcat194000050020' value='    Buffet Servers &amp; Chafing Dishes'/>
+        <entry key='pcmcat194000050021' value='    Meat Slicers &amp; Grinders'/>
+        <entry key='pcmcat194000050022' value='    Specialty Appliances'/>
+        <entry key='pcmcat194000050023' value='    Electric Tea Kettles'/>
+        <entry key='pcmcat194000050043' value='    Countertop Beer Dispensers'/>
+        <entry key='pcmcat226900050013' value='    Pots &amp; Pans'/>
+        <entry key='pcmcat258600050009' value='    Wine Chillers and Accessories'/>
+        <entry key='pcmcat261500050000' value='    Refurbished Small Appliances'/>
+        <entry key='pcmcat268500050007' value='    Baby Food Makers &amp; Bottle Warmers'/>
+        <entry key='pcmcat286900050027' value='    Cutlery'/>
+        <entry key='abcat0912001' value='  Garment Care'/>
+        <entry key='abcat0912002' value='    Irons'/>
+        <entry key='abcat0912004' value='    Steamers &amp; Presses'/>
+        <entry key='pcmcat267100050008' value='    Sewing'/>
+        <entry key='abcat0915000' value='  Personal Care &amp; Beauty'/>
+        <entry key='abcat0915005' value='    Shavers &amp; Trimmers'/>
+        <entry key='abcat0915009' value='    Hair Care'/>
+        <entry key='abcat0915010' value='    Oral Care'/>
+        <entry key='abcat0915013' value='    Scales'/>
+        <entry key='pcmcat238300050018' value='    Mirrors'/>
+        <entry key='pcmcat259100050005' value='    Skin Care'/>
+        <entry key='abcat0916000' value='  Appliance Accessories'/>
+        <entry key='pcmcat248700050022' value='    General Appliance Accessories'/>
+        <entry key='abcat0916006' value='  Replacement Water Filters'/>
+        <entry key='pcmcat145100050000' value='  Batteries &amp; Power'/>
+        <entry key='abcat0208002' value='    Alkaline Batteries'/>
+        <entry key='abcat0208003' value='    Lithium Batteries'/>
+        <entry key='abcat0208005' value='    Rechargeable Batteries &amp; Chargers'/>
+        <entry key='abcat0208006' value='    Specialty Batteries'/>
+        <entry key='abcat0307024' value='    GPS Chargers &amp; Adapters'/>
+        <entry key='abcat0410012' value='    Batteries &amp; Battery Grips'/>
+        <entry key='abcat0515042' value='    Surge Protectors &amp; Power Management'/>
+        <entry key='pcmcat229900050003' value='    iPod &amp; MP3 Player Batteries &amp; Chargers'/>
+        <entry key='pcmcat229900050004' value='    Mobile Phone Batteries &amp; Chargers'/>
+        <entry key='pcmcat229900050005' value='    TV &amp; Video Power'/>
+        <entry key='pcmcat229900050006' value='    PDA Batteries'/>
+        <entry key='pcmcat265100050011' value='    Electric Car Chargers'/>
+        <entry key='pcmcat159400050007' value='  Fitness'/>
+        <entry key='pcmcat221500050003' value='    Biking'/>
+        <entry key='pcmcat177200050009' value='  Electric Bikes &amp; Scooters'/>
+        <entry key='pcmcat177200050010' value='    Electric Bikes'/>
+        <entry key='pcmcat177200050011' value='    Electric Bike &amp; Scooter Accessories'/>
+        <entry key='pcmcat177200050012' value='    Electric Scooters'/>
+        <entry key='pcmcat180100050007' value='  Garage'/>
+        <entry key='pcmcat184300050008' value='    Wall Storage'/>
+        <entry key='cat09000' value='Best Buy Gift Cards'/>
+        <entry key='pcmcat238300050021' value='  Gift Cards'/>
+        <entry key='pcmcat102500050032' value='Financing and Rewards'/>
+        <entry key='pcmcat133600050011' value='Online Trade In'/>
+        <entry key='pcmcat138100050018' value='Geek Squad'/>
+        <entry key='pcmcat165400050004' value='  Gaming Setup &amp; Services'/>
+        <entry key='pcmcat185200050009' value='  iPod &amp; MP3 Player Services'/>
+        <entry key='pcmcat188000050000' value='    Setup &amp; Training'/>
+        <entry key='pcmcat188000050003' value='    MP3 Diagnostic'/>
+        <entry key='pcmcat226400050024' value='  Camera &amp; Camcorder Services'/>
+        <entry key='pcmcat286500050002' value='  Mobile Services'/>
+        <entry key='pcmcat286500050003' value='  Tablet Services'/>
+        <entry key='pcmcat139900050002' value='Magnolia Home Theater'/>
+        <entry key='pcmcat143200050016' value='  Televisions'/>
+        <entry key='pcmcat143200050021' value='  Blu-ray and DVD Players'/>
+        <entry key='pcmcat143200050022' value='  Speakers'/>
+        <entry key='pcmcat143200050023' value='  Receivers'/>
+        <entry key='pcmcat143200050024' value='  Home Theater Systems'/>
+        <entry key='pcmcat143200050025' value='  Furniture and Mounts'/>
+        <entry key='pcmcat143200050026' value='  Installation'/>
+        <entry key='pcmcat143200050027' value='  Audio Accessories'/>
+        <entry key='pcmcat143200050028' value='  TV &amp; Video Accessories'/>
+        <entry key='pcmcat142300050026' value='Clearance &amp; More'/>
+        <entry key='pcmcat161500050000' value='  Refurbished Product'/>
+        <entry key='pcmcat166100050016' value='  Last Chance Products'/>
+        <entry key='pcmcat224100050004' value='  Refurbished'/>
+        <entry key='pcmcat224100050006' value='    TV &amp; Video'/>
+        <entry key='pcmcat224100050007' value='    Audio'/>
+        <entry key='pcmcat224100050009' value='    Car &amp; GPS'/>
+        <entry key='pcmcat224100050010' value='    Cameras &amp; Camcorders'/>
+        <entry key='pcmcat224100050011' value='    Computers'/>
+        <entry key='pcmcat224100050012' value='    Mobile Phones'/>
+        <entry key='pcmcat224100050013' value='    Office Products'/>
+        <entry key='pcmcat224100050014' value='    Video Games &amp; Gadgets'/>
+        <entry key='pcmcat224100050015' value='    Home &amp; Appliances'/>
+        <entry key='pcmcat260900050008' value='    Geek Squad Certified Refurbished'/>
+        <entry key='pcmcat149900050025' value='Recycling'/>
+        <entry key='pcmcat159800050001' value='Geek Squad Protection'/>
+        <entry key='pcmcat280100050006' value='  Cameras &amp; Camcorders'/>
+        <entry key='pcmcat280100050007' value='  Car Electronics'/>
+        <entry key='pcmcat280100050008' value='  Computing'/>
+        <entry key='pcmcat280100050009' value='  E-Readers'/>
+        <entry key='pcmcat280100050010' value='  Gaming'/>
+        <entry key='pcmcat280100050011' value='  GPS'/>
+        <entry key='pcmcat280100050012' value='  Home Theater'/>
+        <entry key='pcmcat280100050013' value='  Major Appliances'/>
+        <entry key='pcmcat280100050014' value='  Mobile Phones'/>
+        <entry key='pcmcat280100050015' value='  MP3 Players'/>
+        <entry key='pcmcat281800050011' value='  Musical Instruments'/>
+        <entry key='pcmcat281800050012' value='  Replacement Plan'/>
+        <entry key='pcmcat164600050001' value='Featured Offers'/>
+        <entry key='pcmcat200300050008' value='Digital Downloads'/>
+        <entry key='pcmcat226500050012' value='Appliance Install Delivery Repair'/>
+        <entry key='pcmcat230900050001' value='Best Buy For Business'/>
+        <entry key='pcmcat154200050035' value='  Small Business &amp; Home Office Essentials'/>
+        <entry key='pcmcat154400050019' value='    Computers'/>
+        <entry key='pcmcat154400050031' value='    Mobile Phones &amp; Office'/>
+        <entry key='pcmcat154500050009' value='    GPS &amp; Car'/>
+        <entry key='pcmcat154500050014' value='    Cameras &amp; Camcorders'/>
+        <entry key='pcmcat154500050020' value='    TV &amp; Audio'/>
+        <entry key='pcmcat204200050021' value='    Expanded Needs'/>
+        <entry key='pcmcat204200050023' value='    Meeting Room'/>
+        <entry key='pcmcat204200050024' value='    Mobile Office'/>
+        <entry key='pcmcat235500050002' value='Geek Squad Tech Support'/>
+        <entry key='pcmcat242800050021' value='Health, Fitness &amp; Sports'/>
+        <entry key='pcmcat159400050012' value='  Strength &amp; Weight Training'/>
+        <entry key='pcmcat175000050000' value='    Benches'/>
+        <entry key='pcmcat175000050003' value='    Resistance Bands'/>
+        <entry key='pcmcat197600050006' value='    Pull-up &amp; Push-up Bars'/>
+        <entry key='pcmcat203800050000' value='    Home Gyms'/>
+        <entry key='pcmcat268400050010' value='    Weights'/>
+        <entry key='pcmcat268400050014' value='    Boxing'/>
+        <entry key='pcmcat268400050015' value='    Hand Strengtheners'/>
+        <entry key='pcmcat159400050013' value='  Yoga, Pilates &amp; Core Training'/>
+        <entry key='pcmcat186000050024' value='    Core &amp; Balance Trainers'/>
+        <entry key='pcmcat186000050025' value='    Exercise Balls'/>
+        <entry key='pcmcat268400050017' value='    Yoga'/>
+        <entry key='pcmcat268400050018' value='    Pilates'/>
+        <entry key='pcmcat159400050014' value='  Fitness Accessories'/>
+        <entry key='abcat0208008' value='    Cases, Armbands &amp; Watchbands'/>
+        <entry key='pcmcat175000050004' value='    Fitness Videos &amp; Software'/>
+        <entry key='pcmcat175000050008' value='    Water Bottles &amp; Running Accessories'/>
+        <entry key='pcmcat210200050000' value='    Exercise Kits'/>
+        <entry key='pcmcat255100050000' value='    Fitness Appcessories Products'/>
+        <entry key='pcmcat274800050002' value='    Sunglasses'/>
+        <entry key='pcmcat208400050005' value='  Portable Fitness Electronics'/>
+        <entry key='abcat0301006' value='    Sport, Running &amp; GPS Watches'/>
+        <entry key='abcat0915015' value='    Heart Rate Monitors'/>
+        <entry key='pcmcat186400050010' value='    Fitness Audio'/>
+        <entry key='pcmcat210000050008' value='    Pedometers'/>
+        <entry key='pcmcat265600050001' value='    Stopwatches'/>
+        <entry key='pcmcat243800050004' value='  Health &amp; Wellness Technology'/>
+        <entry key='abcat0915001' value='    Massage &amp; Spa'/>
+        <entry key='pcmcat208400050018' value='    Blood Pressure Monitors'/>
+        <entry key='pcmcat222900050018' value='    Heat &amp; Light Therapy'/>
+        <entry key='pcmcat222900050021' value='    Personal Monitoring Devices'/>
+        <entry key='pcmcat244000050019' value='    Sleep &amp; Stress Relief'/>
+        <entry key='pcmcat244100050013' value='    Hearing &amp; Vision'/>
+        <entry key='pcmcat266600050004' value='    Thermometers'/>
+        <entry key='pcmcat243800050005' value='  Exercise Equipment'/>
+        <entry key='pcmcat159400050008' value='    Elliptical Trainers'/>
+        <entry key='pcmcat159400050010' value='    Exercise Bikes'/>
+        <entry key='pcmcat159400050011' value='    Treadmills'/>
+        <entry key='pcmcat164200050004' value='    Vibration Trainers'/>
+        <entry key='pcmcat251600050017' value='    Rowers'/>
+        <entry key='pcmcat251600050018' value='    Steppers'/>
+        <entry key='pcmcat251600050019' value='    Pilates Reformers'/>
+        <entry key='pcmcat273800050017' value='  Sports &amp; Outdoor Recreation'/>
+        <entry key='pcmcat230600050006' value='    Sports Fan Shop'/>
+        <entry key='pcmcat250300050004' value='    Trampolines'/>
+        <entry key='pcmcat250300050007' value='    Roller &amp; Inline Skates'/>
+        <entry key='pcmcat250300050008' value='    Scooters &amp; Skateboards'/>
+        <entry key='pcmcat250300050009' value='    Biking'/>
+        <entry key='pcmcat254000050006' value='    Flashlights &amp; Portable Lights'/>
+        <entry key='pcmcat273800050018' value='    Baseball &amp; Softball'/>
+        <entry key='pcmcat273800050019' value='    Golf'/>
+        <entry key='pcmcat273800050020' value='    Football'/>
+        <entry key='pcmcat273800050021' value='    Soccer'/>
+        <entry key='pcmcat273800050022' value='    Volleyball'/>
+        <entry key='pcmcat273800050023' value='    Tennis &amp; Racquet Sports'/>
+        <entry key='pcmcat273800050024' value='    Waterskiing &amp; Water Sports'/>
+        <entry key='pcmcat273800050025' value='    Fishing'/>
+        <entry key='pcmcat273800050026' value='    Skiing &amp; Snowboarding'/>
+        <entry key='pcmcat273800050027' value='    Hockey &amp; Ice Skating'/>
+        <entry key='pcmcat273800050029' value='    Tents'/>
+        <entry key='pcmcat273800050030' value='    Sleeping Bags'/>
+        <entry key='pcmcat273800050031' value='    Camp Cooking &amp; Dining'/>
+        <entry key='pcmcat273800050032' value='    Coolers'/>
+        <entry key='pcmcat273800050033' value='    Camping Tools &amp; Accessories'/>
+        <entry key='pcmcat273800050035' value='    Sports &amp; Recreation Accessories'/>
+        <entry key='pcmcat278000050004' value='    Basketball'/>
+        <entry key='pcmcat245100050028' value='Office'/>
+        <entry key='abcat0508003' value='  Office &amp; Business Software'/>
+        <entry key='abcat0508005' value='    Business Plan Software'/>
+        <entry key='abcat0508006' value='    Contact Management'/>
+        <entry key='abcat0508008' value='    Fax &amp; Scanning'/>
+        <entry key='abcat0508009' value='    Office Software Suites'/>
+        <entry key='pcmcat209600050004' value='    Bookkeeping Software'/>
+        <entry key='pcmcat209600050005' value='    File Conversion Software'/>
+        <entry key='pcmcat209600050006' value='    Resume Software'/>
+        <entry key='abcat0511001' value='  Printers'/>
+        <entry key='abcat0511002' value='    Inkjet Printers'/>
+        <entry key='abcat0511003' value='    Laser Printers'/>
+        <entry key='abcat0511004' value='    All-In-One Inkjet Printers'/>
+        <entry key='abcat0511005' value='    All-In-One Laser Printers'/>
+        <entry key='abcat0515034' value='    Printer Accessories'/>
+        <entry key='pcmcat266500050030' value='    All Printers'/>
+        <entry key='abcat0511007' value='  Scanners'/>
+        <entry key='abcat0511008' value='    Flatbed Scanners'/>
+        <entry key='abcat0511009' value='    Film &amp; Slide Scanners'/>
+        <entry key='abcat0511010' value='    Sheetfed Scanners'/>
+        <entry key='pcmcat214800050032' value='    Business Card Scanners'/>
+        <entry key='pcmcat214800050033' value='    Portable Scanners'/>
+        <entry key='pcmcat214800050034' value='    Scanner Accessories'/>
+        <entry key='pcmcat214800050047' value='    Handheld Scanners'/>
+        <entry key='abcat0511011' value='  Fax Machines/Copiers'/>
+        <entry key='abcat0802000' value='  Telephones &amp; Communication'/>
+        <entry key='abcat0802001' value='    Cordless Telephones'/>
+        <entry key='abcat0802002' value='    Corded Telephones'/>
+        <entry key='abcat0802004' value='    VoIP'/>
+        <entry key='abcat0802005' value='    Multi-Line Telephones'/>
+        <entry key='abcat0802006' value='    Conferencing Telephones'/>
+        <entry key='abcat0804000' value='    Two-Way Radios'/>
+        <entry key='abcat0811011' value='    Telephone Accessories'/>
+        <entry key='pcmcat168700050018' value='    Novelty Telephones'/>
+        <entry key='pcmcat168700050019' value='    Special Needs Telephones'/>
+        <entry key='abcat0805000' value='  Office Electronics'/>
+        <entry key='abcat0512002' value='    Electronic Dictionaries'/>
+        <entry key='abcat0805001' value='    Calculators'/>
+        <entry key='abcat0805005' value='    Labelers &amp; Laminators'/>
+        <entry key='abcat0805006' value='    Shredders'/>
+        <entry key='pcmcat193100050011' value='    Digital Pens &amp; Accessories'/>
+        <entry key='pcmcat217400050009' value='    Cash Handling'/>
+        <entry key='abcat0807000' value='  Printer Ink &amp; Toner'/>
+        <entry key='abcat0807001' value='    Printer Ink'/>
+        <entry key='abcat0807009' value='    Toner'/>
+        <entry key='abcat0808000' value='  Paper'/>
+        <entry key='abcat0808002' value='    Business Paper'/>
+        <entry key='abcat0808004' value='    Labels &amp; Stickers'/>
+        <entry key='abcat0808005' value='    Multipurpose'/>
+        <entry key='abcat0808006' value='    Photo Quality'/>
+        <entry key='abcat0808007' value='    Paper Cutting'/>
+        <entry key='pcmcat218500050000' value='    Accessories'/>
+        <entry key='abcat0809000' value='  Office Furniture &amp; Storage'/>
+        <entry key='abcat0809002' value='    Desk Chairs'/>
+        <entry key='abcat0809004' value='    Desks'/>
+        <entry key='pcmcat138200050000' value='    Office Tables'/>
+        <entry key='pcmcat138200050001' value='    Bookcases'/>
+        <entry key='pcmcat138200050002' value='    File Cabinets &amp; Storage'/>
+        <entry key='pcmcat138200050003' value='    Hutches'/>
+        <entry key='pcmcat256000050001' value='    Desk Lamps'/>
+        <entry key='pcmcat272800050027' value='    Keyboard Trays'/>
+        <entry key='pcmcat275600050000' value='  Office &amp; School Supplies'/>
+        <entry key='pcmcat275600050001' value='    Pens, Pencils &amp; Markers'/>
+        <entry key='pcmcat275600050003' value='    Binders, Folders &amp; Filing'/>
+        <entry key='pcmcat275600050004' value='    Organizers &amp; Storage'/>
+        <entry key='pcmcat275600050005' value='    Desk Supplies &amp; Fasteners'/>
+        <entry key='pcmcat275600050006' value='    Whiteboards &amp; Presentation Supplies'/>
+        <entry key='pcmcat275600050007' value='    Arts &amp; Crafts'/>
+        <entry key='pcmcat275600050008' value='    Envelopes &amp; Shipping Supplies'/>
+        <entry key='pcmcat248000050016' value='Deal of the Day'/>
+        <entry key='pcmcat248300050015' value='  Deal of the Day FAQs'/>
+        <entry key='pcmcat248700050021' value='Home'/>
+        <entry key='abcat0913000' value='  Home Safety &amp; Energy Management'/>
+        <entry key='pcmcat211000050004' value='    Home  Monitoring &amp; Control'/>
+        <entry key='pcmcat179100050006' value='  Outdoor Living'/>
+        <entry key='pcmcat179200050003' value='    Grills'/>
+        <entry key='pcmcat179200050008' value='    Patio Furniture &amp; Decor'/>
+        <entry key='pcmcat179200050010' value='    Outdoor Lighting'/>
+        <entry key='pcmcat179200050014' value='    Appliances'/>
+        <entry key='pcmcat179200050018' value='    Outdoor Video'/>
+        <entry key='pcmcat253600050013' value='    Lawn &amp; Garden Care'/>
+        <entry key='pcmcat253600050029' value='    Garage Storage'/>
+        <entry key='pcmcat211000050003' value='  Home Energy Technology'/>
+        <entry key='pcmcat254000050010' value='    Thermostats'/>
+        <entry key='pcmcat254000050011' value='    Solar Products'/>
+        <entry key='pcmcat254000050012' value='    Energy Efficient Lighting'/>
+        <entry key='pcmcat254000050014' value='    Home Efficiency Accessories'/>
+        <entry key='pcmcat271300050012' value='    Remote Temperature Monitors'/>
+        <entry key='pcmcat271300050013' value='    Light Dimmers &amp; Controls'/>
+        <entry key='pcmcat271300050014' value='    Sprinkler Controls'/>
+        <entry key='pcmcat271300050015' value='    Energy Usage Monitors'/>
+        <entry key='pcmcat233100050008' value='  Licensed Products'/>
+        <entry key='pcmcat83700050012' value='    Nickelodeon DVD Store'/>
+        <entry key='pcmcat244200050008' value='  Pop Culture Merchandise'/>
+        <entry key='pcmcat236800050000' value='    Hello Kitty'/>
+        <entry key='pcmcat244200050009' value='    Angry Birds'/>
+        <entry key='pcmcat244200050013' value='    South Park'/>
+        <entry key='pcmcat263000050000' value='    Star Wars'/>
+        <entry key='pcmcat287400050011' value='    Call of Duty'/>
+        <entry key='pcmcat287400050012' value='    Classic Nintendo'/>
+        <entry key='pcmcat287400050013' value='    Disney'/>
+        <entry key='pcmcat287400050016' value='    Halo'/>
+        <entry key='pcmcat287400050017' value='    Mickey &amp; Minnie'/>
+        <entry key='pcmcat287400050018' value='    Sons of Anarchy'/>
+        <entry key='pcmcat287400050019' value='    More Pop Culture Merchandise'/>
+        <entry key='pcmcat249700050006' value='  Furniture'/>
+        <entry key='pcmcat219100050010' value='    Game Room &amp; Bar Furniture'/>
+        <entry key='pcmcat249700050007' value='    Home Theater Furniture'/>
+        <entry key='pcmcat257400050023' value='    Lamps &amp; Lighting'/>
+        <entry key='pcmcat272800050000' value='    Living Room Furniture'/>
+        <entry key='pcmcat272800050005' value='    Kitchen &amp; Dining Furniture'/>
+        <entry key='pcmcat272800050011' value='    Bedroom Furniture'/>
+        <entry key='pcmcat272800050018' value='    Kids&#039; Furniture'/>
+        <entry key='pcmcat286300050020' value='    Wall Art'/>
+        <entry key='pcmcat251300050011' value='  Tools'/>
+        <entry key='abcat0508032' value='    Home &amp; Landscape Design Software'/>
+        <entry key='pcmcat237800050009' value='    Power Tools'/>
+        <entry key='pcmcat251300050012' value='    Hand Tools'/>
+        <entry key='pcmcat252700050006' value='  Toys &amp; Games'/>
+        <entry key='pcmcat240400050068' value='    Stuffed Animals &amp; Plush Toys'/>
+        <entry key='pcmcat250300050003' value='    Outdoor Play'/>
+        <entry key='pcmcat254300050003' value='    Games'/>
+        <entry key='pcmcat274100050000' value='    Electronic &amp; Educational Games'/>
+        <entry key='pcmcat274200050002' value='    Game Room'/>
+        <entry key='pcmcat274200050008' value='    Games, Puzzles &amp; Cards'/>
+        <entry key='pcmcat274200050011' value='    Kids&#039; Arts &amp; Crafts'/>
+        <entry key='pcmcat274500050022' value='    Baby &amp; Toddler Toys'/>
+        <entry key='pcmcat278100050008' value='    Dolls &amp; Dollhouses'/>
+        <entry key='pcmcat279600050006' value='    Action Figures'/>
+        <entry key='pcmcat284400050033' value='    Model Kits'/>
+        <entry key='pcmcat284400050050' value='    Costumes &amp; Pretend Play'/>
+        <entry key='pcmcat284400050063' value='    Electronic Toys'/>
+        <entry key='pcmcat284400050091' value='    Learning &amp; Education'/>
+        <entry key='pcmcat284400050100' value='    Vehicles &amp; Remote Control Toys'/>
+        <entry key='pcmcat253700050018' value='  Luggage, Bags &amp; Travel'/>
+        <entry key='pcmcat248300050003' value='    Luggage'/>
+        <entry key='pcmcat253700050019' value='    Luggage Accessories'/>
+        <entry key='pcmcat271700050005' value='    Travel Accessories'/>
+        <entry key='pcmcat253700050020' value='  Weather Stations &amp; Clocks'/>
+        <entry key='abcat0914000' value='    Weather Stations'/>
+        <entry key='pcmcat253700050027' value='    Clocks'/>
+        <entry key='pcmcat254000050002' value='  Home Security &amp; Safety'/>
+        <entry key='abcat0206005' value='    Emergency Radios'/>
+        <entry key='abcat0913004' value='    Safes'/>
+        <entry key='pcmcat211000050001' value='    Locks'/>
+        <entry key='pcmcat211000050013' value='    Surveillance Accessories'/>
+        <entry key='pcmcat254000050004' value='    Motion &amp; Occupancy Sensors'/>
+        <entry key='pcmcat254000050005' value='    Home Surveillance Cameras'/>
+        <entry key='pcmcat254000050007' value='    Baby Monitors &amp; Pet Cams'/>
+        <entry key='pcmcat271300050011' value='    Smoke Detectors &amp; Leak Sensors'/>
+        <entry key='pcmcat254300050005' value='  Outdoor Recreation'/>
+        <entry key='pcmcat250300050005' value='    Pool Toys'/>
+        <entry key='pcmcat250300050006' value='    Sleds'/>
+        <entry key='pcmcat263600050001' value='    Bike &amp; Skateboard Accessories'/>
+        <entry key='pcmcat253300050001' value='Appcessories™'/>
+        <entry key='pcmcat251300050009' value='  iPhone Appcessories™ Products'/>
+        <entry key='pcmcat253000050001' value='  iPod Appcessories™ Products'/>
+        <entry key='pcmcat255100050015' value='  All Appcessories™ Products'/>
+        <entry key='pcmcat254400050000' value='Deals Near Me'/>
+        <entry key='pcmcat87800050001' value='Customer Service'/>
+        <entry key='pcmcat203400050001' value='  Help'/>
+        <entry key='pcmcat203400050002' value='    Payment and Pricing'/>
+        <entry key='pcmcat203400050005' value='    Shipping and Store Pickup'/>
+        <entry key='pcmcat203900050003' value='    Viewing &amp; Changing Orders'/>
+        <entry key='pcmcat204400050021' value='    Returns &amp; Refunds'/>
+        <entry key='pcmcat204400050031' value='    Appliance Delivery &amp; Special Installation'/>
+        <entry key='pcmcat204400050041' value='    Product Support &amp; Repairs'/>
+        <entry key='pcmcat204400050050' value='    Using My Account'/>
+        <entry key='pcmcat204400050055' value='    Reward Zone'/>
+        <entry key='pcmcat204400050060' value='    Legal &amp; Privacy Policies'/>
+        <entry key='pcmcat207200050011' value='    Mobile'/>
+        <entry key='pcmcat248200050002' value='    Digital Sku'/>
+        <entry key='pcmcat248200050007' value='    Best Buy Marketplace'/>
+        <entry key='pcmcat251100050011' value='    Marketplace'/>
+    </util:map>
+
+</beans>

@@ -1,0 +1,47 @@
+<coverage total_columns_executed='8'>
+	<minimum_files_for_coverage>
+		<trace_file>TestCase_Televisions_G_trace.xml</trace_file>
+	</minimum_files_for_coverage>
+	<trace_files>
+		<trace_file>TestCase_Televisions_G_trace.xml</trace_file>
+	</trace_files>
+	<tables>
+		<table name='Television_MG_Base' count_of_calls='1' percent_covered='10.0'>
+			<column n='none' hits='0'></column>
+			<column n='1' hits='0'></column>
+			<column n='2' hits='0'></column>
+			<column n='3' hits='0'></column>
+			<column n='4' hits='0'></column>
+			<column n='5' hits='0'></column>
+			<column n='6' hits='0'></column>
+			<column n='7' hits='1'></column>
+			<column n='8' hits='0'></column>
+			<column n='9' hits='0'></column>
+		</table>
+		<table name='Television_MG_Calculate' count_of_calls='1' percent_covered='100.0'>
+			<column n='1' hits='1'></column>
+		</table>
+		<table name='Television_MG_Decrease' count_of_calls='1' percent_covered='66.66'>
+			<column n='none' hits='0'></column>
+			<column n='1' hits='1'></column>
+			<column n='2' hits='1'></column>
+		</table>
+		<table name='Television_MG_Increase' count_of_calls='1' percent_covered='20.0'>
+			<column n='none' hits='0'></column>
+			<column n='1' hits='0'></column>
+			<column n='2' hits='1'></column>
+			<column n='3' hits='0'></column>
+			<column n='4' hits='0'></column>
+		</table>
+		<table name='Television_MG_Power' count_of_calls='1' percent_covered='40.0'>
+			<column n='none' hits='0'></column>
+			<column n='1' hits='0'></column>
+			<column n='2' hits='0'></column>
+			<column n='3' hits='1'></column>
+			<column n='4' hits='1'></column>
+		</table>
+		<table name='Television_MG_Result' count_of_calls='1' percent_covered='100.0'>
+			<column n='1' hits='1'></column>
+		</table>
+	</tables>
+</coverage>

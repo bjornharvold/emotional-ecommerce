@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<roles>
+    <role>
+        <name>Super Administrator</name>
+        <urlname>superadmin</urlname>
+        <description>Super Administrator role</description>
+        <rights>
+            <right statusCode="RIGHT_LOGIN_ADMIN"/>
+            <right statusCode="RIGHT_OAUTH_ACCESS"/>
+
+            <right statusCode="RIGHT_READ_ROLE_AS_ADMIN"/>
+            <right statusCode="RIGHT_INSERT_ROLE_AS_ADMIN"/>
+            <right statusCode="RIGHT_UPDATE_ROLE_AS_ADMIN"/>
+            <right statusCode="RIGHT_DELETE_ROLE_AS_ADMIN"/>
+
+            <right statusCode="RIGHT_READ_USER_AS_ADMIN"/>
+            <right statusCode="RIGHT_INSERT_USER_AS_ADMIN"/>
+            <right statusCode="RIGHT_UPDATE_USER_AS_ADMIN"/>
+            <right statusCode="RIGHT_DELETE_USER_AS_ADMIN"/>
+
+            <right statusCode="RIGHT_READ_QUESTION_AS_ADMIN"/>
+            <right statusCode="RIGHT_INSERT_QUESTION_AS_ADMIN"/>
+            <right statusCode="RIGHT_UPDATE_QUESTION_AS_ADMIN"/>
+            <right statusCode="RIGHT_DELETE_QUESTION_AS_ADMIN"/>
+
+            <right statusCode="RIGHT_READ_ITEM_AS_ADMIN"/>
+            <right statusCode="RIGHT_UPDATE_ITEM_AS_ADMIN"/>
+            <right statusCode="RIGHT_INSERT_ITEM_AS_ADMIN"/>
+            <right statusCode="RIGHT_DELETE_ITEM_AS_ADMIN"/>
+
+            <right statusCode="RIGHT_READ_CATEGORY_AS_ADMIN"/>
+            <right statusCode="RIGHT_UPDATE_CATEGORY_AS_ADMIN"/>
+            <right statusCode="RIGHT_INSERT_CATEGORY_AS_ADMIN"/>
+            <right statusCode="RIGHT_DELETE_CATEGORY_AS_ADMIN"/>
+
+            <right statusCode="RIGHT_READ_OWNER_AS_ADMIN"/>
+            <right statusCode="RIGHT_UPDATE_OWNER_AS_ADMIN"/>
+            <right statusCode="RIGHT_INSERT_OWNER_AS_ADMIN"/>
+            <right statusCode="RIGHT_DELETE_OWNER_AS_ADMIN"/>
+
+            <right statusCode="RIGHT_INSERT_STATIC_CONTENT_AS_ADMIN"/>
+            <right statusCode="RIGHT_DELETE_STATIC_CONTENT_AS_ADMIN"/>
+
+            <right statusCode="RIGHT_INSERT_EVENT_AS_ADMIN"/>
+            <right statusCode="RIGHT_DELETE_EVENT_AS_ADMIN"/>
+
+            <right statusCode="RIGHT_DELETE_METRIC_AS_ADMIN"/>
+
+            <right statusCode="RIGHT_INSERT_BLOG"/>
+            <right statusCode="RIGHT_READ_BLOG_AS_ADMIN"/>
+            <right statusCode="RIGHT_DELETE_BLOG"/>
+
+            <right statusCode="RIGHT_INSERT_SEO_URL_NAME"/>
+            <right statusCode="RIGHT_READ_SEO_URL_NAME"/>
+            <right statusCode="RIGHT_DELETE_SEO_URL_NAME"/>
+
+            <right statusCode="RIGHT_CONTENT_INGEST"/>
+            <right statusCode="RIGHT_REPORT_GENERATION"/>
+
+            <right statusCode="RIGHT_INSERT_PRESS"/>
+            <right statusCode="RIGHT_READ_PRESS"/>
+            <right statusCode="RIGHT_DELETE_PRESS"/>
+
+            <right statusCode="RIGHT_INSERT_PRODUCT_GRID"/>
+            <right statusCode="RIGHT_READ_PRODUCT_GRID"/>
+            <right statusCode="RIGHT_DELETE_PRODUCT_GRID"/>
+
+            <right statusCode="RIGHT_INSERT_QUIZ"/>
+            <right statusCode="RIGHT_READ_QUIZ"/>
+            <right statusCode="RIGHT_DELETE_QUIZ"/>
+
+            <right statusCode="RIGHT_INSERT_APPLICATION"/>
+            <right statusCode="RIGHT_READ_APPLICATION"/>
+            <right statusCode="RIGHT_DELETE_APPLICATION"/>
+
+            <right statusCode="RIGHT_INSERT_NAVIGATIONBAR"/>
+            <right statusCode="RIGHT_READ_NAVIGATIONBAR"/>
+            <right statusCode="RIGHT_DELETE_NAVIGATIONBAR"/>
+
+            <right statusCode="RIGHT_INSERT_AFFILIATE"/>
+            <right statusCode="RIGHT_READ_AFFILIATE"/>
+            <right statusCode="RIGHT_READ_CAMPAIGN"/>
+            <right statusCode="RIGHT_DELETE_AFFILIATE"/>
+
+            <right statusCode="RIGHT_INSERT_CSS_STYLE"/>
+            <right statusCode="RIGHT_READ_CSS_STYLE"/>
+            <right statusCode="RIGHT_DELETE_CSS_STYLE"/>
+
+            <right statusCode="RIGHT_LOGIN_DATA"/>
+
+            <right statusCode="RIGHT_REPORT_PRODUCT"/>
+            <right statusCode="RIGHT_READ_PRODUCT"/>
+            <right statusCode="RIGHT_UPDATE_PRODUCT"/>
+            <right statusCode="RIGHT_INSERT_PRODUCT"/>
+            <right statusCode="RIGHT_DELETE_PRODUCT"/>
+
+            <right statusCode="RIGHT_READ_FINANCE"/>
+        </rights>
+    </role>
+    <role>
+        <name>Application user</name>
+        <urlname>appuser</urlname>
+        <description>Application user</description>
+        <rights>
+            <right statusCode="RIGHT_LOGIN_USER"/>
+            <right statusCode="RIGHT_READ_USER"/>
+            <right statusCode="RIGHT_UPDATE_USER"/>
+            <right statusCode="RIGHT_INSERT_USER"/>
+            <right statusCode="RIGHT_OAUTH_ACCESS"/>
+            <right statusCode="RIGHT_UPDATE_AVAILABLE_STORES_ON_ITEM"/>
+            <right statusCode="RIGHT_READ_BLOG"/>
+        </rights>
+    </role>
+    <role>
+        <name>Quiz creator</name>
+        <urlname>quizcreator</urlname>
+        <description>Quiz creator</description>
+        <rights>
+            <right statusCode="RIGHT_INSERT_QUIZ"/>
+            <right statusCode="RIGHT_READ_QUIZ"/>
+            <right statusCode="RIGHT_DELETE_QUIZ"/>
+        </rights>
+    </role>
+    <role>
+        <name>Developer</name>
+        <urlname>developer</urlname>
+        <description>Developer</description>
+        <rights>
+            <right statusCode="RIGHT_DEVELOPER"/>
+        </rights>
+    </role>
+    <role>
+        <name>Content Producer</name>
+        <urlname>contentproducer</urlname>
+        <description>Content producer</description>
+        <!-- Can:
+           - run ingest
+           - view product information
+         -->
+        <rights>
+            <right statusCode="RIGHT_LOGIN_DATA"/>
+            <right statusCode="RIGHT_REPORT_PRODUCT"/>
+            <right statusCode="RIGHT_CONTENT_INGEST"/>
+            <right statusCode="RIGHT_READ_PRODUCT"/>
+            <right statusCode="RIGHT_UPDATE_PRODUCT"/>
+            <right statusCode="RIGHT_INSERT_PRODUCT"/>
+            <right statusCode="RIGHT_DELETE_PRODUCT"/>
+        </rights>
+    </role>
+    <role>
+        <name>Content Manager</name>
+        <urlname>contentmanager</urlname>
+        <description>Content manager</description>
+        <!-- Can:
+           - modify all product information (Lela employee)
+         -->
+        <rights>
+            <right statusCode="RIGHT_LOGIN_DATA"/>
+            <right statusCode="RIGHT_READ_PRODUCT"/>
+            <right statusCode="RIGHT_UPDATE_PRODUCT"/>
+            <right statusCode="RIGHT_INSERT_PRODUCT"/>
+            <right statusCode="RIGHT_DELETE_PRODUCT"/>
+        </rights>
+    </role>
+    <role>
+        <name>Content Reader</name>
+        <urlname>contentreader</urlname>
+        <description>Content reader</description>
+        <!-- Can:
+           - view all product information (Lela employee)
+        -->
+        <rights>
+            <right statusCode="RIGHT_LOGIN_DATA"/>
+            <right statusCode="RIGHT_REPORT_PRODUCT"/>
+        </rights>
+    </role>
+
+    <role>
+        <name>Content Curator</name>
+        <urlname>contentcurator</urlname>
+        <description>Content curator</description>
+        <!-- Can:
+           - view all product information (Lela contractor)
+        -->
+        <rights>
+            <right statusCode="RIGHT_LOGIN_DATA"/>
+            <right statusCode="RIGHT_UPDATE_PRODUCT"/>
+        </rights>
+    </role>
+
+    <role>
+        <name>Merchant</name>
+        <urlname>merchant</urlname>
+        <description>Merchant Onboarding</description>
+        <!-- A merchant may be able to:
+           - Indicate that they do or do not carry a category/brand
+        -->
+        <rights>
+            <right statusCode="RIGHT_LOGIN_DATA"/>
+            <right statusCode="RIGHT_LOGIN_ONBOARD"/>
+        </rights>
+    </role>
+    <role>
+        <name>Manufacturer</name>
+        <urlname>manufacturer</urlname>
+        <description>Manufacturer</description>
+        <!-- A manufacturer may be able to:
+           - View their own product information except for "custom" attributes used for motivators
+           - Add items along with a set of required attributes
+           - Add pictures for their products
+           - Add recalls
+           - Cannot delete or update items
+           - Can add a "ticket" to have an attribute value modified
+        -->
+        <rights>
+            <right statusCode="RIGHT_LOGIN_DATA"/>
+            <right statusCode="RIGHT_READ_PRODUCT"/>
+            <right statusCode="RIGHT_UPDATE_PRODUCT"/>
+            <right statusCode="RIGHT_INSERT_PRODUCT"/>
+        </rights>
+    </role>
+</roles>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+    <definition name="connect/twitterConnect" extends="template.page.master">
+        <put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/connect/twitterConnect.jspx" />
+		</put-list-attribute>
+    </definition>
+
+    <definition name="connect/twitterConnected" extends="template.page.master">
+        <put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/connect/twitterConnected.jspx" />
+		</put-list-attribute>
+    </definition>
+
+    <definition name="connect/facebookConnect" extends="template.page.master">
+        <put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/connect/facebookConnect.jspx" />
+		</put-list-attribute>
+    </definition>
+
+    <definition name="connect/facebookConnected" extends="template.page.master">
+        <put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/connect/facebookConnected.jspx" />
+		</put-list-attribute>
+    </definition>
+    
+</tiles-definitions>

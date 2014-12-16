@@ -1,0 +1,20 @@
+<job>
+	<currentdate>9/12/2011</currentdate>
+	<motivator>C</motivator>
+  <television>
+    <TV_ID>S8489699</TV_ID>
+    <BrandID>182</BrandID>
+    <ListPrice>2299.99</ListPrice>
+    <General_Bundledwith>Blu-Ray</General_Bundledwith>
+    <General_Combinedwith>(null)</General_Combinedwith>
+    <General_PCInterface>VGA (HD-15)</General_PCInterface>
+    <General_3DTechnology>Yes</General_3DTechnology>
+    <NetworkInternetMultimedia_Connectivity>Wireless</NetworkInternetMultimedia_Connectivity>
+    <MediaPlayer_USBPort>Yes , 2 port(s)</MediaPlayer_USBPort>
+    <CNETFeatures>9</CNETFeatures>
+    <CR3DPerformance>Excellent</CR3DPerformance>
+    <BrandName>Samsung</BrandName>
+    <MediaPlayer_SupportedFlashMemoryCards>(null)</MediaPlayer_SupportedFlashMemoryCards>
+    <NetworkInternetMultimedia_Functionality>Digital audio playback, digital photo playback, digital video playback, WEB browsing, Skype client, Internet video playback</NetworkInternetMultimedia_Functionality>
+   </television>
+</job>

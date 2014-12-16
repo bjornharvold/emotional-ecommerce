@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_Navbar" items="${navbars}" z="MC+cYmcRLN87k70STLVxf95b2Ts=">
+        <table:table data="${navbars}" id="l_com_lela_data_domain_entity_Navbar" path="/crud/navbars" z="oz3YiuLDb2VJtC6ftOg6bGSAMcs=">
+            <table:column date="true" dateTimePattern="${navbar_datecreated_date_format}" id="c_com_lela_data_domain_entity_Navbar_dateCreated" property="dateCreated" z="szPdTGM1kTjB0uspRLw8zA5HQ04="/>
+            <table:column date="true" dateTimePattern="${navbar_datemodified_date_format}" id="c_com_lela_data_domain_entity_Navbar_dateModified" property="dateModified" z="Of290havarja7ipkTzkD+hl9AJ0="/>
+            <table:column id="c_com_lela_data_domain_entity_Navbar_rlnm" property="rlnm" z="u9Vri+NS9QRc1LFDf9PAwtRVFu0="/>
+            <table:column id="c_com_lela_data_domain_entity_Navbar_dirty" property="dirty" z="Puv5S+4VYyeUWFTnsXGytmIvlJk="/>
+            <table:column id="c_com_lela_data_domain_entity_Navbar_objectId" property="objectId" z="gsFvCVBgeeO6WMvQ17Cbx9j5RLU="/>
+            <table:column id="c_com_lela_data_domain_entity_Navbar_locale" property="locale" z="aQQI/m//QRUKN/RjfYEQs8A2htQ="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_LocalStore" items="${localstores}" z="ZXtKHkfUjqdQ/qQ+uidZzFFSbrI=">
+        <table:table data="${localstores}" id="l_com_lela_data_domain_entity_LocalStore" path="/crud/localstores" z="uN6VMEkFZrVkuiBbRRXWOG2NUQY=">
+            <table:column date="true" dateTimePattern="${localStore_datecreated_date_format}" id="c_com_lela_data_domain_entity_LocalStore_dateCreated" property="dateCreated" z="BgVP7CpzG8Vn0bDzSAbG/Gn7asY="/>
+            <table:column date="true" dateTimePattern="${localStore_datemodified_date_format}" id="c_com_lela_data_domain_entity_LocalStore_dateModified" property="dateModified" z="SfA0CGHi0+AlXiUaOScTx6RQ1xI="/>
+            <table:column id="c_com_lela_data_domain_entity_LocalStore_merchantName" property="merchantName" z="IwOlGzzSrY3fsciv1f8eLrIB4ZA="/>
+            <table:column id="c_com_lela_data_domain_entity_LocalStore_merchantId" property="merchantId" z="Bh+Ep5XKLiM94LCrtkYOIUQMJz8="/>
+            <table:column id="c_com_lela_data_domain_entity_LocalStore_storeNumber" property="storeNumber" z="y40cl0QKFpETup3Yvs+juA9dOjI="/>
+            <table:column id="c_com_lela_data_domain_entity_LocalStore_storeName" property="storeName" z="4unlb7VbUzaWm8BF9ZDpZHlZtUI="/>
+        </table:table>
+    </page:list>
+</div>

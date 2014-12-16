@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+     xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:display="http://displaytag.sf.net/el"
+     version="2.0" >
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    Index
+  <spring:url value="/manage/categorys/initiator/index" var="initiator_index_url"/>
+  <spring:url value="/manage/categorys/initiator/create" var="initiator_create_url"/>
+  <spring:url value="/manage/categorys/initiator/update" var="initiator_update_url"/>
+  <spring:url value="/manage/categorys/initiator/run" var="initiator_run_url"/>
+  <spring:url value="/manage/categorys/initiator/results" var="initiator_results_url"/>
+  <h2>Saved Initiator Searches</h2>
+  <display:table name="querys" id="query" requestURI="${initiator_index_url}" sort="external" class="displaytag">
+    <display:column property="nm"/>
+    <display:column property="dscrptn"/>
+    <display:column title="Edit">
+      <a href="${initiator_update_url}/${query.id}">Edit</a>
+    </display:column>
+    <display:column title="Results">
+      <a href="${initiator_results_url}/${query.id}">Results</a>
+    </display:column>
+    <display:column title="Run">
+      <a href="${initiator_run_url}/${query.id}?rlnm=manage%2Fcategorys%2Finitiator%2Findex">Run</a>
+    </display:column>
+  </display:table>
+  <div>
+    <a href="${initiator_create_url}">Add</a>
+  </div>
+</div>

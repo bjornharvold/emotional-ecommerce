@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_FunctionalFilterAnswer" object="${functionalfilteranswer}" path="/crud/functionalfilteranswers" z="8QmmhabzFhdn43B2gMYRyXUtq/M=">
+        <field:display date="true" dateTimePattern="${functionalFilterAnswer_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_FunctionalFilterAnswer_dateCreated" object="${functionalfilteranswer}" z="vYZ0m+wkCz23S3FExHX4FsijXNA="/>
+        <field:display date="true" dateTimePattern="${functionalFilterAnswer_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_FunctionalFilterAnswer_dateModified" object="${functionalfilteranswer}" z="Hz7Llke4RcXkXncWzylsdFoYr/I="/>
+        <field:display field="functionalFilter" id="s_com_lela_data_domain_entity_FunctionalFilterAnswer_functionalFilter" object="${functionalfilteranswer}" z="2PgnkDfIk+TAZ6LY3GcJmomuwYE="/>
+        <field:display field="answer" id="s_com_lela_data_domain_entity_FunctionalFilterAnswer_answer" object="${functionalfilteranswer}" z="0hxlIAFkJ0Hw3glTaOFudE/Mu3A="/>
+        <field:display field="answerKey" id="s_com_lela_data_domain_entity_FunctionalFilterAnswer_answerKey" object="${functionalfilteranswer}" z="SK+9ofM45DoHhCKfwA3xY9mxAcg="/>
+        <field:display field="answerValue" id="s_com_lela_data_domain_entity_FunctionalFilterAnswer_answerValue" object="${functionalfilteranswer}" z="m7xaaQVbjaDgRidgbER4drlBH9k="/>
+        <field:display field="answerOrder" id="s_com_lela_data_domain_entity_FunctionalFilterAnswer_answerOrder" object="${functionalfilteranswer}" z="8nYp9mgYcuzg0ZOnr7t+LR7/RVU="/>
+        <field:display field="defaultt" id="s_com_lela_data_domain_entity_FunctionalFilterAnswer_defaultt" object="${functionalfilteranswer}" z="Xpp/c11kxP5Jvllr4t2hUo6QsAs="/>
+        <field:display field="functionalFilterAnswerValues" id="s_com_lela_data_domain_entity_FunctionalFilterAnswer_functionalFilterAnswerValues" object="${functionalfilteranswer}" z="5u/+NLMI2hjzMVjkcEuhQPgsJhg="/>
+        <field:display field="functionalFilterAnswerLabel" id="s_com_lela_data_domain_entity_FunctionalFilterAnswer_functionalFilterAnswerLabel" object="${functionalfilteranswer}" z="Hp5R9dNFWlKQTU8oJ0GYf7S+xwg="/>
+    </page:show>
+</div>

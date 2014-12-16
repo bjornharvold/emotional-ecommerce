@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_lela_data_domain_entity_BrandHistory" modelAttribute="brandHistory" path="/crud/brandhistorys" render="${empty dependencies}" z="+1UJ8yL1V2TLNVKRQAFIKec+MVA=">
+      <field:datetime dateTimePattern="${brandHistory_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_BrandHistory_dateCreated" z="user-managed" render="false"/>
+      <field:datetime dateTimePattern="${brandHistory_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_BrandHistory_dateModified" z="user-managed" render="false"/>
+      <field:select field="brand" id="c_com_lela_data_domain_entity_BrandHistory_brand" itemValue="id" items="${brands}" path="/brands" z="user-managed"/>
+      <field:datetime dateTimePattern="${brandHistory_asofdate_date_format}" field="asOfDate" id="c_com_lela_data_domain_entity_BrandHistory_asOfDate" required="true" z="gez7TNV53aaHHPrWI/k9uDI3X5Y="/>
+      <field:input field="facebookLikes" id="c_com_lela_data_domain_entity_BrandHistory_facebookLikes" validationMessageCode="field_invalid_integer" z="ckoZCGLLxFxT7za+r0guNHFdPnw="/>
+      <field:input field="twitterFollowers" id="c_com_lela_data_domain_entity_BrandHistory_twitterFollowers" validationMessageCode="field_invalid_integer" z="0wxU0kuMltUGH8U1FJO++YmhQvo="/>
+
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_lela_data_domain_entity_BrandHistory" render="${not empty dependencies}" z="y/2K7vZgQe5E7y6kJ6FsSe1QAiM="/>
+</div>

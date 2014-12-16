@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_Manufacturer" items="${manufacturers}" z="oBlQ+D9PfVkrUE/2UlreKBn+MeM=">
+        <table:table data="${manufacturers}" id="l_com_lela_data_domain_entity_Manufacturer" path="/crud/manufacturers" z="BqMshTfLMzU1lmUBAD9fW7n7UiQ=">
+            <table:column date="true" dateTimePattern="${manufacturer_datecreated_date_format}" id="c_com_lela_data_domain_entity_Manufacturer_dateCreated" property="dateCreated" z="EKm3/Rk2IueEDjD2BTX9J+2iwa4="/>
+            <table:column date="true" dateTimePattern="${manufacturer_datemodified_date_format}" id="c_com_lela_data_domain_entity_Manufacturer_dateModified" property="dateModified" z="dqIsvAUXm/I+EUZy/DXbWppPiro="/>
+            <table:column id="c_com_lela_data_domain_entity_Manufacturer_manufacturerName" property="manufacturerName" z="ra7WWJ4kz6Ks1meyt76+mPm06nA="/>
+        </table:table>
+    </page:list>
+</div>

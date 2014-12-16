@@ -1,0 +1,38 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='TV_ID' RAttribute='TV_ID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+			
+			<setattribute tag='TV_ID' RAttribute='TV_ID' enclosure='television' type='integer'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='television' type='integer'></setattribute>
+			<setattribute tag='Display_ColorTemperatureControl' RAttribute='Display_ColorTemperatureControl' enclosure='television' type='string'></setattribute>
+			<setattribute tag='RemoteControl_Type' RAttribute='RemoteControl_Type' enclosure='television' type='string'></setattribute>
+			<setattribute tag='RemoteControl_Features' RAttribute='RemoteControl_Features' enclosure='television' type='string'></setattribute>
+			<setattribute tag='RemoteControl_SupportedDevices' RAttribute='RemoteControl_SupportedDevices' enclosure='television' type='string'></setattribute>
+			<setattribute tag='AudioSystem_AudioControls' RAttribute='AudioSystem_AudioControls' enclosure='television' type='string'></setattribute>
+			<setattribute tag='AudioSystem_Equalizer' RAttribute='AudioSystem_Equalizer' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Television_ParentalChannelLock' RAttribute='Television_ParentalChannelLock' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Display_V_ChipControl' RAttribute='Display_V_ChipControl' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Display_AdditionalFeatures' RAttribute='Display_AdditionalFeatures' enclosure='television' type='string'></setattribute>
+			
+			<createentity entity='job' 	tag='job'	id='id'></createentity>
+			<createentity entity='television' 	tag='television' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+			<entity name='television' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+	<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+	<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="api.quiz.test" extends="template.simple.master">
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/quiz/quiz-api-test.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="quiz" extends="template.page.master">
+        <put-attribute type="string" name="title" value="page.quiz.name" />
+        <put-attribute type="string" name="description" value="meta.description.home" />
+        <put-attribute type="string" name="keywords" value="meta.keywords.home" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/quiz/lela_quiz.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/quiz/lela_quiz.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/quiz/quiz.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="quiz.mobile" extends="template.mobile.master">
+        <put-attribute type="string" name="title" value="page.quiz.name" />
+        <put-attribute type="string" name="description" value="meta.description.home" />
+        <put-attribute type="string" name="keywords" value="meta.keywords.home" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/mobile/styles/quiz.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.blockUI.js" />
+            <add-attribute type="string" value="/static/js/quiz/lela_quiz.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/quiz/quiz.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="quiz.waiting" extends="template.page.master">
+        <put-attribute type="string" name="title" value="page.quiz.name" />
+        <put-attribute type="string" name="description" value="meta.description.home" />
+        <put-attribute type="string" name="keywords" value="meta.keywords.home" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/quiz/lela_quiz.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/quiz/quiz_waiting.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/task_alerts.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/quiz/quiz_waiting.jspx" />
+        </put-list-attribute>
+    </definition>
+
+</tiles-definitions>

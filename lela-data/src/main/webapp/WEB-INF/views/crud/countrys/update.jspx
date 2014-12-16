@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_Country" modelAttribute="country" path="/crud/countrys" versionField="Version" z="DWCgFrKnFs1OqDaq5HtOJ0Qk9RY=">
+        <field:datetime dateTimePattern="${country_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_Country_dateCreated" z="user-managed" render="false"/>
+        <field:datetime dateTimePattern="${country_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_Country_dateModified" z="user-managed" render="false"/>
+        <field:input field="countryName" id="c_com_lela_data_domain_entity_Country_countryName" required="true" z="w1atpdJsCcDAcq282qM/UTSD+C8="/>
+        <field:input field="iso2" id="c_com_lela_data_domain_entity_Country_iso2" z="j+dh6BwIn6sRZuY8gC9E09rhyU8="/>
+        <field:checkbox field="lelaActive" id="c_com_lela_data_domain_entity_Country_lelaActive" z="2BouKyGUgIeTOOImz4VHHJkPHMc="/>
+    </form:update>
+</div>

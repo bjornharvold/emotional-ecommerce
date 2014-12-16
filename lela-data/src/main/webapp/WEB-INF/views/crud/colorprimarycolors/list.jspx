@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ColorPrimaryColor" items="${colorprimarycolors}" z="AAHBHW7pOfYdpq8TaAgwyAx9SGw=">
+        <table:table data="${colorprimarycolors}" id="l_com_lela_data_domain_entity_ColorPrimaryColor" path="/crud/colorprimarycolors" z="428jucyRaYG49Qv5ErzVyXi/lXY=">
+            <table:column date="true" dateTimePattern="${colorPrimaryColor_datecreated_date_format}" id="c_com_lela_data_domain_entity_ColorPrimaryColor_dateCreated" property="dateCreated" z="KKddT5W4CzFrHa8NRdJVdHW5WTg="/>
+            <table:column date="true" dateTimePattern="${colorPrimaryColor_datemodified_date_format}" id="c_com_lela_data_domain_entity_ColorPrimaryColor_dateModified" property="dateModified" z="QBPNE3Y7Ej6fnVqwaoZQE2kQTvo="/>
+            <table:column id="c_com_lela_data_domain_entity_ColorPrimaryColor_category" property="category" z="Rl5TUd/FBEboDa5TKAM0+CHfLmY="/>
+            <table:column id="c_com_lela_data_domain_entity_ColorPrimaryColor_color" property="color" z="cC4B7TXAwfn+/aGP4ar+U69/8rQ="/>
+            <table:column id="c_com_lela_data_domain_entity_ColorPrimaryColor_primaryColor" property="primaryColor" z="gE/ZvHn9/4xBe0Ly3DgTQRJAmKc="/>
+        </table:table>
+    </page:list>
+</div>

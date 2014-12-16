@@ -1,0 +1,27 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.tag import="org.springframework.mobile.device.DeviceUtils"/>
+    <jsp:directive.tag import="org.springframework.mobile.device.Device"/>
+
+    <jsp:directive.tag body-content="empty"/>
+
+    <jsp:directive.attribute name="var" rtexprvalue="false" required="true"/>
+    <jsp:directive.variable name-from-attribute="var" alias="device" variable-class="org.springframework.mobile.device.Device" scope="AT_BEGIN"/>
+
+    <jsp:scriptlet>
+        Device device = DeviceUtils.getCurrentDevice(request);
+        jspContext.setAttribute("device", device);
+    </jsp:scriptlet>
+</jsp:root>

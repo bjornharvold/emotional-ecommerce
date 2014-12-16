@@ -1,0 +1,15 @@
+<job>
+	<currentdate>9/12/2011</currentdate>
+	<motivator>B</motivator>
+  <television>
+    <TV_ID>S8489699</TV_ID>
+    <BrandID>182</BrandID>
+    <CNETMostPopular>11-20</CNETMostPopular>
+    <BuycomMostPopular>40+</BuycomMostPopular>
+    <BestBuyBestSelling>11-20</BestBuyBestSelling>
+    <WalmartBestSelling>21-40</WalmartBestSelling>
+    <General_ProductType>LED, LCD</General_ProductType>
+    <BrandName>Samsung</BrandName>
+    <Display_DiagonalSize>32" Television, wide screen aspect ratio</Display_DiagonalSize>
+  </television>
+</job>

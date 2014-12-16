@@ -1,0 +1,92 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+     >
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <security:authentication property="principal.user" var="testUser"/>
+
+    <h2>All static pages</h2>
+    <spring:url value="/administration/static/content" var="staticAddUrl"/>
+    <div class="actions">
+        <a class="action" href="${staticAddUrl}">Create a new page ></a>
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <c:if test="${empty staticContents.content}">
+        No pages have been created yet
+    </c:if>
+
+    <c:if test="${!empty staticContents.content}">
+        <table width="100%" id="datatable" class="tablesorter">
+            <thead>
+            <tr>
+                <th width="35%">Name</th>
+                <th width="25%">URL</th>
+                <th width="15%">Created on</th>
+                <th width="15%">Last updated</th>
+                <th width="5%">&#160;</th>
+                <th width="5%">&#160;</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <c:forEach items="${staticContents.content}" var="cb">
+                <spring:url value="/administration/static/content?urlName=${cb.rlnm}" var="staticUpdateUrl"/>
+                <spring:url value="${previewUrl}/sc/${cb.rlnm}" var="staticUrl"/>
+                <tr rlnm="${cb.rlnm}">
+                    <td>${cb.nm}</td>
+                    <td><a target="_blank" href="${staticUrl}">${staticUrl}</a></td>
+                    <td>
+                        ${cb.cdt}
+                    </td>
+                    <td>
+                        ${cb.ldt}
+                    </td>
+                    <td>
+                        <a class="action" href="${staticUpdateUrl}">Edit</a>
+                    </td>
+                    <td>
+                        <a class="action delete" rlnm="${cb.rlnm}" method="DELETE" href="${staticUpdateUrl}">Delete</a>
+                    </td>
+                </tr>
+
+            </c:forEach>
+
+            </tbody>
+
+        </table>
+        <lela:lelaPagination url="/administration/static/content/list" totalElements="${staticContents.totalElements}" totalPages="${staticContents.totalPages}" pageNumber="${staticContents.number}" pageSize="${staticContents.size}"/>
+
+    </c:if>
+
+    <script type="text/javascript">
+        if($('#datatable').length > 0) {
+            $('#datatable').tablesorter({
+                widgets: ['zebra'],
+                sortList: [[3,1]],
+                headers: {
+                    4: {
+                        sorter: false
+                    },
+                    5: {
+                        sorter: false
+                    }
+                }
+            });
+        }
+    </script>
+
+</div>

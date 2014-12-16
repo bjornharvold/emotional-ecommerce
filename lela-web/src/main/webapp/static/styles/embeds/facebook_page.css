@@ -1,0 +1,221 @@
+/*
+ * Copyright (c) 2011. Purple Door Systems, BV.
+ */
+
+body { background:#fff; }
+#fb-wrapper { width:510px; overflow:hidden; margin: 0 auto;}
+
+.fb-header {
+    width:81px;
+    border-right:1px solid #fff;
+    height:82px;
+    background:#ff9900;
+    color:#fff;
+    font-size:17px;
+    line-height:18px;
+    position:relative;
+    float:left;
+}
+
+.fb-header span {
+    position:absolute;
+    bottom:5px;
+    left:3px;
+}
+
+/* Quiz */
+#lela-quiz {
+    margin:0 auto 30px auto;
+    width: 510px;
+    padding: 30px;
+    background: #3f3f3f;
+}
+
+#quiz-wrapper {
+    border:none !important;
+}
+
+/* Categories */
+
+#cat-l {
+    position:absolute;
+    top: 430px;
+    left: 15px;
+}
+
+#cat-l a {
+    width:22px;
+    height:22px;
+    display:block;
+    float:left;
+    background:#e5e5e5;
+    margin-right:5px;
+    margin-bottom:5px;
+}
+
+#cat-l a.selected {
+    background:#ff9900;
+}
+
+#cat-l a span { display:none; }
+
+.l-grid span {
+    padding-right:20px;
+    background:url('../../images/icons/caret_w_r.gif') no-repeat right;
+}
+
+.l-grid {
+    height:31px;
+    display:block;
+    float:left;
+    font-size:17px;
+    margin-top:20px;
+    font-weight:bold;
+    padding:9px 10px 0 10px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background:#ff9900;
+    color:#fff;
+    position:relative;
+    z-index:10;
+}
+
+.l-grid:hover {
+    background:#333;
+    color:#fff;
+}
+
+.l-grid:hover span{
+    background:url('../../images/icons/caret_w_r_h.gif') no-repeat right;
+}
+
+.cat-img {
+    position:absolute;
+    right:0;
+    top:0;
+    z-index:0;
+}
+
+
+/* Categories resizing */
+
+#categories {
+    position: relative;
+}
+
+#category-carousel {
+    clear:both;
+    width:507px;
+    height:488px;
+    border:1px solid #eee;
+    margin:0;
+    overflow:hidden;
+    position: relative;
+}
+
+.cat-c {
+    padding-top:50px;
+    padding-right:150px;
+    padding-left: 17px;
+    overflow:hidden;
+    width: 371px;
+    height: 488px;
+    float:left;
+    position:relative;
+}
+
+.cat-c h2 {
+    font-size:48px;
+    line-height:40px;
+    color:#ff9900;
+    letter-spacing:-2px;
+    position:relative;;
+    z-index:10;
+}
+
+.cat-c p {
+    font-size:12px;
+    width:240px;
+}
+
+.cat-c p {
+    font-size:14px;
+    color:#666;
+    width:280px;
+    position:relative;
+    z-index:10;
+    margin:10px 5px;
+}
+
+.cat-img {
+    right:0;
+    top:0;
+    z-index:0;
+}
+
+
+/* Video Section */
+#lela-fb-video {
+    width:428px;
+    float:left;
+}
+
+#lela-works-fb {
+    margin-top:-2px;
+    background:#313131;
+    color:#fff;
+    padding:20px;
+}
+
+#lela-works-fb h3 {
+    font-size:16px;
+}
+
+#lela-works-fb p { margin:5px 0 0 0; }
+
+#lela-works-fb p span {
+    color:#ff9900;
+    font-weight:bold;
+}
+
+.facebook-introduction {
+    color: #666666;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 0 15px 0;
+    padding: 0;
+    width: 509px;
+    overflow: hidden;
+}
+
+.facebook-introduction span {
+    color: #ff9900;
+}
+
+body {
+    padding: 0 !important;
+}
+
+.affiliate-hd {
+    height:109px;
+    width:533px;
+    background:url('../../images/quiz/embed_hd_back.jpg') no-repeat -25px 0;
+    margin-bottom:15px;
+    padding:20px 0 0 95px;
+    font-size:28px;
+    line-height: 30px;
+}
+
+#header-2 { font-size:34px; line-height: 36px; }
+
+.affiliate-hd span {
+    font-size:14px;
+    display: block;
+}
+
+#affiliate-splash { margin-left:0px; display: block; }
+
+.termsLink {
+    color: #818181;
+    margin-top: 10px;
+}

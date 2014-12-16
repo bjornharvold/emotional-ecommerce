@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:hdp="http://www.springframework.org/schema/hadoop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/hadoop http://www.springframework.org/schema/hadoop/spring-hadoop.xsd">
+
+    <hdp:configuration />
+
+    <hdp:job id="wordCountJob"
+             input-path="/opt/hadoop/input/" output-path="/opt/hadoop/output/"
+             mapper="org.apache.hadoop.examples.WordCount.TokenizerMapper"
+             reducer="org.apache.hadoop.examples.WordCount.IntSumReducer"/>
+</beans>

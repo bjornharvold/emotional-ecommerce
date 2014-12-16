@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ProductDetailAttributeType" items="${productdetailattributetypes}" z="ab5lyxTUmKZvrJr4+2Q+bsNK1V4=">
+        <table:table data="${productdetailattributetypes}" id="l_com_lela_data_domain_entity_ProductDetailAttributeType" path="/crud/productdetailattributetypes" z="H7jlZtD2oaNkNsQXKjMMliIM/fY=">
+            <table:column date="true" dateTimePattern="${productDetailAttributeType_datecreated_date_format}" id="c_com_lela_data_domain_entity_ProductDetailAttributeType_dateCreated" property="dateCreated" z="j31d0k+0qGb6wTGAOPnR/G5waec="/>
+            <table:column date="true" dateTimePattern="${productDetailAttributeType_datemodified_date_format}" id="c_com_lela_data_domain_entity_ProductDetailAttributeType_dateModified" property="dateModified" z="99XkMwzt8rroqr4P61vkZ6ACJUs="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductDetailAttributeType_attributeType" property="attributeType" z="8FxkkdfZdM2yAQWQR0+rJ9FZCoI="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductDetailAttributeType_productDetailGroupAttribute" property="productDetailGroupAttribute" z="gKNhHfXGJWkMXQi3VJDWFOETHKU="/>
+        </table:table>
+    </page:list>
+</div>

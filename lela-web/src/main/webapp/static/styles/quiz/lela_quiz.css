@@ -1,0 +1,152 @@
+body {
+}
+
+#menu, #footer {
+    display: none !important;
+}
+
+#wrapper, #main {
+    overflow: visible;
+}
+
+#lela-quiz {
+    min-height: 500px;
+    margin: 30px 0;
+    -moz-box-shadow: 0 0 10px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0 0 10px 0px rgba(0,0,0,0.25);
+    box-shadow: 0 0 10px 0px rgba(0,0,0,0.25);
+}
+
+#quiz-wrapper {
+    border:none !important;
+}
+
+#quiz-close {
+    width:50px;
+    height: 50px;
+    display: block;
+    background: url('../../images/icons/modal_close_new.png') no-repeat;
+    position: absolute;
+    right:-20px;
+    top:-22px;
+    z-index: 10;
+}
+
+#quiz-exit {
+    background:url('../../images/layout/qz_alert_bg.png') no-repeat;
+    width:421px;
+    height:236px;
+    padding:50px 70px 0 70px;
+    position:absolute;
+    z-index:15;
+    top:190px;
+    left:240px;
+}
+
+#quiz-exit a {
+    width:174px;
+    display:block;
+    color:#fff;
+    text-align:center;
+    font-size:18px;
+    height:37px;
+    padding-top:13px;
+    float:left;
+}
+
+#quiz-exit a#ex-qz {
+    background:url('../../images/buttons/qz_exit.png') no-repeat;
+    margin-left:30px;
+}
+
+#quiz-exit a#cmp-qz {
+    background:url('../../images/buttons/qz_complete.png') no-repeat;
+    margin-left:10px;
+}
+
+#quiz-exit p {
+    font-size:22px;
+    color:#999;
+    text-align:center;
+    line-height:24px;
+}
+
+#quiz-exit p strong {
+    color:#3f3f3f;
+}
+
+
+.anim-steps {
+    text-align: center;
+    background: #fff;
+    overflow: hidden;
+    padding-bottom: 40px;
+    margin: 20px 0;
+}
+
+.anim-steps h2 {
+    background-color: #3f3f3f;
+    text-align:center;
+    color:#fff;
+    font-size:32px;
+    line-height:40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+    -moz-box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+}
+
+.anim-steps .next-steps {
+    background:#d8d8d8;
+    margin:20px auto;
+    overflow: hidden;
+    color:#fff;
+    display:block;
+    font-size:15px;
+    width:300px;
+    font-weight:bold;
+    text-align:center;
+    padding:15px 10px 15px 10px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor:default;
+    -moz-transition: background 0.2s ease 0s;
+}
+
+.anim-steps .next-steps span {
+    color:#fff;
+    padding-right:20px;
+    font-size:16px;
+    opacity:0.5;
+    background:url('../../images/icons/caret_tr.png') no-repeat right;
+}
+
+.anim-steps .next-steps.active {
+    cursor:pointer;
+    background:#ff9900;
+}
+
+.anim-steps .next-steps.active:hover {
+    background:#3f3f3f;
+}
+
+.anim-steps .next-steps.active span {
+    opacity:1;
+}
+
+.anim-steps .task-alert strong, .anim-steps .task-alert em, .anim-steps .task-alert a, .anim-steps .task-alert .close-alert {display: none; }
+.anim-steps .task-alert {
+    margin: 0 auto;
+    width:700px;
+    background: none;
+    padding: 10px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.task-alert .p-progress {
+    width: 450px;
+    margin: 0 auto;
+    padding-top:0;
+}

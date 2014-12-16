@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>com.lela</groupId>
+        <artifactId>lela</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.lela</groupId>
+    <artifactId>lela-motivator-rules</artifactId>
+    <packaging>jar</packaging>
+    <name>LELA: Motivator Rules</name>
+
+    <build>
+        <defaultGoal>package</defaultGoal>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4.3</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.lela</groupId>
+                <artifactId>lela-dtrules</artifactId>
+                <version>${project.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-all</goal>
+                        </goals>
+                        <configuration>
+                            <rulesetPath>${basedir}/dtrules</rulesetPath>
+                            <rulesetFile>DTRules.xml</rulesetFile>
+                            <outputDirectory>${project.build.outputDirectory}/dtrules</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <rulesetPath>${basedir}/dtrules</rulesetPath>
+                    <rulesetFile>DTRules.xml</rulesetFile>
+                    <outputDirectory>${project.build.outputDirectory}/dtrules</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- LELA Dependencies -->
+        <dependency>
+            <groupId>com.lela</groupId>
+            <artifactId>lela-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- DTRUles Dependencies -->
+        <dependency>
+            <groupId>com.dtrules</groupId>
+            <artifactId>dtrules-engine</artifactId>
+            <version>${dtrules.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dtrules</groupId>
+            <artifactId>el</artifactId>
+            <version>${dtrules.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dtrules</groupId>
+            <artifactId>compilerutil</artifactId>
+            <version>${dtrules.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${apache.poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.jflex</groupId>
+            <artifactId>jflex</artifactId>
+            <version>${jflex.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.princeton.cup</groupId>
+            <artifactId>java-cup</artifactId>
+            <version>${cup.version}</version>
+        </dependency>
+
+        <!-- Additional POI dependencies -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${apache.poi.version}</version>
+        </dependency>
+    </dependencies>
+</project>

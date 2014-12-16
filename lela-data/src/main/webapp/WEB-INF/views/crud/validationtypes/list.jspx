@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ValidationType" items="${validationtypes}" z="gqacSeX+IhMMkaCXIJ7Z+0hlkXo=">
+        <table:table data="${validationtypes}" id="l_com_lela_data_domain_entity_ValidationType" path="/crud/validationtypes" z="EkGAhp1tKkOrPPzziNhe2vHJM5c=">
+            <table:column date="true" dateTimePattern="${validationType_datecreated_date_format}" id="c_com_lela_data_domain_entity_ValidationType_dateCreated" property="dateCreated" z="gTGX2w/fNCnTM/2A0XwXQeqx8FU="/>
+            <table:column date="true" dateTimePattern="${validationType_datemodified_date_format}" id="c_com_lela_data_domain_entity_ValidationType_dateModified" property="dateModified" z="N8QQZ4IEhgOxRLbth1KQ//YMsQk="/>
+            <table:column id="c_com_lela_data_domain_entity_ValidationType_validationTypeName" property="validationTypeName" z="Vw+kFDfoY+T+uRG11cNIEINMiQU="/>
+        </table:table>
+    </page:list>
+</div>

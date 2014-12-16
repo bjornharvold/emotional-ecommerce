@@ -1,0 +1,68 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <tiles:importAttribute name="type" ignore="true"/>
+    <tiles:importAttribute name="publicList" ignore="true"/>
+    <tiles:importAttribute name="listCard" ignore="true"/>
+
+    <c:set var="type" value="${fn:toLowerCase(type)}"/>
+
+    <spring:url value="/user/list/card/delete?boardCode=${boardCode}" var="removeUrl" />
+    <spring:url value="/user/list/${listCard.rlnm}/review?boardCode=${boardCode}" var="reviewUrl" />
+    <spring:url value="/user/list/${listCard.rlnm}/note?boardCode=${boardCode}" var="noteUrl" />
+    <spring:url value="/user/list/${listCard.rlnm}/alert?boardCode=${boardCode}" var="alertUrl" />
+    <spring:url value="/user/list/${listCard.rlnm}/picture?boardCode=${boardCode}" var="pictureUrl" />
+    <spring:url value="/list/card/${listCard.rlnm}?boardCode=${boardCode}&amp;cd=${publicList eq true ? listCard.prfl.cd : ''}" var="commentUrl"/>
+
+    <div class="card-tools">
+
+        <c:if test="${publicList eq false and type eq 'item'}">
+            <a href="${alertUrl}" class="btn-alert modal tip ${listCard.lrt.prclrt eq true ? 'active' : 'inactive'}"><span>1</span></a>
+            <div class="l-tooltip">Set an alert</div>
+        </c:if>
+
+        <c:if test="${publicList eq false and type != 'item'}">
+            <span class="btn-alert disabled tip"><!-- --></span>
+            <div class="l-tooltip">Alerts are not available.</div>
+        </c:if>
+
+        <a href="${commentUrl}" class="btn-comment modal tip ${!empty listCard.cmmnts ? 'active' : 'inactive'}"><span>${fn:length(listCard.cmmnts)}</span></a>
+        <div class="l-tooltip">Post a commment</div>
+
+        <span class="tools-hidden">
+            <c:if test="${publicList eq false}">
+                <a href="${noteUrl}" class="btn-note modal tip"><!-- --></a>
+                <div class="l-tooltip">Write a note</div>
+                <a href="${reviewUrl}" class="btn-review modal tip"><!-- --></a>
+                <div class="l-tooltip">Write a review</div>
+                <a href="${pictureUrl}" class="btn-photo modal tip"><!-- --></a>
+                <div class="l-tooltip">Upload a picture</div>
+                <a href="#" class="drag-ico"><!-- --></a>
+                <a href="${removeUrl}" class="btn-remove tip" card-type="${type}" board-code="${boardCode}" rlnm="${listCard.rlnm}"><!-- --></a>
+                <div class="l-tooltip">Remove this ${type}</div>
+            </c:if>
+
+            <c:if test="${publicList eq true and us.cd != listCard.prfl.cd}">
+                <spring:url var="addListItem" value="/user/list/names?type=${type}"/>
+                <a rel="nofollow" href="${addListItem}" method="PUT" class="l-list l-list-add btn-fav tip" rlnm="${listCard.rlnm}" km-id="add-fave"><!-- --></a>
+
+
+            </c:if>
+        </span>
+    </div>
+</jsp:root>

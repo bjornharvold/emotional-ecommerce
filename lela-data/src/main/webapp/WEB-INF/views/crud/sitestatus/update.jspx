@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_SiteStatus" modelAttribute="siteStatus" path="/crud/sitestatus" versionField="Version" z="z7B+Bkp7x+Y39YVfqfrVBjjcWLY=">
+        <field:datetime dateTimePattern="${siteStatus_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_SiteStatus_dateCreated" z="QpKbByN/L7nUTSc6e4klUhxedqw="/>
+        <field:datetime dateTimePattern="${siteStatus_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_SiteStatus_dateModified" z="oyOI3g4doiOWIRJ/P23Il7fNKlo="/>
+        <field:input field="siteStatusName" id="c_com_lela_data_domain_entity_SiteStatus_siteStatusName" z="Af4LtjbxXbjsNjvc11wWbhgG/bs="/>
+    </form:update>
+</div>

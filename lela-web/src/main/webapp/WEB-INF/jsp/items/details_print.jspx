@@ -1,0 +1,333 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+<jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+<lela:findUser/>
+
+<!-- Set item object based on relevancy -->
+<c:if test="${itemDetails.rlvnttm != null}">
+    <c:set var="item" value="${itemDetails.rlvnttm}"/>
+</c:if>
+
+<c:if test="${itemDetails.tm != null}">
+    <c:set var="item" value="${itemDetails.tm}"/>
+</c:if>
+
+<div id="print-wrap">
+
+    <div id="item-content">
+
+        <div id="product-img">
+            <div id="print-logo"><img src="/static/images/layout/lela_logo_print.png" /></div>
+            <!-- CNET specific content -->
+            <c:if test="${item.ctgry.rlnm eq 'digitalcamera'}">
+                <spring:url value="/static/images/partners/CNET_Content_Solutions_Logo.jpg" var="cnetLogoUrl"/>
+                <a href="http://www.cnetcontentsolutions.com/" target="_blank" class="partner-logo"><img src="${cnetLogoUrl}" alt="CNET Content Solutions"/></a>
+            </c:if>
+            <img src="${item.imgs[0].sz['large']}" alt="${item.nm} - ${item.subAttributes['Brand']}" class="pr-img"/>
+        </div>
+
+        <div id="product-info">
+
+            <h2>${item.nm}<br/><span><spring:message code="item.details.by" /> ${item.subAttributes['Brand']}</span></h2>
+
+            <h3><spring:message code="item.details.aslow" /></h3>
+
+            <ul id="lowest-pr">
+
+                <c:forEach var="i" begin="1" end="3">
+
+                    <!-- Set price data for online/favorites/local -->
+                    <c:choose>
+                        <c:when test="${i eq 1 and !empty stores}">
+                            <c:set var="store" value="${stores[0]}"/>
+                            <c:set var="price" value="${store.tms[0].subAttributes['ListPrice']}"/>
+                        </c:when>
+                        <c:when test="${i eq 2 and !empty branches.results}">
+                            <c:set var="store" value="${branches.results[0].store}"/>
+                            <c:set var="price" value="${branches.results[0].listPrice}"/>
+                        </c:when>
+                        <c:when test="${i eq 3 and !empty stores and loggedInUser != 'anonymousUser' and !empty us.savedStores}">
+                            <!-- Get first favorite store -->
+                            <c:set var="break" value="false"/>
+                            <c:set var="store" value="null"/>
+                            <c:forEach var="tmpStore" items="${stores}">
+                                <c:if test="${!empty us.savedStores[tmpStore.rlnm] and break eq 'false'}">
+                                    <c:set var="break" value="true"/>
+                                    <c:set var="store" value="${tmpStore}"/>
+                                    <c:set var="price" value="${store.tms[0].subAttributes['ListPrice']}"/>
+                                </c:if>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <c:set var="store" value="null"/>
+                        </c:otherwise>
+                    </c:choose>
+
+                    <c:if test="${i eq 1}">
+                        <li>
+                            <div class="store-pr">
+                                <c:choose>
+                                    <c:when test="${!empty price}">
+                                        <fmt:formatNumber type="CURRENCY" value="${price}" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        <spring:message code="item.where.buy.pricing"/>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
+                        </li>
+                    </c:if>
+                </c:forEach>
+            </ul>
+
+            <div class="color-name"><spring:message code="item.details.available" /><br/><span>${item.clrs[0].nm}</span></div>
+
+            <div class="color-img">
+
+                <c:forEach var="color" varStatus="status" items="${item.clrs}">
+                    <img src="${color.sz['small']}" alt="${item.nm} - ${item.subAttributes['Brand']}"/>
+                </c:forEach>
+
+            </div>
+
+        </div>
+
+        <div class="product-details">
+            <c:forEach var="group" items="${itemDetails.sctns[2].grps}" varStatus="statusGrp">
+                <c:if test="${group.nm eq 'attribute.group.overview' or group.nm eq 'attribute.group.about'}">
+                    <h2><spring:message code="${group.nm}"/> </h2>
+                    <c:forEach var="attr" items="${group.attrs}">
+                        <c:if test="${!empty attr.vl}">
+                            <p><strong><spring:message code="attribute.attr.${attr.ky}"/>:</strong> <br/>${attr.vl}</p>
+                        </c:if>
+                    </c:forEach>
+
+                </c:if>
+            </c:forEach>
+
+        </div>
+
+    </div>
+
+    <div id="p-details">
+
+        <c:forEach var="section" items="${itemDetails.sctns}" varStatus="status" begin="0">
+
+            <c:if test="${status.index eq 0 or status.index eq 3}">
+
+                <fmt:formatNumber var="grpCount" value="${(fn:length(section.grps))/2}" maxFractionDigits="0" />
+
+                <div id="tab${status.count}" class="tab-content">
+
+                    <h2 class="hdr"><spring:message code="item.details.print.hdr.${status.index}"/></h2>
+
+                    <!-- first column -->
+                    <div class="col-m col">
+                        <c:forEach var="group" items="${section.grps}" varStatus="statusGrp" begin="0" end="0" >
+                            <c:if test="${group.nm != 'attribute.group.bestrated' and group.nm != 'attribute.group.uniquefeatures'}"> <!-- Disable specific group temporarily -->
+                                <h2><spring:message code="${group.nm}"/></h2>
+                                <c:forEach var="attr" items="${group.attrs}">
+                                    <c:if test="${!empty attr.vl}">
+                                        <p><strong><spring:message code="attribute.attr.${attr.ky}"/>:</strong> <br/>${attr.vl}</p>
+                                    </c:if>
+                                </c:forEach>
+
+                            </c:if>
+                        </c:forEach>
+                    </div>
+
+                    <!-- 2nd column -->
+                    <div class="col-m col">
+                        <c:forEach var="group" items="${section.grps}" varStatus="statusGrp" begin="1" end="${grpCount}" >
+
+                            <h2><spring:message code="${group.nm}"/></h2>
+                            <p>
+                                <c:forEach var="attr" items="${group.attrs}">
+                                    <c:if test="${!empty attr.vl}">
+                                        <spring:message code="attribute.attr.${attr.ky}"/>: ${attr.vl}<br/>
+                                    </c:if>
+                                </c:forEach>
+                            </p>
+                        </c:forEach>
+                    </div>
+
+                    <!-- 3rd column -->
+                    <div class="col-m col">
+                        <c:forEach var="group" items="${section.grps}" varStatus="statusGrp" begin="${grpCount+1}" >
+                            <h2><spring:message code="${group.nm}"/></h2>
+                            <p>
+                                <c:forEach var="attr" items="${group.attrs}">
+                                    <c:if test="${!empty attr.vl}">
+                                        <spring:message code="attribute.attr.${attr.ky}"/>: ${attr.vl}<br/>
+                                    </c:if>
+                                </c:forEach>
+                            </p>
+                        </c:forEach>
+                    </div>
+
+                </div>
+
+            </c:if>
+
+        </c:forEach>
+
+        <div id="tab-pr" class="tab-content">
+
+            <h2 class="hdr"><spring:message code="item.where.buy.online"/></h2>
+
+            <spring:url value="/sc/terms" var="termsUrl" />
+            <spring:url value="/item/${item.rlnm}/stores" var="localStoreUrl" />
+
+            <script type="text/javascript">
+                var localStoreUrl = '${localStoreUrl}';
+            </script>
+
+            <c:set var="type" value="online"/>
+
+            <div id="buy-tbl-${type}" class="buy-content">
+                <table class="tbl" border="0" cellpadding="0" cellspacing="0">
+
+                    <c:choose>
+                        <c:when test="${!empty stores}">
+
+                            <thead>
+                            <tr>
+                                <th><spring:message code="item.where.buy.seller"/></th>
+                                <th class="buy-deals"><spring:message code="item.where.buy.promotions" htmlEscape="false"/></th>
+                                <th><spring:message code="item.where.buy.price.terse"/></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:set var="offersEmpty" value="true"/>
+                            <c:set var="favoriteStores" value="false"/>
+                            <c:forEach var="store" items="${stores}" begin="0" end="4">
+
+                                <c:if test="${type eq 'online' or (type eq 'favorite' and !empty us.savedStores[store.rlnm])}">
+
+                                    <c:if test="${type eq 'favorite' and !empty us.savedStores[store.rlnm]}">
+                                        <script type="text/javascript">var favoriteStores = true;</script>
+                                        <c:set var="favoriteStores" value="true"/>
+                                    </c:if>
+
+                                    <tr class="row-${store.rlnm}">
+                                        <td class="buy-store">
+                                            <strong>
+                                                <c:choose>
+                                                    <c:when test="${store.nm != 'Amazon'}">
+                                                        ${store.nm}
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <spring:message code="item.where.buy.amazon"/>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </strong>
+
+                                        </td>
+                                        <td class="buy-deals">
+                                            <c:if test="${!empty store.dls}">
+                                                <c:set var="offersEmpty" value="false"/>
+                                                <ul>
+                                                    <c:forEach items="${store.dls}" var="deal" end="0">
+                                                        <c:set var="dealName" value="Go to store for deal details"/>
+                                                        <c:if test="${!empty deal.nm}">
+                                                            <c:set var="dealName" value="${deal.nm}"/>
+                                                        </c:if>
+                                                        <li class="deal-item">${dealName}
+                                                        </li>
+                                                    </c:forEach>
+                                                </ul>
+                                            </c:if>
+                                        </td>
+                                        <td class="list-price">
+                                            <c:choose>
+                                                <c:when test="${!empty store.tms[0].subAttributes['ListPrice']}">
+                                                    <!-- Online Store price -->
+                                                    <fmt:formatNumber type="CURRENCY" value="${store.tms[0].subAttributes['ListPrice']}" />
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <span><spring:message code="item.where.buy.pricing"/></span>
+                                                </c:otherwise>
+                                            </c:choose>
+
+                                        </td>
+                                    </tr>
+                                </c:if>
+                            </c:forEach>
+
+                            </tbody>
+
+                        </c:when>
+                        <c:otherwise>
+                            <tr><td>
+                                <p class="no-stores"><spring:message code="item.where.online.empty" htmlEscape="false"/></p>
+                            </td></tr>
+                        </c:otherwise>
+                    </c:choose>
+                </table>
+
+            </div>
+
+            <h2 class="hdr"><spring:message code="item.where.buy.local.print"/></h2>
+
+            <div id="loc-data" class="lc-data buy-content">
+
+                <div class="loc-data-container">
+
+                    <c:choose>
+                        <c:when test="${!empty branches.results}">
+                            <table class="tbl loc-tbl" border="0" cellpadding="0" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th class="col-l"><spring:message code="item.where.buy.seller.print"/></th>
+                                    <th><spring:message code="item.where.buy.price.print"/></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:set var="count" value="1"/>
+                                <c:set var="offersEmpty" value="true"/>
+                                <c:forEach items="${branches.results}" var="result" varStatus="status" begin="0" end="4">
+                                    <c:set var="branch" value="${result.branch}"/>
+                                    <tr class="row-${result.store.rlnm}">
+                                        <td class="buy-store col-l">
+                                            <strong>${branch.nm}</strong> ${branch.ddrss}, ${branch.cty}, ${branch.st} ${branch.zp}, <fmt:formatNumber type="number" maxFractionDigits="2"  value="${result.distanceInMiles}" /> Mi
+                                        </td>
+                                        <td class="list-price">
+                                            <fmt:formatNumber type="CURRENCY" value="${result.listPrice}" />
+                                        </td>
+                                    </tr>
+                                    <c:set var="count" value="${count + 1}"/>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+
+                        </c:when>
+                        <c:otherwise>
+                            <p class="no-stores"><spring:message code="item.where.local.empty" htmlEscape="false"/></p>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</jsp:root>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ProductImage" items="${productimages}" z="EGGK6HRkHNENFxPuXvqk33OfkxU=">
+        <table:table data="${productimages}" id="l_com_lela_data_domain_entity_ProductImage" path="/crud/productimages" z="G0DUUZQX/IEP01V5gXj3Z7uZvyM=">
+            <table:column date="true" dateTimePattern="${productImage_datecreated_date_format}" id="c_com_lela_data_domain_entity_ProductImage_dateCreated" property="dateCreated" z="4uufDC0CY5kkdYIVa/K8CgxGT4E="/>
+            <table:column date="true" dateTimePattern="${productImage_datemodified_date_format}" id="c_com_lela_data_domain_entity_ProductImage_dateModified" property="dateModified" z="6W2H+JANszmBZPHQfi7jASALDlM="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductImage_imageSource" property="imageSource" z="USFRGA6Qz9sm3SAeJXQn/JNVoD0="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductImage_sourceKey" property="sourceKey" z="JGBa+uOHn1xFj6mmyiGH0/8U+3M="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductImage_imageUrl" property="imageUrl" z="TXEfmuvV2ple5zrMp5aX/5sVrU8="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductImage_uploadReason" property="uploadReason" z="ZyUdTamSFdUVsuuCZDaMEdxAe5Q="/>
+        </table:table>
+    </page:list>
+</div>

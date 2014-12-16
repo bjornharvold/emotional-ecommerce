@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_FunctionalFilter" items="${functionalfilters}" z="nmm9Baxr1bnsablj1q+suy8Ni40=">
+        <table:table data="${functionalfilters}" id="l_com_lela_data_domain_entity_FunctionalFilter" path="/crud/functionalfilters" z="UJCbLcahHZK0v1Xm75+VVsDS9eI=">
+            <table:column date="true" dateTimePattern="${functionalFilter_datecreated_date_format}" id="c_com_lela_data_domain_entity_FunctionalFilter_dateCreated" property="dateCreated" z="ivfTzieLQWue55lAXiXbCNXl2Sg="/>
+            <table:column date="true" dateTimePattern="${functionalFilter_datemodified_date_format}" id="c_com_lela_data_domain_entity_FunctionalFilter_dateModified" property="dateModified" z="EGZ8H8ZJH3wDg+5wPG9H/7uLLa0="/>
+            <table:column id="c_com_lela_data_domain_entity_FunctionalFilter_functionalFilterType" property="functionalFilterType" z="YNLNw2cgA2mCYMwF1abrA1bRn1s="/>
+            <table:column id="c_com_lela_data_domain_entity_FunctionalFilter_locale" property="locale" z="zZLjvB3X9XsvfrsZx3DV4HV9+/c="/>
+            <table:column id="c_com_lela_data_domain_entity_FunctionalFilter_functionalFilterAnswers" property="functionalFilterAnswers" z="uDbOTt3/+r4fsg6KzXJTXJ/g/DE="/>
+            <table:column id="c_com_lela_data_domain_entity_FunctionalFilter_functionalFilterName" property="functionalFilterName" z="1qUfRrkpWGEywAZvH5V6DKjiZ3c="/>
+        </table:table>
+    </page:list>
+</div>

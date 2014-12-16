@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.polarrose</groupId>
+  <artifactId>amazon-parent</artifactId>
+  <name>AWS Integration</name>
+  <packaging>pom</packaging>
+  <version>1.99d</version>
+
+  <scm>
+     <connection>scm:svn:http://polarrose-amazon.googlecode.com/svn/trunk/</connection>
+  </scm>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Stefan Arentz</name>
+      <id>stefan</id>
+      <organization>Arentz Consulting</organization>
+      <email>stefan@arentz.ca</email>
+    </developer>
+    <developer>
+      <name>Piotr Maj</name>
+      <id>piotr</id>
+      <organization>Polar Rose</organization>
+      <email>piotr@polarrose.com</email>
+    </developer>
+  </developers>
+
+  <organization>
+    <name>Arentz Consulting</name>
+    <url>http://stefan.arentz.ca</url>
+  </organization>
+
+
+  <modules>
+    <module>amazon-core</module>
+    <module>amazon-spring</module>
+    <module>amazon-spring-examples</module>
+  </modules>
+
+</project>
+

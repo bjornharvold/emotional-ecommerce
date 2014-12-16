@@ -1,0 +1,41 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer' subtype=''/>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date' subtype=''/>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string' subtype=''/>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer' subtype=''/>
+			<setattribute tag='SmrtPhnID' RAttribute='SmrtPhnID' enclosure='job' type='integer' subtype=''/>
+			
+			<setattribute tag='Brand' RAttribute='Brand' enclosure='smrtphn' type='string' subtype=''/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='smrtphn' type='integer' subtype=''/>
+			<setattribute tag='Cellular_MobileBroadbandGeneration' RAttribute='Cellular_MobileBroadbandGeneration' enclosure='smrtphn' type='string' subtype=''/>
+			<setattribute tag='Communications_WirelessInterface_LTE' RAttribute='Communications_WirelessInterface_LTE' enclosure='smrtphn' type='string' subtype=''/>
+			<setattribute tag='Communications_WirelessInterface_NFC' RAttribute='Communications_WirelessInterface_NFC' enclosure='smrtphn' type='string' subtype=''/>
+			<setattribute tag='Display_DiagonalSize' RAttribute='Display_DiagonalSize' enclosure='smrtphn' type='double' subtype=''/>
+			<setattribute tag='Display_DisplayResolution' RAttribute='Display_DisplayResolution' enclosure='smrtphn' type='string' subtype=''/>
+			<setattribute tag='ListPrice' RAttribute='ListPrice' enclosure='smrtphn' type='double' subtype=''/>
+			<setattribute tag='motivatorTotal' RAttribute='motivatorTotal' enclosure='smrtphn' type='integer' subtype=''/>
+			<setattribute tag='OpticalSensor_SensorResolution' RAttribute='OpticalSensor_SensorResolution' enclosure='smrtphn' type='integer' subtype=''/>
+			<setattribute tag='Processor_ClockSpeed' RAttribute='Processor_ClockSpeed' enclosure='smrtphn' type='string' subtype=''/>
+			<setattribute tag='Processor_ProcessorCoreQty' RAttribute='Processor_ProcessorCoreQty' enclosure='smrtphn' type='string' subtype=''/>
+			<setattribute tag='SmrtPhnID' RAttribute='SmrtPhnID' enclosure='smrtphn' type='integer' subtype=''/>
+			
+			<createentity entity='constants' tag='constants' id='id'></createentity>
+			<createentity entity='job' tag='job' id='id'></createentity>
+			<createentity entity='smrtphn' tag='smrtphn' id='id'></createentity>
+		</map>
+		
+		<entities>
+			<entity name='constants' number='1'></entity>
+			<entity name='job' number='1'></entity>
+			<entity name='smrtphn' number='*'></entity>
+		</entities>
+		
+		<initialization>
+			<initialentity entity='constants' epush='true'></initialentity>
+			<initialentity entity='job' epush='true'></initialentity>
+		</initialization>
+	</XMLtoEDD>
+</mapping>

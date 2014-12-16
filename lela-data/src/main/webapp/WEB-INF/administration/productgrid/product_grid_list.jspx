@@ -1,0 +1,79 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="link.delete" var="delete"/>
+
+    <h1><spring:message code="page.admin.product.grids.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/productgrid/form" var="newQuizUrl"/>
+        <a class="action" href="${newQuizUrl}"><spring:message code="product.grid.create.entry"/></a>
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <c:if test="${empty productGrids.content}">
+        <p><spring:message code="product.grid.list.empty"/></p>
+    </c:if>
+
+    <c:if test="${not empty productGrids.content}">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th width="15%"><spring:message code="product.grid.name"/></th>
+                <th width="15%"><spring:message code="product.grid.url.name"/></th>
+                <th width="6%"><spring:message code="product.grid.locale"/></th>
+                <th width="10%"><spring:message code="product.grid.category"/></th>
+                <th width="10%"><spring:message code="product.grid.sort"/></th>
+                <th width="10%"><spring:message code="product.grid.published"/></th>
+                <th width="5%">&#160;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${productGrids.content}" var="productGrid">
+                <tr>
+                    <td>${productGrid.nm}</td>
+                    <td>${productGrid.rlnm}</td>
+                    <td>${productGrid.lcl}</td>
+                    <td>${productGrid.crlnm}</td>
+                    <td>${productGrid.srt}</td>
+                    <td>${productGrid.pblshd}</td>
+                    <td>
+                        <spring:url value="/administration/productgrid/${productGrid.rlnm}" var="productGridUrl"/>
+                        <a class="action" href="${productGridUrl}"><spring:message code="link.view"/></a>
+
+                        <spring:url value="/administration/productgrid/form" var="editProductGridUrl">
+                            <spring:param name="urlName" value="${productGrid.rlnm}"/>
+                        </spring:url>
+                        <a class="action" href="${editProductGridUrl}"><spring:message code="link.edit"/></a>
+
+                        <spring:url value="/administration/productgrid/${productGrid.rlnm}" var="deleteProductGridUrl"/>
+                        <spring-form:form action="${deleteProductGridUrl}" method="DELETE">
+                            <input type="submit" name="${delete}" value="${delete}"/>
+                        </spring-form:form>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+
+        <lela:lelaPagination url="/administration/productgrid/list" totalElements="${productGrids.totalElements}" totalPages="${productGrids.totalPages}" pageNumber="${productGrids.number}" pageSize="${productGrids.size}"/>
+    </c:if>
+</div>

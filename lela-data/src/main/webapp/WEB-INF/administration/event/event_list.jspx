@@ -1,0 +1,91 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <security:authentication property="principal.user" var="testUser"/>
+
+    <h2>Event List</h2>
+    <spring:url value="/administration/event" var="eventAddUrl"/>
+    <div class="actions">
+        <a class="action" href="${eventAddUrl}">Create event ></a>
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <c:if test="${empty events.content}">
+        No events have been created yet
+    </c:if>
+
+    <c:if test="${!empty events.content}">
+        <table width="100%" id="datatable" class="tablesorter">
+            <thead>
+            <tr>
+                <th width="14%">Name</th>
+                <th width="14%">URL</th>
+                <th width="9%">Affiliate</th>
+                <th width="9%">Campaign</th>
+                <th width="9%">Start date</th>
+                <th width="9%">End date</th>
+                <th width="9%">View Name</th>
+                <th width="9%">Expired View Name</th>
+                <th width="8%">Redirect URL</th>
+                <th width="10%">&#160;</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <c:forEach items="${events.content}" var="cb">
+                <spring:url value="${previewUrl}/event/${cb.rlnm}" var="eventUrl"/>
+                <tr>
+                    <td>${cb.nm}</td>
+                    <td><a target="_blank" href="${eventUrl}">${eventUrl}</a></td>
+                    <td>${cb.ffltccntrlnm}</td>
+                    <td>${cb.cmpgnrlnm}</td>
+                    <td>${cb.strtdt}</td>
+                    <td>${cb.nddt}</td>
+                    <td>${cb.vwnm}</td>
+                    <td>${cb.xprdvwnm}</td>
+                    <td>${cb.rdrctrl}</td>
+                    <td>
+                        <spring:url value="/administration/event?urlName=${cb.rlnm}" var="eventUpdateUrl"/>
+                        <a class="action" href="${eventUpdateUrl}">Edit</a>
+
+                        <spring:url var="downloadUrl" value="/administration/event/users/report/generate?urlName=${cb.rlnm}"/>
+                        <a class="action" href="${downloadUrl}" id="download-user-report">Users</a>
+                    </td>
+                </tr>
+
+            </c:forEach>
+
+            </tbody>
+
+        </table>
+
+    </c:if>
+
+    <script type="text/javascript">
+        if($('#datatable').length > 0) {
+            $('#datatable').tablesorter({
+                widgets: ['zebra'],
+                sortList: [[0,0]],
+                headers: {
+                    4: {
+                        sorter: false
+                    }
+                }
+            });
+        }
+    </script>
+
+</div>

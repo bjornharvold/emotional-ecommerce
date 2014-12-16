@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <!--
+        CHAIN JOB EXECUTION
+    -->
+    <bean id="chainJobExecutor" class="com.lela.commons.jobs.chain.ChainExecutor">
+        <constructor-arg ref="ingestJobScheduler"/>
+        <constructor-arg ref="ingestJobService"/>
+        <constructor-arg>
+            <list>
+                <!-- Chain Jobs -->
+                <ref bean="updatePricesChain"/>
+                <ref bean="ingestItemsChain"/>
+                <ref bean="weeklyUpdatesChain"/>
+                <ref bean="affiliateReportingChain"/>
+                <ref bean="priceOfferChain"/>
+                <ref bean="nightlyMotivatorUpdatesChain"/>
+                <ref bean="imageProcessingChain"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!--
+        Update Prices CHAIN
+    -->
+    <bean id="updatePricesChain" class="com.lela.commons.jobs.chain.ChainJobDetail">
+        <property name="allowConcurrentRuns" value="false"/>
+        <property name="name" value="Update Daily Prices"/>
+        <property name="jobs">
+            <list>
+                <ref bean="RunAllNewMotivators"/>
+                <ref bean="RunBrandMotivators"/>
+                <ref bean="GetPopshopsDeals"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--
+        Weekly Updates Chain
+    -->
+    <bean id="weeklyUpdatesChain" class="com.lela.commons.jobs.chain.ChainJobDetail">
+        <property name="allowConcurrentRuns" value="false"/>
+        <property name="name" value="Weekly Updates"/>
+        <property name="jobs">
+            <list>
+                <ref bean="GetFacebookLikes"/>
+                <ref bean="GetTwitterFollowers"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <!--
+        ALL Item Ingest Chain
+    -->
+    <bean id="ingestItemsChain" class="com.lela.commons.jobs.chain.ChainJobDetail">
+        <property name="allowConcurrentRuns" value="false"/>
+        <property name="name" value="Ingest ALL Items Chain"/>
+        <property name="jobs">
+            <list>
+                <ref bean="functionalFilterEtlJobDetail"/>
+                <ref bean="itemSyncJobDetailNew"/>
+                <!-- <ref bean="babymonitorEtlJobDetail"/> -->
+                <!-- <ref bean="cameraEtlJobDetail"/> -->
+                <!-- <ref bean="carrierEtlJobDetail"/> -->
+                <!-- <ref bean="carSeatEtlJobDetail"/> -->
+                <!-- <ref bean="cribEtlJobDetail"/> -->
+                <!-- <ref bean="highchairEtlJobDetail"/> -->
+                <!-- <ref bean="strollerEtlJobDetail"/> -->
+                <ref bean="priceAlertJobDetail"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="affiliateReportingTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="affiliateReportingChain"/>
+        <property name="cronExpression" value="${ingest.affiliateReporting}"/>
+    </bean>
+
+    <bean id="affiliateReportingChain" class="com.lela.commons.jobs.chain.ChainJobDetail">
+        <property name="allowConcurrentRuns" value="false"/>
+        <property name="name" value="Update Affiliate Reporting"/>
+        <property name="jobs">
+            <list>
+                <ref bean="UploadAffiliateReportingData"/>
+                <ref bean="ImportAffiliateReportingData"/>
+                <ref bean="affiliateReportingUserSalesEtlJobDetail"/>
+                <ref bean="affiliateReportingAnonymousSalesEtlJobDetail"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="priceOfferTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="priceOfferChain"/>
+        <property name="cronExpression" value="${ingest.priceOffer}"/><!-- every hour -->
+    </bean>
+
+    <bean id="priceOfferChain" class="com.lela.commons.jobs.chain.ChainJobDetail">
+        <property name="allowConcurrentRuns" value="false"/>
+        <property name="name" value="Hourly Price Refresh"/>
+        <property name="jobs">
+            <list>
+                <ref bean="OffersAmazon"/>
+                <ref bean="OffersBabyAge"/>
+                <ref bean="OffersBBY"/>
+                <ref bean="OffersGAN"/>
+                <ref bean="OffersCJ"/>
+                <ref bean="OffersShareASaleOffers"/>
+                <ref bean="OffersShareASaleLoad"/>
+		<ref bean="GetDeals"/>
+		<ref bean="dealEtlJobDetail"/>
+                <ref bean="itemSyncJobDetailNew"/>
+                <ref bean="priceAlertJobDetail"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="nightlyMotivatorUpdatesTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="nightlyMotivatorUpdatesChain"/>
+        <property name="cronExpression" value="${ingest.nightlyMotivatorUpdates}"/><!-- night at 12:30 -->
+    </bean>
+
+    <bean id="nightlyMotivatorUpdatesChain" class="com.lela.commons.jobs.chain.ChainJobDetail">
+        <property name="allowConcurrentRuns" value="false"/>
+        <property name="name" value="Nightly Motivator Updates Chain"/>
+        <property name="jobs">
+            <list>
+                <ref bean="GetFacebookLikes"/>
+                <ref bean="GetTwitterFollowers"/>
+                <ref bean="RunAllNewMotivators"/>
+                <ref bean="RunBrandMotivators"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--
+        Image Processing Chain
+    -->
+    <bean id="imageProcessingChain" class="com.lela.commons.jobs.chain.ChainJobDetail">
+        <property name="allowConcurrentRuns" value="false"/>
+        <property name="name" value="Process Images"/>
+        <property name="jobs">
+            <list>
+                <ref bean="EavCnetResizeAndStoreImageAll"/>
+                <ref bean="EavLoadImageFromCNET"/>
+                <ref bean="EavLoadImageFromOffers"/>
+                <ref bean="EAVMarkDuplicateImages"/>
+                <ref bean="EavAssignImagesToItems"/>
+                <ref bean="EavResizeAndStoreImage"/>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>

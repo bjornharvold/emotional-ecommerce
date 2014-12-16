@@ -1,0 +1,1155 @@
+{
+  "id" : "4f4be8a326f01504bc4bb0e8",
+  "rlnm" : "teststroller",
+  "mtvtrs" : {
+    "A" : 5,
+    "B" : 9,
+    "C" : 2,
+    "D" : 9,
+    "E" : 8,
+    "F" : 9,
+    "G" : 4,
+    "H" : 1,
+    "I" : 9,
+    "J" : 1,
+    "K" : 1,
+    "L" : 1
+  },
+  "attrs" : [{
+      "ky" : "ColorCount",
+      "vl" : "12"
+    }, {
+      "ky" : "Manufacturer"
+    }, {
+      "grp" : "attribute.group.safetybuzzrecentrecalls",
+      "grprdr" : 1,
+      "ky" : "ProductModelName",
+      "rdr" : 2,
+      "sctn" : "attribute.section.brandbuzz",
+      "sctnrdr" : 5,
+      "vl" : "Bee"
+    }, {
+      "ky" : "ProductModelNo",
+      "vl" : "580311BL01"
+    }, {
+      "ky" : "ProductImageUrl",
+      "vl" : "http://lelaimages.s3.amazonaws.com/201201231632_TKrbjiNDVpzoqcMm.jpg"
+    }, {
+      "ky" : "ProductUrl",
+      "vl" : "http%3A%2F%2Fwww%2Ebugaboo%2Ecom%2Flearn%2Fbugaboo%2Dbee%3Fid%3D6010"
+    }, {
+      "ky" : "BestForTallParents",
+      "vl" : "true"
+    }, {
+      "ky" : "BestForInfants",
+      "vl" : "true"
+    }, {
+      "ky" : "BestForMultipleAgedChildren",
+      "vl" : "true"
+    }, {
+      "ky" : "BestForToddlersOlderKids",
+      "vl" : "false"
+    }, {
+      "ky" : "BestForGrowingFamily",
+      "vl" : "true"
+    }, {
+      "ky" : "BestForAirplaneTravel",
+      "vl" : "false"
+    }, {
+      "ky" : "BestForUrbanLiving",
+      "vl" : "true"
+    }, {
+      "grp" : "attribute.group.overview",
+      "grprdr" : 1,
+      "ky" : "BestForSummary_1",
+      "rdr" : 2,
+      "sctn" : "attribute.section.overview",
+      "sctnrdr" : 3,
+      "vl" : "Tall Parents, Infants, Multiple Ages, Growing Family, Urban Living"
+    }, {
+      "grp" : "attribute.group.overview",
+      "grprdr" : 1,
+      "ky" : "BestForSummary_2",
+      "rdr" : 2,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Tall Parents, Infants, Multiple Ages, Growing Family, Urban Living"
+    }, {
+      "grp" : "attribute.group.overview",
+      "grprdr" : 1,
+      "ky" : "BestForSummary_3",
+      "rdr" : 2,
+      "sctn" : "attribute.section.accessories",
+      "sctnrdr" : 4,
+      "vl" : "Tall Parents, Infants, Multiple Ages, Growing Family, Urban Living"
+    }, {
+      "ky" : "ThingsMatterModernStyle",
+      "vl" : "true"
+    }, {
+      "ky" : "ThingsMatterSportyStyle",
+      "vl" : "false"
+    }, {
+      "ky" : "ThingsMatterInnovativeDesign",
+      "vl" : "true"
+    }, {
+      "ky" : "ThingsMatterLightweight",
+      "vl" : "false"
+    }, {
+      "ky" : "ThingsMatterEZManeuver",
+      "vl" : "true"
+    }, {
+      "ky" : "ThingsMatterCompact",
+      "vl" : "true"
+    }, {
+      "grp" : "attribute.group.overview",
+      "grprdr" : 1,
+      "ky" : "ThingsMatterSummary_1",
+      "rdr" : 3,
+      "sctn" : "attribute.section.overview",
+      "sctnrdr" : 3,
+      "vl" : "Modern Style, Innovative Design, Easy to Maneuver, Compact"
+    }, {
+      "grp" : "attribute.group.overview",
+      "grprdr" : 1,
+      "ky" : "ThingsMatterSummary_2",
+      "rdr" : 3,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Modern Style, Innovative Design, Easy to Maneuver, Compact"
+    }, {
+      "grp" : "attribute.group.overview",
+      "grprdr" : 1,
+      "ky" : "ThingsMatterSummary_3",
+      "rdr" : 3,
+      "sctn" : "attribute.section.accessories",
+      "sctnrdr" : 4,
+      "vl" : "Modern Style, Innovative Design, Easy to Maneuver, Compact"
+    }, {
+      "ky" : "NumberSeats_1",
+      "vl" : "true"
+    }, {
+      "ky" : "UPC",
+      "vl" : "8717447023036"
+    }, {
+      "ky" : "GTIN"
+    }, {
+      "ky" : "Country",
+      "vl" : "Netherlands"
+    }, {
+      "ky" : "JPMACertified",
+      "vl" : "Y"
+    }, {
+      "ky" : "ASTMF833Tested",
+      "vl" : "Y"
+    }, {
+      "ky" : "TUVTested",
+      "vl" : "Y"
+    }, {
+      "ky" : "EN1888Tested",
+      "vl" : "Y"
+    }, {
+      "ky" : "SOR85_379Tested",
+      "vl" : "Y"
+    }, {
+      "ky" : "CPSIA2008Tested",
+      "vl" : "N"
+    }, {
+      "grp" : "attribute.group.safety",
+      "grprdr" : 6,
+      "ky" : "SafetyCertification",
+      "rdr" : 4,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "JPMA Certified, ASTM F833 Tested, TUV Tested, EN1888 Tested, SOR 85-379 Tested"
+    }, {
+      "ky" : "ConsumerReportsRated",
+      "vl" : "Tested—Not Recommended"
+    }, {
+      "ky" : "CRSafety",
+      "vl" : "Fair"
+    }, {
+      "ky" : "RecallEvent",
+      "vl" : "Y"
+    }, {
+      "grp" : "attribute.group.safetybuzzrecentrecalls",
+      "grprdr" : 1,
+      "ky" : "RecallDate",
+      "rdr" : 1,
+      "sctn" : "attribute.section.brandbuzz",
+      "sctnrdr" : 5,
+      "vl" : "2009-06-02"
+    }, {
+      "grp" : "attribute.group.safetybuzzrecentrecalls",
+      "grprdr" : 1,
+      "ky" : "RecallUnits",
+      "rdr" : 3,
+      "sctn" : "attribute.section.brandbuzz",
+      "sctnrdr" : 5,
+      "vl" : "22500"
+    }, {
+      "grp" : "attribute.group.safetybuzzrecentrecalls",
+      "grprdr" : 1,
+      "ky" : "RecallHazard",
+      "rdr" : 4,
+      "sctn" : "attribute.section.brandbuzz",
+      "sctnrdr" : 5,
+      "vl" : "One or both sides of the brakes can fail, causing a stroller to unexpectedly roll away on an incline. This can pose a risk of injury to the child occupant."
+    }, {
+      "grp" : "attribute.group.safetybuzzrecentrecalls",
+      "grprdr" : 1,
+      "ky" : "RecallIncidentsInjuries",
+      "rdr" : 5,
+      "sctn" : "attribute.section.brandbuzz",
+      "sctnrdr" : 5,
+      "vl" : "Bugaboo has received 121 reports of the stroller’s brakes failing. No injuries have been reported."
+    }, {
+      "ky" : "RecallSeverity",
+      "vl" : "Severe - No Injuries Reported"
+    }, {
+      "ky" : "StrollerTypeTraditional",
+      "vl" : "true"
+    }, {
+      "ky" : "StrollerTypeMultiFunction",
+      "vl" : "true"
+    }, {
+      "ky" : "StrollerTypePrams",
+      "vl" : "false"
+    }, {
+      "ky" : "StrollerTypeLightwtUmbrella",
+      "vl" : "false"
+    }, {
+      "ky" : "StrollerTypeJogging",
+      "vl" : "false"
+    }, {
+      "ky" : "StrollerTypeAllTerrain",
+      "vl" : "false"
+    }, {
+      "ky" : "StrollerTypeMultiple",
+      "vl" : "false"
+    }, {
+      "grp" : "attribute.group.overview",
+      "grprdr" : 1,
+      "ky" : "SummaryStrollerType_1",
+      "rdr" : 1,
+      "sctn" : "attribute.section.overview",
+      "sctnrdr" : 3,
+      "vl" : "Multi-function"
+    }, {
+      "grp" : "attribute.group.overview",
+      "grprdr" : 1,
+      "ky" : "SummaryStrollerType_2",
+      "rdr" : 1,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Multi-function"
+    }, {
+      "grp" : "attribute.group.overview",
+      "grprdr" : 1,
+      "ky" : "SummaryStrollerType_3",
+      "rdr" : 1,
+      "sctn" : "attribute.section.accessories",
+      "sctnrdr" : 4,
+      "vl" : "Multi-function"
+    }, {
+      "grp" : "attribute.group.overview",
+      "grprdr" : 1,
+      "ky" : "NumberSeats",
+      "rdr" : 4,
+      "sctn" : "attribute.section.overview",
+      "sctnrdr" : 3,
+      "vl" : "1"
+    }, {
+      "ky" : "Multiplekids",
+      "vl" : "Yes with accessory"
+    }, {
+      "grp" : "attribute.group.optaccessories",
+      "grprdr" : 3,
+      "ky" : "FootBoardPrice",
+      "rdr" : 0,
+      "sctn" : "attribute.section.accessories",
+      "sctnrdr" : 4,
+      "vl" : "Optional Accessory"
+    }, {
+      "ky" : "NewbornToToddler",
+      "vl" : "Y"
+    }, {
+      "grp" : "attribute.group.notavailaccessories",
+      "grprdr" : 4,
+      "ky" : "Bassinet",
+      "rdr" : 0,
+      "sctn" : "attribute.section.accessories",
+      "sctnrdr" : 4,
+      "vl" : "Not Included"
+    }, {
+      "ky" : "BassinetPrice"
+    }, {
+      "ky" : "BassinetAdaptorPrice"
+    }, {
+      "grp" : "attribute.group.infantfeatures",
+      "grprdr" : 7,
+      "ky" : "RecliningSeat",
+      "rdr" : 2,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Non-reclining"
+    }, {
+      "grp" : "attribute.group.stdaccessories",
+      "grprdr" : 2,
+      "ky" : "CarSeatAdaptable",
+      "rdr" : 0,
+      "sctn" : "attribute.section.accessories",
+      "sctnrdr" : 4,
+      "vl" : "Yes"
+    }, {
+      "ky" : "NumberOfCarSeatBrands",
+      "vl" : "2"
+    }, {
+      "ky" : "NumberOfCarSeatModels",
+      "vl" : "9"
+    }, {
+      "grp" : "attribute.group.carseats",
+      "grprdr" : 5,
+      "ky" : "CarSeatLists",
+      "rdr" : 1,
+      "sctn" : "attribute.section.accessories",
+      "sctnrdr" : 4,
+      "vl" : "Maxi-Cosi® (Pebble, Cabrio Fix, Citi SPS, Opal), Graco® (Snugride, Snugride 30, Snugride 35, Infant SafeSeat, Snugride 32)"
+    }, {
+      "grp" : "attribute.group.weightdimensions",
+      "grprdr" : 10,
+      "ky" : "WeightLbs",
+      "rdr" : 1,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "18 lbs"
+    }, {
+      "grp" : "attribute.group.weightdimensions",
+      "grprdr" : 10,
+      "ky" : "MaximumWeightOfChildLbs",
+      "rdr" : 4,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "38 lbs"
+    }, {
+      "ky" : "DimensionsInchesFull_W",
+      "vl" : "21"
+    }, {
+      "ky" : "DimensionsInchesFull_D",
+      "vl" : "26.5"
+    }, {
+      "ky" : "DimensionsInchesFull_H",
+      "vl" : "34"
+    }, {
+      "grp" : "attribute.group.weightdimensions",
+      "grprdr" : 10,
+      "ky" : "DimensionsInchesFull_HWD",
+      "rdr" : 2,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "34 x 21 x 26 inches"
+    }, {
+      "ky" : "DimensionsInchesFolded_W",
+      "vl" : "18"
+    }, {
+      "ky" : "DimensionsInchesFolded_D",
+      "vl" : "35"
+    }, {
+      "ky" : "DimensionsInchesFolded_H",
+      "vl" : "12"
+    }, {
+      "grp" : "attribute.group.weightdimensions",
+      "grprdr" : 10,
+      "ky" : "DimensionsInchesFolded_HWD",
+      "rdr" : 3,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "12 x 18 x 35 inches"
+    }, {
+      "grp" : "attribute.group.parentfeatures",
+      "grprdr" : 3,
+      "ky" : "FoldType",
+      "rdr" : 1,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Flat"
+    }, {
+      "grp" : "attribute.group.fabric",
+      "grprdr" : 5,
+      "ky" : "ReplaceableFabric",
+      "rdr" : 2,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1
+    }, {
+      "grp" : "attribute.group.fabric",
+      "grprdr" : 5,
+      "ky" : "MachineWashable",
+      "rdr" : 3,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Canopy, Seat and Inserts"
+    }, {
+      "ky" : "ListPriceRange",
+      "vl" : "$500-$650"
+    }, {
+      "ky" : "ListPrice",
+      "vl" : 649.0
+    }, {
+      "ky" : "StoreCount",
+      "vl" : 4
+    }, {
+      "ky" : "MerchantId",
+      "vl" : 2431
+    }, {
+      "ky" : "MerchantName",
+      "vl" : "Baby Catalog"
+    }, {
+      "ky" : "LowestPrice",
+      "vl" : 600.0
+    }, {
+      "ky" : "SalePrice",
+      "vl" : "649.00"
+    }, {
+      "ky" : "NewModelDiscount",
+      "vl" : "0"
+    }, {
+      "ky" : "ResaleValue",
+      "vl" : "None--New Product"
+    }, {
+      "ky" : "NumberOfColorsOrPatternsAvailableNeon"
+    }, {
+      "ky" : "NumberOfColorsOrPatternsAvailableVeryBrightOrPrimary",
+      "vl" : "5"
+    }, {
+      "ky" : "NumberOfColorsOrPatternsAvailableNeutralEarthTones",
+      "vl" : "1"
+    }, {
+      "ky" : "NumberOfColorsOrPatternsAvailableDeepBluePurples",
+      "vl" : "3"
+    }, {
+      "ky" : "NumberOfColorsOrPatternsAvailableGrayOrBlack",
+      "vl" : "1"
+    }, {
+      "ky" : "ManufacturerColor",
+      "vl" : "Soft Pink/Black, Pink/Black, Red/Black, Tangerine/Black,Yellow/Black, Missoni, Light Green/Black, Khaki/Black, Blue/Black, Dark Blue/Black, Deep Purple/Black, Black/Black"
+    }, {
+      "grp" : "attribute.group.infantfeatures",
+      "grprdr" : 7,
+      "ky" : "RearForwardFacing",
+      "rdr" : 5,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Reversible - Both"
+    }, {
+      "grp" : "attribute.group.wheels",
+      "grprdr" : 8,
+      "ky" : "FrontWheelMaterial",
+      "rdr" : 1,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Foam-filled"
+    }, {
+      "grp" : "attribute.group.wheels",
+      "grprdr" : 8,
+      "ky" : "FrontWheelType",
+      "rdr" : 2,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Swivel"
+    }, {
+      "grp" : "attribute.group.wheels",
+      "grprdr" : 8,
+      "ky" : "BackWheelMaterial",
+      "rdr" : 3,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Foam-filled"
+    }, {
+      "grp" : "attribute.group.wheels",
+      "grprdr" : 8,
+      "ky" : "BackWheelType",
+      "rdr" : 4,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Fixed"
+    }, {
+      "grp" : "attribute.group.parentfeatures",
+      "grprdr" : 3,
+      "ky" : "AdjustableHandle",
+      "rdr" : 3,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Yes"
+    }, {
+      "grp" : "attribute.group.optaccessories",
+      "grprdr" : 3,
+      "ky" : "AdultCupHolder",
+      "rdr" : 0,
+      "sctn" : "attribute.section.accessories",
+      "sctnrdr" : 4,
+      "vl" : "Optional Accessory"
+    }, {
+      "ky" : "AdultCupHolderPrice",
+      "vl" : "24.95"
+    }, {
+      "grp" : "attribute.group.notavailaccessories",
+      "grprdr" : 4,
+      "ky" : "ChildsFoodTray",
+      "rdr" : 0,
+      "sctn" : "attribute.section.accessories",
+      "sctnrdr" : 4,
+      "vl" : "Not Included"
+    }, {
+      "ky" : "ChildsFoodTrayPrice"
+    }, {
+      "grp" : "attribute.group.kidfeatures",
+      "grprdr" : 4,
+      "ky" : "CushionedOrPaddedSeat",
+      "rdr" : 2,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Yes"
+    }, {
+      "grp" : "attribute.group.weatherprotection",
+      "grprdr" : 9,
+      "ky" : "CanopyType",
+      "rdr" : 3,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Full"
+    }, {
+      "grp" : "attribute.group.parentfeatures",
+      "grprdr" : 3,
+      "ky" : "PeekabooWindow",
+      "rdr" : 4,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "No"
+    }, {
+      "grp" : "attribute.group.kidfeatures",
+      "grprdr" : 4,
+      "ky" : "LegRest",
+      "rdr" : 3,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Fixed Leg Rest"
+    }, {
+      "grp" : "attribute.group.kidfeatures",
+      "grprdr" : 4,
+      "ky" : "FootRest",
+      "rdr" : 4,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Y-Fixed"
+    }, {
+      "grp" : "attribute.group.notavailaccessories",
+      "grprdr" : 4,
+      "ky" : "InfantHeadRest",
+      "rdr" : 0,
+      "sctn" : "attribute.section.accessories",
+      "sctnrdr" : 4,
+      "vl" : "Not Included"
+    }, {
+      "ky" : "ShoulderPads",
+      "vl" : "Yes"
+    }, {
+      "grp" : "attribute.group.stdaccessories",
+      "grprdr" : 2,
+      "ky" : "RainProtection",
+      "rdr" : 0,
+      "sctn" : "attribute.section.accessories",
+      "sctnrdr" : 4,
+      "vl" : "Standard Accessory Included"
+    }, {
+      "ky" : "RainProtectionPrice"
+    }, {
+      "grp" : "attribute.group.optaccessories",
+      "grprdr" : 3,
+      "ky" : "UVProtection",
+      "rdr" : 0,
+      "sctn" : "attribute.section.accessories",
+      "sctnrdr" : 4,
+      "vl" : "Optional Accessory"
+    }, {
+      "ky" : "UVProtectionPrice",
+      "vl" : "69.95"
+    }, {
+      "grp" : "attribute.group.parentfeatures",
+      "grprdr" : 3,
+      "ky" : "StorageBasket",
+      "rdr" : 2,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Large"
+    }, {
+      "grp" : "attribute.group.safety",
+      "grprdr" : 6,
+      "ky" : "Harness",
+      "rdr" : 1,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "5 points"
+    }, {
+      "grp" : "attribute.group.safety",
+      "grprdr" : 6,
+      "ky" : "OneTouchBrakesFoot",
+      "rdr" : 2,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "Yes"
+    }, {
+      "grp" : "attribute.group.safety",
+      "grprdr" : 6,
+      "ky" : "OneTouchBrakesHand",
+      "rdr" : 3,
+      "sctn" : "attribute.section.featuresandspecs",
+      "sctnrdr" : 1,
+      "vl" : "No"
+    }, {
+      "ky" : "CREaseOfUse",
+      "vl" : "Very Good"
+    }, {
+      "ky" : "CRManeuverability",
+      "vl" : "Excellent"
+    }, {
+      "ky" : "CRFoldedSize",
+      "vl" : "S--Small"
+    }, {
+      "ky" : "BestUses",
+      "vl" : "City,Shopping,Travel,Walking"
+    }, {
+      "ky" : "Extras",
+      "vl" : "Adjustable Handle,Cargo Basket,Reversible Handle/Seat,Weather Protection"
+    }, {
+      "grp" : "attribute.group.about",
+      "grprdr" : 2,
+      "ky" : "ProductOverview",
+      "rdr" : 1,
+      "sctn" : "attribute.section.overview",
+      "sctnrdr" : 3,
+      "vl" : "Bugaboo is a Dutch mobility company headquartered in Amsterdam with offices around the globe. The company was founded in 1999 by designer Max Barenbrug and physician Eduard Zanen. The Bugaboo Company mission is to excite every person on the move. The company's  passion strides for innovative results in products, which inspire people to get out and explore the world.  Bugaboo answers the call of the modern, mobile parent with the compact, easy, and nimble Bugaboo Bee. The Bugaboo Bee stroller grows along with the family's children from infant to toddler."
+    }, {
+      "ky" : "FacebookURL",
+      "vl" : "https://graph.facebook.com/bugaboo"
+    }, {
+      "ky" : "BrandFacebookLikes",
+      "vl" : "30124"
+    }, {
+      "ky" : "TwitterName",
+      "vl" : "@Bugaboo"
+    }, {
+      "ky" : "TwitterURL",
+      "vl" : "http://twitter.com/#!/Bugaboo"
+    }, {
+      "ky" : "BrandTwitterFollowers",
+      "vl" : "5387"
+    }, {
+      "ky" : "BabiesRUSTopSelling",
+      "vl" : "Not a Top Seller"
+    }, {
+      "grp" : "attribute.group.bestrated",
+      "grprdr" : 3,
+      "ky" : "BabyGagaParentRating",
+      "rdr" : 2,
+      "sctn" : "attribute.section.ratingsandreview",
+      "sctnrdr" : 2,
+      "vl" : "NR"
+    }, {
+      "grp" : "attribute.group.bestrated",
+      "grprdr" : 3,
+      "ky" : "BabyBargainsRating",
+      "rdr" : 1,
+      "sctn" : "attribute.section.ratingsandreview",
+      "sctnrdr" : 2,
+      "vl" : "B"
+    }, {
+      "ky" : "BabyGagaDurability",
+      "vl" : "NR"
+    }, {
+      "ky" : "NAPPARecipient"
+    }, {
+      "ky" : "JPMARecipient"
+    }, {
+      "grp" : "attribute.group.bestrated",
+      "grprdr" : 3,
+      "ky" : "CROverallScore",
+      "rdr" : 3,
+      "sctn" : "attribute.section.ratingsandreview",
+      "sctnrdr" : 2,
+      "vl" : "71"
+    }, {
+      "ky" : "CRComment",
+      "vl" : "There are better choices in this group.HighsRain cover is included with stroller. Manual or mfr information does not specify which car seat(s) are compatible. Converts to carriage for infants 6 months and younger. Handle is adjustable. One-touch or linked brakes (one pedal operates both).LowsLacks parent tray or other parent storage area. Lacks child tray. Basket is small. Lower safety score due to restraint system not meeting one or more voluntary std requirements."
+    }, {
+      "grp" : "attribute.group.bestrated",
+      "grprdr" : 3,
+      "ky" : "BabiesRUsParentRating",
+      "rdr" : 4,
+      "sctn" : "attribute.section.ratingsandreview",
+      "sctnrdr" : 2,
+      "vl" : "4.5"
+    }, {
+      "ky" : "DesignStyle",
+      "vl" : "Modern - Design Leader = e.g. Bugaboo, Bumbleride, Stokke, etc"
+    }, {
+      "ky" : "MediaSpotlight",
+      "vl" : "3-Extreme (major TV, Front Page News, Google News article count, lots of internet chatter, etc)"
+    }, {
+      "ky" : "CelebritySightings",
+      "vl" : "3-Superstar"
+    }, {
+      "ky" : "GiggleListed",
+      "vl" : "Y - Top Seller"
+    }, {
+      "grp" : "attribute.group.bestrated",
+      "grprdr" : 3,
+      "ky" : "BabbleRecognition",
+      "rdr" : 5,
+      "sctn" : "attribute.section.ratingsandreview",
+      "sctnrdr" : 2,
+      "vl" : "2011 Readers Choice"
+    }, {
+      "ky" : "BabyBargainsRecognition"
+    }],
+  "clrs" : [{
+      "hx" : "3D3F44",
+      "nm" : "",
+      "sz" : {
+        "large" : "http://lelaimages.s3.amazonaws.com/201201231632_AgcaFuTLQQLmnJvk.jpg",
+        "medium" : "http://lelaimages.s3.amazonaws.com/201201231632_EUkeNBIFjQctiFFp.jpg",
+        "small" : "http://lelaimages.s3.amazonaws.com/201201231632_zvPJPVhhlKVPFuMI.jpg"
+      },
+      "prfrrd" : false
+    }, {
+      "hx" : "3D3F44",
+      "nm" : "",
+      "sz" : {
+        "medium" : "http://lelaimages.s3.amazonaws.com/201201231632_KEbWSiSsYvzPfZoN.jpg",
+        "small" : "http://lelaimages.s3.amazonaws.com/201201231632_pBoXVgDweMkmjiij.jpg",
+        "large" : "http://lelaimages.s3.amazonaws.com/201201231632_gfXebTsYMbkjIVtR.jpg"
+      },
+      "prfrrd" : false
+    }, {
+      "hx" : "3E3F44",
+      "nm" : "",
+      "sz" : {
+        "small" : "http://lelaimages.s3.amazonaws.com/201201231632_tXGWHZuPvDzRySEc.jpg",
+        "large" : "http://lelaimages.s3.amazonaws.com/201201231632_qFFmXozNIZNotUkR.jpg",
+        "medium" : "http://lelaimages.s3.amazonaws.com/201201231632_WfPBzqkNgbPdepGO.jpg"
+      },
+      "prfrrd" : false
+    }, {
+      "hx" : "3D3F44",
+      "nm" : "",
+      "sz" : {
+        "large" : "http://lelaimages.s3.amazonaws.com/201201231632_DnbJIaqVhngYtOTH.jpg",
+        "medium" : "http://lelaimages.s3.amazonaws.com/201201231632_tIKXAgobmcJEdXYJ.jpg",
+        "small" : "http://lelaimages.s3.amazonaws.com/201201231632_KcKqXAVpWOJwHWYy.jpg"
+      },
+      "prfrrd" : false
+    }, {
+      "hx" : "3E3F44",
+      "nm" : "",
+      "sz" : {
+        "large" : "http://lelaimages.s3.amazonaws.com/201201231632_jHQlVxBLUxBGofaq.jpg",
+        "medium" : "http://lelaimages.s3.amazonaws.com/201201231632_VbSquSNVioJOWfKM.jpg",
+        "small" : "http://lelaimages.s3.amazonaws.com/201201231632_pEoNBHdbeJLARNdI.jpg"
+      },
+      "prfrrd" : false
+    }, {
+      "hx" : "292B31",
+      "nm" : "Soft Pink/Black",
+      "sz" : {
+        "large" : "http://lelaimages.s3.amazonaws.com/201201231632_UYIGhiyGScnpXSJQ.jpg",
+        "medium" : "http://lelaimages.s3.amazonaws.com/201201231632_rHgqBlAFESjyOBjA.jpg",
+        "small" : "http://lelaimages.s3.amazonaws.com/201201231632_zWOTYRrOLYMePWYv.jpg"
+      },
+      "prfrrd" : false
+    }, {
+      "hx" : "48484B",
+      "nm" : "",
+      "sz" : {
+        "large" : "http://lelaimages.s3.amazonaws.com/201201231632_RpfVmIVlwPghmteA.jpg",
+        "medium" : "http://lelaimages.s3.amazonaws.com/201201231632_UuTLrPggiuHBluHl.jpg",
+        "small" : "http://lelaimages.s3.amazonaws.com/201201231632_lCvxQYeEqyDHWWJC.jpg"
+      },
+      "prfrrd" : false
+    }, {
+      "hx" : "4B4E53",
+      "nm" : "",
+      "sz" : {
+        "medium" : "http://lelaimages.s3.amazonaws.com/201201231632_VUaKGMbTlDKuqeuk.jpg",
+        "small" : "http://lelaimages.s3.amazonaws.com/201201231632_pLTBygzXMcRvddso.jpg",
+        "large" : "http://lelaimages.s3.amazonaws.com/201201231632_RJlpATqWAzYpIUFQ.jpg"
+      },
+      "prfrrd" : false
+    }, {
+      "hx" : "4D4F54",
+      "nm" : "",
+      "sz" : {
+        "small" : "http://lelaimages.s3.amazonaws.com/201201231632_RhfyBterCegQNlgu.jpg",
+        "large" : "http://lelaimages.s3.amazonaws.com/201201231632_QzHmAoJgZZtvKIxY.jpg",
+        "medium" : "http://lelaimages.s3.amazonaws.com/201201231632_wSWRdroIMpRiizao.jpg"
+      },
+      "prfrrd" : false
+    }, {
+      "hx" : "47494E",
+      "nm" : "",
+      "sz" : {
+        "large" : "http://lelaimages.s3.amazonaws.com/201201231632_ygdIIGvZyDTSpwdf.jpg",
+        "medium" : "http://lelaimages.s3.amazonaws.com/201201231632_RcKYGqSYgTxVmwHI.jpg",
+        "small" : "http://lelaimages.s3.amazonaws.com/201201231632_AgKJKyPvjwBSuyVd.jpg"
+      },
+      "prfrrd" : false
+    }, {
+      "hx" : "313338",
+      "nm" : "",
+      "sz" : {
+        "large" : "http://lelaimages.s3.amazonaws.com/201201231632_SMrPtJRyBRLjCshO.jpg",
+        "medium" : "http://lelaimages.s3.amazonaws.com/201201231632_rpISAdWwvSDXXXUf.jpg",
+        "small" : "http://lelaimages.s3.amazonaws.com/201201231632_ItqRoxEHOmqfZnbC.jpg"
+      },
+      "prfrrd" : false
+    }],
+  "ctgry" : {
+    "id" : null,
+    "ctlgky" : "dzf9zud0kmw1scufr4eqzr601",
+    "nm" : "SomeCrazyTestCategory",
+    "rdr" : 3,
+    "rlnm" : "some-crazy-test-category",
+    "tld" : 2
+  },
+  "lcl" : "en_US",
+  "mrchnts" : [{
+      "asin" : "B003WZSUSE",
+      "prdd" : "235203180"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "264572475"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "264572476"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "264572477"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "264572482"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "264572484"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "264572503"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "371462534"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "475981699"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "475982643"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "480880746"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "480880747"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "507906507"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "557927908"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "557927976"
+    }, {
+      "asin" : "B003WZSUSE",
+      "prdd" : "558271277"
+    }],
+  "nm" : "Bee",
+  "sbttrs" : [{
+      "ky" : "Brand",
+      "vl" : "Bugaboo"
+    }, {
+      "ky" : "ProductModelName",
+      "vl" : "Bee"
+    }, {
+      "ky" : "ListPrice",
+      "vl" : 649.0
+    }, {
+      "ky" : "StoreCount",
+      "vl" : 4
+    }, {
+      "ky" : "MerchantId",
+      "vl" : 2431
+    }, {
+      "ky" : "MerchantName",
+      "vl" : "Baby Catalog"
+    }, {
+      "ky" : "LowestPrice",
+      "vl" : 600.0
+    }, {
+      "ky" : "ProductImageUrl",
+      "vl" : "http://lelaimages.s3.amazonaws.com/201201231632_TKrbjiNDVpzoqcMm.jpg"
+    }],
+  "tp" : "PRODUCT",
+  "wnr" : {
+    "id" : null,
+    "attrs" : [{
+        "ky" : "FacebookURL",
+        "vl" : "https://graph.facebook.com/bugaboo"
+      }, {
+        "ky" : "TwitterURL",
+        "vl" : "http://twitter.com/#!/Bugaboo"
+      }, {
+        "ky" : "TwitterName",
+        "vl" : "@Bugaboo"
+      }, {
+        "ky" : "FacebookLikes",
+        "vl" : "30124"
+      }, {
+        "ky" : "TwitterFollowers",
+        "vl" : "5387"
+      }, {
+        "ky" : "PopshopsBrandID",
+        "vl" : "11211"
+      }],
+    "nm" : "Bugaboo",
+    "rlnm" : "bugaboo",
+    "tld" : 21
+  },
+  "strs" : [{
+      "id" : "4ef3c2b52796231d1900424d",
+      "tms" : [{
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "2011 Bugaboo Bee Base With Sun Canopy Red",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 649.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/a1BGUHhMK1RNay96cXZERExUeS90d0FZcW52M0RNOXBVdnVjY05PemhMaz0K"
+            }]
+        }, {
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "2011 Bugaboo Bee Base With Sun Canopy Yellow",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 649.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/Ylk2aFJmdmlsSnFjNldpZXRtQlBrYU5xZ0Y1Um45WGlZS1dWbXRZUkZWWT0K"
+            }]
+        }, {
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "2011 Bugaboo Bee Base With Sun Canopy Black",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 649.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/L2laOG9WTXp4R1VPYVZjSityWGRxb0dmb1hBTy9rdEZoQjU5c2dDRFQ5QT0K"
+            }]
+        }, {
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "2011 Bugaboo Bee Base With Sun Canopy Blue",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 649.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/YW11eXVzVTAxWm5ET01mL3RONERYQ2lVcU8xb0h0RkJvQUs3MUQ3Y2hBUT0K"
+            }]
+        }, {
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "2011 Bugaboo Bee Base With Sun Canopy Pink",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 649.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/bVR1V3hMRHFqZjZkY0taS21RTmc2V2lOTEl3NHp6bWhkdWcwNE15aFVXRT0K"
+            }]
+        }, {
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "2011 Bugaboo Bee Base In Black",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 600.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/a3pKdUVMR3NQK2ZURjRsNTJINVB6NVRoVWF1aDlQMmYrUWdEUFFJM1BiST0K"
+            }]
+        }, {
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "Bugaboo Bee Base With Sun Canopy Limited Edition In Denim",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 699.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/czQyUzEzZEN3TEpNZFlmMU9yWC8wTWJtZC8yL1pvdHNObXRZSHhPK2pXbz0K"
+            }]
+        }, {
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "2011 Bugaboo Bee Base With Sun Canopy Soft Pink",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 659.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/dmN2aWNtN0VUOUxYZGxEbHoxcHpUMlZzMERXTHJqU2EwYmZDWmFiSE1KMD0K"
+            }]
+        }, {
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "2011 Bugaboo Bee Base With Sun Canopy Tangerine",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 659.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/SStYM2RFSFVBQ0NFMzJxZlIrVjltZEJnZW9DWVBFeWZqc0NXMytBWmtkMD0K"
+            }]
+        }, {
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "Bugaboo Bee Base In All Black With Sun Canopy In Black",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 699.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/VzVzcW5ZSXI1WWdZaVQxczd4Zi96S3dJNjhtYk9RckVIRXN4d1dRWDJUbz0K"
+            }]
+        }],
+      "lgrl" : "http://i.popshops.com/merchants/2260-mystrollers-com.gif",
+      "mrchntd" : "2260",
+      "nm" : "MyStrollers.com",
+      "ntwrkd" : "2",
+      "rl" : "http://r.popshops.com/r/YmhnUnNqTHA0ejlRNXFIdnhjMk9aU1RoRDFUaVZkdVd4STgzR0FTbmVVaz0K",
+      "rlnm" : "mystrollerscom",
+      "tp" : ["ONLINE"],
+      "pprvd" : true,
+      "tld" : 2260,
+      "ldt" : "Thu, 23 Feb 2012 05:13:26 GMT -05:00"
+    }, {
+      "id" : "4ef3c2b52796231d1900424f",
+      "tms" : [{
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "Bugaboo Bee Plus Stroller Base in Black",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 600.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/cGpCTmlXL1BPcnZYNHZvOUc3Tmo5aUxWcVBRQmE5K1VvbndReCthd2FmTT0K"
+            }]
+        }, {
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "Bugaboo Bee Plus Stroller with Sun Canopy in Black",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 649.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/R3ZOcGpHUVpwRFBlVklhS21EUmlEUVlCVUg3MDBHYWtBbmlRZDc4b1p5bz0K"
+            }]
+        }, {
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "Bugaboo Bee Plus Stroller with Sun Canopy in Red",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 649.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/V0R4UWNuTEZKNTBBRGhSKzN1QnNFY3VPTEtTOE54bVJmdGRJS0x6UnN2OD0K"
+            }]
+        }],
+      "lgrl" : "http://i.popshops.com/merchants/2431-baby-catalog.gif",
+      "mrchntd" : "2431",
+      "nm" : "Baby Catalog",
+      "ntwrkd" : "5",
+      "rl" : "http://r.popshops.com/r/NjIweGcvRGZmMUw3STVvekZZTkVFUXJEQXMzYVVTZlF6YmVKdUN1SHdJND0K",
+      "rlnm" : "babycatalog",
+      "tp" : ["ONLINE"],
+      "pprvd" : true,
+      "tld" : 2431,
+      "ldt" : "Thu, 23 Feb 2012 05:13:26 GMT -05:00"
+    }, {
+      "id" : "4ef3c2b52796231d19004251",
+      "tms" : [{
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "Bugaboo Bee - Special Edition Denim",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 699.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/N3NXTFZQdkZzRlhta2pUMVRHRTZGWmtqMXB5ZmEzSVZ6ZjdIMGxvdGVxVT0K"
+            }]
+        }, {
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "Bugaboo Bee Stroller Base",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 600.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/L3liNU5ud0hmZVBpaWNSNGlFN0lLL2VrejhWRjJ3MjhIVDVSVS9pY3I4VT0K"
+            }]
+        }],
+      "lgrl" : "http://merchant.linksynergy.com/fs/logo/lg_24568.gif",
+      "mrchntd" : "2574",
+      "nm" : "giggle",
+      "ntwrkd" : "4",
+      "rl" : "http://r.popshops.com/r/ck43VlI0dmdBN2hyU0U4N29zeDZ5dm1EVmk1SloyTXlDNXk5Unc0cC9FND0K",
+      "rlnm" : "giggle",
+      "tp" : ["ONLINE", "LOCAL"],
+      "pprvd" : true,
+      "tld" : 2574,
+      "ldt" : "Thu, 23 Feb 2012 05:13:26 GMT -05:00"
+    }, {
+      "id" : "4ef3c2b52796231d19004261",
+      "tms" : [{
+          "id" : null,
+          "mtvtrs" : { },
+          "nm" : "Bee Denim 107 Stroller",
+          "sbttrs" : [{
+              "ky" : "ListPrice",
+              "vl" : 699.0
+            }, {
+              "ky" : "PurchaseUrl",
+              "vl" : "http://r.popshops.com/r/L3FhZnhLb2djNjhQQmsvTUdFNXpDSG5RaEpsN3QwRHR2UDF3KzdLUlJLOD0K"
+            }]
+        }],
+      "lgrl" : "http://ak.buy.com/buy_assets/affiliate/01/88x31_buylogo_black.gif",
+      "mrchntd" : "7583",
+      "nm" : "Buy.com",
+      "ntwrkd" : "4",
+      "rl" : "http://r.popshops.com/r/UGxlZEVCZWE3azlML0NDd01jR1ZFaW54empIOUxBMFVTOVRpVTBzSUJmaz0K",
+      "rlnm" : "buycom",
+      "tp" : ["ONLINE"],
+      "pprvd" : true,
+      "tld" : 7583,
+      "ldt" : "Thu, 23 Feb 2012 05:13:26 GMT -05:00"
+    }],
+  "tld" : 43,
+  "cdt" : "Thu, 23 Feb 2012 10:14:48 GMT -05:00",
+  "ldt" : "Thu, 23 Feb 2012 10:14:48 GMT -05:00"
+}

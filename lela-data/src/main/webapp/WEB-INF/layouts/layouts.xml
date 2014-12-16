@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+  <definition name="default" template="/WEB-INF/layouts/default.jspx">
+    <put-attribute name="header" value="/WEB-INF/views/header.jspx" />
+    <put-attribute name="menu" value="/WEB-INF/views/menu.jspx" />
+    <put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
+  </definition>
+
+  <definition name="ajax" template="/WEB-INF/layouts/ajax.jspx"/>
+
+  <definition name="reporting" template="/WEB-INF/layouts/default.jspx">
+    <put-attribute name="header" value="/WEB-INF/views/header.jspx" />
+    <put-attribute name="menu" value="/WEB-INF/views/reporting-menu.jspx" />
+    <put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
+  </definition>
+
+  <definition name="public" template="/WEB-INF/layouts/default.jspx">
+    <put-attribute name="header" value="/WEB-INF/views/header.jspx" />
+    <put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
+  </definition>
+
+    <definition name="template.page.master" template="/WEB-INF/layouts/master.jspx">
+        <put-attribute type="string" name="title" value="NA" />
+        <put-attribute type="string" name="pageTitle" value="" />
+        <put-attribute name="menu" value="/WEB-INF/views/header.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.css" />
+            <add-attribute type="string" value="/static/styles/global.css" />
+            <add-attribute type="string" value="/static/styles/header.css" />
+            <add-attribute type="string" value="/resources/dijit/themes/tundra/tundra.css" />
+            <add-attribute type="string" value="/static/styles/standard.css" />
+            <add-attribute type="string" value="/static/styles/override.css" />
+        </put-list-attribute>
+
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/jquery-1.6.2.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.blockUI.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.cookie.js" />
+            <add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.js" />
+            <add-attribute type="string" value="/static/js/global.js" />
+            <add-attribute type="string" value="/resources/dojo/dojo.js" />
+        </put-list-attribute>
+
+
+
+        <put-list-attribute name="navbars">
+            <add-attribute type="template" value="/WEB-INF/views/common/navbar.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <!-- page old master -->
+    <definition name="template.simple.master" template="/WEB-INF/layouts/master_simple.jspx">
+        <put-attribute type="string" name="title" value="NA" />
+
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.css" />
+        </put-list-attribute>
+
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/jquery-1.6.2.js" />
+            <add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.js" />
+            <add-attribute type="string" value="/static/js/global.js" />
+        </put-list-attribute>
+    </definition>
+
+    <!-- content master  -->
+    <definition name="template.content.master" template="/WEB-INF/layouts/content.jspx" />
+
+
+
+</tiles-definitions>

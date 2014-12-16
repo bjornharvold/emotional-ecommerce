@@ -1,0 +1,17 @@
+<job>
+	<currentdate>9/12/2011</currentdate>
+	<motivator>A</motivator>
+  <television>
+    <TV_ID>S8489699</TV_ID>
+    <BrandID>182</BrandID>
+    <Display_ColorTemperatureControl>Yes (Warm)</Display_ColorTemperatureControl>
+    <RemoteControl_Type>Universal remote control - infrared</RemoteControl_Type>
+    <RemoteControl_Features>Lighted, Programmable, QWERTY keyboard, Multi-brand compatibility</RemoteControl_Features>
+    <RemoteControl_SupportedDevices>Cable box, DVD player, audio system</RemoteControl_SupportedDevices>
+    <AudioSystem_AudioControls>Equalizer, balance, bass, treble</AudioSystem_AudioControls>
+    <AudioSystem_Equalizer>Yes (7-band)</AudioSystem_Equalizer>
+    <Television_ParentalChannelLock>Yes</Television_ParentalChannelLock>
+    <Display_V_ChipControl>Yes</Display_V_ChipControl>
+    <Display_AdditionalFeatures>Video noise reduction, THX 3D certified, ambient light sensor (ALS), Zero Bright Defective Pixel Guarantee, Parental Control</Display_AdditionalFeatures>
+  </television>
+</job>

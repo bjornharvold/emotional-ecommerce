@@ -1,0 +1,35 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer' subtype=''/>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date' subtype=''/>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string' subtype=''/>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer' subtype=''/>
+			<setattribute tag='SmrtPhnID' RAttribute='SmrtPhnID' enclosure='job' type='integer' subtype=''/>
+			
+			<setattribute tag='BestBuyBestSelling' RAttribute='BestBuyBestSelling' enclosure='smrtphn' type='string' subtype=''/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='smrtphn' type='integer' subtype=''/>
+			<setattribute tag='BrandName' RAttribute='BrandName' enclosure='smrtphn' type='string' subtype=''/>
+			<setattribute tag='CNETMostPopular' RAttribute='CNETMostPopular' enclosure='smrtphn' type='string' subtype=''/>
+			<setattribute tag='motivatorTotal' RAttribute='motivatorTotal' enclosure='smrtphn' type='integer' subtype=''/>
+			<setattribute tag='PhoneArenaMostPopular' RAttribute='PhoneArenaMostPopular' enclosure='smrtphn' type='string' subtype=''/>
+			<setattribute tag='SmrtPhnID' RAttribute='SmrtPhnID' enclosure='smrtphn' type='integer' subtype=''/>
+			
+			
+			<createentity entity='constants' tag='constants' id='id'/>
+			<createentity entity='job' tag='job' id='id'/>
+			<createentity entity='smrtphn' tag='smrtphn' id='id'/>
+			
+		</map>
+		<entities>
+			<entity name='constants' number='1'></entity>
+			<entity name='job' number='1'></entity>
+			<entity name='smrtphn' number='*'></entity>
+		</entities>
+		
+		<initialization>
+			<initialentity entity='constants' epush='true'></initialentity>
+			<initialentity entity='job' epush='true'></initialentity>
+		</initialization>
+	</XMLtoEDD>
+</mapping>

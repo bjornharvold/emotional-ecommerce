@@ -1,0 +1,72 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="link.delete" var="delete"/>
+
+    <h1><spring:message code="page.admin.applications.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/application/form" var="newApplicationUrl"/>
+        <a class="action" href="${newApplicationUrl}"><spring:message code="application.create.entry"/></a>
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <c:if test="${empty applications.content}">
+        <p><spring:message code="application.list.empty"/></p>
+    </c:if>
+
+    <c:if test="${not empty applications.content}">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th width="10%"><spring:message code="application.type"/></th>
+                <th width="15%"><spring:message code="application.name"/></th>
+                <th width="15%"><spring:message code="application.url.name"/></th>
+                <th width="5%"><spring:message code="application.published"/></th>
+                <th width="10%"><spring:message code="application.tool.url.name"/></th>
+                <th width="10%">&#160;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${applications.content}" var="application">
+                <tr>
+                    <td>${application.tp}</td>
+                    <td>${application.nm}</td>
+                    <td>${application.rlnm}</td>
+                    <td>${application.pblshd}</td>
+                    <td>${application.trlnm}</td>
+                    <td>
+                        <spring:url value="/administration/application/${application.rlnm}" var="applicationUrl"/>
+                        <a class="action" href="${applicationUrl}"><spring:message code="link.view"/></a>
+
+                        <spring:url value="/administration/application/form" var="editApplicationUrl">
+                            <spring:param name="urlName" value="${application.rlnm}"/>
+                        </spring:url>
+                        <a class="action" href="${editApplicationUrl}"><spring:message code="link.edit"/></a>
+
+                        <spring:url value="/administration/application/${application.rlnm}" var="deleteApplicationUrl"/>
+                        <spring-form:form action="${deleteApplicationUrl}" method="DELETE">
+                            <input type="submit" name="${delete}" value="${delete}"/>
+                        </spring-form:form>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+
+        <lela:lelaPagination url="/administration/application/list" totalElements="${applications.totalElements}" totalPages="${applications.totalPages}" pageNumber="${applications.number}" pageSize="${applications.size}"/>
+    </c:if>
+</div>

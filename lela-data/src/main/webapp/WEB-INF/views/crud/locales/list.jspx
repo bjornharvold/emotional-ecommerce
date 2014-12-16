@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_Locale" items="${locales}" z="RztKejvQerlyKISr3n3/7RD48CE=">
+        <table:table data="${locales}" id="l_com_lela_data_domain_entity_Locale" path="/crud/locales" z="d37+wlBS+5kjz786EkVYchzjTwc=">
+            <table:column date="true" dateTimePattern="${locale_datecreated_date_format}" id="c_com_lela_data_domain_entity_Locale_dateCreated" property="dateCreated" z="DfH1qTrnW+TtsgvaQEQLyR+vHF4="/>
+            <table:column date="true" dateTimePattern="${locale_datemodified_date_format}" id="c_com_lela_data_domain_entity_Locale_dateModified" property="dateModified" z="xtt5j8hVI1vw5FbEd2lPCiSdxfo="/>
+            <table:column id="c_com_lela_data_domain_entity_Locale_localeName" property="localeName" z="cWyE8wmioKrzGTT67aK6yDPMaoE="/>
+        </table:table>
+    </page:list>
+</div>

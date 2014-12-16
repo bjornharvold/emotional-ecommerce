@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_BrandHistory" object="${brandhistory}" path="/crud/brandhistorys" z="kO8rqSjuseECfYM+TI/37tAtCEA=">
+        <field:display date="true" dateTimePattern="${brandHistory_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_BrandHistory_dateCreated" object="${brandhistory}" z="/4N5MnlM3JLE/K0X71r2gckU2NA="/>
+        <field:display date="true" dateTimePattern="${brandHistory_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_BrandHistory_dateModified" object="${brandhistory}" z="nIeL9IXxwOIenmYnm6VLDa0a/vw="/>
+        <field:display field="brand" id="s_com_lela_data_domain_entity_BrandHistory_brand" object="${brandhistory}" z="ZXnvIDMxO59wK3KOUNGiW3deHwA="/>
+        <field:display date="true" dateTimePattern="${brandHistory_asofdate_date_format}" field="asOfDate" id="s_com_lela_data_domain_entity_BrandHistory_asOfDate" object="${brandhistory}" z="huLol0CWtZH2X2Bidv+9s8NiRGI="/>
+        <field:display field="facebookLikes" id="s_com_lela_data_domain_entity_BrandHistory_facebookLikes" object="${brandhistory}" z="Iz0F6yrzFsNFFy0JBTyJ35h9YBA="/>
+        <field:display field="twitterFollowers" id="s_com_lela_data_domain_entity_BrandHistory_twitterFollowers" object="${brandhistory}" z="V+vHGZY70zN1YM9qMiNGsQta3ck="/>
+    </page:show>
+</div>

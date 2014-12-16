@@ -1,0 +1,212 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+    <spring:message code="user.form.input.tip" var="inputTip" htmlEscape="false"/>
+    <spring:message code="user.form.firstname" var="firstnameTip" htmlEscape="false"/>
+    <spring:message code="user.form.lastname" var="lastnameTip" htmlEscape="false"/>
+    <spring:message code="user.email" var="emailTip" htmlEscape="false"/>
+    <spring:message code="user.password" var="passwordTip" htmlEscape="false"/>
+    <spring:message code="user.form.error.email" var="userErrorEmail" htmlEscape="false"/>
+    <spring:message code="user.form.error.empty" var="userErrorEmpty" htmlEscape="false"/>
+    <spring:url value="/login" var="loginUrl" />
+    <spring:url value="/register${!empty isAjax and isAjax eq true ? '/ajax' : ''}" var="registerUrl" />
+    <spring:url value="/static/images/icons/love_ic.gif" var="loveIconUrl"/>
+    <spring:url value="/static/images/icons/money_ic.gif" var="moneyIconUrl"/>
+    <spring:url value="/static/images/buttons/modal_close_or.png" var="closeIconUrl"/>
+
+    <script type="text/javascript">
+        var serverError = false;
+        var formType = 'registration';
+        var rtUrl = '${param.rt}';
+        
+        var types = {
+            "firstname-type": "${firstnameTip}",
+            "lastname-type": "${lastnameTip}",
+            "email-type": "${emailTip} *",
+            "password-type": "${passwordTip} *"
+         };
+
+        var messages = {
+            "user.form.error.email" : "${userErrorEmail}",
+            "user.form.error.empty" : "${userErrorEmpty}"            
+        }
+
+        $().ready(function($) {
+            initRegistration("${isAjax eq true ? 'true' : 'false'}");
+        });
+    </script>
+
+    <c:if test="${!empty isAjax and isAjax eq true}">
+        <style type="text/css">
+            #fancybox-close { background: url('${closeIconUrl}'); }
+        </style>
+    </c:if>
+
+    <a href="#" id="quiz-close" onClick="window.location = document.referrer;"><!-- --></a>
+    <div class="lela-page-container page-register">
+
+        <div class="lela-page-content lela-page-content-nopadding">
+
+            <div id="reg-container">
+
+                <c:set var="rtValue" value="?type=${param.type}&amp;rt=${param.rt}"/>
+
+                <spring:message code="registration.header${!empty param.type ? '.' : ''}${param.type}" htmlEscape="false" var="tagline" />
+                <h2><spring:message htmlEscape="false" code="page.registration.name${!empty param.type ? '.' : ''}${param.type}"/>
+                    <c:if test="${tagline != 'none'}">
+                        <span>${tagline}</span>
+                    </c:if>
+                </h2>
+
+                <div class="popupLogo"><!-- --></div>
+
+                <div class="r-form" id="registration-form">
+
+                    <c:if test="${empty domainAffiliate}">
+                        <spring:url value='/signin/facebook' var="fb_url"/>
+                        <form action="${fb_url}" method="POST" id="facebook-reg">
+                            <spring:url value="/static/images/buttons/sign-in-with-facebook-l.png" var="fb_image_url"/>
+                            <a href="#" class="fb-submit"><img src="${fb_image_url}" alt="Facebook Signup"/></a>
+                            <spring:message code="facebook.permissions" var="facebookPermissions"/>
+                            <input type="hidden" name="scope" value="${facebookPermissions}"/>
+
+                            <p class="icon-lock">We'll <strong>never</strong> post to your wall without your permission</p>
+                        </form>
+
+                        <c:if test="${param.showFb eq 'false'}">
+                            <p class="other-opt"><span><spring:message code="page.login.or" /></span></p>
+                            <p class="other">
+                                <spring:message code="page.register.lelamember" />${nbsp}<a href="${loginUrl}${!empty param.rt ? rtValue : ''}" class="${!empty isAjax and isAjax eq true ? 'modal' : ''}"><spring:message code="page.register.signin" /></a>
+                            </p>
+                        </c:if>
+                    </c:if>
+
+                    <c:if test="${param.showFb != 'false' or !empty domainAffiliate}">
+
+                        <spring:bind path="userDto.*">
+                            <c:if test="${status.error}">
+                                <script type="text/javascript">
+                                    var serverError = true;
+                                </script>
+                            </c:if>
+                        </spring:bind>
+
+
+
+                        <spring-form:form id="reg-form" method="POST" modelAttribute="userDto" class="custom" action="${registerUrl}">
+
+                            <c:if test="${empty domainAffiliate}">
+                                <p class="other-opt"><span><spring:message code="page.login.or" /></span></p>
+                            </c:if>
+
+                            <c:if test="${empty param.success and empty domainAffiliate}">
+                                <div id="show-login-container">
+
+                                    <a href="#" id="show-login"><spring:message code="page.register.info.signup" /></a>
+
+                                    <p class="other">
+                                        <spring:message code="page.register.join" />${nbsp}<a href="${loginUrl}${!empty param.rt ? rtValue : ''}" class="${!empty isAjax and isAjax eq true ? 'modal' : ''}"><spring:message code="page.register.signin" /></a>
+                                        <c:if test="${!empty param.type and param.type eq 'quiz'}">
+                                            <span class="divider">|</span><a href="${param.rt}"><spring:message code="page.register.notnow" /></a>
+                                        </c:if>
+                                    </p>
+                                </div>
+                            </c:if>
+
+                            <div class="${not empty param.success or not empty domainAffiliate ? '': 'hidden'}" id="hidden-login">
+
+                                <div class="f-row">
+                                    <div class="h-row firstname">
+                                        <spring-form:errors path="fnm" cssClass="error"/>
+                                        <label><spring:message code="user.form.firstname" htmlEscape="false"/></label>
+                                        <spring-form:input path="fnm" class="firstname-type"/>
+                                    </div>
+
+                                    <div class="h-row lastname">
+                                        <spring-form:errors path="lnm" cssClass="error"/>
+                                        <label><spring:message code="user.form.lastname" htmlEscape="false"/></label>
+                                        <spring-form:input path="lnm" class="lastname-type"/>
+                                    </div>
+                                </div>
+
+                                <div class="f-row">
+                                    <div class="error"><!-- --></div>
+                                    <spring-form:errors path="ml" cssClass="error"/>
+                                    <label><spring:message code="user.email" htmlEscape="false"/></label>
+                                    <spring-form:input path="ml" class="email-type required"/>
+                                </div>
+
+                                <div class="f-row">
+                                    <div class="error"><!-- --></div>
+                                    <spring-form:errors path="psswrd" cssClass="error"/>
+                                    <label><spring:message code="user.password" htmlEscape="false"/></label>
+                                    <input id="psswrd" type="password" name="psswrd" autocomplete="off" class="password-type required" value="" />
+                                </div>
+
+                                <div class="f-row f-row-wide">
+                                    <label>
+                                        <input type="checkbox" name="optin" checked="checked" class="optin-type"/>
+                                        <span class="label optin-label"><spring:message code="page.register.newsletter" htmlEscape="false" /></span>
+                                    </label>
+                                </div>
+
+                                <p id="ajax-error"><spring:message code="error.email.taken" htmlEscape="false"/></p>
+
+                                <div class="f-row">
+                                    <a id="km-create-my-profile" href="#" class="r-submit"><spring:message code="button.create.profile"/></a>
+                                </div>
+
+                                <div class="login-controls">
+                                    <spring:message code="page.register.join" />${nbsp}<a href="${loginUrl}${!empty param.rt ? rtValue : ''}" class="${!empty isAjax and isAjax eq true ? 'modal' : ''}"><spring:message code="page.register.signin" /></a>
+                                    <c:if test="${!empty param.type and param.type eq 'quiz'}">
+                                        <span class="divider">|</span><a href="${param.rt}"><spring:message code="page.register.notnow" /></a>
+                                    </c:if>
+                                </div>
+
+                            </div>
+
+                            <table align="center" width="135" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications.">
+                                <tr>
+                                    <td width="135" align="center" valign="top">
+                                        <script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=www.lela.com&amp;size=S&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"><!-- --></script><br />
+                                        <a href="http://www.symantec.com/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ABOUT SSL CERTIFICATES</a></td>
+                                </tr>
+                            </table>
+
+                        </spring-form:form>
+                    </c:if>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="no-quiz"><!-- --></div>
+
+    <c:if test="${!empty param.autoFb and param.autoFb eq 1}">
+        <script type="text/javascript">
+            // Trigger FB login automatically
+            $().ready(function($) {
+                $('.fb-submit').trigger('click');
+            });
+        </script>
+    </c:if>
+
+</jsp:root>

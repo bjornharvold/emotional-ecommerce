@@ -1,0 +1,69 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          version="2.0">
+
+    <jsp:directive.tag body-content="empty"/>
+    <jsp:directive.attribute name="value" rtexprvalue="true" required="false"/>
+    <jsp:directive.attribute name="format" rtexprvalue="true" required="false"/>
+
+    <c:if test="${empty value}">
+        <c:set var="value" value="1"/>
+    </c:if>
+
+    <c:choose>
+        <c:when test="${format == 'text'}">
+            <spring:message code="tag.lelebar.${value}" htmlEscape="false"/>
+        </c:when>
+        <c:when test="${format == 'number'}">
+            <div class="lela-bar-number">
+                <jsp:output omit-xml-declaration="yes"/>
+                <c:forEach var="i" begin="1" end="9">
+                    <c:choose>
+                        <c:when test="${value eq i}">
+                            <spring:url value="/static/images/icons/friendship_rating/numbers/${i}.png" var="img" />
+                            <img src="${img}" />
+                        </c:when>
+                    </c:choose>
+                </c:forEach>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div class="lela-bar">
+
+                <jsp:output omit-xml-declaration="yes"/>
+
+                <h4>
+                    <spring:message code="tag.lelebar.header" htmlEscape="false"/>
+                    <span><spring:message code="tag.lelebar.${value}" htmlEscape="false"/></span>
+                </h4>
+
+                <ul>
+                    <c:forEach var="i" begin="1" end="9">
+                        <c:choose>
+                            <c:when test="${value gt i}">
+                                <li class="lelabar-on"><!-- --></li>
+                            </c:when>
+                            <c:when test="${value eq i}">
+                                <li class="lelabar-cur"><!-- --></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="lelabar-off"><!-- --></li>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                </ul>
+            </div>
+
+        </c:otherwise>
+    </c:choose>
+</jsp:root>

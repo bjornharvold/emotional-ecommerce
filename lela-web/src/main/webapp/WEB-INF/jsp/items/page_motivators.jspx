@@ -1,0 +1,66 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <tiles:importAttribute name="categoryUrlName" ignore="true"/>
+
+    <lela:findUser/>
+
+    <spring:url value="/static/images/icons/products/orange_${categoryUrlName}.png" var="icon" />
+    <spring:url value="/static/images/icons/products/100.png" var="icon100" />
+
+    <c:if test="${(loggedInUser != 'anonymousUser' and us.profileStatus == 'PARTIAL') or (loggedInUser != 'anonymousUser' and us.profileStatus == 'FULL')}">
+        <a name="motivators"><!-- --></a>
+        <div id="grid-motivators" class="motivators-${categoryUrlName}">
+
+            <div class="close"><!-- --></div>
+
+            <div class="left">
+                <div class="left-hdr">
+                    <div class="rating-icon"><img src="${icon100}" class="icon-rating" /><br /><img src="${icon}" class="icon-item" /></div>
+                    <spring:message code="grid.results.category.${categoryUrlName}.article" var="userCategoryText" text="${categoryUrlName}"/>
+                    <spring:message code="grid.lead.${categoryUrlName}" var="userCategoryTextPlural" text="${categoryUrlName}"/>
+                    <h3 class="${us.gndr eq 'FEMALE' ? 'female' : 'male'}">
+                        <spring:message code="item.info.matters.title" arguments="${userCategoryText}" htmlEscape="false"/>
+                    </h3>
+                </div>
+                <div class="clear"><!-- --></div>
+
+                <p><spring:message code="item.info.matters.text" arguments="${userCategoryTextPlural}" htmlEscape="false" /></p>
+
+            </div>
+            <div class="right">
+                <ul class="rating-explanation" id="expl-left"><!-- --></ul>
+                <ul class="rating-explanation" id="expl-right"><!-- --></ul>
+            </div>
+
+            <ul class="hidden" id="explanation-data">
+                <spring:message code="item.motivator.A.${us.motivator.mtvtrs['A']}.${categoryUrlName}" htmlEscape="false" text=""/>
+                <spring:message code="item.motivator.B.${us.motivator.mtvtrs['B']}.${categoryUrlName}" htmlEscape="false" text=""/>
+                <spring:message code="item.motivator.C.${us.motivator.mtvtrs['C']}.${categoryUrlName}" htmlEscape="false" text=""/>
+                <spring:message code="item.motivator.D.${us.motivator.mtvtrs['D']}.${categoryUrlName}" htmlEscape="false" text=""/>
+                <spring:message code="item.motivator.E.${us.motivator.mtvtrs['E']}.${categoryUrlName}" htmlEscape="false" text=""/>
+                <spring:message code="item.motivator.F.${us.motivator.mtvtrs['F']}.${categoryUrlName}" htmlEscape="false" text=""/>
+                <spring:message code="item.motivator.G.${us.motivator.mtvtrs['G']}.${categoryUrlName}" htmlEscape="false" text=""/>
+            </ul>
+            <div class="clear"><!-- --></div>
+
+        </div>
+        <div class="clear"><!-- --></div>
+    </c:if>
+
+</jsp:root>

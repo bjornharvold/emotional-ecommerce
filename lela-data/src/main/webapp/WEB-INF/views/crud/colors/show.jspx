@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Color" object="${color}" path="/crud/colors" z="6y2ZgpnO9OL7ongeRNvGGsJxChE=">
+        <field:display date="true" dateTimePattern="${color_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Color_dateCreated" object="${color}" z="baqks/NVwCSnHaWTkQOw/G7HtEA="/>
+        <field:display date="true" dateTimePattern="${color_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Color_dateModified" object="${color}" z="6GhNLmVpKMUElmDwaUu8BNVkHMg="/>
+        <field:display field="colorName" id="s_com_lela_data_domain_entity_Color_colorName" object="${color}" z="LIAjHDwfHLwqYTVKp/XWic3A8ZA="/>
+    </page:show>
+</div>

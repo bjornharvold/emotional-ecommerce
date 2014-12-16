@@ -1,0 +1,115 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+<jsp:output omit-xml-declaration="yes"/>
+<spring:url value="/login" var="loginUrl" />
+<spring:url value="/register" var="registerUrl" />
+<spring:url value="/quiz?src=grid&amp;vid=true" var="launchQuiz" />
+<spring:url value="/static/images/icons/tooltip.gif" var="tooltipImgUrl" />
+<spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+<script type="text/javascript">
+    var returnItem = null;
+</script>
+
+<lela:findUser/>
+
+<spring:url value="/static/images/icons/tooltip.gif" var="tooltipImgUrl" />
+<spring:url value="/quiz" var="launchQuiz" />
+<spring:message code="grid.results.category.${categoryUrlName}" var="categoryHumanReadableName" />
+
+<div id="res-count">
+    <span class="count-number">${departmentSearchResults.count}</span>
+    <span class="count-copy"><spring:message code="department.filters.count.${departmentSearchResults.query.rlnm}" htmlEscape="false" /></span>
+</div>
+
+<ul id="p-grid">
+
+    <c:if test="${empty departmentSearchResults.categories}">
+        <p id="no-results"><spring:message code="grid.results.empty" htmlEscape="false"/></p>
+    </c:if>
+
+    <c:set var="itemCount" value="0"/>
+    <c:forEach items="${departmentSearchResults.categories}" var="category" varStatus="status">
+
+        <c:choose>
+            <c:when test="${!empty category.relevantItems}">
+                <c:set var="catItems" value="${category.relevantItems.content}"/>
+                <c:set var="itemCount" value="${fn:length(category.relevantItems.content)}"/>
+            </c:when>
+            <c:otherwise>
+                <c:set var="catItems" value="${category.items.content}"/>
+                <c:set var="itemCount" value="${fn:length(category.items.content)}"/>
+            </c:otherwise>
+        </c:choose>
+
+        <c:if test="${(!empty catItems)}">
+
+            <li class="category-item cat-${category.category.rlnm}" id="cat-${category.category.rlnm}">
+                <h2>
+                    <spring:message code="nav.cat.${category.category.rlnm}"/>
+                    <spring:url value="/${category.category.srlnm}/c?rlnm=${category.category.rlnm}&amp;drlnm=${departmentSearchResults.query.rlnm}" var="searchCategoryUrl" />
+                </h2>
+                <a href="${searchCategoryUrl}">View all results</a>
+            </li>
+
+            <c:set var="catCount" value="2"/>
+            <c:forEach var="item" items="${catItems}" varStatus="status" end="${catCount}">
+
+                <li class="item cat-${category.category.rlnm}" id="${item.rlnm}">
+                    <spring:url value="/${item.srlnm}/p?rlnm=${item.rlnm}" var="itemDetailUrl" />
+
+                    <c:if test="${item.class.name eq 'com.lela.domain.document.RelevantItem'}">
+                        <spring:url value="/static/images/icons/rating/relevancy_meter_${item.ttlrlvncynmbr}.png" var="lelaRatingImgUrl" />
+                        <img src="${lelaRatingImgUrl}" alt="${item.ttlrlvncynmbr}%" class="lela-rating"/>
+                    </c:if>
+
+                    <a href="${itemDetailUrl}" class="p-img"><img src="${item.imgs[0].sz['large']}" alt="${item.nm} - ${item.subAttributes['Brand']}"/></a>
+                    <a href="${itemDetailUrl}" class="p-info">
+                        <c:set var="formattedItemName"><lela:lelaProductName item="${item}" /></c:set>
+                        <span class="item-name"><strong>${formattedItemName}</strong></span>
+                                    <span class="p-price">
+                                        <c:choose>
+                                            <c:when test="${item.subAttributes['LowestPrice'] gt 0.0}">
+                                                <spring:message code="items.data.bestprice" htmlEscape="false"/>
+                                                <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['LowestPrice']}" /></strong>
+                                                from ${item.subAttributes['MerchantName']}
+                                            </c:when>
+                                            <c:otherwise>
+                                                <spring:message code="item.details.listPrice"/><br/>
+                                                <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></strong>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </span>
+                    </a>
+
+                    <c:if test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                        <div class="p-action p-quiz">
+                            <spring:message code="grid.results.category.${item.ctgry.rlnm}" var="userCategoryText"/>
+                            <spring:message code="grid.results.right.forme" htmlEscape="false" arguments="${userCategoryText}"/><br/>
+                            <a href="${launchQuiz}&amp;pr=${itemDetailUrl}" class="modal quiz-modal" quiz-location="Quiz-Filter"><spring:message code="grid.results.show.score" htmlEscape="false"/></a>
+                        </div>
+                    </c:if>
+
+                </li>
+            </c:forEach>
+
+        </c:if>
+    </c:forEach>
+</ul>
+<div class="clear"><!-- --></div>
+
+</div>

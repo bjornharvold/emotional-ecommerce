@@ -1,0 +1,14 @@
+#c-404 {
+    text-align:center;
+    background: white;
+}
+
+#c-404 img {
+    display:block;
+    margin:20px auto;
+}
+
+#c-404 h2 {
+    margin-top: 30px;
+    font-size:32px !important;
+}

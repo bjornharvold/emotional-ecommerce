@@ -1,0 +1,18 @@
+Numbers formatting test:
+Unformatted number: $theNumber
+Formatted as currency: $number.currency($theNumber)
+Formatted as number: $number.format($theNumber)
+Formatted as integer: $number.integer($theNumber)
+Formatted as percentage: $number.percent($theNumber)
+
+Date formatting test:
+Unformatted current date: $date
+Formatted as long date: $date.long
+Formatted as medium time date: $date.medium_time
+Formatted as full date: $date.full_date
+Formatted as short date: $date.get('default', 'short')
+Formatted as pattern date: $date.get('yyyy-M-d H:m:s')
+
+Arbitrary date formatting:
+Unformatted date: $theDate
+Formatted medium date: $date.format('medium', $theDate)

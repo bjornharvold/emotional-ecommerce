@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Country" object="${country}" path="/crud/countrys" z="zLsRPB/bKmd0tzetABqriewxRi0=">
+        <field:display date="true" dateTimePattern="${country_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Country_dateCreated" object="${country}" z="17H5AhUf/1YdyXxJVuqf8zGNjd8="/>
+        <field:display date="true" dateTimePattern="${country_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Country_dateModified" object="${country}" z="9YxYg+0x+2oYrRs7/suLRkBIapk="/>
+        <field:display field="countryName" id="s_com_lela_data_domain_entity_Country_countryName" object="${country}" z="jP9gTKIF3a8yBip3vdobR9aQO3A="/>
+        <field:display field="iso2" id="s_com_lela_data_domain_entity_Country_iso2" object="${country}" z="TUj8JVsw7uHcHJXOezUTnOHwekE="/>
+        <field:display field="lelaActive" id="s_com_lela_data_domain_entity_Country_lelaActive" object="${country}" z="8gw1OEEEX5zsl3WhR0dOvMumzDM="/>
+    </page:show>
+</div>

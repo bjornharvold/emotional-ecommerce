@@ -1,0 +1,56 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:g="http://base.google.com/ns/1.0"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <tiles:importAttribute name="shareName" ignore="true"/>
+    <tiles:importAttribute name="shareImg" ignore="true"/>
+    <tiles:importAttribute name="shareUrl" ignore="true"/>
+    <tiles:importAttribute name="shareCaption" ignore="true"/>
+    <tiles:importAttribute name="shareDescription" ignore="true"/>
+
+    <!-- Set card properties to share -->
+    <span class="btn-share">
+
+        <strong>Share:</strong>
+
+        <!--
+        <spring:url value="/list/${fn:toLowerCase(card.tp)}" var="lelaListUrl" />
+        <c:if test="${publicList eq true and us.cd != card.prfl.cd}">
+            <a href="${lelaListUrl}" method="PUT" class="l-list l-list-add btn-fav" rlnm="${listCard.rlnm}" km-id="add-fave"></a>
+        </c:if>
+        -->
+
+        <a href="${shareUrl}" class="btn-fb" fb-name="${shareName}" fb-img="${shareImg}" fb-caption="${shareCaption}" fb-description="${shareDescription}"><!-- --></a>
+        <a href="${shareUrl}" class="btn-tw" text="${shareName}"><!-- --></a>
+
+        <!-- Using G+ button below for now <a href="${shareUrl}" class="btn-gp" text="${cardName}"></a> -->
+        <!-- TBD <a href="${shareUrl}" class="btn-ml" text="${cardName}"></a> -->
+
+        <a target="_blank" href="http://pinterest.com/pin/create/button/?url=${shareUrl}&amp;media=${shareImg}&amp;description=${shareName}" class="btn-pn"><!-- --></a>
+
+        <!-- TBD Place this tag where you want the +1 button to render
+        <span class="btn-gp"><g:plusone size="medium" annotation="none" href="${shareUrl}"></g:plusone></span>
+        <script type="text/javascript">
+            (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+        </script> -->
+    </span>
+</jsp:root>

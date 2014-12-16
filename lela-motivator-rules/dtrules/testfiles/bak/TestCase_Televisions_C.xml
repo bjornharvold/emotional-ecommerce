@@ -1,0 +1,32 @@
+<job>
+	<currentdate>9/12/2011</currentdate>
+	<motivator>C</motivator>
+  <television>
+    <TV_ID>S8489699</TV_ID>
+    <BrandID>182</BrandID>
+    <CNETEditorsRating>3.5</CNETEditorsRating>
+    <CNETPerformance>6</CNETPerformance>
+    <CRHDPictureQuality>Good</CRHDPictureQuality>
+    <CRSoundQuality>Fair</CRSoundQuality>
+    <CRTested>No Rating</CRTested>
+    <AudioSystem_SoundOutputMode>Stereo</AudioSystem_SoundOutputMode>
+    <Television_Technology>TFT active matrix</Television_Technology>
+    <Television_DiagonalSize>46</Television_DiagonalSize>
+    <Television_Type>LED-backlit LCD TV</Television_Type>
+    <Television_Resolution>1920 x 1080</Television_Resolution>
+    <NetworkInternetMultimedia_Connectivity>Wireless, wired</NetworkInternetMultimedia_Connectivity>
+    <Television_HDCPCompatible>Yes</Television_HDCPCompatible>
+    <Television_LCDBacklightTechnology>LED backlight</Television_LCDBacklightTechnology>
+    <Television_DisplayFormat>1080p (FullHD)</Television_DisplayFormat>
+    <EnvironmentalStandards_ENERGYSTARQualified>Yes</EnvironmentalStandards_ENERGYSTARQualified>
+    <EnvironmentalStandards_ENERGYSTARVersion>5.0</EnvironmentalStandards_ENERGYSTARVersion>
+    <Power_PowerConsumptionStandbySleep>0.2 watt</Power_PowerConsumptionStandbySleep>
+    <Television_HDMIPortsQty>4</Television_HDMIPortsQty>
+    <Display_AdditionalFeatures>On&#47;off timer, clock, auto power off, on-screen menu, 3:2 pull down compensation, integrated web browser, Advanced Contrast Enhancer circuit (ACE), LightSensor Technology, Live Colour, dynamic backlight, Deep Color, picture frame mode, BRAVIA Sync Function, BRAVIA Internet Video, Photo MAP, Presence Sensor, InstaPort, BRAVIA Internet Widgets, PhotoTV HD, Skype Ready, backlight off mode, Intelligent MPEG Noise Reduction, Intelligent Image Enhancer, X-Reality Engine, infobanner, skin naturalizer</Display_AdditionalFeatures>
+    <MediaPlayer_USBPort>Yes , 2 port(s)</MediaPlayer_USBPort>
+    <MediaPlayer_SupportedFlashMemoryCards>(null)</MediaPlayer_SupportedFlashMemoryCards>
+    <Display_PixelResponseTime>15.4 ms</Display_PixelResponseTime>
+    <Display_MotionEnhancementTechnology>Enhanced with 480 for your pleasure</Display_MotionEnhancementTechnology>
+    <ManufacturerWarranty_ServiceSupport>1 year warranty</ManufacturerWarranty_ServiceSupport>
+  </television>
+</job>

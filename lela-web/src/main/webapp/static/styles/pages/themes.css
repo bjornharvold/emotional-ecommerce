@@ -1,0 +1,38 @@
+.theme-el {
+    display:none !important;
+    position:absolute;
+    z-index:2;
+}
+
+#theme-logo {
+    display:block;
+    background:url('../../images/layout/themes/winter_logo.png') no-repeat;
+    height:156px;
+    width:197px;
+    top:-10px;
+    left:-13px;
+}
+
+#theme-top {
+    background:url('../../images/layout/themes/winter_top.png') no-repeat;
+    height:23px;
+    width:301px;
+    top:41px;
+    left:193px;
+}
+
+#theme-search {
+    background:url('../../images/layout/themes/winter_search.png') no-repeat;
+    height:19px;
+    width:499px;
+    top:-7px;
+    left:488px;
+}
+
+#theme-footer {
+    background:url('../../images/layout/themes/winter_footer.png') no-repeat;
+    height:19px;
+    width:1002px;
+    top:-29px;
+    left:-20px;
+}

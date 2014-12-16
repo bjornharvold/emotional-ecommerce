@@ -1,0 +1,47 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='CribID' RAttribute='CribID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+
+			<setattribute tag='CribID' RAttribute='CribID' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='CSPIACompiance' RAttribute='CSPIACompiance' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='CPSC1219_1220' RAttribute='CPSC1219_1220' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='CPSC1303LeadTest' RAttribute='CPSC1303LeadTest' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='ASTMCert' RAttribute='ASTMCert' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='SORCert' RAttribute='SORCert' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='GreenguardCert' RAttribute='GreenguardCert' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='TeethingRail' RAttribute='TeethingRail' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='FinishLowToxicity' RAttribute='FinishLowToxicity' enclosure='crib' type='boolean'></setattribute>
+			<setattribute tag='StationarySides' RAttribute='StationarySides' enclosure='crib' type='integer'></setattribute>
+			<setattribute tag='Canopy' RAttribute='Canopy' enclosure='crib' type='string'></setattribute>			
+			<setattribute tag='CRSafety' RAttribute='CRSafety' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='RecallDate' RAttribute='RecallDate' enclosure='crib' type='date'></setattribute>
+			<setattribute tag='RecallYear' RAttribute='RecallYear' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='LastYear' RAttribute='LastYear' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='RecallSeverity' RAttribute='RecallSeverity' enclosure='crib' type='string'></setattribute>
+			<setattribute tag='RecallDaysAgo' RAttribute='RecallDaysAgo' enclosure='crib' type='integer'></setattribute>			
+
+			
+			<createentity entity='job' 			tag='job' 			id='id'></createentity>
+			<createentity entity='crib' 		tag='crib' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+
+			<entity name='crib' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

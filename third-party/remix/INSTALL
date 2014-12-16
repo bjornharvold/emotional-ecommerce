@@ -1,0 +1,10 @@
+INSTALLATION
+------------
+
+Simply add the jar file included with this distribution to your build path.
+
+DEPENDENCIES
+------------
+
+- Java 1.5 or higher
+- No non-standard libraries are required

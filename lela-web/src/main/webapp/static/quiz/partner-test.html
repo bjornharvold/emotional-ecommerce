@@ -1,0 +1,37 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript">
+
+        /* == CODE TO TEST MULTIPLE TRACKERS ==
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-26275000-1']);      // Wrong id!!!
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        _gaq.push(['_trackEvent', 'something', 'someaction', 'somelabel', 1]);
+        */
+
+    </script>
+
+    <script src="/static/js/jquery-1.7.1.min.js"></script>
+    <script lela-url="http://dev.lela.com:8080/" src="/api/resource/quiz/quiz-loader.js?affiliateId=babygaga&applicationId=quiz"></script>
+    <script src="partner-test.js"></script>
+</head>
+
+<body style="background:#000;">
+    <div id="lela-quiz">
+        <!-- Quiz content goes here -->
+    </div>
+
+    <div id="quiz-completed" style="background-color: white; width: 300px; height: 100px; display: none;">
+        You have finished the quiz
+    </div>
+</body>
+</html>

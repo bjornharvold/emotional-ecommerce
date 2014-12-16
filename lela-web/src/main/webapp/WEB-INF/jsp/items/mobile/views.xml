@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+~ Copyright (c) 2011. Purple Door Systems, BV.
+-->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="category.page.mobile" extends="template.mobile.master">
+        <put-attribute type="string" name="title" value="" />
+        <put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/items/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/mobile/styles/grid.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/waypoints.min.js" />
+            <add-attribute type="string" value="/static/mobile/js/grid.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/items/mobile/page.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="category.data.mobile" template="/WEB-INF/jsp/items/mobile/data.jspx">
+        <put-attribute type="string" name="listType" value="false" />
+        <put-attribute type="string" name="ajax" value="true" />
+    </definition>
+
+    <definition name="item.details.mobile" extends="template.mobile.master">
+        <put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/items/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/mobile/styles/details.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/mobile/js/details.js" />
+            <add-attribute type="string" value="/static/js/plugins/waypoints.min.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/items/mobile/details.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="categories.mobile" extends="template.mobile.master">
+        <put-attribute type="string" name="title" value="meta.title.categories" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/mobile/styles/categories.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/mobile/js/categories.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/items/mobile/categories.jspx" />
+        </put-list-attribute>
+    </definition>
+
+
+</tiles-definitions>

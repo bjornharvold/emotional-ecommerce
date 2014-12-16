@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ConditionType" object="${conditiontype}" path="/crud/conditiontypes" z="n3fbgMRmQz/0zXKoPaPptoYCXF0=">
+        <field:display date="true" dateTimePattern="${conditionType_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ConditionType_dateCreated" object="${conditiontype}" z="msreRk4TiQIpr7YCwc1koJMzE2k="/>
+        <field:display date="true" dateTimePattern="${conditionType_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ConditionType_dateModified" object="${conditiontype}" z="hA6URYjxy06XZSPE8jYX57z4tSM="/>
+        <field:display field="conditionTypeName" id="s_com_lela_data_domain_entity_ConditionType_conditionTypeName" object="${conditiontype}" z="XVXN5ml6ZFXApu24odjwill38Hs="/>
+        <field:display field="useInLela" id="s_com_lela_data_domain_entity_ConditionType_useInLela" object="${conditiontype}" z="NH6uDW+h/ZVvnS/RYs+qPG+8F/k="/>
+    </page:show>
+</div>

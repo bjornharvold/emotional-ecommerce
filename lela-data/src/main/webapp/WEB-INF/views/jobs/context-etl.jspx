@@ -1,0 +1,81 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <c:set var="dateFormat" value="MM/dd/yyyy HH:mm.ss"/>
+    <spring:url var="homeUrl" value="/ingest"/>
+    <spring:url var="detailUrl" value="/ingest/etl/job/${jobName}/detail"/>
+
+    <c:if test="${context != null}">
+        <c:choose>
+            <c:when test="${context.execution.result != null}">
+                <c:set var="statusClass" value="job-status-${context.execution.result}"/>
+                <spring:message var="statusText" code="ingest.job.result.${context.execution.result}"/>
+            </c:when>
+            <c:otherwise>
+                <c:set var="statusClass" value="job-status-${context.execution.status}"/>
+                <spring:message var="statusText" code="ingest.job.status.${context.execution.status}"/>
+            </c:otherwise>
+        </c:choose>
+
+        <div id="status-bar" class="job-status ${statusClass}">
+            <div class="status-nav float-left">
+                [ <a class="button" href="${homeUrl}">Job List</a> ] [ <a class="button" href="${detailUrl}">Details</a> ]
+            </div>
+
+            <strong>${statusText} job ${jobName}</strong> --
+            Processed ${context.execution.attribs.processedCount} of ${context.execution.attribs.totalCount}, Skipped: ${context.execution.attribs.skippedCount}, Errors: ${context.execution.attribs.errorCount}, Avg. Time: <fmt:formatNumber maxFractionDigits="3" value="${context.execution.attribs.averageTime}"/>
+
+            <div class="status-dates float-right">
+                Started: <fmt:formatDate value="${context.execution.startDate}" pattern="${dateFormat}"/>,
+                <c:if test="${context.execution.status == 'DONE'}">
+                    Ended: <fmt:formatDate value="${context.execution.endDate}" pattern="${dateFormat}"/>,
+                </c:if>
+                Last Refreshed: <fmt:formatDate value="${refreshDate}" pattern="${dateFormat}"/>
+            </div>
+        </div>
+
+        <div class="job-output">
+            <dl>
+                <c:forEach var="message" items="${context.messages}">
+                    <dt><fmt:formatDate value="${message.cdt}" pattern="${dateFormat}"/></dt><dd>${message.message}
+                    <c:if test="${not empty message.exception}">
+                        <pre class="message-exception">
+                            ${message.exception}
+                        </pre>
+                    </c:if>
+                    </dd>
+                </c:forEach>
+            </dl>
+        </div>
+
+        <a name="bottom"></a>
+
+        <c:if test="${context.execution.status == 'RUNNING'}">
+            <script language="JavaScript" type="text/javascript">
+                if (window.top == window) {
+                    window.setTimeout('location.reload()', 10000);
+                    document.location = "#bottom";
+                }
+            </script>
+        </c:if>
+    </c:if>
+    <c:if test="${context == null}">
+        Job has not been run... no output available
+    </c:if>
+
+</div>

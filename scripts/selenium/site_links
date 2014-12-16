@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>site_links</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">site_links</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>${baseUrlLocation}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Terms of service</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Lela.com Terms of Service</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=exact:Lela - How do you find the best products for your baby? Lela knows.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Privacy Policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Lela.com Privacy Policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=exact:Lela - How do you find the best products for your baby? Lela knows.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=About us</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Welcome to Lela.<br />Here’s what we’re all about.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=exact:Lela - How do you find the best products for your baby? Lela knows.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//div[@id='footer']/div/a[4]@href</td>
+	<td>http://lela.zendesk.com</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//div[@id='footer']/div/a[5]@href</td>
+	<td>mailto:info@lela.com</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//div[@id='footer']/div/a[6]@href</td>
+	<td>http://twitter.com/lelaknows</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//div[@id='footer']/div/a[7]@href</td>
+	<td>http://www.facebook.com/lelaknows?sk=app_203119206385978</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <spring:message code="user.form.local.code.tip" var="codeTip" htmlEscape="false"/>
+
+    <script type="text/javascript">
+        var codeTip = '${codeTip}';
+    </script>
+
+    <div class="cp-content" id="cp-redeem">
+
+        <c:choose>
+            <c:when test="${!empty error and error eq 'error.coupon.already.redeemed'}">
+                <h1>
+                    <span style="color:#3f3f3f;"><spring:message code="${error}.1"/></span><br/>
+                    <spring:message code="${error}.2"/>
+                </h1>
+            </c:when>
+            <c:otherwise>
+                <h2>${coupon.fnm} ${coupon.lnm}</h2>
+
+                <h1>Please enter code from cashier</h1>
+
+                <spring:url value="/local/coupon/redeem" var="redeemCouponUrl"/>
+                <spring-form:form id="redeem-coupon" cssClass="custom" action="${redeemCouponUrl}" method="PUT" modelAttribute="coupon">
+
+                    <c:if test="${!empty error}">
+                        <span class="errors"><spring:message code="${error}"/></span>
+                    </c:if>
+
+                    <p>
+                        <span class="brcd-error error">You need to enter a store code</span>
+                        <input type="text" name="localCode" value="${codeTip}" id="brcd"/>
+                    </p>
+
+                    <input type="hidden" value="${coupon.cpncd}" name="couponCode"/>
+                    <input type="hidden" value="${branch.rlnm}" name="branchUrlName"/>
+                    <p><a href="#" data-role="button" data-theme="b" class="button" id="redeem-cpn">Submit</a></p>
+                </spring-form:form>
+
+                <script type="text/javascript">
+                    $().ready(function($) {
+                        initRedeem();
+                        trackEvent('local', 'redeem coupon', '${fn:escapeXml(offer.rlnm)}', 1);
+                    });
+                </script>
+            </c:otherwise>
+        </c:choose>        
+
+        <p><strong>Offer Expires: <lela:dateFormat date="${offer.xprtndt}"/></strong><br/>
+        <spring:url value="/sc/deals-terms" var="termsUrl" />
+        <a href="${termsUrl}" target="_blank" rel="nofollow">Details, terms &amp; conditions</a></p>
+    </div>
+</jsp:root>

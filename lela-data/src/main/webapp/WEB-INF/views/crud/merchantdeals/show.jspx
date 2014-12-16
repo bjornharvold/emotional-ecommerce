@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_MerchantDeal" object="${merchantdeal}" path="/crud/merchantdeals" z="QOKHpRARIV6mytP5ZGbE/jvyNnE=">
+        <field:display date="true" dateTimePattern="${merchantDeal_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_MerchantDeal_dateCreated" object="${merchantdeal}" z="Lyk3LDGNIQ0Pb9JGjTqth0BlJk8="/>
+        <field:display date="true" dateTimePattern="${merchantDeal_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_MerchantDeal_dateModified" object="${merchantdeal}" z="huI100u3Un1n0NWzRxV9c1kQET0="/>
+        <field:display field="merchant" id="s_com_lela_data_domain_entity_MerchantDeal_merchant" object="${merchantdeal}" z="DZrugzlsnw/VTXXs2MJqyUXUB34="/>
+        <field:display field="dealName" id="s_com_lela_data_domain_entity_MerchantDeal_dealName" object="${merchantdeal}" z="V8Q2ND11sF334TQ7za9/1xsNxHI="/>
+        <field:display field="url" id="s_com_lela_data_domain_entity_MerchantDeal_url" object="${merchantdeal}" z="TLegBD5eLrYPZRW+ELpld++7Kv0="/>
+        <field:display field="startOn" id="s_com_lela_data_domain_entity_MerchantDeal_startOn" object="${merchantdeal}" z="7jVRX27nuISrrhZ2PLWWqTD+7yg="/>
+        <field:display field="endOn" id="s_com_lela_data_domain_entity_MerchantDeal_endOn" object="${merchantdeal}" z="kqB/7Y9WLbn5t8W4nZMeu7mJjOY="/>
+        <field:display field="dealSpecifics" id="s_com_lela_data_domain_entity_MerchantDeal_dealSpecifics" object="${merchantdeal}" z="pp+3TEr22vdCZGw6azROhzQUvM8="/>
+        <field:display field="objectId" id="s_com_lela_data_domain_entity_MerchantDeal_ObjectId" object="${merchantdeal}" z="nzpisf6E2RhImtgX4rEvhQRHOaA="/>
+    </page:show>
+</div>

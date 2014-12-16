@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ItemVideo" object="${itemvideo}" path="/crud/itemvideos" z="Tg2V6B2NHfOZTGY/gIsHkwCQ/r8=">
+        <field:display date="true" dateTimePattern="${itemVideo_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ItemVideo_dateCreated" object="${itemvideo}" z="IIf+w16ojPfcXpe9zZvXb3VK5aA="/>
+        <field:display date="true" dateTimePattern="${itemVideo_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ItemVideo_dateModified" object="${itemvideo}" z="7MLTVIz2Vzt7W+KJp1HEuSxbqvY="/>
+        <field:display field="item" id="s_com_lela_data_domain_entity_ItemVideo_item" object="${itemvideo}" z="coCy3gpfpdzJvNzkSMSk0ZLWH7Y="/>
+        <field:display field="videoUrl" id="s_com_lela_data_domain_entity_ItemVideo_videoUrl" object="${itemvideo}" z="dSxn5FVHZsfqgOa8GYEltntsYuU="/>
+        <field:display field="videoSubscribers" id="s_com_lela_data_domain_entity_ItemVideo_videoSubscribers" object="${itemvideo}" z="PuHuATcF5KIoR/sKX9DalQIeetY="/>
+        <field:display field="videoViews" id="s_com_lela_data_domain_entity_ItemVideo_videoViews" object="${itemvideo}" z="+fTWw0dFA4Nld7/noLBOun7nU5s="/>
+        <field:display field="videoTitle" id="s_com_lela_data_domain_entity_ItemVideo_videoTitle" object="${itemvideo}" z="wM13yIYH2umvEc1hAl2KSwcm1H8="/>
+        <field:display field="videoType" id="s_com_lela_data_domain_entity_ItemVideo_videoType" object="${itemvideo}" z="0UvG0uDWRTPleyoT91NnuLxgB70="/>
+        <field:display field="reviewStatus" id="s_com_lela_data_domain_entity_ItemVideo_reviewStatus" object="${itemvideo}" z="HEov2oVTdN29HZHg7RuV7rhGkuI="/>
+    </page:show>
+</div>

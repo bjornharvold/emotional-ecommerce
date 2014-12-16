@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="dataCreationManagerEnabler" class="com.lela.commons.bootstrap.impl.DataCreationManagerEnabler" >
+        <property name="enabled" value="false"/>
+    </bean>
+    
+    <!-- Override the configured cache (and cacheManager) because ehcache 2.5+ does not allow two caches with the same name in  -->
+    <!-- the JVM -->
+    <!-- See http://ehcache.org/documentation/get-started/key-classes-methods#introduction -->
+    <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" destroy-method="destroy">
+		<property name="configLocation" value="ehcache-test.xml" />
+	</bean>
+</beans>

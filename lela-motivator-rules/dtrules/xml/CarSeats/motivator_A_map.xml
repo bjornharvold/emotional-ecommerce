@@ -1,0 +1,41 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='CarSeatID' RAttribute='CarSeatID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+
+			<setattribute tag='CarSeatID' RAttribute='CarSeatID' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='Canopy' RAttribute='Canopy' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='HarnessType' RAttribute='HarnessType' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='NHSTAOverallEaseOfUse' RAttribute='NHSTAOverallEaseOfUse' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='RecallDate' RAttribute='RecallDate' enclosure='carseat' type='date'></setattribute>
+			<setattribute tag='RecallDaysAgo' RAttribute='RecallDaysAgo' enclosure='carseat' type='integer'></setattribute>
+			<setattribute tag='RecallYear' RAttribute='RecallYear' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='LastYear' RAttribute='LastYear' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='RecallEvent' RAttribute='RecallEvent' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='RecallSeverity' RAttribute='RecallSeverity' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='CROverallScore' RAttribute='CROverallScore' enclosure='carseat' type='integer'></setattribute>
+			<setattribute tag='ShockAbsorbingFoam' RAttribute='ShockAbsorbingFoam' enclosure='carseat' type='string'></setattribute>
+			
+			<createentity entity='job' 			tag='job' 			id='id'></createentity>
+			<createentity entity='carseat' 	tag='carseat' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+
+			<entity name='carseat' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

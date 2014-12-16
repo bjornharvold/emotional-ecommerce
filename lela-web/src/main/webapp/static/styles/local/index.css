@@ -1,0 +1,79 @@
+#categories {
+    margin-bottom:50px;
+}
+
+#categories #quiz-header {
+    padding-top:20px;
+    height:470px;
+}
+
+#categories #quiz-header p {
+    font-size:18px;
+    font-weight:bold;
+    padding-right:40px;
+    line-height:24px;
+}
+
+.cat-c p {
+    position:relative;
+    padding-right:150px;
+    font-size:18px;
+    color:#666;
+    margin-bottom:10px;
+}
+
+.cat-c form {
+    display:block;
+    position:relative;
+}
+
+.cat-c form label {
+    color:#3ea0d4;
+    font-weight:bold;
+    display:block;
+    float:left;
+}
+
+.cat-c form input {
+    float:left;
+}
+
+.cat-c form label span.label {
+    float:left;
+    margin:4px 5px 0 1px;
+    font-size:13px;
+}
+
+.cat-c form select {
+    width:240px;
+}
+
+.cat-c form a#submit-cp {
+    clear:both;
+    padding:10px 0 0 10px;
+    display:block;
+    width:264px;
+    height:34px;
+    color:#fff;
+    font-size:18px;
+    font-weight:bold;
+    background:url('../../images/placeholders/local/giggle_button.gif') no-repeat;
+}
+
+.cat-c form a#submit-cp:hover {
+    background:url('../../images/placeholders/local/giggle_button_over.gif') no-repeat;
+}
+
+.l-alert {
+    width: 254px;
+    border:none;
+    padding-top:14px;
+    height:20px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+
+#create-cp .jqTransformSelectWrapper ul li a {
+    font-size:14px;
+}

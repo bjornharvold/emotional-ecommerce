@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_LocalStore" object="${localstore}" path="/crud/localstores" z="tNzWkpAgISYEanvssHSzrPcBdjA=">
+        <field:display date="true" dateTimePattern="${localStore_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_LocalStore_dateCreated" object="${localstore}" z="WnNYezKbZZOhG0OiMw3QmASLRgk="/>
+        <field:display date="true" dateTimePattern="${localStore_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_LocalStore_dateModified" object="${localstore}" z="eoL/WOob23Eh07TDhkffEnjP0kk="/>
+        <field:display field="merchantName" id="s_com_lela_data_domain_entity_LocalStore_merchantName" object="${localstore}" z="Op0ZTvhnxrnLMdUYwY58EywEKHI="/>
+        <field:display field="merchantId" id="s_com_lela_data_domain_entity_LocalStore_merchantId" object="${localstore}" z="kCaEY0u6VKkuHLS0VZYGF3A6oiQ="/>
+        <field:display field="storeNumber" id="s_com_lela_data_domain_entity_LocalStore_storeNumber" object="${localstore}" z="q7wBjpM7gY4acGsUtg+fAFZJQ9E="/>
+        <field:display field="storeName" id="s_com_lela_data_domain_entity_LocalStore_storeName" object="${localstore}" z="7kJLP6bI03i1n7dmjP23t27IgZ0="/>
+        <field:display field="address" id="s_com_lela_data_domain_entity_LocalStore_address" object="${localstore}" z="lA5N276BpdF47mD9Np4qNMy+VX8="/>
+        <field:display field="city" id="s_com_lela_data_domain_entity_LocalStore_city" object="${localstore}" z="A6sZ9w8CF4hZ71UY9cadGKmUq6Q="/>
+        <field:display field="state" id="s_com_lela_data_domain_entity_LocalStore_state" object="${localstore}" z="fxkdgM/Y7hGSZ79sMDL6j1IBcoE="/>
+        <field:display field="zipCode" id="s_com_lela_data_domain_entity_LocalStore_zipCode" object="${localstore}" z="MGpW1qPgKhp79rCKdXeqrmLRfcU="/>
+        <field:display field="phoneNumber" id="s_com_lela_data_domain_entity_LocalStore_phoneNumber" object="${localstore}" z="waUIsUOspMDWmwl8xqV2ugyT2/s="/>
+        <field:display field="latitude" id="s_com_lela_data_domain_entity_LocalStore_latitude" object="${localstore}" z="JA9QI/uyoegUnWf2QX6SeOHxF4U="/>
+        <field:display field="longitude" id="s_com_lela_data_domain_entity_LocalStore_longitude" object="${localstore}" z="uOABU0ItTjlkGt1OhGCwp8uPg5o="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_LocalStore_dirty" object="${localstore}" z="GY4DYF8IxraNSAyS7iuBlyud6Xk="/>
+        <field:display field="objectId" id="s_com_lela_data_domain_entity_LocalStore_objectId" object="${localstore}" z="ugkmN+K1/fwco3DJAJ2kSJUfsnQ="/>
+        <field:display field="lelaLocalCode" id="s_com_lela_data_domain_entity_LocalStore_lelaLocalCode" object="${localstore}" z="bTGg8LDpDyUiT2///CZxKz7uoNw="/>
+    </page:show>
+</div>

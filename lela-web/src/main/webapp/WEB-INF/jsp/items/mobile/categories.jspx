@@ -1,0 +1,46 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+    <spring:url value="/quiz" var="quizUrl"/>
+
+    <c:if test="${!empty param.lq and param.lq eq 1}">
+        <script type="text/javascript">
+            window.location = '${quizUrl}';
+        </script>
+    </c:if>
+
+    <div class="lela-mobile-container lela-mobile-page-categories">
+
+        <div class="lela-mobile-header">
+            <div id="introduction">
+
+                <h2 class="startshopping"><spring:message code="categories.complete.mobile" htmlEscape="false" /></h2>
+
+            </div>
+        </div>
+
+        <div class="lela-mobile-content">
+            <tiles:insertTemplate template="/WEB-INF/jsp/items/mobile/categories_list.jspx" flush="true">
+                <tiles:putAttribute name="categories" value="${categories}" />
+            </tiles:insertTemplate>
+        </div>
+
+    </div>
+
+</jsp:root>

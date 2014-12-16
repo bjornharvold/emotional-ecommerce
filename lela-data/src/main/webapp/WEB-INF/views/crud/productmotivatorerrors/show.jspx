@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ProductMotivatorError" object="${productmotivatorerror}" path="/crud/productmotivatorerrors" z="lhFjx1YYVpGfSaZ6GybMhxgGwwk=">
+        <field:display date="true" dateTimePattern="${productMotivatorError_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ProductMotivatorError_dateCreated" object="${productmotivatorerror}" z="NhVWexiRHuT4PvZZubQ+Av4NX9A="/>
+        <field:display date="true" dateTimePattern="${productMotivatorError_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ProductMotivatorError_dateModified" object="${productmotivatorerror}" z="IHlQMKAxVQbqhqFFxqESq3PvsB0="/>
+        <field:display field="item" id="s_com_lela_data_domain_entity_ProductMotivatorError_item" object="${productmotivatorerror}" z="EN1BdROl/iCEuF2hF2hYx3I7Jsc="/>
+        <field:display field="motivator" id="s_com_lela_data_domain_entity_ProductMotivatorError_motivator" object="${productmotivatorerror}" z="4j42mFYe9XTEjEHg/ofc00aWNCo="/>
+        <field:display field="error" id="s_com_lela_data_domain_entity_ProductMotivatorError_error" object="${productmotivatorerror}" z="WC6FViajwA2I3YXuUO+hy83xCCI="/>
+        <field:display field="stackTrace" id="s_com_lela_data_domain_entity_ProductMotivatorError_stackTrace" object="${productmotivatorerror}" z="/PelpEYuwfH4bUpQAZoWP5WES0s="/>
+    </page:show>
+</div>

@@ -1,0 +1,40 @@
+a { color: #ff9900; text-decoration: none; border: none; }
+a:hover { text-decoration: underline; }
+img { border: none; }
+
+.lela-grid-container { font-family: Arial, "Arial", sans-serif; color: #3f3f3f; }
+
+.lela-grid-container h1 { text-align: center; font-size: 24px; font-weight: bold; margin: 0 0 7px 0; color: #3f3f3f; }
+.lela-grid-container h3 { text-align: center; font-size: 14px; font-weight: normal; margin: 0 0 16px 0; color: #3f3f3f; }
+
+ul.lela-grid { padding: 0; margin: 0 0 20px 0; height: 394px; }
+li.lela-grid-item { width: 192px; height: 392px; padding: 0; margin-top: 4px; margin-right: 4px; border: 1px solid #dfdfdf; background-color: #ffffff; list-style: none; display: block; float: left; position: relative; transition: all 0.2s; -moz-transition: all 0.2s; -o-transition: all 0.2s; -webkit-transition: all 0.2s; }
+li.lela-grid-item:hover { -webkit-box-shadow:  0px 0px 8px 0px rgba(0, 0, 0, 0.1); box-shadow:  0px 0px 8px 0px rgba(0, 0, 0, 0.1);  }
+
+.lela-item-image-container { width: 192px; min-height: 213px; background-color: #ffffff; clear: both; }
+.lela-item-image { margin: 12px auto 12px auto; display: block; }
+.lela-item-relevancy { position: absolute; left: 0px; top: 0px; }
+.lela-item-relevancy img { width: 32px; }
+
+ul.lela-item-image-thumbnails { width: 168px; height: 46px; margin: 0 0 12px 0; padding: 0px 0 0 22px; }
+ul.lela-item-image-thumbnails li { float: left; margin: 0 4px 0 0; list-style: none; width: 44px; height: 44px; border: 1px solid #cecece; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; overflow: hidden; transition: all 0.2s; -moz-transition: all 0.2s; -o-transition: all 0.2s; -webkit-transition: all 0.2s; }
+ul.lela-item-image-thumbnails li:hover { cursor: pointer; border: 1px solid #3d8abe; -webkit-box-shadow: 0px 0px 0px 2px rgba(66, 152, 201, 1); box-shadow: 0px 0px 0px 2px rgba(66, 152, 201, 1); }
+.lela-item-image-thumbnails-back { display: none; background: transparent url('tn-nav.png') no-repeat 0px 0px; width: 12px !important; height: 44px !important; margin: 1px 5px !important; border: none !important; }
+.lela-item-image-thumbnails-forward { display: none; background: transparent url('tn-nav.png') no-repeat 0px -44px; width: 12px !important; height: 44px !important; margin: 1px 5px 1px 1px; !important; border: none !important; }
+
+.lela-item-detail { background-color: #f6f6f6; padding: 10px 10px 0px 10px; min-height: 145px; }
+.lela-item-detail-link-container { height: 47px; padding: 0 !important; margin: 0 !important; }
+.lela-item-detail-link { line-height: 16px; color: #3f3f3f !important; font-size: 12px; font-weight: bold; }
+.lela-item-detail-merchantlink { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; font-size: 12px; background: #4399ca url('pop-out.png') no-repeat 148px 13px; color: white; display: block; padding: 10px; color: white !important; transition: all 0.2s; -moz-transition: all 0.2s; -o-transition: all 0.2s; -webkit-transition: all 0.2s; }
+.lela-item-detail-merchantlink:hover { background-color: #63b4e3;-webkit-box-shadow:  0px 2px 2px 0px rgba(66, 152, 201, 0.25); box-shadow:  0px 2px 2px 0px rgba(66, 152, 201, 0.25); }
+.lela-item-detail-bestprice { font-size: 12px; margin: 7px 0 3px 0; color: #3f3f3f; }
+.lela-item-detail-bestprice a { color: #4399ca; }
+.lela-item-detail-lowestprice { font-size: 20px; font-weight: bold; margin: 0 0 7px 0; }
+
+.lela-see-all-items, .lela-clear { clear: both; }
+.lela-see-all-items { padding-top: 20px; text-align: center; }
+.lela-see-all-items a { text-align: center; font-size: 18px; font-weight: bold; color: #ff9900 !important; }
+
+.lela-powered-by-container { margin: 20px auto 0 auto; width: 127px; height: 48px; display: block; }
+.lela-powered-by { display: block; background: transparent url('powered-by.png') no-repeat 0px 0px; width: 127px; height: 48px; cursor: pointer; }
+.lela-powered-by:hover { display: block; background: transparent url('powered-by.png') no-repeat 0px -48px; }

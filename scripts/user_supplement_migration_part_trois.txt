@@ -1,0 +1,12 @@
+# move all properties over to UserSupplement
+
+db.user.find({ffltccntrlnm : {$exists : true}}).forEach(function(a) {
+  db.userSupplement.find({cd : a.cd}).forEach(function(us) {
+    us.ffltccntrlnm = a.ffltccntrlnm;
+    db.userSupplement.update({cd : a.cd}, us, false, false);
+  });
+});
+
+# remove same properties on user collection
+
+db.user.update({cd : {$exists : true}}, {$unset : {ffltccntrlnm : 1}}, false, true);

@@ -1,0 +1,88 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <p><b>Last Updated: October 6, 2011</b></p>
+
+   <p><b>LELAKNOWS PRIVACY POLICY</b></p>
+
+   <p>PurpleKey, Inc., with its affiliates (collectively “Purple Door”), is the operator of the lela.com website and service (“LelaKnows”). PurpleDoor is committed to using the information we learn about our users responsibly and protecting it from inadvertent disclosure to third parties. This Privacy Policy describes the types of information Purple Door collects in connection with LelaKnows, how we collect it, how we use it, and under what circumstances we might disclose that information to third-parties. PLEASE READ THIS PRIVACY POLICY AND THE ASSOCIATED TERMS OF SERVICE CAREFULLY BEFORE USING LELAKNOWS. BY ACCESSING OR USING LELAKNOWS (OTHER THAN TO READ THIS PRIVACY POLICY FOR THE FIRST TIME), YOU AGREE TO THE TERMS OF SERVICE AND THEREBY THIS PRIVACY POLICY.</p>
+
+   <p><b>I. Types of Information Collected</b></p>
+
+   <p>We collect two kinds of information related to you: (a) Personally Identifiable Information (“PII”); and (b) Non-Personally Identifiable Information (“Non-PII”). </p>
+
+   <p><b>Personally Identifiable Information: </b>PII is any information that identifies you as person. We collect your PII when you choose to register with us or if you provide it voluntarily when participating in an interactive feature of LelaKnows, such as a questionnaire, satisfaction survey, or product review. <a name="_DV_M32"><!-- --></a> For example, you may provide your name, address, email address, telephone number, and username and password. You may also provide certain demographic information about you (e.g., age, gender, shopping interests and preferences, etc.) when participating in a survey or poll, and that information may be considered PII if it can be linked to you in an identifying manner. You may also provide PII when posting a general comment and/or recommendation on LelaKnows </p>
+
+   <p><b>Non-Personally Identifiable Information: </b> Non-PII is any information that does not identify you as a person, and includes information that would otherwise be considered PII if it has been “anonymized” (that is, rendered incapable of being linked back to you in an identifying manner). <a name="_DV_M43"><!-- --></a> We collect certain non-PII from you when you use the LelaKnows website, including items such as searches, products viewed, pages viewed, articles and blogs viewed, product preferences, and other websites visited through links on this website. We also track information on how the user accesses the LelaKnows website, such as the type of device used, the URL of the device, the browser and operating system used. We also keep track of the web pages within LelaKnows that you visit, and the duration of your visits.</p>
+
+   <p>The information we collect may include information provide by third parties. For example, if we provide users with the ability to register for LelaKnows via their Facebook or Google accounts, we will receive your PII from those sites and services. We also receive information from third-party vendors whose websites you visit through links on the LelaKnows website. Information that we collect from third-parties includes products viewed on other websites, purchases made, financial information, and shipping addresses, and other activity conducted on third-party websites.</p>
+
+   <p><b>Use of Cookies, Web Beacons and Similar Technology</b><br />
+   Purple Door and third parties that it authorizes automatically receive and store certain types of non-PII whenever you interact with us by using "cookies" and analogous technology. "Cookies" are small files that are placed on your computer or your internet browser memory to enable the owner of the cookie to recognize your browser and to provide convenience and other features to you. So, for example, our cookies may allow us to show you the past products you have searched for on LelaKnows, and allow us to hold information that you would otherwise need to re-enter. If you do not wish to accept cookies from the LelaKnows website, you may set your browser so that it does not accept cookies. Rejecting cookies, however, may limit certain functions on LelaKnows or make them unavailable to you.</p>
+
+   <p><b>II. How Purple Door Uses the Information that We Collect</b></p>
+
+   <p><br />
+   The information that we collect from our users is key to LelaKnows’ ability to provide a valuable service to our users. We therefore take great care to protect the confidentiality of that information. We use the personal information that we collect from users generally for two purposes. First, we use both PII and non-PII to improve the product recommendations that we make to the user who supplied the information, and to improve the operation and function of the LelaKnows website. Second, we use information from our users for operational, promotional and marketing purposes in ways naturally associated with the circumstances in which the user provided the information. In addition to those purposes, we may use PII to send electronic mail to users with new and updated information about the LelaKnows website, product recommendations, and other marketing communications. </p>
+
+   <p><b>III. Disclosure of Information to Third Parties</b></p>
+
+   <p>We do not provide or disclose your PII to third parties except (a) to our vendors and affiliated companies in connection with the above purposes, (b) as provided below under the heading “Sale of Business and Disclosure Required by Law,” or (c) we have a good faith belief that access, use, preservation or disclosure of such information is reasonably necessary to (a) satisfy any applicable law, regulation, legal process or enforceable governmental request, (b) enforce the applicable Terms of Service, including this Privacy Policy, not restricting disclosure for use in investigation of potential violations thereof, (c) detect, prevent, or otherwise address fraud, security or technical issues, or (d) protect against harm to the rights, property or safety of Purple Door, its users or the public as required or permitted by law.</p>
+
+   <p><b>Sale of Business and Disclosure Required By Law </b></p>
+
+   <p>We may disclose PII and Non-PII held by us if all or any of our assets are acquired by a third party, in which case, PII and Non-PII may be among the assets transferred to the third party. <a name="_DV_C67"><!-- --></a><a name="_DV_C68"><!-- --></a>We <a name="_DV_M105"><!-- --></a>also may disclose and use any PII or non-PII if we are required to do so by law, such as with respect to copyright and other intellectual property infringement claims, or if we believe that such action is necessary to: (i) fulfill a government request; (ii) conform with the requirements of the law or legal process; (iii) protect or defend our legal rights or property, our website, or other users; or (iv) in an emergency to protect the health and safety of our <a name="_DV_M107"><!-- --></a>users or the general public.</p>
+
+   <p><b>Links to Third Party Sites and Services</b><br />
+   The LelaKnows website contains links to other websites not affiliated with Purple Door. Purple Door is not responsible for the privacy practices of those other sites. While we strive to work only with highly reputable third-parties, Purple Door cannot accept responsibility for anything that happens once a user has left our site. This privacy statement applies solely to LelaKnows and not any other website or service.</p>
+
+   <p><b>IV. Opting Out</b></p>
+
+   <p>Users may opt out of receiving further communications from Purple Door by sending electronic notice of that decision to Purple Door at <a href="mailto:info@lela.com">info@lela.com</a>. </p>
+
+   <p><b>Accessing and updating personal information</b></p>
+
+   <p>Users may contact Purple Door to amend or delete PII that Purple Door has collected about that user may make that change We make good faith efforts to provide you with access to your personal information and either to correct this data if it is inaccurate or to delete such data at your request if it is not otherwise required to be retained by law or for legitimate business purposes through the LelaKnows website or by contacting Purple Door by email. Purple Door’s email address for correspondence is <a href="mailto:info@lela.com">info@lela.com</a>. We ask individual users to identify themselves and the information requested to be accessed, corrected or removed before processing such requests, and we may decline to process requests that are unreasonably repetitive or systematic, require disproportionate technical effort, jeopardize the privacy of others, or would be extremely impractical (for instance, requests concerning information residing on backup tapes), or for which access is not otherwise required. In any case where we provide information access and correction, we perform this service free of charge, except if doing so would require a disproportionate effort. Because of the way we maintain certain services, after you delete your information, residual copies may take a period of time before they are deleted from our active servers and may remain in our backup systems.</p>
+
+   <p><b>V. Miscellaneous</b></p>
+
+   <p><b>We do not Knowingly Collect Personal Information from Children</b><br />
+   The LelaKnows website is not intended for use by children under the age of 13. If we discover that a user is under 13 years of age, we will close that user’s account and delete all PII about that user in accordance with the Children’s Online Privacy Protection Act (“COPPA”). Also, if you are under 18, you should only use LelaKnows and submit information with the involvement of a parent or guardian.</p>
+
+   <p><b>Security of Information </b></p>
+
+   <p>LelaKnows takes the security of your information seriously and takes reasonable steps to protect your PII. While no data transmission over the Internet or information storage technology can be guaranteed to be 100% secure. The following is a summary of the measures we take to protect your information: We work to protect the security of your PII during transmission by using secure server hosting locations in the US, firewall protection, controlled access and encryption technology to protect your data.</p>
+
+   <p><b>Dispute Resolution</b><br />
+   Any dispute a user may have with Purple Door regarding use of data or this Privacy Policy is subject to the terms of this Privacy Policy and our Terms of Use. The federal laws of the United States and the state of New York will govern any dispute regarding our use of data the privacy of such personal information, and any such dispute will be subject to the exclusive jurisdiction of the state and federal courts located in New York, state of New York.</p>
+
+   <p><b>Changes to this Privacy Policy</b><br />
+   As Internet usage in general and our business in particular develop and evolve over time, Purple Door will periodically revise this privacy policy. Any updates to this Privacy Policy will be effective 10 days after being posted on the LelaKnows website. Users should check back to this page regularly to keep abreast of any changes to this policy.</p>
+
+   <p>When we receive formal written complaints, it is Purple Door’s policy to contact the complaining user regarding his or her concerns. We will cooperate with the appropriate regulatory authorities, including local data protection authorities, to resolve any complaints regarding the transfer of personal data that cannot be resolved between Purple Door and an individual.</p>
+
+   <p><b>Enforcement</b></p>
+
+   <p>Purple Door adheres to the US Safe Harbor Privacy Principles of Notice, Choice, Onward Transfer, Security, Data Integrity, Access and Enforcement. </p>
+
+   <p><b>Contact</b></p>
+
+   <p>If you would like to contact us with respect to this privacy policy, please use the website or email us at <a href="mailto:privacy@lela.com">privacy@lela.com</a></p>
+
+
+</jsp:root>

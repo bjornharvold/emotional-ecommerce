@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ZipCode" items="${zipcodes}" z="5kJ/KP8wVY4djjk0IK/TD7eFN38=">
+        <table:table data="${zipcodes}" id="l_com_lela_data_domain_entity_ZipCode" path="/crud/zipcodes" z="uljYvhwh+FZZcnqweNDIIBVZWC4=">
+            <table:column date="true" dateTimePattern="${zipCode_datecreated_date_format}" id="c_com_lela_data_domain_entity_ZipCode_dateCreated" property="dateCreated" z="f8y7u7A2G41AlAQmVoskjE4Vmxc="/>
+            <table:column date="true" dateTimePattern="${zipCode_datemodified_date_format}" id="c_com_lela_data_domain_entity_ZipCode_dateModified" property="dateModified" z="w2F31m1JEtKXc4SVq/4w0hjg3bU="/>
+            <table:column id="c_com_lela_data_domain_entity_ZipCode_postalCode" property="postalCode" z="iFCFPWxG0ofHYdtSuugtJEard1A="/>
+            <table:column id="c_com_lela_data_domain_entity_ZipCode_population" property="population" z="e/wtvgYKitvVHCt05vaINaULGy0="/>
+            <table:column id="c_com_lela_data_domain_entity_ZipCode_household" property="household" z="Od1/yAadUN304ltyOQGS/S3BHLM="/>
+            <table:column id="c_com_lela_data_domain_entity_ZipCode_white" property="white" z="yV+sNsr06aicXwf6TzebBimaVPE="/>
+        </table:table>
+    </page:list>
+</div>

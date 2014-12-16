@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>shortDescription</key>
+		<string>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+		<key>description</key>
+		<string>This is the text of item 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. This is the text of item 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. This is the text of item 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. This is the text of item 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. This is the text of item 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+		<key>specifications</key>
+		<string>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+		<key>subtitle</key>
+		<string>As low as $630 (with Lela rebate)</string>
+		<key>lpid</key>
+		<integer>11111</integer>
+		<key>vendors</key>
+		<array>
+			<string>Amazon</string>
+			<string>Kmart</string>
+			<string>Target</string>
+			<string>Walmart</string>
+		</array>
+		<key>hasWebsite</key>
+		<true/>
+		<key>ratings</key>
+		<string>OBJECT</string>
+		<key>colors</key>
+		<array>
+			<string>Red</string>
+			<string>Blue</string>
+			<string>Yellow</string>
+		</array>
+		<key>title</key>
+		<string>Orbit G2 Stroller</string>
+		<key>image</key>
+		<string>http://img2.timeinc.net/people/i/2010/cbb/blog/100308/g2-500.jpg</string>
+		<key>prices</key>
+		<array>
+			<string>100</string>
+			<string>250</string>
+			<string>370</string>
+		</array>
+		<key>local</key>
+		<integer>10</integer>
+		<key>hasAccessories</key>
+		<true/>
+		<key>images</key>
+		<array>
+			<string>1.jpg</string>
+			<string>2.jpg</string>
+		</array>
+		<key>online</key>
+		<integer>100</integer>
+		<key>features</key>
+		<string>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+		<key>onlinePurchase</key>
+		<true/>
+	</dict>
+</array>
+</plist>

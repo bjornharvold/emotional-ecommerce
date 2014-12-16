@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_CleanseRule" items="${cleanserules}" z="0hLnP/w6i/jeRwvrXOqIHaWVx0c=">
+        <table:table data="${cleanserules}" id="l_com_lela_data_domain_entity_CleanseRule" path="/crud/cleanserules" z="eqd5DqMdBF5em1nQM52/zvzByg0=">
+            <table:column date="true" dateTimePattern="${cleanseRule_datecreated_date_format}" id="c_com_lela_data_domain_entity_CleanseRule_dateCreated" property="dateCreated" z="E+TvVOSesi+JTzoWG6DEGJOCbAM="/>
+            <table:column date="true" dateTimePattern="${cleanseRule_datemodified_date_format}" id="c_com_lela_data_domain_entity_CleanseRule_dateModified" property="dateModified" z="ZQyOTCZ08/8n6FHqOMEX8v0u/DE="/>
+            <table:column id="c_com_lela_data_domain_entity_CleanseRule_cleanseRuleValue" property="cleanseRuleValue" z="QoT5zdOKkCwr2a1AJxMyYM9sO6c="/>
+        </table:table>
+    </page:list>
+</div>

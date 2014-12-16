@@ -1,0 +1,40 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='TV_ID' RAttribute='TV_ID' enclosure='job' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+			
+			<setattribute tag='TV_ID' RAttribute='TV_ID' enclosure='television' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='television' type='integer'></setattribute>
+			<setattribute tag='DesignStyle' RAttribute='DesignStyle' enclosure='television' type='string'></setattribute>
+			<setattribute tag='General_Bundledwith' RAttribute='General_Bundledwith' enclosure='television' type='string'></setattribute>
+			<setattribute tag='General_Combinedwith' RAttribute='General_Combinedwith' enclosure='television' type='string'></setattribute>
+			<setattribute tag='General_3DTechnology' RAttribute='General_3DTechnology' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Television_DiagonalSize' RAttribute='Television_DiagonalSize' enclosure='television' type='double'></setattribute>
+			<setattribute tag='NetworkInternetMultimedia_Connectivity' RAttribute='NetworkInternetMultimedia_Connectivity' enclosure='television' type='string'></setattribute>
+			<setattribute tag='MediaPlayer_USBPort' RAttribute='MediaPlayer_USBPort' enclosure='television' type='string'></setattribute>
+			<setattribute tag='MediaPlayer_SupportedFlashMemoryCards' RAttribute='MediaPlayer_SupportedFlashMemoryCards' enclosure='television' type='string'></setattribute>
+			<setattribute tag='CNETDesign' RAttribute='CNETDesign' enclosure='television' type='integer'></setattribute>
+			<setattribute tag='CRVersatility' RAttribute='CRVersatility' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Television_ImageAspectRatio' RAttribute='Television_ImageAspectRatio' enclosure='television' type='string'></setattribute>
+
+			<createentity entity='job' 			tag='job'			id='id'></createentity>
+			<createentity entity='television' 	tag='television' 	id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+			<entity name='television' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

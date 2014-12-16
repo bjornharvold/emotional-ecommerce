@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_MerchantOffer" modelAttribute="merchantOffer" path="/crud/merchantoffers" versionField="Version" z="IWVK5DRAVmbT+/Vm1RIPuJB5r1A=">
+        <field:datetime dateTimePattern="${merchantOffer_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_MerchantOffer_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${merchantOffer_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_MerchantOffer_dateModified" render="false" z="user-managed"/>
+        <field:input field="merchantSource" id="c_com_lela_data_domain_entity_MerchantOffer_merchantSource" z="AlrI/OK6BkoZ+OG1KqkMH7fkJf8="/>
+        <field:select field="merchantSourceType" id="c_com_lela_data_domain_entity_MerchantOffer_merchantSourceType" itemValue="id" items="${merchantsourcetypes}" path="/crud/merchantsourcetypes" render="false" z="user-managed"/>
+        <field:select field="category" id="c_com_lela_data_domain_entity_MerchantOffer_category" itemValue="id" items="${categorys}" path="/crud/categorys" render="false" z="user-managed"/>
+        <field:input field="conditionType" id="c_com_lela_data_domain_entity_MerchantOffer_conditionType" z="gspJSbgJPTWdsIG37F/lazbhVkA="/>
+        <field:select field="reviewStatus" id="c_com_lela_data_domain_entity_MerchantOffer_investigationStatus" itemValue="id" items="${investigationstatuses}" path="/crud/investigationstatus" z="user-managed"/>
+        <field:input field="itemId" id="c_com_lela_data_domain_entity_MerchantOffer_itemId" render="false" required="false" validationMessageCode="field_invalid_integer" z="user-managed"/>
+        <field:input field="item" id="c_com_lela_data_domain_entity_MerchantOffer_item" z="ItYg0xA7GCL2fcS4fkElDRc9m8U="/>
+        <field:input field="merchant" id="c_com_lela_data_domain_entity_MerchantOffer_merchant" z="SckVlGdnfdCgvIp9Pe7K+t27RCQ="/>
+        <field:select field="brand" id="c_com_lela_data_domain_entity_MerchantOffer_brand" itemValue="id" items="${brands}" path="/crud/brands" render="false" z="user-managed"/>
+        <field:input field="sourceKey" id="c_com_lela_data_domain_entity_MerchantOffer_sourceKey" z="UIZtjiRSZwRSZWdyFGMTEwvZpvY="/>
+        <field:input field="merchantName" id="c_com_lela_data_domain_entity_MerchantOffer_merchantName" z="iGS1ETJkdcFKMQ6IkatFhfmgR8A="/>
+        <field:input field="offerItemName" id="c_com_lela_data_domain_entity_MerchantOffer_offerItemName" z="PwjzYUOxWOy8ETpw1gTuuNYJkeM="/>
+        <field:input field="modelNumber" id="c_com_lela_data_domain_entity_MerchantOffer_modelNumber" z="khSHLXXAn158mNHeNZzhZ/0x3G0="/>
+        <field:input field="upc" id="c_com_lela_data_domain_entity_MerchantOffer_upc" z="QyyY0ZrXLWn4ikChm+Hve/DjXN8="/>
+        <field:input field="color" id="c_com_lela_data_domain_entity_MerchantOffer_color" z="2Qn56yF9lHlep6aDWvzKW+uLLjM="/>
+        <field:input field="offerUrl" id="c_com_lela_data_domain_entity_MerchantOffer_offerUrl" z="gE0evaeJr5b9SEKH49KZvxHr9Dw="/>
+        <field:input field="offerPrice" id="c_com_lela_data_domain_entity_MerchantOffer_offerPrice" max="18" z="YeRX+iNYwvEAQDcl4mG/1gRO7vQ="/>
+        <field:input field="offerSalePrice" id="c_com_lela_data_domain_entity_MerchantOffer_offerSalePrice" max="18" z="QNlCJ7WWvTHaKP62FFFstRCGJU0="/>
+        <field:input field="offerDate" id="c_com_lela_data_domain_entity_MerchantOffer_offerDate" z="8dg4wff/knMrE2pAdKE2rYai9/Q="/>
+        <field:checkbox field="available" id="c_com_lela_data_domain_entity_MerchantOffer_available" z="n8ncn/pinK+sOzxHCvXRY3/MPFc="/>
+        <field:input field="loadDateId" id="c_com_lela_data_domain_entity_MerchantOffer_loadDateId" validationMessageCode="field_invalid_integer" z="cXS59j0n5hfrWDWhZbZVFsIQnMo="/>
+        <field:checkbox field="doNotUse" id="c_com_lela_data_domain_entity_MerchantOffer_doNotUse" z="OJUfqLVx7RbZF515bGQElrpfO3c="/>
+        <field:checkbox field="useThisOffer" id="c_com_lela_data_domain_entity_MerchantOffer_useThisOffer" z="zv3N7TvsS7+RifGOdUf2uKMxTDI="/>
+        <field:input field="reviewStatus" id="c_com_lela_data_domain_entity_MerchantOffer_reviewStatus" z="jnhmCrrMgoMJ1+tKEPbaKIDKuFE="/>
+        <field:checkbox field="dirty" id="c_com_lela_data_domain_entity_MerchantOffer_dirty" z="/TiqdTCWn9kH+jPa9J3FuUz7YfU="/>
+    </form:update>
+</div>

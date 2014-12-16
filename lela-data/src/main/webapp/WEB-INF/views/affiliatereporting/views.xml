@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="reporting" name="affiliatereporting/index">
+        <put-attribute name="body" value="/WEB-INF/views/affiliatereporting/index.jspx"/>
+    </definition>
+    <definition extends="reporting" name="affiliatereporting/list">
+        <put-attribute name="body" value="/WEB-INF/views/affiliatereporting/list.jspx"/>
+    </definition>
+    <definition extends="reporting" name="affiliatereporting/monthly">
+        <put-attribute name="body" value="/WEB-INF/views/affiliatereporting/monthly.jspx"/>
+    </definition>
+
+</tiles-definitions>

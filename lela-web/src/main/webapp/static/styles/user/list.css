@@ -1,0 +1,170 @@
+/*
+ * Copyright (c) 2012. Lela.com.
+ */
+
+body {
+    background:#efefef;
+}
+
+#main {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#p-grid {
+    display:block;
+}
+
+#p-filters h2, .p-list h2 {
+    background:#ff9900;
+    font-weight:normal;
+    font-size:18px;
+    padding:16px 12px;
+    color:#fff;
+}
+
+#p-filters li a.l-type, .p-list li a.l-type {
+    background:#333 url(../../images/icons/caret_off.gif) no-repeat 220px 22px;
+    display:block;
+    color:#fff;
+    font-size:12px;
+    padding:18px 12px;
+    border-top:1px solid #fff;
+}
+
+#p-filters li a.l-type.selected, .p-list li a.l-type.selected {
+    background:#333 url(../../images/icons/caret_on.gif) no-repeat 218px 24px;
+}
+
+#p-filters li li a, .p-list li li a {
+    background:#e3e3e3;
+    display:block;
+    color:#666666;
+    font-size:12px;
+    padding:18px 4px 18px 24px;
+    border-top:1px solid #fff;
+}
+
+#p-filters li li a.selected, .p-list li li a.selected {
+    color:#3f3f3f;
+    font-weight:bold;
+}
+
+.store { height:190px !important; }
+.store img {
+    width:auto !important;
+    height:auto !important;
+}
+
+.store .p-info a { color:#3f3f3f; }
+.store .p-over a { color:#fff; background: url('../../images/icons/store_list.png') no-repeat right; padding-right: 25px; }
+.store .p-img { height:60px !important; }
+
+.p-info {
+    height: 113px !important;
+}
+
+.p-action { margin-bottom: -10px !important; }
+.store .p-action { margin-bottom: -22px !important; }
+
+.p-action a {
+    font-size:11px;
+    height: 26px;
+    padding-top: 11px;
+    padding-left: 35px;
+    background-image: url('../../images/icons/trashcan.png') !important;
+    background-position: 10px 8px;
+}
+
+.p-action a.s-list {
+    color:#fff;
+    padding:16px 0 0 40px;
+    display:block;
+    height:34px;
+    background:#ff9900 url('../../images/icons/l_list_shop.gif') no-repeat 8px 13px !important;    
+}
+
+.c-btn {
+    background: transparent url('/static/images/buttons/checkbox_unchecked.png') no-repeat;
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin: -2px 7px 0 0;
+}
+
+.compare-check {
+    float: left;
+    width: 76px;
+    font-size: 11px;
+    color: #3f3f3f;
+    height: 18px;
+    margin: 17px 0px -45px 10px;
+    cursor: pointer;
+}
+
+.p-info-price {
+    margin-top: 3px;
+}
+
+.p-info-price strong {
+    font-size: 18px;
+    display: block;
+    font-weight: normal;
+}
+
+.c-btn-checked {
+    background: transparent url('/static/images/buttons/checkbox.png') no-repeat !important;
+}
+
+
+.alert {
+    line-height: 18px;
+    padding: 40px;
+    width: 200px;
+    height: 160px;
+    overflow: hidden;
+}
+
+.alert p {
+    margin: 10px 0 10px 0;
+}
+
+.alert a {
+    display: block;
+    float: none;
+    margin: 10px 0 0 0;
+    width: 72px;
+    position: relative;
+    top: 10px;
+    left: -1px;
+}
+
+.item .compare-check {
+    float: right;
+    position: relative;
+    top: -8px;
+    display: none !important;
+}
+
+.item .compare-check .c-btn {
+    float: right;
+    margin-left: 5px;
+}
+
+.item-name {
+    height: 40px;
+}
+
+.lela-rating {
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+}
+
+.grid-stores .p-info {
+    height: 76px !important;
+}
+
+.grid-stores .p-action {
+    bottom: 22px;
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Navbar" object="${navbar}" path="/crud/navbars" z="ILYppJJ1+KQJauX3yWqVLwM472w=">
+        <field:display date="true" dateTimePattern="${navbar_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Navbar_dateCreated" object="${navbar}" z="i+JCM63qqXSl5IHBRVdfdBWjNWw="/>
+        <field:display date="true" dateTimePattern="${navbar_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Navbar_dateModified" object="${navbar}" z="rYJwL9gYRPGHMEWtyuxuB5zsuC8="/>
+        <field:display field="rlnm" id="s_com_lela_data_domain_entity_Navbar_rlnm" object="${navbar}" z="gBHPWN7IcI6Jy7F81XfpwXtZwkA="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_Navbar_dirty" object="${navbar}" z="Hli6T5evqlQcUNjZxBfG2/9vayc="/>
+        <field:display field="objectId" id="s_com_lela_data_domain_entity_Navbar_objectId" object="${navbar}" z="EKbwhk2PKhwePht5Nq5faIxqNb4="/>
+        <field:display field="locale" id="s_com_lela_data_domain_entity_Navbar_locale" object="${navbar}" z="YGMlKzFiC11sm0ESOYGeI5VpFEI="/>
+        <field:display field="defaultNavbar" id="s_com_lela_data_domain_entity_Navbar_defaultNavbar" object="${navbar}" z="U0eaSISo7Ro6lUhw8vW+TSDmGxI="/>
+        <field:display field="affiliate" id="s_com_lela_data_domain_entity_Navbar_affiliate" object="${navbar}" z="ThYSMo/B/9YVxcgjO/QfbEsz844="/>
+    </page:show>
+</div>

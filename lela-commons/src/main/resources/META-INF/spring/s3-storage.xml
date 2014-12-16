@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="blogImageFileStorage" class="com.lela.util.utilities.storage.s3.S3FileStorage"
+          c:accessKey="${amazon.access.key}" c:secretAccessKey="${amazon.secret.key}"
+          c:bucketName="${blog.images.amazon.bucket}" c:useBucketAsDomain="true"/>
+    
+    <bean id="bannerImageFileStorage" class="com.lela.util.utilities.storage.s3.S3FileStorage"
+          c:accessKey="${amazon.access.key}" c:secretAccessKey="${amazon.secret.key}"
+          c:bucketName="${campaign.images.amazon.bucket}" c:useBucketAsDomain="true"/>
+    
+    <bean id="quizImageFileStorage" class="com.lela.util.utilities.storage.s3.S3FileStorage"
+          c:accessKey="${amazon.access.key}" c:secretAccessKey="${amazon.secret.key}"
+          c:bucketName="${quiz.images.amazon.bucket}" c:useBucketAsDomain="true"/>
+
+    <bean id="pressImageFileStorage" class="com.lela.util.utilities.storage.s3.S3FileStorage"
+          c:accessKey="${amazon.access.key}" c:secretAccessKey="${amazon.secret.key}"
+          c:bucketName="${press.images.amazon.bucket}" c:useBucketAsDomain="true"/>
+          
+    <bean id="staticContentImageFileStorage" class="com.lela.util.utilities.storage.s3.S3FileStorage"
+          c:accessKey="${amazon.access.key}" c:secretAccessKey="${amazon.secret.key}"
+          c:bucketName="${staticcontent.images.amazon.bucket}" c:useBucketAsDomain="true"/>          
+
+</beans>

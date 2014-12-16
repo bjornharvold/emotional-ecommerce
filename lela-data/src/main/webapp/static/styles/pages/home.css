@@ -1,0 +1,310 @@
+/*
+ * Copyright (c) 2011. Purple Door Systems, BV.
+ */
+
+/* Resize main wrapper */
+body {
+    background:#efefef;
+    margin:0;
+}
+
+#wrapper {
+    padding:9px 0 0 0;
+    width:100% !important;
+}
+
+#head, #quiz-wrapper, #lela-summary, #lela-mobile, #footer-content {
+    width:984px;
+    margin:0 auto;
+}
+
+#main {
+    clear:both;
+    margin-top:20px;
+    overflow:hidden;
+}
+
+#footer {
+    margin-top:0px;
+}
+
+
+/* Categories */
+#categories {
+    width:983px;
+    height:490px;
+    background:#fff;
+    margin:20px auto;
+    position:relative;
+}
+
+#quiz-header {
+    width:491px;
+    height:370px;
+    background:#ff9900 url('../../images/layout/h_header.gif') no-repeat right;
+    float:left;
+    color:#fff;
+    padding:120px 0 0 20px;
+}
+
+#quiz-header h1 {
+    font-size:48px;
+    line-height:42px;
+    letter-spacing:-1px;
+}
+
+#l-quiz, #l-grid {
+    height:31px;
+    background:#fff;
+    display:block;
+    float:left;
+    color:#ff9900;
+    font-size:17px;
+    margin-top:20px;
+    font-weight:bold;
+    padding:9px 10px 0 10px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#l-quiz:hover, #l-grid:hover {
+    background:#333;
+    color:#fff;
+}
+
+#l-quiz:hover span, #l-grid:hover span{
+    background:url('../../images/icons/caret_w_r_h.gif') no-repeat right;
+}
+
+#l-quiz span {
+    padding-right:20px;
+    background:url('../../images/icons/caret_w.gif') no-repeat right;
+}
+
+#l-video {
+    clear:both;
+    padding-top:50px;
+    color:#fff;
+    display:block;
+    width:180px;
+    font-size:17px;
+    font-weight:bold;
+}
+
+.cat-c {
+    padding-top:120px;
+    position:absolute;
+    width:470px;
+    height:370px;
+    right:0;
+}
+
+.cat-c h2 {
+    font-size:48px;
+    color:#ff9900;
+    line-height:42px;
+    letter-spacing:-1px;
+    position:relative;;
+    z-index:10;
+}
+
+#l-grid {
+    background:#ff9900;
+    color:#fff;
+    position:relative;
+    z-index:10;
+}
+
+#l-grid span {
+    padding-right:20px;
+    background:url('../../images/icons/caret_w_r.gif') no-repeat right;
+}
+
+.cat-img {
+    height:490px;
+    width:470px;
+    position:absolute;
+    right:0;
+    top:0;
+    z-index:0;
+}
+
+#cat-l {
+    position:absolute;
+    bottom:20px;
+    right:390px;
+}
+
+#cat-l a {
+    width:22px;
+    height:22px;
+    display:block;
+    float:left;
+    background:#e5e5e5;
+    margin-right:5px;
+}
+
+#cat-l a.selected {
+    background:#ff9900;
+}
+
+#cat-l a span { display:none; }
+
+#p-cats {
+    width:983px;
+    margin:20px auto;
+    overflow:hidden;
+}
+
+#p-cats #p-main {
+    position:relative;
+    float:left;
+}
+
+#p-cats #p-main img {
+    display:block;
+}
+
+#p-cats h2 {
+    height:65px;
+    width:185px;
+    background:#ff9900;
+    color:#fff;
+    font-size:30px;
+    line-height:28px;
+    padding:130px 0 0 10px;
+    position:absolute;
+}
+
+#p-cats #p-other {
+    float:right;
+    position:relative;
+    width:392px;
+}
+
+#p-cats #p-other h2 {
+    position:relative;
+    float:left;
+}
+
+#p-cats #p-other a {
+    display:block;
+    height:45px;
+    width:185px;
+    float:left;
+    color:#ccc;
+    font-size:18px;
+    line-height:18px;
+    padding:150px 0 0 10px;
+    cursor:default;
+}
+
+#p-cats #p-other a#chairs {
+    background:url('../../images/placeholders/categories/home/promo_chairs.jpg') no-repeat;
+    margin:1px 1px 0 0;
+}
+#p-cats #p-other a#monitor {
+    background:url('../../images/placeholders/categories/home/promo_monitor.jpg') no-repeat;
+    margin:1px 0 0 0;
+}
+#p-cats #p-other a#carrier {
+    background:url('../../images/placeholders/categories/home/promo_carrier.jpg') no-repeat;
+    margin:0 0 0 1px;
+}
+
+.cs-over {
+    display:none;
+    position:absolute;
+    background:url('../../images/layout/h-over.png');
+    width:590px;
+    height:390px;
+    color:#fff;
+    font-size:48px;
+    line-height:44px;
+}
+
+#p-other .cs-over {
+    width:392px;
+    height:390px;
+}
+
+.cs-over strong {
+    position:absolute;
+    bottom:10px;
+    right:10px;
+}
+
+#lela-video {
+    padding:40px 10px 10px 10px;
+}
+
+#mc-subscribe {
+    width:983px;
+    margin:20px auto;
+    background:#fff;
+    overflow:hidden;
+}
+
+#mc-subscribe p {
+    float:left;
+}
+
+.f-submit {
+    height:28px;
+    background:#4da8d9;
+    color:#fff;
+    display:block;
+    float:left;
+    font-size:14px;
+    margin-top:10px;
+    font-weight:bold;
+    padding:8px 20px 0 20px;
+    margin-left:10px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#mc-subscribe p#row-label {
+    margin:20px 20px 0 200px;
+    font-size:14px;
+    color:#999;
+    font-weight:bold;
+}
+
+#mc-subscribe p#row-email {
+    padding-top:10px;
+}
+
+#mc-subscribe p#row-email input {
+    width:200px;
+    color:#999;
+}
+
+/* #email { width: 200px !important; } */
+#mc-error, #mc-success { display:none; font-size:14px !important; padding:8px 0 0 10px;}
+#mc-error { color:red; }
+#mc-success { color:green; }
+
+/* Banners */
+#lela-banner {
+    margin:0 auto;
+    width: 964px;
+    background:#fff;
+    margin-top:20px;
+    overflow:hidden;
+    padding:20px 10px;
+}
+
+#lela-banner h2 {
+    font-size:14px;
+    color:#999;
+    float:left;
+    margin:6px 10px 10px 10px;
+    font-weight:normal;
+    width:150px;
+}
+
+#lela-banner img {
+    float:left;
+    border-left:1px solid #e5e5e5;
+}

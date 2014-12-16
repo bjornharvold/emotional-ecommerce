@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_Department" items="${departments}" z="7vmZNVYjnByf3W9jwml5eztzBDI=">
+        <table:table data="${departments}" id="l_com_lela_data_domain_entity_Department" path="/crud/departments" z="pYmX0bWfUbRDv6JS1TfBA8K4PXU=">
+            <table:column date="true" dateTimePattern="${department_datecreated_date_format}" id="c_com_lela_data_domain_entity_Department_dateCreated" property="dateCreated" z="dg43T5AiABT0MNvBBp/9oY31JnY="/>
+            <table:column date="true" dateTimePattern="${department_datemodified_date_format}" id="c_com_lela_data_domain_entity_Department_dateModified" property="dateModified" z="8BoKaeTBb6zWwJJXCLj5HPvoceY="/>
+            <table:column id="c_com_lela_data_domain_entity_Department_departmentName" property="departmentName" z="/CzrO+y9xsEp54nxwLrRBWGql4g="/>
+            <table:column id="c_com_lela_data_domain_entity_Department_departmentURLName" property="departmentURLName" z="5Atp2eA5v2nbExIWfi8enn+a0fU="/>
+            <table:column id="c_com_lela_data_domain_entity_Department_departmentOrder" property="departmentOrder" z="2Ls8HfU6POgHp8FsIL/aZ98sEWA="/>
+            <table:column id="c_com_lela_data_domain_entity_Department_departmentStatus" property="departmentStatus" z="92xJ8B6plt8uB+PTg4w7RL+p+ys="/>
+        </table:table>
+    </page:list>
+</div>

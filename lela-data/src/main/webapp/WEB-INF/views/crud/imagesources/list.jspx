@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ImageSource" items="${imagesources}" z="2Xrb54AZb3FNQ80sBmrpL9MCLJs=">
+        <table:table data="${imagesources}" id="l_com_lela_data_domain_entity_ImageSource" path="/crud/imagesources" z="He6y92McEsv6UI5V/pnZThqj2No=">
+            <table:column date="true" dateTimePattern="${imageSource_datecreated_date_format}" id="c_com_lela_data_domain_entity_ImageSource_dateCreated" property="dateCreated" z="tjHQ8SLIpPJwTZ1CT3TSHOVBmHw="/>
+            <table:column date="true" dateTimePattern="${imageSource_datemodified_date_format}" id="c_com_lela_data_domain_entity_ImageSource_dateModified" property="dateModified" z="TyuCYOk2v99lZuAUnl8B4esI3ec="/>
+            <table:column id="c_com_lela_data_domain_entity_ImageSource_imageSourceType" property="imageSourceType" z="3csRyoo6DVF5s6gQmeyK5sU4KYw="/>
+            <table:column id="c_com_lela_data_domain_entity_ImageSource_sourceName" property="sourceName" z="pvilNSlv1KQawCSlqgaTvI1xxpE="/>
+        </table:table>
+    </page:list>
+</div>

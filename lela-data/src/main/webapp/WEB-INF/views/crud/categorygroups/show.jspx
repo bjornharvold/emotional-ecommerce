@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_CategoryGroup" object="${categorygroup}" path="/crud/categorygroups" z="VkaXsqf4KfwncZYo232Dp7fQzEA=">
+        <field:display date="true" dateTimePattern="${categoryGroup_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_CategoryGroup_dateCreated" object="${categorygroup}" z="PJlxIJC/h90FukOW880AqxDUH0M="/>
+        <field:display date="true" dateTimePattern="${categoryGroup_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_CategoryGroup_dateModified" object="${categorygroup}" z="/e+RYOCXB+3mf1M/XNUh7uNn0co="/>
+        <field:display field="navbar" id="s_com_lela_data_domain_entity_CategoryGroup_navbar" object="${categorygroup}" z="wdRiaRi2f049qdpDG5hZcroBWJk="/>
+        <field:display field="categoryGroupName" id="s_com_lela_data_domain_entity_CategoryGroup_categoryGroupName" object="${categorygroup}" z="iR+1KD2yKcDa7XiVmohp81g/xlg="/>
+        <field:display field="categoryGroupUrlName" id="s_com_lela_data_domain_entity_CategoryGroup_categoryGroupUrlName" object="${categorygroup}" z="Pwv3ZIdhBvKheCK4Hncsfj53y3Q="/>
+        <field:display field="categoryGroupOrder" id="s_com_lela_data_domain_entity_CategoryGroup_categoryGroupOrder" object="${categorygroup}" z="AwqZXBoekdF9bZriDztp894RKfA="/>
+        <field:display field="categoryGroupStatus" id="s_com_lela_data_domain_entity_CategoryGroup_categoryGroupStatus" object="${categorygroup}" z="f8GG2IKSLQ94PYfRGGABnoyWq7E="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_CategoryGroup_dirty" object="${categorygroup}" z="d9qmbHP+yUOSsHQci4qn099KLuo="/>
+    </page:show>
+</div>

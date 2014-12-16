@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_MerchantDeal" modelAttribute="merchantDeal" path="/crud/merchantdeals" versionField="Version" z="J4aZ7Bk+O9dOxcNWLyEqBVXgkGk=">
+        <field:datetime dateTimePattern="${merchantDeal_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_MerchantDeal_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${merchantDeal_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_MerchantDeal_dateModified" render="false" z="user-managed"/>
+        <field:select field="merchant" id="c_com_lela_data_domain_entity_MerchantDeal_merchant" itemValue="id" items="${merchants}" path="/crud/merchants" z="39Bg4xCOx1/hmoyVbpGmVOUopnw="/>
+        <field:input field="dealName" id="c_com_lela_data_domain_entity_MerchantDeal_dealName" z="JAUw0qqDRRNQOIXdW7temxglRLQ="/>
+        <field:input field="url" id="c_com_lela_data_domain_entity_MerchantDeal_url" z="6wkW7Rej4u9FRPOo2p62++8FfH8="/>
+        <field:input field="startOn" id="c_com_lela_data_domain_entity_MerchantDeal_startOn" z="r6bOJLyFJmPBKS9b4n3OMSAvYL8="/>
+        <field:input field="endOn" id="c_com_lela_data_domain_entity_MerchantDeal_endOn" z="sI7Lv/uxiNW7sZHnOyMeGX91Me8="/>
+        <field:input field="dealSpecifics" id="c_com_lela_data_domain_entity_MerchantDeal_dealSpecifics" z="GF+1GKjBBLoXyjRLGdTMtfL83KQ="/>
+        <field:input field="ObjectId" id="c_com_lela_data_domain_entity_MerchantDeal_ObjectId" z="izEFWq2tXW7xZY5yaIK4ffwDo0o="/>
+    </form:update>
+</div>

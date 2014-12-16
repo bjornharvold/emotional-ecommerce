@@ -1,0 +1,30 @@
+<div class="quiz-questions" ng-controller="Lela.RegistrationQuestionController">
+    <h2><span>{{question.nm}}</span></h2>
+
+    <div class="reg-form">
+
+        <form novalidate name="registrationForm">
+
+            <div class="reg half">
+                <label>First Name</label>
+                <input type="text" ng-model="user.firstName" ng-change="checkValid()"/>
+            </div>
+
+            <div class="reg half" style="float:right;">
+                <label>Last Name</label>
+                <input type="text" ng-model="user.lastName" ng-change="checkValid()"/>
+            </div>
+
+            <div class="reg full" style="color:red;">
+                <label>Email Address*</label>
+                <input type="email" ng-model="user.email" ng-change="checkValid()" required/>
+            </div>
+
+            {{checkValid()}}
+        </form>
+    </div>
+
+    <div class="actions">
+        <a href="#" ng-click="registrationSubmit($event)" class="next-steps" ng-class="{active:isNextActive}"><span>{{buttonText}}</span></a>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+    <!-- this is for when we want to incorporate static assets -->
+    <mvc:resources mapping="/static/**" location="/static/"/>
+    <mvc:resources mapping="/robots.txt" location="/robots.txt" />
+    <mvc:resources mapping="/Sitemap.xml" location="/Sitemap.xml" />
+
+    <import resource="classpath:META-INF/spring/webmvc-component-scan.xml"/>
+    <import resource="classpath:META-INF/spring/webmvc-config.xml"/>
+    <import resource="classpath:META-INF/spring/spring-property-configurer.xml"/>
+    <import resource="classpath:META-INF/spring/webmvc-interceptors.xml"/>
+    <import resource="classpath:META-INF/spring/webmvc-tiles.xml"/>
+    <import resource="classpath:META-INF/spring/webmvc-security.xml"/>
+
+</beans>

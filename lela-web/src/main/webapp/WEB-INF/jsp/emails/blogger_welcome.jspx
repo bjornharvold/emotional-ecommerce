@@ -1,0 +1,105 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          version="2.0">
+    <jsp:output omit-xml-declaration="true" />
+    
+
+    <!-- COPY BELOW --> 
+
+    <div style="background:#efefef; font-family: 'Helvetica Neue';">
+    <table id="Table_01" width="680" height="800" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+        <tr>
+            <td>
+                <a href="http://www.lela.com"><img src="${baseUrl}/static/images/emails/t1_01.jpg" width="168" height="154" alt="LELA" border="0"/></a></td>
+            <td colspan="3" width="512" height="154" align="right" valign="top">
+                <div style="padding:20px;">
+                    <a href="#"><img src="${baseUrl}/static/images/emails/fb.gif"  alt="" border="0" hspace="5"/></a>
+                    <a href="#"><img src="${baseUrl}/static/images/emails/tw.gif"  alt="" border="0"/></a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" width="680" height="108" >
+                <div style="color:#3f3f3f; font-size:38px; font-weight:bold; line-height:38px; text-align:center; padding:0 30px;"><span style="color:#ff9900;">Hi there, Sarah.</span><br/> Thanks for signing up!</div>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" valign="top" style="padding:17px 35px 0 0;">
+                <img src="${baseUrl}/static/images/emails/icons/lela.png" alt="" style="display:block;"/>    
+            </td>
+            <td colspan="3" valign="top" align="left" style="font-size:14px; color:#666; padding:15px 80px 0 0;">
+                <p style="margin:0;"><b style="color:#3f3f3f;">You're now ready to rock with Lela. </b><br/>
+                We hope you'll enjoy the Lela experience of truly personalized shopping.
+                We're adding more products every week, so check back for more soon!</p>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" valign="top" style="padding:17px 35px 0 0;">
+                <img src="${baseUrl}/static/images/emails/icons/question.png" alt="" style="display:block;"/>
+            </td>
+            <td colspan="3" valign="top" align="left" style="font-size:14px; color:#666; padding:15px 80px 0 0;">
+                <p style="margin:0;"><b style="color:#3f3f3f;">If you haven't yet, please start by taking our quiz.</b><br/>
+                Lela uses your answers to the quiz to find products that will make YOU happy.
+                <strong><a href="http://www.lela.com" style="color:#49abe9; text-decoration:none;">You can take the quiz here.</a></strong></p>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" valign="top" style="padding:17px 35px 0 0;">
+                <img src="${baseUrl}/static/images/emails/icons/feedback.png" alt="" style="display:block;"/>
+            </td>
+            <td colspan="3" valign="top" align="left" style="font-size:14px; color:#666; padding:15px 80px 0 0;">
+                <p style="margin:0;"><b style="color:#3f3f3f;">We'd love to hear your thoughts and feedback.</b><br/>
+                We've invited you to this preview because we really respect your opinion. 
+                You can email us your thoughts and questions anytime at <strong><a href="mailto:founders@lela.com" style="color:#49abe9; text-decoration:none;">founders@lela.com</a></strong>.</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" valign="bottom">
+                <img src="${baseUrl}/static/images/emails/stroller_1.jpg" alt="" style="display:block;"/></td>
+
+            <td colspan="2" valign="bottom">
+                <img src="${baseUrl}/static/images/emails/t1_06.jpg" width="341" height="35" alt="" style="display:block;"/></td>
+        </tr>
+
+        <tr>
+            <td bgcolor="#fff" valign="bottom" colspan="4" align="right">
+                <img src="/lela/static/images/emails/phone_1.jpg" alt="" style="display:block;"/></td>
+        </tr>
+        <tr>
+            <td bgcolor="#333333" valign="top"><!-- --></td>
+            <td width="171" bgcolor="#333333" valign="top" style="padding:10px 10px 0 0;"><!-- --></td>
+
+            <td width="170" bgcolor="#333333" valign="top" style="padding:10px 0px 0 30px;">
+                <p style="margin:0;"><b style="color:#fff; font-size:18px; line-height:20px; margin-bottom:5px; display:block;">Coming very soon to your iPhone</b></p>
+                <p style="color:#fff; font-size:11px; line-height:12px;">When you're shopping out in the real world, use our app to find  the products that will suit you best. (Also coming to Android!)</p>
+            </td>
+            <td bgcolor="#333333" valign="top" align="right">
+                <img src="/lela/static/images/emails/phone_2.jpg" alt="" style="display:block;"/></td>
+        </tr>
+        <tr>
+            <td colspan="4" width="680" height="106">
+                <p style="color:#635f5f; font-size:11px; padding:0 20px;">
+                    You received this email because you are registered with <strong><a href="${baseUrl}" style="color:#d08310;">lela.com</a></strong> with the email address: carla.echevarria@gmail.com. <br/>
+                    We respect your privacy. View our <strong><a href="${baseUrl}/sc/privacy" style="color:#d08310;">privacy policy</a></strong>.
+                </p>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+
+    <!-- COPY ABOVE -->
+</jsp:root>

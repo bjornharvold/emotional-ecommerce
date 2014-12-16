@@ -1,0 +1,533 @@
+<decision_tables>
+	<decision_table>
+		<table_name>Television_MG_Calculate</table_name>
+		<xls_file>TelevisionMotivator_G_dt.xls</xls_file>
+		<attribute_fields>
+			<TYPE>FIRST</TYPE>
+			<COMMENTS></COMMENTS>
+			<POLICY_REFERENCE></POLICY_REFERENCE>
+		</attribute_fields>
+		<contexts></contexts>
+		<initial_actions></initial_actions>
+		<conditions>
+			<condition_details>
+				<condition_number>1</condition_number>
+				<condition_comment>Execute these things</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>perform when called</condition_description>
+				<condition_column column_number='1' column_value='*'></condition_column>
+			</condition_details>
+		</conditions>
+		<actions>
+			<action_details>
+				<action_number>1</action_number>
+				<action_comment>Calculate base score</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>Perform Television_MG_Base</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>2</action_number>
+				<action_comment>Weight increases</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>Perform Television_MG_Increase</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>3</action_number>
+				<action_comment>Weight increases</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>Perform Television_MG_Power</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>4</action_number>
+				<action_comment>Weight decreases</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>Perform Television_MG_Decrease</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>5</action_number>
+				<action_comment>Results</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>Perform Television_MG_Result</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+		</actions>
+		<policy_statements></policy_statements>
+	</decision_table>
+	<decision_table>
+		<table_name>Television_MG_Base</table_name>
+		<xls_file>TelevisionMotivator_G_dt.xls</xls_file>
+		<attribute_fields>
+			<TYPE>FIRST</TYPE>
+			<COMMENTS>Base weight calculations</COMMENTS>
+			<POLICY_REFERENCE></POLICY_REFERENCE>
+		</attribute_fields>
+		<contexts>
+			<context_details>
+				<context_number>1</context_number>
+				<context_comment></context_comment>
+				<context_description>for all televisions</context_description>
+			</context_details>
+		</contexts>
+		<initial_actions></initial_actions>
+		<conditions>
+			<condition_details>
+				<condition_number>1</condition_number>
+				<condition_comment>1</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt;= 3001</condition_description>
+				<condition_column column_number='1' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>2</condition_number>
+				<condition_comment>2</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt;= 2501</condition_description>
+				<condition_column column_number='2' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>3</condition_number>
+				<condition_comment>3</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt;= 2001</condition_description>
+				<condition_column column_number='3' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>4</condition_number>
+				<condition_comment>4</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt;= 1501</condition_description>
+				<condition_column column_number='4' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>5</condition_number>
+				<condition_comment>5</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt;= 1001</condition_description>
+				<condition_column column_number='5' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>6</condition_number>
+				<condition_comment>6</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt;= 751</condition_description>
+				<condition_column column_number='6' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>7</condition_number>
+				<condition_comment>7</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt;= 501</condition_description>
+				<condition_column column_number='7' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>8</condition_number>
+				<condition_comment>8</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>ListPrice &gt;= 251</condition_description>
+				<condition_column column_number='8' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>9</condition_number>
+				<condition_comment>9</condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>Default</condition_description>
+				<condition_column column_number='9' column_value='Y'></condition_column>
+			</condition_details>
+		</conditions>
+		<actions>
+			<action_details>
+				<action_number>1</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotalDecimal = 9</action_description>
+				<action_column column_number='9' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>2</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotalDecimal = 8</action_description>
+				<action_column column_number='8' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>3</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotalDecimal = 7</action_description>
+				<action_column column_number='7' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>4</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotalDecimal = 6</action_description>
+				<action_column column_number='6' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>5</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotalDecimal = 5</action_description>
+				<action_column column_number='5' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>6</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotalDecimal = 4</action_description>
+				<action_column column_number='4' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>7</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotalDecimal = 3</action_description>
+				<action_column column_number='3' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>8</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotalDecimal = 2</action_description>
+				<action_column column_number='2' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>9</action_number>
+				<action_comment>Set motivator total</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set motivatorTotalDecimal = 1</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+		</actions>
+		<policy_statements></policy_statements>
+	</decision_table>
+	<decision_table>
+		<table_name>Television_MG_Increase</table_name>
+		<xls_file>TelevisionMotivator_G_dt.xls</xls_file>
+		<attribute_fields>
+			<TYPE>ALL</TYPE>
+			<COMMENTS>Weight increase</COMMENTS>
+			<POLICY_REFERENCE></POLICY_REFERENCE>
+		</attribute_fields>
+		<contexts>
+			<context_details>
+				<context_number>1</context_number>
+				<context_comment></context_comment>
+				<context_description>for all televisions</context_description>
+			</context_details>
+			<context_details>
+				<context_number>2</context_number>
+				<context_comment>lowercase value</context_comment>
+				<context_description>local string lowerEnergyStar = trim ( change EnvironmentalStandards_ENERGYSTARQualified  to lower case )</context_description>
+			</context_details>
+		</contexts>
+		<initial_actions></initial_actions>
+		<conditions>
+			<condition_details>
+				<condition_number>1</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>not General_TimerFunctions is null</condition_description>
+				<condition_column column_number='1' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>2</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>length of General_TimerFunctions &gt; 0</condition_description>
+				<condition_column column_number='1' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>3</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>lowerEnergyStar == &quot;yes&quot;</condition_description>
+				<condition_column column_number='2' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>4</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>EnvironmentalStandards_ENERGYSTARVersion &gt;= 4</condition_description>
+				<condition_column column_number='3' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>5</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>CREnergyCostYr &gt;= 0</condition_description>
+				<condition_column column_number='4' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>6</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>CREnergyCostYr &lt;= 25</condition_description>
+				<condition_column column_number='4' column_value='Y'></condition_column>
+			</condition_details>
+		</conditions>
+		<actions>
+			<action_details>
+				<action_number>1</action_number>
+				<action_comment>1</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>add 1 to the motivatorTotalDecimal</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>2</action_number>
+				<action_comment>1</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>add 1 to the motivatorTotalDecimal</action_description>
+				<action_column column_number='2' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>3</action_number>
+				<action_comment>1</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>add 1 to the motivatorTotalDecimal</action_description>
+				<action_column column_number='3' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>4</action_number>
+				<action_comment>1</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>add 1 to the motivatorTotalDecimal</action_description>
+				<action_column column_number='4' column_value='X'></action_column>
+			</action_details>
+		</actions>
+		<policy_statements></policy_statements>
+	</decision_table>
+	<decision_table>
+		<table_name>Television_MG_Power</table_name>
+		<xls_file>TelevisionMotivator_G_dt.xls</xls_file>
+		<attribute_fields>
+			<TYPE>ALL</TYPE>
+			<COMMENTS>Score increases</COMMENTS>
+			<POLICY_REFERENCE></POLICY_REFERENCE>
+		</attribute_fields>
+		<contexts>
+			<context_details>
+				<context_number>1</context_number>
+				<context_comment></context_comment>
+				<context_description>for all televisions</context_description>
+			</context_details>
+			<context_details>
+				<context_number>2</context_number>
+				<context_comment>create a local variable for power</context_comment>
+				<context_description>local double power = 100000</context_description>
+			</context_details>
+			<context_details>
+				<context_number>3</context_number>
+				<context_comment>create a local variable for vertical angle</context_comment>
+				<context_description>local double sleep = 100000</context_description>
+			</context_details>
+		</contexts>
+		<initial_actions>
+			<initial_action_details>
+				<intial_action_number>1</intial_action_number>
+				<initial_action_comment></initial_action_comment>
+				<initial_action_requirement></initial_action_requirement>
+				<initial_action_description>if (not Power_PowerConsumptionOperational is null and index of &quot; &quot; in Power_PowerConsumptionOperational &gt;= 0) then 
+{ 
+set power = (double) substring of Power_PowerConsumptionOperational from 0 to index of &quot; &quot; in Power_PowerConsumptionOperational 
+} 
+endif</initial_action_description>
+			</initial_action_details>
+			<initial_action_details>
+				<intial_action_number>2</intial_action_number>
+				<initial_action_comment></initial_action_comment>
+				<initial_action_requirement></initial_action_requirement>
+				<initial_action_description>if (not Power_PowerConsumptionStandbySleep is null and index of &quot; &quot; in Power_PowerConsumptionStandbySleep &gt;= 0) then 
+{ 
+set sleep = (double) substring of Power_PowerConsumptionStandbySleep from 0 to index of &quot; &quot; in Power_PowerConsumptionStandbySleep 
+} 
+endif</initial_action_description>
+			</initial_action_details>
+		</initial_actions>
+		<conditions>
+			<condition_details>
+				<condition_number>1</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>power &lt; 100</condition_description>
+				<condition_column column_number='1' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>2</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>sleep &lt;= 0.25</condition_description>
+				<condition_column column_number='2' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>3</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>power &gt; 200</condition_description>
+				<condition_column column_number='3' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>4</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>sleep &gt; 1</condition_description>
+				<condition_column column_number='4' column_value='Y'></condition_column>
+			</condition_details>
+		</conditions>
+		<actions>
+			<action_details>
+				<action_number>1</action_number>
+				<action_comment>1</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>add 1 to the motivatorTotalDecimal</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>2</action_number>
+				<action_comment>1</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>add 1 to the motivatorTotalDecimal</action_description>
+				<action_column column_number='2' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>3</action_number>
+				<action_comment>-1</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>subtract 1 from the motivatorTotalDecimal</action_description>
+				<action_column column_number='3' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>4</action_number>
+				<action_comment>-1</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>subtract 1 from the motivatorTotalDecimal</action_description>
+				<action_column column_number='4' column_value='X'></action_column>
+			</action_details>
+		</actions>
+		<policy_statements></policy_statements>
+	</decision_table>
+	<decision_table>
+		<table_name>Television_MG_Decrease</table_name>
+		<xls_file>TelevisionMotivator_G_dt.xls</xls_file>
+		<attribute_fields>
+			<TYPE>ALL</TYPE>
+			<COMMENTS>Weight decreases</COMMENTS>
+			<POLICY_REFERENCE></POLICY_REFERENCE>
+		</attribute_fields>
+		<contexts>
+			<context_details>
+				<context_number>1</context_number>
+				<context_comment></context_comment>
+				<context_description>for all televisions</context_description>
+			</context_details>
+		</contexts>
+		<initial_actions></initial_actions>
+		<conditions>
+			<condition_details>
+				<condition_number>1</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>EnvironmentalStandards_ENERGYSTARVersion == 0</condition_description>
+				<condition_column column_number='1' column_value='Y'></condition_column>
+			</condition_details>
+			<condition_details>
+				<condition_number>2</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>CREnergyCostYr &gt; 101</condition_description>
+				<condition_column column_number='2' column_value='Y'></condition_column>
+			</condition_details>
+		</conditions>
+		<actions>
+			<action_details>
+				<action_number>1</action_number>
+				<action_comment></action_comment>
+				<action_requirement></action_requirement>
+				<action_description>subtract 1 from the motivatorTotalDecimal</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>2</action_number>
+				<action_comment></action_comment>
+				<action_requirement></action_requirement>
+				<action_description>subtract 1 from the motivatorTotalDecimal</action_description>
+				<action_column column_number='2' column_value='X'></action_column>
+			</action_details>
+		</actions>
+		<policy_statements></policy_statements>
+	</decision_table>
+	<decision_table>
+		<table_name>Television_MG_Result</table_name>
+		<xls_file>TelevisionMotivator_G_dt.xls</xls_file>
+		<attribute_fields>
+			<TYPE>FIRST</TYPE>
+			<COMMENTS></COMMENTS>
+			<POLICY_REFERENCE></POLICY_REFERENCE>
+		</attribute_fields>
+		<contexts>
+			<context_details>
+				<context_number>1</context_number>
+				<context_comment></context_comment>
+				<context_description>for all televisions</context_description>
+			</context_details>
+		</contexts>
+		<initial_actions>
+			<initial_action_details>
+				<intial_action_number>1</intial_action_number>
+				<initial_action_comment>Round to total</initial_action_comment>
+				<initial_action_requirement></initial_action_requirement>
+				<initial_action_description>set motivatorTotal = motivatorTotalDecimal + 0.5</initial_action_description>
+			</initial_action_details>
+			<initial_action_details>
+				<intial_action_number>2</intial_action_number>
+				<initial_action_comment>Prevent zero</initial_action_comment>
+				<initial_action_requirement></initial_action_requirement>
+				<initial_action_description>if motivatorTotal &lt; 1 then {set motivatorTotal =1;} endif</initial_action_description>
+			</initial_action_details>
+			<initial_action_details>
+				<intial_action_number>3</intial_action_number>
+				<initial_action_comment>Prevent overflow</initial_action_comment>
+				<initial_action_requirement></initial_action_requirement>
+				<initial_action_description>if motivatorTotal  &gt; motivatorMax then {set motivatorTotal = motivatorMax;} endif</initial_action_description>
+			</initial_action_details>
+		</initial_actions>
+		<conditions>
+			<condition_details>
+				<condition_number>1</condition_number>
+				<condition_comment></condition_comment>
+				<condition_requirement></condition_requirement>
+				<condition_description>perform when called</condition_description>
+				<condition_column column_number='1' column_value='*'></condition_column>
+			</condition_details>
+		</conditions>
+		<actions>
+			<action_details>
+				<action_number>1</action_number>
+				<action_comment>Set the result</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set job.result = motivatorTotal</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>2</action_number>
+				<action_comment>Set the ProdID</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set job.TV_ID =  TV_ID</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+			<action_details>
+				<action_number>3</action_number>
+				<action_comment>Set the BrandID</action_comment>
+				<action_requirement></action_requirement>
+				<action_description>set job.BrandID =  BrandID</action_description>
+				<action_column column_number='1' column_value='X'></action_column>
+			</action_details>
+		</actions>
+		<policy_statements></policy_statements>
+	</decision_table>
+</decision_tables>

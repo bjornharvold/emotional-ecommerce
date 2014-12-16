@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_BrandIdentifier" items="${brandidentifiers}" z="czXkjvt86uBTtwMmErY7ULT01t8=">
+        <table:table data="${brandidentifiers}" id="l_com_lela_data_domain_entity_BrandIdentifier" path="/crud/brandidentifiers" z="F/iE/15K5bgMC8wieh1LUdxyGfk=">
+            <table:column date="true" dateTimePattern="${brandIdentifier_datecreated_date_format}" id="c_com_lela_data_domain_entity_BrandIdentifier_dateCreated" property="dateCreated" z="nTKBrHY123l166lCc+fklQQy/Qo="/>
+            <table:column date="true" dateTimePattern="${brandIdentifier_datemodified_date_format}" id="c_com_lela_data_domain_entity_BrandIdentifier_dateModified" property="dateModified" z="57YtlTbbMq0YmHeWgpQA8YBcOvY="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandIdentifier_brand" property="brand" z="QFb/XVl1MJQZWqn+v/bLRVStX4Q="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandIdentifier_identifierType" property="identifierType" z="XWyzMGXvVeWN0Jme8tgkI8tOyqs="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandIdentifier_identifierValue" property="identifierValue" z="MJ1f8zxVjukKhZ01TVunJNoRvuU="/>
+        </table:table>
+    </page:list>
+</div>

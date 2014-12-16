@@ -1,0 +1,202 @@
+<script type="text/x-handlebars" xmlns="http://www.w3.org/1999/html" data-template-name="application">
+    <div id="quiz-wrapper">
+        <div id="quiz-container">
+            <div id="question-content">
+                <h1>
+                    <span>The Lela Compatibility Quiz<br/>
+                    <em>Get your personalized Compatibility Ratings in less than a minute.</em></span>
+                </h1>
+
+                <div class="popupLogo"></div>
+
+                <table id="step-list">
+                    <tr>
+                        {{#each tabSteps}}
+                            <td {{bindAttr class="step.isCurrentStep:selected step.isPastStep1:past1 step.isPastStep2:past2 step.isLastStep:last"}}>
+                                <span><em>Step</em> <strong>{{ky}}</strong></span>
+                            </td>
+                        {{/each}}
+                    </tr>
+                </table>
+
+                {{outlet}}
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars" xmlns="http://www.w3.org/1999/html" data-template-name="application-splash">
+    <div id="quiz-wrapper">
+        {{outlet}}
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="quiz-static-content">
+    <div class="splash-content">
+        {{controller.bdy}}
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="error">
+    <div class="quiz-questions">
+
+        <h2><span>Oooops... Something wrong happened!</span></h2>
+
+        <div id="quiz-error-message">
+            {{controller.message}}
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="quiz-step-SPLASH">
+    <div class="quiz-questions" {{action next}}>
+
+        <div class="splash-content">
+            {{#each view.ntrs}}
+                {{view App.QuizStepSplashView contentBinding="this"}}
+            {{/each}}
+        </div>
+
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="quiz-step-QUESTION">
+    <div class="quiz-questions">
+
+        <h2><span>{{controller.nm}}</span></h2>
+
+        {{#each view.ntrs}}
+            {{view App.QuizStepEntryView contentBinding="this"}}
+        {{/each}}
+
+        <div class="actions">
+            <a {{action next}} {{bindAttr class=":next-steps controller.isNextActive:active"}}><span>{{controller.buttonText}}</span></a>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="quiz-step-REGISTRATION">
+    <div class="quiz-questions">
+
+        <h2><span>{{controller.nm}}</span></h2>
+
+        <div class="reg-form">
+
+            <div class="reg half">
+                <label>First Name</label>
+                {{view Ember.TextField valueBinding="App.user.firstName"}}
+            </div>
+
+            <div class="reg half" style="float:right;">
+                <label>Last Name</label>
+                {{view Ember.TextField valueBinding="App.user.lastName"}}
+            </div>
+
+            <div class="reg full" style="color:red;">
+                <label>Email Address*</label>
+                {{view Ember.TextField valueBinding="App.user.email"}}
+            </div>
+        </div>
+
+        <div class="actions">
+            <a {{action registrationSubmit}} {{bindAttr class=":next-steps controller.isNextActive:active"}}><span>{{controller.buttonText}}</span></a>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="content-SPLASH">
+        {{staticContent.bdy}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="question">
+    <li>**** GENERIC Question - {{question.nm}}</li>
+
+    <ul>
+        {{#each question.nswrs}}
+        {{view App.QuizAnswerView contentBinding="this"}}
+        {{/each}}
+    </ul>
+</script>
+
+<script type="text/x-handlebars" data-template-name="question-GENDER">
+    <div id="gender-sel">
+        {{#each question.nswrs}}
+            {{view App.QuizAnswerGenderView contentBinding="this"}}
+        {{/each}}
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="question-SLIDER">
+    <div class="question-row quiz-slider">
+        <span class="question-data">
+            <span class="question">{{question.nm}}</span>
+            <span class="answer" id="answer-1">{{question.nswrs.0.nm}}</span>
+                <div class="q-selector">
+                    {{#each question.nswrs}}
+                    {{view App.QuizAnswerSliderView contentBinding="this"}}
+                    {{/each}}
+                </div>
+            <span class="answer" id="answer-2">{{question.nswrs.8.nm}}</span>
+        </span>
+    </div>
+</script>
+
+
+<script type="text/x-handlebars" data-template-name="question-STYLE_SLIDER">
+    <div class="question-row quiz-style">
+        <span class="question-data">
+            <span class="answer" id="answer-1">{{question.nswrs.0.nm}}</span>
+                <div class="q-selector">
+                    {{#each question.nswrs}}
+                        {{view App.QuizAnswerSliderView contentBinding="this"}}
+                    {{/each}}
+                </div>
+            <span class="answer" id="answer-2">{{question.nswrs.8.nm}}</span>
+        </span>
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="question-IMAGE">
+
+    <div id="image-tip">{{question.nm}}</div>
+
+    <div class="quiz-images quiz-questions">
+
+        <div id="image-container">
+            {{#each question.nswrs}}
+                {{view App.QuizAnswerImageView contentBinding="this"}}
+            {{/each}}
+        </div>
+
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="question-IMAGE_MULTIPLE_CHOICE_SINGLE_ANSWER ">
+    <li>**** IMAGE_MULTIPLE_CHOICE_SINGLE_ANSWER Question - {{question.nm}}</li>
+
+    <ul>
+        {{#each question.nswrs}}
+        {{view App.QuizAnswerView contentBinding="this"}}
+        {{/each}}
+    </ul>
+</script>
+
+<script type="text/x-handlebars" data-template-name="answer-SLIDER">
+        <a href="#" {{action "click" target="answerSliderView"}} {{bindAttr class="isSelected:q-selected"}}>{{ky}}</a>
+</script>
+
+<script type="text/x-handlebars" data-template-name="answer-IMAGE">
+    <div class="quiz-image">
+        <a href="#" {{bindAttr class="isSelected:i-selected"}}>
+            <img {{bindAttr src="mg"}} {{bindAttr alt="nm"}}>
+        </a>
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="answer-GENDER">
+    <a href="#" {{bindAttr class="isSelected:selected"}} {{bindAttr id="nm"}}>{{nm}}</a>
+</script>
+
+<script type="text/x-handlebars" data-template-name="answer">
+    <li>****** Answer - {{nm}}, ky: {{ky}}, mg: {{mg}}</li>
+</script>

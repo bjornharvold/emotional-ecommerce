@@ -1,0 +1,96 @@
+<div id="header" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:spring="http://www.springframework.org/tags" version="2.0"
+     xmlns:sec="http://www.springframework.org/security/tags">
+  <jsp:directive.page contentType="text/html;charset=UTF-8" />
+  <jsp:output omit-xml-declaration="yes" />
+
+  <spring:url var="banner" value="/resources/images/banner-graphic.png" />
+  <spring:url var="home" value="/" />
+  <spring:url var="logout" value="/j_spring_security_logout"/>
+  <spring:url var="crud_url" value="/crud/"/>
+  <spring:url var="browse_url" value="/browse/"/>
+  <spring:url var="reporting_url" value="/affiliatereporting/"/>
+  <spring:url var="ingest_url" value="/ingest/"/>
+  <spring:url var="item_reporting_url" value="/manage/items/reporting/"/>
+  <spring:url var="item_history_url" value="/manage/items/reporting/history/"/>
+  <spring:url var="admin_url" value="/admin"/>
+
+
+  <spring:message code="button_home" var="home_label" htmlEscape="false" />
+  <spring:message code="button_logout" var="logout_label" htmlEscape="false" />
+
+  <sec:authorize access="isAuthenticated()">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+          Welcome <sec:authentication property="principal.username" />
+          <a class="brand" href="${home}" name="${fn:escapeXml(home_label)}" title="${fn:escapeXml(home_label)}">
+          Home
+          </a>
+          <sec:authorize url="/crud">
+          |
+          <a href="${crud_url}" title="Data">
+            <c:out value="Master Data Management"/>
+          </a>
+          </sec:authorize>
+
+        <sec:authorize url="/browse">
+          |
+          <a href="${browse_url}" title="Images">
+            <c:out value="Image Management"/>
+          </a>
+        </sec:authorize>
+
+        <sec:authorize url="/affiliateReporting">
+          |
+          <a href="${reporting_url}" title="Affiliate Reporting">
+            <c:out value="Affiliate Reporting"/>
+          </a>
+        </sec:authorize>
+
+        <sec:authorize url="/manage/items/reporting/">
+          |
+          <a href="${item_reporting_url}" title="Item Reporting">
+            <c:out value="Item Reporting"/>
+          </a>
+        </sec:authorize>
+
+        <sec:authorize url="/manage/items/reporting/history/">
+          |
+          <a href="${item_history_url}" title="Item History">
+            <c:out value="Item History"/>
+          </a>
+        </sec:authorize>
+
+        <sec:authorize url="/ingest">
+          |
+          <a href="${ingest_url}" title="Ingest">
+            <c:out value="Ingest"/>
+          </a>
+        </sec:authorize>
+          
+        <sec:authorize url="/ingest">
+          |
+          <a href="${admin_url}" title="Admin">
+            <c:out value="Admin"/>
+          </a>
+        </sec:authorize>
+        
+        <sec:authorize access="isAuthenticated()">
+          |
+          <a class="brand" href="${logout}" name="${fn:escapeXml(logout_label)}" title="${fn:escapeXml(logout_label)}">
+          Logout
+          </a>
+        </sec:authorize>
+
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sec:authorize>
+
+</div> 

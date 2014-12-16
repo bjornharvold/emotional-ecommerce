@@ -1,0 +1,67 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="link.view" var="view"/>
+    <spring:message code="link.edit" var="edit"/>
+    <spring:message code="link.delete" var="delete"/>
+
+    <h1><spring:message code="page.admin.application.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/application/list" var="applicationListUrl"/>
+        <a class="action" href="${applicationListUrl}">&lt; <spring:message code="application.back.to.list"/> </a>
+
+        <spring:url value="/administration/application/form" var="editApplicationUrl">
+            <spring:param name="urlName" value="${application.rlnm}"/>
+        </spring:url>
+        <a class="action" href="${editApplicationUrl}"><spring:message code="link.edit"/></a>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <h3><spring:message code="application.overview"/></h3>
+
+    <p>
+        <spring:message code="application.name"/>: ${application.nm}
+    </p>
+
+    <p>
+        <spring:message code="application.url.name"/>: ${application.rlnm}
+    </p>
+
+    <p>
+        <spring:message code="application.description"/>: ${application.dsc}
+    </p>
+
+    <p>
+        <spring:message code="application.type"/>: ${application.tp}
+    </p>
+
+    <p>
+        <spring:message code="application.tool.url.name"/>: ${application.trlnm}
+    </p>
+
+    <p>
+        <spring:message code="application.published"/>: ${application.pblshd}
+    </p>
+
+    
+</div>

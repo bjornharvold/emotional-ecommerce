@@ -1,0 +1,38 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='CarSeatID' RAttribute='CarSeatID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+
+			<setattribute tag='CarSeatID' RAttribute='CarSeatID' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='CarSeatType' RAttribute='CarSeatType' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='CompatibleWithStroller' RAttribute='CompatibleWithStroller' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='BabyBargainsRating' RAttribute='BabyBargainsRating' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='BabbleRecomended' RAttribute='BabbleRecomended' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='CRTested' RAttribute='CRTested' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='ChildWeightLimit' RAttribute='ChildWeightLimit' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='MachineWashableFabrics' RAttribute='MachineWashableFabrics' enclosure='carseat' type='string'></setattribute>
+			<setattribute tag='NAPPAAwardWinner' RAttribute='NAPPAAwardWinner' enclosure='carseat' type='string'></setattribute>
+			
+			<createentity entity='job' 			tag='job' 			id='id'></createentity>
+			<createentity entity='carseat' 	tag='carseat' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+
+			<entity name='carseat' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

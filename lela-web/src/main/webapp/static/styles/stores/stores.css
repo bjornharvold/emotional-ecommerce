@@ -1,0 +1,370 @@
+#main {
+    margin-top: 15px;
+}
+
+.lela-page-container a {
+/* color: #814f96;  */
+}
+
+.lela-page-container a:hover  {
+    text-decoration: underline;
+}
+
+.lela-page-header h2 {
+    color: #333333;
+    font-weight: normal;
+    font-size: 48px;
+    text-align: center;
+}
+
+.lela-page-header h3 {
+    color: #666666;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: normal;
+}
+
+.lela-page-header h3 img {
+    position: relative;
+    top: 3px;
+    margin: 0 5px 0 5px;
+}
+
+.lela-page-container {
+}
+
+.lela-page-header {
+    padding: 30px 0 0 0;
+    margin-bottom: 0px !important;
+}
+
+.lela-horizontal-menu li {
+    float: left;
+}
+
+.horizontal {
+    text-align: center;
+    font-size:  18px;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    margin: 0px;
+    padding: 20px 0 20px 0;
+    font-weight: bold;
+}
+
+.page-brands .horizontal-shade {
+    height: 24px;
+    width: 100%;
+    background: transparent url('/static/images/layout/stores_shade.png') no-repeat top center;
+    margin-top: 30px;
+}
+
+.lela-page-divider {
+    width: 944px;
+    padding: 10px;
+    color: #3f3f3f;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0 0 10px 10px;
+    font-weight: bold;
+    clear: both;
+    font-size: 24px;
+}
+
+.page-brands .lela-page-divider {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.lela-stores-item {
+    background: white;
+    border: 1px solid #e7e7e7;
+    margin: 0px 0 10px 10px;
+    width: 488px;
+    height: 128px;
+    float: left;
+    position: relative;
+    overflow: visible;
+}
+
+.lela-stores-item h4 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.page-local-stores .lela-stores-item {
+    width: 962px;
+}
+
+.lela-brands-item {
+    padding: 10px 0px 0px 0px;
+    margin: 10px 20px 0 20px;
+    border-top: 1px solid #dddddd;
+    font-size: 14px;
+}
+
+.lela-brands-name {
+    float: left;
+    width: 245px;
+    overflow: visible;
+    position: relative;
+}
+
+.add-form {
+    top:20px !important;
+    left:25px !important;
+}
+
+.lela-stores-item .add-form {
+    top:22px !important;
+    left:37px !important;
+}
+
+.l-list, .l-list-saved {
+    background: url(/static/images/buttons/share/llheart_outline.png) no-repeat 0px 0px !important;
+    width: 25px !important;
+    height: 22px !important;
+    float: left !important;
+}
+.l-list:hover, .l-list-saved {
+    background: url(/static/images/buttons/share/llheart_on.png) no-repeat 0px 0px !important;
+}
+
+.lela-stores-item .l-list {
+    margin-top: 54px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+.lela-stores-item .l-list {
+    margin-top: 54px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+.lela-brands-item .l-list {
+    margin-right: 10px !important;
+}
+
+.lela-brands-item .l-list {
+    margin-right: 10px !important;
+}
+
+.page-stores .img-container {
+    width: 200px;
+    height: 128px;
+    float: right;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.page-local-stores .img-container {
+    float: left;
+    width: 170px;
+    text-align: center;
+    padding-top: 48px;
+}
+
+.store-info {
+    float: left;
+    height: 108px;
+    width: 218px;
+    padding: 8px 10px 12px 10px;
+    background: #f6f6f6;
+    font-size: 14px;
+    -webkit-transition:all 0.1s;
+    -moz-transition:all 0.1s;
+    -o-transition:all 0.1s;
+    transition:all 0.1s;
+}
+
+.page-stores .store-info:hover {
+    background: #333333;
+    color: white;
+}
+
+.store-info a  {
+    font-size: 12px;
+}
+
+.page-local-stores .store-info {
+    float: left;
+}
+
+.page-local-stores .store-categories {
+    float: left;
+    padding: 10px 10px 10px 10px;
+    font-size: 14px;
+    width: 460px;
+}
+
+.store-filter {
+    height: 40px;
+    padding: 0 10px 0 10px;
+    margin: 0 0 15px 0;
+}
+
+.store-count {
+    padding: 8px 0 0 0;
+    font-size: 18px;
+    float: left;
+}
+
+#zip-f {
+    float: right;
+    position: relative;
+    top: -3px;
+}
+
+#zip-f label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#zip-f input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #d1d1d1;
+    background-color: #efefef;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #666666;
+    width: 75px;
+}
+
+#zip-f a {
+    background-color: #95638e;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-left: 10px;
+}
+
+#zip-f a:hover {
+    background-color: #3f3f3f;
+    color: white;
+}
+
+ul.alphabet {
+    background-color: #efefef;
+    margin: 30px 10px 0 10px;
+    padding: 10px 0 10px 0;
+}
+ul.alphabet li {
+    float: left;
+    width: 25px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 6px;
+    color: #999;
+}
+ul.alphabet li:first-child {
+    margin-left: 8px;
+}
+
+ul.alphabet li a {
+    color: #999
+}
+ul.alphabet li a.selected:hover {
+    text-decoration: underline;
+}
+ul.alphabet li a.selected {
+    color: #ff8800;
+}
+ul.alphabet li a.current-letter {
+    color: #3f3f3f !important;
+}
+
+.alphabet-all {
+    text-transform: none;
+}
+
+.data-not-found {
+    margin: 0 10px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+}
+
+.deals-header {
+    background: #ff9f00; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ff9f00 0%, #fb8500 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9f00), color-stop(100%,#fb8500)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ff9f00 0%,#fb8500 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ff9f00 0%,#fb8500 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ff9f00 0%,#fb8500 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ff9f00 0%,#fb8500 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9f00', endColorstr='#fb8500',GradientType=0 ); /* IE6-9 */
+    height: 185px;
+    width: 994px;
+    padding-left: 30px;
+}
+
+.deals-header ul li.d {
+    list-style-type: none;
+    float: left;
+    width: 219px;
+    height: 155px;
+    padding: 0 0 30px 100px;
+    display: block;
+    background: transparent url('/static/images/layout/stores/deal_tag.png') no-repeat 0px 0px;
+    position: relative;
+}
+
+.deals-header ul li.d img {
+    margin: 30px auto 10px auto;
+    display: block;
+    padding-right: 30px;
+}
+
+.deals-header ul li.d a.l-list {
+    display: block;
+    position: relative;
+    width: 177px !important;
+    text-indent: -9999em;
+    height: 36px !important;
+    background: transparent url('/static/images/layout/stores/faves_button.png') no-repeat 0px 0px !important;
+    -webkit-transition:all 0.1s;
+    -moz-transition:all 0.1s;
+    -o-transition:all 0.1s;
+    transition:all 0.1s;
+}
+
+.deals-header ul li.d a.l-list:hover {
+    background: transparent url('/static/images/layout/stores/faves_button_rollover.png') no-repeat 0px 0px !important;
+}
+
+.deals-header ul li.d a.l-list-saved, .deals-header ul li.d a.l-list-saved:hover {
+    background: transparent url('/static/images/layout/stores/faves_button_added.png') no-repeat 0px 0px !important;
+}
+
+.deals-header ul li.d a.view-deals, .img-container a.view-deals {
+    display: block;
+    margin-top: 56px;
+    width: 177px !important;
+    height: 36px !important;
+    text-indent: -9999em;
+    background: transparent url('/static/images/layout/stores/deals_button.png') no-repeat 0px 0px !important;
+    -webkit-transition:all 0.1s;
+    -moz-transition:all 0.1s;
+    -o-transition:all 0.1s;
+    transition:all 0.1s;
+}
+
+.img-container a.view-deals {
+    margin: 10px auto 0 auto;
+}
+
+.deals-header ul li.d a.view-deals:hover, .img-container a.view-deals:hover {
+    background: transparent url('/static/images/layout/stores/deals_button_rollover.png') no-repeat 0px 0px !important;
+}

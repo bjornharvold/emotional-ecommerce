@@ -1,0 +1,247 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+    <spring:url value="/login" var="loginUrl" />
+    <spring:url value="/register" var="registerUrl" />
+    <spring:url value="/user/list/item" var="lelaListUrl" />
+    <spring:url value="/user/list/own" var="lelaOwnUrl" />
+    <spring:url value="/quiz?src=grid&amp;vid=true" var="launchQuiz" />
+    <spring:url value="/static/images/icons/tooltip.gif" var="tooltipImgUrl" />
+    <spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+    <script type="text/javascript">
+        var returnItem = null;
+        var query = '${fn:escapeXml(param.terms)}';
+    </script>
+
+    <lela:findUser/>
+
+    <div class="lela-page-container">
+
+        <div class="lela-page-content">
+
+            <div id="p-filters" >
+
+                <form action="#" class="custom" id="d-tuners">
+
+                    <h2>
+                        <c:choose>
+                            <c:when test="${!empty store}">
+                                <spring:message code="button.browse" htmlEscape="false" />${nbsp}
+                                <b>${store.nm}&#8482;</b><br/>
+                                ${nbsp}<spring:message code="button.browse.products" htmlEscape="false"/>
+                            </c:when>
+                            <c:when test="${!empty owner}">
+                                <spring:message code="button.browse" htmlEscape="false"/>${nbsp}
+                                <b>${owner.nm}&#8482;</b><br/>
+                                ${nbsp}<spring:message code="button.browse.products" htmlEscape="false"/>
+                            </c:when>
+                            <c:otherwise>
+                                <spring:message code="button.browse.results"/>
+                            </c:otherwise>
+                        </c:choose>
+
+                    </h2>
+
+                    <c:if test="${empty store and empty owner}">
+                        <div class="f-sec s-term">
+                            <h3><spring:message code="search.filter.for" htmlEscape="false"/></h3>
+                            <c:forEach var="term" items="${searchResults.keywordTerms.terms}">
+                                <c:if test="${term != ''}">
+                                    <a href="#">${term}</a>
+                                </c:if>
+                            </c:forEach>
+                        </div>
+                    </c:if>
+
+
+                    <c:if test="${!empty searchResults.items}">
+
+                        <ul>
+
+                            <c:choose>
+                                <c:when test="${!empty owner}">
+                                    <spring:url value="/${owner.srlnm}/b?rlnm=${owner.rlnm}" var="searchCategoryUrlAll" />
+                                    <c:set value="/${owner.srlnm}/${seoCategoryUrlName}/b?rlnm=${urlName}&amp;crlnm=${categoryUrlName}" var="paginationUrl"/>
+                                    <li><a href="${searchCategoryUrlAll}"><spring:message code="button.allresults.view"/></a></li>
+                                </c:when>
+
+                                <c:when test="${!empty store}">
+                                    <spring:url value="/${store.srlnm}/s?rlnm=${store.rlnm}" var="searchCategoryUrlAll" />
+                                    <c:set value="/${store.srlnm}/${seoCategoryUrlName}/s?rlnm=${urlName}&amp;crlnm=${categoryUrlName}" var="paginationUrl"/>
+                                    <li><a href="${searchCategoryUrlAll}"><spring:message code="button.allresults.view"/></a></li>
+                                </c:when>
+
+                                <c:when test="${!empty param.cat}">
+                                    <spring:url value="/search/item?terms=${param.terms}" var="searchCategoryUrlAll"/>
+                                    <c:set value="/search/item?terms=${param.terms}&amp;cat=${param.cat}" var="paginationUrl"/>
+                                    <li><a href="${searchCategoryUrlAll}"><spring:message code="button.allresults.view"/></a></li>
+                                </c:when>
+
+                                <c:otherwise>
+                                    <spring:url value="/search/item?terms=${param.terms}" var="searchCategoryUrlAll"/>
+                                    <c:set value="/search/item?terms=${param.terms}" var="paginationUrl"/>
+                                    <li><a href="${searchCategoryUrlAll}" id="view-all" class="${empty param.cat ? 'selected' : ''}"><spring:message code="button.allresults"/><span>(${searchResults.totalElements})</span></a></li>
+                                </c:otherwise>
+                            </c:choose>
+
+
+                            <c:forEach items="${searchResults.categories}" var="category" varStatus="status">
+
+                                <c:choose>
+                                    <c:when test="${!empty param.terms}">
+                                        <spring:url value="/search/item?terms=${param.terms}&amp;cat=${category.category.rlnm}" var="searchCategoryUrl"/>
+                                        <spring:url value="/${category.category.srlnm}/c?rlnm=${category.category.rlnm}" var="searchCategoryFullUrl"/>
+                                    </c:when>
+                                </c:choose>
+
+                                <li>
+                                    <a href="${searchCategoryUrl}" class="${(categoryUrlName eq category.category.rlnm or param.cat eq category.category.rlnm) ? 'selected' : ''}"><spring:message code="nav.cat.${category.category.rlnm}"/> <span>(${category.count})</span></a>
+                                </li>
+
+                            </c:forEach>
+                        </ul>
+                    </c:if>
+
+                    <spring:message code="grid.results.category.${categoryUrlName}" var="categoryHumanReadableName" />
+
+                    <c:choose>
+                        <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                            <div class="filter-container" fltr="compat" id="filter-compat">
+                                <div class="filter-header">
+                                    <h3><spring:message code="grid.results.compat.header" htmlEscape="false"/></h3>
+                                    <div class="info trigger"><!-- --></div>
+                                    <div class="tooltip"><spring:message code="item.quiz.tooltip.1" htmlEscape="false" arguments="${categoryHumanReadableName}"/></div>
+                                </div>
+
+                                <div class="filter-content">
+                                    <div class="f-sec l-quiz">
+                                        <a class="start-quiz modal quiz-modal" href="${launchQuiz}" name="l-quiz" id="l-quiz" quiz-location="Quiz-Filter"><spring:message code="grid.quiz.launch" htmlEscape="false"/></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:when test="${loggedInUser != 'anonymousUser' and us.profileStatus == 'PARTIAL'}">
+                            <div class="filter-container" fltr="compat" id="filter-compat">
+                                <div class="filter-header">
+                                    <h3><spring:message code="grid.results.compat.header" htmlEscape="false"/></h3>
+                                    <div class="info trigger"><!-- --></div>
+                                    <div class="tooltip"><spring:message code="item.quiz.tooltip.2" htmlEscape="false"/></div>
+                                </div>
+
+                                <div class="filter-content">
+                                    <div class="f-sec l-quiz">
+                                        <a class="start-quiz modal quiz-modal" href="${launchQuiz}" name="l-quiz" id="l-quiz" quiz-location="Quiz-Filter"><spring:message code="grid.quiz.complete" htmlEscape="false"/></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:when>
+                    </c:choose>
+                </form>
+
+            </div>
+
+            <ul id="p-grid">
+
+                <c:if test="${empty searchResults.items}">
+                    <p id="no-results"><spring:message code="grid.results.empty" htmlEscape="false"/></p>
+                </c:if>
+
+                <c:set var="itemCount" value="0"/>
+
+                <c:choose>
+                    <c:when test="${!empty searchResults.relevantItems}">
+                        <c:set var="catItems" value="${searchResults.relevantItems.content}"/>
+                        <c:set var="itemCount" value="${fn:length(searchResults.relevantItems.content)}"/>
+                    </c:when>
+                    <c:otherwise>
+                        <c:set var="catItems" value="${searchResults.items.content}"/>
+                        <c:set var="itemCount" value="${fn:length(searchResults.items.content)}"/>
+                    </c:otherwise>
+                </c:choose>
+
+                <c:forEach var="item" items="${catItems}" varStatus="status">
+
+                    <li class="item cat-${item.ctgry.rlnm}" id="${item.rlnm}">
+                        <spring:url value="/${item.srlnm}/p?rlnm=${item.rlnm}" var="itemDetailUrl" />
+
+                        <c:if test="${item.class.name eq 'com.lela.domain.document.RelevantItem'}">
+                            <spring:url value="/static/images/icons/relevancy/relevancy_meter_${item.ttlrlvncynmbr}_orange.png" var="lelaRatingImgUrl" />
+                            <img src="${lelaRatingImgUrl}" alt="${item.ttlrlvncynmbr}%" class="lela-rating"/>
+                        </c:if>
+
+                        <c:if test="${empty domainAffiliate or domainAffiliate.shwcmpr}">
+                        <div class="compare-check" cat="${item.ctgry.rlnm}" rlnm="${item.rlnm}"><spring:message code="button.compare"/> <div class="c-btn"><!-- --></div></div>
+                        </c:if>
+                        <a href="${itemDetailUrl}" class="p-img"><img src="${item.imgs[0].sz['large']}" alt="${item.nm} - ${item.subAttributes['Brand']}"/></a>
+                        <a href="${itemDetailUrl}" class="p-info">
+
+                        <span class="item-details">
+                            <span class="item-name"><strong><lela:lelaProductName item="${item}" /></strong></span>
+                            <span class="brand-name">${item.subAttributes['Brand']}</span>
+                            <strong><spring:message code="items.data.bestprice" htmlEscape="false"/>:</strong>${nbsp}${item.subAttributes['MerchantName']}
+                        </span>
+                            <span class="p-price">
+                                <c:choose>
+                                    <c:when test="${item.subAttributes['LowestPrice'] gt 0.0}">
+                                        <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['LowestPrice']}" />
+                                            <c:if test="${item.subAttributes['LowestPrice'] lt item.subAttributes['ListPrice']}">
+                                                <span class="price-old"><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></span>
+                                            </c:if>
+                                        </strong>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <spring:message code="item.details.listPrice"/><br/>
+                                        <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></strong>
+                                    </c:otherwise>
+                                </c:choose>
+                            </span>
+
+                        </a>
+
+                        <c:if test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                            <div class="p-action p-quiz">
+                                <spring:message code="grid.results.category.${item.ctgry.rlnm}" var="userCategoryText"/>
+                                <spring:message code="grid.results.right.forme" htmlEscape="false" arguments="${userCategoryText}"/><br/>
+                                <a href="${launchQuiz}&amp;pr=${itemDetailUrl}" class="modal quiz-modal" quiz-location="Quiz-Filter"><spring:message code="grid.results.show.score" htmlEscape="false"/></a>
+                            </div>
+                        </c:if>
+
+                        <!-- Load rollover summary-->
+                        <tiles:insertTemplate template="/WEB-INF/jsp/items/details_over.jspx" flush="true">
+                            <tiles:putAttribute name="item" value="${item}" />
+                        </tiles:insertTemplate>
+
+                    </li>
+                </c:forEach>
+            </ul>
+
+            <div class="clear"><!-- --></div>
+
+            <div class="search-pagination">
+                <lela:lelaPagination url="${paginationUrl}" totalElements="${searchResults.items.totalElements}" totalPages="${searchResults.items.totalPages}" pageNumber="${searchResults.items.number}" pageSize="${searchResults.items.size}"/>
+            </div>
+
+            <div class="clear"><!-- --></div>
+
+        </div>
+
+    </div>
+
+    <tiles:insertTemplate template="/WEB-INF/jsp/common/comparison.jspx" flush="true" />
+
+</div>

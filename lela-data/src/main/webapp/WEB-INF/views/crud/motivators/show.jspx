@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Motivator" object="${motivator}" path="/crud/motivators" z="L0T8D5r+e7wPyRfbBcxk2HyEEWY=">
+        <field:display date="true" dateTimePattern="${motivator_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Motivator_dateCreated" object="${motivator}" z="user-managed" render="false"/>
+        <field:display date="true" dateTimePattern="${motivator_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Motivator_dateModified" object="${motivator}" z="user-managed" render="false"/>
+        <field:display field="motivatorLabel" id="s_com_lela_data_domain_entity_Motivator_motivatorLabel" object="${motivator}" z="s0kw1L1us3O0EOQZWuCOiQFwMes="/>
+        <field:display field="category" id="s_com_lela_data_domain_entity_Motivator_category" object="${motivator}" z="zHfzpTx4s81GEPur4JXMZthbyFM="/>
+        <field:display field="subCategoryId" id="s_com_lela_data_domain_entity_Motivator_subCategoryId" object="${motivator}" z="vO2vLKwep3DEl833nlu1RS2Dn8w="/>
+        <field:display field="rulesEngineEdd" id="s_com_lela_data_domain_entity_Motivator_rulesEngineEdd" object="${motivator}" z="4TtNYkpK8zxc+a1zBfkRfo4LneY="/>
+        <field:display field="rulesEngineDt" id="s_com_lela_data_domain_entity_Motivator_rulesEngineDt" object="${motivator}" z="NVyfw+jcvJvurovfkRD2roKLaaA="/>
+    </page:show>
+</div>

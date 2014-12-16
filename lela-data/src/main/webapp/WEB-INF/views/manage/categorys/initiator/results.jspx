@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+     xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:display="http://displaytag.sf.net/el"
+     version="2.0" >
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <h2>Results</h2>
+  <spring:url value="/manage/categorys/initiator/index" var="initiator_index_url"/>
+  <spring:url value="/manage/categorys/initiator/create" var="initiator_create_url"/>
+  <spring:url value="/manage/categorys/initiator/update" var="initiator_update_url"/>
+  <spring:url value="/manage/categorys/initiator/run" var="initiator_run_url"/>
+  <spring:url value="/manage/categorys/initiator/download" var="initiator_download_url"/>
+  <spring:url value="/manage/categorys/initiator/results" var="initiator_results_url"/>
+  <spring:url value="/manage/categorys/initiator/delete" var="initiator_delete_url"/>
+
+  <a href="${initiator_index_url}">Back</a> |
+  <a href="${initiator_run_url}/${query.id}?rlnm=manage%2Fcategorys%2Finitiator%2Fresults%2F${query.id}">Run</a> |
+  <a href="${initiator_results_url}/${query.id}">Refresh</a>
+
+  <display:table name="results" id="result" requestURI="${initiator_results_url}" class="displaytag" defaultsort="1">
+    <display:column property="cdt" title="Start" format="{0,date,MM-dd-yyyy HH:mm:ss}"/>
+    <display:column property="cmpltdt" title="Complete Time" format="{0,date,MM-dd-yyyy HH:mm:ss}" />
+    <display:column property="cnt" title="Total"/>
+    <display:column property="rtrvd" title="Retrieved"/>
+    <display:column title="% Complete">
+      <fmt:formatNumber type="percent" maxFractionDigits="3" value="${(result.rtrvd/result.cnt)}"/>
+    </display:column>
+
+    <display:column title="Download">
+      <c:if test="${result.cmpltdt != null}">
+        <a href="${initiator_download_url}/${result.id}">Download</a>
+      </c:if>
+    </display:column>
+    <display:column title="Delete">
+      <c:if test="${result.cnt > 0 and result.rtrvd == result.cnt}">
+          <a href="${initiator_delete_url}/${result.id}">Delete</a>
+      </c:if>
+    </display:column>
+
+  </display:table>
+</div>

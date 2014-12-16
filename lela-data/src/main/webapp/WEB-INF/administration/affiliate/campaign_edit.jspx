@@ -1,0 +1,133 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="campaign.edit.title"/></h1>
+  <style>
+    .error {
+    	color: red;
+    }
+  </style>  
+  
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <spring:url value="/administration/campaign/list" var="listUrl"/>
+    <div class="actions">
+        <a class="action" href="${listUrl}">&lt; <spring:message code="campaign.back.to.list"/> </a>
+        <div class="clear"><!-- --></div>
+    </div>
+    
+    <spring:url value="/administration/campaign/form" var="formUrl"/>
+    <spring-form:form action="${formUrl}" method="POST" commandName="campaign" modelAttribute="campaign" enctype="multipart/form-data">
+        <div class="h-row even">
+            <div class="h-col"><label for="campaign.nm"><spring:message code="campaign.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="campaign.nm" path="nm"/>&#160;<spring-form:errors path="nm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+ 
+        <div class="h-row odd">
+            <div class="h-col"><label for="campaign.rlnm"><spring:message code="campaign.url.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="campaign.rlnm" path="rlnm"/>&#160;<spring-form:errors path="rlnm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="campaign.ctv"><spring:message code="campaign.active"/></label></div>
+
+            <div class="h-col">
+                <spring-form:radiobutton id="campaign.ctv" path="ctv" value="true"/> <spring:message code="radio.button.true"/>,
+                <spring-form:radiobutton id="campaign.ctv" path="ctv" value="false"/> <spring:message code="radio.button.false"/><br/>
+                <spring-form:errors path="ctv" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="campaign.rdrctrl"><spring:message code="campaign.destination"/></label></div>
+
+            <div class="h-col">
+                <div class="v-col">
+                <spring:message code="campaign.redirect.to"/>
+                </div>
+                <div class="v-col">
+                <spring-form:input id="campaign.rdrctrl" path="rdrctrl"/>&#160;<spring-form:errors path="rdrctrl" cssClass="red"/>
+                </div>
+                <div class="v-col">
+                <spring:message code="campaign.view.name"/>
+                </div>
+                <div class="v-col">
+                <spring-form:input id="campaign.vwnm" path="vwnm"/>&#160;
+                </div>
+                <div class="v-col">
+                <spring:message code="campaign.static.content"/>
+                </div>
+                <div class="v-col">
+				<spring-form:select path="sttccntnt">
+					<spring-form:option value="" label="Select" />
+					<spring-form:options items="${staticContents}" itemValue="rlnm" itemLabel="nm" />
+				</spring-form:select>                          
+                </div>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="campaign.ffltrlnm"><spring:message code="campaign.affiliate.account"/></label></div>
+
+            <div class="h-col">
+				<spring-form:select path="ffltrlnm">
+					<spring-form:option value="" label="Select" />
+					<spring-form:options items="${affiliateAccounts}" itemValue="rlnm" itemLabel="nm" />
+				</spring-form:select>           
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>        
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="campaign.strtdt"><spring:message code="campaign.start.date"/><br/>(<spring:message code="campaign.date.format"/>)</label></div>
+
+            <div class="h-col">
+                <spring-form:input id="campaign.strtdt" path="strtdt"/>&#160;<spring-form:errors path="strtdt" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="campaign.nddt"><spring:message code="campaign.end.date"/><br/>(<spring:message code="campaign.date.format"/>)</label></div>
+
+            <div class="h-col">
+                <spring-form:input id="campaign.nddt" path="nddt"/>&#160;<spring-form:errors path="nddt" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+        
+        
+        <div class="s-row">
+            <spring-form:hidden path="id"/>
+            <spring:message code="button.save" var="save"/>
+            <div class="s-col"><input type="submit" value="${save}"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+    </spring-form:form>
+</div>

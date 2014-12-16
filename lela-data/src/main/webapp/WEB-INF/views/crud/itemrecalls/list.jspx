@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ItemRecall" items="${itemrecalls}" z="1k15WuNhwV8n21fTiGKaSaUe0es=">
+        <table:table data="${itemrecalls}" id="l_com_lela_data_domain_entity_ItemRecall" path="/crud/itemrecalls" z="EydL9ovD/4AXoOHl6PAtOdB/Yik=">
+            <table:column date="true" dateTimePattern="${itemRecall_datecreated_date_format}" id="c_com_lela_data_domain_entity_ItemRecall_dateCreated" property="dateCreated" z="uOGPNUah7mYaHh1DtE6Nhusx2iU="/>
+            <table:column date="true" dateTimePattern="${itemRecall_datemodified_date_format}" id="c_com_lela_data_domain_entity_ItemRecall_dateModified" property="dateModified" z="3fJ7kM+S6zs6JmZ808FOmmC5jTM="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemRecall_item" property="item" z="SO0b7vVFEO1s775JraWTb72JUVU="/>
+            <table:column date="true" dateTimePattern="${itemRecall_recalldate_date_format}" id="c_com_lela_data_domain_entity_ItemRecall_recallDate" property="recallDate" z="rmMpBu3/B4Lqaoj2b8ShgfrvyJA="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemRecall_recallEvent" property="recallEvent" z="AVcZLCi/8qVY5UHeWZOWo+fhi1A="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemRecall_recallUrl" property="recallUrl" z="8bxsWTzH3ZgUf5t6R/spVOAi5qo="/>
+        </table:table>
+    </page:list>
+</div>

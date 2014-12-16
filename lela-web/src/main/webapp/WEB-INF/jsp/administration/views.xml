@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <!-- page template -->
+    <definition name="administration.page.template" template="/WEB-INF/jsp/administration/template.jspx" preparer="userSupplementPreparer">
+        <put-attribute type="string" name="title" value="NA" />
+        <put-attribute type="string" name="description" value="" />
+        <put-attribute type="string" name="keywords" value="" />
+        <put-attribute type="string" name="pageTitle" value="" />
+
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/administration/administration.css" />
+            <add-attribute type="string" value="/static/styles/global.css" />
+            <add-attribute type="string" value="/static/js/plugins/datepicker/datePicker.css" />
+            <add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.css" />
+            <add-attribute type="string" value="/static/js/plugins/tablesorter/addons/pager/jquery.tablesorter.pager.css" />
+        </put-list-attribute>
+
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/jquery-1.7.1.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.cookie.js" />
+            <add-attribute type="string" value="/static/js/plugins/fancybox/jquery.fancybox-1.3.4.js" />
+            <add-attribute type="string" value="/static/js/plugins/tablesorter/jquery.tablesorter.js" />
+            <add-attribute type="string" value="/static/js/plugins/tablesorter/jquery.metadata.js" />
+            <add-attribute type="string" value="/static/js/plugins/tablesorter/addons/pager/jquery.tablesorter.pager.js" />
+            <add-attribute type="string" value="/static/js/plugins/datepicker/date.js" />
+            <add-attribute type="string" value="/static/js/plugins/datepicker/jquery.datePicker.js" />
+            <add-attribute type="string" value="/static/js/global.js" />
+            <add-attribute type="string" value="/static/js/administration/administration.js" />
+            <add-attribute type="string" value="/static/js/embeds/vimeo.js" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="administration.dashboard" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.dashboard.admin.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/administration/dashboard.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+</tiles-definitions>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ReviewStatus" items="${reviewstatuses}" z="N6Fg/D1oKMnZnzpdm86+o3qecJg=">
+        <table:table data="${reviewstatuses}" id="l_com_lela_data_domain_entity_ReviewStatus" path="/crud/reviewstatus" z="ASlH5zpykgIYfcRGrTicWFfIHpM=">
+            <table:column date="true" dateTimePattern="${reviewStatus_datecreated_date_format}" id="c_com_lela_data_domain_entity_ReviewStatus_dateCreated" property="dateCreated" z="Rj4jOPMrWlD5MkeUl6x5IMMvr0c="/>
+            <table:column date="true" dateTimePattern="${reviewStatus_datemodified_date_format}" id="c_com_lela_data_domain_entity_ReviewStatus_dateModified" property="dateModified" z="txOIhqyPnj0WyN6iSUNtayR/mro="/>
+            <table:column id="c_com_lela_data_domain_entity_ReviewStatus_reviewStatusName" property="reviewStatusName" z="oJqvEsFSkNYVnavVYS/XZO6S4ww="/>
+        </table:table>
+    </page:list>
+</div>

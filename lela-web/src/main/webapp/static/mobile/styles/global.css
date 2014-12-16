@@ -1,0 +1,354 @@
+/*
+ * Copyright (c) 2012. Lela.com.
+ */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background:#fff;
+    margin:0;
+    padding:0;
+    color:#3f3f3f;
+    font-size:13px;
+    line-height: 16px;
+    font-family: "ars-maquette-web", "Helvetica Neue", "Arial";
+}
+
+li, ul, p {
+    overflow:hidden;
+    list-style-type:none;
+}
+
+input, select, textarea { font-family: "Helvetica Neue", "Arial"; }
+
+table {
+    border-collapse:collapse;
+}
+
+table td, table th {
+    padding:0;
+    border:none;
+}
+
+h1, h2, h3, h4, h5, ul, li {
+    margin:0;
+    padding:0;
+}
+
+h1 { font-size: 18px; padding:10px 0 5px 0; }
+.h-center { text-align: center; clear: both; }
+
+a {
+    color:#4ca7d8;
+    text-decoration:none;
+}
+
+img {
+    border:none;
+}
+
+input:focus, a {
+    outline: none;
+}
+
+.clearfix, .clear { clear:both; }
+
+.h-text, .hidden {
+    display:none;
+}
+
+/* layout */
+#wrapper {
+    max-width:640px;
+    padding:0;
+    margin: 0 auto;
+    position: relative;
+}
+
+#main {
+    position: relative;
+    z-index: 1;
+    top:50px;
+}
+
+/* Footer */
+#footer {
+    clear:both;
+    overflow: hidden;
+    background: #3f3f3f;
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+    top:50px;
+}
+
+#f-links li {
+    float: left;
+    width: 25%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#f-links li a {
+    color:#fff;
+}
+
+#sh-links {
+    margin: 10px 0 30px 0;
+    text-align: center;
+    font-size: 18px;
+    color:#ccc;
+}
+#sh-links img {
+    vertical-align: middle;
+    padding:0 10px;
+}
+
+#sh-links span {
+               padding-top: 20px;
+}
+
+#footer .copyright {
+    text-align: center; color:#ccc;
+}
+
+
+
+/* header */
+#head {
+    overflow:visible;
+    height:50px;
+    font-size:11px;
+    z-index:10;
+    position: absolute;
+    width:100%;
+    background:#333;
+    z-index:12;
+}
+
+#head a {
+    text-decoration: none;
+}
+
+#lela-nav .lela-logo {
+    background:url('/static/mobile/images/layout/lela_logo.png') no-repeat 0 0;
+    background-size: 50px 57px;
+    width: 50px;
+    height: 57px;
+    float: left;
+}
+
+#lela-nav .lela-logo a {
+    width: 50px;
+    height: 50px;
+    display: block;
+}
+
+#lela-nav #nav-ctrls {
+    margin-left:50px;
+    margin-right: 50px;
+    position: relative;
+}
+
+#lela-nav #nav-ctrls a {
+    position: relative;
+    display: block;
+    background:#333;
+    color:#fff;
+    padding:17px 0 0 10px;
+    height:32px;
+    width: 44%;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    border-left:1px solid #505050;
+}
+
+#usernav-cnt {
+    display: none;
+    -webkit-box-shadow:  0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow:  0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+#lela-nav .logout {
+    position: absolute !important;
+    left: 44%;
+    margin-left: 12px;
+    background: white !important;
+    border-left: 0px !important;
+    width: 44% !important;
+    top: 100px;
+    color: #3f3f3f !important;
+    border-left: 1px solid #e5e5e5 !important;
+    border-right: 1px solid #e5e5e5 !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+}
+
+#lela-nav .dashboard {
+    position: absolute !important;
+    left: 44%;
+    top: 50px;
+    width: 44% !important;
+    margin-left: 12px;
+    color: #3f3f3f !important;
+    background: white !important;
+    border-left: 1px solid #e5e5e5 !important;
+    border-right: 1px solid #e5e5e5 !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+}
+
+#menu-tog {
+    background:#333 url('../images/layout/nav_caret.gif') no-repeat right 22px !important;
+    background-size: 20px 6px;
+}
+
+#menu-tog.selected {
+    background:#fff url('../images/layout/nav_caret_on.gif') no-repeat right 22px !important;
+    color:#3f3f3f !important;
+    border-left:1px solid #fff !important;
+    border-bottom:1px solid #ddd !important;
+}
+
+#lela-nav #nav-sc {
+    display: block;
+    width:50px;
+    background:#333 url('../images/icons/search.png') no-repeat 10px 11px;
+    background-size: 30px 28px;
+    height:50px;
+    float: right;
+    border-left:1px solid #505050;
+}
+
+#lela-nav #nav-sc span, #submit-sc span, #close-sc span { display:none; }
+
+#lela-nav #nav-form {
+    background:#fff;
+    height:50px;
+    margin-left:50px;
+    position: relative;
+    display: none;
+}
+
+#lela-nav #nav-form input {
+    font-size: 22px;
+    border:none;
+    padding:9px;
+    color:#ccc;
+    width: 58%;
+    display: block;
+    float:left;
+}
+
+#submit-sc {
+    display: block;
+    width:50px;
+    background:#fff url('../images/icons/search.png') no-repeat 10px 12px;
+    background-size: 30px 28px;
+    height:50px;
+    float: right;
+}
+
+#close-sc {
+    display: block;
+    width:40px;
+    background:#fff url('../images/icons/search_close.png') no-repeat 4px 13px;
+    background-size: 26px 26px;
+    height:50px;
+    float: right;
+}
+
+#cat-menu {
+    display: none;
+    position: absolute;
+    top:50px;
+    background:#fff;
+    width:100%;
+    height: auto;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.cat-group {
+    display: block;
+    height:32px;
+    margin: 5px 0;
+}
+
+@media all and (orientation:landscape) {
+    .cat-group {
+        background-size: 140%;
+    }
+
+    .dept-head {
+        background-size: 135% 100%;
+    }
+
+    .dept-head h1 img {
+        width: 55%;
+        height: 105%;
+    }
+}
+
+@media all and (orientation:portrait) {
+    .cat-group {
+        background-size: 200%;
+    }
+
+    .dept-head {
+        background-size: 200% 100%;
+    }
+
+    .dept-head h1 img {
+        width: 80%;
+        height: 105%;
+    }
+}
+
+.cat-group span {
+    display: none;
+}
+
+.cat-children {
+    background-repeat: no-repeat;
+    background-position: 10px 4px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.dept-head {
+    height: 70px;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.dept-head h1 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.categories .cat-children:last-child {
+    border:none !important;
+}
+
+.cat-children a {
+    font-size: 14px;
+    font-weight: bold;
+    color:#3f3f3f;
+    display: block;
+    padding:15px 10px 13px 60px;
+    margin-right:10px;
+    background: url('../images/icons/caret_g_r.png') no-repeat right 17px;
+    background-size: 8px 13px;
+}
+
+#fav-l {
+    padding-top:5px;
+    background: url('../images/icons/nav_cat/favorites.png') no-repeat 16px 18px;
+    background-size: 28px 26px;
+    border:none;
+}
+
+#reg-container #lela-logo { display: none; }

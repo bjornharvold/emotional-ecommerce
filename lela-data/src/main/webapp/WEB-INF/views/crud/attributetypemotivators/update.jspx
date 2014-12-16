@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_AttributeTypeMotivator" modelAttribute="attributeTypeMotivator" path="/crud/attributetypemotivators" versionField="Version" z="w1WeODh844+BER2GGgqUZA1ZEak=">
+        <field:datetime dateTimePattern="${attributeTypeMotivator_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_AttributeTypeMotivator_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${attributeTypeMotivator_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_AttributeTypeMotivator_dateModified" render="false" z="user-managed"/>
+        <field:select field="category" id="c_com_lela_data_domain_entity_AttributeTypeMotivator_category" itemValue="id" items="${categorys}" path="/categorys" z="user-managed"/>
+        <field:select field="attributeType" id="c_com_lela_data_domain_entity_AttributeTypeMotivator_attributeType" itemValue="id" items="${attributeTypes}" path="/attributetypes" z="user-managed"/>
+        <field:input field="motivator" id="c_com_lela_data_domain_entity_AttributeTypeMotivator_motivator" required="true" validationMessageCode="field_invalid_integer" z="BY4C1ClGS8WNRKtYXfM5vptmluU="/>
+        <field:input field="eddDataType" id="c_com_lela_data_domain_entity_AttributeTypeMotivator_eddDataType" z="GPKaotko5WRg95r8fGuwwdnwqgU="/>
+        <field:checkbox field="required" id="c_com_lela_data_domain_entity_AttributeTypeMotivator_required" z="MtjRdb6lRqyFJtDYaQNPrz+0Kmo="/>
+    </form:update>
+</div>

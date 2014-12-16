@@ -1,0 +1,55 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="page.item.stats.title"/> : Stores per item</h1>
+
+    <p>Choose a category:</p>
+    <ul>
+        <c:forEach items="${categories}" var="cat">
+            <spring:url var="statUrl" value="/administration/item/storesperitem">
+                <spring:param name="categoryUrlName" value="${cat.rlnm}"/>
+            </spring:url>
+            <c:choose>
+                <c:when test="${category.rlnm == cat.rlnm}">
+                    <li><b><a href="${statUrl}">${cat.rlnm}</a></b></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="${statUrl}">${cat.rlnm}</a></li>
+                </c:otherwise>
+
+            </c:choose>
+
+        </c:forEach>
+    </ul>
+
+    <table width="100%">
+        <thead>
+            <tr>
+                <th width="45%">Name</th>
+                <th width="45%">Url Name</th>
+                <th width="10%"># Stores</th>
+            </tr>
+        </thead>
+        <c:forEach var='item' items='${itemStoresCount}'>
+            <tr>
+                <td>${item.nm}</td>
+                <td>${item.rlnm}</td>
+                <td>${fn:length(item.strs)}</td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>

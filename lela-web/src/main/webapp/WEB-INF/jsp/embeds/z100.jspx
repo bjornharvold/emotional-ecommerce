@@ -1,0 +1,261 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+     id="z100">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <div id="cont-top">
+
+        <div id="video">
+            <lela:device var="device"/>
+            <c:choose>
+                <c:when test="${device.mobile eq 'true'}">
+                    <iframe src="http://player.vimeo.com/video/46933195?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933&amp;autoplay=1" width="640" height="370" frameborder="0"><!-- --></iframe>
+                </c:when>
+                <c:otherwise>
+                    <object width="640" height="360"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=46933195&amp;force_embed=1&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1&amp;autoplay=1&amp;loop=0" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=46933195&amp;force_embed=1&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1&amp;autoplay=1&amp;loop=0" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="640" height="360"></embed></object>
+                </c:otherwise>
+            </c:choose>
+        </div>
+
+        <div class="copy">
+            <spring:url value="/register" var="quizUrl">
+                <spring:param name="rt" value="/quiz?rt=/categories"/>
+                <spring:param name="utm_source" value="lela_lp"/>
+                <spring:param name="utm_campaign" value="z100"/>
+                <spring:param name="utm_medium" value="quiz_button"/>
+                <spring:param name="autoFb" value="1"/>
+            </spring:url>
+
+            <h1 title="Z100 Baby Gear Sweepstakes">Z100 Baby Gear Sweepstakes</h1>
+            <!-- <h2>Win your choice of any stroller, car seat, high chair or crib up to $500!</h2>
+
+            <p>No purchase necessary. All you need to do is sign up for Lela.com and take the 1-minute quiz.</p> -->
+
+            <a href="${quizUrl}" id="t-quiz" title="Take the Quiz"><span>Take the Quiz</span></a>
+
+            <!-- <p id="counter"><span id="count-hdr">Time left to win:</span> <span id="countbox1" class="counter"></span></p> -->
+
+            <script type="text/javascript">
+                var year = '2012';
+                var month = '8';
+                var day = '29';
+                var hour = '0';
+                var minute = '0';
+                var second = '0';
+                dateFuture1 = new Date(year,month-1,day,hour,minute,second);
+                window.onload=function(){
+                    //GetCount(dateFuture1, 'countbox1', new Date());
+                };
+            </script>
+
+
+
+
+
+        </div>
+    </div>
+
+    <div id="cont-bottom">
+
+        <div class="copy">
+
+            <spring:url value="/register" var="quizUrl">
+                <spring:param name="rt" value="/quiz?rt=/categories"/>
+                <spring:param name="utm_source" value="lela_lp"/>
+                <spring:param name="utm_campaign" value="z100"/>
+                <spring:param name="utm_medium" value="quiz_textlink"/>
+                <spring:param name="autoFb" value="1"/>
+            </spring:url>
+
+            <p>See Your Matches</p>
+
+            <a href="${quizUrl}" id="t-quiz-2" title="Take the Quiz"><span>Take the Quiz!</span></a>
+        </div>
+    </div>
+
+    <div id="footer">
+        <spring:url value="/sc/terms" var="termsUrl" />
+        <spring:url value="/sc/about" var="aboutUrl" />
+        <spring:url value="/sc/about#whysignup" var="whysignupUrl" />
+        <spring:url value="/press" var="pressUrl" />
+        <spring:url value="/sc/about#team" var="teamUrl" />
+        <spring:url value="/sc/about#directors" var="directorsUrl" />
+        <spring:url value="/sc/about#advisors" var="advisorsUrl" />
+        <spring:url value="/sc/privacy" var="privacyUrl" />
+        <spring:url value="/blog" var="blogUrl" />
+        <spring:url value="/stores" var="storesUrl" />
+        <spring:url value="/brands" var="brandsUrl" />
+        <spring:url value="/sc/jobs" var="jobsUrl" />
+
+        <div class="footer-col">
+            <h3>About</h3>
+            <ul>
+                <li><a href="${aboutUrl}"><spring:message code="footer.link.about" htmlEscape="false"/></a></li>
+                <li><a href="${whysignupUrl}">Why Sign Up</a></li>
+                <li><a href="${pressUrl}">Press &amp; Buzz</a></li>
+                <li><a href="${teamUrl}">The Team</a></li>
+                <li><a href="${directorsUrl}">Our Directors</a></li>
+                <li><a href="${jobsUrl}">Jobs</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Help</h3>
+            <ul>
+                <li><a href="mailto:info@lela.com"><spring:message code="footer.link.contact" htmlEscape="false"/></a></li>
+                <li><a href="http://lela.zendesk.com" target="_blank"><spring:message code="footer.link.support" htmlEscape="false"/></a></li>
+                <li><a href="${storesUrl}"><spring:message code="footer.link.stores" htmlEscape="false"/></a></li>
+                <li><a href="${brandsUrl}"><spring:message code="footer.link.brands" htmlEscape="false"/></a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="${privacyUrl}" rel="nofollow"><spring:message code="footer.link.policy" htmlEscape="false"/></a></li>
+                <li><a href="${termsUrl}" rel="nofollow"><spring:message code="footer.link.terms" htmlEscape="false"/></a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>More</h3>
+            <ul>
+                <li><a href="${blogUrl}"><spring:message code="footer.link.blog" htmlEscape="false"/></a></li>
+                <li><a href="http://www.facebook.com/lelaknows?sk=app_203119206385978" target="_blank">Facebook</a></li>
+                <li><a href="http://www.twitter.com/lelaknows" target="_blank">Twitter</a></li>
+                <li><a href="http://pinterest.com/lelaknows" target="_blank">Pinterest</a></li>
+            </ul>
+        </div>
+
+        <p class="copyright"><spring:message code="footer.copyright" htmlEscape="false"/></p>
+
+    </div>
+
+    <!--
+    <div id="z-footer">
+        <spring:url value="/sc/z100-rules" var="rulesUrl"/>
+        <a href="#" target="_blank">Official Sweepstakes Rules</a>
+    </div>
+    -->
+
+    <div id="rules">
+        <h2>LELA.COM Z100 BABY GEAR SWEEPSTAKES OFFICIAL RULES</h2>
+        <p>
+            These are the rules which shall govern the random drawing sweepstakes (the "sweepstakes") for the website located at <a href="http://www.lela.com/">www.lela.com</a> (the "Website"), or received via email, by the operators of the website ("Lela").</p>
+        <p>
+            Lela.com Baby Gear Sweepstakes starts on July 30, 2012 and ends on August 29, 2012.   NO PURCHASE NECESSARY.  A PURCHASE WILL NOT IMPROVE CHANCES OF WINNING. VOID WHERE PROHIBITED.</p>
+        <p>
+            Lela is offering a $500 GIFT CARD (the "Lela Gift Card") to the Lela affiliated retailer of winner's choice.  The retailers listed in the below link are eligible for selection by the winners:</p>
+        <p>
+            <a href="http://www.lela.com/stores">http://www.lela.com/stores</a></p>
+        <p>
+            In order to qualify for the Lela Gift Card, users must meet the following requirement:</p>
+        <p>
+            <strong>- You must </strong><strong>sign in with Facebook and take the Lela compatibility Quiz</strong></p>
+        <p>
+            The winner will be chosen at random by Lela once a month during the contest period.  The winner will be contacted within 10 days via the email address supplied at the time of registration or with their account.</p>
+        <p>
+        </p>
+        <p>
+            <strong>ADDITIONAL RULES:</strong></p>
+        <ol>
+            <li>You must be over the age of 18, and be resident of the continental United States of America (Hawaii, Alaska, and US territories are not included).</li>
+            <li>By submitting any information for the Lela.com Baby Gear Sweepstakes, you hereby grant to Lela and its parents, affiliates, subsidiaries, licensees and assigns, an irrevocable, perpetual and royalty-free right to use, reproduce, edit, display, transmit, prepare derivative works of, modify, publish and otherwise make use of the submitted information in any and all media, whether now known or hereinafter created, throughout the world and for any purpose. In addition to other things, the rights granted to Lela includes but is not limited to the right to feature, caption, affix logos to, and to otherwise alter or make use of the information.</li>
+            <li>You acknowledge and agree that Lela shall have no obligation to post, display or otherwise make publicly available any photo or information submitted by you, and may, in its sole and unfettered discretion, remove, edit, modify or delete any photo or information that you submit to Lela.</li>
+            <li>You understand and intend that any photo or information submitted by you to Lela may be available for viewing, rating, review and comment on by the public, and understand that comments or ratings with which you disagree or are unhappy about may be published or otherwise become associated with any photo or information you submit to Lela. By submitting any photo or information to Lela, you hereby waive any privacy expectations that you may have with respect to any such photo or information submitted by you to Lela.</li>
+            <li>You hereby agree to hold Lela and its affiliates, subsidiaries, licensees sponsors and assigns harmless from and against, and hereby waive any right to pursue, any claims of any nature arising in connection with the inclusion in, publication via or display on any Lela site, or any other use authorized under these Terms, of any photo or information submitted to Lela by you;</li>
+            <li>Only 1 entry per household is permitted.</li>
+            <li>Entrants may also mail entries to Lela, Purple Key, Inc. Attn.: Lela.com Baby Gear Sweepstakes, 1745 Broadway, 17th floor, New York, NY 10019. Mailed entries must include the sweepstakes name, subject line, a valid email and postal address, and any other specific entry information requested in the sweepstakes announcement and are subject to the same entry period and rules as emailed entries.</li>
+            <li>Incomplete or incorrect entries will not be accepted.  Lela is not responsible for and will not consider incomplete or incorrect entries, or emails sent or entries mailed but not received by Lela for any reason, as potential winners.</li>
+            <li>Claiming of prizes requires an email to Lela from the winning sender email address within 15 days of being notified of winning at the email used to enter. Failure to respond shall mean that the winner forfeits the prize. Lela is not required to award elsewhere any prizes forfeited by the chosen winner(s).</li>
+            <li>Winners are solely responsible for all taxes and/or fees that may be incurred.</li>
+            <li>The Lela Gift Card winner must supply Lela with his/her legal name, mailing address and telephone number.</li>
+            <li>Winners may not request substitutions for prize winnings.</li>
+            <li>Neither Lela, Lela sponsors, nor employees of Lela or sponsors may be held liable for any warranty, costs, damage, injury, or any other claims incurred as a result of usage of any winners of a prize once possession has been taken of the product by winner. Lela is not liable for any loss arising out of or in connection with or resulting from any sweepstakes promoted by Lela.</li>
+            <li>If the specified prize becomes unavailable due to unforeseen circumstances, Lela may substitute a prize of like or equal value.</li>
+            <li>For a list of sweepstakes winner names, mail a letter specifying the sweepstakes you are inquiring about and include a self-addressed and prepaid envelope to Purple Key, Inc. Attn: Lela.com Baby Gear Sweepstakes winner list, 1745 Broadway, 17th floor, New York, NY 10019 .</li>
+            <li>Management, employees and families of Lela are prohibited from winning any prizes awarded by Lela.</li>
+            <li>Lela reserves the right to alter any rules of any sweepstakes at any time. If you have any questions or complaints about a Lela sweepstakes, please contact info AT Lela.com.</li>
+        </ol>
+
+
+    </div>
+
+    <script type="text/javascript">
+        $('#z-footer a').click(function() {
+            if($('#rules').is(':hidden')) {
+                $('#rules').slideDown('fast');
+                var target_offset = $('#z-footer').offset();
+                var target_top = (target_offset.top);
+                $('html, body').animate({scrollTop:target_top}, 500);
+
+            } else {
+                $('#rules').slideUp('fast');
+            }
+
+            return false;
+        });
+
+
+        function GetCount(ddate,iid){
+
+            dateNow = new Date();	//grab current date
+            amount = ddate.getTime() - dateNow.getTime();	//calc milliseconds between dates
+            delete dateNow;
+
+            // if time is already past
+            if(amount &lt; 0){
+                // document.getElementById(iid).innerHTML="Now!";
+                location.reload(true);
+
+            }
+            // else date is still good
+            else{
+                days=0;hours=0;mins=0;secs=0;out="";
+
+                amount = Math.floor(amount/1000);//kill the "milliseconds" so just secs
+
+                days=Math.floor(amount/86400);//days
+                amount=amount%86400;
+
+                hours=Math.floor(amount/3600);//hours
+                if(hours &lt; 10) {
+                    hours = '0' + hours;
+                }
+                amount=amount%3600;
+
+                mins=Math.floor(amount/60);//minutes
+                if(mins &lt; 10) {
+                    mins = '0' + mins;
+                }
+
+                amount=amount%60;
+
+                secs=Math.floor(amount);//seconds
+                if(secs &lt; 10) {
+                    secs = '0' + secs;
+                }
+
+                if(days != 0){out += "<strong>"+ days +"</strong>"+((days==1)?"day":"days")+" ";}
+                if(hours != 0){out += "<strong>"+ hours +"</strong>"+((hours==1)?" hour":"hours")+" ";}
+                out += "<strong>"+ mins +"</strong>"+((mins==1)?"minute":"minutes")+" ";
+                out += "<strong>"+ secs +"</strong>"+((secs==1)?"second":"seconds")+", ";
+                out = out.substr(0,out.length-2);
+                document.getElementById(iid).innerHTML=out;
+
+                setTimeout(function(){GetCount(ddate,iid)}, 1000);
+            }
+        }
+    </script>
+
+</div>

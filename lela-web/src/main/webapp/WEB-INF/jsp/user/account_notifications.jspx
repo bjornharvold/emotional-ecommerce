@@ -1,0 +1,84 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="user.account.notifications.SUBSCRIBE" var="subscribe"/>
+    <spring:message code="user.account.notifications.UNSUBSCRIBE" var="unsubscribe"/>
+
+    <script type="text/javascript">
+        var messages = {
+            "user.account.notifications.SUBSCRIBE" : "${subscribe}",
+            "user.account.notifications.UNSUBSCRIBE" : "${unsubscribe}",
+            "user.account.notifications.SUBSCRIBE.value" : "${subscribeStatusSubscribe}",
+            "user.account.notifications.UNSUBSCRIBE.value" : "${subscribeStatusUnsubscribe}"
+        }
+    </script>
+
+    <ul id="account-nav">
+        <li>
+            <!-- Left nav content -->
+            <tiles:insertTemplate template="/WEB-INF/jsp/user/account_nav.jspx" flush="true">
+            </tiles:insertTemplate>
+        </li>
+    </ul>
+    <div id="account-content">
+        <!-- Right content -->
+        <div id="lela-notifications" class="d-section">
+            <h2><spring:message code="user.account.notifications.lela.notifications"/></h2>
+            <table>
+                <tr>
+                    <th class="e-padding"></th>
+                    <th class="e-attr"><spring:message code="user.account.notifications.lela.notifications"/></th>
+                    <th class="e-attr"><spring:message code="user.account.notifications.subscribe.unsubscribe"/></th>
+                </tr>
+                <tr>
+                    <td class="e-padding"><spring:message code="user.account.notifications.new.product.email"/></td>
+                    <td class="e-attr"><spring:message code="user.account.notifications.${notifications.ntfctn.prdctmlfrqncy}"/></td>
+                    <td class="e-attr">
+                        <a id="new-product-email-subscribe" href="#">
+                            <spring:message code="user.account.notifications.${notifications.ntfctn.nwprdctmlsbscrbstts}"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <input id="email-frequency" type="hidden" value="${notifications.ntfctn.prdctmlfrqncy}"/>
+            <input id="email-subscribe-status" type="hidden" value="${notifications.ntfctn.nwprdctmlsbscrbstts}"/>
+            <br/>
+            <br/>
+            <table>
+                <tr>
+                    <th class="e-product"><spring:message code="user.account.notifications.recall.alert"/></th>
+                    <th class="e-subscribe"></th>
+                </tr>
+                <c:forEach var="ownedItem" items="${notifications.wndtms}" varStatus="status">
+                    <tr>
+                        <td class="e-product">${ownedItem.nm}</td>
+                        <td class="e-subscribe">
+                            <a id="${ownedItem.rlnm}" class="owned-item-subscribe-status" href="#">
+                                <spring:message code="user.account.notifications.${ownedItem.sbscrbstts}"/>
+                            </a>
+                            <input type="hidden" value="${ownedItem.sbscrbstts}"/>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+        <div class="s-row">
+          <spring:url value="/user/account/notifications/update" var="updateUrl"/>
+          <a href="${updateUrl}" class="n-submit"><spring:message code="button.save.updates"/></a>
+        </div>
+    </div>
+</div>

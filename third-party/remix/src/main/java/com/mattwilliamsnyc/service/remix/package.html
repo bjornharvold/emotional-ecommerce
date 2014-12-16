@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+      <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+      <title>BestBuy Remix API client library</title>
+  </head>
+  <body>
+    <h1>Overview</h1>
+    <p>This package provides classes and methods for interacting with Best Buy's <a href="http://remix.bestbuy.com/"
+        >Remix</a> API. Remix is an open API that gives you access to <a href="http://www.bestbuy.com/"
+        >bestbuy.com</a>'s product catalog data.</p>
+    <p>The Remix developer site contains <a href="http://remix.bestbuy.com/docs">API documentation</a>,
+        <a href="http://remix.bestbuy.com/forum">discussion forums</a>, and other related resources. A Remix API key
+        may be obtained by signing up for an account on the site.</p>
+    <h1>Getting Started</h1>
+    <ol>
+      <li>
+        Become familiar with the Remix API and apply for an API key at <a href="http://remix.bestbuy.com/"
+        >remix.bestbuy.com</a>
+      </li>
+      <li>Download the JAR file for the most recent version of the Java API client.</li>
+      <li>Copy the JAR to your project's class path.</li>
+    </ol>
+    <h2>Usage</h2>
+    <p>While there are two &quot;query types&quot; described in the <a href="http://remix.bestbuy.com/docs"
+        >documentation</a>, there are five basic types of information that you can request:</p>
+    <ul>
+      <li><strong>stores</strong>: A collection of Best Buy stores, optionally filtered by a set of criteria</li>
+      <li><strong>products</strong>: A collection of Best Buy products, optionally filtered by a set of criteria</li>
+      <li><strong>store</strong>: A single store, identified by a Store ID</li>
+      <li><strong>product</strong>: A single product, identified by a SKU number</li>
+      <li><strong>store availability</strong>: A collection of stores with availability data for specific products</li>
+    </ul>
+    <p><tt>Remix</tt> provides methods for accessing each type of data listed above.</p>
+    <p>Collection resources may (or may not) be filtered using various criteria. Several examples follow:</p>
+    <ul>
+      <li><em>name=foo*</em> - &quot;name&quot; contains the text &quot;foo&quot;</li>
+      <li><em>price&lt;=100.00</em> - product price is less than or equal to $100</li>
+      <li><em>area(10006,10)</em> - store location is within 10 miles of postal code 10006</li>
+    </ul>
+    <p>Several query parameters may be submitted for purposes such as paging and sorting of collection results.</p>
+    <p>Filters are passed to an API call as a List. Parameters are passed as a Map of key/value pairs.</p>
+    <h3>Basic example</h3>
+    <pre>
+import java.util.ArrayList;
+import java.util.List;
+import com.mattwilliamsnyc.service.remix.*;
+
+Remix remix = new Remix("YourApiKey");
+
+try {
+    // Retrieve information about stores (paged results):
+    StoresResponse response = remix.getStores();
+
+    if(!response.isError()) {
+        for(Store store : response.list()) {
+            System.out.println("Store #" + store.getStoreId());
+            System.out.println(store.getName());
+            System.out.println(store.getHours());
+            System.out.println(store.getPhone());
+            System.out.println();
+        }
+    } else {
+        ErrorDocument error = response.getError();
+        System.out.println(error.getStatus());
+        System.out.println(error.getMessage());
+        for(String example : error.getExamples()) {
+            System.out.println(example);
+        }
+    }
+} catch(RemixException e) {
+    e.printStackTrace();
+}</pre>
+    <h3>Filters and parameters</h3>
+    <pre>
+// Retrieve a list of stores in New York City, ordered by name
+List&lt;String&gt; filters = new ArrayList&lt;String&gt;();
+filters.add("city=New York");
+filters.add("region=NY");
+
+Map&lt;String,String&gt; params = new HashMap&lt;String,String&gt;();
+params.put("sort", "name");
+
+StoresResponse response = remix.getStores(filters);
+    </pre>
+    <h3>Store Availability</h3>
+    <pre>// Check for the availability of a PlayStation 3 near postal code 11201
+List&lt;String&gt; storeFilters   = new ArrayList&lt;String&gt;();
+List&lt;String&gt; productFilters = new ArrayList&lt;String&gt;();
+
+storeFilters.add("area(11201,10)");
+productFilters.add("sku=8982988");
+
+StoresResponse response = remix.getStoreAvailability(storeFilters, productFilters);
+
+if(!response.isError()) {
+    for(Store store : response.list()) {
+        System.out.println(store.getName() + " (" + store.getDistance() + " miles)");
+        for(Product product : store.getProducts()) {
+            if(product.hasInStoreAvailability()) {
+                System.out.println(product.getName() + " available for $" + product.getSalePrice());
+            }
+        }
+        System.out.println();
+    }
+}</pre>
+  </body>
+</html>

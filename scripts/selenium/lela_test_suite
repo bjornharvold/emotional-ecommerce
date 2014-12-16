@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="configure">configure</a></td></tr>
+<tr><td><a href="stroller_best_prices">stroller_best_prices</a></td></tr>
+<tr><td><a href="crib_best_prices">crib_best_prices</a></td></tr>
+<tr><td><a href="car_seats_best_prices">car_seats_best_prices</a></td></tr>
+<tr><td><a href="baby_carriers_best_prices">baby_carriers_best_prices</a></td></tr>
+<tr><td><a href="camera_best_prices">camera_best_prices</a></td></tr>
+<tr><td><a href="stroller_best_prices_local">stroller_best_prices_local</a></td></tr>
+<tr><td><a href="stroller_coupon">stroller_coupon</a></td></tr>
+<tr><td><a href="register_login">register_login</a></td></tr>
+<tr><td><a href="stroller_search">stroller_search</a></td></tr>
+<tr><td><a href="product_search">product_search</a></td></tr>
+<tr><td><a href="stroller_filtering">stroller_filtering</a></td></tr>
+<tr><td><a href="crib_filtering">crib_filtering</a></td></tr>
+<tr><td><a href="carseat_filtering">carseat_filtering</a></td></tr>
+<tr><td><a href="babycarrier_filtering">babycarrier_filtering</a></td></tr>
+<tr><td><a href="camera_filtering">camera_filtering</a></td></tr>
+<tr><td><a href="product_sorting">product_sorting</a></td></tr>
+<tr><td><a href="forgot_password">forgot_password</a></td></tr>
+<tr><td><a href="about_lela">about_lela</a></td></tr>
+<tr><td><a href="how_lela_works">how_lela_works</a></td></tr>
+<tr><td><a href="notified_by_email">notified_by_email</a></td></tr>
+<tr><td><a href="site_links">site_links</a></td></tr>
+<tr><td><a href="take_quiz">take_quiz</a></td></tr>
+</tbody></table>
+</body>
+</html>

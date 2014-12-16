@@ -1,0 +1,81 @@
+body { margin:0; }
+
+#lc-wrapper {
+    background:#fff !important;
+    overflow:hidden;
+    color:#434343;
+}
+
+#cp-header h1 {
+    padding:12px 0 0 10px;
+}
+
+#cp-header h1 img {
+    width:130px;
+}
+
+.cp-offer img {
+    width:150px;
+}
+
+.cp-content {
+    padding:20px 10px;
+    text-align:center;
+}
+
+.exp-date { font-size:10px; margin:0;}
+
+#create-steps td img {
+    width:70px;
+}
+
+#create-steps td, #create-steps td.step-c {
+    padding:5px;
+    font-size:12px;
+}
+td.step-c strong {  margin:0; }
+td.step-c p { margin:7px 0; }
+td.step-c span.error { margin:0; }
+td.step-c input { width:90%; }
+
+.mob-h { display:none; }
+
+#cp-redeem h1, #cp-redeem-success h1, #cp-confirmation h1 {
+    font-size:18px;
+    line-height:20px;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+#cp-redeem h1 {
+    margin-top:20px;
+    font-size:26px;
+    line-height:28px;
+}
+
+#cp-confirmation h2, #cp-redeem h2, #cp-redeem-success h2 {
+    font-size:25px;
+    line-height:25px;
+}
+
+#cp-redeem input {
+    width:90%;
+}
+
+#cp-confirmation table { width:100%; margin-top:0px; }
+#cp-confirmation table td { padding: 5px; font-size:14px; }
+
+#footer {
+    font-size:10px;
+    padding:5px;
+    margin-top:20px;
+    overflow:hidden;
+}
+
+#cp-redeem-success .cp-image {
+    width:180px;
+}
+
+#cp-redeem-success .cp-image img {
+    width:150px;
+}

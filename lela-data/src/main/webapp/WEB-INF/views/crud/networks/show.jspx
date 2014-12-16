@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Network" object="${network}" path="/crud/networks" z="iCBaxVUsNeniOtxJZhrvMCkxvlo=">
+        <field:display date="true" dateTimePattern="${network_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Network_dateCreated" object="${network}" z="FDBJggHnc5oZb7ccnjH28qa9854="/>
+        <field:display date="true" dateTimePattern="${network_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Network_dateModified" object="${network}" z="Em/m/uov+/GUJJ6qgaxjHdA9Eqc="/>
+        <field:display field="networkName" id="s_com_lela_data_domain_entity_Network_networkName" object="${network}" z="dkOtdWscSLaPIX+1aGV+oCNeoi0="/>
+        <field:display field="popshopsDesignator" id="s_com_lela_data_domain_entity_Network_popshopsDesignator" object="${network}" z="6JEaSbmN7HlHOzAp+c0p0QCwQGo="/>
+        <field:display field="enabled" id="s_com_lela_data_domain_entity_Network_enabled" object="${network}" z="d8upiU3UAk5hV8Uwt8/FOeuIa/0="/>
+    </page:show>
+</div>

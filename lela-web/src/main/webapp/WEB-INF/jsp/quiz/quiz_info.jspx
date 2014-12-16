@@ -1,0 +1,61 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+<jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+
+    <tiles:importAttribute name="quizStepNum" ignore="true"/>
+
+<div id="quiz-info">
+
+    <script type="text/javascript">
+        var jsessionid = '${pageContext.session.id}';
+    </script>
+
+        <h2><spring:message code="page.home.step1.header" htmlEscape="false"/></h2>
+
+    <div id="quiz-nav">
+        <c:forEach begin="1" end="3" varStatus="status">
+            <span id="launch-${status.index}" class="${status.index == quizStepNum ? 'launch-on' : ''}"><spring:message code="page.home.steps.${status.index}" htmlEscape="false"/></span>
+        </c:forEach>
+    </div>
+    <c:if test="${loggedInUser eq 'anonymousUser'}">
+    <div id="quiz-login">
+        <h3>Already a member?</h3>
+        <c:set var="loginUrlWithReturn">/login/<lela:referralUrl format="rt" /></c:set>
+        <spring:url var="loginUrl" value="/login/?rt=" />
+        <a href="${loginUrlWithReturn}" id="loginButton" class="lela-button"><spring:message code="button.login" /></a>
+        <script type="text/javascript">
+            var rtUrl = window.location.pathname+window.location.search;
+            $('#loginButton').attr('href', '${loginUrl}'+rtUrl);
+        </script>
+        <spring:url value='/signin/facebook' var="fb_url"/>
+        <form action="${fb_url}" method="POST" id="facebook-reg">
+            <c:set var="referral"><lela:referralUrl format='rt' /></c:set>
+            <input type="hidden" value="${referral}" name="rt" />
+            <spring:url value="/static/images/buttons/sign-in-with-facebook-210x31.png" var="fb_image_url"/>
+            <a href="#" class="fb-submit"><img src="${fb_image_url}" alt="Facebook Signup"/></a>
+            <spring:message code="facebook.permissions" var="facebookPermissions"/>
+            <input type="hidden" name="scope" value="${facebookPermissions}"/>
+        </form>
+    </div>
+    </c:if>
+
+    <!--
+    <div id="quiz-lela-bar">
+        <lela:lelaBar value="${user.frndlvlnmbr}"/>
+    </div>
+    -->
+
+</div>
+
+</jsp:root>

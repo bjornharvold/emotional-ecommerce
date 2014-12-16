@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_ProductDetailPart" modelAttribute="productDetailPart" path="/crud/productdetailparts" versionField="Version" z="dqvvrdMlg7T5tzuAtn22rgd+LFY=">
+        <field:datetime dateTimePattern="${productDetailPart_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_ProductDetailPart_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${productDetailPart_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_ProductDetailPart_dateModified" render="false" z="user-managed"/>
+        <field:select field="productDetailGroupAttribute" id="c_com_lela_data_domain_entity_ProductDetailPart_productDetailGroupAttribute" itemValue="id" items="${productdetailgroupattributes}" path="/productdetailgroupattributes" z="user-managed"/>
+        <field:input field="partSeq" id="c_com_lela_data_domain_entity_ProductDetailPart_partSeq" validationMessageCode="field_invalid_integer" z="nRCYgRgS7aonaw7MNAYhyG1WA44="/>
+        <field:input field="partName" id="c_com_lela_data_domain_entity_ProductDetailPart_partName" z="gt42ykpxYdf/lP4GqgdakVyxSNQ="/>
+        <field:input field="productDetailPartValue" id="c_com_lela_data_domain_entity_ProductDetailPart_productDetailPartValue" z="fwyOp2VOShlzNckBN750NHR8MMg="/>
+    </form:update>
+</div>

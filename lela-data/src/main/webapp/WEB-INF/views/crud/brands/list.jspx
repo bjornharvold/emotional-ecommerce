@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_Brand" items="${brands}" z="Up7+789cT/Pgec5kTQY/0t+dT30=">
+        <table:table data="${brands}" id="l_com_lela_data_domain_entity_Brand" path="/crud/brands" z="+dhEcvxVnk2VqM5A3ROpfTu/UGM=">
+            <table:column date="true" dateTimePattern="${brand_datecreated_date_format}" id="c_com_lela_data_domain_entity_Brand_dateCreated" property="dateCreated" z="GcCcsq+gNns5jpwBEG1x6upUwFM="/>
+            <table:column date="true" dateTimePattern="${brand_datemodified_date_format}" id="c_com_lela_data_domain_entity_Brand_dateModified" property="dateModified" z="0JC4UUi77K3wHaHrA325WOEeUk0="/>
+            <table:column id="c_com_lela_data_domain_entity_Brand_brandCategories" property="brandCategories" z="user-managed" render="false"/>
+            <table:column id="c_com_lela_data_domain_entity_Brand_brandCategoryMotivators" property="brandCategoryMotivators" z="user-managed" render="false"/>
+            <table:column id="c_com_lela_data_domain_entity_Brand_brandCountries" property="brandCountries" z="user-managed" render="false"/>
+            <table:column id="c_com_lela_data_domain_entity_Brand_brandHistories" property="brandHistories" z="user-managed" render="false"/>
+            <table:column id="c_com_lela_data_domain_entity_Brand_brandName" property="brandName" z="user-managed"/>
+            <table:column id="c_com_lela_data_domain_entity_Brand_lelaUrl" property="lelaUrl" z="user-managed"/>
+            <table:column id="c_com_lela_data_domain_entity_Brand_manufacturer" property="manufacturer" z="user-managed"/>
+
+
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_FunctionalFilterAnswerValue" object="${functionalfilteranswervalue}" path="/crud/functionalfilteranswervalues" z="9tBln7MV0Jx8DJl8qwyuQqBLM0A=">
+        <field:display date="true" dateTimePattern="${functionalFilterAnswerValue_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_FunctionalFilterAnswerValue_dateCreated" object="${functionalfilteranswervalue}" z="ftoMANyWWdLDCnoUcCkxw2dRpyI="/>
+        <field:display date="true" dateTimePattern="${functionalFilterAnswerValue_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_FunctionalFilterAnswerValue_dateModified" object="${functionalfilteranswervalue}" z="RLvPFBr9ED40Et8Pi48+fAYgXBI="/>
+        <field:display field="functionalFilterAnswer" id="s_com_lela_data_domain_entity_FunctionalFilterAnswerValue_functionalFilterAnswer" object="${functionalfilteranswervalue}" z="AT/lDR37tyyTvIpF/Kyi7UYLf38="/>
+        <field:display field="attributeType" id="s_com_lela_data_domain_entity_FunctionalFilterAnswerValue_attributeType" object="${functionalfilteranswervalue}" z="Gns4fjKTD2Vuz8ds4s9I4k7Yi8Q="/>
+        <field:display field="attributeValue" id="s_com_lela_data_domain_entity_FunctionalFilterAnswerValue_attributeValue" object="${functionalfilteranswervalue}" z="nFtCTzi5ZBy7nuI02tWRMnREFZE="/>
+        <field:display field="answerValue" id="s_com_lela_data_domain_entity_FunctionalFilterAnswerValue_answerValue" object="${functionalfilteranswervalue}" z="jgevUi6oyHNYUPskczWuW7GeZug="/>
+        <field:display field="requiredValue" id="s_com_lela_data_domain_entity_FunctionalFilterAnswerValue_requiredValue" object="${functionalfilteranswervalue}" z="w/Bc+esBxyc8yH7l61MMmXKkS04="/>
+    </page:show>
+</div>

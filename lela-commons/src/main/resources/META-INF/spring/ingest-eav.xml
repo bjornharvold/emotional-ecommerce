@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="jsonTemplateEngine" class="com.lela.ingest.json.JsonTemplateEngine"
+            c:velocityService-ref="velocityService" c:jsonQueryEngine-ref="jsonQueryEngine">
+        <property name="context">
+            <map>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="jsonQueryEngine" class="com.lela.ingest.json.JsonQueryEngine"
+            c:etlDataSource-ref="etlDataSource">
+        <property name="preExecutionQueries">
+            <list>
+                <value>SET SESSION group_concat_max_len = 1000000</value>
+            </list>
+        </property>
+        <property name="queries">
+            <list>
+                <ref bean="itemDetailsQuery"/>
+                <ref bean="categoryQuery"/>
+                <ref bean="subattributesQuery"/>
+                <ref bean="lowestPriceQuery"/>
+                <ref bean="filterQuery"/>
+                <ref bean="motivatorQuery"/>
+                <ref bean="detailGroupQuery"/>
+                <ref bean="brandQuery"/>
+                <ref bean="colorsQuery"/>
+                <ref bean="imagesQuery"/>
+                <ref bean="merchantsQuery"/>
+                <ref bean="storesQuery"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--
+        Final query
+    -->
+    <bean id="itemDetailsQuery" class="com.lela.ingest.json.JsonQuery">
+        <property name="name" value="itemDetails"/>
+        <property name="sql">
+            <value>
+            <![CDATA[
+            call QueryItemAttributes(@{params['CategoryID']}, @{params['ItemID']}, '${environment}')
+            ]]>
+            </value>
+        </property>
+    </bean>
+
+    <!--
+        Final query
+    -->
+    <bean id="categoryQuery" class="com.lela.ingest.json.JsonQuery">
+        <property name="name" value="category"/>
+        <property name="cache" value="true"/>
+        <property name="sql">
+            <value>
+                <![CDATA[
+                call QueryItemCategoryAttributes(@{params['CategoryID']})
+            ]]>
+            </value>
+        </property>
+    </bean>
+
+    <!--
+        Final Query
+    -->
+    <bean id="subattributesQuery" class="com.lela.ingest.json.JsonQuery">
+        <property name="name" value="subattributes"/>
+        <property name="sql">
+            <value>
+                <![CDATA[
+                call QueryItemSubAttributes(@{params['CategoryID']}, @{params['ItemID']})
+            ]]>
+            </value>
+        </property>
+    </bean>
+
+    <!--
+        Final Query
+    -->
+    <bean id="lowestPriceQuery" class="com.lela.ingest.json.JsonQuery">
+        <property name="name" value="lowestprice"/>
+        <property name="sql">
+            <value>
+                <![CDATA[
+                call QueryItemLowestPrice(@{params['CategoryID']}, @{params['ItemID']})
+            ]]>
+            </value>
+        </property>
+    </bean>
+
+    <!--
+        !! Review Query
+    -->
+    <bean id="filterQuery" class="com.lela.ingest.json.JsonQuery">
+        <property name="name" value="filters"/>
+        <property name="sql">
+            <value>
+                <![CDATA[
+                call QueryItemFilters(@{params['CategoryID']}, @{params['ItemID']})
+            ]]>
+            </value>
+        </property>
+    </bean>
+
+    <!--
+        Final query
+    -->
+    <bean id="motivatorQuery" class="com.lela.ingest.json.JsonQuery">
+        <property name="name" value="motivators"/>
+        <property name="sql">
+            <value>
+            <![CDATA[
+                call QueryItemMotivators(@{params['CategoryID']}, @{params['ItemID']})
+            ]]>
+            </value>
+        </property>
+    </bean>
+
+    <!--
+        !! Review Query
+    -->
+    <bean id="detailGroupQuery" class="com.lela.ingest.json.JsonQuery">
+        <property name="name" value="detailGroups"/>
+        <property name="sql">
+            <value>
+                <![CDATA[
+                  call QueryItemProductDetails(@{params['CategoryID']}, @{params['ItemID']})
+            ]]>
+            </value>
+        </property>
+    </bean>
+
+    <!--
+        Final query
+    -->
+    <!-- Denormalized query to be grouped by for certain fields to create a nested structure -->
+    <bean id="brandQuery" class="com.lela.ingest.json.JsonQuery">
+        <property name="name" value="brand"/>
+        <property name="sql">
+            <value>
+            <![CDATA[
+                call QueryItemBrand(@{params['BrandID']})
+            ]]>
+            </value>
+        </property>
+    </bean>
+
+    <!--
+        Final Query (?)
+    -->
+    <bean id="colorsQuery" class="com.lela.ingest.json.JsonQuery">
+        <property name="name" value="colors"/>
+        <property name="sql">
+            <value>
+            <![CDATA[
+                  call QueryItemColors(@{params['CategoryID']}, @{params['ItemID']}, '${environment}')
+            ]]>
+            </value>
+        </property>
+    </bean>
+
+    <bean id="imagesQuery" class="com.lela.ingest.json.JsonQuery">
+        <property name="name" value="images"/>
+        <property name="sql">
+            <value>
+                <![CDATA[
+                  call QueryItemImages(@{params['CategoryID']}, @{params['ItemID']}, '${environment}')
+            ]]>
+            </value>
+        </property>
+    </bean>
+
+    <!--
+        !!! STUB QUERY !!!
+    -->
+    <bean id="merchantsQuery" class="com.lela.ingest.json.JsonQuery">
+        <property name="name" value="merchants"/>
+        <property name="sql">
+            <value>
+                <![CDATA[
+                  call QueryItemMerchants(@{params['CategoryID']}, @{params['ItemID']})
+                ]]>
+            </value>
+        </property>
+    </bean>
+
+    <!--
+        !!! STUB QUERY !!!
+        This query must return a single row with a single column which is the
+        raw JSON to be output to the item template.
+
+        e.g. - like the current getStrs() MySQL function
+    -->
+    <bean id="storesQuery" class="com.lela.ingest.json.JsonQuery">
+        <property name="name" value="stores"/>
+        <property name="sql">
+            <value>
+                <![CDATA[
+                  select getStrs_EAV(@{params['CategoryID']}, @{params['ItemID']});
+                ]]>
+            </value>
+        </property>
+    </bean>
+
+</beans>

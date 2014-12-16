@@ -1,0 +1,206 @@
+#main {
+    overflow:visible;
+}
+
+#ev-main {
+    background: white;
+    padding: 20px 0 20px 20px;
+    margin: 20px 0 20px 0;
+}
+
+#ev-before {
+    background:url('../../images/events/holiday2012/background_holiday_signup.jpg') no-repeat;
+    height:743px;
+    width:982px;
+    color:#fff;
+    margin-top: 20px;
+    padding-top:80px;
+}
+
+#ev-after {
+    background:url('../../images/events/holiday2012/background_holiday_thankyou.jpg') no-repeat;
+    height:733px;
+    width:982px;
+    color:#fff;
+    margin-top: 20px;
+    padding-top:90px;
+}
+
+#ev-main h1 {
+    font-size:65px;
+    text-align:center;
+    font-weight: normal;
+}
+
+#ev-main h2 {
+    font-size:28px;
+    text-align:center;
+    padding-top: 10px;
+    font-weight:bold;
+}
+
+.instructions {
+    overflow: hidden;
+    margin: 30px auto 0px auto;
+}
+
+#ev-before .instructions {
+    background: transparent url('/static/images/events/holiday2012/sample_fave_tiles_1.png') no-repeat 550px 80px;
+}
+
+.instructions h3 {
+    font-size: 30px;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 335px;
+    margin: 0 auto 20px auto;
+}
+
+.instructions p {
+    font-size: 18px;
+    width: 280px;
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 2px 0 2px 40px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+#ev-before .instructions .a-tw, .instructions .a-fb { float: left; margin: 5px 3px 0 0; }
+
+#ev-before .instructions p:nth-child(2) { background: url('../../images/events/holiday2012/number_dot_1.png') no-repeat top left !important; }
+#ev-before .instructions p:nth-child(3) { padding-right: 120px; width: 160px; background: url('../../images/events/holiday2012/number_dot_2.png') no-repeat top left !important; }
+#ev-before .instructions p:nth-child(4) { background: url('../../images/events/holiday2012/number_dot_3.png') no-repeat top left !important; }
+
+.end-date {
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.5;
+    margin: 50px 0 0 30px;
+    padding-right: 27px;
+}
+
+.ev-actions {
+    float:left;
+    margin:20px 60px;
+    padding-right: 29px;
+}
+
+.ev-actions a, .ev-actions span {
+    width:325px;
+    height:51px;
+    display:block;
+    color:#cb0000;
+    font-size:24px;
+    font-weight:bold;
+    padding:13px 0 0 35px;
+}
+
+.ev-actions a#register, .ev-actions a#terms-lk {
+    padding-left:55px;
+    background:url('../../images/events/holiday2012/button_reg.png') no-repeat;
+}
+.ev-actions a#register:hover, .ev-actions a#terms-lk:hover {
+    background:url('../../images/events/holiday2012/button_reg_hover.png') no-repeat;
+    color:#fff;
+}
+
+.ev-actions span#terms-lk-disabled{
+    text-align:center;
+    background:url('../../images/events/holiday2012/button_reg_disabled.png') no-repeat;
+}
+
+.ev-actions a#login {
+    background:url('../../images/events/holiday2012/button_login.png') no-repeat;
+}
+.ev-actions a#login:hover {
+    background:url('../../images/events/holiday2012/button_login_hover.png') no-repeat;
+    color:#fff;
+}
+.ev-actions a#terms-lk {
+    display:none;
+    text-align:center;
+    padding-left:35px;
+}
+
+#terms-form .ev-actions {
+    width:360px;
+    float:none;
+    margin:0 auto;
+}
+
+#terms-form label {
+    font-size:16px;
+    color:#f0b3b3;
+    margin:10px auto;
+    width:410px;
+    display:block;
+    overflow:hidden;
+    padding-left:110px;
+}
+
+#terms-form label a {
+    text-decoration:underline;
+    color:#f0b3b3;
+}
+
+#event-terms {
+    margin:40px;
+    padding:0 20px 20px 20px;
+    width:600px;
+    height:300px;
+    overflow:auto;
+}
+
+#terms-form label span.label-text {
+    margin:10px;
+    display:block;
+    float:left;
+}
+
+a.jqTransformCheckbox {
+    background: transparent url('../../images/events/holiday2012/checkbox_alt.png') no-repeat center top;
+    height: 34px;
+    width: 34px;
+}
+
+a.jqTransformChecked {
+    background: transparent url('../../images/events/holiday2012/checkbox_alt.png') no-repeat center bottom;
+}
+
+#event-conf h3 {
+    font-size:42px;
+    text-align:center;
+    margin-top:100px;
+    line-height:44px;
+}
+
+#social-connect {
+    background:url('../../images/events/holiday2012/share_back.png') no-repeat bottom;
+    width:438px;
+    height:120px;
+    margin:60px auto;
+    text-align:center;
+    font-size:18px;
+}
+
+.fb-like, .twitter-share-button { float:left !important; margin-top:32px; }
+.fb-like { margin:34px 0 0 50px; width:240px;}
+
+.add-this {
+    text-align:center;
+    color:#cb0000;
+    margin-bottom:40px;
+    overflow:hidden;
+}
+.add-this h3 {
+    margin:10px;
+    font-size:20px;
+}
+
+.expired-c {
+    font-size:50px;
+    line-height:52px;
+    text-align:center;
+    margin:60px 240px 0 240px;
+}

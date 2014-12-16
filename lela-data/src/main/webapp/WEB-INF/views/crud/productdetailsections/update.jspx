@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_ProductDetailSection" modelAttribute="productDetailSection" path="/crud/productdetailsections" versionField="Version" z="kU1um47o3N0QsjB+E5YjQB560QM=">
+        <field:datetime dateTimePattern="${productDetailSection_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_ProductDetailSection_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${productDetailSection_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_ProductDetailSection_dateModified" render="false" z="user-managed"/>
+        <field:select field="productDetailGroups" id="c_com_lela_data_domain_entity_ProductDetailSection_productDetailGroups" itemValue="id" items="${productdetailsections}" path="/productdetailsections" render="false" z="user-managed"/>
+        <field:select field="category" id="c_com_lela_data_domain_entity_ProductDetailSection_category" itemValue="id" items="${categorys}" path="/categorys" z="user-managed"/>
+        <field:input field="sectionName" id="c_com_lela_data_domain_entity_ProductDetailSection_sectionName" required="true" z="c4fC65IjjhOcJJK0IP9pbRX/wo8="/>
+        <field:input field="sectionOrder" id="c_com_lela_data_domain_entity_ProductDetailSection_sectionOrder" required="true" validationMessageCode="field_invalid_integer" z="Gpm3NdwcVeGacIgAcVxN6QJ5Xp8="/>
+        <field:checkbox field="dirty" id="c_com_lela_data_domain_entity_ProductDetailSection_dirty" z="iKn1pPZdypYFWBHp4bRTZ8V4hvM="/>
+        <field:input field="objectId" id="c_com_lela_data_domain_entity_ProductDetailSection_objectId" z="M1TBx+ynlZqsQINDCwoM47fMF8c="/>
+        <field:input field="productDetailSectionLabel" id="c_com_lela_data_domain_entity_ProductDetailSection_productDetailSectionLabel" required="true" z="7etQHwvnLh6EDunlwcjkt77OrTQ="/>
+    </form:update>
+</div>

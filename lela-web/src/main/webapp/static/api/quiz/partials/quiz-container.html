@@ -1,0 +1,23 @@
+<div id="quiz-wrapper">
+    <div id="quiz-container" ng-controller="Lela.ContainerController" ng-show="showQuiz">
+        <div id="question-content">
+            <h1>
+                <span>The Lela Compatibility Quiz<br/>
+                <em>Get your personalized Compatibility Ratings in less than a minute.</em></span>
+            </h1>
+
+            <div class="popupLogo"></div>
+
+            <table id="step-list">
+                <tr>
+                    <!--<td {{bindAttr class="step.isCurrentStep:selected step.isPastStep1:past1 step.isPastStep2:past2 step.isLastStep:last"}}>-->
+                    <td ng-repeat="step in tabSteps()" ng-class="stepClass(step)">
+                    <span><em>Step</em> <strong>{{$index + 1}}</strong></span>
+                    </td>
+                </tr>
+            </table>
+
+            <div lela-step-navigator="data.stps"></div>
+        </div>
+    </div>
+</div>

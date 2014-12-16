@@ -1,0 +1,67 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+    <spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+    <c:if test="${empty domainAffiliate or domainAffiliate.shwrcmmd}">
+
+        <c:set var="drlnm" value="" />
+        <c:if test="${!empty currentDepartment}">
+            <c:set var="drlnm" value="&amp;drlnm=${currentDepartment}" />
+        </c:if>
+
+        <h2 class="r-head">You May Also Like</h2>
+
+        <div class="tab-content">
+
+            <ul id="items-rec">
+                <c:forEach items="${supplementaryItems}" var="supplementaryItem" varStatus="status" end="3">
+                    <li>
+                        <spring:url value="/${supplementaryItem.srlnm}/p?rlnm=${supplementaryItem.rlnm}${drlnm}" var="itemDetailUrl"/>
+
+                        <c:if test="${supplementaryItem.class.name eq 'com.lela.domain.document.RelevantItem' or supplementaryItem.class.name eq 'com.lela.domain.document.SavedItem' and item.ttlrlvncynmbr > 0}">
+                            <spring:url value="/static/images/icons/relevancy/relevancy_meter_${supplementaryItem.ttlrlvncynmbr}_orange.png" var="lelaRatingImgUrl" />
+                            <a href="${itemDetailUrl}"><img src="${lelaRatingImgUrl}" alt="${supplementaryItem.ttlrlvncynmbr}%" class="rel-num"/></a>
+                        </c:if>
+
+                        <a href="${itemDetailUrl}" title="${supplementaryItem.nm} - ${supplementaryItem.subAttributes['Brand']}">
+                            <img src="${supplementaryItem.imgs[0].sz['large']}" alt="${supplementaryItem.nm} - ${supplementaryItem.subAttributes['Brand']}" class="rec-img"/>
+                        </a>
+                        <div class="rec-info">
+                            <h3 title="${supplementaryItem.nm}"><lela:lelaProductName item="${supplementaryItem}" /></h3>
+
+                            <spring:url value="/merchant/redirect" var="redirectPurchaseUrl">
+                                <spring:param name="merchantId" value="${supplementaryItem.subAttributes['MerchantId']}" />
+                                <spring:param name="itemId" value="${supplementaryItem.rlnm}" />
+                            </spring:url>
+
+                            <strong><fmt:formatNumber type="CURRENCY" value="${supplementaryItem.subAttributes['LowestPrice']}" />
+                                <c:if test="${supplementaryItem.subAttributes['LowestPrice'] lt supplementaryItem.subAttributes['ListPrice']}">
+                                    <span class="price-old"><fmt:formatNumber type="CURRENCY" value="${supplementaryItem.subAttributes['ListPrice']}" /></span>
+                                </c:if>
+                            </strong>
+                        </div>
+                    </li>
+                </c:forEach>
+            </ul>
+
+        </div>
+
+    </c:if>
+</jsp:root>

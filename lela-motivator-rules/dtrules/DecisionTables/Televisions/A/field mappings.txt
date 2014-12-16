@@ -1,0 +1,11 @@
+Fields -> Columns
+
+Display_ColorTemperatureControl
+RemoteControl_Type
+RemoteControl_Features
+RemoteControl_SupportedDevices
+AudioSystem_AudioControls
+AudioSystem_Equalizer
+Television/ParentalChannelLock
+Display_V-ChipControl
+Display_AdditionalFeatures

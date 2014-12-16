@@ -1,0 +1,101 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+<jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+<lela:findUser/>
+
+    <div class="list-header public">
+        <h2>
+            <img alt="" src="${userLists[0].prfl.mg}"/>
+            <span>My Lela List Overview</span>
+        </h2>
+
+        <spring:url value="/user/list/create" var="createListUrl"/>
+        <a href="${createListUrl}" class="modal board-action" id="create-action">Add another list ></a>
+
+        <a class="board-action" href="#" onclick="initTutorial(true); return false;">About</a>
+    </div>
+
+    <div id="board-container">
+
+         <c:forEach items="${userLists}" var="userList">
+             <div class="board" id="board-${userList.cd}">
+
+                <div class="board-h">
+                    <spring:message var="listName" code="${userList.nm}"/>
+                    <h2 title="${listName}"><a href="/user/list?boardCode=${userList.cd}">${listName} (<span class="card-count">${fn:length(userList.cards)}</span>)</a></h2>
+
+                    <spring:url var="deleteBoardUrl" value="/user/list/${userList.cd}"/>
+                    <a href="${deleteBoardUrl}" class="delete-item" data-type="list"><!-- --></a>
+
+                    <spring:url value="/user/list/create?boardCode=${userList.cd}" var="editListUrl"/>
+                    <a href="${editListUrl}" class="modal edit-board">Rename list</a>
+
+                    <!-- Share list -->
+                    <spring:message var="listName" code="${userList.nm}"/>
+                    <c:set var="shareName">${listName} - My Lela List</c:set>
+                    <c:set var="shareImg"><lela:listCardName listCard="${userList.cards[0]}" type="imgList"/></c:set>
+                    <c:set var="shareUrl"><lela:referralUrl format="domain"/>/list/${userList.prfl.cd}?boardCode=${userList.cd}</c:set>
+                    <c:set var="shareCaption" value=""/>
+                    <c:set var="shareDescription">Lela.com is the best way to find products you'll love.</c:set>
+
+                    <tiles:insertTemplate template="/WEB-INF/jsp/list/card_share.jspx" flush="true">
+                        <tiles:putAttribute name="shareName" value="${shareName}" />
+                        <tiles:putAttribute name="shareImg" value="${shareImg}" />
+                        <tiles:putAttribute name="shareUrl" value="${shareUrl}" />
+                        <tiles:putAttribute name="shareCaption" value="${shareCaption}" />
+                        <tiles:putAttribute name="shareDescription" value="${shareDescription}" />
+                    </tiles:insertTemplate>
+
+                    <spring:url value="/user/list?boardCode=${userList.cd}&amp;image=true" var="addImageUrl"/>
+                    <a class="add-image" href="${addImageUrl}">Add item</a>
+                </div>
+
+                <div class="cards">
+
+                    <c:forEach items="${userList.cards}" var="listCard" varStatus="status" end="6">
+
+                        <c:set var="itemDetailName"><lela:listCardName listCard="${listCard}" type="name"/></c:set>
+                        <c:set var="itemImgUrl"><lela:listCardName listCard="${listCard}" type="img"/></c:set>
+
+                        <c:if test="${listCard.tp != 'OWNER'}">
+                            <spring:url value="/list/card/${listCard.rlnm}?boardCode=${userList.cd}&amp;cd=${publicList eq true ? listCard.prfl.cd : ''}" var="cardUrl"/>
+                            <a href="${cardUrl}" class="modal tip img-${listCard.tp}" id="card-${listCard.rlnm}"><img src="${itemImgUrl}" alt="${itemDetailName}"/></a>
+                            <div class="b-tooltip">${itemDetailName}</div>
+                        </c:if>
+
+                    </c:forEach>
+
+                </div>
+
+             </div>
+        </c:forEach>
+    </div>
+
+    <tiles:insertTemplate template="/WEB-INF/jsp/list/tutorial.jspx" flush="true">
+        <tiles:putAttribute name="location" value="board" />
+    </tiles:insertTemplate>
+
+    <c:if test="${empty userLists}">
+        <script type="text/javascript">
+            $().ready(function($) {
+                initTutorial(true);
+            });
+        </script>
+    </c:if>
+
+</jsp:root>

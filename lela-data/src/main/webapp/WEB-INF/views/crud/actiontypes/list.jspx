@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ActionType" items="${actiontypes}" z="F7D+vnOKkSDkkzuTX7vnGUqf2Oo=">
+        <table:table data="${actiontypes}" id="l_com_lela_data_domain_entity_ActionType" path="/crud/actiontypes" z="C3/vGl8pcoCrZUp2qppP294m8mI=">
+            <table:column date="true" dateTimePattern="${actionType_datecreated_date_format}" id="c_com_lela_data_domain_entity_ActionType_dateCreated" property="dateCreated" z="ZkKiv1MFmME+jBprtNb7muf8BxU="/>
+            <table:column date="true" dateTimePattern="${actionType_datemodified_date_format}" id="c_com_lela_data_domain_entity_ActionType_dateModified" property="dateModified" z="ayQt+NuNdXocth0PywagtHt744k="/>
+            <table:column id="c_com_lela_data_domain_entity_ActionType_actionTypeName" property="actionTypeName" z="49sd0CLufCChY7enFml0cWOZ10A="/>
+        </table:table>
+    </page:list>
+</div>

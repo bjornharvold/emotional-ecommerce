@@ -1,0 +1,161 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:url value="/quiz/answer?src=home&amp;vid=false" var="quizUrl" />
+    <spring:url value="/quiz/answer?src=home&amp;vid=true" var="quizUrlVideo" />
+    <spring:url value="/subscribe" var="subscribeUrl" />
+    <spring:url value="/quiz/skip" var="swapQuestionUrl" />
+    <spring:url value="/register" var="registerUrl" />
+    <spring:url value="/static/images/quiz/photos" var="imageQuestionPath" />
+    <spring:url value="/static/images/buttons/h_video.jpg" var="launchVideoUrl" />
+    <spring:url value="/static/images/placeholders/categories/home/promo_cameras.jpg" var="promoCamerasUrl" />
+    <spring:url value="/static/images/layout/h-over.png" var="promoCamerasOverUrl" />
+    <spring:url value="/login" var="loginUrl" />
+    <spring:url value="/register" var="registerUrl" />
+
+    <lela:findUser/>
+
+    <script type="text/javascript">
+        var urls = {
+               "quizUrl" : '${quizUrl}',
+               "swapQuestionUrl": '${swapQuestionUrl}',
+               "imageQuestionPath": '${imageQuestionPath}'
+         };
+
+        var mcListId = '<spring:message code="mailchimp.list.id"/>';
+    </script>
+
+    <c:if test="${loggedInUser != 'anonymousUser'}">
+        <script type="text/javascript">
+            if($.cookie('returnTo') != null) {
+                var returnUrl = $.cookie('returnTo');
+                $.cookie('returnTo', null, {path: '/'});
+                window.location = returnUrl;
+            }
+        </script>
+    </c:if>
+
+    <div id="categories">
+        
+        <div id="quiz-header">
+            <h1>Moms and dads,<br/> find products <br/>that suit you best.</h1>
+            <c:choose>
+                <c:when test="${fn:length(user.nswrs) lt 2}">
+                    <a href="${quizUrl}" id="l-quiz" class="modal quiz-modal"><span><spring:message code="page.home.quiz.before" htmlEscape="false"/></span></a>
+                </c:when>
+                <c:when test="${fn:length(user.nswrs) gt 1 and fn:length(user.nswrs) lt 7}">
+                    <a href="${quizUrl}" id="l-quiz" class="modal quiz-modal"><span><spring:message code="page.home.quiz.during" htmlEscape="false"/></span></a>
+                </c:when>
+                <c:when test="${fn:length(user.nswrs) gt 6 and loggedInUser == 'anonymousUser'}">
+                    <a href="${registerUrl}" id="l-quiz"><span><spring:message code="page.home.quiz.after" htmlEscape="false"/></span></a>
+                </c:when>
+            </c:choose>
+
+            <a href="#lela-video" id="l-video" class="modal">
+                See how Lela works<br/>
+                <img src="${launchVideoUrl}" alt="See how Lela works"/>
+            </a>
+        </div>
+
+        <c:forEach var="category" items="${categories}" varStatus="status">
+            <spring:url value="/static/images/placeholders/categories/home/${category.rlnm}_homeCat_1.jpg" var="categoryImgUrl" />
+            <div id="cat-d-${category.rlnm}" class="cat-c ${status.index != 0 ? 'hidden' : ''}">
+                <div class="cat-img" style="background:#fff url('${categoryImgUrl}') no-repeat right top"><!-- --></div>
+                <h2><spring:message code="grid.cat.${category.rlnm}" htmlEscape="false"/></h2>
+                <spring:url value="/category/${category.rlnm}" var="categoryUrl" />
+                <a href="${categoryUrl}" id="l-grid"><span>Find the right ${category.rlnm} for you</span></a>
+            </div>
+        </c:forEach>
+
+
+        <div id="cat-l">
+            <c:forEach var="category" items="${categories}" varStatus="status">
+                <spring:url value="/category/${category.rlnm}" var="categoryUrl" />
+                <a href="${categoryUrl}" class="${status.index == 0 ? 'selected' : ''}" title="${category.nm}" key="cat-d-${category.rlnm}">
+                    <span><spring:message code="nav.cat.${category.rlnm}"/></span>
+                </a>
+            </c:forEach>
+        </div>
+    </div>
+
+
+
+    <div id="lela-banner">
+        <spring:url value="/static/images/partners/amazon.gif" var="amazonUrl" />
+        <spring:url value="/static/images/partners/kmart.gif" var="kmartUrl" />
+        <spring:url value="/static/images/partners/diapers_com.gif" var="diapersComUrl" />
+        <spring:url value="/static/images/partners/giggle.gif" var="giggleUrl" />
+
+        <h2><spring:message code="home.banner1.header" htmlEscape="false"/></h2>
+        <img src="${amazonUrl}" alt="Amazon"/>
+        <img src="${giggleUrl}" alt="Giggle"/>
+        <img src="${diapersComUrl}" alt="diapers.com"/>
+        <img src="${kmartUrl}" alt="K-Mart"/>
+    </div>
+    
+    <div id="p-cats">
+        <div id="p-main">
+            <div class="cs-over"><strong>Coming in <br/>December</strong></div>
+            <h2 style="padding-top:100px; height:95px;">Family-Friendly <br/>Cameras</h2>
+            <img src="${promoCamerasUrl}" alt="Family-Friendly Cameras"/>
+        </div>
+
+        <div id="p-other">
+            <div class="cs-over"><strong>Coming in <br/>November</strong></div>
+            <h2>Other<br/>Products</h2>
+            <a href="#" id="carrier">Baby<br/>Carriers</a>
+            <a href="#" id="chairs">High<br/>Chairs</a>
+            <a href="#" id="monitor">Baby<br/>Monitors</a>
+        </div>
+    </div>
+
+     <form action="${subscribeUrl}" method="post" target="_blank" class="custom" id="mc-subscribe">
+
+        <p id="row-label">New products coming soon!<br/>Get notified by email.</p>
+
+        <p id="row-email"><input name="email" value="Enter your email address..." id="email"/></p>
+
+        <p><a href="#" class="f-submit" id="mc-submit">Submit</a></p>
+
+        <p id="mc-success">All Good! Your email has <br/>been added successfully.</p>
+        <p id="mc-error">There has been an error. <br/>Please try again.</p>
+
+    </form>
+
+    <c:if test="${!empty param.lq and param.lq == 1}">
+        <!-- Launch quiz automatically -->
+        <a href="${quizUrlVideo}" id="l-quiz-hidden" class="modal hidden"><!-- --></a>
+        <script type="text/javascript">
+            var lq = '#l-quiz-hidden';
+        </script>
+    </c:if>
+
+    <div style="display:none;">
+        <div id="lela-video">
+            <object width="780" height="435">
+                <param name="allowfullscreen" value="true" />
+                <param name="wmode" value="transparent" />
+                <param name="flashvars" value="api=1" />
+                <param name="allowscriptaccess" value="always" />
+                <param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=31055610&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1&amp;autoplay=1&amp;loop=0&amp;api=1&amp;player_id=vimeo-player" />
+                <embed src="http://vimeo.com/moogaloop.swf?clip_id=31055610&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1&amp;autoplay=1&amp;loop=0&amp;api=1&amp;player_id=vimeo-player" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="780" height="435" wmode="transparent" id="vimeo-player"/>
+            </object>
+        </div>
+    </div>
+
+</div>

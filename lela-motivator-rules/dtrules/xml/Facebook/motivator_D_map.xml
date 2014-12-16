@@ -1,0 +1,29 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+            <setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+            <setattribute tag='UserId' RAttribute='UserId' enclosure='job' type='string'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+
+            <setattribute tag='UserId' RAttribute='UserId' enclosure='user' type='string'></setattribute>
+            <setattribute tag='NumberOfPhotos' RAttribute='NumberOfPhotos' enclosure='user' type='integer'></setattribute>
+            <setattribute tag='FrequencyOfPosts' RAttribute='FrequencyOfPosts' enclosure='user' type='string'></setattribute>
+
+			<createentity entity='job' 	tag='job'	id='id'></createentity>
+            <createentity entity='user' 	tag='user' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+            <entity name='user' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

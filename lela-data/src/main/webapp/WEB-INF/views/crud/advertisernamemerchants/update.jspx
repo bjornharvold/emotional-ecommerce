@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_AdvertiserNameMerchant" modelAttribute="advertiserNameMerchant" path="/crud/advertisernamemerchants" versionField="Version" z="8dx3gH5C1mpD28sd4fLnnXC4DFo=">
+        <field:datetime dateTimePattern="${advertiserNameMerchant_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_AdvertiserNameMerchant_dateCreated" z="Dp4dCsp4KDZhAkvFRQT4NVFU+gQ="/>
+        <field:datetime dateTimePattern="${advertiserNameMerchant_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_AdvertiserNameMerchant_dateModified" z="8YnEzqMjhFLKXfgNC8hbY19bVeE="/>
+        <field:select field="merchant" id="c_com_lela_data_domain_entity_AdvertiserNameMerchant_merchant" itemValue="id" items="${merchants}" path="/crud/merchants" z="PHtD1DMBam/fbm4UaL5TmTUdqMY="/>
+        <field:input field="advertiserName" id="c_com_lela_data_domain_entity_AdvertiserNameMerchant_advertiserName" z="FBa/qj8J5TxtiliG5hXeXaxSBlE="/>
+    </form:update>
+</div>

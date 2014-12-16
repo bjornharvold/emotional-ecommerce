@@ -1,0 +1,55 @@
+#*
+Item JSON Template
+*#
+{
+    ## Populate Item Detail attributes
+    $sql.attribs("itemDetails"),
+
+    ## Query the item category
+    "ctgry": {
+        $sql.attribs("category")
+    },
+
+    ## Query the item sub attributes
+    "sbttrs": $util.list(
+        $sql.list("subattributes"),
+        $sql.list("lowestprice")
+    ),
+
+    ## Query the item filters and product detail groups
+    "attrs": $util.list(
+        $sql.list("filters"),
+        $sql.list("lowestprice"),
+        $sql.list("detailGroups")
+    ),
+
+    ## Query the item motivators
+    "mtvtrs": {
+        $sql.attribs("motivators")
+    },
+
+    ## Query the item owner ... group to product nested attrs list
+    "wnr": {
+        $sql.attribs("brand", $sql.group("id", "nm", "rlnm", "srlnm", "tld"), $sql.nest("attrs"))
+    },
+
+    ## Query the merchant product ids
+    "mrchnts": [
+        $sql.list("merchants")
+    ],
+
+    ## Query the item colors
+    "clrs": [
+    $sql.list("colors", $sql.nest("sz", "large", "medium", "small", "list"))
+    ],
+
+    ## Query the item images
+    "imgs": [
+    $sql.list("images", $sql.nest("sz", "large", "medium", "small", "list"))
+    ],
+
+    ## Query the Stores/Deals/Items
+    "strs": [
+        $sql.raw("stores")
+    ]
+}

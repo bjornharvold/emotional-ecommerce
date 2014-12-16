@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_lela_data_domain_entity_ZipCode" modelAttribute="zipCode" path="/crud/zipcodes" render="${empty dependencies}" z="uzuE0xCLPfw0Xo0e+XKocPJePgc=">
+      <field:datetime dateTimePattern="${zipCode_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_ZipCode_dateCreated"  z="user-managed" render="false"/>
+      <field:datetime dateTimePattern="${zipCode_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_ZipCode_dateModified"  z="user-managed" render="false"/>
+      <field:input field="postalCode" id="c_com_lela_data_domain_entity_ZipCode_postalCode" required="true" z="xjhpr+nau8o46vqy+RWAT+8MrLk="/>
+        <field:input field="population" id="c_com_lela_data_domain_entity_ZipCode_population" validationMessageCode="field_invalid_integer" z="ydvlwzKVB00kPjTTfivdUQe5/TY="/>
+        <field:input field="household" id="c_com_lela_data_domain_entity_ZipCode_household" validationMessageCode="field_invalid_number" z="AoqkUktHSKANNBSKPDt3pkfjEAo="/>
+        <field:input field="white" id="c_com_lela_data_domain_entity_ZipCode_white" validationMessageCode="field_invalid_integer" z="eh/2aDosyNZ8juC2mr0R//rU42g="/>
+        <field:input field="black" id="c_com_lela_data_domain_entity_ZipCode_black" validationMessageCode="field_invalid_integer" z="pMaPSiHey9V3bdbourXR43NMBio="/>
+        <field:input field="hispanic" id="c_com_lela_data_domain_entity_ZipCode_hispanic" validationMessageCode="field_invalid_integer" z="8C40NFB3QBuklbPY8fpY5mWTL6c="/>
+        <field:input field="asian" id="c_com_lela_data_domain_entity_ZipCode_asian" validationMessageCode="field_invalid_integer" z="6iS2CTse1int3T2WWJKlRAqxW/c="/>
+        <field:input field="hawaiian" id="c_com_lela_data_domain_entity_ZipCode_hawaiian" validationMessageCode="field_invalid_integer" z="IFpHlGhwcVxPTPA4aNNt1Bk8j0U="/>
+        <field:input field="indian" id="c_com_lela_data_domain_entity_ZipCode_indian" validationMessageCode="field_invalid_integer" z="RHd2VmtKqY4g2ItdnNR2uH1U7Fk="/>
+        <field:input field="other" id="c_com_lela_data_domain_entity_ZipCode_other" validationMessageCode="field_invalid_integer" z="5bTCAZyOPmVPEPC5Gbqn+tBV37c="/>
+        <field:input field="male" id="c_com_lela_data_domain_entity_ZipCode_male" validationMessageCode="field_invalid_integer" z="Flo+oykwFMauJqHH93g2dgNFIMc="/>
+        <field:input field="female" id="c_com_lela_data_domain_entity_ZipCode_female" validationMessageCode="field_invalid_integer" z="4pVZfffFNZoOYs1WpIlk9TJyjDE="/>
+        <field:input field="income" id="c_com_lela_data_domain_entity_ZipCode_income" validationMessageCode="field_invalid_integer" z="WC0EJlA088YFHf7BgBX7No68wag="/>
+        <field:input field="age" id="c_com_lela_data_domain_entity_ZipCode_age" validationMessageCode="field_invalid_number" z="Wlg5odegN/GdUVWHH3fxkf2Myxg="/>
+        <field:input field="ageMale" id="c_com_lela_data_domain_entity_ZipCode_ageMale" validationMessageCode="field_invalid_number" z="cx849TbaBX+I+R/47xKG+0x3eiE="/>
+        <field:input field="ageFemale" id="c_com_lela_data_domain_entity_ZipCode_ageFemale" validationMessageCode="field_invalid_number" z="AUkbWumDop3l2GSACPTbyUDVZxk="/>
+        <field:input field="lat" id="c_com_lela_data_domain_entity_ZipCode_lat" validationMessageCode="field_invalid_number" z="P2QrBcJiB4WzBMjBSMuAc1mPpjE="/>
+        <field:input field="lng" id="c_com_lela_data_domain_entity_ZipCode_lng" validationMessageCode="field_invalid_number" z="g52K6ryS59Bol0UvtAqgvxR9348="/>
+        <field:input field="stateCode" id="c_com_lela_data_domain_entity_ZipCode_stateCode" z="xQ4Th8SBvC5MYUVg12XpDGptVaw="/>
+        <field:input field="stateName" id="c_com_lela_data_domain_entity_ZipCode_stateName" z="tJDMeepN8z+qFUj5QgfnWD8Yq1w="/>
+        <field:input field="city" id="c_com_lela_data_domain_entity_ZipCode_city" z="gslF6bap6VtOJ/MHyBKHdnrIGe0="/>
+        <field:input field="cbsa" id="c_com_lela_data_domain_entity_ZipCode_cbsa" validationMessageCode="field_invalid_integer" z="N6atOktFs0e02nrgIvQlPAom2Pc="/>
+        <field:input field="region" id="c_com_lela_data_domain_entity_ZipCode_region" z="xqVgeqW87khVUgLOD179O/YT3wI="/>
+        <field:input field="division" id="c_com_lela_data_domain_entity_ZipCode_division" z="WGUCtG1aIQIiqGSC5t7qha9AE3g="/>
+        <field:input field="objectId" id="c_com_lela_data_domain_entity_ZipCode_objectId" z="MAf6JqFqG0PLZ/WNl3/hNiXBUUo="/>
+        <field:checkbox field="dirty" id="c_com_lela_data_domain_entity_ZipCode_dirty" z="1vXILevU3zYGcEtUtMqeS3n053k="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_lela_data_domain_entity_ZipCode" render="${not empty dependencies}" z="t9MKHq2bs+fwMv9SW3IAGun3BKQ="/>
+</div>

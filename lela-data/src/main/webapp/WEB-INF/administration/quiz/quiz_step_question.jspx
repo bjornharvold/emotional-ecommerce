@@ -1,0 +1,55 @@
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="link.edit" var="edit"/>
+    <spring:message code="link.delete" var="delete"/>
+
+    <div class="actions">
+        <spring:url value="/administration/quiz/${urlName}/step/${quizStep.d}/entry" var="quizStepEntryUrl"/>
+        <a class="action" href="${quizStepEntryUrl}"><spring:message code="quiz.step.question.create.entry"/></a>
+
+        <div class="clear"><!----></div>
+    </div>
+    <h3><spring:message code="quiz.entry.questions"/></h3>
+    <c:if test="${empty quizStep.ntrs}">
+        <spring:message code="quiz.entry.questions.empty"/>
+    </c:if>
+    <c:if test="${not empty quizStep.ntrs}">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th width="20%"><spring:message code="question.url.name"/></th>
+                <th width="10%"><spring:message code="entry.order"/></th>
+                <th width="5%">&#160;</th>
+            </tr>
+            </thead>
+            <c:forEach items="${quizStep.ntrs}" var="question">
+                <tr>
+                    <td>${question.rlnm}</td>
+                    <td>${question.rdr}</td>
+                    <td>
+                        <spring:url value="/administration/quiz/${urlName}/step/${quizStep.d}/entry" var="editQuestionUrl">
+                            <spring:param name="entryId" value="${question.d}"/>
+                        </spring:url>
+                        <a class="action" href="${editQuestionUrl}">${edit}</a>
+
+                        <spring:url value="/administration/quiz/${urlName}/step/${quizStep.d}/entry/${question.d}" var="deleteQuestionUrl"/>
+                        <spring-form:form action="${deleteQuestionUrl}" method="DELETE">
+                            <input type="submit" name="${delete}" value="${delete}"/>
+                        </spring-form:form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </c:if>
+</div>

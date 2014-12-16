@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_IdentifierType" object="${identifiertype}" path="/crud/identifiertypes" z="c/3xlMKNSjaAxIg8hBDxRiVlO78=">
+        <field:display date="true" dateTimePattern="${identifierType_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_IdentifierType_dateCreated" object="${identifiertype}" z="L+22uDUZ1l38IH+x2hvsNlap1nY="/>
+        <field:display date="true" dateTimePattern="${identifierType_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_IdentifierType_dateModified" object="${identifiertype}" z="Z1NUwFnHiezoCoTcbKhr5bWScBM="/>
+        <field:display field="attributeType" id="s_com_lela_data_domain_entity_IdentifierType_attributeType" object="${identifiertype}" z="Oa+4b7ZjIPT5vyGP3eaQLmnKsJw="/>
+        <field:display field="identifierTypeName" id="s_com_lela_data_domain_entity_IdentifierType_identifierTypeName" object="${identifiertype}" z="Y4Sjj0ckKAi+Q++PkAADQgcpcpQ="/>
+        <field:display field="multiValued" id="s_com_lela_data_domain_entity_IdentifierType_multiValued" object="${identifiertype}" z="PI+jCGa9cnjdf8fvEDibaIQrZOk="/>
+    </page:show>
+</div>

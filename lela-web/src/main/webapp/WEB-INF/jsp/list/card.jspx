@@ -1,0 +1,276 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+    <spring:url value="/user/list?boardCode=${boardCode}" var="userListUrl"/>
+    <spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+    <c:set var="itemDetailName"><lela:listCardName listCard="${card}" type="name"/></c:set>
+    <c:set var="itemDetailUrl"><lela:listCardName listCard="${card}" type="url"/></c:set>
+    <c:set var="itemImgUrl"><lela:listCardName listCard="${card}" type="imgLarge"/></c:set>
+
+    <spring:url value="/user/list/${card.rlnm}/review" var="reviewUrl" />
+    <spring:url value="/user/list/${card.rlnm}/note" var="noteUrl" />
+    <spring:url value="/user/list/${card.rlnm}/alert" var="alertUrl" />
+
+    <div class="card-modal" itemscope="itemscope" itemtype="http://schema.org/Product">
+
+        <c:if test="${!empty param.added}">
+            <div class="first-added">
+                <c:if test="${us.itemCount eq 1}">
+                    <h3>You've started your Lela List.</h3>
+                    <p>Save items, stores, or brands you like, and add your own notes, photos, and comments.
+                        Get feedback from your friends. Receive alerts when the price drops.</p>
+                </c:if>
+                <a href="${userListUrl}" class="goto-list">Go to your Lela List</a>
+            </div>
+        </c:if>
+
+        <div class="full-card" rlnm="${card.rlnm}">
+
+            <!-- Display note/review form view -->
+            <h4 class="card-header ${publicList eq true ? 'public-header' : ''}">
+
+                <c:if test="${publicList eq true}">
+                    <img alt="" src="${card.prfl.mg}"/>
+                </c:if>
+
+                <a href="${itemDetailUrl}" class="header-l" itemprop="name"><lela:listCardName listCard="${card}" type="name"/></a>
+
+                <!-- Card store information for items only -->
+                <c:if test="${card.tp eq 'ITEM'}">
+                    <span class="store-info">
+                        <strong><fmt:formatNumber type="CURRENCY" value="${!empty card.item ? card.item.subAttributes['LowestPrice'] : card.relevantItem.subAttributes['LowestPrice']}" /></strong> from
+                        ${nbsp}<a href="${itemDetailUrl}#prices"><spring:message code="items.data.price.stores" htmlEscape="false" arguments="${!empty card.item ? card.item.subAttributes['StoreCount'] : card.relevantItem.subAttributes['StoreCount']},${card.relevantItem.subAttributes['StoreCount'] gt 1 ? 's' : ''}" /></a>
+                    </span>
+                </c:if>
+
+                <c:set var="shareName"><lela:listCardName listCard="${card}" type="name"/></c:set>
+                <c:set var="shareImg"><lela:listCardName listCard="${card}" type="imgList"/></c:set>
+                <c:set var="shareCaption">${card.prfl.fnm} ${card.prfl.lnm}'s Lela List</c:set>
+                <c:set var="shareDescription"><lela:listCardName listCard="${card}" type="shareDescription"/></c:set>
+                <c:set var="shareDomain"><lela:referralUrl format="domain"/></c:set>
+                <spring:url var="shareUrl" value="${shareDomain}/list/${card.prfl.cd}">
+                    <spring:param name="boardCode" value="${boardCode}"/>
+                    <spring:param name="card" value="${card.rlnm}"/>
+                </spring:url>
+
+                <tiles:insertTemplate template="/WEB-INF/jsp/list/card_share.jspx" flush="true">
+                    <tiles:putAttribute name="shareName" value="${shareName}" />
+                    <tiles:putAttribute name="shareImg" value="${shareImg}" />
+                    <tiles:putAttribute name="shareUrl" value="${shareUrl}" />
+                    <tiles:putAttribute name="shareCaption" value="${shareCaption}" />
+                    <tiles:putAttribute name="shareDescription" value="${shareDescription}" />
+                </tiles:insertTemplate>
+            </h4>
+
+            <div class="card-img imgtype-${card.tp}">
+                <spring:url value="/list/card/${card.rlnm}?cd=${publicList eq true ? card.prfl.cd : ''}" var="cardUrl"/>
+                <a href="${itemDetailUrl}"><img class="p-img ${!empty card.pctrs ? 'show-imgs' : ''}" src="${itemImgUrl}" alt="${itemDetailName}" itemprop="image"/></a>
+
+                <tiles:insertTemplate template="/WEB-INF/jsp/list/card_carousel.jspx" flush="true">
+                    <tiles:putAttribute name="listCard" value="${card}" />
+                    <tiles:putAttribute name="location" value="largeCarousel" />
+                </tiles:insertTemplate>
+
+            </div>
+
+        </div>
+
+        <c:if test="${empty param.added}">
+
+            <!-- User information and links -->
+            <div class="cd-nfo">
+
+                <c:choose>
+                    <c:when test="${!empty card.prfl.mg}">
+                        <spring:url var="profileImgUrl" value="${card.prfl.mg}"/>
+                    </c:when>
+                    <c:otherwise>
+                        <spring:url var="profileImgUrl" value="/static/images/icons/default_profile.png"/>
+                    </c:otherwise>
+                </c:choose>
+
+                <img src="${profileImgUrl}" alt="" class="us-img"/>
+
+                <c:if test="${!empty card.relevantItem and card.relevantItem.ttlrlvncynmbr > 0}">
+                    <spring:url value="/static/images/icons/relevancy/relevancy_meter_${card.relevantItem.ttlrlvncynmbr}_${publicList eq true ? 'purple' : 'orange'}.png" var="lelaRatingImgUrl" />
+                    <a href="${itemDetailUrl}" class="item-rating"><img src="${lelaRatingImgUrl}" alt="${card.relevantItem.ttlrlvncynmbr}%" class="lela-rating"/></a>
+                </c:if>
+
+                <p>
+                    <c:choose>
+                        <c:when test="${card.prfl.cd eq us.cd and publicList eq false}">
+                            Added by me
+                        </c:when>
+                        <c:otherwise>
+                            Added by ${card.prfl.fnm} ${card.prfl.lnm}
+                        </c:otherwise>
+                    </c:choose><br/>
+                    <lela:dateFormat date="${card.dt}" zone="false"/>
+                </p>
+
+                <tiles:insertTemplate template="/WEB-INF/jsp/list/card_tools.jspx" flush="true">
+                    <tiles:putAttribute name="publicList" value="${publicList}" />
+                    <tiles:putAttribute name="type" value="${card.tp}" />
+                    <tiles:putAttribute name="listCard" value="${card}" />
+                </tiles:insertTemplate>
+
+            </div>
+
+            <div class="card-nav">
+                <strong>Showing:</strong>
+
+                <c:if test="${publicList eq false}">
+                    <a href="#card-alerts" class="card-data-l ${!empty param.view and param.view eq 'alert' ? 'selected' : ''}">View alerts</a>
+                </c:if>
+
+                <a href="#card-comments" class="card-data-l ${empty param.view ? 'selected' : ''}">Comments (<span id="comment-cnt">${fn:length(card.cmmnts)}</span>)</a>
+
+                <c:if test="${publicList eq false}">
+                    <a href="#card-notes" class="card-data-l ${!empty param.view and param.view eq 'note' ? 'selected' : ''}">View notes (<span id="note-cnt">${fn:length(card.nts)}</span>)</a>
+                </c:if>
+
+                <a href="#card-reviews" class="card-data-l ${!empty param.view and param.view eq 'review' ? 'selected' : ''}">View reviews (<span id="review-cnt">${fn:length(card.rvws)}</span>)</a>
+
+            </div>
+
+            <!-- Note data -->
+            <c:if test="${publicList eq false}">
+                <div class="card-data ${!empty param.view and param.view eq 'note' ? '' : 'hidden'}" id="card-notes">
+                    <c:forEach items="${card.nts}" var="note">
+                        <p class="data-row">
+                            <span class="copy">
+                            <strong><lela:dateFormat date="${note.dt}" zone="false"/></strong><br/>${note.txt}</span>
+                            <spring:url var="deleteNoteUrl" value="/user/list/${card.rlnm}/note/${note.cd}"/>
+                            <a href="${deleteNoteUrl}" class="delete-item" data-type="note"><!-- --></a>
+                        </p>
+                    </c:forEach>
+
+                    <c:if test="${empty card.nts}">
+                        <div class="empty-list">There are no notes. <a href="${noteUrl}" class="modal">Post one now!</a></div>
+                    </c:if>
+                </div>
+            </c:if>
+
+            <!-- Review data -->
+            <div class="card-data ${!empty param.view and param.view eq 'review' ? '' : 'hidden'}" id="card-reviews">
+                <c:forEach items="${card.rvws}" var="review" varStatus="status">
+                    <p class="data-row">
+                        <span class="copy ${publicList eq true ? 'no-delete' : ''}">
+                            <strong>${review.ttl}</strong>
+                            <span class="review-date"><lela:dateFormat date="${review.dt}" zone="false"/></span>
+                            <span id="star-${status.count}" class="star-rtng"><!-- --></span>
+                            ${review.txt}
+                            <script type="text/javascript">
+                                $('#star-${status.count}').raty({
+                                    readOnly : true,
+                                    score    : '${review.rtng}'
+                                });
+                            </script>
+                        </span>
+
+                        <c:if test="${publicList eq false}">
+                            <spring:url var="deleteReviewUrl" value="/user/list/${card.rlnm}/review/${review.cd}"/>
+                            <a href="${deleteReviewUrl}" class="delete-item" data-type="review"><!-- --></a>
+                        </c:if>
+                    </p>
+                </c:forEach>
+
+                <c:if test="${empty card.rvws}">
+                    <div class="empty-list">There are no reviews. <a href="${reviewUrl}" class="modal">Post one now!</a></div>
+                </c:if>
+            </div>
+
+            <!-- Comment Data -->
+            <div class="card-data ${empty param.view ? '' : 'hidden'}" id="card-comments">
+
+                <div class="card-comments">
+                    <c:forEach items="${card.cmmnts}" var="comment">
+                        <tiles:insertTemplate template="/WEB-INF/jsp/list/card_comment.jspx" flush="true">
+                            <tiles:putAttribute name="comment" value="${comment}" />
+                            <tiles:putAttribute name="listCard" value="${card}" />
+                        </tiles:insertTemplate>
+                    </c:forEach>
+                </div>
+
+                <spring:url value="/user/list/${card.rlnm}/comment" var="commentUrl" />
+                <form name="card-comment" class="card-comment" action="${commentUrl}" method="POST">
+                    <textarea rows="3" cols="10" name="txt" class="txt-comment-small" rt="${shareUrl}"><!-- --></textarea>
+                    <div class="addl-comment">
+                        <c:if test="${!empty us.scls}">
+                            <label><input type="checkbox" name="fb" value="true"/><span class="label">Post comment to my Facebook Profile</span></label>
+                        </c:if>
+                        <a href="#" class="post-comment" post-url="${shareUrl}" post-picture="${shareImg}" post-name="${shareName}">Post</a>
+                    </div>
+                    <input type="hidden" name="wcd" value="${card.prfl.cd}"/>
+                </form>
+
+            </div>
+
+            <!-- Alert data -->
+            <c:if test="${publicList eq false}">
+                <div class="card-data ${!empty param.view and param.view eq 'alert' ? '' : 'hidden'}" id="card-alerts">
+
+                    <c:choose>
+                        <c:when test="${card.lrt.prclrt eq true}">
+                            <p class="data-row">
+                                <span class="copy">
+                                    <strong>Notify me:</strong> <br/>
+                                    <c:if test="${!empty card.lrt.prc and card.lrt.prclrt eq true}">
+                                        If the price drops below <fmt:formatNumber type="CURRENCY" value="${card.lrt.prc}"/><br/>
+                                    </c:if>
+
+                                    <c:if test="${card.lrt.mrlrt eq true}">
+                                        If the manufacturer issues a recall
+                                    </c:if>
+                                </span>
+
+                                <spring:url var="deleteAlertUrl" value="/user/list/${card.rlnm}/alert"/>
+                                <spring:url value="/user/list/${card.rlnm}/alert" var="alertUrl" />
+                                <a href="${deleteAlertUrl}" class="delete-txt" data-type="alert">Delete</a>
+                                <a href="${alertUrl}" class="modal edit-txt">Edit</a>
+                            </p>
+                        </c:when>
+
+                        <c:otherwise>
+                            <div class="empty-list">There are no alerts. <a href="${alertUrl}" class="modal">Create one now!</a></div>
+                        </c:otherwise>
+                    </c:choose>
+
+                </div>
+
+            </c:if>
+
+        </c:if>
+    </div>
+
+    <script type="text/javascript">
+        $().ready(function($) {
+            initModal();
+            $("form.card-comment").jqTransform();
+
+            // Init tooltips
+            $('.card-modal .tip').tooltip({
+                position: "bottom center",
+                relative: true,
+                offset: [5, 0]
+            });
+        });
+    </script>
+</jsp:root>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="crud/productimageitemstatuses/list">
+        <put-attribute name="body" value="/WEB-INF/views/crud/productimageitemstatuses/list.jspx"/>
+    </definition>
+<definition extends="default" name="crud/productimageitemstatuses/show">
+        <put-attribute name="body" value="/WEB-INF/views/crud/productimageitemstatuses/show.jspx"/>
+    </definition>
+<definition extends="default" name="crud/productimageitemstatuses/create">
+        <put-attribute name="body" value="/WEB-INF/views/crud/productimageitemstatuses/create.jspx"/>
+    </definition>
+<definition extends="default" name="crud/productimageitemstatuses/update">
+        <put-attribute name="body" value="/WEB-INF/views/crud/productimageitemstatuses/update.jspx"/>
+    </definition>
+</tiles-definitions>

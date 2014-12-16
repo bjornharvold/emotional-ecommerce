@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ProductImageItemStatus" items="${productimageitemstatuses}" z="7Bl3Ifbrn6tmbVjyRW6zlvS2vWc=">
+        <table:table data="${productimageitemstatuses}" id="l_com_lela_data_domain_entity_ProductImageItemStatus" path="/crud/productimageitemstatus" z="uflg3RtbXNbpJ4gc0Ef5qLoBr60=">
+            <table:column date="true" dateTimePattern="${productImageItemStatus_datecreated_date_format}" id="c_com_lela_data_domain_entity_ProductImageItemStatus_dateCreated" property="dateCreated" z="ZSFUOht18y+/uc9ir7FppRciIXI="/>
+            <table:column date="true" dateTimePattern="${productImageItemStatus_datemodified_date_format}" id="c_com_lela_data_domain_entity_ProductImageItemStatus_dateModified" property="dateModified" z="YqwK8U1WLrXoDEj6thrHOWItG2s="/>
+            <table:column id="c_com_lela_data_domain_entity_ProductImageItemStatus_productImageItemStatusName" property="productImageItemStatusName" z="hIiEVnJ80UoH443KulLQCouUVYk="/>
+        </table:table>
+    </page:list>
+</div>

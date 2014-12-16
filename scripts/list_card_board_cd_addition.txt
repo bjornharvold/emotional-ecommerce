@@ -1,0 +1,8 @@
+# Add the cd attribute to all ListCardBoards
+
+db.userSupplement.find({brds : {$exists : true}}).forEach(function(a) {
+    if (a.brds && a.brds.length > 0) {
+        a.brds[0].cd = a.brds[0].nm;
+    }
+    db.userSupplement.update({cd : a.cd}, a, false, false);
+});

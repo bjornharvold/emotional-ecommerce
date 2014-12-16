@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_MerchantOfferItem" object="${merchantofferitem}" path="/crud/merchantofferitems" z="VO+qbYZfjiFeld2vx9WcyVFtR3o=">
+        <field:display date="true" dateTimePattern="${merchantOfferItem_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_MerchantOfferItem_dateCreated" object="${merchantofferitem}" z="mydP6jmQz73RPgiSV7y/6RpiBiA="/>
+        <field:display date="true" dateTimePattern="${merchantOfferItem_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_MerchantOfferItem_dateModified" object="${merchantofferitem}" z="Z2Dj97itJjnnitJ9sQCdutY4Wwc="/>
+        <field:display field="merchantOffer" id="s_com_lela_data_domain_entity_MerchantOfferItem_merchantOffer" object="${merchantofferitem}" z="LZ1T/flkE7UMZ+k7BFeFd2n3sXM="/>
+        <field:display field="category" id="s_com_lela_data_domain_entity_MerchantOfferItem_category" object="${merchantofferitem}" z="MGjeYzOVvolkF31rJ294a4UpzwE="/>
+        <field:display field="itemId" id="s_com_lela_data_domain_entity_MerchantOfferItem_itemId" object="${merchantofferitem}" z="pzJ/pmQ3DCFB0y5NpZFpUbi+mCs="/>
+        <field:display field="item" id="s_com_lela_data_domain_entity_MerchantOfferItem_item" object="${merchantofferitem}" z="jqWW8TmdqpwufDa6q5HIfFEJ9YM="/>
+    </page:show>
+</div>

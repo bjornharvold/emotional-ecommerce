@@ -1,0 +1,62 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <lela:findUser/>
+
+    <spring:url value="/category/${categoryUrlName}" var="dataUrl" />
+    <spring:message code="environment" var="environment"/>
+    <c:set var="size" value="${page.size}"/>
+
+    <script type="text/javascript">
+        var dataUrl = '${dataUrl}';
+        var returnItem = null;
+    </script>
+
+    <h1 class="h-center" id="cat-head"><spring:message code="nav.cat.${categoryUrlName}.full" htmlEscape="false" /></h1>
+    <div id="ctrls-total">Displaying <strong>1-12</strong> of ${page.totalElements}</div>
+
+    <div id="sort-ctrls">
+
+        <c:choose>
+            <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                <span class="sort-comp">Compatibility Ratings</span>
+            </c:when>
+            <c:otherwise>
+                <a href="#" class="sort-comp ${page.sortBy eq 'RECOMMENDED' ? 'selected' : ''}" rel="nofollow" sort-type="RECOMMENDED">Compatibility Ratings</a>
+            </c:otherwise>
+        </c:choose>
+
+        <a href="#" class="sort-trend ${page.sortBy eq 'POPULARITY' ? 'selected' : ''}" rel="nofollow" sort-type="POPULARITY">Trending</a>
+        <a href="#" class="sort-price ${page.sortBy eq 'PRICE_LOW_HIGH' ? 'selected' : ''}" rel="nofollow" sort-type="PRICE_LOW_HIGH">Price</a>
+    </div>
+
+    <div id="p-grid">
+        <tiles:insertTemplate template="/WEB-INF/jsp/items/mobile/data.jspx" flush="true">
+            <tiles:putAttribute name="listType" value="false" />
+            <tiles:putAttribute name="page" value="${page}" />
+            <tiles:putAttribute name="ajax" value="false" />
+        </tiles:insertTemplate>
+    </div>
+
+    <script type="text/javascript">
+        $().ready(function($) {
+            initGrid(0, '${size}');
+        });
+    </script>
+
+</div>

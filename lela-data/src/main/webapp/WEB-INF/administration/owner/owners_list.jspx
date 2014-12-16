@@ -1,0 +1,56 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <security:authentication property="principal.user" var="testUser"/>
+
+    <c:if test="${not empty ownerSearchResults}">
+        <c:forEach items="${ownerSearchResults}" var="item">
+            <strong>Product Type:</strong> ${item.ctgry.nm}<br/>
+            <strong>Brand name:</strong> ${item.wnr.nm}<br/>
+            <!-- <strong>Item name:</strong> ${item.nm}<br/> -->
+            <strong>Model:</strong> ${item.attributes['ProductModelName']}<br/>
+            <strong>Product Url:</strong> ${item.attributes['ProductUrl']}<br/>
+            <strong>Consumer Reports Safety Rating:</strong> ${item.attributes['CRTested']}<br/>
+            <strong>Consumer Reports Overall Score:</strong> ${item.attributes['CROverallScore']}<br/>
+            <strong>Facebook Likes:</strong> ${item.attributes['BrandFacebookLikes']}<br/>
+            <strong>Twitter Followers:</strong> ${item.attributes['BrandTwitterFollowers']}<br/>
+            <strong>Baby Bargains Rating:</strong> ${item.attributes['BBBrandRating']}<br/>
+            <strong>Design Style:</strong> ${item.attributes['DesignStyle']}<br/>
+            <strong>Number of Bright Colors:</strong> ${item.attributes['NumberOfColorsVeryBrightOrPrimary']}<br/>
+            <strong>Media Spotlight:</strong> ${item.attributes['MediaSpotlight']}<br/>
+            <strong>CelebrityStatus:</strong> ${item.attributes['CelebrityStatus']}<br/>
+            <strong>List Price:</strong> ${item.attributes['ListPrice']}<br/>
+            <strong>Item motivators:</strong> {A=${item.mtvtrs['A']}, B=${item.mtvtrs['B']}, C=${item.mtvtrs['C']}, D=${item.mtvtrs['D']}, E=${item.mtvtrs['E']}, F=${item.mtvtrs['F']}, G=${item.mtvtrs['G']}}<br/>
+            <c:if test="${item.class.name eq 'com.lela.domain.document.RelevantItem'}">
+                <strong>User motivators:</strong> {A=${testUser.mtvtrs['A']}, B=${testUser.mtvtrs['B']}, C=${testUser.mtvtrs['C']}, D=${testUser.mtvtrs['D']}, E=${testUser.mtvtrs['E']}, F=${testUser.mtvtrs['F']}, G=${testUser.mtvtrs['G']}}<br/>
+                <strong>Motivator match:</strong> {A=${item.mtvtrrlvncy['A']}, B=${item.mtvtrrlvncy['B']}, C=${item.mtvtrrlvncy['C']}, D=${item.mtvtrrlvncy['D']}, E=${item.mtvtrrlvncy['E']}, F=${item.mtvtrrlvncy['F']}, G=${item.mtvtrrlvncy['G']}}<br/>
+                <strong>User total match:</strong> ${item.ttlrlvncy}<br/>
+                <strong>Lela icon number:</strong> ${item.ttlrlvncynmbr}<br/>
+                <c:choose>
+                    <c:when test="${item.ttlrlvncynmbr != null}">
+                        <strong>Matching percent:</strong> ${item.ttlrlvncynmbr * 4}<br/>
+                    </c:when>
+                    <c:otherwise>
+                        <strong>Matching percent:</strong><br/>
+                    </c:otherwise>
+                </c:choose>
+            </c:if>
+            <hr/>
+        </c:forEach>
+    </c:if>
+
+
+</div>

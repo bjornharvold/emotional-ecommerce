@@ -1,0 +1,242 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+<jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+<lela:findUser/>
+
+<spring:url value="/quiz" var="launchQuiz" />
+<spring:url value="/list/item" var="lelaListUrl" />
+<spring:url value="//user/list/card/delete" var="lelaItemDeleteUrl" />
+<spring:url value="/item/comparison/?nm=" var="comparisonUrl" />
+<spring:url value="/category/" var="categoryUrl" />
+<spring:url value="/static/images/icons/tooltip.gif" var="tooltipImgUrl" />
+<spring:url value="/static/images/layout/white_arrow.png" var="whiteArrowImgUrl" />
+<spring:url value="/static/images/buttons/collapse.png" var="collapseImgUrl" />
+<spring:url value="/static/images/buttons/collapse_plus.png" var="collapsePlusImgUrl" />
+
+    <script type="text/javascript">
+        var comparisonUrls = {
+            "categoryUrl" : '${categoryUrl}',
+            "collapseImgUrl" : '${collapseImgUrl}',
+            "collapsePlusImgUrl" : '${collapsePlusImgUrl}',
+            "comparisonUrl": '${comparisonUrl}'
+        };
+    </script>
+
+    <div class="header">
+        <a href="javascript: history.go(-1);" class="a-back"><spring:message code="button.back"/></a>
+        <h1><spring:message code="item.comparison.title" /></h1>
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <div class="clear"><!-- --></div>
+
+    <div class="area">
+
+        <div id="p-filters">
+            <div id="d-tuners-tmp">
+                <h2><spring:message code="item.comparison.filters.title" /></h2>
+            </div>
+
+            <c:forEach var="cat" items="${categories}">
+
+                <div class="f-sec" rlnm="${cat.rlnm}">
+                <h3><spring:message code="nav.cat.${cat.rlnm}"/> <span class="count"><!-- --></span></h3>
+                    <div class="cat-items">
+                    <c:forEach var="item" items="${items}">
+                        <c:if test="${item.ctgry.rlnm == cat.rlnm}">
+                            <a href="#" class="remove" rlnm="${item.rlnm}" cat="${item.ctgry.rlnm}"><img src="/static/images/buttons/close.png" width="17" height="17" alt="Remove" /></a>
+                            <p><strong>${item.nm}</strong><br/>${item.subAttributes['Brand']}</p>
+                        </c:if>
+                    </c:forEach>
+                    </div>
+                </div>
+
+            </c:forEach>
+
+        </div>
+
+        <div class="items">
+
+            <div class="item-details">
+
+                <c:choose>
+                    <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                        <a href="${launchQuiz}" id="l-quiz-top" quiz-location="Quiz-Comp">
+                            <div class="details-relevancy promote">
+                                <h3><spring:message code="item.comparison.quiz.title.first" htmlEscape="false"/></h3>
+                                <span><spring:message code="item.comparison.quiz.link.first" htmlEscape="false"/><img src="${whiteArrowImgUrl}" /></span>
+                            </div>
+                        </a>
+                    </c:when>
+                    <c:when test="${loggedInUser != 'anonymousUser' and us.profileStatus == 'PARTIAL'}">
+                        <a href="${launchQuiz}" id="l-quiz-top" quiz-location="Quiz-Comp">
+                        <div class="details-relevancy promote">
+                            <h3><spring:message code="item.comparison.quiz.title.second" htmlEscape="false"/></h3>
+                            <span><spring:message code="item.comparison.quiz.link.second" htmlEscape="false"/><img src="${whiteArrowImgUrl}" /></span>
+                        </div>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="details-relevancy">
+                            <h3><spring:message code="item.comparison.quiz.title.third" htmlEscape="false"/></h3>
+                            <div class="c-btn c-btn-checked"><!-- --></div>
+                            <span><spring:message code="item.comparison.quiz.link.third" htmlEscape="false"/><img src="${tooltipImgUrl}" class="trigger" alt="tooltip"/></span>
+                            <div class="tooltip"><spring:message code="item.quiz.tooltip.3" htmlEscape="false"/></div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+
+            </div>
+
+            <c:forEach var="item" items="${items}" varStatus="itemStatus" begin="0">
+
+                <div class="item" rlnm="${item.rlnm}" cat="${item.ctgry.rlnm}">
+                    <div class="remove" rlnm="${item.rlnm}" cat="${item.ctgry.rlnm}"><spring:message code="item.comparison.remove" /></div>
+                    <div class="relevancy-mod">
+                        <c:choose>
+                            <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                                <spring:url value="/static/images/icons/rating/relevancy_meter_question.png" var="lelaRatingImgUrl" />
+                                <img src="${lelaRatingImgUrl}" alt="${itemDetailsList[itemStatus.index].rlvnttm.ttlrlvncynmbr}%" class="lela-pct"/>
+                            </c:when>
+                            <c:when test="${loggedInUser != 'anonymousUser' and us.profileStatus == 'PARTIAL'}">
+                                <spring:url value="/static/images/icons/rating/relevancy_meter_${itemDetailsList[itemStatus.index].rlvnttm.ttlrlvncynmbr}.png" var="lelaRatingImgUrl" />
+                                <img src="${lelaRatingImgUrl}" alt="${itemDetailsList[itemStatus.index].rlvnttm.ttlrlvncynmbr}%" class="lela-pct"/>
+                            </c:when>
+                            <c:otherwise>
+                                <spring:url value="/static/images/icons/rating/relevancy_meter_${itemDetailsList[itemStatus.index].rlvnttm.ttlrlvncynmbr}.png" var="lelaRatingImgUrl" />
+                                <img src="${lelaRatingImgUrl}" alt="${itemDetailsList[itemStatus.index].rlvnttm.ttlrlvncynmbr}%" class="lela-pct"/>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+                    <spring:url value="/${item.srlnm}/p?rlnm=${item.rlnm}" var="itemUrl"/>
+                    <a href="${itemUrl}"><img class="item-img" src="${item.imgs[0].sz['medium']}" /></a>
+                    <a href="#" class="c-prev ${(fn:length(item.clrs) lt 4) ? 'c-hidden' : ''}"><!-- --></a>
+                    <div class="clr-carousel">
+                        <div class="color-img">
+                            <c:forEach var="color" varStatus="status" items="${item.clrs}" end="30">
+                                <a href="${color.sz['medium']}" clr="${color.nm}" class="${status.index == 0 ? 'selected' : ''}">
+                                    <img src="${color.sz['small']}" alt="${item.nm} - ${item.subAttributes['Brand']}"/>
+                                </a>
+                            </c:forEach>
+                        </div>
+                    </div>
+                    <a href="#" class="c-next ${(fn:length(item.clrs) lt 4) ? 'c-hidden' : ''}"><!-- --></a>
+                    <div class="clear"><!-- --></div>
+
+                    <div class="p-info">
+                        <div class="p-info-text">
+                            <span><strong><lela:lelaProductName item="${item}" /></strong></span>
+                        </div>
+                        <div class="p-price">
+                            <c:choose>
+                                <c:when test="${item.subAttributes['LowestPrice'] gt 0.0}">
+                                    <div class="p-price-info">
+                                        <spring:message code="items.data.bestprice" htmlEscape="false"/>
+                                        <c:if test="${fn:length(item.strs) gt 1}">
+                                            <spring:url value="/${item.srlnm}/p?rlnm=${item.rlnm}#p-tabs" var="itemDetailUrl" />
+                                            from <a href="${itemDetailUrl}" class="compare-pr">${fn:length(item.strs)} stores</a>
+                                        </c:if>
+                                        <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['LowestPrice']}" /></strong>
+                                    </div>
+
+                                    <spring:url value="/merchant/redirect" var="redirectPurchaseUrl">
+                                        <spring:param name="merchantId" value="${item.subAttributes['MerchantId']}" />
+                                        <spring:param name="itemId" value="${item.rlnm}" />
+                                    </spring:url>
+
+                                    <a class="link-button" store="${item.subAttributes['MerchantName']}" href="${redirectPurchaseUrl}" target="_blank" rel="nofollow">${item.subAttributes['MerchantName']}</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <spring:message code="item.details.listPrice"/><br/>
+                                    <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></strong>
+                                </c:otherwise>
+                            </c:choose>
+
+                            <!-- Add to List -->
+                            <c:if test="${empty domainAffiliate or domainAffilate.shwlsts}">
+                            <spring:url var="addListItem" value="/user/list/names?type=item"/>
+                            <a rel="nofollow" href="${addListItem}" class="l-list l-list-add" rlnm="${item.rlnm}" ctrlnm="${item.ctgry.rlnm}"><!-- --></a>
+                            </c:if>
+                        </div>
+                    </div>
+
+                <div rlnm="${item.rlnm}" class="tab-content">
+
+                    <c:forEach var="section" items="${itemDetailsList[itemStatus.index].sctns}" varStatus="status" begin="0">
+
+                        <c:forEach var="group" items="${section.grps}" varStatus="statusGrp">
+
+                            <c:set var="nm" value="${section.nm}-${group.nm}"/>
+
+                            <c:if test="${group.nm != 'attribute.group.bestrated' and group.nm != 'attribute.group.uniquefeatures' and group.nm != 'attribute.group.about' and group.nm != 'attribute.group.awards' and nm != 'attribute.section.accessories-attribute.group.overview' and nm != 'attribute.section.accessories-attribute.group.overview' and nm != 'attribute.section.overview-attribute.group.overview' and nm != 'attribute.section.brandbuzz-attribute.group.safetybuzzrecentrecalls'}">
+
+                                <h3 item="${item.rlnm}" group="${section.nm}-${group.nm}"><spring:message code="${group.nm}" /></h3>
+
+                                <div item="${item.rlnm}" class="grp" group="${section.nm}-${group.nm}">
+                                    <c:forEach var="attr" items="${group.attrs}">
+                                        <c:if test="${!empty attr.vl}">
+                                            <span class="title" nm="${attr.ky}"><spring:message code="attribute.attr.${attr.ky}"/></span>
+                                            <span class="value" nm="${attr.ky}">${attr.vl}</span>
+                                        </c:if>
+                                    </c:forEach>
+                                </div>
+
+                            </c:if>
+
+                        </c:forEach>
+
+                    </c:forEach>
+
+                </div>
+
+            </div>
+
+            </c:forEach>
+
+            <div class="item hidden add-item-original c-add-item">
+                <div class="add"><a href="#"><spring:message code="item.comparison.add" /></a></div>
+                <div class="add-content">
+                    <div class="box">3</div>
+                    <h3><spring:message code="item.comparison.page.add" /></h3>
+                    <p><spring:message code="item.comparison.page.add.alt" /></p>
+                 </div>
+            </div>
+
+        </div>
+
+        <div id="dataTable">
+            <table cellpadding="0" cellspacing="0" border="0" class="comparison-table" id="comparison-table">
+
+                <tr class="hdr hidden orig-hdr">
+                    <th colspan="4"><!-- --></th>
+                </tr>
+                <tr class="row hidden orig-row">
+                    <td valign="top" class="title"><!-- --></td>
+                    <td valign="top" class="col0 col"><!-- --></td>
+                    <td valign="top" class="col1 col"><!-- --></td>
+                    <td valign="top" class="col2 col"><!-- --></td>
+                </tr>
+
+            </table>
+        </div>
+
+
+    </div>
+
+
+</jsp:root>

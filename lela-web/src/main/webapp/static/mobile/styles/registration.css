@@ -1,0 +1,31 @@
+#quiz-close {
+    display: none;
+}
+
+#footer {
+    display: block !important;
+}
+
+.lela-page-content {
+    margin-top: -50px !important;
+    margin-bottom: 0px !important;
+}
+
+#reg-container h2 {
+    padding-left: 110px !important;
+    text-align: left;
+    font-size: 20px;
+    line-height: 22px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+#reg-container h2 span {
+    font-size: 12px;
+    line-height: 14px;
+    padding-right: 20px;
+}
+
+.login-controls {
+    font-size: 0.55em !important;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+~ Copyright (c) 2011. Purple Door Systems, BV.
+-->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="press" extends="template.page.master">
+        <put-attribute type="string" name="title" value="meta.title.press" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/press/press.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/press/press.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/press/press.jspx" />
+        </put-list-attribute>
+    </definition>
+
+
+</tiles-definitions>

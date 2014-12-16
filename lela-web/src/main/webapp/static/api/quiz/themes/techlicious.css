@@ -1,0 +1,134 @@
+/* Theme for Techlicious - 840px wide */
+
+#quiz-wrapper {
+    padding:0;
+    background:none;
+    width:840px;
+    margin:0;
+}
+
+#quiz-wrapper h1 {
+    padding:35px 20px 25px 0px;
+    font-size: 32px;
+    line-height: 24px;
+}
+
+#quiz-wrapper h1 span {
+    background:url('../../images/quiz/head_ico.png') no-repeat 0 6px;
+    padding-left: 70px;
+    padding-bottom: 30px;
+}
+
+#quiz-wrapper h1 em {
+    font-size:14px;
+    padding-left: 70px;
+}
+
+#quiz-wrapper .quiz-questions h2 {
+    font-size:22px;
+}
+
+#quiz-wrapper #image-tip {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size:14px;
+}
+
+#quiz-wrapper .quiz-images {
+    padding: 10px 0;
+}
+
+#quiz-wrapper .quiz-image {
+    width:190px;
+    height:190px;
+    margin:0 0 20px 14px;
+}
+
+#quiz-wrapper .quiz-image img {
+    width:190px;
+    height:190px;
+}
+
+#quiz-wrapper .quiz-images a:hover {
+    width:190px;
+    height:190px;
+    margin-top:0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+#quiz-wrapper .quiz-images a:hover img {
+    width:190px;
+    height:190px;
+}
+
+#quiz-wrapper .quiz-images .i-selected { width:190px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+.quiz-images a.img-0:hover, .quiz-images a.img-2:hover {
+    margin-left:0 !important;
+}
+
+.quiz-images a.img-1:hover, .quiz-images a.img-3:hover {
+    margin-left:0 !important;
+}
+
+
+#quiz-wrapper .question {
+    margin-left: 30px;
+    width:250px;
+    padding-right:10px;
+    padding-left:20px;
+    font-size: 14px;
+}
+
+#quiz-wrapper .answer {
+    font-size:12px;
+    width:130px;
+}
+#quiz-wrapper #answer-1 { text-align:right;  }
+
+#quiz-wrapper .quiz-style #answer-1 {
+    margin-left:230px;
+}
+
+#quiz-wrapper .quiz-style #answer-2 {
+    text-align:left;
+    padding-left:10px;
+    padding-top:0;
+}
+
+#quiz-wrapper .quiz-style .answer {
+    font-weight:bold;
+    font-size:16px;
+    width:100px;
+}
+
+
+#quiz-wrapper #gender-sel {
+    margin:30px 0 0px 270px;
+}
+#quiz-wrapper #gender-sel a#Female { margin-left:100px; }
+
+
+#quiz-wrapper .reg-form {
+    width:60%;
+}
+
+
+
+#quiz-wrapper #step-list td span {
+    font-size: 14px;
+}
+
+
+.popupLogo {
+    display: none !important;
+}
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_lela_data_domain_entity_LocalStore" modelAttribute="localStore" path="/crud/localstores" render="${empty dependencies}" z="aVV8jZw4O8r0Yb4CFEzyyhkrG+Q=">
+      <field:datetime dateTimePattern="${localStore_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_LocalStore_dateCreated"  z="user-managed" render="false"/>
+      <field:datetime dateTimePattern="${localStore_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_LocalStore_dateModified"  z="user-managed" render="false"/>
+      <field:input field="merchantName" id="c_com_lela_data_domain_entity_LocalStore_merchantName" z="B5skAXjychdEAE5N/V2eRmi7Lvo="/>
+      <field:select field="merchantId" id="c_com_lela_data_domain_entity_LocalStore_merchantId" itemValue="id" items="${merchants}" path="/merchants" z="user-managed"/>
+      <field:input field="storeNumber" id="c_com_lela_data_domain_entity_LocalStore_storeNumber" validationMessageCode="field_invalid_integer" z="8J98w4GwuORqMIGE/mdk9n1lgSo="/>
+      <field:input field="storeName" id="c_com_lela_data_domain_entity_LocalStore_storeName" z="FDyTG3ExiuCP6TDdNiUyxjekqBM="/>
+      <field:input field="address" id="c_com_lela_data_domain_entity_LocalStore_address" z="kfHHGfODIHHZ2c9+P/MJo/kj5jI="/>
+      <field:input field="city" id="c_com_lela_data_domain_entity_LocalStore_city" z="KGoQ/hV02HTT28cgNTNoncpWoYg="/>
+      <field:input field="state" id="c_com_lela_data_domain_entity_LocalStore_state" z="FNS2dh2gcuOeWCShxcn0BqY8otk="/>
+      <field:input field="zipCode" id="c_com_lela_data_domain_entity_LocalStore_zipCode" z="bpDyLP5yI0Ind0lBipFQfTmSnkk="/>
+      <field:input field="phoneNumber" id="c_com_lela_data_domain_entity_LocalStore_phoneNumber" z="wRSQuMzfRt3l9FkXKCfvOzKdJMQ="/>
+      <field:input field="latitude" id="c_com_lela_data_domain_entity_LocalStore_latitude" z="IxZBZP43gHnNCiSb5Rbmmg4sZbo="/>
+      <field:input field="longitude" id="c_com_lela_data_domain_entity_LocalStore_longitude" z="6rI13q05NhEqYdPkR6rLYFyk6Dc="/>
+      <field:checkbox field="dirty" id="c_com_lela_data_domain_entity_LocalStore_dirty" z="UVnS2sxuoRpnrXkOdpF5WowybHo="/>
+      <field:input field="objectId" id="c_com_lela_data_domain_entity_LocalStore_objectId" z="CEYQH58jYLiYTTTU/bmjDDRY3N0="/>
+      <field:input field="lelaLocalCode" id="c_com_lela_data_domain_entity_LocalStore_lelaLocalCode" z="fApyNYnJj43O5SvbgGlx2KfyEWk="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_lela_data_domain_entity_LocalStore" render="${not empty dependencies}" z="aNPCmfm6m52efZEd56H6/MQlfa8="/>
+</div>

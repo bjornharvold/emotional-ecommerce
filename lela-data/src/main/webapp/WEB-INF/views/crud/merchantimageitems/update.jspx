@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_MerchantImageItem" modelAttribute="productImageItem" path="/crud/merchantimageitems" versionField="Version" z="fUMOBZ9nZPoGzsFjmCCmSwP3qIY=">
+        <field:datetime dateTimePattern="${merchantImageItem_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_MerchantImageItem_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${merchantImageItem_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_MerchantImageItem_dateModified" render="false" z="user-managed"/>
+        <field:select field="item" id="c_com_lela_data_domain_entity_MerchantImageItem_item" itemValue="id" items="${items}" path="/items" z="user-managed"/>
+        <field:select field="productImage" id="c_com_lela_data_domain_entity_MerchantImageItem_merchantImage" itemValue="id" items="${merchantimages}" path="/merchantimages" z="user-managed"/>
+        <field:checkbox field="primary" id="c_com_lela_data_domain_entity_MerchantImageItem_primary" z="IlHJOLTLGufN1B7TMvfokkJ94BQ="/>
+        <field:checkbox field="doNotUse" id="c_com_lela_data_domain_entity_MerchantImageItem_doNotUse" z="ZfYA8guIyAF/X1BWnWmfxIjLDCg="/>
+    </form:update>
+</div>

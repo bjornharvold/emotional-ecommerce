@@ -1,0 +1,64 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+    <tiles:importAttribute name="location" ignore="true"/>
+
+    <div id="tut">
+        <div id="tut-cont">
+            <h3>Keep track of the things you love.
+            <span>Here are three ways to use your Lela List.</span></h3>
+
+            <a href="#" id="step1" class="step-l over">Add items <br/>to your List</a>
+            <a href="#" id="step2" class="step-l">Set up<br/>alerts</a>
+            <a href="#" id="step3" class="step-l">Share with<br/>Friends</a>
+
+            <spring:url value="/static/images/list/tut_step1_lg.jpg" var="step1ImgUrl"/>
+            <spring:url value="/static/images/list/tut_step2_lg.jpg" var="step2ImgUrl"/>
+            <spring:url value="/static/images/list/tut_step3_lg.jpg" var="step3ImgUrl"/>
+            <div id="step1-img" class="step-img"><a href="#step2" class="next-slide"><img src="${step1ImgUrl}" alt=""/></a></div>
+            <div id="step2-img" class="step-img" style="display: none;"><a href="#step3" class="next-slide"><img src="${step2ImgUrl}" alt=""/></a></div>
+
+            <div id="step3-img" class="step-img" style="display: none;">
+
+                <c:choose>
+                    <c:when test="${!empty boardCode and !empty userList.cards}">
+                        <spring:url value="/user/list?boardCode=${boardCode}" var="userListUrl"/>
+                        <a href="${userListUrl}"><img src="${step3ImgUrl}" alt=""/></a>
+                    </c:when>
+
+                    <c:when test="${!empty boardCode and empty userList.cards}">
+                        <a href="#" onclick="$('#add-image').trigger('click'); return false;"><img src="${step3ImgUrl}" alt=""/></a>
+                    </c:when>
+
+                    <c:otherwise>
+                        <c:choose>
+                            <c:when test="${location eq 'board'}">
+                                    <a href="#" onclick="$('#create-action').trigger('click'); return false;"><img src="${step3ImgUrl}" alt=""/></a>
+                            </c:when>
+                            <c:otherwise>
+                                    <a href="#" onclick="$.fancybox.close(true); return false;"><img src="${step3ImgUrl}" alt=""/></a>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:otherwise>
+                </c:choose>
+
+            </div>
+        </div>
+    </div>
+</jsp:root>

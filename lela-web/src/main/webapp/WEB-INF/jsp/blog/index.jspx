@@ -1,0 +1,226 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <spring:message code="environment" var="environment"/>
+    <lela:findUser/>
+
+    <spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+    <spring:url value="/blog" var="blogListUrl" />
+    <spring:url value="/quiz" var="quizUrl" />
+    <spring:message code="grid.results.category.${blog.ctgry.rlnm}" var="userCategoryText" text="${blog.ctgry.rlnm}"/>
+
+    <div id="wrapper">
+
+        <jsp:include page="/WEB-INF/jsp/blog/header.jspx" flush="true"/>
+
+        <!--
+        <spring:url value="/blog" var="blogUrl"/>
+        <p id="b-btn"><a href="${blogUrl}">Back</a></p>
+        -->
+
+        <div id="blog">
+
+            <div id="blog-header">
+                <p><lela:dateFormat date="${blog.ldt}" zone="false"/></p>
+                <h1 title="${blog.nm} : Lela Fave Four Blog">${blog.nm}</h1>
+                <h2>${blog.hdr}</h2>
+            </div>
+
+            <div id="content-wrap">
+                <div class="content">
+                    ${blog.cntn}
+                </div>
+            </div>
+
+            <spring:message code="nav.cat.${blog.ctgry.rlnm}.full" var="categoryName" />
+            <lela:lelaQuizBar format="blog" category="${categoryName}" />
+
+            <div class="blog-items">
+                <c:set var="keywords" value=""/>
+                <c:forEach items="${blog.itemsDetails}" varStatus="status" var="itemDetails">
+
+                    <!-- Set item object based on relevancy -->
+                    <c:if test="${itemDetails.rlvnttm != null}">
+                        <c:set var="item" value="${itemDetails.rlvnttm}"/>
+                    </c:if>
+
+                    <c:if test="${itemDetails.tm != null}">
+                        <c:set var="item" value="${itemDetails.tm}"/>
+                    </c:if>
+
+                    <spring:url value="/${item.srlnm}/p?rlnm=${item.rlnm}" var="itemDetailUrl"/>
+
+                    <div class="blog-item ${status.count % 2 == 1 ? 'first-row' : 'last-row'}">
+
+                        <spring:url var="loaderImageUrl" value="/static/images/blog/loader${status.count}.gif"/>
+                        <img src="${loaderImageUrl}" alt="Lela" class="loader"  />
+
+                        <div class="item-img">
+                            <a href="${itemDetailUrl}"><img src="${item.imgs[0].sz['large']}" alt="${item.nm} - ${item.subAttributes['Brand']}" class="pr-img"/></a>
+                        </div>
+                        <div class="item-info">
+                            <div class="item-data">
+                                <h3>
+                                    <spring:message code="blog.summary" />
+                                    <spring:url var="itemDetailsUrl" value="/${item.srlnm}/p?rlnm=${item.rlnm}"/>
+                                    <a href="${itemDetailsUrl}" title="${item.nm}"><spring:message code="blog.more" /></a>
+                                </h3>
+
+                                <p>
+                                    <c:choose>
+                                        <c:when test="${item.subAttributes['LowestPrice'] gt 0}">
+                                            <spring:message code="blog.bestprice" htmlEscape="false"/>${nbsp}<a href="${itemDetailsUrl}">${item.subAttributes['StoreCount']} store${item.subAttributes['StoreCount'] gt 1 ? 's' : '' }</a>:<br/>
+                                            <strong class="p-sum"><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['LowestPrice']}" /></strong>
+
+                                            <spring:url value="/merchant/redirect" var="redirectPurchaseUrl">
+                                                <spring:param name="merchantId" value="${item.subAttributes['MerchantId']}" />
+                                                <spring:param name="itemId" value="${item.rlnm}" />
+                                            </spring:url>
+
+                                            <br/><spring:message code="blog.from" htmlEscape="false" />${nbsp}<a href="${redirectPurchaseUrl}" class="buy-now" data-type="rollover" store="${item.subAttributes['MerchantName']}" target="_blank" rel="nofollow">${item.subAttributes['MerchantName']}</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <spring:message code="item.details.listPrice"/><br/>
+                                            <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></strong>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </p>
+
+                                <c:forEach var="attr" items="${itemDetails.sctns[0].grps[0].attrs}">
+                                    <c:if test="${!empty attr.vl}">
+                                        <p><strong><spring:message code="attribute.attr.${attr.ky}"/>:</strong> <br/>${attr.vl}</p>
+                                    </c:if>
+                                </c:forEach>
+                            </div>
+                        </div>
+                        <div class="item-rel">
+                                <c:choose>
+                                    <c:when test="${item.class.name eq 'com.lela.domain.document.RelevantItem' or item.class.name eq 'com.lela.domain.document.SavedItem' and item.ttlrlvncynmbr > 0}">
+                                        <a href="#" onclick="return false;" class="rel-num tip">${item.ttlrlvncynmbr}</a>
+
+                                        <div class="tooltip">
+                                            <spring:message code="grid.results.category.${item.ctgry.rlnm}" var="itemCategoryText" text="${item.ctgry.rlnm}"/>
+                                            <strong><spring:message code="blog.compatibility.title1" htmlEscape="false" /></strong>
+                                            <spring:message code="grid.results.category.${item.ctgry.rlnm}" var="catText" />
+                                            <spring:message code="blog.compatibility.text1" arguments="${catText}" htmlEscape="false" />
+                                        </div>
+
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="${quizUrl}" class="rel-num tip" quiz-location="Quiz-Blog" rel="nofollow">?</a>
+                                         <div class="tooltip">
+                                            <strong><spring:message code="blog.compatibility.title2" htmlEscape="false" /></strong>
+                                             <spring:message code="grid.results.category.${item.ctgry.rlnm}" var="catText" />
+                                             <spring:message code="blog.compatibility.text2" arguments="${catText}" htmlEscape="false" />
+
+                                             <c:choose>
+                                                 <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                                                     <a href="${quizUrl}" quiz-location="Quiz-Blog" rel="nofollow"><spring:message code="blog.quiz.launch" /></a>
+                                                 </c:when>
+                                                 <c:when test="${loggedInUser != 'anonymousUser' and us.profileStatus == 'PARTIAL'}">
+                                                     <a href="${quizUrl}" quiz-location="Quiz-Blog" rel="nofollow"><spring:message code="blog.quiz.complete" /></a>
+                                                 </c:when>
+                                             </c:choose>
+
+                                         </div>
+                                    </c:otherwise>
+                                </c:choose>
+
+                            <c:choose>
+                                <c:when test="${fn:startsWith(item.nm, item.subAttributes['Brand']) eq true}">
+                                    <c:set var="formattedItemName" value="${item.nm}" />
+                                </c:when>
+                                <c:otherwise>
+                                    <c:set var="formattedItemName">${item.subAttributes['Brand']} ${item.nm}</c:set>
+                                </c:otherwise>
+                            </c:choose>
+
+                            <h2>
+                                <a href="${itemDetailUrl}"><strong><lela:truncate maxLength="30" text="${formattedItemName}"/></strong>
+                                <span><spring:message code="item.details.by" />${nbsp}${item.subAttributes['Brand']}</span></a>
+                            </h2>
+                        </div>
+                    </div>
+
+                    <c:set var="keywords" value="${item.subAttributes['Brand']} OR ${item.nm} OR ${keywords}"/>
+                </c:forEach>
+            </div>
+
+            <div class="see-a">
+                <spring:url var="categoryUrl" value="/${blog.ctgry.srlnm}/c?rlnm=${blog.ctgry.rlnm}"/>
+                <a href="${categoryUrl}"><spring:message code="blog.seeall" htmlEscape="false" />${nbsp}<spring:message code="nav.cat.${blog.ctgry.rlnm}"/></a>
+
+                <!-- Social Media Widgets -->
+                <span class="st_twitter_custom a-tw"><!-- --></span>
+                <span class="st_facebook_custom a-fb"><!-- --></span>
+                <span class="st_plusone_button"><!-- --></span>
+                <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"><!-- --></script>
+                <script type="text/javascript">stLight.options({publisher:'f780c832-2c8e-4a0e-8494-6cf43f8b1ef8'}); </script>
+            </div>
+        </div>
+
+        <div id="sidebar">
+
+            <div class="side-s" style="margin:0;"><!-- --></div>
+
+            <div class="prev-posts">
+                <h3>
+                    <spring:message code="blog.posts.previous" /> (<strong>${blogs.totalElements}</strong>)
+                    <span><a href="${blogListUrl}" class="selected" sort="D" rel="nofollow"><spring:message code="blog.posts.bydate" /></a>  |  <a href="${blogListUrl}" sort="C" rel="nofollow"><spring:message code="blog.posts.bycategory" /></a></span>
+                </h3>
+
+                <div id="prev-list">
+                    <tiles:insertTemplate template="/WEB-INF/jsp/blog/previous.jspx" flush="true">
+                        <tiles:putAttribute name="blogs" value="${blogs}" />
+                    </tiles:insertTemplate>
+                </div>
+            </div>
+
+            <div class="side-s"><!-- --></div>
+
+            <c:set var="commentHref">http://www.lela.com<lela:referralUrl format="current" /></c:set>
+            <spring:url value="/rssfeed/blog" var="rssUrl" />
+
+            <div class="side-share">
+                <div class="fb-like" data-href="${commentHref}" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"><!-- --></div>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+                <script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+                <spring:url var="emailSubUrl" value="" />
+
+                <!-- <div class="sub-email"><a href="${emailSubUrl}"><spring:message code="blog.subscribe.email" htmlEscape="false" /></a></div>-->
+                <div class="sub-rss"><a href="${rssUrl}"><spring:message code="blog.subscribe.rss" htmlEscape="false" /></a></div>
+            </div>
+
+            <h3 class="comment-hdr"><spring:message code="blog.comment" /></h3>
+            <div class="fb-comments" data-href="${commentHref}" data-num-posts="2" data-width="350"><!-- --></div>
+
+            <div id="fb-root"><!-- --></div>
+            <script type="text/javascript">(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&amp;appId=208195102528120";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+        </div>
+    </div>
+
+    <jsp:include page="/WEB-INF/jsp/blog/footer.jspx" flush="true"/>
+</jsp:root>

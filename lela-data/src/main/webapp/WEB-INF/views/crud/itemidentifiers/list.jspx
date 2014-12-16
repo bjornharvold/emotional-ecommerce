@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ItemIdentifier" items="${itemidentifiers}" z="8ZIdxW5pcNo4170aa3rZfjKiPTk=">
+        <table:table data="${itemidentifiers}" id="l_com_lela_data_domain_entity_ItemIdentifier" path="/crud/itemidentifiers" z="aq6xzabuGb2nW4gqQoQQOsf19LY=">
+            <table:column date="true" dateTimePattern="${itemIdentifier_datecreated_date_format}" id="c_com_lela_data_domain_entity_ItemIdentifier_dateCreated" property="dateCreated" z="bniM9WyX8UNc7J+EferYfT6zrz4="/>
+            <table:column date="true" dateTimePattern="${itemIdentifier_datemodified_date_format}" id="c_com_lela_data_domain_entity_ItemIdentifier_dateModified" property="dateModified" z="ypO96Zr/LgdNhpbLumyIvLDCLtA="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemIdentifier_item" property="item" z="+ZPo2Bkp/nhRTEssiqnvWc5Q07Q="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemIdentifier_identifierType" property="identifierType" z="2DvqtCgpt5FqvqtTbfqHHljfzOs="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemIdentifier_identifierValue" property="identifierValue" z="HjhRMEKyEIm5Kb5xAs593MGsJnA="/>
+        </table:table>
+    </page:list>
+</div>

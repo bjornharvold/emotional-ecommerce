@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="public" name="manage/items/images">
+        <put-attribute name="body" value="/WEB-INF/views/manage/items/images.jspx"/>
+    </definition>
+    <definition extends="public" name="manage/items/index">
+        <put-attribute name="body" value="/WEB-INF/views/manage/items/index.jspx"/>
+    </definition>
+    <definition extends="public" name="manage/items/attributes">
+        <put-attribute name="body" value="/WEB-INF/views/manage/items/attributes.jspx"/>
+    </definition>
+    <definition extends="public" name="manage/items/attributes/edit">
+        <put-attribute name="body" value="/WEB-INF/views/manage/items/editattributes.jspx"/>
+    </definition>
+    <definition extends="ajax" name="manage/items/image">
+        <put-attribute name="body" value="/WEB-INF/views/manage/items/image.jspx"/>
+    </definition>
+    <definition extends="public" name="manage/items/history">
+        <put-attribute name="body" value="/WEB-INF/views/manage/items/history.jspx"/>
+    </definition>
+</tiles-definitions>

@@ -1,0 +1,47 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<!--                 -->
+			<!-- Map Attributes  -->
+			<!--                 -->
+			<!--brdvd-->
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='brdvd' type='integer' subtype=''></setattribute>
+			<setattribute tag='BrDvdID' RAttribute='BrDvdID' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='EnvironmentalStandards_ENERGYSTARQualified' RAttribute='EnvironmentalStandards_ENERGYSTARQualified' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='Has3Dglasses' RAttribute='Has3Dglasses' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='ListPrice' RAttribute='ListPrice' enclosure='brdvd' type='double' subtype=''></setattribute>
+			<setattribute tag='Miscellaneous_IncludedAccessories' RAttribute='Miscellaneous_IncludedAccessories' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='motivatorTotal' RAttribute='motivatorTotal' enclosure='brdvd' type='integer' subtype=''></setattribute>
+			<setattribute tag='motivatorTotalDecimal' RAttribute='motivatorTotalDecimal' enclosure='brdvd' type='double' subtype=''></setattribute>
+			<setattribute tag='wireless' RAttribute='wireless' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<!--constants-->
+			<!--job-->
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer' subtype=''></setattribute>
+			<setattribute tag='BrDvdID' RAttribute='BrDvdID' enclosure='job' type='string' subtype=''></setattribute>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date' subtype=''></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string' subtype=''></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer' subtype=''></setattribute>
+			<!--                 -->
+			<!-- Create Entities -->
+			<!--                 -->
+			<createentity entity='brdvd' tag='brdvd' id='id'></createentity>
+			<createentity entity='constants' tag='constants' id='id'></createentity>
+			<createentity entity='job' tag='job' id='id'></createentity>
+		</map>
+		<!--                 -->
+		<!-- Entity List     -->
+		<!--                 -->
+		<entities>
+			<entity name='brdvd' number='*'></entity>
+			<entity name='constants' number='1'></entity>
+			<entity name='job' number='1'></entity>
+		</entities>
+		<!--                 -->
+		<!-- Initialization  -->
+		<!--                 -->
+		<initialization>
+			<initialentity entity='job' epush='true'></initialentity>
+			<initialentity entity='constants' epush='true'></initialentity>
+		</initialization>
+	</XMLtoEDD>
+</mapping>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ImageSource" object="${imagesource}" path="/crud/imagesources" z="xvhuUQ7D8q454wS6NucgRwBUYhM=">
+        <field:display date="true" dateTimePattern="${imageSource_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ImageSource_dateCreated" object="${imagesource}" z="YfBj7EZArU17TOurEl9lSYtQGdA="/>
+        <field:display date="true" dateTimePattern="${imageSource_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ImageSource_dateModified" object="${imagesource}" z="T+/TFHkQWXXCz4eXk3SBPSc0zkk="/>
+        <field:display field="imageSourceType" id="s_com_lela_data_domain_entity_ImageSource_imageSourceType" object="${imagesource}" z="I24geWc3luR0iK14ZUo+iYADGJc="/>
+        <field:display field="sourceName" id="s_com_lela_data_domain_entity_ImageSource_sourceName" object="${imagesource}" z="DFlkcKdahA6r5OOHiGE0vsgjvl4="/>
+    </page:show>
+</div>

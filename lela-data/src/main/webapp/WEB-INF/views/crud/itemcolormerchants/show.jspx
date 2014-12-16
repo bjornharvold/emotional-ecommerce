@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ItemColorMerchant" object="${itemcolormerchant}" path="/crud/itemcolormerchants" z="D9aj1wajcrgDVQ45EzzZpe7gOpI=">
+        <field:display date="true" dateTimePattern="${itemColorMerchant_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ItemColorMerchant_dateCreated" object="${itemcolormerchant}" z="GJUHzXhTZFe31pbnSrhV0ojZSoY="/>
+        <field:display date="true" dateTimePattern="${itemColorMerchant_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ItemColorMerchant_dateModified" object="${itemcolormerchant}" z="qELTDc1KAqV3opJl9CBtpeFp+j0="/>
+        <field:display field="merchant" id="s_com_lela_data_domain_entity_ItemColorMerchant_merchant" object="${itemcolormerchant}" z="/3dUlvyV8TWVcpq822onugjCi7g="/>
+        <field:display field="available" id="s_com_lela_data_domain_entity_ItemColorMerchant_available" object="${itemcolormerchant}" z="N4xbo2lR7uk08J3VR1upQa7Xlxs="/>
+        <field:display field="itemColor" id="s_com_lela_data_domain_entity_ItemColorMerchant_itemColor" object="${itemcolormerchant}" z="hTFQvuhmTqW8kp1Vg3oQXtRaJHk="/>
+    </page:show>
+</div>

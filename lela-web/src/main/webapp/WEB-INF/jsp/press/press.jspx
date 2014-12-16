@@ -1,0 +1,208 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+<jsp:output omit-xml-declaration="yes"/>
+
+    <spring:url value="/sc/about#aboutlela" var="aboutUrl" />
+    <spring:url value="/sc/about#whysignup" var="whysignupUrl" />
+    <spring:url value="/press" var="pressUrl" />
+    <spring:url value="/sc/about#team" var="teamUrl" />
+    <spring:url value="/sc/about#directors" var="directorsUrl" />
+    <spring:url value="/sc/about#advisors" var="advisorsUrl" />
+
+    <div class="about-lela-top">
+        <ul>
+            <li><a href="${aboutUrl}" id="btn-about">About Lela</a></li>
+            <li><a href="${whysignupUrl}" id="btn-whysignup">Why Sign Up</a></li>
+            <li><a class="selected" href="${pressUrl}" id="btn-press">Press &amp; Buzz</a></li>
+            <li><a href="${teamUrl}" id="btn-team">The Team</a></li>
+            <li><a href="${directorsUrl}" id="btn-directors">Our Directors</a></li>
+            <li><a href="${advisorsUrl}" id="btn-advisors">Our Advisors</a></li>
+        </ul>
+    </div>
+
+    <div class="lela-page-container page-buzz">
+
+        <div class="lela-page-header">
+            <h2>Press &amp; Buzz</h2>
+            <h3>What Popular Blogs are Saying About Us</h3>
+
+            <div id="press-marquee" class="image-switcher">
+                <c:if test="${empty press.mgs}">
+                    <spring:message code="press.testimonials.empty"/>
+                </c:if>
+                <c:if test="${not empty press.mgs}">
+
+                    <div id="back-button" class=""><!-- --></div>
+                    <div id="next-button" class=""><!-- --></div>
+
+                    <c:forEach items="${press.mgs}" var="img" varStatus="index">
+                        <div class="carousel-row" row-num="${index.index}" style="${index.index == 0 ? '' : 'display: none;'}">
+                            <img src="${img.mgrl}" />
+                            <div class="quote">
+                                <div class="quote-container">
+                                    <p class="heading">${img.hdr}</p>
+                                    <p>${img.txt}
+                                        <span class="author">- ${img.pblshr}</span>
+                                    </p>
+                                </div>
+                                <a href="${img.rl}" target="_blank">Read full article ></a>
+
+                            </div>
+                        </div>
+                    </c:forEach>
+                </c:if>
+            </div>
+
+            <c:if test="${not empty press.mgs}">
+                <div id="press-marquee-c">
+                <c:forEach items="${press.mgs}" var="img" varStatus="index">
+                        <div class="carousel-control ${index.index == 0 ? 'selected' : ''}" row-num="${index.index}"><!-- --></div>
+                </c:forEach>
+                </div>
+            </c:if>
+
+        </div>
+
+        <div class="lela-page-content">
+
+            <h3>What People are Saying About Lela</h3>
+
+            <div class="container-50 container-quotes">
+
+                <div class="container-left container-border">
+
+                    <c:if test="${empty press.tstmnls}">
+                        <spring:message code="press.testimonials.empty"/>
+                    </c:if>
+                    <c:if test="${not empty press.tstmnls}">
+                        <c:forEach items="${press.tstmnls}" var="testimonial" varStatus="index" begin="0" end="2">
+                            <div class="icon icon-${testimonial.tp}"><!-- --></div>
+                            <div class="quote">
+                                <p>${testimonial.txt}</p>
+                                <p class="author">${testimonial.pstdb}</p>
+                            </div>
+                        </c:forEach>
+                    </c:if>
+
+                    <div class="clear"><!-- --></div>
+
+                </div>
+                <div class="container-right">
+
+                    <c:if test="${empty press.tstmnls}">
+                        <spring:message code="press.testimonials.empty"/>
+                    </c:if>
+                    <c:if test="${not empty press.tstmnls}">
+                        <c:forEach items="${press.tstmnls}" var="testimonial" varStatus="index" begin="3" end="5">
+                            <div class="icon icon-${testimonial.tp}"><!-- --></div>
+                            <div class="quote">
+                                <p>${testimonial.txt}</p>
+                                <p class="author">${testimonial.pstdb}</p>
+                            </div>
+                        </c:forEach>
+                    </c:if>
+
+                    <div class="clear"><!-- --></div>
+
+                </div>
+
+                <div class="clear"><!-- --></div>
+
+            </div>
+            <div class="container-50">
+
+                <div class="container-left container-tweets">
+                    <a href="http://www.twitter.com/lelaknows" class="container-link" target="_blank">Follow Us ></a>
+                    <h3>Lela Tweets</h3>
+
+                    <c:if test="${empty press.twts}">
+                        <spring:message code="press.testimonials.empty"/>
+                    </c:if>
+                    <c:if test="${not empty press.twts}">
+                        <c:forEach items="${press.twts}" var="tweet" varStatus="index">
+                            <div class="quote-container">
+                                <div class="icon"><img src="${tweet.mgrl}" width="50" height="50" /></div>
+                                <div class="quote">
+                                    <p class="author">${tweet.nm} <span><a href="${tweet.rl}">@${tweet.hndl}</a></span></p>
+                                    <p>${tweet.txt}</p>
+                                    <span class="date"><lela:dateFormat date="${tweet.dt}" zone="false"/></span>
+                                </div>
+                                <div class="clear"><!-- --></div>
+                            </div>
+                        </c:forEach>
+                    </c:if>
+
+                    <a href="https://twitter.com/lelaknows" class="twitter-follow-button" data-show-count="false">Follow @lelaknows</a>
+                    <script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+                    <div class="clear"><!-- --></div>
+
+                </div>
+                <div class="container-right container-blog">
+
+                    <spring:url value="/blog" var="blogUrl" />
+                    <a href="${blogUrl}" class="container-link">Visit Lela Blog ></a>
+                    <h3>Lela Blog</h3>
+
+                    <c:if test="${not empty blogs}">
+                        <c:forEach items="${blogs.content}" var="blgs">
+                            <c:forEach items="${blgs.blgs}" var="blog" begin="0" end="2" varStatus="i">
+                                <c:if test="${blog.stts eq 'PUBLISHED'}">
+                                    <div class="quote-container">
+                                        <spring:url var="blogUrl" value="/blog/${blog.rlnm}" />
+                                        <div class="icon"><a href="${blogUrl}"><img alt="blog-img" src="${blog.mgrl}" width="128" /></a></div>
+                                        <div class="quote">
+                                            <span class="date"><lela:dateFormat date="${blog.ldt}" zone="false"/></span>
+                                            <a href="${blogUrl}">${blog.nm}</a>
+                                            <p>${blog.hdr}</p>
+                                        </div>
+                                    </div>
+                                </c:if>
+                            </c:forEach>
+                        </c:forEach>
+                    </c:if>
+
+                    <div class="clear"><!-- --></div>
+
+                </div>
+
+                <div class="clear"><!-- --></div>
+
+            </div>
+
+        </div>
+
+        <div class="lela-page-content lela-buzz">
+
+            <h3>Buzz Us</h3>
+
+            <div class="container-50">
+                <div class="container-left container-buzz">
+                    <p>If you're a heavy Lela.com user and would like to be featured here, get in touch with us at <a href="mailto:feedback@lela.com">feedback@lela.com</a> with your comments.</p>
+                </div>
+                <div class="or">or</div>
+                <div class="container-right container-thoughts">
+                    <span>Share your thoughts @</span> <a href="http://www.facebook.com/lelaknows" class="fb-icon" target="_blank">Facebook</a> <a href="http://www.twitter.com/lelaknows" class="tw-icon" target="_blank">Twitter</a>
+                </div>
+                <div class="clear"><!-- --></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

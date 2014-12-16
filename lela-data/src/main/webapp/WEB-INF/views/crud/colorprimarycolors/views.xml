@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="crud/colorprimarycolors/list">
+        <put-attribute name="body" value="/WEB-INF/views/crud/colorprimarycolors/list.jspx"/>
+    </definition>
+<definition extends="default" name="crud/colorprimarycolors/show">
+        <put-attribute name="body" value="/WEB-INF/views/crud/colorprimarycolors/show.jspx"/>
+    </definition>
+<definition extends="default" name="crud/colorprimarycolors/create">
+        <put-attribute name="body" value="/WEB-INF/views/crud/colorprimarycolors/create.jspx"/>
+    </definition>
+<definition extends="default" name="crud/colorprimarycolors/update">
+        <put-attribute name="body" value="/WEB-INF/views/crud/colorprimarycolors/update.jspx"/>
+    </definition>
+</tiles-definitions>

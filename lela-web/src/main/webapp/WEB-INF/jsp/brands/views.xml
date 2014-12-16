@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="owners.index" extends="template.page.master">
+
+        <put-attribute type="string" name="title" value="brands.on.lela.title" />
+
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/common/list.css" />
+            <add-attribute type="string" value="/static/styles/stores/stores.css" />
+        </put-list-attribute>
+
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.form.js" />
+            <add-attribute type="string" value="/static/js/plugins/raty/jquery.raty.js" />
+            <add-attribute type="string" value="/static/js/common/list.js" />
+            <add-attribute type="string" value="/static/js/stores/stores.js" />
+        </put-list-attribute>
+
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/common/facebook_api.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/brands/brands.jspx" />
+        </put-list-attribute>
+
+    </definition>
+
+</tiles-definitions>

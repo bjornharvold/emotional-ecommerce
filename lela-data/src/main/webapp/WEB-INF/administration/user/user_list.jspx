@@ -1,0 +1,96 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <c:set var="dateFormat" value="MM/dd/yyyy HH:mm.ss"/>
+
+    <h1><spring:message code="page.users.title"/></h1>
+
+    <spring:url value="/administration/user/list" var="searchUrl"/>
+    <spring:url value="/administration/user/list" var="userListUrl"/>
+
+    <a id="userListUrl" href="${userListUrl}"> &#160;</a><spring:message code="show.per.page"/>
+    <select id="pageSizeSelect" onChange='javascript:clickLink();'>
+       <option value="10">10</option>
+       <option value="50">50</option>
+       <option value="100">100</option>
+       <option value="500">500</option>
+       <option value="ALL">All</option>
+    </select>    
+     per page <spring:message code="or.search.by"/>:
+
+    <spring-form:form commandName="userSearchQuery" modelAttribute="userSearchQuery" action="${searchUrl}" method="POST">
+        <spring:message code="user.name.first"/>: <spring-form:input path="fnm" title="First name"/>,
+        <spring:message code="user.name.last"/>: <spring-form:input path="lnm" title="Last name"/>,
+        <spring:message code="user.account.network.email"/>: <spring-form:input path="ml" title="E-mail"/><br/>
+        <spring:message code="from.date"/>: <spring-form:input path="cdt" title="Created date"/> (yyyymmdd),
+        <spring:message code="to.date"/>: <spring-form:input path="ldt" title="Last update"/> (yyyymmdd)
+        <input type="submit" name="submit" value="Search"/>
+    </spring-form:form>
+
+    <c:if test="${users == null}">
+        <spring:message code="users.empty"/>
+    </c:if>
+    <c:if test="${users != null}">
+        <h4><spring:message code="total.registered.users"/>: ${userCount}, <spring:message code="facebook.registered.users"/>: ${fbUserCount}</h4>
+        <table width="100%"  id="datatable" class="tablesorter">
+            <thead>
+                <tr>
+                    <th width="10%"><spring:message code="user.login.date"/></th>
+                    <th width="10%"><spring:message code="user.created.date"/></th>
+                    <th width="10%"><spring:message code="user.name.first"/></th>
+                    <th width="10%"><spring:message code="user.name.last"/></th>
+                    <th width="20%"><spring:message code="user.email"/></th>
+                    <th width="5%">&#160;</th>
+                </tr>
+            </thead>
+
+            <c:forEach items="${users.content}" var="uuse">
+                <tr>
+                    <td><fmt:formatDate value="${uuse.user.lgndt}" pattern="${dateFormat}"/></td>
+                    <td><fmt:formatDate value="${uuse.user.cdt}" pattern="${dateFormat}"/></td>
+                    <td>${uuse.userSupplement.fnm}</td>
+                    <td>${uuse.userSupplement.lnm}</td>
+                    <td>${uuse.userSupplement.ml}</td>
+                    <td>
+                        <spring:url var="userUrl" value="/administration/user/${uuse.user.id}"/>
+                        <a href="${userUrl}"><spring:message code="link.view"/></a>
+                    </td>
+                </tr>
+            </c:forEach>
+
+        </table>
+	        <lela:lelaPagination url="/administration/user/list" totalElements="${users.totalElements}" totalPages="${users.totalPages}" pageNumber="${users.number}" pageSize="${users.size}"/>
+    </c:if>
+    <script type="text/javascript">
+        if($('#datatable').length > 0) {
+            $('#datatable').tablesorter({
+                widgets: ['zebra'],
+                sortList: [[0,0]]
+            });
+        }
+        
+		function clickLink(){
+            	$('#userListUrl').attr("href", $('#userListUrl').attr('href') + "?size=" +  $('#pageSizeSelect').val());
+        		$('#userListUrl')[0].click();
+        }
+        
+        $(document).ready(function() {
+			$('#pageSizeSelect').val("${pageSize}").attr('selected', 'selected');
+ 		});
+    </script>
+</div>

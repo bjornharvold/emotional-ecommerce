@@ -1,0 +1,44 @@
+	<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='HighChair_ID' RAttribute='HighChair_ID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='Brand_ID' RAttribute='Brand_ID' enclosure='job' type='integer'></setattribute>
+			
+			<setattribute tag='HighChair_ID' RAttribute='HighChair_ID' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='Brand_ID' RAttribute='Brand_ID' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='JPMACertified' RAttribute='JPMACertified' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='ASTM' RAttribute='ASTM' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='TUV' RAttribute='TUV' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='EN' RAttribute='EN' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='CPSIACertified' RAttribute='CPSIACertified' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='CRTested' RAttribute='CRTested' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='CRSafety' RAttribute='CRSafety' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='Harness' RAttribute='Harness' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='GrabRail' RAttribute='GrabRail' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='CrotchPost' RAttribute='CrotchPost' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='LockingMechanism' RAttribute='LockingMechanism' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='RecallEvent' RAttribute='RecallEvent' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='RecallDate' RAttribute='RecallDate' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='RecallSeverity' RAttribute='RecallSeverity' enclosure='highchair' type='string'></setattribute>
+			<setattribute tag='RecallDaysAgo' RAttribute='RecallDaysAgo' enclosure='highchair' type='integer'></setattribute>			
+	
+			<createentity entity='job' 	tag='job'	id='id'></createentity>
+			<createentity entity='highchair' 	tag='highchair' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+			<entity name='highchair' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

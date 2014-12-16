@@ -1,0 +1,44 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="page.owners.title"/></h1>
+
+    <spring:url var="ownerSearchUrl" value="/administration/owner/list"/>
+    <spring-form:form method="POST" action="${ownerSearchUrl}" modelAttribute="ownerQuery" enctype="multipart/form-data">
+        <div>
+            <b>Step 1</b>Upload Excel Spreadsheet: <spring-form:input path="excelFile" type="file" id="excelFile" name="excelFile" value="Browse" size="30"/>
+            &#160;
+            <spring:url var="sampleSpreadsheet" value="/static/sample/brand_sample.xls"/>
+            <a href="${sampleSpreadsheet}">Sample Spreadsheet</a>
+        </div>
+        <div>
+            <b>Step 2</b>Brand name: <spring-form:input path="nm" />
+        </div>
+        <div id="step3">
+            <b>Step 3</b>User motivators to match against<br/>
+            <!-- First Name: <spring-form:input path="firstName" size="15"/> Last Name: <spring-form:input path="lastName" size="15"/><br/> -->
+            A: <spring-form:input path="a" size="1"/>, B:<spring-form:input path="b" size="1"/>,
+            C: <spring-form:input path="c" size="1"/>, D: <spring-form:input path="d" size="1"/>,
+            E: <spring-form:input path="e" size="1"/>, F: <spring-form:input path="f" size="1"/>,
+            G: <spring-form:input path="g" size="1"/>
+        </div>
+        <input type="submit" name="Search" value="Search"/>
+        <input type="reset" name="Reset" value="Reset"/>
+        <input type="button" id="clear" name="clear" value="Clear Form" onclick="clearForm(this.form);"/>
+    </spring-form:form>
+
+</div>

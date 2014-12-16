@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_AccessoryValueGroup" items="${accessoryvaluegroups}" z="K3sxGlzx5VZgIoUl5FgAFyvdhSw=">
+        <table:table data="${accessoryvaluegroups}" id="l_com_lela_data_domain_entity_AccessoryValueGroup" path="/crud/accessoryvaluegroups" z="zND0bLZyH7QqEG6SaASCzs56KWk=">
+            <table:column date="true" dateTimePattern="${accessoryValueGroup_datecreated_date_format}" id="c_com_lela_data_domain_entity_AccessoryValueGroup_dateCreated" property="dateCreated" z="8SIUl9huYAeXAM3gplmdKhsu0ZM="/>
+            <table:column date="true" dateTimePattern="${accessoryValueGroup_datemodified_date_format}" id="c_com_lela_data_domain_entity_AccessoryValueGroup_dateModified" property="dateModified" z="AAQ7ITdyz/piI+hkp+00+w11LdY="/>
+            <table:column id="c_com_lela_data_domain_entity_AccessoryValueGroup_accessoryGroup" property="accessoryGroup" z="I4vDf7WM2jSiQ95DPLG89sssZD0="/>
+            <table:column id="c_com_lela_data_domain_entity_AccessoryValueGroup_attributeType" property="attributeType" z="5pNX+iFaafyv0Azne+oOjSRBGcw="/>
+            <table:column id="c_com_lela_data_domain_entity_AccessoryValueGroup_category" property="category" z="9vjC2J9L7kigjfBi6KQ12DEpIKk="/>
+            <table:column id="c_com_lela_data_domain_entity_AccessoryValueGroup_attributeValue" property="attributeValue" z="qOcTz+gcA3zIYYdp8sev/qPi7yc="/>
+        </table:table>
+    </page:list>
+</div>

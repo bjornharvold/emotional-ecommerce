@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_Series" items="${seriesitems}" z="Q18igQiSGBekX1rxtR1OrVXeNWw=">
+        <table:table data="${seriesitems}" id="l_com_lela_data_domain_entity_Series" path="/crud/series" z="YVENKWFTVGfArOU7zKF/mQ8Z/HY=">
+            <table:column date="true" dateTimePattern="${series_datecreated_date_format}" id="c_com_lela_data_domain_entity_Series_dateCreated" property="dateCreated" z="Smr/b3eQdxNPBb8dWHt/Ofn/vYY="/>
+            <table:column date="true" dateTimePattern="${series_datemodified_date_format}" id="c_com_lela_data_domain_entity_Series_dateModified" property="dateModified" z="q6MFvuSdTFKOeFSCQ5YzM3G7Hvs="/>
+            <table:column id="c_com_lela_data_domain_entity_Series_seriesType" property="seriesType" z="YnlSqQuV1nepxIAlBBOUcUxsgjs="/>
+            <table:column id="c_com_lela_data_domain_entity_Series_seriesName" property="seriesName" z="9f22eSWP+m4RIi30DpBZxltvaWw="/>
+            <table:column id="c_com_lela_data_domain_entity_Series_seriesDisplayName" property="seriesDisplayName" z="zG4bMNFPr9bC0Bx/uQLG6NcBQLo="/>
+            <table:column id="c_com_lela_data_domain_entity_Series_useThisSeries" property="useThisSeries" z="0+LZ7WC9YhjeaN0A5swevogn98o="/>
+        </table:table>
+    </page:list>
+</div>

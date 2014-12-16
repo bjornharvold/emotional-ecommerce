@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ProductDetailSection" object="${productdetailsection}" path="/crud/productdetailsections" z="o0a6eEjnYujyVF1Ctc7wn+LuIAw=">
+        <field:display date="true" dateTimePattern="${productDetailSection_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ProductDetailSection_dateCreated" object="${productdetailsection}" z="sswZ7TA/Rg43gC+1G+D+qQguh7g="/>
+        <field:display date="true" dateTimePattern="${productDetailSection_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ProductDetailSection_dateModified" object="${productdetailsection}" z="USWl86xGLmrv1xGWPvzJqahtnZA="/>
+        <field:display field="productDetailGroups" id="s_com_lela_data_domain_entity_ProductDetailSection_productDetailGroups" object="${productdetailsection}" z="e4sb/YKKEHxKHmam+eo4uzgwbWo="/>
+        <field:display field="category" id="s_com_lela_data_domain_entity_ProductDetailSection_category" object="${productdetailsection}" z="HVStVZYjxQKtjDwZj3dH0YwlPFM="/>
+        <field:display field="sectionName" id="s_com_lela_data_domain_entity_ProductDetailSection_sectionName" object="${productdetailsection}" z="7xgsa55jc/ZZl8bYdNBKcD8aqXY="/>
+        <field:display field="sectionOrder" id="s_com_lela_data_domain_entity_ProductDetailSection_sectionOrder" object="${productdetailsection}" z="S7pKP5n5XcY/2rmYUQVqtbKEAEk="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_ProductDetailSection_dirty" object="${productdetailsection}" z="ePl3PRlNAXGnncCtOzPkngZahug="/>
+        <field:display field="objectId" id="s_com_lela_data_domain_entity_ProductDetailSection_objectId" object="${productdetailsection}" z="jsu7+s0aWyLAA/UcJgjV96PSkYE="/>
+        <field:display field="productDetailSectionLabel" id="s_com_lela_data_domain_entity_ProductDetailSection_productDetailSectionLabel" object="${productdetailsection}" z="MXcFesrh+vJjc2KhWsTk1XGDyq8="/>
+    </page:show>
+</div>

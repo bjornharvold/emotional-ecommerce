@@ -1,0 +1,9 @@
+<div class="question-row quiz-style" ng-controller="Lela.QuestionController">
+        <span class="question-data">
+            <span class="answer" id="answer-1">{{question.nswrs.0.nm}}</span>
+                <div class="q-selector">
+                    <a ng-repeat="answer in question.nswrs" href="#" ng-click="clicked($event, answer)" ng-class="{'q-selected': answer.isSelected}">{{answer.ky}}</a>
+                </div>
+            <span class="answer" id="answer-2">{{question.nswrs.8.nm}}</span>
+        </span>
+</div>

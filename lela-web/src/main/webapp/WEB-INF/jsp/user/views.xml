@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="user.master" extends="template.page.master">
+        <put-attribute type="string" name="title" value="page.dashboard.user.title"/>
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/user/account_overview.css" />
+            <add-attribute type="string" value="/static/styles/user/list.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/user/account_overview.js" />
+		</put-list-attribute>
+    </definition>
+
+    <definition name="user.dashboard.overview" extends="user.master">
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/account_overview.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="user.deactivate" extends="user.master">
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/account_deactivate.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="user.dashboard.rewards" extends="user.master" >
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/account_rewards.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="user.profile" extends="user.master" >
+        <put-attribute type="string" name="title" value="page.account.personal"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/account_info.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="user.dashboard.personality" extends="user.master" >
+        <put-attribute type="string" name="title" value="page.account.profile"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/account_personality.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="user.dashboard.network" extends="user.master" >
+        <put-attribute type="string" name="title" value="page.account.network"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/account_network.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="user.dashboard.network.date" template="/WEB-INF/jsp/user/account_network_date.jspx" />
+
+    <definition name="user.dashboard.network.invite" extends="user.master" >
+        <put-attribute type="string" name="title" value="page.account.network"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/account_network_invite.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="user.dashboard.notifications" extends="user.master" >
+        <put-attribute type="string" name="title" value="page.account.network"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/account_notifications.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="user.dashboard.coupons" extends="user.master" >
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/account_coupons.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="user.profile.picture" extends="user.master" >
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/profile_image.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+
+</tiles-definitions>

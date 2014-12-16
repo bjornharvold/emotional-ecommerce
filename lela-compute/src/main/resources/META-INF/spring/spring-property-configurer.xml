@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="propertyConfigurer" class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
+        <constructor-arg type="org.jasypt.encryption.StringEncryptor" ref="stringEncryptor"/>
+        <property name="searchSystemEnvironment" value="true"/>
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <!-- a property configurer has lifo rules so an environment specific file needs to be placed at the bottom -->
+        <property name="locations">
+            <list>
+                <value>classpath:application.properties</value>
+
+                <!-- this is reading from a VM property (e.g. -Denvironment=bamboo -->
+                <value>classpath:${environment}.properties</value>
+
+                <!-- this is for tests only ... the file is only included during testing -->
+                <value>classpath:test.properties</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

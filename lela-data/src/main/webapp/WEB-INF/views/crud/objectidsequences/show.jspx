@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ObjectIdSequence" object="${objectidsequence}" path="/crud/objectidsequences" z="mxe0Xe29iL4wq5ht8+n6tNr/YUM=">
+        <field:display date="true" dateTimePattern="${objectIdSequence_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ObjectIdSequence_dateCreated" object="${objectidsequence}" z="YkT+RidTQZEar/efuVG7OaNx5EY="/>
+        <field:display date="true" dateTimePattern="${objectIdSequence_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ObjectIdSequence_dateModified" object="${objectidsequence}" z="X/7XGDl4LlW972/peAhUES59JDI="/>
+        <field:display field="val" id="s_com_lela_data_domain_entity_ObjectIdSequence_val" object="${objectidsequence}" z="8OU/V0W53eOWVWKPecz3UulLcVk="/>
+    </page:show>
+</div>

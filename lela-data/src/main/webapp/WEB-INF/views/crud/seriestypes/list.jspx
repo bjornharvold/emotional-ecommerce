@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_SeriesType" items="${seriestypes}" z="O6vrJeRxcbE9FL0rHi4tSUPvqUY=">
+        <table:table data="${seriestypes}" id="l_com_lela_data_domain_entity_SeriesType" path="/crud/seriestypes" z="FDcT1aDxFixbKl84NLFqBZSmudc=">
+            <table:column date="true" dateTimePattern="${seriesType_datecreated_date_format}" id="c_com_lela_data_domain_entity_SeriesType_dateCreated" property="dateCreated" z="qOUqkg9PE45zOksEyBiCqoH5C+0="/>
+            <table:column date="true" dateTimePattern="${seriesType_datemodified_date_format}" id="c_com_lela_data_domain_entity_SeriesType_dateModified" property="dateModified" z="uRVBaPKbm9Utl6+pCI5TFGvL79c="/>
+            <table:column id="c_com_lela_data_domain_entity_SeriesType_seriesTypeName" property="seriesTypeName" z="AmcKDgJZVmrNKxvjJcWyqt0obcg="/>
+        </table:table>
+    </page:list>
+</div>

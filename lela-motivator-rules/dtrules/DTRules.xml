@@ -1,0 +1,1226 @@
+<DTRules>
+
+    <compileralias name="EL">com.dtrules.compiler.el.EL</compileralias>
+    <compiler>EL</compiler>
+
+    <RuleSet name="StrollerMotivator_A" source="file">
+        <RuleSetFilePath>/xml/Strollers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Strollers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Strollers/A/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Strollers/A/</EDDExcelFolder>
+
+        <Entities name="motivator_A_edd.xml"/>
+        <Decisiontables name="motivator_A_dt.xml"/>
+        <Map name="motivator_A_map.xml"/>
+    </RuleSet>
+    <RuleSet name="StrollerMotivator_B" source="file">
+        <RuleSetFilePath>/xml/Strollers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Strollers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Strollers/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Strollers/B/</EDDExcelFolder>
+
+        <Entities name="motivator_B_edd.xml"/>
+        <Decisiontables name="motivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="StrollerMotivator_C" source="file">
+        <RuleSetFilePath>/xml/Strollers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Strollers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Strollers/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Strollers/C/</EDDExcelFolder>
+
+        <Entities name="motivator_C_edd.xml"/>
+        <Decisiontables name="motivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="StrollerMotivator_D" source="file">
+        <RuleSetFilePath>/xml/Strollers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Strollers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Strollers/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Strollers/D/</EDDExcelFolder>
+
+        <Entities name="motivator_D_edd.xml"/>
+        <Decisiontables name="motivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+    <RuleSet name="StrollerMotivator_E" source="file">
+        <RuleSetFilePath>/xml/Strollers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Strollers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Strollers/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Strollers/E/</EDDExcelFolder>
+
+        <Entities name="motivator_E_edd.xml"/>
+        <Decisiontables name="motivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="StrollerMotivator_F" source="file">
+        <RuleSetFilePath>/xml/Strollers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Strollers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Strollers/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Strollers/F/</EDDExcelFolder>
+
+        <Entities name="motivator_F_edd.xml"/>
+        <Decisiontables name="motivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+    <RuleSet name="StrollerMotivator_G" source="file">
+        <RuleSetFilePath>/xml/Strollers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Strollers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Strollers/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Strollers/G/</EDDExcelFolder>
+
+        <Entities name="motivator_G_edd.xml"/>
+        <Decisiontables name="motivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CribMotivator_A" source="file">
+        <RuleSetFilePath>/xml/Cribs</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Cribs/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Cribs/A/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Cribs/A/</EDDExcelFolder>
+
+        <Entities name="Crib_motivator_A_edd.xml"/>
+        <Decisiontables name="Crib_motivator_A_dt.xml"/>
+        <Map name="Crib_motivator_A_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CribMotivator_B" source="file">
+        <RuleSetFilePath>/xml/Cribs</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Cribs/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Cribs/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Cribs/B/</EDDExcelFolder>
+
+        <Entities name="Crib_motivator_B_edd.xml"/>
+        <Decisiontables name="Crib_motivator_B_dt.xml"/>
+        <Map name="Crib_motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CribMotivator_C" source="file">
+        <RuleSetFilePath>/xml/Cribs</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Cribs/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Cribs/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Cribs/C/</EDDExcelFolder>
+
+        <Entities name="Crib_motivator_C_edd.xml"/>
+        <Decisiontables name="Crib_motivator_C_dt.xml"/>
+        <Map name="Crib_motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CribMotivator_E" source="file">
+        <RuleSetFilePath>/xml/Cribs</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Cribs/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Cribs/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Cribs/E/</EDDExcelFolder>
+
+        <Entities name="Crib_motivator_E_edd.xml"/>
+        <Decisiontables name="Crib_motivator_E_dt.xml"/>
+        <Map name="Crib_motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CribMotivator_G" source="file">
+        <RuleSetFilePath>/xml/Cribs</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Cribs/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Cribs/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Cribs/G/</EDDExcelFolder>
+
+        <Entities name="Crib_motivator_G_edd.xml"/>
+        <Decisiontables name="Crib_motivator_G_dt.xml"/>
+        <Map name="Crib_motivator_G_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarSeatsMotivator_A" source="file">
+        <RuleSetFilePath>/xml/CarSeats</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/CarSeats/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/CarSeats/A/</DTExcelFolder>
+        <EDDExcelFolder>/edd/CarSeats/A/</EDDExcelFolder>
+
+        <Entities name="motivator_A_edd.xml"/>
+        <Decisiontables name="motivator_A_dt.xml"/>
+        <Map name="motivator_A_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarSeatsMotivator_B" source="file">
+        <RuleSetFilePath>/xml/CarSeats</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/CarSeats/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/CarSeats/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/CarSeats/B/</EDDExcelFolder>
+
+        <Entities name="motivator_B_edd.xml"/>
+        <Decisiontables name="motivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarSeatsMotivator_C" source="file">
+        <RuleSetFilePath>/xml/CarSeats</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/CarSeats/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/CarSeats/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/CarSeats/C/</EDDExcelFolder>
+
+        <Entities name="motivator_C_edd.xml"/>
+        <Decisiontables name="motivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarSeatsMotivator_E" source="file">
+        <RuleSetFilePath>/xml/CarSeats</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/CarSeats/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/CarSeats/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/CarSeats/E/</EDDExcelFolder>
+
+        <Entities name="motivator_E_edd.xml"/>
+        <Decisiontables name="motivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarSeatsMotivator_F" source="file">
+        <RuleSetFilePath>/xml/CarSeats</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/CarSeats/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/CarSeats/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/CarSeats/F/</EDDExcelFolder>
+
+        <Entities name="motivator_F_edd.xml"/>
+        <Decisiontables name="motivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarSeatsMotivator_G" source="file">
+        <RuleSetFilePath>/xml/CarSeats</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/CarSeats/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/CarSeats/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/CarSeats/G/</EDDExcelFolder>
+
+        <Entities name="motivator_G_edd.xml"/>
+        <Decisiontables name="motivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarrierMotivator_A" source="file">
+        <RuleSetFilePath>/xml/Carriers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Carriers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Carriers/A/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Carriers/A/</EDDExcelFolder>
+
+        <Entities name="CarrierMotivator_A_edd.xml"/>
+        <Decisiontables name="CarrierMotivator_A_dt.xml"/>
+        <Map name="motivator_A_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarrierMotivator_B" source="file">
+        <RuleSetFilePath>/xml/Carriers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Carriers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Carriers/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Carriers/B/</EDDExcelFolder>
+
+        <Entities name="CarrierMotivator_B_edd.xml"/>
+        <Decisiontables name="CarrierMotivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarrierMotivator_C" source="file">
+        <RuleSetFilePath>/xml/Carriers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Carriers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Carriers/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Carriers/C/</EDDExcelFolder>
+
+        <Entities name="CarrierMotivator_C_edd.xml"/>
+        <Decisiontables name="CarrierMotivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarrierMotivator_D" source="file">
+        <RuleSetFilePath>/xml/Carriers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Carriers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Carriers/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Carriers/D/</EDDExcelFolder>
+
+        <Entities name="CarrierMotivator_D_edd.xml"/>
+        <Decisiontables name="CarrierMotivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarrierMotivator_E" source="file">
+        <RuleSetFilePath>/xml/Carriers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Carriers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Carriers/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Carriers/E/</EDDExcelFolder>
+
+        <Entities name="CarrierMotivator_E_edd.xml"/>
+        <Decisiontables name="CarrierMotivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarrierMotivator_F" source="file">
+        <RuleSetFilePath>/xml/Carriers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Carriers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Carriers/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Carriers/F/</EDDExcelFolder>
+
+        <Entities name="CarrierMotivator_F_edd.xml"/>
+        <Decisiontables name="CarrierMotivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+    <RuleSet name="CarrierMotivator_G" source="file">
+        <RuleSetFilePath>/xml/Carriers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Carriers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Carriers/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Carriers/G/</EDDExcelFolder>
+
+        <Entities name="CarrierMotivator_G_edd.xml"/>
+        <Decisiontables name="CarrierMotivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+    <RuleSet name="DigicamMotivator_B" source="file">
+        <RuleSetFilePath>/xml/DigitalCameras</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/DigitalCameras/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/DigitalCameras/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/DigitalCameras/B/</EDDExcelFolder>
+
+        <Entities name="DigicamMotivator_B_edd.xml"/>
+        <Decisiontables name="DigicamMotivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="DigicamMotivator_C" source="file">
+        <RuleSetFilePath>/xml/DigitalCameras</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/DigitalCameras/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/DigitalCameras/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/DigitalCameras/C/</EDDExcelFolder>
+
+        <Entities name="DigicamMotivator_C_edd.xml"/>
+        <Decisiontables name="DigicamMotivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="DigicamMotivator_D" source="file">
+        <RuleSetFilePath>/xml/DigitalCameras</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/DigitalCameras/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/DigitalCameras/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/DigitalCameras/D/</EDDExcelFolder>
+
+        <Entities name="DigicamMotivator_D_edd.xml"/>
+        <Decisiontables name="DigicamMotivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+    <RuleSet name="DigicamMotivator_E" source="file">
+        <RuleSetFilePath>/xml/DigitalCameras</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/DigitalCameras/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/DigitalCameras/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/DigitalCameras/E/</EDDExcelFolder>
+
+        <Entities name="DigicamMotivator_E_edd.xml"/>
+        <Decisiontables name="DigicamMotivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="DigicamMotivator_F" source="file">
+        <RuleSetFilePath>/xml/DigitalCameras</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/DigitalCameras/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/DigitalCameras/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/DigitalCameras/F/</EDDExcelFolder>
+
+        <Entities name="DigicamMotivator_F_edd.xml"/>
+        <Decisiontables name="DigicamMotivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+    <RuleSet name="DigicamMotivator_G" source="file">
+        <RuleSetFilePath>/xml/DigitalCameras</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/DigitalCameras/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/DigitalCameras/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/DigitalCameras/G/</EDDExcelFolder>
+
+        <Entities name="DigicamMotivator_G_edd.xml"/>
+        <Decisiontables name="DigicamMotivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BabyMonitorMotivator_A" source="file">
+        <RuleSetFilePath>/xml/BabyMonitors</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BabyMonitors/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BabyMonitors/A/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BabyMonitors/A/</EDDExcelFolder>
+
+        <Entities name="BabyMonitorMotivator_A_edd.xml"/>
+        <Decisiontables name="BabyMonitorMotivator_A_dt.xml"/>
+        <Map name="motivator_A_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BabyMonitorMotivator_B" source="file">
+        <RuleSetFilePath>/xml/BabyMonitors</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BabyMonitors/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BabyMonitors/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BabyMonitors/B/</EDDExcelFolder>
+
+        <Entities name="BabyMonitorMotivator_B_edd.xml"/>
+        <Decisiontables name="BabyMonitorMotivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BabyMonitorMotivator_C" source="file">
+        <RuleSetFilePath>/xml/BabyMonitors</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BabyMonitors/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BabyMonitors/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BabyMonitors/C/</EDDExcelFolder>
+
+        <Entities name="BabyMonitorMotivator_C_edd.xml"/>
+        <Decisiontables name="BabyMonitorMotivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BabyMonitorMotivator_D" source="file">
+        <RuleSetFilePath>/xml/BabyMonitors</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BabyMonitors/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BabyMonitors/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BabyMonitors/D/</EDDExcelFolder>
+
+        <Entities name="BabyMonitorMotivator_D_edd.xml"/>
+        <Decisiontables name="BabyMonitorMotivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BabyMonitorMotivator_E" source="file">
+        <RuleSetFilePath>/xml/BabyMonitors</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BabyMonitors/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BabyMonitors/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BabyMonitors/E/</EDDExcelFolder>
+
+        <Entities name="BabyMonitorMotivator_E_edd.xml"/>
+        <Decisiontables name="BabyMonitorMotivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BabyMonitorMotivator_F" source="file">
+        <RuleSetFilePath>/xml/BabyMonitors</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BabyMonitors/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BabyMonitors/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BabyMonitors/F/</EDDExcelFolder>
+
+        <Entities name="BabyMonitorMotivator_F_edd.xml"/>
+        <Decisiontables name="BabyMonitorMotivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BabyMonitorMotivator_G" source="file">
+        <RuleSetFilePath>/xml/BabyMonitors</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BabyMonitors/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BabyMonitors/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BabyMonitors/G/</EDDExcelFolder>
+
+        <Entities name="BabyMonitorMotivator_G_edd.xml"/>
+        <Decisiontables name="BabyMonitorMotivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+    <RuleSet name="TelevisionMotivator_A" source="file">
+        <RuleSetFilePath>/xml/Televisions</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Televisions/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Televisions/A/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Televisions/A/</EDDExcelFolder>
+
+        <Entities name="TelevisionMotivator_A_edd.xml"/>
+        <Decisiontables name="TelevisionMotivator_A_dt.xml"/>
+        <Map name="motivator_A_map.xml"/>
+    </RuleSet>
+    <RuleSet name="TelevisionMotivator_B" source="file">
+        <RuleSetFilePath>/xml/Televisions</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Televisions/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Televisions/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Televisions/B/</EDDExcelFolder>
+
+        <Entities name="TelevisionMotivator_B_edd.xml"/>
+        <Decisiontables name="TelevisionMotivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="TelevisionMotivator_C" source="file">
+        <RuleSetFilePath>/xml/Televisions</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Televisions/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Televisions/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Televisions/C/</EDDExcelFolder>
+
+        <Entities name="TelevisionMotivator_C_edd.xml"/>
+        <Decisiontables name="TelevisionMotivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="TelevisionMotivator_D" source="file">
+        <RuleSetFilePath>/xml/Televisions</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Televisions/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Televisions/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Televisions/D/</EDDExcelFolder>
+
+        <Entities name="TelevisionMotivator_D_edd.xml"/>
+        <Decisiontables name="TelevisionMotivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+    <RuleSet name="TelevisionMotivator_E" source="file">
+        <RuleSetFilePath>/xml/Televisions</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Televisions/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Televisions/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Televisions/E/</EDDExcelFolder>
+
+        <Entities name="TelevisionMotivator_E_edd.xml"/>
+        <Decisiontables name="TelevisionMotivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="TelevisionMotivator_F" source="file">
+        <RuleSetFilePath>/xml/Televisions</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Televisions/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Televisions/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Televisions/F/</EDDExcelFolder>
+
+        <Entities name="TelevisionMotivator_F_edd.xml"/>
+        <Decisiontables name="TelevisionMotivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+    <RuleSet name="TelevisionMotivator_G" source="file">
+        <RuleSetFilePath>/xml/Televisions</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Televisions/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Televisions/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Televisions/G/</EDDExcelFolder>
+
+        <Entities name="TelevisionMotivator_G_edd.xml"/>
+        <Decisiontables name="TelevisionMotivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+    <RuleSet name="HighChairMotivator_A" source="file">
+        <RuleSetFilePath>/xml/HighChairs</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/HighChairs/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/HighChairs/A/</DTExcelFolder>
+        <EDDExcelFolder>/edd/HighChairs/A/</EDDExcelFolder>
+
+        <Entities name="HighChairMotivator_A_edd.xml"/>
+        <Decisiontables name="HighChairMotivator_A_dt.xml"/>
+        <Map name="motivator_A_map.xml"/>
+    </RuleSet>
+    <RuleSet name="HighChairMotivator_B" source="file">
+        <RuleSetFilePath>/xml/HighChairs</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/HighChairs/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/HighChairs/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/HighChairs/B/</EDDExcelFolder>
+
+        <Entities name="HighChairMotivator_B_edd.xml"/>
+        <Decisiontables name="HighChairMotivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="HighChairMotivator_C" source="file">
+        <RuleSetFilePath>/xml/HighChairs</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/HighChairs/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/HighChairs/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/HighChairs/C/</EDDExcelFolder>
+
+        <Entities name="HighChairMotivator_C_edd.xml"/>
+        <Decisiontables name="HighChairMotivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="HighChairMotivator_D" source="file">
+        <RuleSetFilePath>/xml/HighChairs</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/HighChairs/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/HighChairs/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/HighChairs/D/</EDDExcelFolder>
+
+        <Entities name="HighChairMotivator_D_edd.xml"/>
+        <Decisiontables name="HighChairMotivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+    <RuleSet name="HighChairMotivator_E" source="file">
+        <RuleSetFilePath>/xml/HighChairs</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/HighChairs/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/HighChairs/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/HighChairs/E/</EDDExcelFolder>
+
+        <Entities name="HighChairMotivator_E_edd.xml"/>
+        <Decisiontables name="HighChairMotivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="HighChairMotivator_F" source="file">
+        <RuleSetFilePath>/xml/HighChairs</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/HighChairs/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/HighChairs/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/HighChairs/F/</EDDExcelFolder>
+
+        <Entities name="HighChairMotivator_F_edd.xml"/>
+        <Decisiontables name="HighChairMotivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+    <RuleSet name="HighChairMotivator_G" source="file">
+        <RuleSetFilePath>/xml/HighChairs</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/HighChairs/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/HighChairs/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/HighChairs/G/</EDDExcelFolder>
+
+        <Entities name="HighChairMotivator_G_edd.xml"/>
+        <Decisiontables name="HighChairMotivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+    <RuleSet name="FacebookMotivator_A" source="file">
+        <RuleSetFilePath>/xml/Facebook</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Facebook/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Facebook/A/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Facebook/A/</EDDExcelFolder>
+
+        <Entities name="FacebookMotivator_A_edd.xml"/>
+        <Decisiontables name="FacebookMotivator_A_dt.xml"/>
+        <Map name="motivator_A_map.xml"/>
+    </RuleSet>
+    <RuleSet name="FacebookMotivator_B" source="file">
+        <RuleSetFilePath>/xml/Facebook</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Facebook/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Facebook/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Facebook/B/</EDDExcelFolder>
+
+        <Entities name="FacebookMotivator_B_edd.xml"/>
+        <Decisiontables name="FacebookMotivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="FacebookMotivator_C" source="file">
+        <RuleSetFilePath>/xml/Facebook</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Facebook/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Facebook/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Facebook/C/</EDDExcelFolder>
+
+        <Entities name="FacebookMotivator_C_edd.xml"/>
+        <Decisiontables name="FacebookMotivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="FacebookMotivator_D" source="file">
+        <RuleSetFilePath>/xml/Facebook</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Facebook/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Facebook/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Facebook/D/</EDDExcelFolder>
+
+        <Entities name="FacebookMotivator_D_edd.xml"/>
+        <Decisiontables name="FacebookMotivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+    <RuleSet name="FacebookMotivator_E" source="file">
+        <RuleSetFilePath>/xml/Facebook</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Facebook/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Facebook/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Facebook/E/</EDDExcelFolder>
+
+        <Entities name="FacebookMotivator_E_edd.xml"/>
+        <Decisiontables name="FacebookMotivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="FacebookMotivator_F" source="file">
+        <RuleSetFilePath>/xml/Facebook</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Facebook/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Facebook/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Facebook/F/</EDDExcelFolder>
+
+        <Entities name="FacebookMotivator_F_edd.xml"/>
+        <Decisiontables name="FacebookMotivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+
+    <!-- Blu-Ray & DVD Motivators -->
+    <RuleSet name="BrDvd_B" source="file">
+        <RuleSetFilePath>/xml/BrDvd</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BrDvd/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BrDvd/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BrDvd/B/</EDDExcelFolder>
+
+        <Entities name="BrDvdMotivator_B_edd.xml"/>
+        <Decisiontables name="BrDvdMotivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BrDvd_C" source="file">
+        <RuleSetFilePath>/xml/BrDvd</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BrDvd/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BrDvd/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BrDvd/C/</EDDExcelFolder>
+
+        <Entities name="BrDvdMotivator_C_edd.xml"/>
+        <Decisiontables name="BrDvdMotivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BrDvd_D" source="file">
+        <RuleSetFilePath>/xml/BrDvd</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BrDvd/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BrDvd/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BrDvd/D/</EDDExcelFolder>
+
+        <Entities name="BrDvdMotivator_D_edd.xml"/>
+        <Decisiontables name="BrDvdMotivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BrDvd_E" source="file">
+        <RuleSetFilePath>/xml/BrDvd</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BrDvd/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BrDvd/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BrDvd/E/</EDDExcelFolder>
+
+        <Entities name="BrDvdMotivator_E_edd.xml"/>
+        <Decisiontables name="BrDvdMotivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BrDvd_F" source="file">
+        <RuleSetFilePath>/xml/BrDvd</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BrDvd/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BrDvd/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BrDvd/F/</EDDExcelFolder>
+
+        <Entities name="BrDvdMotivator_F_edd.xml"/>
+        <Decisiontables name="BrDvdMotivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BrDvd_G" source="file">
+        <RuleSetFilePath>/xml/BrDvd</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BrDvd/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BrDvd/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BrDvd/G/</EDDExcelFolder>
+
+        <Entities name="BrDvdMotivator_G_edd.xml"/>
+        <Decisiontables name="BrDvdMotivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+	<RuleSet name="eBkRdr_B" source="file">
+        <RuleSetFilePath>/xml/eBkRdr</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/eBkRdr/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/eBkRdr/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/eBkRdr/B/</EDDExcelFolder>
+
+        <Entities name="eBkRdrMotivator_B_edd.xml"/>
+        <Decisiontables name="eBkRdrMotivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+	<RuleSet name="eBkRdr_C" source="file">
+        <RuleSetFilePath>/xml/eBkRdr</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/eBkRdr/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/eBkRdr/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/eBkRdr/C/</EDDExcelFolder>
+
+        <Entities name="eBkRdrMotivator_C_edd.xml"/>
+        <Decisiontables name="eBkRdrMotivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+	<RuleSet name="eBkRdr_D" source="file">
+        <RuleSetFilePath>/xml/eBkRdr</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/eBkRdr/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/eBkRdr/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/eBkRdr/D/</EDDExcelFolder>
+
+        <Entities name="eBkRdrMotivator_D_edd.xml"/>
+        <Decisiontables name="eBkRdrMotivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+	<RuleSet name="eBkRdr_E" source="file">
+        <RuleSetFilePath>/xml/eBkRdr</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/eBkRdr/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/eBkRdr/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/eBkRdr/E/</EDDExcelFolder>
+
+        <Entities name="eBkRdrMotivator_E_edd.xml"/>
+        <Decisiontables name="eBkRdrMotivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+	<RuleSet name="eBkRdr_F" source="file">
+        <RuleSetFilePath>/xml/eBkRdr</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/eBkRdr/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/eBkRdr/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/eBkRdr/F/</EDDExcelFolder>
+
+        <Entities name="eBkRdrMotivator_F_edd.xml"/>
+        <Decisiontables name="eBkRdrMotivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+	<RuleSet name="eBkRdr_G" source="file">
+        <RuleSetFilePath>/xml/eBkRdr</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/eBkRdr/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/eBkRdr/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/eBkRdr/G/</EDDExcelFolder>
+
+        <Entities name="eBkRdrMotivator_G_edd.xml"/>
+        <Decisiontables name="eBkRdrMotivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+	<RuleSet name="SmrtPhn_B" source="file">
+        <RuleSetFilePath>/xml/SmrtPhn</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/SmrtPhn/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/SmrtPhn/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/SmrtPhn/B/</EDDExcelFolder>
+
+        <Entities name="SmrtPhnMotivator_B_edd.xml"/>
+        <Decisiontables name="SmrtPhnMotivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+	<RuleSet name="SmrtPhn_C" source="file">
+        <RuleSetFilePath>/xml/SmrtPhn</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/SmrtPhn/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/SmrtPhn/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/SmrtPhn/C/</EDDExcelFolder>
+
+        <Entities name="SmrtPhnMotivator_C_edd.xml"/>
+        <Decisiontables name="SmrtPhnMotivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+	<RuleSet name="SmrtPhn_D" source="file">
+        <RuleSetFilePath>/xml/SmrtPhn</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/SmrtPhn/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/SmrtPhn/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/SmrtPhn/D/</EDDExcelFolder>
+
+        <Entities name="SmrtPhnMotivator_D_edd.xml"/>
+        <Decisiontables name="SmrtPhnMotivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+	<RuleSet name="SmrtPhn_E" source="file">
+        <RuleSetFilePath>/xml/SmrtPhn</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/SmrtPhn/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/SmrtPhn/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/SmrtPhn/E/</EDDExcelFolder>
+
+        <Entities name="SmrtPhnMotivator_E_edd.xml"/>
+        <Decisiontables name="SmrtPhnMotivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+	<RuleSet name="SmrtPhn_F" source="file">
+        <RuleSetFilePath>/xml/SmrtPhn</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/SmrtPhn/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/SmrtPhn/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/SmrtPhn/F/</EDDExcelFolder>
+
+        <Entities name="SmrtPhnMotivator_F_edd.xml"/>
+        <Decisiontables name="SmrtPhnMotivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+	<RuleSet name="SmrtPhn_G" source="file">
+        <RuleSetFilePath>/xml/SmrtPhn</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/SmrtPhn/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/SmrtPhn/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/SmrtPhn/G/</EDDExcelFolder>
+
+        <Entities name="SmrtPhnMotivator_G_edd.xml"/>
+        <Decisiontables name="SmrtPhnMotivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+	    <RuleSet name="GameConsoleMotivator_A" source="file">
+        <RuleSetFilePath>/xml/GameConsole</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/GameConsole/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/GameConsole/A/</DTExcelFolder>
+        <EDDExcelFolder>/edd/GameConsole/A/</EDDExcelFolder>
+
+        <Entities name="motivator_A_edd.xml"/>
+        <Decisiontables name="motivator_A_dt.xml"/>
+        <Map name="motivator_A_map.xml"/>
+    </RuleSet>
+    <RuleSet name="GameConsoleMotivator_B" source="file">
+        <RuleSetFilePath>/xml/GameConsole</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/GameConsole/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/GameConsole/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/GameConsole/B/</EDDExcelFolder>
+
+        <Entities name="motivator_B_edd.xml"/>
+        <Decisiontables name="motivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="GameConsoleMotivator_D" source="file">
+        <RuleSetFilePath>/xml/GameConsole</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/GameConsole/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/GameConsole/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/GameConsole/D/</EDDExcelFolder>
+
+        <Entities name="motivator_D_edd.xml"/>
+        <Decisiontables name="motivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+    <RuleSet name="GameConsoleMotivator_E" source="file">
+        <RuleSetFilePath>/xml/GameConsole</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/GameConsole/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/GameConsole/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/GameConsole/E/</EDDExcelFolder>
+
+        <Entities name="motivator_E_edd.xml"/>
+        <Decisiontables name="motivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="GameConsoleMotivator_F" source="file">
+        <RuleSetFilePath>/xml/GameConsole</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/GameConsole/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/GameConsole/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/GameConsole/F/</EDDExcelFolder>
+
+        <Entities name="motivator_F_edd.xml"/>
+        <Decisiontables name="motivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+    <RuleSet name="GameConsoleMotivator_G" source="file">
+        <RuleSetFilePath>/xml/GameConsole</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/GameConsole/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/GameConsole/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/GameConsole/G/</EDDExcelFolder>
+
+        <Entities name="motivator_G_edd.xml"/>
+        <Decisiontables name="motivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+	<RuleSet name="Bouncer_A" source="file">
+        <RuleSetFilePath>/xml/Bouncers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Bouncers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Bouncers/A/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Bouncers/A/</EDDExcelFolder>
+
+        <Entities name="BouncerMotivator_A_edd.xml"/>
+        <Decisiontables name="BouncerMotivator_A_dt.xml"/>
+        <Map name="motivator_A_map.xml"/>
+    </RuleSet>
+    <RuleSet name="Bouncer_B" source="file">
+        <RuleSetFilePath>/xml/Bouncers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Bouncers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Bouncers/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Bouncers/B/</EDDExcelFolder>
+
+        <Entities name="BouncerMotivator_B_edd.xml"/>
+        <Decisiontables name="BouncerMotivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="Bouncer_C" source="file">
+        <RuleSetFilePath>/xml/Bouncers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Bouncers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Bouncers/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Bouncers/C/</EDDExcelFolder>
+
+        <Entities name="BouncerMotivator_C_edd.xml"/>
+        <Decisiontables name="BouncerMotivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="Bouncer_D" source="file">
+        <RuleSetFilePath>/xml/Bouncers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Bouncers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Bouncers/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Bouncers/D/</EDDExcelFolder>
+
+        <Entities name="BouncerMotivator_D_edd.xml"/>
+        <Decisiontables name="BouncerMotivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+    <RuleSet name="Bouncer_E" source="file">
+        <RuleSetFilePath>/xml/Bouncers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Bouncers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Bouncers/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Bouncers/E/</EDDExcelFolder>
+
+        <Entities name="BouncerMotivator_E_edd.xml"/>
+        <Decisiontables name="BouncerMotivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="Bouncer_F" source="file">
+        <RuleSetFilePath>/xml/Bouncers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Bouncers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Bouncers/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Bouncers/F/</EDDExcelFolder>
+
+        <Entities name="BouncerMotivator_F_edd.xml"/>
+        <Decisiontables name="BouncerMotivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+    <RuleSet name="Bouncer_G" source="file">
+        <RuleSetFilePath>/xml/Bouncers</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Bouncers/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Bouncers/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Bouncers/G/</EDDExcelFolder>
+
+        <Entities name="BouncerMotivator_G_edd.xml"/>
+        <Decisiontables name="BouncerMotivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+		<RuleSet name="BreastPump_A" source="file">
+        <RuleSetFilePath>/xml/BreastPumps</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BreastPumps/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BPumps/A/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BPumps/A/</EDDExcelFolder>
+
+        <Entities name="BreastPumpMotivator_A_edd.xml"/>
+        <Decisiontables name="BreastPumpMotivator_A_dt.xml"/>
+        <Map name="motivator_A_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BreastPump_B" source="file">
+        <RuleSetFilePath>/xml/BreastPumps</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BreastPumps/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BPumps/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BPumps/B/</EDDExcelFolder>
+
+        <Entities name="BreastPumpMotivator_B_edd.xml"/>
+        <Decisiontables name="BreastPumpMotivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BreastPump_C" source="file">
+        <RuleSetFilePath>/xml/BreastPumps</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BreastPumps/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BPumps/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BPumps/C/</EDDExcelFolder>
+
+        <Entities name="BreastPumpMotivator_C_edd.xml"/>
+        <Decisiontables name="BreastPumpMotivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BreastPump_D" source="file">
+        <RuleSetFilePath>/xml/BreastPumps</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BreastPumps/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BPumps/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BPumps/D/</EDDExcelFolder>
+
+        <Entities name="BreastPumpMotivator_D_edd.xml"/>
+        <Decisiontables name="BreastPumpMotivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BreastPump_E" source="file">
+        <RuleSetFilePath>/xml/BreastPumps</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BreastPumps/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BPumps/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BPumps/E/</EDDExcelFolder>
+
+        <Entities name="BreastPumpMotivator_E_edd.xml"/>
+        <Decisiontables name="BreastPumpMotivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BreastPump_F" source="file">
+        <RuleSetFilePath>/xml/BreastPumps</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BreastPumps/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BPumps/F/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BPumps/F/</EDDExcelFolder>
+
+        <Entities name="BreastPumpMotivator_F_edd.xml"/>
+        <Decisiontables name="BreastPumpMotivator_F_dt.xml"/>
+        <Map name="motivator_F_map.xml"/>
+    </RuleSet>
+    <RuleSet name="BreastPump_G" source="file">
+        <RuleSetFilePath>/xml/BreastPumps</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/BreastPumps/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/BPumps/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/BPumps/G/</EDDExcelFolder>
+
+        <Entities name="BreastPumpMotivator_G_edd.xml"/>
+        <Decisiontables name="BreastPumpMotivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+	
+    <!-- Toy Motivators -->
+    <RuleSet name="Toys_B" source="file">
+        <RuleSetFilePath>/xml/Toys</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Toys/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Toys/B/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Toys/B/</EDDExcelFolder>
+
+        <Entities name="ToysMotivator_B_edd.xml"/>
+        <Decisiontables name="ToysMotivator_B_dt.xml"/>
+        <Map name="motivator_B_map.xml"/>
+    </RuleSet>
+    <RuleSet name="Toys_C" source="file">
+        <RuleSetFilePath>/xml/Toys</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Toys/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Toys/C/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Toys/C/</EDDExcelFolder>
+
+        <Entities name="ToysMotivator_C_edd.xml"/>
+        <Decisiontables name="ToysMotivator_C_dt.xml"/>
+        <Map name="motivator_C_map.xml"/>
+    </RuleSet>
+    <RuleSet name="Toys_D" source="file">
+        <RuleSetFilePath>/xml/Toys</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Toys/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Toys/D/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Toys/D/</EDDExcelFolder>
+
+        <Entities name="ToysMotivator_D_edd.xml"/>
+        <Decisiontables name="ToysMotivator_D_dt.xml"/>
+        <Map name="motivator_D_map.xml"/>
+    </RuleSet>
+    <RuleSet name="Toys_E" source="file">
+        <RuleSetFilePath>/xml/Toys</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Toys/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Toys/E/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Toys/E/</EDDExcelFolder>
+
+        <Entities name="ToysMotivator_E_edd.xml"/>
+        <Decisiontables name="ToysMotivator_E_dt.xml"/>
+        <Map name="motivator_E_map.xml"/>
+    </RuleSet>
+    <RuleSet name="Toys_G" source="file">
+        <RuleSetFilePath>/xml/Toys</RuleSetFilePath>
+        <RuleSetResourcePath>/dtrules/xml/Toys/</RuleSetResourcePath>
+        <WorkingDirectory>/temp</WorkingDirectory>
+
+        <DTExcelFolder>/DecisionTables/Toys/G/</DTExcelFolder>
+        <EDDExcelFolder>/edd/Toys/G/</EDDExcelFolder>
+
+        <Entities name="ToysMotivator_G_edd.xml"/>
+        <Decisiontables name="ToysMotivator_G_dt.xml"/>
+        <Map name="motivator_G_map.xml"/>
+    </RuleSet>
+
+</DTRules>
+
+
+

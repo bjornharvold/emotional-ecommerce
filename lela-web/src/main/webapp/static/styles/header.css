@@ -1,0 +1,460 @@
+/*
+ * Copyright (c) 2012. Lela.com.
+ */
+
+/* header */
+#head {
+    overflow:visible;
+    height:112px;
+    font-size:11px;
+    z-index:10;
+    position: relative;
+}
+
+#head a {
+    text-decoration: none;
+}
+
+#lela-nav .lela-logo {
+    background: transparent url('/static/images/layout/nav-logo.png') no-repeat 0 0;
+    width: 101px;
+    height: 112px;
+    float: left;
+    margin-right: 1px;
+}
+
+#lela-nav .lela-logo a {
+    width: 101px;
+    height: 112px;
+    display: block;
+}
+
+#lela-nav .nav-container {
+    background: #333333;
+    width: 922px;
+    height: 101px;
+    float: left;
+}
+
+#lela-nav .nav-categories .g-tab {
+    padding-right: 60px;
+    background: transparent url('/static/images/layout/nav-dropdown-grey.png') no-repeat right 50px;
+    height: 59px;
+    padding: 42px 48px 0 20px;
+    width: 126px;
+    float: left;
+    border-right: 1px solid #505050;
+    line-height: 24px;
+    font-size: 18px;
+    color: #cccccc;
+    -webkit-transition:all 0.1s ease-in;
+    -moz-transition:all 0.1s ease-in;
+    z-index: 10;
+}
+
+#lela-nav .nav-categories .g-tab:hover, .g-tab-selected {
+    background: transparent url('/static/images/layout/nav-dropdown-white.png') no-repeat right 50px;
+    color: white !important;
+}
+
+#baby:hover,
+#baby.g-tab-selected,
+#baby.selected-on {
+    background: #57b7b1 url('/static/images/layout/nav-dropdown-white.png') no-repeat right 50px !important;
+    color: white !important;
+    text-shadow: 0px 0px 5px #36b1a9;
+    filter: dropshadow(color=#36b1a9, offx=0, offy=0);
+}
+
+#electronics:hover,
+#electronics.g-tab-selected,
+#electronics.selected-on {
+    background: #588cb7 url('/static/images/layout/nav-dropdown-white.png') no-repeat right 50px !important;
+    color: white !important;
+    text-shadow: 0px 0px 5px #407aaa;
+    filter: dropshadow(color=#407aaa, offx=0, offy=0);
+}
+
+#toys:hover,
+#toys.g-tab-selected,
+#toys.selected-on {
+    background: #fdc52f url('/static/images/layout/nav-dropdown-white.png') no-repeat right 50px !important;
+    color: white !important;
+    text-shadow: 0px 0px 5px #f7b122;
+    filter: dropshadow(color=#f7b122, offx=0, offy=0);
+}
+
+#lela-nav .nav-group .nav-group-contents {
+    display: none;
+}
+
+#lela-nav .nav-group {
+    position: relative;
+    float: left;
+    width: 194px;
+}
+
+#lela-nav .nav-group:hover {
+    -moz-box-shadow: 0 0 25px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 25px 0px rgba(0,0,0,0.5);
+    box-shadow: 0 0 25px 0px rgba(0,0,0,0.5);
+    padding-bottom: 101px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+#lela-nav .nav-group .nav-group-contents {
+    position: relative;
+    top: 101px;
+    left: -195px;
+    background: white;
+    margin-right: -195px;
+    width: 194px;
+    float: left;
+    z-index: 1;
+}
+
+#lela-nav .nav-group .nav-group-contents ul {
+    border-bottom: 1px dotted #ccc;
+    margin-bottom: 30px;
+}
+
+#lela-nav .nav-group .nav-group-contents li a, #lela-nav .nav-login ul.menu li a, #cat-dd-data li a, .children-header {
+    padding: 5px 10px 5px 15px;
+    font-size: 14px;
+    color: #3f3f3f;
+    background-color: white;
+    border-top: 1px dotted #ccc;
+    width: 244px;
+    display: block;
+    color: #666666;
+}
+
+#lela-nav .nav-group .nav-group-contents li a:hover {
+    color: #3f3f3f !important;
+    background-color: #eaf8f9;
+}
+
+#lela-nav .nav-login {
+    float: left;
+}
+
+#cat-dd-data li a:hover { background-color: #fff3e0 !important; }
+.nav-group-baby li a:hover { background-color: #eaf8f9 !important; }
+.nav-group-electronics li a:hover { background-color: #eef3f8 !important; }
+.nav-group-toys li a:hover { background-color: #fff6df !important; }
+
+.nav-group-baby { background: white url('/static/images/placeholders/nav/group-baby-bg.png') repeat-x top left !important; }
+.nav-group-electronics { background: white url('/static/images/placeholders/nav/group-electronics-bg.png') repeat-x top left !important; }
+.nav-group-toys { background: white url('/static/images/placeholders/nav/group-toys-bg.png') repeat-x top left !important; }
+
+.nav-login {
+    padding: 31px 20px 0 20px;
+    width: 154px;
+    z-index: 2;
+    border-right: 1px solid #505050;
+    -webkit-transition:all 0.1s ease-in;
+    -moz-transition:all 0.1s ease-in;
+}
+
+.nav-login a {
+    font-size: 14px;
+    -webkit-transition:all 0.1s ease-in;
+    -moz-transition:all 0.1s ease-in;
+}
+
+.nav-login a.login {
+    color: #ff9900;
+    margin-left: 10px;
+}
+
+.nav-login span.guest {
+    color: #cccccc;
+    font-size: 14px;
+    margin-right: 10px;
+    display: block;
+    margin-bottom: 8px;
+    height: 18px;
+}
+
+.nav-login span.guest strong {
+    margin-left: 10px;
+    color: #666666;
+    font-weight: normal;
+}
+
+.nav-login a:hover {
+    color: white;
+}
+
+.nav-login .lela-bar h4, .nav-login .lela-bar ul .lelabar-off {
+    display: none;
+}
+
+.nav-login .lela-bar {
+    float: left;
+    margin-right: 10px;
+}
+
+.nav-login-loggedin:hover, .nav-login-selected {
+    background-color: #6a6869;
+    cursor: pointer !important;
+}
+
+.nav-login-loggedin:hover {
+    z-index: 100 !important;
+    -moz-box-shadow: 0 0 25px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 25px 0px rgba(0,0,0,0.5);
+    box-shadow: 0 0 25px 0px rgba(0,0,0,0.5);
+}
+
+.nav-login ul.menu {
+    width: 195px;
+    background-color: white;
+    float: left;
+    z-index: 1;
+    clear: both;
+    border-bottom: 1px dotted #ccc;
+}
+
+#lela-nav .nav-login ul.menu li a {
+    padding-left: 10px !important;
+}
+
+#lela-nav .nav-login ul.menu li a:hover {
+    color: #3f3f3f !important;
+    background-color: #fff3e0;
+}
+
+.nav-login .menu-container {
+    width: 195px;
+    margin-left: -20px;
+}
+
+.nav-list {
+    display: block;
+    font-size: 14px;
+    color: #ff9900;
+    background: transparent url('/static/images/layout/nav-list-button.png') no-repeat -6px 0px;
+    padding: 0px 0 0px 25px;
+    margin-bottom: 20px;
+    height: 23px;
+    width: 130px;
+}
+
+.user-list {
+    display: block;
+    margin-bottom: 10px;
+    width: 174px;
+    height: 17px;
+    color: #cccccc;
+    background: transparent url('/static/images/layout/nav-dropdown-grey.png') no-repeat right 3px;
+}
+
+.nav-login:hover .user-list {
+    background: transparent url('/static/images/layout/nav-dropdown-white.png') no-repeat right 3px;
+}
+
+.nav-list-loggedin {
+    border-left: 0 !important;
+}
+
+.nav-list:hover {
+    color: white;
+    background: transparent url('/static/images/layout/nav-list-button-over.png') no-repeat -6px 0px;
+}
+
+.nav-search {
+    float: right;
+    margin-top: 34px;
+    margin-right: 20px;
+    width: 55px;
+    padding: 10px 35px 10px 10px;
+    font-size: 14px;
+    color: #3f3f3f;
+    background: #f5f5f5 url('/static/images/layout/nav-search-button.png') no-repeat 75px 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    cursor: pointer;
+}
+
+.lela-bar-number {
+    float: left;
+    margin-right: 10px;
+}
+
+.lela-level .lela-bar-number {
+    position: relative;
+    top: 13px;
+}
+
+.search-container {
+    padding: 0;
+    width: 922px;
+    height: 101px;
+    background-color: white !important;
+    margin-left: 102px;
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.search-categories {
+    width: 244px;
+    float: left;
+    z-index: 10;
+}
+
+.search-term {
+    z-index: 1;
+    border-left: 1px solid #d2d2d2;
+    float: left;
+    width: 677px;
+    background-color: white;
+}
+
+#nav-search input {
+    float: left;
+    width: 580px;
+    border: 0px !important;
+    color: #3f3f3f;
+    font-size: 36px;
+    line-height: 58px;
+    height: 61px;
+    vertical-align: middle;
+    padding: 20px;
+}
+
+#cat-dd {
+    display:block;
+    float:left;
+    width:164px;
+    height: 57px;
+    padding: 44px 60px 0px 20px;
+    background: #f5f5f5 url('/static/images/layout/nav-dropdown-black.png') no-repeat right 50px;
+    font-size: 18px;
+    color: #666666;
+}
+
+#cat-dd:hover, #cat-dd.nav-on, #search-categories.nav-on {
+    background-color: white !important;
+}
+
+.menu-container {
+    display: none;
+    padding-bottom: 30px;
+    background-color: white;
+}
+
+#cat-dd-data {
+    position: relative;
+    width: 244px;
+    border-bottom: 1px dotted #ccc;
+}
+
+#nav-search {
+    z-index: 2;
+}
+
+#nav-search-text {
+    z-index: 1;
+    font-size: 36px;
+    color: #cccccc;
+    position: relative;
+    left: 21px;
+    top: 30px;
+    height: 40px;
+    margin-bottom: -40px;
+    float: left;
+}
+
+.search-container .toggle-search {
+    float: left;
+    position: relative;
+    top: 12px;
+    left: 36px;
+}
+
+.search-categories:hover {
+    -moz-box-shadow: 0 0 25px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 25px 0px rgba(0,0,0,0.5);
+    box-shadow: 0 0 25px 0px rgba(0,0,0,0.5);
+    z-index: 100;
+}
+
+.cat-hdr-imgs {
+    position: relative;
+    width: 194px;
+    margin: 0 0 0 0px;
+    height: 191px;
+    overflow: hidden;
+}
+
+.cat-hdr-imgs .cat-hdr-img {
+    display: none;
+    margin: 0 auto;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.cat-hdr-imgs img.on {
+    display: block !important;
+}
+
+.cat-hdr-imgs ul li {
+    border: 0px !important;
+    width: 221px;
+    height: 150px;
+    text-align: center;
+}
+
+.cat-hdr-imgs ul {
+    border: 0px !important;
+    margin: 0px !important;
+}
+
+.navImg {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.search-close {
+    background: transparent url('/static/images/buttons/nav-search-close.png') no-repeat center center;
+    width: 11px;
+    height: 11px;
+    cursor: pointer;
+}
+
+.search-container .search-submit {
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+    float: left;
+    position: relative;
+    top: 35px;
+    left: -8px;
+}
+
+.search-container .search-submit:hover {
+    background-color: #f5f5f5;
+}
+
+.nav-group-subnav-children {
+    margin-bottom: 0px !important;
+}
+
+.nav-group-subnav-children li a {
+    padding-left: 40px !important;
+}
+
+.noborder {
+    border: none !important;
+}
+
+.cat-hdr-imgs ul li a {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+}

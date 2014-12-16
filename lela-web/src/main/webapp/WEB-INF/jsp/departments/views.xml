@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+  ~ Copyright (c) 2012. Lela.com.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="category.departments" extends="template.page.master">
+
+        <put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/departments/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/departments/departments.css" />
+            <add-attribute type="string" value="/static/styles/items/categories.css" />
+            <add-attribute type="string" value="/static/styles/items/details.css" />
+        </put-list-attribute>
+
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/departments/departments.js" />
+        </put-list-attribute>
+
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/task_alerts.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/departments/departments.jspx" />
+        </put-list-attribute>
+
+    </definition>
+
+    <definition name="category.departments.filters.data" template="/WEB-INF/jsp/departments/departments_data.jspx">
+        <put-attribute type="string" name="ajax" value="true" />
+    </definition>
+
+    <definition name="category.departments.filters" extends="template.page.master">
+
+        <put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/departments/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/departments/departments.css" />
+            <add-attribute type="string" value="/static/styles/items/categories.css" />
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.css" />
+            <add-attribute type="string" value="/static/styles/items/details.css" />
+        </put-list-attribute>
+
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/departments/departments.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.ui.touch-punch.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/lionbars/jquery.lionbars.0.3.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.form.js" />
+            <add-attribute type="string" value="/static/js/plugins/raty/jquery.raty.js" />
+            <add-attribute type="string" value="/static/js/common/Filter.js" />
+        </put-list-attribute>
+
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/task_alerts.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/departments/departments_filter.jspx" />
+        </put-list-attribute>
+
+    </definition>
+
+    <definition name="category.departments.search.results" template="/WEB-INF/jsp/departments/departments_search_results.jspx">
+    </definition>
+
+    <definition name="category.departments.mobile" extends="template.mobile.master">
+
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/departments/mobile/departments.jspx" />
+        </put-list-attribute>
+
+    </definition>
+
+    <definition name="category.departments.filters.mobile" extends="template.mobile.master">
+
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/departments/mobile/departments.jspx" />
+        </put-list-attribute>
+
+    </definition>
+
+</tiles-definitions>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="cache.console" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.cache.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/cache/cache_console.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+</tiles-definitions>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_Color" items="${colors}" z="dWHTBjGWubZ3IZj6mvEfrNvQvJ0=">
+        <table:table data="${colors}" id="l_com_lela_data_domain_entity_Color" path="/crud/colors" z="9XpOqwJfbsyOCJFRjqUBl48B+TY=">
+            <table:column date="true" dateTimePattern="${color_datecreated_date_format}" id="c_com_lela_data_domain_entity_Color_dateCreated" property="dateCreated" z="8M5Sgjg2GLe90eJvYSvFuFlsSTw="/>
+            <table:column date="true" dateTimePattern="${color_datemodified_date_format}" id="c_com_lela_data_domain_entity_Color_dateModified" property="dateModified" z="1+9q+1SUGAx/LMUbUEg+hOypLcY="/>
+            <table:column id="c_com_lela_data_domain_entity_Color_colorName" property="colorName" z="a8DD920uGg0eYn4b/KoUGb1+oo0="/>
+        </table:table>
+    </page:list>
+</div>

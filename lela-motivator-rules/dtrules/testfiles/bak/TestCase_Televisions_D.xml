@@ -1,0 +1,20 @@
+<job>
+	<currentdate>9/12/2011</currentdate>
+	<motivator>C</motivator>
+  <television>
+    <TV_ID>S8489699</TV_ID>
+    <BrandID>182</BrandID>
+    <DesignStyle>Practical-Stylized</DesignStyle>
+    <General_Bundledwith>(null)</General_Bundledwith>
+    <General_Combinedwith>(null)</General_Combinedwith>
+    <General_3DTechnology>Yes</General_3DTechnology>
+    <Display_DiagonalSize>42&quot; Class ( 41.6&quot; viewable ) - widescreen</Display_DiagonalSize>
+    <Television_DiagonalSize>42</Television_DiagonalSize>
+    <NetworkInternetMultimedia_Connectivity>Wireless, wired</NetworkInternetMultimedia_Connectivity>
+    <MediaPlayer_USBPort>Yes , 2 port(s)</MediaPlayer_USBPort>
+    <MediaPlayer_SupportedFlashMemoryCards>SD Memory Card</MediaPlayer_SupportedFlashMemoryCards>
+    <CNETDesign>5</CNETDesign>
+    <CRVersatility>Excellent</CRVersatility>
+    <Television_ImageAspectRatio>4:3</Television_ImageAspectRatio>
+   </television>
+</job>

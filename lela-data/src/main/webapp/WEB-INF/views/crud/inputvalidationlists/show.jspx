@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_InputValidationList" object="${inputvalidationlist}" path="/crud/inputvalidationlists" z="dEndHJq67Kf2AzsMPtbbzYm/IVc=">
+        <field:display date="true" dateTimePattern="${inputValidationList_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_InputValidationList_dateCreated" object="${inputvalidationlist}" z="w4Kmv44oSgmilJfHYWX7fhl3nT4="/>
+        <field:display date="true" dateTimePattern="${inputValidationList_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_InputValidationList_dateModified" object="${inputvalidationlist}" z="ecDo+ItWwm1A570S8SVm4uLKgYY="/>
+        <field:display field="listName" id="s_com_lela_data_domain_entity_InputValidationList_listName" object="${inputvalidationlist}" z="sb/8VmIgvyT1vidj8smgTVcGtbo="/>
+    </page:show>
+</div>

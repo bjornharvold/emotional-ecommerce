@@ -1,0 +1,35 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+
+		<setattribute tag='BestBuyBestSelling' RAttribute='BestBuyBestSelling' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='BrandName' RAttribute='BrandName' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='brdvd' type='integer' subtype=''></setattribute>
+			<setattribute tag='BrDvdID' RAttribute='BrDvdID' enclosure='brdvd' type='integer' subtype=''></setattribute>
+			<setattribute tag='BuycomMostPopular' RAttribute='BuycomMostPopular' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='CNETMostPopular' RAttribute='CNETMostPopular' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='motivatorTotal' RAttribute='motivatorTotal' enclosure='brdvd' type='integer' subtype=''></setattribute>
+			<setattribute tag='SearsTopSelling' RAttribute='SearsTopSelling' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='WalmartBestSelling' RAttribute='WalmartBestSelling' enclosure='brdvd' type='string' subtype=''></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer' subtype=''></setattribute>
+			<setattribute tag='BrDvdID' RAttribute='BrDvdID' enclosure='job' type='integer' subtype=''></setattribute>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date' subtype=''></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string' subtype=''></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer' subtype=''></setattribute>
+			<createentity entity='brdvd' tag='brdvd' id='id'></createentity>
+			<createentity entity='constants' tag='constants' id='id'></createentity>
+			<createentity entity='job' tag='job' id='id'></createentity>
+		</map>
+
+		<entities>
+			<entity name='brdvd' number='*'></entity>
+			<entity name='constants' number='1'></entity>
+			<entity name='job' number='1'></entity>
+		</entities>
+
+		<initialization>
+			<initialentity entity='job' epush='true'></initialentity>
+			<initialentity entity='constants' epush='true'></initialentity>
+		</initialization>
+	</XMLtoEDD>
+</mapping>

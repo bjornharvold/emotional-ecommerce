@@ -1,0 +1,136 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+<jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+<lela:findUser/>
+<spring:url value="/quiz" var="quizUrl"/>
+
+<c:if test="${!empty param.lq and param.lq eq 1}">
+    <script type="text/javascript">
+        window.location = '${quizUrl}';
+    </script>
+</c:if>
+
+<div class="lela-page-container page-categories">
+
+    <div class="lela-page-header">
+        <div id="introduction">
+
+            <c:choose>
+                <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'PARTIAL' or us.profileStatus == 'MISSING'}">
+                    <c:set var="title"><spring:message code="categories.title.incomplete" htmlEscape="false"/></c:set>
+                    <c:set var="introduction"><spring:message code="categories.introduction.incomplete" htmlEscape="false" arguments="${quizUrl}"/></c:set>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="title"><spring:message code="categories.title" htmlEscape="false"/></c:set>
+                    <c:set var="introduction"><spring:message code="categories.introduction" htmlEscape="false"/></c:set>
+                </c:otherwise>
+            </c:choose>
+
+            <h2 class="startshopping">${title}</h2>
+            <div id="introduction-text">${introduction}
+                <c:choose>
+                    <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'PARTIAL' or us.profileStatus == 'MISSING'}"></c:when>
+                    <c:otherwise>
+                    <spring:url var="heartImg" value="/static/images/icons/my_faves_off_outline.png" />
+                    <spring:url var="heartImgOver" value="/static/images/icons/my_faves_on.png" />
+                    <p id="event-text">Add items to your Lela List by clicking on the heart <img src="${heartImg}" out="${heartImg}" over="${heartImgOver}" /> icons.</p>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+
+
+
+            <!--
+            <div class="examples image-switcher" id="examples-carousel">
+                <ul>
+                    <c:forEach var="category" items="${categories}" varStatus="status">
+                        <spring:url value="/${category.srlnm}/c?rlnm=${category.rlnm}" var="categoryUrl" />
+                        <spring:url value="/static/images/placeholders/categories/categories_landing/marquee/${category.rlnm}.png" var="imgUrl" />
+                        <li class="examples-row carousel-row switcher-image" row-num="${status.index}"><a href="${categoryUrl}"><img src="${imgUrl}" /></a></li>
+                    </c:forEach>
+                </ul>
+            </div>
+            -->
+
+        </div>
+    </div>
+
+    <div class="lela-page-content">
+
+        <div class="horizontal-shade"><!-- --></div>
+
+        <div id="categories-list">
+
+            <div id="cat-e"><!-- --></div>
+
+            <c:set var="printThisDepartment" value="false" />
+
+            <c:forEach var="navGroup" items="${navigationBar.grps}" varStatus="status">
+
+                <div class="group-${navGroup.rlnm} cat-group">
+
+                    <h3><spring:message code="categories.shop.${navGroup.rlnm}" htmlEscape="false" /></h3>
+
+                    <c:forEach var="children" items="${navGroup.chldrn}">
+                        <c:forEach var="category" items="${children.ctgrs}" varStatus="status">
+                            <spring:url value="/static/images/placeholders/categories/post_quiz/${navGroup.rlnm}_${category.rlnm}.jpg" var="categoryImgUrl" />
+                            <spring:url value="/static/images/placeholders/categories/post_quiz/${navGroup.rlnm}_${category.rlnm}_white.jpg" var="categoryImgUrlOver" />
+                            <div id="cat-d-${category.rlnm}" class="cat">
+                                <spring:url value="/${category.srlnm}/c?rlnm=${category.rlnm}&amp;drlnm=${navGroup.rlnm}" var="categoryUrl" />
+                                <a href="${categoryUrl}">
+                                    <img class="cat-img" src="${categoryImgUrl}" />
+                                    <img class="cat-img-over hidden" src="${categoryImgUrlOver}" />
+                                    <!-- <span><spring:message code="categories.${category.rlnm}" htmlEscape="false"/></span> -->
+                                </a>
+                            </div>
+                        </c:forEach>
+                    </c:forEach>
+                    <c:forEach var="category" items="${navGroup.ctgrs}" varStatus="status">
+                        <spring:url value="/static/images/placeholders/categories/post_quiz/${navGroup.rlnm}_${category.rlnm}.jpg" var="categoryImgUrl" />
+                        <spring:url value="/static/images/placeholders/categories/post_quiz/${navGroup.rlnm}_${category.rlnm}_white.jpg" var="categoryImgUrlOver" />
+                        <div id="cat-d-${category.rlnm}" class="cat">
+                            <spring:url value="/${category.srlnm}/c?rlnm=${category.rlnm}&amp;drlnm=${navGroup.rlnm}" var="categoryUrl" />
+                            <a href="${categoryUrl}">
+                                <img class="cat-img" src="${categoryImgUrl}" />
+                                <img class="cat-img-over hidden" src="${categoryImgUrlOver}" />
+                                <!-- <span><spring:message code="categories.${category.rlnm}" htmlEscape="false"/></span> -->
+                            </a>
+                        </div>
+                    </c:forEach>
+
+                </div>
+
+            </c:forEach>
+
+            <div class="clear"><!-- --></div>
+
+        </div>
+
+        <!-- <tiles:insertTemplate template="/WEB-INF/jsp/items/categories_list.jspx" flush="true">
+            <tiles:putAttribute name="categories" value="${categories}" />
+        </tiles:insertTemplate> -->
+    </div>
+
+</div>
+
+<tiles:insertTemplate template="/WEB-INF/jsp/list/tutorial.jspx" flush="true">
+    <tiles:putAttribute name="location" value="categories" />
+</tiles:insertTemplate>
+
+
+</jsp:root>

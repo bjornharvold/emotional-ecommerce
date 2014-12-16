@@ -1,0 +1,370 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+<jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+<lela:findUser/>
+
+<!-- Set item object based on relevancy -->
+<c:if test="${itemDetails.rlvnttm != null}">
+    <c:set var="item" value="${itemDetails.rlvnttm}"/>
+</c:if>
+
+<c:if test="${itemDetails.tm != null}">
+    <c:set var="item" value="${itemDetails.tm}"/>
+</c:if>
+
+<spring:url value="/user/list" var="favoriteUrl" />
+<spring:url value="/register" var="registerUrl" />
+<spring:url value="/quiz" var="quizUrl" />
+<spring:url value="/list/item" var="lelaListUrl" />
+<spring:url value="/user/list/card/delete" var="lelaItemDeleteUrl" />
+<spring:url value="/list/own" var="lelaOwnedUrl" />
+<spring:url value="/user/list/card/delete" var="lelaOwnDeleteUrl" />
+<spring:url value="/${item.srlnm}/p/print?rlnm=${item.rlnm}" var="printUrl" />
+<spring:url var="addListItem" value="/user/list/names?type=item"/>
+<spring:url var="reviewUrl" value="/item/${item.rlnm}/reviews" />
+<spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+<!-- Google Maps API libraries -->
+<script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false&amp;v=3&amp;libraries=geometry"><!-- --></script>
+<script type="text/javascript">
+    var favoriteStores = false;
+    var reviewUrl = "${reviewUrl}";
+</script>
+
+<c:set var="drlnm" value="" />
+<c:if test="${!empty currentDepartment}">
+    <c:set var="drlnm" value="&amp;drlnm=${currentDepartment}" />
+</c:if>
+
+<c:choose>
+    <c:when test="${!empty param.sz and !empty param.pg}">
+        <spring:url value="/${item.ctgry.srlnm}/c?rlnm=${item.ctgry.rlnm}&amp;size=${fn:escapeXml(param.sz) * (fn:escapeXml(param.pg) + 1)}&amp;brlnm=${item.rlnm}${drlnm}" var="backUrl" />
+        <a href="${backUrl}" class="a-back"><spring:message code="button.back"/></a>
+    </c:when>
+    <c:otherwise>
+        <a href="javascript: history.go(-1);" class="a-back"><spring:message code="button.back"/></a>
+    </c:otherwise>
+</c:choose>
+
+<div xmlns:v="http://rdf.data-vocabulary.org/#" id="brcr">
+    <lela:lelaBreadCrumb page="${item.ctgry.rlnm}" pageUrl="${backUrl}" item="${item}" />
+</div>
+
+<c:if test="${loggedInUser != 'anonymousUser' and us.profileStatus != 'MISSING'}">
+    <c:choose>
+        <c:when test="${itemDetails.rlvnttm.ttlrlvncynmbr lt 25}">
+            <spring:url value="/static/images/icons/rating/range/0_24.png"  var="rangeImgUrl"/>
+            <spring:message code="item.tabs.ratings.chart.4.2" htmlEscape="false" var="rangeText"/>
+            <spring:message code="item.tabs.ratings.chart.4.3" htmlEscape="false" var="rangeTextTip"/>
+        </c:when>
+        <c:when test="${itemDetails.rlvnttm.ttlrlvncynmbr lt 50 and itemDetails.rlvnttm.ttlrlvncynmbr gt 24}">
+            <spring:url value="/static/images/icons/rating/range/25_49.png"  var="rangeImgUrl"/>
+            <spring:message code="item.tabs.ratings.chart.3.2" htmlEscape="false" var="rangeText"/>
+            <spring:message code="item.tabs.ratings.chart.3.3" htmlEscape="false" var="rangeTextTip"/>
+        </c:when>
+        <c:when test="${itemDetails.rlvnttm.ttlrlvncynmbr lt 75 and itemDetails.rlvnttm.ttlrlvncynmbr gt 49}">
+            <spring:url value="/static/images/icons/rating/range/50_74.png"  var="rangeImgUrl"/>
+            <spring:message code="item.tabs.ratings.chart.2.2" htmlEscape="false" var="rangeText"/>
+            <spring:message code="item.tabs.ratings.chart.2.3" htmlEscape="false" var="rangeTextTip"/>
+        </c:when>
+        <c:when test="${itemDetails.rlvnttm.ttlrlvncynmbr gt 74}">
+            <spring:url value="/static/images/icons/rating/range/75_100.png"  var="rangeImgUrl"/>
+            <spring:message code="item.tabs.ratings.chart.1.2" htmlEscape="false" var="rangeText"/>
+            <spring:message code="item.tabs.ratings.chart.1.3" htmlEscape="false" var="rangeTextTip"/>
+        </c:when>
+    </c:choose>
+</c:if>
+
+
+<div class="lela-page-content lela-page-content-nopadding lela-page-content-nobg">
+    <div id="p-nav-wrap">
+        <div id="p-nav">
+
+            <spring:message code="grid.results.category.${item.ctgry.rlnm}" var="userCategoryText"/>
+            <div class="relevancy-mod">
+                <c:choose>
+                    <c:when test="${us.motivator != null}">
+                        <spring:url value="/static/images/icons/rating/relevancy_meter_${itemDetails.rlvnttm.ttlrlvncynmbr}.png" var="lelaRatingImgUrl" />
+                        <a href="#p-comp" rel="nofollow" class="trigger-rel">
+                            <span class="info-sc"><img src="${lelaRatingImgUrl}" alt="${itemDetails.rlvnttm.ttlrlvncynmbr}%" class="lela-pct"/></span>
+                        </a>
+
+                        <div class="tooltip rel-tip">
+                            <strong><spring:message code="item.relevancy.tooltip.1.post" htmlEscape="false" arguments="${userCategoryText}"/></strong>
+                            <spring:message code="item.relevancy.tooltip.2.post" htmlEscape="false" arguments="${userCategoryText}, ${itemDetails.rlvnttm.ttlrlvncynmbr}, ${rangeTextTip}"/>
+                            <a href="#p-comp"><spring:message code="item.relevancy.tooltip.3.post" htmlEscape="false"/></a>
+                        </div>
+
+                    </c:when>
+                    <c:otherwise>
+                        <spring:url value="/static/images/icons/rating_q.jpg" var="lelaRatingImgUrl" />
+                        <a href="${quizUrl}" class="lquiz trigger-rel" quiz-location="Quiz-PD-Bottom" rel="nofollow"><img src="${lelaRatingImgUrl}" alt="?" class="rating-anim"/></a>
+
+                        <div class="tooltip rel-tip">
+                            <strong><spring:message code="item.relevancy.tooltip.1" htmlEscape="false" arguments="${userCategoryText}"/></strong>
+                            <spring:message code="item.relevancy.tooltip.2" htmlEscape="false" arguments="${userCategoryText}"/>
+                            <a href="${quizUrl}" class="lquiz"><spring:message code="item.relevancy.tooltip.3" htmlEscape="false"/></a>
+                        </div>
+
+                    </c:otherwise>
+                </c:choose>
+            </div>
+
+            <div class="p-nav-cont">
+
+                <c:if test="${!empty domainAffiliate}">
+                    <a href="http://www.lela.com" target="_blank" class="powered-by">Powered by Lela.com</a>
+                </c:if>
+
+                <spring:message code="nav.cat.${item.ctgry.rlnm}" var="titleCategory"/>
+                <h1 title="${item.subAttributes['Brand']} ${item.nm} : ${titleCategory} : Lela">
+                    <img src="${item.imgs[0].sz['small']}" alt="${item.nm} - ${item.subAttributes['Brand']}" class="pr-thumb"/>
+
+                    <lela:lelaProductName item="${item}" /><br/>
+                    <spring:url value="/${item.wnr.srlnm}/b?rlnm=${item.wnr.rlnm}" var="brandUrl" />
+                    <c:if test="${empty domainAffiliate}">
+                        <div class="brand-name"><spring:message code="item.details.by"/>${nbsp}<a href="${brandUrl}">${item.subAttributes['Brand']}</a></div>
+                    </c:if>
+                    <c:if test="${not empty domainAffiliate}">
+                        <div class="brand-name"><spring:message code="item.details.by"/>${nbsp}${item.subAttributes['Brand']}</div>
+                    </c:if>
+                </h1>
+                <a href="#p-item" class="p-an selected" id="p-item-nav" rel="nofollow">Main</a>
+
+                <a href="#p-specs" class="p-an" id="p-specs-nav" rel="nofollow">Specifications</a>
+                <a href="#p-comp" class="p-an" id="p-comp-nav" rel="nofollow">Your Compatibility Rating&#8482;</a>
+
+                <c:if test="${empty domainAffiliate or domainAffiliate.showStores}">
+                    <a href="#p-details" class="p-an" id="p-details-nav" rel="nofollow">Stores &amp; Prices</a>
+                </c:if>
+                <a href="#p-reviews" class="p-an hidden" id="p-reviews-nav" rel="nofollow">Reviews</a>
+
+                <!-- Add to comparison list -->
+                <a href="#" class="l-compare" id="l-comparison" rlnm="${item.rlnm}" cat="${item.ctgry.rlnm}"><spring:message code="button.compare.add" htmlEscape="false"/> (<span><!-- --></span>)</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="item-content">
+
+        <div class="nav-section" data-id="p-item" data-type="Main Section" id="p-item">
+
+            <div id="product-name">
+
+                <c:if test="${loggedInUser != 'anonymousUser' and us.profileStatus != 'MISSING'}">
+                    <div class="rating-info">
+                        <h3>Your Compatibility Rating with this item (${itemDetails.rlvnttm.ttlrlvncynmbr}%):</h3>
+
+                        <img src="${rangeImgUrl}" alt="${itemDetails.rlvnttm.ttlrlvncynmbr}%"/>
+                        <p>
+                            <strong>${rangeText}</strong>
+                            <a href="#p-comp" class="p-an">How does Lela calculate this rating?</a>
+                        </p>
+                    </div>
+                </c:if>
+
+                <div class="p-price">
+
+                    <c:choose>
+                        <c:when test="${item.subAttributes['LowestPrice'] gt 0.0}">
+                            <strong class="price-current"><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['LowestPrice']}" />
+                                <c:if test="${item.subAttributes['LowestPrice'] lt item.subAttributes['ListPrice']}">
+                                    <span class="price-old"><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></span>
+                                </c:if>
+                            </strong>
+                        </c:when>
+                        <c:otherwise>
+                            <spring:message code="item.details.listPrice"/><br/>
+                            <strong class="price-current"><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></strong>
+                        </c:otherwise>
+                    </c:choose>
+
+                    <span class="as-of"><spring:message code="item.details.asof"/> <lela:dateFormat date="${stores[0].ldt}" time="true"/></span>
+
+                    <c:choose>
+                        <c:when test="${not empty domainAffiliate and domainAffiliate.shwcrt}">
+                            <spring:url value="/merchant/addtocart" var="addToCartUrl">
+                                <spring:param name="merchantId" value="${item.subAttributes['MerchantId']}" />
+                                <spring:param name="itemId" value="${item.rlnm}" />
+                            </spring:url>
+                            <a href="${addToCartUrl}" class="buy-now p-merchant" target="_blank" rel="nofollow"><strong>Add to Cart</strong></a>
+                        </c:when>
+                        <c:otherwise>
+                            <spring:url value="/merchant/redirect" var="redirectPurchaseUrl">
+                                <spring:param name="merchantId" value="${item.subAttributes['MerchantId']}" />
+                                <spring:param name="itemId" value="${item.rlnm}" />
+                            </spring:url>
+
+                            <c:choose>
+                                <c:when test="${item.subAttributes['StoreCount'] gt 1}">
+                                    <a href="${redirectPurchaseUrl}" data-type="top" store="${item.subAttributes['MerchantName']}" class="buy-now" target="_blank" rel="nofollow">See it at <strong>${item.subAttributes['MerchantName']}</strong></a>
+                                    <a href="#p-details" class="p-an compare-pr"><strong><spring:message code="items.data.bestpricefrom" htmlEscape="false" /></strong><br/>from <spring:message code="items.data.price.stores" htmlEscape="false" arguments="${item.subAttributes['StoreCount']},${item.subAttributes['StoreCount'] gt 1 ? 's' : ''}" /> ></a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="${redirectPurchaseUrl}" class="buy-now p-merchant" target="_blank" rel="nofollow">See it at <strong>${item.subAttributes['MerchantName']}</strong></a>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:otherwise>
+                    </c:choose>
+
+                </div>
+
+            </div>
+
+            <div id="product-img">
+                <!-- CNET specific content -->
+                <c:if test="${item.ctgry.rlnm eq 'digitalcamera' or item.ctgry.rlnm eq 'television'}">
+                    <spring:url value="/static/images/partners/CNET_Content_Solutions_Logo.jpg" var="cnetLogoUrl"/>
+                    <a href="http://www.cnetcontentsolutions.com/" target="_blank" class="partner-logo"><img src="${cnetLogoUrl}" alt="CNET Content Solutions"/></a>
+                </c:if>
+
+                <c:if test="${empty domainAffiliate or domainAffilate.shwlsts}">
+                    <div class="list-over"><!-- --></div>
+                    <a rel="nofollow" href="${addListItem}" class="list-over-add l-list l-list-add" rlnm="${item.rlnm}" ctrlnm="${item.ctgry.rlnm}" km-id="add-fave">Add To My Lela List</a>
+                </c:if>
+
+                <img src="${item.imgs[0].sz['large']}" alt="${item.nm} - ${item.subAttributes['Brand']}" class="pr-img"/>
+            </div>
+
+            <div id="product-info">
+
+                <c:if test="${empty snapshot}">
+                <c:if test="${empty domainAffiliate or domainAffiliate.shwcmpr}">
+                <div class="compare-check" cat="${item.ctgry.rlnm}" rlnm="${item.rlnm}"><div class="c-btn"><!-- --></div> <spring:message code="button.compare"/></div>
+                </c:if>
+                </c:if>
+
+                <!-- Print -->
+                <a href="${printUrl}" target="_blank" class="print" id="print" rel="nofollow"><!-- --></a>
+
+                <!-- Social Share -->
+                <a href="#" id="share-icons-trigger"><!-- --></a>
+
+                <span class="ac-tip" id="share-icons">
+                    <strong><spring:message code="item.details.share" htmlEscape="false"/></strong>
+                    <!-- Social Media Widgets -->
+                    <span class="icon st_email_custom a-email"><!-- --></span>
+                    <span class="icon st_twitter_custom a-tw"><!-- --></span>
+                    <span class="icon st_facebook_custom a-fb"><!-- --></span>
+                    <span class="icon st_pinterest_custom a-pin"><!-- --></span>
+                    <script type="text/javascript" src="//w.sharethis.com/button/buttons.js"><!-- --></script>
+                    <script type="text/javascript">stLight.options({publisher:'f780c832-2c8e-4a0e-8494-6cf43f8b1ef8'}); </script>
+                </span>
+
+                <!-- Add to List -->
+                <c:if test="${empty domainAffiliate or domainAffilate.shwlsts}">
+                    <a rel="nofollow" href="${addListItem}" class="l-list l-list-add" rlnm="${item.rlnm}" ctrlnm="${item.ctgry.rlnm}" km-id="add-fave"><!-- --></a>
+                </c:if>
+
+                <div class="color-img">
+
+
+                    <h4 class="color-name"><strong><spring:message code="item.details.available" /></strong></h4>
+
+                    <c:forEach var="image" varStatus="status" items="${item.imgs}">
+                        <a href="${image.sz['large']}" clr="${image.nm}" class="${status.index == 0 ? 'selected' : ''}"><img src="${image.sz['small']}" alt="${item.nm} - ${item.subAttributes['Brand']}"/></a>
+                    </c:forEach>
+
+                    <c:if test="${!empty item.attributes['YouTubeVideoID_1']}">
+
+                        <c:set var="yt" value="http://www.youtube.com" />
+
+                        <c:choose>
+                            <c:when test="${fn:startsWith(item.attributes['YouTubeVideoID_1'], yt) eq true}"><spring:url var="ytUrl1" value="${item.attributes['YouTubeVideoID_1']}?fs=1&amp;autoplay=1" /></c:when>
+                            <c:otherwise><spring:url var="ytUrl1" value="http://www.youtube.com/watch?v=${item.attributes['YouTubeVideoID_1']}?fs=1&amp;autoplay=1" /></c:otherwise>
+                        </c:choose>
+                        <a href="${ytUrl1}" id="vid-l-001" class="vid-l"><!-- --></a>
+                    </c:if>
+                    <c:if test="${!empty item.attributes['YouTubeVideoID_2']}">
+                        <c:choose>
+                            <c:when test="${fn:startsWith(item.attributes['YouTubeVideoID_2'], yt) eq true}"><spring:url var="ytUrl2" value="${item.attributes['YouTubeVideoID_2']}?fs=1&amp;autoplay=1" /></c:when>
+                            <c:otherwise><spring:url var="ytUrl2" value="http://www.youtube.com/watch?v=${item.attributes['YouTubeVideoID_2']}?fs=1&amp;autoplay=1" /></c:otherwise>
+                        </c:choose>
+                        <a href="${ytUrl2}" id="vid-l-002" class="vid-l"><!-- --></a>
+                    </c:if>
+
+                </div>
+
+                <!-- TEMPORARILY DISABLE UNTIL COLORS ARE IMPLEMENTED -->
+                <c:if test="${fn:length(item.clrs) gt 0}">
+                    <div class="color-sw">
+
+                        <h4 class="color-name"><strong><spring:message code="item.color.available" /></strong>:
+                            <span>
+                                <c:forEach var="color" varStatus="status" items="${item.clrs}">
+                                    <c:if test="${item.rlnm eq color.rlnm}">
+                                        ${color.nm}
+                                    </c:if>
+                                </c:forEach>
+                            </span>
+                        </h4>
+
+                        <c:forEach var="color" varStatus="status" items="${item.clrs}">
+                            <spring:url value="/${color.srlnm}/p?rlnm=${color.rlnm}" var="colorUrl"/>
+                            <a href="${colorUrl}" imgUrl="${color.sz['large']}" clr="${color.nm}"  class="${item.rlnm eq color.rlnm ? 'selected' : ''}" style="background:#${color.hx}" rel="nofollow"><!-- --></a>
+                        </c:forEach>
+                    </div>
+                </c:if>
+
+            </div>
+
+        </div>
+    </div>
+
+    <tiles:insertTemplate template="/WEB-INF/jsp/embeds/quiz_banner.jspx" flush="true" />
+
+    <tiles:insertTemplate template="/WEB-INF/jsp/items/details_specifications.jspx" flush="true">
+        <tiles:putAttribute name="item" value="${item}" />
+    </tiles:insertTemplate>
+
+    <tiles:insertTemplate template="/WEB-INF/jsp/items/details_compatibility.jspx" flush="true">
+        <tiles:putAttribute name="item" value="${item}" />
+        <tiles:putAttribute name="items" value="${items}" />
+    </tiles:insertTemplate>
+
+    <tiles:insertTemplate template="/WEB-INF/jsp/items/details_tabs.jspx" flush="true">
+        <tiles:putAttribute name="item" value="${item}" />
+        <tiles:putAttribute name="stores" value="${stores}" />
+    </tiles:insertTemplate>
+
+    <div id="p-reviews" class="nav-section" data-id="p-reviews" data-type="Reviews"><!-- --></div>
+
+    <tiles:insertTemplate template="/WEB-INF/jsp/items/details_recommended.jspx" flush="true">
+        <tiles:putAttribute name="items" value="${items}" />
+    </tiles:insertTemplate>
+
+    <c:if test="${item.ctgry.rlnm eq 'stroller'}">
+        <spring:url var="strollerTipsUrl" value="/blog/tips-for-choosing-your-best-stroller" />
+        <spring:url var="strollerImg" value="/static/images/blog/stroller-buying-guide.jpg" />
+        <div id="blog-promos">
+            <div class="blog-promo">
+                <a href="${strollerTipsUrl}" class="blog-link"><img src="${strollerImg}" /></a>
+                <div class="blog-promo-text">
+                    <h3><a href="${strollerTipsUrl}" title="Tips for choosing your best stroller" class="blog-link">Tips for choosing your best stroller</a></h3>
+                    <p>Your complete stroller guide to all types of strollers.<br/>
+                       Find the best stroller with the features and look that fit your lifestyle.</p>
+                </div>
+                <div class="clear"><!-- --></div>
+            </div>
+        </div>
+    </c:if>
+</div>
+<tiles:insertTemplate template="/WEB-INF/jsp/common/comparison.jspx" flush="true" />
+
+</jsp:root>

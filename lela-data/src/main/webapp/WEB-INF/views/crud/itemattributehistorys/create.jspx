@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_lela_data_domain_entity_ItemAttributeHistory" modelAttribute="itemAttributeHistory" path="/crud/itemattributehistorys" render="${empty dependencies}" z="HJXgw7dMk3fdnvY5nu9ZCQKW2u0=">
+        <field:datetime dateTimePattern="${itemAttributeHistory_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_ItemAttributeHistory_dateCreated" z="user-managed" render="false"/>
+        <field:datetime dateTimePattern="${itemAttributeHistory_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_ItemAttributeHistory_dateModified" z="user-managed" render="false"/>
+        <field:select field="item" id="c_com_lela_data_domain_entity_ItemAttributeHistory_item" itemValue="id" items="${items}" path="/items" required="true" z="ORCs9GtfkMxsyI7++UjSnIO60kw="/>
+        <field:select field="attributeType" id="c_com_lela_data_domain_entity_ItemAttributeHistory_attributeType" itemValue="id" items="${attributetypes}" path="/crud/attributetypes" required="true" z="YPbiZM4fvj1Y0Vpkyg+1hcRT6ZM="/>
+        <field:input field="attributeSequence" id="c_com_lela_data_domain_entity_ItemAttributeHistory_attributeSequence" required="true" validationMessageCode="field_invalid_integer" z="B/2M0jiVXcyQYgL4ecTPf/gOKrc="/>
+        <field:input field="oldAttributeValue" id="c_com_lela_data_domain_entity_ItemAttributeHistory_oldAttributeValue" z="dVNVGac319G2Z97aR/rK9ZVtD9E="/>
+        <field:input field="newAttributeValue" id="c_com_lela_data_domain_entity_ItemAttributeHistory_newAttributeValue" z="KTTulJdaZvJvxtqyumNRkJAfUzw="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_lela_data_domain_entity_ItemAttributeHistory" render="${not empty dependencies}" z="occT683BxKysYOFXE79uEaeGMtU="/>
+</div>

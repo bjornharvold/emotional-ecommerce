@@ -1,0 +1,115 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="press.image"/></h1>
+
+    <spring:url value="/administration/press/${urlName}" var="pressUrl"/>
+    <spring:url value="/administration/press/list" var="pressListUrl"/>
+    <spring:url value="/administration/press/${urlName}/image" var="pressImageUrl">
+        <c:if test="${pressImageEntry.mgid != null}">
+            <spring:param name="id" value="${pressImageEntry.mgid}"/>
+        </c:if>
+    </spring:url>
+
+    <div class="actions">
+        <a class="action" href="${pressListUrl}">&lt; <spring:message code="press.back.to.list"/> </a>
+        <a class="action" href="${pressUrl}"><spring:message code="press.back.to.press"/> </a>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <spring-form:form action="${pressImageUrl}" commandName="pressImageEntry" method="POST" modelAttribute="pressImageEntry" enctype="multipart/form-data">
+
+        <div class="h-row even">
+            <div class="h-col"><label for="pblshdt"><spring:message code="press.image.publish.date"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="pblshdt" path="pblshdt"/>&#160;<spring-form:errors path="pblshdt" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="pblshr"><spring:message code="press.image.publisher"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="pblshr" path="pblshr"/>&#160;<spring-form:errors path="pblshr" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="hdr"><spring:message code="press.image.header"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="hdr" path="hdr"/>&#160;<spring-form:errors path="hdr" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="txt"><spring:message code="press.image.text"/></label></div>
+
+            <div class="h-col">
+                <spring-form:textarea id="txt" path="txt"/>&#160;<spring-form:errors path="txt" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="rl"><spring:message code="press.image.url"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="rl" path="rl"/>&#160;<spring-form:errors path="rl" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="multipartFile"><spring:message code="press.image.file"/></label></div>
+
+            <div class="h-col">
+                <input type="file" id="multipartFile" name="multipartFile"/>&#160;<spring-form:errors path="multipartFile" cssClass="red"/>
+            </div>
+
+            <c:if test="${pressImageEntry.mgrl != null}">
+                <br/><br/><br/>
+                <p><spring:message code="press.image.current.image.url"/>:</p>
+                 <img src="${pressImageEntry.mgrl}" alt="mgrl"/>
+            </c:if>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="rdr"><spring:message code="press.image.order"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="rdr" path="rdr"/>&#160;<spring-form:errors path="rdr" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="s-row">
+            <spring-form:hidden path="mgid"/>
+            <spring-form:hidden path="rlnm"/>
+            <spring:message code="button.save" var="save"/>
+            <div class="s-col"><input type="submit" value="${save}"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+    </spring-form:form>
+
+</div>

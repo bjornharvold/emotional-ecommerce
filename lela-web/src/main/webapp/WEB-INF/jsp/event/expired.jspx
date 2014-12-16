@@ -1,0 +1,76 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <spring:url value="/static/styles/events/${event.rlnm}.css" var="cssUrl"/>
+    <link href="${cssUrl}" type="text/css" rel="stylesheet"/>
+
+    <div id="ev-main">
+
+        <div id="event-title">
+            <h1>Our baby onesie giveaway has ended.</h1>
+            <h2>Love the Lela onesie?<br/><strong>Sign up for our next giveaway</strong></h2>
+
+            <spring:url value='/signin/facebook' var="fb_url"/>
+            <form action="${fb_url}" method="POST" id="facebook-reg">
+                <spring:url value="/static/images/buttons/sign-in-with-facebook-l.png" var="fb_image_url"/>
+                <a href="#" class="fb-submit"><img src="${fb_image_url}" alt="Facebook Signup"/></a>
+                <spring:message code="facebook.permissions" var="facebookPermissions"/>
+                <input type="hidden" name="scope" value="${facebookPermissions}"/>
+            </form>
+
+            <script type="text/javascript">
+                $('.fb-submit').click(function() {
+
+                    $('#registration-form').block({ css: { border: '0px none #aaa', backgroundColor:'transparent'}, message: '', overlayCSS:  { backgroundColor: '#ffffff', opacity: 0.7 }});
+                    trackEvent('user', 'registration', 'FB success', 1);
+                    trackCustomVariable(2, 'registered', 'facebook');
+
+                    $('#facebook-reg').submit();
+                    return false;
+
+                });
+            </script>
+
+            <p class="or">OR</p>
+
+            <spring:url var="registerUrl" value="/register" />
+            <p><a class="signup" href="${registerUrl}">Sign up with e-mail address</a></p>
+
+        </div>
+
+        <a href="#" onclick="return false;" id="event-img"><!-- --></a>
+    </div>
+
+    <div class="lela-page-content">
+        <tiles:insertTemplate template="/WEB-INF/jsp/departments/department_list.jspx" flush="true">
+            <tiles:putAttribute name="categories" value="${categories}" />
+        </tiles:insertTemplate>
+    </div>
+
+    <div class="add-this">
+        <h3>Spread the Love!</h3>
+
+        <div style="width:70px; margin:0 auto;">
+            <span class="st_twitter_custom a-tw"><!-- --></span>
+            <span class="st_facebook_custom a-fb"><!-- --></span>
+        </div>
+
+        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"><!-- --></script>
+        <script type="text/javascript">stLight.options({publisher:'f780c832-2c8e-4a0e-8494-6cf43f8b1ef8'}); </script>
+    </div>
+</jsp:root>

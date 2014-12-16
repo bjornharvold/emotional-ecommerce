@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="user-managed">
+        <menu:navcategory id="t_main" label="Top">
+            <menu:category id="c_category" z="kY676wLbZKc59UbcUGM8ogjOGOc=">
+                <menu:item id="i_category_new" messageCode="global_menu_new" url="/crud/categorys?form" z="user-managed"/>
+                <menu:item id="i_category_list" messageCode="global_menu_list" url="/crud/categorys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_brand" z="bjOhBOeTe9dTd9R7+6ToH1Ck65Y=">
+                <menu:item id="i_brand_new" messageCode="global_menu_new" url="/crud/brands?form" z="user-managed"/>
+                <menu:item id="i_brand_list" messageCode="global_menu_list" url="/crud/brands?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+                <menu:item id="fi_brand_brandname" messageCode="global_menu_find" url="/crud/brands?find=ByBrandName&amp;form" z="yIgtgxijieHsMDj4EnqQL7C+QGk="/>
+            </menu:category>
+            <menu:category id="c_item" z="jWO1pnucyLwI2bZuwfja4eCYsjU=">
+                <menu:item id="i_item_new" messageCode="global_menu_new" url="/crud/items?form" z="user-managed"/>
+                <menu:item id="i_item_list" messageCode="global_menu_list" url="/crud/items?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+                <menu:item id="fi_item_lelaUrl" messageCode="global_menu_find" url="/crud/items?find=ByLelaUrl&amp;form" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_manufacturer" z="+0Xr8vgtHGd+Wkir0RTgD75btNk=">
+                <menu:item id="i_manufacturer_new" messageCode="global_menu_new" url="/crud/manufacturers?form" z="user-managed"/>
+                <menu:item id="i_manufacturer_list" messageCode="global_menu_list" url="/crud/manufacturers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_merchant" z="tqredmTJT1BisCWT/ZF5WwSFbS8=">
+                <menu:item id="i_merchant_new" messageCode="global_menu_new" url="/crud/merchants?form" z="user-managed"/>
+                <menu:item id="i_merchant_list" messageCode="global_menu_list" url="/crud/merchants?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_datasourcetype" z="PEl22OvUuO/1hQjB1vHePm9AFH8=">
+                <menu:item id="i_datasourcetype_new" messageCode="global_menu_new" url="/crud/datasourcetypes?form" z="user-managed"/>
+                <menu:item id="i_datasourcetype_list" messageCode="global_menu_list" url="/crud/datasourcetypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_filters" label="Functional Filters">
+            <menu:category id="c_functionalfilter" z="Bvia1utgLj97i0zQGOMEowEX3GA=">
+                <menu:item id="i_functionalfilter_new" messageCode="global_menu_new" url="/crud/functionalfilters?form" z="user-managed"/>
+                <menu:item id="i_functionalfilter_list" messageCode="global_menu_list" url="/crud/functionalfilters?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_functionalfiltertype" z="NbY9z9GP85A0JeXSHyb0mnzk8Ds=">
+                <menu:item id="i_functionalfiltertype_new" messageCode="global_menu_new" url="/crud/functionalfiltertypes?form" z="user-managed"/>
+                <menu:item id="i_functionalfiltertype_list" messageCode="global_menu_list" url="/crud/functionalfiltertypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_functionalfilteranswer" z="uSd7Rnq3hXEmx6I/shzOglp4pqQ=">
+                <menu:item id="i_functionalfilteranswer_new" messageCode="global_menu_new" url="/crud/functionalfilteranswers?form" z="user-managed"/>
+                <menu:item id="i_functionalfilteranswer_list" messageCode="global_menu_list" url="/crud/functionalfilteranswers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_functionalfilteranswervalue" z="pp8ezXPWJTezMWBnaQ23seHepnA=">
+                <menu:item id="i_functionalfilteranswervalue_new" messageCode="global_menu_new" url="/crud/functionalfilteranswervalues?form" z="user-managed"/>
+                <menu:item id="i_functionalfilteranswervalue_list" messageCode="global_menu_list" url="/crud/functionalfilteranswervalues?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_items" label="Items">
+            <menu:category id="c_itemattribute" z="uWDJWgbUVV7gYqCJBQMuQrK6xVg=">
+                <menu:item id="i_itemattribute_new" messageCode="global_menu_new" url="/crud/itemattributes?form" z="user-managed"/>
+                <menu:item id="i_itemattribute_list" messageCode="global_menu_list" url="/crud/itemattributes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_itemcolor" z="ahHXOcSs7j7LK7P2hlJ0pkQzXXA=">
+                <menu:item id="i_itemcolor_new" messageCode="global_menu_new" url="/crud/itemcolors?form" z="user-managed"/>
+                <menu:item id="i_itemcolor_list" messageCode="global_menu_list" url="/crud/itemcolors?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_itemcolormerchant" z="KE+9fc8c4GoebV2Qb2KBwUXW7gY=">
+                <menu:item id="i_itemcolormerchant_new" messageCode="global_menu_new" url="/crud/itemcolormerchants?form" z="user-managed"/>
+                <menu:item id="i_itemcolormerchant_list" messageCode="global_menu_list" url="/crud/itemcolormerchants?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_itemidentifier" z="HKF64cluW9p2WXHCAxLh3pGKV8o=">
+                <menu:item id="i_itemidentifier_new" messageCode="global_menu_new" url="/crud/itemidentifiers?form" z="user-managed"/>
+                <menu:item id="i_itemidentifier_list" messageCode="global_menu_list" url="/crud/itemidentifiers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_itemrecall" z="2nXtERl553gXfxGFrdD4H7obYyk=">
+                <menu:item id="i_itemrecall_new" messageCode="global_menu_new" url="/crud/itemrecalls?form" z="user-managed"/>
+                <menu:item id="i_itemrecall_list" messageCode="global_menu_list" url="/crud/itemrecalls?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_itemvideo" z="HM9l3Msr7x7HRVLojAkuriTgIcw=">
+                <menu:item id="i_itemvideo_new" messageCode="global_menu_new" url="/crud/itemvideos?form" z="user-managed"/>
+                <menu:item id="i_itemvideo_list" messageCode="global_menu_list" url="/crud/itemvideos?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_itemattributehistory" z="cTh0ZA3/vrkPR3HyL238HMkeeS4=">
+                <menu:item id="i_itemattributehistory_new" messageCode="global_menu_new" url="/crud/itemattributehistorys?form" z="user-managed"/>
+                <menu:item id="i_itemattributehistory_list" messageCode="global_menu_list" url="/crud/itemattributehistorys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_series" z="MFpsgddpe3ynv4Hd3cr67odLCBk=">
+                <menu:item id="i_series_new" messageCode="global_menu_new" url="/crud/series?form" z="user-managed"/>
+                <menu:item id="i_series_list" messageCode="global_menu_list" url="/crud/series?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_itemseries" z="TLc/7t3gmcSyuT+mmf176kRVlOo=">
+                <menu:item id="i_itemseries_new" messageCode="global_menu_new" url="/crud/itemseries?form" z="user-managed"/>
+                <menu:item id="i_itemseries_list" messageCode="global_menu_list" url="/crud/itemseries?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_seriesattributemap" z="uBDp7BgfaQp454XAIyg6J/t0wlg=">
+                <menu:item id="i_seriesattributemap_new" messageCode="global_menu_new" url="/crud/seriesattributemaps?form" z="cYlYHkpsu8McCVKhhJmKs+gbf+0="/>
+                <menu:item id="i_seriesattributemap_list" messageCode="global_menu_list" url="/crud/seriesattributemaps?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ZHDAcTLKu7SQi4wNRLef16EkpVY="/>
+            </menu:category>
+            <menu:category id="c_productimageitem" z="sfxgTRRZ7LY4Ns8LuguZmg4HAOQ=">
+                <menu:item id="i_productimageitem_new" messageCode="global_menu_new" url="/crud/productimageitems?form" z="LineoJT/maxWDNjUNSdmifqHjwU="/>
+                <menu:item id="i_productimageitem_list" messageCode="global_menu_list" url="/crud/productimageitems?page=1&amp;size=${empty param.size ? 10 : param.size}" z="xoJYJNPH4jQHNspf8E/U4XU638U="/>
+            </menu:category>
+            <menu:category id="c_productimageitemstatus" z="3nhdHxS926FtoXtAJ37r98i7Pfo=">
+                <menu:item id="i_productimageitemstatus_new" messageCode="global_menu_new" url="/crud/productimageitemstatus?form" z="user-managed"/>
+                <menu:item id="i_productimageitemstatus_list" messageCode="global_menu_list" url="/crud/productimageitemstatus?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_productimage" z="yDpc/NsHV5xqGO6ecw5EzllkHeI=">
+                <menu:item id="i_productimage_new" messageCode="global_menu_new" url="/crud/productimages?form" z="user-managed"/>
+                <menu:item id="i_productimage_list" messageCode="global_menu_list" url="/crud/productimages?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_sitestatus" z="o7QQvcA+JLAZNxq/R8cECvd8IRc=">
+                <menu:item id="i_sitestatus_new" messageCode="global_menu_new" url="/crud/sitestatus?form" z="MX7fmd2iv4yJT2y0eXoUa86BOj4="/>
+                <menu:item id="i_sitestatus_list" messageCode="global_menu_list" url="/crud/sitestatus?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ouxnpPvZXsOKFFzwdA2w9+hRbGo="/>
+            </menu:category>
+            <menu:category id="c_itemstatus" z="eyYuGixlXQTyu7brWSMuuuxlSc8=">
+                <menu:item id="i_itemstatus_new" messageCode="global_menu_new" url="/crud/itemstatus?form" z="Ea8FioKCIF4fHjFDPpu202tIpm0="/>
+                <menu:item id="i_itemstatus_list" messageCode="global_menu_list" url="/crud/itemstatus?page=1&amp;size=${empty param.size ? 10 : param.size}" z="hcfciZx38HgXG7T3LDts3+LkQW0="/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_types" label="Types">
+            <menu:category id="c_attributetype" z="dwLhNIHVmK82po4xDpN3qhHtM4g=">
+                <menu:item id="i_attributetype_new" messageCode="global_menu_new" url="/crud/attributetypes?form" z="user-managed"/>
+                <menu:item id="i_attributetype_list" messageCode="global_menu_list" url="/crud/attributetypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_locale" z="K9jfEUu8YMR21D9fd9Aw9XMwCdM=">
+                <menu:item id="i_locale_new" messageCode="global_menu_new" url="/crud/locales?form" z="user-managed"/>
+                <menu:item id="i_locale_list" messageCode="global_menu_list" url="/crud/locales?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_validationtype" z="A0cHMd9f9IZB/cN7UJCkZZhdBoI=">
+                <menu:item id="i_validationtype_new" messageCode="global_menu_new" url="/crud/validationtypes?form" z="user-managed"/>
+                <menu:item id="i_validationtype_list" messageCode="global_menu_list" url="/crud/validationtypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_attributetypesource" z="p1f73TIIh7J/AJT/QyNF8d0nhrM=">
+                <menu:item id="i_attributetypesource_new" messageCode="global_menu_new" url="/crud/attributetypesources?form" z="user-managed"/>
+                <menu:item id="i_attributetypesource_list" messageCode="global_menu_list" url="/crud/attributetypesources?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_cleanserule" z="uwdTo8MV3odw0teAW5InVqFg+70=">
+                <menu:item id="i_cleanserule_new" messageCode="global_menu_new" url="/crud/cleanserules?form" z="user-managed"/>
+                <menu:item id="i_cleanserule_list" messageCode="global_menu_list" url="/crud/cleanserules?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_conditiontype" z="z61naOOUKK5a/lELgIv137LqF84=">
+                <menu:item id="i_conditiontype_new" messageCode="global_menu_new" url="/crud/conditiontypes?form" z="user-managed"/>
+                <menu:item id="i_conditiontype_list" messageCode="global_menu_list" url="/crud/conditiontypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_identifiertype" z="4RkVfV0X/btX/MlCq1ljWJIW3SM=">
+                <menu:item id="i_identifiertype_new" messageCode="global_menu_new" url="/crud/identifiertypes?form" z="user-managed"/>
+                <menu:item id="i_identifiertype_list" messageCode="global_menu_list" url="/crud/identifiertypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_product_details" label="Product Details">
+            <menu:category id="c_productdetailsection" z="UrQ59RLJyfkvKVdn1Um46dc2AM8=">
+                <menu:item id="i_productdetailsection_new" messageCode="global_menu_new" url="/crud/productdetailsections?form" z="user-managed"/>
+                <menu:item id="i_productdetailsection_list" messageCode="global_menu_list" url="/crud/productdetailsections?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_productdetailgroup" z="VV4T2o+BencHhE14GzQiWkolpBo=">
+                <menu:item id="i_productdetailgroup_new" messageCode="global_menu_new" url="/crud/productdetailgroups?form" z="user-managed"/>
+                <menu:item id="i_productdetailgroup_list" messageCode="global_menu_list" url="/crud/productdetailgroups?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_productdetailattributetype" z="kKeUC1PzH5suiHX6xgK3xqA2Vt0=">
+                <menu:item id="i_productdetailattributetype_new" messageCode="global_menu_new" url="/crud/productdetailattributetypes?form" z="user-managed"/>
+                <menu:item id="i_productdetailattributetype_list" messageCode="global_menu_list" url="/crud/productdetailattributetypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_productdetailattributevaluetype" z="4lJyc7Gjk5jGlQh6DPmYOoxyds0=">
+                <menu:item id="i_productdetailattributevaluetype_new" messageCode="global_menu_new" url="/crud/productdetailattributevaluetypes?form" z="user-managed"/>
+                <menu:item id="i_productdetailattributevaluetype_list" messageCode="global_menu_list" url="/crud/productdetailattributevaluetypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_productdetailgroupattribute" z="ZHSBAmzg+e/UWEhkLs6aBj4uKO0=">
+                <menu:item id="i_productdetailgroupattribute_new" messageCode="global_menu_new" url="/crud/productdetailgroupattributes?form" z="user-managed"/>
+                <menu:item id="i_productdetailgroupattribute_list" messageCode="global_menu_list" url="/crud/productdetailgroupattributes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_productdetailpart" z="tdyouoBFyPTem206q70BbhM+q90=">
+                <menu:item id="i_productdetailpart_new" messageCode="global_menu_new" url="/crud/productdetailparts?form" z="user-managed"/>
+                <menu:item id="i_productdetailpart_list" messageCode="global_menu_list" url="/crud/productdetailparts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_productdetailpartvalue" z="yysd8YeW6HUijmBziNe3mtLjP2g=">
+                <menu:item id="i_productdetailpartvalue_new" messageCode="global_menu_new" url="/crud/productdetailpartvalues?form" z="user-managed"/>
+                <menu:item id="i_productdetailpartvalue_list" messageCode="global_menu_list" url="/crud/productdetailpartvalues?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_merchants" label="Merchants">
+            <menu:category id="c_merchantimageitem" z="XIFLbxTZfNO7y66S/5VggBuaZa4=">
+                <menu:item id="i_merchantimageitem_new" messageCode="global_menu_new" url="/crud/merchantimageitems?form" z="user-managed"/>
+                <menu:item id="i_merchantimageitem_list" messageCode="global_menu_list" url="/crud/merchantimageitems?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_manufactureridentifier" z="L/O6RFM3QisqGwd1thPAlZ0+erU=">
+                <menu:item id="i_manufactureridentifier_new" messageCode="global_menu_new" url="/crud/manufactureridentifiers?form" z="user-managed"/>
+                <menu:item id="i_manufactureridentifier_list" messageCode="global_menu_list" url="/crud/manufactureridentifiers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_merchantsource" z="ey6ZH8nsDviWiPwEMWiKh43L1sA=">
+                <menu:item id="i_merchantsource_new" messageCode="global_menu_new" url="/crud/merchantsources?form" z="user-managed"/>
+                <menu:item id="i_merchantsource_list" messageCode="global_menu_list" url="/crud/merchantsources?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_merchantsourcetype" z="6CRqErH2fLClEroE6KXaStsTJ3E=">
+                <menu:item id="i_merchantsourcetype_new" messageCode="global_menu_new" url="/crud/merchantsourcetypes?form" z="user-managed"/>
+                <menu:item id="i_merchantsourcetype_list" messageCode="global_menu_list" url="/crud/merchantsourcetypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_merchantdeal" z="b+8LI7QKEDwHCfXYa7YE/pyiMKs=">
+                <menu:item id="i_merchantdeal_new" messageCode="global_menu_new" url="/crud/merchantdeals?form" z="user-managed"/>
+                <menu:item id="i_merchantdeal_list" messageCode="global_menu_list" url="/crud/merchantdeals?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_merchantoffer" z="lX7Tmn2plZPzdeKjjPLHXmLgALg=">
+                <menu:item id="i_merchantoffer_new" messageCode="global_menu_new" url="/crud/merchantoffers?form" z="user-managed"/>
+                <menu:item id="i_merchantoffer_list" messageCode="global_menu_list" url="/crud/merchantoffers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_merchantofferhistory" z="9Y3pMd2a1V1EJIOSAF5bxtuRpu4=">
+                <menu:item id="i_merchantofferhistory_new" messageCode="global_menu_new" url="/crud/merchantofferhistorys?form" z="HR+bFPTveLCRLVcN3Gk087O1XCk="/>
+                <menu:item id="i_merchantofferhistory_list" messageCode="global_menu_list" url="/crud/merchantofferhistorys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="KdBiF5JKfOiBPEj/pas7kivgT4o="/>
+            </menu:category>
+            <menu:category id="c_merchantofferkeyword" z="N4mwzQ/zRC2cZGWMLCO+dKAfOuU=">
+                <menu:item id="i_merchantofferkeyword_new" messageCode="global_menu_new" url="/crud/merchantofferkeywords?form" z="ejQmVQP1DkIBauAV4A1eH39hB1I="/>
+                <menu:item id="i_merchantofferkeyword_list" messageCode="global_menu_list" url="/crud/merchantofferkeywords?page=1&amp;size=${empty param.size ? 10 : param.size}" z="g0mGJRmg42xLuEwz03AC+wicCYc="/>
+            </menu:category>
+            <menu:category id="c_advertisernamemerchant" z="2pasCnDXHyZCj/gTvKERHQM60eM=">
+                <menu:item id="i_advertisernamemerchant_new" messageCode="global_menu_new" url="/crud/advertisernamemerchants?form" z="5hb0iARQodWexoJaBNTerCTeumc="/>
+                <menu:item id="i_advertisernamemerchant_list" messageCode="global_menu_list" url="/crud/advertisernamemerchants?page=1&amp;size=${empty param.size ? 10 : param.size}" z="R0w4j1MtJpT0+5y4LPMH7SFQAIM="/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_colors" label="Colors">
+            <menu:category id="c_color" z="0SMMDBBRxlb3qc4UcZUiEPSXY0s=">
+                <menu:item id="i_color_new" messageCode="global_menu_new" url="/crud/colors?form" z="user-managed"/>
+                <menu:item id="i_color_list" messageCode="global_menu_list" url="/crud/colors?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_colorprimarycolor" z="8Czv/kr8WKBb0/FxIRXe+Hoz+Tk=">
+                <menu:item id="i_colorprimarycolor_new" messageCode="global_menu_new" url="/crud/colorprimarycolors?form" z="user-managed"/>
+                <menu:item id="i_colorprimarycolor_list" messageCode="global_menu_list" url="/crud/colorprimarycolors?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_primarycolor" z="hxTK+lgrsSSftBg6sO/hQpeDKU4=">
+                <menu:item id="i_primarycolor_new" messageCode="global_menu_new" url="/crud/primarycolors?form" z="user-managed"/>
+                <menu:item id="i_primarycolor_list" messageCode="global_menu_list" url="/crud/primarycolors?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_attributes" label="Attributes">
+            <menu:category id="c_attributetypehistory" z="SoIu2Yjbdi500UExVZnXZTze+JY=">
+                <menu:item id="i_attributetypehistory_new" messageCode="global_menu_new" url="/crud/attributetypehistorys?form" z="user-managed"/>
+                <menu:item id="i_attributetypehistory_list" messageCode="global_menu_list" url="/crud/attributetypehistorys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_attributetypecategory" z="tYLDULgTW3EYXeq3STxHFaoOwR0=">
+                <menu:item id="i_attributetypecategory_new" messageCode="global_menu_new" url="/crud/attributetypecategorys?form" z="user-managed"/>
+                <menu:item id="i_attributetypecategory_list" messageCode="global_menu_list" url="/crud/attributetypecategorys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_attributetypenormalization" z="Ic9aHAPkY94bRcgQMANiWsxD4cE=">
+                <menu:item id="i_attributetypenormalization_new" messageCode="global_menu_new" url="/crud/attributetypenormalizations?form" z="FnX/gvyEizTQZ0/pedxYZvmrHYE="/>
+                <menu:item id="i_attributetypenormalization_list" messageCode="global_menu_list" url="/crud/attributetypenormalizations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="jKXtt8yelzP61GABZ1M5acPhR+U="/>
+            </menu:category>
+            <menu:category id="c_attributeformula" z="ZscJl3zIJ+ENRdt07BS/GIbjR9I=">
+                <menu:item id="i_attributeformula_new" messageCode="global_menu_new" url="/crud/attributeformulas?form" z="user-managed"/>
+                <menu:item id="i_attributeformula_list" messageCode="global_menu_list" url="/crud/attributeformulas?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_motivators" label="Motivators">
+            <menu:category id="c_brandmotivator" z="/ehBTSGeq5AjMYy4mdsuBANL9ak=">
+                <menu:item id="i_brandmotivator_new" messageCode="global_menu_new" url="/crud/brandmotivators?form" z="user-managed"/>
+                <menu:item id="i_brandmotivator_list" messageCode="global_menu_list" url="/crud/brandmotivators?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_attributetypemotivator" z="K3XEDEIP9lZuHg4WbKB+nIpmJLY=">
+                <menu:item id="i_attributetypemotivator_new" messageCode="global_menu_new" url="/crud/attributetypemotivators?form" z="user-managed"/>
+                <menu:item id="i_attributetypemotivator_list" messageCode="global_menu_list" url="/crud/attributetypemotivators?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_brandcategorymotivator" z="Bg9MqZd/1MN4TndaVCQRYr8dhgk=">
+                <menu:item id="i_brandcategorymotivator_new" messageCode="global_menu_new" url="/crud/brandcategorymotivators?form" z="user-managed"/>
+                <menu:item id="i_brandcategorymotivator_list" messageCode="global_menu_list" url="/crud/brandcategorymotivators?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_designstylemotivator" z="37NnaE3lAwD3rdPVgy29ap1A26o=">
+                <menu:item id="i_designstylemotivator_new" messageCode="global_menu_new" url="/crud/designstylemotivators?form" z="user-managed"/>
+                <menu:item id="i_designstylemotivator_list" messageCode="global_menu_list" url="/crud/designstylemotivators?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_motivator" z="2bROArhLiYvOBdtMbaGk9vTQ9/A=">
+                <menu:item id="i_motivator_new" messageCode="global_menu_new" url="/crud/motivators?form" z="user-managed"/>
+                <menu:item id="i_motivator_list" messageCode="global_menu_list" url="/crud/motivators?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_productmotivator" z="KSgLctL7h2PFS+gAsVeDqe/GNws=">
+                <menu:item id="i_productmotivator_new" messageCode="global_menu_new" url="/crud/productmotivators?form" z="user-managed"/>
+                <menu:item id="i_productmotivator_list" messageCode="global_menu_list" url="/crud/productmotivators?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_categorymotivator" z="+WczMKCAdfAQlnSBQtmFU5Rm4RE=">
+                <menu:item id="i_categorymotivator_new" messageCode="global_menu_new" url="/crud/categorymotivators?form" z="user-managed"/>
+                <menu:item id="i_categorymotivator_list" messageCode="global_menu_list" url="/crud/categorymotivators?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_brandcategoryitemtypemotivator" z="pXOu6DinrMK+z3spSIxSrxQAlP0=">
+                <menu:item id="i_brandcategoryitemtypemotivator_new" messageCode="global_menu_new" url="/crud/brandcategoryitemtypemotivators?form" z="4Wed4d8iTGzWo7kpUkAkc6Liqj0="/>
+                <menu:item id="i_brandcategoryitemtypemotivator_list" messageCode="global_menu_list" url="/crud/brandcategoryitemtypemotivators?page=1&amp;size=${empty param.size ? 10 : param.size}" z="k+7HtbRunDx3de229OGa8ECmNXc="/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_images" label="Images">
+            <menu:category id="c_imagesourcetype" z="e1PAWPQqIABiWvIp+128h/wk4mo=">
+                <menu:item id="i_imagesourcetype_new" messageCode="global_menu_new" url="/crud/imagesourcetypes?form" z="user-managed"/>
+                <menu:item id="i_imagesourcetype_list" messageCode="global_menu_list" url="/crud/imagesourcetypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_imagesource" z="6mv3aOU7+Zf102lKKLgiCBMr5lQ=">
+                <menu:item id="i_imagesource_new" messageCode="global_menu_new" url="/crud/imagesources?form" z="user-managed"/>
+                <menu:item id="i_imagesource_list" messageCode="global_menu_list" url="/crud/imagesources?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_questions" label="Questions">
+            <menu:category id="c_question" z="SR0L0iZw9fVnYZY0B/dk7XBq6eQ=">
+                <menu:item id="i_question_new" messageCode="global_menu_new" url="/crud/questions?form" z="user-managed"/>
+                <menu:item id="i_question_list" messageCode="global_menu_list" url="/crud/questions?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_answer" z="VRJUL2DPcEjOdfnKKe/ixAXkXks=">
+                <menu:item id="i_answer_new" messageCode="global_menu_new" url="/crud/answers?form" z="user-managed"/>
+                <menu:item id="i_answer_list" messageCode="global_menu_list" url="/crud/answers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_brands_categories" label="Brands And Categories">
+            <menu:category id="c_brandcountry" z="5zQ3VdQAk1Yl6x74auTLRs0Tm0E=">
+                <menu:item id="i_brandcountry_new" messageCode="global_menu_new" url="/crud/brandcountrys?form" z="user-managed"/>
+                <menu:item id="i_brandcountry_list" messageCode="global_menu_list" url="/crud/brandcountrys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_brandname" z="+eAyqDxpO520gHN7YYSqLE3MLLI=">
+                <menu:item id="i_brandname_new" messageCode="global_menu_new" url="/crud/brandnames?form" z="user-managed"/>
+                <menu:item id="i_brandname_list" messageCode="global_menu_list" url="/crud/brandnames?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_brandhistory" z="NL03Jmg5+lEAGrrZv6zKuXMBkqY=">
+                <menu:item id="i_brandhistory_new" messageCode="global_menu_new" url="/crud/brandhistorys?form" z="user-managed"/>
+                <menu:item id="i_brandhistory_list" messageCode="global_menu_list" url="/crud/brandhistorys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_categorycategorygroup" z="h+NfYvp0pKLjnNo0qwHqA7L+qaI=">
+                <menu:item id="i_categorycategorygroup_new" messageCode="global_menu_new" url="/crud/categorycategorygroups?form" z="user-managed"/>
+                <menu:item id="i_categorycategorygroup_list" messageCode="global_menu_list" url="/crud/categorycategorygroups?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_brandidentifier" z="Ez2widlQsPwO7eUP1Ht2augfnpA=">
+                <menu:item id="i_brandidentifier_new" messageCode="global_menu_new" url="/crud/brandidentifiers?form" z="user-managed"/>
+                <menu:item id="i_brandidentifier_list" messageCode="global_menu_list" url="/crud/brandidentifiers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_categorygroup" z="0aaMWjObFwBicITVdcUr4+sddMM=">
+                <menu:item id="i_categorygroup_new" messageCode="global_menu_new" url="/crud/categorygroups?form" z="user-managed"/>
+                <menu:item id="i_categorygroup_list" messageCode="global_menu_list" url="/crud/categorygroups?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_categorydatasource" z="uOhvdplhlHLOfepCjO/cPMWN1wk=">
+                <menu:item id="i_categorydatasource_new" messageCode="global_menu_new" url="/crud/categorydatasources?form" z="user-managed"/>
+                <menu:item id="i_categorydatasource_list" messageCode="global_menu_list" url="/crud/categorydatasources?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_brandcategory" z="a8oJTZYRK9CxvEFeqS14Msjz+Xo=">
+                <menu:item id="i_brandcategory_new" messageCode="global_menu_new" url="/crud/brandcategorys?form" z="user-managed"/>
+                <menu:item id="i_brandcategory_list" messageCode="global_menu_list" url="/crud/brandcategorys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_categorydatasourcemap" z="z7cWWJnM2pHNtnDkUjVkOpNpivs=">
+                <menu:item id="i_categorydatasourcemap_new" messageCode="global_menu_new" url="/crud/categorydatasourcemaps?form" z="/EoB8Bf5+0E3tDChhF7kX7Zlk28="/>
+                <menu:item id="i_categorydatasourcemap_list" messageCode="global_menu_list" url="/crud/categorydatasourcemaps?page=1&amp;size=${empty param.size ? 10 : param.size}" z="aKi4Ezh9tQ4w8CPU2bNv/yMLxx0="/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_input" label="Input">
+            <menu:category id="c_inputtype" z="PhnFgv5WQStbVqOM0gpHKi3fbEM=">
+                <menu:item id="i_inputtype_new" messageCode="global_menu_new" url="/crud/inputtypes?form" z="user-managed"/>
+                <menu:item id="i_inputtype_list" messageCode="global_menu_list" url="/crud/inputtypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_multivaluedtype" z="N4im15mHM/XBNFNH5hp+pqENEcY=">
+                <menu:item id="i_multivaluedtype_new" messageCode="global_menu_new" url="/crud/multivaluedtypes?form" z="user-managed"/>
+                <menu:item id="i_multivaluedtype_list" messageCode="global_menu_list" url="/crud/multivaluedtypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_inputvalidationlist" z="k84yBPD2VFBVAfhCK8M+x60BjeA=">
+                <menu:item id="i_inputvalidationlist_new" messageCode="global_menu_new" url="/crud/inputvalidationlists?form" z="user-managed"/>
+                <menu:item id="i_inputvalidationlist_list" messageCode="global_menu_list" url="/crud/inputvalidationlists?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_inputvalidationlistelement" z="O/ecpBDmbxwapBhwGDD2b4lR+Z4=">
+                <menu:item id="i_inputvalidationlistelement_new" messageCode="global_menu_new" url="/crud/inputvalidationlistelements?form" z="user-managed"/>
+                <menu:item id="i_inputvalidationlistelement_list" messageCode="global_menu_list" url="/crud/inputvalidationlistelements?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_other" label="Other">
+            <menu:category id="c_network" z="SJYa8CrrRo+xlJvBThWcMOw8ApA=">
+                <menu:item id="i_network_new" messageCode="global_menu_new" url="/crud/networks?form" z="user-managed"/>
+                <menu:item id="i_network_list" messageCode="global_menu_list" url="/crud/networks?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_accessorygroup" z="XkJFoKJnPk260IzoTo0zzJV3Hdk=">
+                <menu:item id="i_accessorygroup_new" messageCode="global_menu_new" url="/crud/accessorygroups?form" z="user-managed"/>
+                <menu:item id="i_accessorygroup_list" messageCode="global_menu_list" url="/crud/accessorygroups?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_country" z="+9IFFFqXHr5bWdYjx7upDibmQfo=">
+                <menu:item id="i_country_new" messageCode="global_menu_new" url="/crud/countrys?form" z="user-managed"/>
+                <menu:item id="i_country_list" messageCode="global_menu_list" url="/crud/countrys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_navbar" z="rxFnRjhshS8gKXIwj8QtzRKvIZo=">
+                <menu:item id="i_navbar_new" messageCode="global_menu_new" url="/crud/navbars?form" z="user-managed"/>
+                <menu:item id="i_navbar_list" messageCode="global_menu_list" url="/crud/navbars?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_productmotivatorerror" z="ft4JCBlUM70x6+Ti+0yAGljHumU=">
+                <menu:item id="i_productmotivatorerror_new" messageCode="global_menu_new" url="/crud/productmotivatorerrors?form" z="user-managed"/>
+                <menu:item id="i_productmotivatorerror_list" messageCode="global_menu_list" url="/crud/productmotivatorerrors?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_seriestype" z="H8cF9ieP5AQ9h6a3QQol0+AUqxI=">
+                <menu:item id="i_seriestype_new" messageCode="global_menu_new" url="/crud/seriestypes?form" z="user-managed"/>
+                <menu:item id="i_seriestype_list" messageCode="global_menu_list" url="/crud/seriestypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_questionsslider" z="hBwODO66I8ECiHH9rAZx3HnONzs=">
+                <menu:item id="i_questionsslider_new" messageCode="global_menu_new" url="/crud/questionssliders?form" z="user-managed"/>
+                <menu:item id="i_questionsslider_list" messageCode="global_menu_list" url="/crud/questionssliders?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_manufacturername" z="8WaCmQm8yb1sLlbtDwz6sYDabls=">
+                <menu:item id="i_manufacturername_new" messageCode="global_menu_new" url="/crud/manufacturernames?form" z="user-managed"/>
+                <menu:item id="i_manufacturername_list" messageCode="global_menu_list" url="/crud/manufacturernames?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_zipcode" z="mUsujaVZZGMoiJipZL0vmR/PmqM=">
+                <menu:item id="i_zipcode_new" messageCode="global_menu_new" url="/crud/zipcodes?form" z="user-managed"/>
+                <menu:item id="i_zipcode_list" messageCode="global_menu_list" url="/crud/zipcodes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_accessoryvaluegroup" z="M0FYjyoWE1i54qY1f8ImSVdjDfk=">
+                <menu:item id="i_accessoryvaluegroup_new" messageCode="global_menu_new" url="/crud/accessoryvaluegroups?form" z="user-managed"/>
+                <menu:item id="i_accessoryvaluegroup_list" messageCode="global_menu_list" url="/crud/accessoryvaluegroups?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_objectidsequence" z="+w+9oTQfo4Ky10lp8+uK6XHTkzM=">
+                <menu:item id="i_objectidsequence_new" messageCode="global_menu_new" url="/crud/objectidsequences?form" z="user-managed"/>
+                <menu:item id="i_objectidsequence_list" messageCode="global_menu_list" url="/crud/objectidsequences?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_localstore" z="/8uVoSJE8pIKbFzoCRBRUPyamH0=">
+                <menu:item id="i_localstore_new" messageCode="global_menu_new" url="/crud/localstores?form" z="user-managed"/>
+                <menu:item id="i_localstore_list" messageCode="global_menu_list" url="/crud/localstores?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_actiontype" z="o6WOZ/fIju1GW56fsJPNYyZl4Xc=">
+                <menu:item id="i_actiontype_new" messageCode="global_menu_new" url="/crud/actiontypes?form" z="UiP0Jm+3nwFBbS1XJeoVXl8r6xU="/>
+                <menu:item id="i_actiontype_list" messageCode="global_menu_list" url="/crud/actiontypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="DzbsGLUX+yzXehOuFIvHBGYoXcA="/>
+            </menu:category>
+            <menu:category id="c_reviewstatus" z="/lKp/IhWgjAQHqpWE982yPuIcp8=">
+                <menu:item id="i_reviewstatus_new" messageCode="global_menu_new" url="/crud/reviewstatus?form" z="HuvFkjWKDCyQgYXDbUxADjEkdI8="/>
+                <menu:item id="i_reviewstatus_list" messageCode="global_menu_list" url="/crud/reviewstatus?page=1&amp;size=${empty param.size ? 10 : param.size}" z="H4j8aVOINLC6hyDPu51+hnK7fEs="/>
+            </menu:category>
+            <menu:category id="c_department" z="vCG3GO3NPbP16KglEq3WAvshmYw=">
+                <menu:item id="i_department_new" messageCode="global_menu_new" url="/crud/departments?form" z="oin9nRo9P+/B1os4G+FGFe0eP28="/>
+                <menu:item id="i_department_list" messageCode="global_menu_list" url="/crud/departments?page=1&amp;size=${empty param.size ? 10 : param.size}" z="F5Ql6eI2H8qSWTpbjKJFFoTf00o="/>
+            </menu:category>
+            <menu:category id="c_subdepartment" z="86EhA2uBUzO9WZ8pQcxGibtlYiQ=">
+                <menu:item id="i_subdepartment_new" messageCode="global_menu_new" url="/crud/subdepartments?form" z="A3gX6nDJAT+OjXotSVkaHwEsWag="/>
+                <menu:item id="i_subdepartment_list" messageCode="global_menu_list" url="/crud/subdepartments?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Wy4UnUAQGMLS2L3flqszIMgely8="/>
+            </menu:category>
+            <menu:category id="c_categorysubdepartment" z="COBM/6Te9eHMNmsFsxaft8DMnrc=">
+                <menu:item id="i_categorysubdepartment_new" messageCode="global_menu_new" url="/crud/categorysubdepartments?form" z="user-managed"/>
+                <menu:item id="i_categorysubdepartment_list" messageCode="global_menu_list" url="/crud/categorysubdepartments?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_subdepartmentdepartment" z="hoVUO6Af67ctqnBw2e24mM02Xvk=">
+                <menu:item id="i_subdepartmentdepartment_new" messageCode="global_menu_new" url="/crud/subdepartmentdepartments?form" z="user-managed"/>
+                <menu:item id="i_subdepartmentdepartment_list" messageCode="global_menu_list" url="/crud/subdepartmentdepartments?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+            <menu:category id="c_itemchanged" z="mPI7c+BiZIM0Cg2bV1NCD6v4Exw=">
+                <menu:item id="i_itemchanged_new" messageCode="global_menu_new" url="/crud/itemchangeds?form" z="Oc/I9RqeZFoh7FI6X7i1/lAVpqM="/>
+                <menu:item id="i_itemchanged_list" messageCode="global_menu_list" url="/crud/itemchangeds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="cBxz49i059BhN2eBFtspsH+FoJs="/>
+            </menu:category>
+        </menu:navcategory>
+        <menu:navcategory id="t_other" label="Affiliate Reporting">
+            <menu:category id="c_affiliatetransaction" z="5y5Uf+oK0mJKSZH7IXO9VKfgss0=">
+                <menu:item id="i_affiliatetransaction_new" messageCode="global_menu_new" url="/crud/affiliatetransactions?form" z="HWVJR6B7Ulw55vAlz3C255q8IZ4="/>
+                <menu:item id="i_affiliatetransaction_list" messageCode="global_menu_list" url="/crud/affiliatetransactions?page=1&amp;size=${empty param.size ? 10 : param.size}" z="X1IxwD1UsmGgfKH6W/e5UzL5kKc="/>
+            </menu:category>
+            <menu:category id="c_affiliatereport" z="RhvWQpg2RmIr4xycgcGMUW2mDSU=">
+                <menu:item id="i_affiliatereport_new" messageCode="global_menu_new" url="/crud/affiliatereports?form" z="O+5W+oX2dKDDMtZtymnyN/XZQog="/>
+                <menu:item id="i_affiliatereport_list" messageCode="global_menu_list" url="/crud/affiliatereports?page=1&amp;size=${empty param.size ? 10 : param.size}" z="0FWg+GEdhzrtP29aSdMC5u/vUwY="/>
+            </menu:category>
+        </menu:navcategory>
+    </menu:menu>
+</div>

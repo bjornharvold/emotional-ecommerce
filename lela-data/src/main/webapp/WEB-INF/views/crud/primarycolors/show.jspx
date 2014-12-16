@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_PrimaryColor" object="${primarycolor}" path="/crud/primarycolors" z="U7pYGrrbIuZ7PguVJJ0hnHfl14U=">
+        <field:display date="true" dateTimePattern="${primaryColor_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_PrimaryColor_dateCreated" object="${primarycolor}" z="ZzkjyTxDs8JLDVwHmBg0gCRHzJo="/>
+        <field:display date="true" dateTimePattern="${primaryColor_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_PrimaryColor_dateModified" object="${primarycolor}" z="Yehgeub7XcVkneOgw9iHudkINlM="/>
+        <field:display field="primaryColorName" id="s_com_lela_data_domain_entity_PrimaryColor_primaryColorName" object="${primarycolor}" z="KigbNOAarzfx0IW9nFjU+FpK/UE="/>
+        <field:display field="rgbCode" id="s_com_lela_data_domain_entity_PrimaryColor_rgbCode" object="${primarycolor}" z="P1s8MCQYBu4HubJbN+Ihx7tISLs="/>
+        <field:display field="hex" id="s_com_lela_data_domain_entity_PrimaryColor_hex" object="${primarycolor}" z="tPv60lDdLdx3TTFH/uQhDQ5pSUk="/>
+    </page:show>
+</div>

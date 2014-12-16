@@ -1,0 +1,71 @@
+<!--
+  ~ Copyright (c) 2012. Lela.com.
+  -->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <!-- Facebook JS API loader -->
+    <c:set var="channelUrl"><lela:referralUrl format="domain"/>/channel.html</c:set>
+    <script src="//connect.facebook.net/en_US/all.js" type="text/javascript"><!-- --></script>
+    <script type="text/javascript">
+        FB.init({
+            appId      : '${facebookApplicationId}',
+            channelUrl : '${channelUrl}', // Channel File
+            status     : true, // check login status
+            cookie     : true, // enable cookies to allow the server to access the session
+            xfbml      : true  // parse XFBML
+        });
+    </script>
+
+    <script type="text/javascript">
+        function postToFeed(message, name, description, link, picture, caption) {
+            var params = {};
+            params['message'] = message;
+            params['name'] = name;
+            params['description'] = description;
+            params['link'] = link;
+            params['picture'] = picture;
+            params['caption'] = caption;
+
+            FB.api('/me/feed', 'post', params, function(response) {
+                if (!response || response.error) {
+                    console.log('ERROR posting on FB wall: '+ response.error);
+                }
+            });
+        }
+
+        function checkPermissions(permsNeeded) {
+            FB.api('/me/permissions', function(response) {
+                var permsArray = response.data[0];
+
+                var permsToPrompt = [];
+                for (var i in permsNeeded) {
+                    if (permsArray[permsNeeded[i]] == null) {
+                        permsToPrompt.push(permsNeeded[i]);
+                    }
+                }
+
+                if (permsToPrompt.length > 0) {
+                    promptForPerms(permsToPrompt);
+                }
+            });
+
+            var promptForPerms = function(perms) {
+                FB.login(function(response) {
+                    console.log(response);
+                }, {scope: perms.join(',')});
+            };
+        }
+    </script>
+
+</jsp:root>

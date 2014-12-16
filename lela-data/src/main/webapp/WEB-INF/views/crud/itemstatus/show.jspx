@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ItemStatus" object="${itemstatus}" path="/crud/itemstatus" z="IjCZaKeqj//mZ6Jkc0+Ii2IAnAA=">
+        <field:display date="true" dateTimePattern="${itemStatus_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ItemStatus_dateCreated" object="${itemstatus}" z="QnRW4k6YkM5k9B+YEL2x5xnkMrY="/>
+        <field:display date="true" dateTimePattern="${itemStatus_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ItemStatus_dateModified" object="${itemstatus}" z="G4RK0T9NxRcZwZ6Yq/J1lcr8yNU="/>
+        <field:display field="itemStatusName" id="s_com_lela_data_domain_entity_ItemStatus_itemStatusName" object="${itemstatus}" z="X8GLYPoQ2gMlV0r4bGxWB7sx9/g="/>
+    </page:show>
+</div>

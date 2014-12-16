@@ -1,0 +1,74 @@
+
+
+
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Welcome to Lela</title>
+    </head>
+
+    <body>
+
+        <!-- COPY BELOW -->
+        <div style="background:#efefef; font-family: 'Helvetica Neue';">
+            <table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" id="Table_01" width="680">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="http://www.lela.com"><img alt="LELA - Choose Happy" border="0" height="154" src="https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/www.lelaknows.com/static/images/emails/t1_01.jpg" width="168" /></a></td>
+                        <td align="right" colspan="3" height="154" valign="top" width="512">
+                            <div style="padding:20px;">
+                                <a href="http://www.facebook.com/lelaknows"><img alt="" border="0" hspace="5" src="https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/www.lelaknows.com/static/images/emails/fb.gif" /></a> <a href="http://twitter.com/lelaknows"><img alt="" border="0" src="https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/www.lelaknows.com/static/images/emails/tw.gif" /></a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" height="108" width="680">
+                            <div style="color:#333333; font-size:38px; font-weight:bold; line-height:38px; text-align:center; padding:0 30px 0 60px;">
+                                <span style="color:#ff9900;">${userFirstName} ${userLastName}<br />
+                                    <span style="color:#333;"> We are sending you <br/>the onesie, yay!</span></span></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" style="padding:17px 35px 0 0;" valign="top">
+                        </td>
+                        <td width="400" align="left" colspan="2" style="font-size: 14px; padding-top: 35px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; " valign="top">
+                            <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; ">
+                                <span style="color:#666;">Shipping to:</span><br />
+                                <strong style="color:#333;">
+                                    ${userAttributes.get("shpFnm")} ${userAttributes.get("shpLnm")}<br/>
+                                    ${userAttributes.get("shpAdd1")} ${userAttributes.get("shpAdd2")}<br/>
+                                    ${userAttributes.get("shpCty")}, ${userAttributes.get("shpSt")} ${userAttributes.get("shpZp")}</strong></p>
+                        </td>
+                        <td valign="bottom">
+                            <a href="http://www.lela.com"><img align="none" height="171" src="https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/gallery.mailchimp.com/73946fc8ef61683024602269d/images/onesie_top.jpg" style="text-align: -webkit-right; display: block; width: 196px; height: 171px; " width="196" /></a><!-- --></td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#eee6f2" valign="top"><!-- --></td>
+                        <td bgcolor="#eee6f2" colspan="2" style="padding:10px 20px 20px 0px;" valign="middle">
+                            <div style="text-align: left; font-size:13px; line-height: 16px; ">
+                                <strong>DID YOU KNOW?</strong><br/>
+                                <span style="color:#666;">Lela has a quick quiz that can rate products by what most matters to you!</span>
+                                <br/><strong><a href="http://www.lela.com/categories?lq=1">Take the quiz ></a></strong>
+                            </div>
+                        </td>
+                        <td align="right" bgcolor="#dedcdc" valign="top">
+                            <a href="http://www.lela.com"><img align="none" height="118" src="https://d2q0qd5iz04n9u.cloudfront.net/_ssl/proxy.php/http/gallery.mailchimp.com/73946fc8ef61683024602269d/images/onesie_bottom.jpg" style="display: block; width: 196px; height: 118px; " width="196" /></a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" height="60" width="680">
+                            <p style="color:#635f5f; font-size:11px; padding:0 20px; line-height:12px;">
+                                You received this email because you are registered with <strong><a href="${baseUrl}" style="color:#d08310;">lela.com</a></strong> with the email address: ${to}. <br/>
+                                We respect your privacy. View our <strong><a href="${baseUrl}/sc/privacy" style="color:#d08310;">privacy policy</a></strong>.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </body>
+</html>

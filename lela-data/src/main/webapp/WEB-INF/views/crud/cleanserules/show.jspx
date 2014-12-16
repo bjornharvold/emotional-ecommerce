@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_CleanseRule" object="${cleanserule}" path="/crud/cleanserules" z="G2dswlJeZru2bgqpntghFjxA3Zc=">
+        <field:display date="true" dateTimePattern="${cleanseRule_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_CleanseRule_dateCreated" object="${cleanserule}" z="2o2ZrRWpoqRPtiZvEnjG9Jdhw3Q="/>
+        <field:display date="true" dateTimePattern="${cleanseRule_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_CleanseRule_dateModified" object="${cleanserule}" z="UwhoGqxQrlYMQk8+WZ8ljnCZUpY="/>
+        <field:display field="cleanseRuleValue" id="s_com_lela_data_domain_entity_CleanseRule_cleanseRuleValue" object="${cleanserule}" z="9atQmX1NxmRRBVZWP46MgeKWGwc="/>
+    </page:show>
+</div>

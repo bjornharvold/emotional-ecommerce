@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security-3.1.xsd
+       http://www.springframework.org/schema/security/oauth2
+       http://www.springframework.org/schema/security/spring-security-oauth2.xsd">
+
+    <!-- spring security for the domain layer -->
+    <security:global-method-security secured-annotations="enabled" jsr250-annotations="enabled"
+                                     pre-post-annotations="enabled">
+        <!--<security:expression-handler ref="expressionHandler"/>-->
+        <security:expression-handler ref="oauthExpressionHandler" />
+    </security:global-method-security>
+
+
+    <bean id="customSecureChannelProcessor" class="com.lela.commons.spring.security.CustomSecureChannelProcessor"/>
+    <bean id="customInsecureChannelProcessor" class="com.lela.commons.spring.security.CustomInsecureChannelProcessor"/>
+    <bean id="springInsecureChannelProcessor" class="org.springframework.security.web.access.channel.InsecureChannelProcessor"/>
+
+    <bean class="com.lela.commons.spring.security.ChannelPostProcessor" id="channelPostProcessor">
+        <property name="channelProcessors">
+            <list>
+                <ref bean="customSecureChannelProcessor"/>
+                <ref bean="customInsecureChannelProcessor"/>
+            </list>
+        </property>
+
+    </bean>
+
+    <!-- spring security for the web layer -->
+    <security:http auto-config="false" use-expressions="true" realm="Lela Secure Realm" disable-url-rewriting="true">
+        <!-- TODO When we go live the channels should be set to HTTPS -->
+        <!-- admins are only allowed to log in from localhost -->
+        <security:intercept-url pattern="/administration/**" access="hasRole('RIGHT_LOGIN_ADMIN')" requires-channel="${auth.channel}"/>
+        <!--<security:intercept-url pattern="/administration/**" access="hasRole('ROLE_SUPER_ADMINISTRATOR') and hasIpAddress('localhost')" requires-channel="any"/>-->
+
+        <security:intercept-url pattern="/oauth/token" access="isAnonymous()" />
+        <security:intercept-url pattern="/oauth/authorize" access="isAnonymous()" />
+        <security:intercept-url pattern="/oauth/**" access="hasAnyRole('RIGHT_LOGIN_USER','RIGHT_LOGIN_ADMIN')" requires-channel="any"/>
+        <security:intercept-url pattern="/static/**" access="permitAll" requires-channel="any"/>
+        <security:intercept-url pattern="/onboard/**" access="hasAnyRole('RIGHT_LOGIN_ONBOARD')" requires-channel="any"/>
+
+        <!-- Anonymous secure channels (https) -->
+        <security:intercept-url pattern="/register" access="permitAll" requires-channel="${auth.channel}"/>
+        <security:intercept-url pattern="/login" access="permitAll" requires-channel="${auth.channel}"/>
+        <security:intercept-url pattern="/login/*" access="permitAll" requires-channel="${auth.channel}"/>
+        <security:intercept-url pattern="/j_spring_security_check" access="permitAll" requires-channel="${auth.channel}" />
+        <security:intercept-url pattern="/login/redirect" access="permitAll" requires-channel="${auth.channel}" />
+        <security:intercept-url pattern="/signin/facebook" access="permitAll" requires-channel="${auth.channel}" />
+        <security:intercept-url pattern="/connect/facebook" access="permitAll" requires-channel="${auth.channel}" />
+
+        <!-- Authenticated secure channels -->
+        <security:intercept-url pattern="/user/dashboard/**" access="hasRole('RIGHT_LOGIN_USER')" requires-channel="${auth.channel}"/>
+        <security:intercept-url pattern="/user/profile" access="hasRole('RIGHT_LOGIN_USER')" requires-channel="${auth.channel}"/>
+
+        <!-- Insecure channels (http)-->
+        <security:intercept-url pattern="/user/**" access="hasRole('RIGHT_LOGIN_USER')" requires-channel="http"/>
+        <security:intercept-url pattern="/quiz" access="hasRole('RIGHT_LOGIN_USER')" requires-channel="http"/>
+        <security:intercept-url pattern="/**" access="permitAll" requires-channel="http" />
+
+        <security:access-denied-handler error-page="/403"/>
+
+        <security:form-login login-page="/register" authentication-failure-url="/login?success=false"
+                             always-use-default-target="false"
+                             password-parameter="password" username-parameter="username"
+                             authentication-success-handler-ref="userTrackingAuthenticationSuccessHandler"/>
+
+       <!-- this will save a cookie on the client side and the system will auto-login a user -->
+        <!--
+        <security:remember-me key="SPRING_SECURITY_REMEMBER_ME_COOKIE" services-ref="persistentTokenBasedRememberMeServices"/>
+        -->
+        <security:custom-filter ref="rememberMeFilter" position="REMEMBER_ME_FILTER"/>
+        <security:custom-filter position="LOGOUT_FILTER" ref="logoutFilter" />
+
+        <!--
+        Disable session fixation to allow authentication on https to redirect
+        successfully to http.
+        -->
+        <security:session-management session-fixation-protection="none"/>
+
+        <!--These session managers used prior to the session fixation mod above-->
+        <!--
+        <security:session-management  session-authentication-strategy-ref="sas" />
+        -->
+        <!--
+        <security:session-management session-fixation-protection="none">
+            <security:concurrency-control max-sessions="10" error-if-maximum-exceeded="true"
+                                          expired-url="/login" session-registry-ref="sessionRegistry"
+                                          session-registry-alias=""/>
+        </security:session-management>
+        -->
+
+        <security:port-mappings>
+            <security:port-mapping http="${http.port}" https="${https.port}"/>
+        </security:port-mappings>
+
+        <security:custom-filter ref="oauth2ProviderFilter" after="EXCEPTION_TRANSLATION_FILTER" />
+
+        <!-- all non-authenticated users will automatically receive an anonymous user -->
+        <security:anonymous/>
+    </security:http>
+
+    <security:authentication-manager alias="authenticationManager">
+        <!-- spring-security uses our custom user service implementation -->
+        <security:authentication-provider user-service-ref="userService">
+            <security:password-encoder ref="passwordEncoder"/>
+        </security:authentication-provider>
+        <security:authentication-provider ref="rememberMeAuthenticationProvider"/>
+    </security:authentication-manager>
+
+    <bean id="accessDecisionManager" class="org.springframework.security.access.vote.UnanimousBased">
+        <constructor-arg>
+            <list>
+                <bean class="org.springframework.security.oauth2.provider.vote.ScopeVoter" />
+                <bean class="org.springframework.security.access.vote.RoleVoter" />
+                <bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- custom programmatic permission evaluator -->
+    <bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+        <property name="permissionEvaluator">
+            <bean class="com.lela.commons.spring.security.CustomPermissionEvaluator"/>
+        </property>
+    </bean>
+    
+    <!-- Automatically receives AuthenticationEvent messages in the log -->
+    <!--<bean id="loggerListener" class="org.springframework.security.authentication.event.LoggerListener"/>-->
+
+    <!-- successful login event listener -->
+    <bean id="userTrackingAuthenticationSuccessHandler" class="com.lela.commons.spring.security.LelaAuthenticationSuccessHandler"
+            c:userSessionTrackingHelper-ref="userSessionTrackingHelper"
+            c:rememberMeServices-ref="persistentTokenBasedRememberMeServices"
+            p:alwaysUseDefaultTargetUrl="false" p:defaultTargetUrl="/login/redirect"/>
+
+    <!-- Concurrency -->
+    <bean id="sas" class="org.springframework.security.web.authentication.session.ConcurrentSessionControlStrategy" c:sessionRegistry-ref="sessionRegistry">
+        <property name="maximumSessions" value="-1"/>
+    </bean>
+
+    <bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl"/>
+
+    <!-- remember me -->
+    <bean id="rememberMeFilter" class="com.lela.commons.spring.security.LelaRememberMeAuthenticationFilter"
+          c:authenticationManager-ref="authenticationManager"
+          c:rememberMeServices-ref="persistentTokenBasedRememberMeServices"
+          c:userSessionTrackingHelper-ref="userSessionTrackingHelper"/>
+
+    <bean id="rememberMeAuthenticationProvider" class="org.springframework.security.authentication.RememberMeAuthenticationProvider"
+          c:key="SPRING_SECURITY_REMEMBER_ME_COOKIE" />
+
+    <bean id="persistentTokenBasedRememberMeServices" class="org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices"
+            c:userDetailsService-ref="userService"
+            c:tokenRepository-ref="tokenRepository"
+            c:key="SPRING_SECURITY_REMEMBER_ME_COOKIE">
+        <!-- we had to set this property to true otherwise remember-me won't get picked up when logging in through Facebook -->
+        <property name="alwaysRemember" value="true"/>
+
+        <!-- had to set this so that the cookie could be accessed from both https and http -->
+        <property name="useSecureCookie" value="false"/>
+
+        <!-- how long is the remember me token valid -->
+        <property name="tokenValiditySeconds" value="${rememberme.token.validity.seconds}"/>
+        <property name="cookieName" value="${lela-security-cookie-name}" />
+    </bean>
+
+    <bean id='tokenRepository' class='com.lela.commons.spring.security.PersistentTokenRepositoryImpl'
+          c:rememberMeRepository-ref="rememberMeRepository"/>
+
+    <!-- Oauth 2 provider configuration below -->
+    <oauth:resource-server id="oauth2ProviderFilter" resource-id="lela" token-services-ref="tokenServices" />
+
+    <bean id="tokenServices" class="org.springframework.security.oauth2.provider.token.RandomValueTokenServices">
+		<property name="tokenStore">
+			<bean class="com.lela.commons.spring.security.oauth2.OAuth2ProviderTokenStore">
+                <constructor-arg index="0" ref="oAuthAccessTokenRepository"/>
+            </bean>
+		</property>
+		<property name="supportRefreshToken" value="true" />
+	</bean>
+
+    <oauth:expression-handler id="oauthExpressionHandler" />
+
+	<bean id="logoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter">
+	    <constructor-arg index="0" value="/" />
+	    <constructor-arg index="1">
+	        <list>
+	            <ref bean="persistentTokenBasedRememberMeServices" />
+	            <bean id="securityContextLogoutHandler" class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" />
+                <ref bean="cookieClearingLogoutHandler"/>
+                <bean class="com.lela.commons.spring.security.LelaSessionClearingLogoutHandler"/>
+	        </list>
+	    </constructor-arg>
+	    <property name="filterProcessesUrl" value="/logout" />
+	</bean>
+
+    <bean id="cookieClearingLogoutHandler" class="org.springframework.security.web.authentication.logout.CookieClearingLogoutHandler">
+        <constructor-arg>
+            <list>
+                <value>_lelacd</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>

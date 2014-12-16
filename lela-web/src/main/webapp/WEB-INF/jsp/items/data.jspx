@@ -1,0 +1,241 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+<jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+<spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+<lela:findUser/>
+
+<tiles:importAttribute name="listType" ignore="true"/>
+<tiles:importAttribute name="page" ignore="true"/>
+<tiles:importAttribute name="ajax" ignore="true"/>
+
+<spring:url value="/login" var="loginUrl" />
+<spring:url value="/register" var="registerUrl" />
+<spring:url value="/quiz?src=grid&amp;vid=true" var="launchQuiz" />
+
+<c:choose>
+    <c:when test="${listType != 'false'}">
+        <tiles:importAttribute name="items"/>
+        <c:set var="items" value="${items}"/>
+    </c:when>
+    <c:otherwise>
+
+        <c:set var="items" value="${page.content}"/>
+
+        <script type="text/javascript">
+            window.itemNum = {
+                "total": '${page.totalElements}',
+                "count": '${fn:length(items)}'
+            };
+
+        </script>
+
+    </c:otherwise>
+</c:choose>
+
+<c:if test="${ajax eq 'false' and page.number eq 0 and listType == 'false'}">
+
+    <div id="data-sort">
+        <form action="#" id="sort-form">
+            <select>
+                <c:if test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                    <option value="RECOMMENDED" class="recommended-option"><spring:message code="tuner.sort.RECOMMENDED.label" htmlEscape="false"/></option>
+                </c:if>
+
+                <c:forEach var="sortOption" items="${sortOptions}">
+                    <c:choose>
+                        <c:when test="${page.sortBy eq sortOption}">
+                            <option value="${sortOption}" selected="selected"><spring:message code="tuner.sort.${sortOption}.label" htmlEscape="false"/></option>
+                        </c:when>
+                        <c:otherwise>
+                            <option value="${sortOption}"><spring:message code="tuner.sort.${sortOption}.label" htmlEscape="false"/></option>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+            </select>
+        </form>
+    </div>
+</c:if>
+
+<c:if test="${empty items and listType == 'false' and page.number == 0}">
+    <p id="no-results"><spring:message code="grid.results.empty" htmlEscape="false"/></p>
+</c:if>
+
+<c:if test="${!empty items and listType == 'false'}">
+    <li class="page-count ${page.number == 0 ? 'count-first' : ''}">
+
+        <c:if test="${page.number >= 1}">
+            <spring:message code="items.data.displaying" htmlEscape="false" />${nbsp}<strong>${page.number * page.size + 1} - ${page.number * page.size + fn:length(items)}</strong> of ${page.totalElements}
+
+            <spring:message code="nav.cat.${category.rlnm}.full" var="categoryName"/>
+            <spring:message code="company.name" var="companyName" />
+            <h1 title="${!empty seo ? seo.hdr : categoryName} : ${companyName}" class="category-name">${!empty seo ? seo.hdr : categoryName}</h1>
+        </c:if>
+
+        <c:if test="${!empty seo}">
+            <p style="position:absolute; left:-1000px;">${seo.ntr}</p>
+        </c:if>
+    </li>
+</c:if>
+
+<c:forEach var="item" varStatus="status" items="${items}">
+
+    <li class="item ${(status.index % 3) + 3 == 1 ? '' : ''}" id="${item.rlnm}">
+        <c:choose>
+            <c:when test="${listType != 'false'}">
+                <spring:url value="/item/${item.rlnm}/snapshot?dx=${status.count}&amp;tl=${fn:length(items)}&amp;pg=${page.number}&amp;sz=${page.size}" var="itemDetailUrl"/>
+            </c:when>
+            <c:otherwise>
+                <spring:url value="/${item.srlnm}/p?rlnm=${item.rlnm}&amp;dx=${status.count}&amp;tl=${fn:length(items)}&amp;pg=${page.number}&amp;sz=${page.size}" var="itemDetailUrl"/>
+            </c:otherwise>
+        </c:choose>
+
+        <!--<spring:url value="/item/${item.rlnm}?dx=${status.count}&amp;tl=${fn:length(items)}&amp;pg=${page.number}&amp;sz=${page.size}" var="itemDetailUrl" />-->
+
+        <c:if test="${item.class.name eq 'com.lela.domain.document.RelevantItem' or item.class.name eq 'com.lela.domain.document.SavedItem' and item.ttlrlvncynmbr > 0}">
+            <spring:url value="/static/images/icons/relevancy/relevancy_meter_${item.ttlrlvncynmbr}_orange.png" var="lelaRatingImgUrl" />
+            <a href="${itemDetailUrl}"><img src="${lelaRatingImgUrl}" alt="${item.ttlrlvncynmbr}%" class="lela-rating"/></a>
+        </c:if>
+
+        <c:choose>
+            <c:when test="${listType != 'false'}">
+
+                <c:if test="${empty domainAffiliate or domainAffiliate.shwcmpr}">
+                    <div class="compare-check" cat="${item.item.ctgry.rlnm}" rlnm="${item.item.rlnm}"><spring:message code="button.compare"/> <div class="c-btn"><!-- --></div></div>
+                </c:if>
+
+                <a href="${itemDetailUrl}" class="p-img"><img src="${item.item.imgs[0].sz['large']}" alt="${item.item.nm} - ${item.item.subAttributes['Brand']}"/></a>
+                <ul class="p-info">
+                    <li class="item-name"><strong><lela:lelaProductName item="${item.item}" /></strong></li>
+                    <li class="p-info-price">
+                        <c:choose>
+                            <c:when test="${item.item.subAttributes['LowestPrice'] gt 0.0}">
+                                <div class="p-info-price-from"><spring:message code="items.data.bestpricefrom" htmlEscape="false" />${nbsp}${item.item.subAttributes['MerchantName']}</div>
+                                <div class="p-info-price-from-over hidden"><spring:message code="item.details.aslow"/></div>
+                                <strong><fmt:formatNumber type="CURRENCY" value="${item.item.subAttributes['LowestPrice']}" />
+                                    <c:if test="${item.item.subAttributes['LowestPrice'] lt item.item.subAttributes['ListPrice']}">
+                                        <span class="price-old"><fmt:formatNumber type="CURRENCY" value="${item.item.subAttributes['ListPrice']}" /></span>
+                                    </c:if>
+                                </strong>
+                            </c:when>
+                            <c:otherwise>
+                                <spring:message code="item.details.listPrice"/>: <strong><fmt:formatNumber type="CURRENCY" value="${item.item.subAttributes['ListPrice']}" /></strong>
+                            </c:otherwise>
+                        </c:choose>
+                    </li>
+                </ul>
+
+                <div class="p-action">
+                    <c:if test="${empty domainAffiliate or domainAffilate.shwlsts}">
+                    <c:choose>
+                        <c:when test="${listType eq 'item'}">
+                            <a href="${lelaListDeleteUrl}" class="l-list l-list-remove" method="POST" rlnm="${item.item.rlnm}" ctrlnm="${item.item.ctgry.rlnm}"><spring:message code="button.list.remove" htmlEscape="false"/></a>
+                        </c:when>
+                        <c:when test="${listType eq 'own'}">
+                            <a href="${lelaOwnDeleteUrl}" class="l-list l-list-remove" method="POST" rlnm="${item.rlnm}" ctrlnm="${item.ctgry.rlnm}"><spring:message code="button.list.remove" htmlEscape="false" /></a>
+                        </c:when>
+                    </c:choose>
+                    </c:if>
+                </div>
+            </c:when>
+            <c:otherwise>
+
+                <c:if test="${empty domainAffiliate or domainAffiliate.shwcmpr}">
+                    <div class="compare-check" cat="${item.ctgry.rlnm}" rlnm="${item.rlnm}"><spring:message code="button.compare"/> <div class="c-btn"><!-- --></div></div>
+                </c:if>
+
+                <c:if test="${!empty us.savedItems[item.rlnm] and (empty domainAffiliate or domainAffilate.shwlsts)}">
+                    <a href="#" class="l-list l-list-saved"><!-- --></a>
+                </c:if>
+
+                <a href="${itemDetailUrl}" class="p-img"><img src="${item.imgs[0].sz['large']}" alt="${item.nm} - ${item.subAttributes['Brand']}"/></a>
+                <span class="p-info">
+
+                    <span class="item-details">
+                        <span class="item-name"><strong><lela:lelaProductName item="${item}" /></strong></span>
+                        <span class="brand-name">${item.subAttributes['Brand']}</span>
+                    </span>
+
+                    <span class="p-price">
+                        <c:choose>
+                            <c:when test="${item.subAttributes['LowestPrice'] gt 0.0}">
+                                <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['LowestPrice']}" />
+                                    <c:if test="${item.subAttributes['LowestPrice'] lt item.subAttributes['ListPrice']}">
+                                        <span class="price-old"><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></span>
+                                    </c:if>
+                                </strong>
+                            </c:when>
+                            <c:otherwise>
+                                <spring:message code="item.details.listPrice"/><br/>
+                                <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></strong>
+                            </c:otherwise>
+                        </c:choose>
+                    </span>
+
+                    <c:if test="${empty domainAffiliate or domainAffiliate.showStores}">
+                        from ${nbsp}<a href="${itemDetailUrl}#prices"><spring:message code="items.data.price.stores" htmlEscape="false" arguments="${item.subAttributes['StoreCount']},${item.subAttributes['StoreCount'] gt 1 ? 's' : ''}" /></a>
+                    </c:if>
+
+                </span>
+
+                <c:if test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                    <div class="p-action p-quiz">
+                        <spring:message code="grid.results.category.${item.ctgry.rlnm}" var="userCategoryText" text="${item.ctgry.rlnm}"/>
+                        <spring:message code="grid.results.right.forme" htmlEscape="false" arguments="${userCategoryText}"/><br/>
+                        <a href="${launchQuiz}&amp;pr=${itemDetailUrl}" class="modal quiz-modal"><spring:message code="grid.results.show.score" htmlEscape="false"/></a>
+                    </div>
+                </c:if>
+
+                <!-- Load rollover summary-->
+                <tiles:insertTemplate template="/WEB-INF/jsp/items/details_over.jspx" flush="true">
+                    <tiles:putAttribute name="item" value="${item}" />
+                    <tiles:putAttribute name="page" value="${page}" />
+                    <tiles:putAttribute name="status" value="${status}" />
+                </tiles:insertTemplate>
+
+            </c:otherwise>
+        </c:choose>
+    </li>
+
+</c:forEach>
+
+<c:if test="${!empty page.filters and ajax eq 'false'}">
+    <tiles:insertTemplate template="/WEB-INF/jsp/items/page_tuners.jspx" flush="true"/>
+</c:if>
+
+<script type="text/javascript">
+
+    window.availableFilters = {
+            <c:set var="count" value="1"/>
+            <c:forEach var="availableFilter" items="${page.availableFilters.filters}">
+            "${availableFilter.key}": {
+        "type": "${availableFilter.type}",
+                "available": [
+        <c:forEach var="option" items="${availableFilter.available}" varStatus="status">
+                "${option}"<c:if test="${fn:length(availableFilter.available) gt status.count}">,</c:if>
+        </c:forEach>
+    ]
+    } <c:if test="${fn:length(page.availableFilters.filters) > count}">,</c:if>
+    <c:set var="count" value="${count + 1}"/>
+            </c:forEach>
+    };
+
+    processAvailableFilters();
+</script>
+
+</jsp:root>

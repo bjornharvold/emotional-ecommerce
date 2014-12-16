@@ -1,0 +1,219 @@
+<!--
+  ~ Copyright (c) 2012 Lela.com.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <lela:findUser/>
+
+    <!-- Set item object based on relevancy -->
+    <c:if test="${itemDetails.rlvnttm != null}">
+        <c:set var="item" value="${itemDetails.rlvnttm}"/>
+    </c:if>
+
+    <c:if test="${itemDetails.tm != null}">
+        <c:set var="item" value="${itemDetails.tm}"/>
+    </c:if>
+
+    <spring:url value="/register" var="registerUrl" />
+    <spring:url value="/quiz" var="quizUrl" />
+    <spring:url value="/list/item" var="lelaListUrl" />
+    <spring:url value="/user/list/card/delete" var="lelaItemDeleteUrl" />
+    <spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+    <div class="lela-mobile-content lela-mobile-page-details">
+
+        <div class="relevancy-mod">
+            <c:choose>
+                <c:when test="${us.motivator != null}">
+                    <spring:url value="/static/images/icons/rating/relevancy_meter_${itemDetails.rlvnttm.ttlrlvncynmbr}.png" var="lelaRatingImgUrl" />
+                    <a href="#p-comp" rel="nofollow">
+                        <span class="info-sc"><img src="${lelaRatingImgUrl}" alt="${itemDetails.rlvnttm.ttlrlvncynmbr}%" class="lela-pct"/></span>
+                    </a>
+                </c:when>
+                <c:otherwise>
+                    <spring:url value="/static/images/icons/rating_q.jpg" var="lelaRatingImgUrl" />
+                    <a href="${quizUrl}" class="lquiz" quiz-location="Quiz-Mobile-PD" rel="nofollow"><img src="${lelaRatingImgUrl}" alt="?" class="rating-anim"/></a>
+                </c:otherwise>
+            </c:choose>
+        </div>
+
+        <div class="product-name">
+            <spring:message code="nav.cat.${item.ctgry.rlnm}" var="titleCategory"/>
+            <h1 title="${item.subAttributes['Brand']} ${item.nm} : ${titleCategory} : Lela">
+                <lela:lelaProductName item="${item}" /> <span class="brand-name"> by ${item.subAttributes['Brand']}</span>
+            </h1>
+        </div>
+
+        <div class="product-price">
+            <spring:url value="/merchant/redirect" var="redirectPurchaseUrl">
+                <spring:param name="merchantId" value="${item.subAttributes['MerchantId']}" />
+                <spring:param name="itemId" value="${item.rlnm}" />
+            </spring:url>
+            <p><spring:message code="items.data.bestprice"/>: <a href="${redirectPurchaseUrl}" target="_blank" rel="nofollow" class="out-link">${item.subAttributes['MerchantName']}</a></p>
+            <c:choose>
+                <c:when test="${item.subAttributes['LowestPrice'] gt 0.0}">
+                    <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['LowestPrice']}" />
+                        <c:if test="${item.subAttributes['LowestPrice'] lt item.subAttributes['ListPrice']}">
+                            <span class="price-old"><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></span>
+                        </c:if>
+                    </strong>
+                </c:when>
+                <c:otherwise>
+                    <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></strong>
+                </c:otherwise>
+            </c:choose>
+
+        </div>
+
+        <div class="product-img">
+            <div class="prev-img"><!-- --></div>
+
+            <div class="img-container">
+            <c:forEach items="${item.clrs}" var="clr" varStatus="status">
+                <img src="${clr.sz['large']}" alt="${item.nm} - ${item.subAttributes['Brand']}" class="pr-img ${status.index eq 0 ? 'current' : 'hidden'}" />
+            </c:forEach>
+            </div>
+
+            <div class="next-img"><!-- --></div>
+        </div>
+
+        <div class="clear"><!-- --></div>
+
+        <div class="product-stores">
+            <h2><spring:message code="item.tabs.allprices" htmlEscape="false" /></h2>
+            <a href="#" class="store-hdr online-hdr"><spring:message code="item.where.buy.online" htmlEscape="false" /> (<span id="online-count"><!-- --></span>)</a>
+            <div class="online-stores" style="display: none;">
+                <tiles:insertTemplate template="/WEB-INF/jsp/items/mobile/details_buy.jspx" flush="true">
+                    <tiles:putAttribute name="stores" value="${stores}" />
+                    <tiles:putAttribute name="type" value="online" />
+                    <tiles:putAttribute name="item" value="${item}" />
+                </tiles:insertTemplate>
+            </div>
+
+            <c:choose>
+                <c:when test="${zipcode eq not null}">
+                    <a href="#" class="store-hdr local-hdr"><spring:message code="item.where.buy.local.zip" arguments="${zipcode}" htmlEscape="false" /> (<span id="local-count"><!-- --></span>)</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="#" class="store-hdr local-hdr"><spring:message code="item.where.buy.local" htmlEscape="false" /> (<span id="local-count"><!-- --></span>)</a>
+                </c:otherwise>
+            </c:choose>
+            <div class="local-stores" style="display: none;">
+                <c:if test="${loggedInUser != 'anonymousUser'}">
+                    <tiles:insertTemplate template="/WEB-INF/jsp/items/mobile/details_stores.jspx" flush="true">
+                        <tiles:putAttribute name="zipcode" value="${zipcode}" />
+                        <tiles:putAttribute name="branches" value="${branches}" />
+                        <tiles:putAttribute name="item" value="${item}" />
+                    </tiles:insertTemplate>
+                </c:if>
+                <c:if test="${loggedInUser == 'anonymousUser'}">
+                    <p class="no-stores"><spring:message code="item.where.local.empty" htmlEscape="false"/></p>
+                </c:if>
+            </div>
+        </div>
+
+        <div class="product-specs">
+            <h2><spring:message code="item.details.specifications" htmlEscape="false" /></h2>
+
+            <c:forEach var="section" items="${itemDetails.sctns}" varStatus="status">
+
+                <c:choose>
+                    <c:when test="${status.index eq 0}">
+                        <c:set var="specClass" value="spec-class" />
+                        <c:set var="colClass" value="hidden spec-hidden" />
+                    </c:when>
+                    <c:otherwise>
+                        <c:set var="specClass" value="spec-class hidden spec-hidden" />
+                        <c:set var="colClass" value="" />
+                    </c:otherwise>
+                </c:choose>
+
+                <c:if test="${section.nm != 'attribute.section.brandbuzz' and section.nm != 'attribute.section.ratingsandreview'}">
+
+                    <fmt:formatNumber var="grpCount" value="${(fn:length(section.grps))/2}" maxFractionDigits="0" />
+
+                    <div id="tab${status.count}" class="tab-content spec-content ${specClass}">
+
+                        <!-- 1st column -->
+                        <div class="col-m col">
+                            <c:forEach var="group" items="${section.grps}" varStatus="statusGrp" begin="0" end="${grpCount eq 0 ? 0 : grpCount-1}" >
+                                <table class="specs">
+                                    <tr><th colspan="2"><spring:message code="${group.nm}"/></th></tr>
+                                    <c:forEach var="attr" items="${group.attrs}">
+                                        <c:if test="${!empty attr.vl}">
+                                            <tr>
+                                                <c:choose>
+                                                    <c:when test="${group.nm != 'attribute.group.about'}">
+                                                        <td class="attr-ky"><spring:message code="attribute.attr.${attr.ky}"/></td>
+                                                        <td class="attr-vl">${attr.vl}</td>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <td class="attr-vl" colspan="2" style="border:none;">${attr.vl}</td>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </tr>
+                                        </c:if>
+                                    </c:forEach>
+                                </table>
+                            </c:forEach>
+                        </div>
+
+                        <!-- 2nd column -->
+                        <div class="col-m col ${colClass}">
+                            <c:forEach var="group" items="${section.grps}" varStatus="statusGrp" begin="${grpCount eq 0 ? 1 : grpCount}" >
+                                <table class="specs">
+                                    <tr><th colspan="2"><spring:message code="${group.nm}"/></th></tr>
+                                    <c:forEach var="attr" items="${group.attrs}">
+                                        <c:if test="${!empty attr.vl}">
+                                            <tr>
+                                                <c:choose>
+                                                    <c:when test="${group.nm != 'attribute.group.about'}">
+                                                        <td class="attr-ky"><spring:message code="attribute.attr.${attr.ky}"/></td>
+                                                        <td class="attr-vl">${attr.vl}</td>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <td class="attr-vl" colspan="2" style="border:none;">${attr.vl}</td>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </tr>
+                                        </c:if>
+                                    </c:forEach>
+                                </table>
+                            </c:forEach>
+                        </div>
+
+                        <div class="spec-div"><!-- --></div>
+                    </div>
+
+                </c:if>
+
+            </c:forEach>
+
+            <a rel="nofollow" class="btn show-more" id="showMoreSpecs"><spring:message code="item.detail.show.more" htmlEscape="false" /></a>
+            <a rel="nofollow" class="btn show-less hidden" id="showLessSpecs"><spring:message code="item.detail.show.less" htmlEscape="false" /></a>
+
+        </div>
+
+        <div id="p-comp">
+            <tiles:insertTemplate template="/WEB-INF/jsp/items/mobile/details_compatibility.jspx" flush="true">
+                <tiles:putAttribute name="item" value="${item}" />
+                <tiles:putAttribute name="items" value="${items}" />
+            </tiles:insertTemplate>
+        </div>
+
+    </div>
+
+</div>

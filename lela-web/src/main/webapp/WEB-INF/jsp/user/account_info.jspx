@@ -1,0 +1,354 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="error.firstname.empty" var="firstnameEmpty" htmlEscape="false"/>
+    <spring:message code="error.lastname.empty" var="lastnameEmpty" htmlEscape="false"/>
+    <spring:message code="user.account.personal.info.please.select" var="pleaseSelect"/>
+    <spring:url value="/static/images/icons/fb_icon.png" var="facebookIcon" />
+
+    <script type="text/javascript">
+        var messages = {
+            "error.firstname.empty" : "${firstnameEmpty}",
+            "error.lastname.empty" : "${lastnameEmpty}"
+        }
+    </script>
+
+    <div id="account-nav">
+        <ul>
+            <li>
+                <!-- Left nav content -->
+                <tiles:insertTemplate template="/WEB-INF/jsp/user/account_nav.jspx" flush="true">
+                </tiles:insertTemplate>
+            </li>
+        </ul>
+    </div>
+    <div id="account-content" class="account-info">
+        <!-- Right content -->
+        <spring:url value="/user/profile" var="updateUrl"/>
+        <spring-form:form id="account-overview-form" action="${updateUrl}" method="PUT" modelAttribute="profile" class="custom">
+            <div id="account-content-1">
+                <div class="d-section">
+                    <h2><spring:message code="user.account.personal.info"/></h2>
+                    <c:choose>
+                        <c:when test="${facebookConnected == false}">
+                            <div class="h-row">
+                                <spring-form:label path="fnm" cssClass="account-label"><spring:message code="user.account.overview.first.name"/></spring-form:label>
+                                <spring-form:input path="fnm" class="first-name-type"/>  <spring-form:errors path="fnm" cssClass="error"/>
+                                <div class="error"><!-- --></div>
+                            </div>
+                            <div class="h-row">
+                                <spring-form:label path="lnm" cssClass="account-label"><spring:message code="user.account.overview.last.name"/></spring-form:label>
+                                <spring-form:input path="lnm" class="last-name-type"/>  <spring-form:errors path="lnm" cssClass="error"/>
+                                <div class="error"><!-- --></div>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="f-row lela-account-section">
+                                <span class="facebook-icon"><img src="${facebookIcon}" alt=""/></span>
+                                <span class="account-label"><spring:message code="user.account.overview.full.name"/></span><br/>
+                                <span>${profile.fnm} ${profile.lnm}</span>
+                                <spring-form:hidden path="fnm"/>
+                                <spring-form:hidden path="lnm"/>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
+                    <div class="f-row radio">
+                        <spring:message code="user.gender.male" var="male"/>
+                        <spring:message code="user.gender.female" var="female"/>
+                        <spring-form:label path="gndr" cssClass="f-row-label account-label"><spring:message code="user.gender"/></spring-form:label>
+                        <spring-form:radiobutton path="gndr" value="MALE" label="${male}"/>
+                        <spring-form:radiobutton path="gndr" value="FEMALE" label="${female}"/>
+                    </div>
+
+                    <div class="f-row date-select">
+                        <spring-form:label path="dbm" cssClass="account-label"><spring:message code="user.account.personal.info.birthday"/></spring-form:label>
+                        <spring-form:select path="dbm">
+                            <spring:message code="dropdown.date.MONTH" var="month"/>
+                            <spring-form:option value="-1" label="${month}"/>
+                            <spring:message code="dropdown.date.month.JANUARY" var="january"/>
+                            <spring-form:option value="0" label="${january}"/>
+                            <spring:message code="dropdown.data.month.FEBRUARY" var="february"/>
+                            <spring-form:option value="1" label="${february}"/>
+                            <spring:message code="dropdown.data.month.MARCH" var="march"/>
+                            <spring-form:option value="2" label="${march}"/>
+                            <spring:message code="dropdown.data.month.APRIL" var="april"/>
+                            <spring-form:option value="3" label="${april}"/>
+                            <spring:message code="dropdown.data.month.MAY" var="may"/>
+                            <spring-form:option value="4" label="${may}"/>
+                            <spring:message code="dropdown.data.month.JUNE" var="june"/>
+                            <spring-form:option value="5" label="${june}"/>
+                            <spring:message code="dropdown.data.month.JULY" var="july"/>
+                            <spring-form:option value="6" label="${july}"/>
+                            <spring:message code="dropdown.data.month.AUGUST" var="august"/>
+                            <spring-form:option value="7" label="${august}"/>
+                            <spring:message code="dropdown.data.month.SEPTEMBER" var="september"/>
+                            <spring-form:option value="8" label="${september}"/>
+                            <spring:message code="dropdown.data.month.OCTOBER" var="october"/>
+                            <spring-form:option value="9" label="${october}"/>
+                            <spring:message code="dropdown.data.month.NOVEMBER" var="november"/>
+                            <spring-form:option value="10" label="${november}"/>
+                            <spring:message code="dropdown.data.month.DECEMBER" var="december"/>
+                            <spring-form:option value="11" label="${december}"/>
+                        </spring-form:select>
+                    </div>
+                    <div class="f-row date-select">
+                        <spring-form:select path="dbd">
+                            <spring:message code="dropdown.date.DAY" var="day"/>
+                            <spring-form:option value="-1" label="${day}"/>
+                            <spring-form:option value="1" label="1"/>
+                            <spring-form:option value="2" label="2"/>
+                            <spring-form:option value="3" label="3"/>
+                            <spring-form:option value="4" label="4"/>
+                            <spring-form:option value="5" label="5"/>
+                            <spring-form:option value="6" label="6"/>
+                            <spring-form:option value="7" label="7"/>
+                            <spring-form:option value="8" label="8"/>
+                            <spring-form:option value="9" label="9"/>
+                            <spring-form:option value="10" label="10"/>
+                            <spring-form:option value="11" label="11"/>
+                            <spring-form:option value="12" label="12"/>
+                            <spring-form:option value="13" label="13"/>
+                            <spring-form:option value="14" label="14"/>
+                            <spring-form:option value="15" label="15"/>
+                            <spring-form:option value="16" label="16"/>
+                            <spring-form:option value="17" label="17"/>
+                            <spring-form:option value="18" label="18"/>
+                            <spring-form:option value="19" label="19"/>
+                            <spring-form:option value="20" label="20"/>
+                            <spring-form:option value="21" label="21"/>
+                            <spring-form:option value="22" label="22"/>
+                            <spring-form:option value="23" label="23"/>
+                            <spring-form:option value="24" label="24"/>
+                            <spring-form:option value="25" label="25"/>
+                            <spring-form:option value="26" label="26"/>
+                            <spring-form:option value="27" label="27"/>
+                            <spring-form:option value="28" label="28"/>
+                            <spring-form:option value="29" label="29"/>
+                            <spring-form:option value="30" label="30"/>
+                            <spring-form:option value="31" label="31"/>
+                        </spring-form:select>
+                    </div>
+                    <div class="f-row date-select">
+                        <spring-form:select path="dby">
+                            <spring:message code="dropdown.date.YEAR" var="year"/>
+                            <spring-form:option value="-1" label="${year}"/>
+                            <spring-form:options items="${years}" />
+                        </spring-form:select>
+                    </div>
+
+                    <div class="f-row">
+                        <spring-form:label path="hzp" cssClass="account-label"><spring:message code="user.account.personal.info.hometown.zip"/></spring-form:label>
+                        <spring-form:input path="hzp" class="name-type"/> <spring-form:errors path="hzp" cssClass="error"/>
+                    </div>
+                    <div class="f-row">
+                        <spring-form:label path="czp" cssClass="account-label"><spring:message code="user.account.personal.info.current.zip"/></spring-form:label>
+                        <spring-form:input path="czp" class="name-type"/> <spring-form:errors path="czp" cssClass="error"/>
+                    </div>
+                    <!-- Include Country select -->
+                    <jsp:include page="account_country_select.jspx" flush="true"/>
+                </div>
+            </div>
+            <div id="account-content-2-1">
+                <div class="d-section">
+                    <h2>&#160;</h2>
+                    <!-- Include Country select -->
+                    <jsp:include page="account_language_select.jspx" flush="true"/>
+                    <div class="f-row">
+                        <spring-form:label path="ndstry" cssClass="account-label"><spring:message code="user.account.personal.info.job.industry"/></spring-form:label>
+                        <spring-form:select path="ndstry">
+                            <spring:message code="dropdown.data.industry.ACOUNTING" var="accounting"/>
+                            <spring:message code="dropdown.data.industry.DEFENSE" var="defense"/>
+                            <spring:message code="dropdown.data.industry.LAND" var="land"/>
+                            <spring:message code="dropdown.data.industry.DESIGN" var="design"/>
+                            <spring:message code="dropdown.data.industry.ARTS" var="arts"/>
+                            <spring:message code="dropdown.data.industry.AUTO" var="auto"/>
+                            <spring:message code="dropdown.data.industry.IT" var="it"/>
+                            <spring:message code="dropdown.data.industry.CONSTRUCTION" var="construction"/>
+                            <spring:message code="dropdown.data.industry.CONSULTING" var="consulting"/>
+                            <spring:message code="dropdown.data.industry.ED" var="ed"/>
+                            <spring:message code="dropdown.data.industry.ENERGY" var="energy"/>
+                            <spring:message code="dropdown.data.industry.ENGINEERING" var="engineering"/>
+                            <spring:message code="dropdown.data.industry.FINANCE" var="finanace"/>
+                            <spring:message code="dropdown.data.industry.GOVERNMENT" var="government"/>
+                            <spring:message code="dropdown.data.industry.HEALTH" var="health"/>
+                            <spring:message code="dropdown.data.industry.HOMEMAKER" var="homemaker"/>
+                            <spring:message code="dropdown.data.industry.INFORMATION" var="information"/>
+                            <spring:message code="dropdown.data.industry.INSURANCE" var="insurance"/>
+                            <spring:message code="dropdown.data.industry.LEGAL" var="legal"/>
+                            <spring:message code="dropdown.data.industry.MANUFACTURING" var="manufacturing"/>
+                            <spring:message code="dropdown.data.industry.COMMUNICATION" var="communcation"/>
+                            <spring:message code="dropdown.data.industry.MEDIA" var="media"/>
+                            <spring:message code="dropdown.data.industry.MILITARY" var="military"/>
+                            <spring:message code="dropdown.data.industry.NONPROFIT" var="nonprofit"/>
+                            <spring:message code="dropdown.data.industry.OTHER" var="other"/>
+                            <spring:message code="dropdown.data.industry.PHARMACEUTICALS" var="pharmaceuticals"/>
+                            <spring:message code="dropdown.data.industry.REALESTATE" var="realestate"/>
+                            <spring:message code="dropdown.data.industry.RECRUITING" var="recruiting"/>
+                            <spring:message code="dropdown.data.industry.RELIGIOUS" var="religous"/>
+                            <spring:message code="dropdown.data.industry.RD" var="rd"/>
+                            <spring:message code="dropdown.data.industry.RETAIL" var="retail"/>
+                            <spring:message code="dropdown.data.industry.SOCIALSERVICES" var="socialservices"/>
+                            <spring:message code="dropdown.data.industry.TELECOM" var="telecom"/>
+                            <spring:message code="dropdown.data.industry.TRADE" var="trade"/>
+                            <spring:message code="dropdown.data.industry.TRANSPORTATION" var="transportation"/>
+                            <spring:message code="dropdown.data.industry.TRAVEL" var="travel"/>
+                            <spring:message code="dropdown.data.industry.WHOLESALE" var="wholesale"/>
+                            <spring-form:option value="" label="${pleaseSelect}"/>
+                            <spring-form:option value="${accounting}" label="${accounting}"/>
+                            <spring-form:option value="${defense}" label="${defense}"/>
+                            <spring-form:option value="${land}" label="${land}"/>
+                            <spring-form:option value="${arts}" label="${arts}"/>
+                            <spring-form:option value="${auto}" label="${auto}"/>
+                            <spring-form:option value="${it}" label="${it}"/>
+                            <spring-form:option value="${construction}" label="${construction}"/>
+                            <spring-form:option value="${consulting}" label="${consulting}"/>
+                            <spring-form:option value="${ed}" label="${ed}"/>
+                            <spring-form:option value="${energy}" label="${energy}"/>
+                            <spring-form:option value="${engineering}" label="${engineering}"/>
+                            <spring-form:option value="${finanace}" label="${finanace}"/>
+                            <spring-form:option value="${government}" label="${government}"/>
+                            <spring-form:option value="${health}" label="${health}"/>
+                            <spring-form:option value="${homemaker}" label="${homemaker}"/>
+                            <spring-form:option value="${information}" label="${information}"/>
+                            <spring-form:option value="${insurance}" label="${insurance}"/>
+                            <spring-form:option value="${legal}" label="${legal}"/>
+                            <spring-form:option value="${manufacturing}" label="${manufacturing}"/>
+                            <spring-form:option value="${communcation}" label="${communcation}"/>
+                            <spring-form:option value="${media}" label="${media}"/>
+                            <spring-form:option value="${military}" label="${military}"/>
+                            <spring-form:option value="${nonprofit}" label="${nonprofit}"/>
+                            <spring-form:option value="${other}" label="${other}"/>
+                            <spring-form:option value="${pharmaceuticals}" label="${pharmaceuticals}"/>
+                            <spring-form:option value="${realestate}" label="${realestate}"/>
+                            <spring-form:option value="${recruiting}" label="${recruiting}"/>
+                            <spring-form:option value="${religous}" label="${religous}"/>
+                            <spring-form:option value="${rd}" label="${rd}"/>
+                            <spring-form:option value="${retail}" label="${retail}"/>
+                            <spring-form:option value="${socialservices}" label="${socialservices}"/>
+                            <spring-form:option value="${telecom}" label="${telecom}"/>
+                            <spring-form:option value="${trade}" label="${trade}"/>
+                            <spring-form:option value="${transportation}" label="${transportation}"/>
+                            <spring-form:option value="${travel}" label="${travel}"/>
+                            <spring-form:option value="${wholesale}" label="${wholesale}"/>
+                        </spring-form:select>
+                    </div>
+                    <div class="f-row">
+                        <spring-form:label path="cmpnysz" cssClass="account-label"><spring:message code="user.account.personal.info.company.size"/></spring-form:label>
+                        <spring-form:select path="cmpnysz">
+                            <spring:message code="dropdown.data.company.size.RANGE1" var="range1"/>
+                            <spring:message code="dropdown.data.company.size.RANGE2" var="range2"/>
+                            <spring:message code="dropdown.data.company.size.RANGE3" var="range3"/>
+                            <spring:message code="dropdown.data.company.size.RANGE4" var="range4"/>
+                            <spring:message code="dropdown.data.company.size.RANGE5" var="range5"/>
+                            <spring:message code="dropdown.data.company.size.not.applicable" var="notApplicable"/>
+                            <spring-form:option value="" label="${pleaseSelect}"/>
+                            <spring-form:option value="${range1}" label="${range1}"/>
+                            <spring-form:option value="${range2}" label="${range2}"/>
+                            <spring-form:option value="${range3}" label="${range3}"/>
+                            <spring-form:option value="${range4}" label="${range4}"/>
+                            <spring-form:option value="${range5}" label="${range5}"/>
+                            <spring-form:option value="${notApplicable}" label="${notApplicable}"/>
+                        </spring-form:select>
+                    </div>
+                    <div class="f-row">
+                        <spring-form:label path="jbttl" cssClass="account-label"><spring:message code="user.account.personal.info.job.title"/></spring-form:label>
+                        <spring-form:select path="jbttl">
+                            <spring:message code="dropdown.data.job.title.ACCOUNTANT" var="accountant"/>
+                            <spring:message code="dropdown.data.job.title.ADMINISTRATIVE" var="adminstrative"/>
+                            <spring:message code="dropdown.data.job.title.ANALYST" var="analyst"/>
+                            <spring:message code="dropdown.data.job.title.ARCHITECT" var="architect"/>
+                            <spring:message code="dropdown.data.job.title.ARTIST" var="artist"/>
+                            <spring:message code="dropdown.data.job.title.BROKER" var="broker"/>
+                            <spring:message code="dropdown.data.job.title.CEO" var="ceo"/>
+                            <spring:message code="dropdown.data.job.title.CFO" var="cfo"/>
+                            <spring:message code="dropdown.data.job.title.CLERGY" var="clergy"/>
+                            <spring:message code="dropdown.data.job.title.IT" var="it"/>
+                            <spring:message code="dropdown.data.job.title.CONSULTANT" var="consultant"/>
+                            <spring:message code="dropdown.data.job.title.TEACHER" var="teacher"/>
+                            <spring:message code="dropdown.data.job.title.ENGINEER" var="engineer"/>
+                            <spring:message code="dropdown.data.job.title.FINANCIAL" var="financial"/>
+                            <spring:message code="dropdown.data.job.title.GOVERNMENT" var="government"/>
+                            <spring:message code="dropdown.data.job.title.HEALTH" var="health"/>
+                            <spring:message code="dropdown.data.job.title.HOMEMAKER" var="homemaker"/>
+                            <spring:message code="dropdown.data.job.title.LEGAL" var="legal"/>
+                            <spring:message code="dropdown.data.job.title.MILITARY" var="military"/>
+                            <spring:message code="dropdown.data.job.title.PHYSICIAN" var="physician"/>
+                            <spring:message code="dropdown.data.job.title.RESEARCHER" var="researcher"/>
+                            <spring:message code="dropdown.data.job.title.RETIRED" var="retired"/>
+                            <spring:message code="dropdown.data.job.title.SALES" var="sales"/>
+                            <spring:message code="dropdown.data.job.title.SCIENTIST" var="scientist"/>
+                            <spring:message code="dropdown.data.job.title.SKILLED" var="skilled"/>
+                            <spring:message code="dropdown.data.job.title.STUDENT" var="student"/>
+                            <spring:message code="dropdown.data.job.title.TECHNICIAN" var="technician"/>
+                            <spring:message code="dropdown.data.job.title.WRITER" var="writer"/>
+                            <spring-form:option value="" label="${pleaseSelect}"/>
+                            <spring-form:option value="${accountant}" label="${accountant}"/>
+                            <spring-form:option value="${adminstrative}" label="${adminstrative}"/>
+                            <spring-form:option value="${analyst}" label="${analyst}"/>
+                            <spring-form:option value="${architect}" label="${architect}"/>
+                            <spring-form:option value="${ceo}" label="${ceo}"/>
+                            <spring-form:option value="${cfo}" label="${cfo}"/>
+                            <spring-form:option value="${clergy}" label="${clergy}"/>
+                            <spring-form:option value="${it}" label="${it}"/>
+                            <spring-form:option value="${consultant}" label="${consultant}"/>
+                            <spring-form:option value="${teacher}" label="${teacher}"/>
+                            <spring-form:option value="${engineer}" label="${engineer}"/>
+                            <spring-form:option value="${financial}" label="${financial}"/>
+                            <spring-form:option value="${government}" label="${government}"/>
+                            <spring-form:option value="${health}" label="${health}"/>
+                            <spring-form:option value="${homemaker}" label="${homemaker}"/>
+                            <spring-form:option value="${legal}" label="${legal}"/>
+                            <spring-form:option value="${military}" label="${military}"/>
+                            <spring-form:option value="${physician}" label="${physician}"/>
+                            <spring-form:option value="${researcher}" label="${researcher}"/>
+                            <spring-form:option value="${retired}" label="${retired}"/>
+                            <spring-form:option value="${sales}" label="${sales}"/>
+                            <spring-form:option value="${scientist}" label="${scientist}"/>
+                            <spring-form:option value="${skilled}" label="${skilled}"/>
+                            <spring-form:option value="${student}" label="${student}"/>
+                            <spring-form:option value="${technician}" label="${technician}"/>
+                            <spring-form:option value="${writer}" label="${writer}"/>
+                        </spring-form:select>
+                    </div>
+                    <div class="f-row">
+                        <spring-form:label path="ncm" cssClass="account-label"><spring:message code="user.account.personal.info.annual.household.income"/></spring-form:label>
+                        <spring-form:select path="ncm">
+                            <spring:message code="dropdown.data.income.RANGE7" var="range7"/>
+                            <spring:message code="dropdown.data.income.RANGE6" var="range6"/>
+                            <spring:message code="dropdown.data.income.RANGE5" var="range5"/>
+                            <spring:message code="dropdown.data.income.RANGE4" var="range4"/>
+                            <spring:message code="dropdown.data.income.RANGE3" var="range3"/>
+                            <spring:message code="dropdown.data.income.RANGE2" var="range2"/>
+                            <spring:message code="dropdown.data.income.RANGE1" var="range1"/>
+                            <spring-form:option value="" label="${pleaseSelect}"/>
+                            <spring-form:option value="${range7}" label="${range7}"/>
+                            <spring-form:option value="${range6}" label="${range6}"/>
+                            <spring-form:option value="${range5}" label="${range5}"/>
+                            <spring-form:option value="${range4}" label="${range4}"/>
+                            <spring-form:option value="${range3}" label="${range3}"/>
+                            <spring-form:option value="${range2}" label="${range2}"/>
+                            <spring-form:option value="${range1}" label="${range1}"/>
+                        </spring-form:select>
+                    </div>
+                    <div class="s-row">
+                        <a href="#" class="o-submit"><spring:message code="button.save.updates"/></a>
+                    </div>
+                </div>
+            </div>
+        </spring-form:form>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:spring="http://www.springframework.org/tags"
+     version="2.0">
+    <script type="text/javascript">
+      dojo.require("dijit.form.ComboBox");
+    </script>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <spring:url value="/manage/categorys/initiator/index" var="initiator_index_url"/>
+    <a href="${initiator_index_url}">Cancel</a>
+    <h2>${title}:<spring:message code="${title}"/></h2>
+  <form:form method="POST" commandName="categoryInitiatorQuery">
+    <form:hidden path="id"/>
+    <div>
+      <label><spring:message code="categoryInitiatorQuery.nm"/></label>
+      <form:input path="nm"/>
+    </div>
+    <div>
+      <label><spring:message code="categoryInitiatorQuery.dscrptn"/></label>
+      <form:textarea path="dscrptn"/>
+    </div>
+    <div>
+      <label><spring:message code="categoryInitiatorQuery.kywrds"/></label>
+      <form:input path="kywrds[0]"/> AND <form:input path="kywrds[1]"/> AND <form:input path="kywrds[2]"/>
+    </div>
+    <div>
+      <h3>Best Buy</h3>
+      <div>
+        <label><spring:message code="categoryInitiatorQuery.ctgy.nbld"/></label>
+        <form:checkbox path="qrys['BEST_BUY'].nbld"/>
+      </div>
+      <c:forEach items="${categoryInitiatorQuery.qrys[BEST_BUY].qrys}" var="qry" varStatus="status">
+      <div style="border: 1px solid black;">
+      <button id="best_but_add" type="submit" name="remove" value="BEST_BUY[${status.index}]">
+        Remove
+      </button>
+      <div>
+        <label><spring:message code="categoryInitiatorQuery.ctgy"/></label>
+        <form:select id="bestBuyCategories_${status.index}" path="qrys['BEST_BUY'].qrys[${status.index}].ctgry">
+          <form:option value="ALL" label="ALL"/>
+          <form:options items="${bestBuyCategories}"/>
+        </form:select>
+        <script type="text/javascript">
+          //new dijit.form.ComboBox({id:'bestBuyCategories_${status.index}', name:"qrys['BEST_BUY'].qrys[${status.index}].ctgry"}, dojo.byId("bestBuyCategories_${status.index}"));
+        </script>
+
+      </div>
+      <div>
+        <label><spring:message code="categoryInitiatorQuery.kywrd"/></label>
+        <form:input path="qrys['BEST_BUY'].qrys[${status.index}].kywrd"/>
+      </div>
+      <div>
+        <label><spring:message code="categoryInitiatorQuery.brndnm"/></label>
+        <form:input path="qrys['BEST_BUY'].qrys[${status.index}].nm"/>
+      </div>
+      </div>
+      OR
+      </c:forEach>
+      <button id="best_but_add" type="submit" name="add" value="BEST_BUY">
+          Add another search
+      </button>
+
+      <!-- end repeat -->
+    </div>
+    <div class="control-group">
+      <button id="button" dojoType="dijit.form.Button" type="submit" name="save" value="save">
+        <spring:message code="button.save"/>
+      </button>
+
+    </div>
+  </form:form>
+</div>

@@ -1,0 +1,196 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <lela:findUser/>
+
+    <spring:url value="/category/${categoryUrlName}" var="dataUrl" />
+    <spring:url value="/quiz?src=grid&amp;vid=true" var="launchQuiz" />
+
+    <spring:url value="/quiz" var="quizUrl" />
+    <spring:message code="environment" var="environment"/>
+
+    <spring:url value="/item/comparison/?nm=" var="comparisonUrl" />
+
+    <script type="text/javascript">
+        var dataUrl = '${dataUrl}';
+        var returnItem = null;
+    </script>
+
+    <c:set var="size" value="${page.size}"/>
+    <c:if test="${!empty param.size}">
+        <fmt:formatNumber type="number" maxFractionDigits="0" value="${param.size/12 - 1}" var="pageNum" />
+        <c:set var="size" value="${param.size}"/>
+        <script type="text/javascript">
+            var returnItem = '${param.brlnm}';
+            window.pageNum = '${pageNum}';
+        </script>
+    </c:if>
+
+    <spring:url var="pageUrl" value="/${param.slrnm}/c?rlnm=${param.rlnm}" />
+
+    <div id="breadcrumb"><lela:lelaBreadCrumb page="${categoryUrlName}" pageUrl="" /></div>
+
+    <div class="lela-page-container page-grid grid-${categoryUrlName}">
+
+        <div class="lela-page-header">
+
+            <spring:message code="nav.cat.${categoryUrlName}.full" htmlEscape="false" var="catName"/>
+            <spring:message code="grid.lead.${categoryUrlName}" htmlEscape="false" var="leadName"/>
+
+            <div class="color-header ${!empty sessionScope.bannerUrl ? 'brand-header' : ''} ${!empty domainAffiliate ? 'affiliate-header' : ''}">
+                <spring:url var="colorHdrImgUrl" value="/static/images/placeholders/categories/grid/195x140_${categoryUrlName}.png" />
+                <div class="color-header-text">
+                    <h1 title="${catName}">${catName}</h1>
+
+
+                    <c:if test="${!empty domainAffiliate}">
+                        <a href="http://www.lela.com" target="_blank" class="powered-by">Powered by Lela.com</a>
+                    </c:if>
+
+                    <c:if test="${empty domainAffiliate}">
+                        <h3><spring:message code="grid.lead.${categoryUrlName}.full" htmlEscape="false" /></h3>
+                    </c:if>
+
+                    <c:if test="${categoryUrlName eq 'stroller'}">
+                        <spring:url var="strollerTipsUrl" value="/blog/tips-for-choosing-your-best-stroller" />
+                        <p><a href="${strollerTipsUrl}" title="Tips for choosing your best stroller" class="blog-link"><spring:message code="grid.lead.stroller.link" htmlEscape="false" /></a></p>
+                    </c:if>
+                </div>
+
+                <c:choose>
+                    <c:when test="${!empty sessionScope.bannerUrl}">
+                        <a href="${sessionScope.bannerTargetUrl}" class="brand-banner" target="_blank">
+                            <img src="${sessionScope.bannerUrl}" alt="${sessionScope.bannerAltText}"/>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+
+                        <div class="color-header-img"><img src="${colorHdrImgUrl}" /><br/></div>
+
+                    </c:otherwise>
+                </c:choose>
+
+                <div class="clear"><!-- --></div>
+            </div>
+
+            <tiles:insertTemplate template="/WEB-INF/jsp/items/page_motivators.jspx" flush="true">
+                <tiles:putAttribute name="categoryUrlName" value="${categoryUrlName}" />
+            </tiles:insertTemplate>
+
+            <tiles:insertTemplate template="/WEB-INF/jsp/embeds/quiz_banner.jspx" flush="true" />
+
+            <div class="grid-controls">
+
+                <div id="ctrls-total">Results: <span id="num-total">${page.totalElements}</span></div>
+                <div id="ctrls-compare"><!-- -->
+                    <c:if test="${empty domainAffiliate or domainAffiliate.shwcmpr}">
+                        <div class="compare-content">
+                            <span><spring:message code="item.comparison.grid" htmlEscape="false"/></span>
+                            <div id="compare-items">
+                                <c:forEach var="i" begin="0" end="2">
+                                    <div num="${i}" id="c-btn${i}-overlay" class="c-btn-overlay">
+                                        <div class="c-btn c-btn-checked"><!-- --></div>
+                                    </div>
+                                    <div num="${i}" class="c-btn c-btn${i} c-btn-grid"><!-- --></div>
+                                </c:forEach>
+                            </div>
+                            <a href="#" class="compare-btn"><spring:message code="button.compare" /></a>
+                        </div>
+                    </c:if>
+                </div>
+                <div id="ctrls">
+                    <div id="ctrls-wrapper"><!-- --></div>
+                </div>
+            </div>
+
+            <div class="clear"><!-- --></div>
+            <div class="horizontal-shade"><!-- --></div>
+            <div class="clear"><!-- --></div>
+
+        </div>
+
+        <div class="lela-page-content">
+
+            <div id="p-filters" >
+                <form action="#" class="custom" id="d-tuners">
+                    <!-- Tuner placeholders -->
+                </form>
+            </div>
+
+            <ul id="p-grid">
+                <tiles:insertTemplate template="/WEB-INF/jsp/items/data.jspx" flush="true">
+                    <tiles:putAttribute name="listType" value="false" />
+                    <tiles:putAttribute name="page" value="${page}" />
+                    <tiles:putAttribute name="ajax" value="false" />
+                </tiles:insertTemplate>
+            </ul>
+            <div class="clear"><!-- --></div>
+
+            <c:choose>
+                <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                    <div class="item item-quiz-promo hidden" id="item-quiz-promo">
+                        <a class="start-quiz" href="${quizUrl}" name="pr-quiz" id="pr-quiz" quiz-location="Quiz-Grid-Rollover">
+                        <span class="top">
+                            <span class="promo-hdr"><spring:message code="grid.cat.${categoryUrlName}" htmlEscape="false" /></span>
+                            <spring:message code="grid.results.category.${categoryUrlName}.short" var="userCategoryText" text="${categoryUrlName}"/>
+                            <span class="promo-txt"><spring:message code="grid.quiz.promo.lead" arguments="${userCategoryText}" htmlEscape="false" /></span>
+                        </span>
+                        <span class="promo-msg"><spring:message code="grid.quiz.findout" htmlEscape="false"/></span>
+                        </a>
+                    </div>
+                </c:when>
+                <c:when test="${loggedInUser != 'anonymousUser' and us.profileStatus == 'PARTIAL'}">
+                    <div class="item item-quiz-promo hidden" id="item-quiz-promo">
+                        <a class="start-quiz" href="${quizUrl}" name="pr-quiz" id="pr-quiz" quiz-location="Quiz-Grid-Rollover">
+                        <span class="top">
+                            <span class="promo-hdr"><spring:message code="grid.cat.${categoryUrlName}" htmlEscape="false" /></span>
+                            <spring:message code="grid.results.category.${item.ctgry.rlnm}" var="userCategoryText" text="${item.ctgry.rlnm}"/>
+                            <span class="promo-txt"><spring:message code="grid.quiz.promo.lead.complete" var="userCategoryText" htmlEscape="false" /></span>
+                        </span>
+                            <span class="promo-msg"><spring:message code="grid.quiz.findout.complete" htmlEscape="false"/></span>
+                        </a>
+                    </div>
+                </c:when>
+            </c:choose>
+
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        $().ready(function($) {
+            initGrid(0, '${size}');
+        });
+    </script>
+
+    <div style="display:none;">
+        <tiles:insertTemplate template="/WEB-INF/jsp/items/details_motivators.jspx" flush="true">
+            <tiles:putAttribute name="categoryUrlName" value="${categoryUrlName}" />
+        </tiles:insertTemplate>
+    </div>
+
+    <tiles:insertTemplate template="/WEB-INF/jsp/common/comparison.jspx" flush="true" />
+    <tiles:insertTemplate template="/WEB-INF/jsp/common/back_to_top.jspx" flush="true" />
+
+    <!--
+    <tiles:insertTemplate template="/WEB-INF/jsp/quiz/quiz_start.jspx" flush="true">
+        <tiles:putAttribute name="categoryGroupUrlName" value="${categoryUrlName}" />
+    </tiles:insertTemplate>
+    -->
+</div>

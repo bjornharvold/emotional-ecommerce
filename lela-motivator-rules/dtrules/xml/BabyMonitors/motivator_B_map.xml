@@ -1,0 +1,38 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BabyMonitorID' RAttribute='BabyMonitorID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+
+			<setattribute tag='BabyMonitorID' RAttribute='BabyMonitorID' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='FacebookAvailable' RAttribute='FacebookAvailable' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='TwitterAvailable' RAttribute='TwitterAvailable' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='FacebookLikes' RAttribute='FacebookLikes' enclosure='babymonitor' type='integer'></setattribute>
+			<setattribute tag='TwitterFollowers' RAttribute='TwitterFollowers' enclosure='babymonitor' type='integer'></setattribute>
+			<setattribute tag='GigglesListed' RAttribute='GigglesListed' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='BabiesRUsBestseller' RAttribute='BabiesRUsBestseller' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='BabbleRecomended' RAttribute='BabbleRecomended' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='BBBrandRating' RAttribute='BBBrandRating' enclosure='babymonitor' type='string'></setattribute>			
+						
+			<createentity entity='job' 			tag='job' 			id='id'></createentity>
+			<createentity entity='babymonitor' 		tag='babymonitor' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+
+			<entity name='babymonitor' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

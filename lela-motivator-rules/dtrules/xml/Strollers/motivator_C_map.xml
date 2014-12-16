@@ -1,0 +1,40 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='StrollerID' RAttribute='StrollerID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+
+			<setattribute tag='StrollerID' RAttribute='StrollerID' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='UPC' RAttribute='UPC' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='BabyBargainsRating' RAttribute='BabyBargainsRating' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='BabyGagaDurability' RAttribute='BabyGagaDurability' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='NewbornToToddler' RAttribute='NewbornToToddler' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='ConsumerReportsRated' RAttribute='ConsumerReportsRated' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='Multiplekids' RAttribute='Multiplekids' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='ReplaceableFabric' RAttribute='ReplaceableFabric' enclosure='stroller' type='string'></setattribute>
+			<setattribute tag='MachineWashable' RAttribute='MachineWashable' enclosure='stroller' type='boolean'></setattribute>
+			<setattribute tag='BabbleRecognition' RAttribute='BabbleRecognition' enclosure='stroller' type='boolean'></setattribute>
+			<setattribute tag='NAPPARecipient' RAttribute='NAPPARecipient' enclosure='stroller' type='boolean'></setattribute>
+			
+			<createentity entity='job' 			tag='job' 			id='id'></createentity>
+			<createentity entity='stroller' 	tag='stroller' 		id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+
+			<entity name='stroller' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

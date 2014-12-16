@@ -1,0 +1,3 @@
+<div id="gender-sel" ng-controller="Lela.GenderQuestionController">
+    <a ng-repeat="answer in question.nswrs" href="#" id="{{answer.nm}}" ng-click="clicked($event, answer)" ng-class="{selected: answer.isSelected}">{{answer.nm}}</a>
+</div>

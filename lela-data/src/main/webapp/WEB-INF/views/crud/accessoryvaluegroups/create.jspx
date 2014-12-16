@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_lela_data_domain_entity_AccessoryValueGroup" modelAttribute="accessoryValueGroup" path="/crud/accessoryvaluegroups" render="${empty dependencies}" z="3T7/5/wIyucWa+2zlaaFEgjo+Xg=">
+        <field:datetime dateTimePattern="${accessoryValueGroup_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_AccessoryValueGroup_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${accessoryValueGroup_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_AccessoryValueGroup_dateModified" render="false" z="user-managed"/>
+        <field:select field="accessoryGroup" id="c_com_lela_data_domain_entity_AccessoryValueGroup_accessoryGroup" itemValue="id" items="${accessorygroups}" path="crud/accessorygroups" z="user-managed"/>
+        <field:select field="attributeType" id="c_com_lela_data_domain_entity_AccessoryValueGroup_attributeType" itemValue="id" items="${attributetypes}" path="crud/attributetypes" z="user-managed"/>
+        <field:select field="category" id="c_com_lela_data_domain_entity_AccessoryValueGroup_category" itemValue="id" items="${categorys}" path="crud/categorys" z="user-managed"/>
+        <field:input field="attributeValue" id="c_com_lela_data_domain_entity_AccessoryValueGroup_attributeValue" required="true" z="ssOaFf+QdODU4GEDGkmdNlPQjbY="/>
+        <field:input field="accessoryValueLabel" id="c_com_lela_data_domain_entity_AccessoryValueGroup_accessoryValueLabel" required="true" z="SO6Wkjz/oS6To1tqiyg7ov1qcx8="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_lela_data_domain_entity_AccessoryValueGroup" render="${not empty dependencies}" z="2dceQIJ3nI8i4NXfz9etZptFNJU="/>
+</div>

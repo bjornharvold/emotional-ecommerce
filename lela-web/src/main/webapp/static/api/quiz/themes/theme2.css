@@ -1,0 +1,134 @@
+/* Small Version */
+
+#quiz-wrapper {
+    padding:0;
+    margin:0;
+    background:none;
+    width:450px;
+}
+
+#quiz-wrapper h1 {
+    padding:25px 0 15px 0;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+#quiz-wrapper h1 span {
+    background:none;
+    padding-left: 0;
+    padding-bottom: 30px;
+}
+
+#quiz-wrapper h1 em {
+    font-size:13px;
+    padding-left: 0px;
+}
+
+#quiz-wrapper .quiz-questions h2 {
+    font-size:22px;
+}
+
+#quiz-wrapper #image-tip {
+    padding-top: 2px;
+    padding-bottom: 20px;
+    font-size:14px;
+}
+
+#quiz-wrapper .quiz-images {
+    margin-top: 0;
+    padding-top: 15px;
+}
+
+#quiz-wrapper .quiz-image {
+    width:200px;
+    height:200px;
+    margin:0 0 15px 15px;
+}
+
+#quiz-wrapper .quiz-image img {
+    width:192px;
+    height:192px;
+}
+
+#quiz-wrapper .quiz-images a:hover {
+    width:243px;
+    height:243px;
+    margin-top:-30px;
+}
+
+#quiz-wrapper .quiz-images a:hover img {
+    width:244px;
+    height:244px;
+}
+
+.quiz-images a.img-0:hover, .quiz-images a.img-2:hover {
+    margin-left:0px !important;
+}
+
+.quiz-images a.img-1:hover, .quiz-images a.img-3:hover {
+    margin-left:-52px !important;
+}
+
+#quiz-wrapper .question-row {
+    width:430px;
+    padding-top: 15px;
+}
+
+#quiz-wrapper .question {
+    float:none;
+    text-align: center;
+    margin:0 0 15px 0;
+    width:410px;
+    font-size:16px;
+}
+
+#quiz-wrapper .answer {
+    font-size:13px;
+    width:120px;
+}
+#quiz-wrapper #answer-1 { text-align:right; margin-left:20px; }
+
+#quiz-wrapper .quiz-style #answer-1 {
+    margin-left:40px;
+}
+
+#quiz-wrapper .quiz-style #answer-2 {
+    text-align:left;
+    padding-left:10px;
+    padding-top:0;
+}
+
+#quiz-wrapper .quiz-style .answer {
+    font-weight:bold;
+    font-size:16px;
+    width:100px;
+}
+
+
+
+#quiz-wrapper #gender-sel {
+    margin:30px 0 0px 90px;
+}
+
+#quiz-wrapper #gender-sel a {
+    height:50px;
+}
+
+#quiz-wrapper #gender-sel a#Female { margin-left:80px; }
+
+
+
+
+#quiz-wrapper .reg-form {
+    width:70%;
+}
+
+#quiz-wrapper #step-list td span {
+    font-size: 12px;
+}
+
+.popupLogo {
+    display: none !important;
+}
+
+

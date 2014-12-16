@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_MerchantOffer" object="${merchantoffer}" path="/crud/merchantoffers" z="t4Zpmb1hNezr4KzR0DWDHpA+4xE=">
+        <field:display date="true" dateTimePattern="${merchantOffer_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_MerchantOffer_dateCreated" object="${merchantoffer}" z="H4Jh22tmzMNLb9jYY6Qb6lq/07I="/>
+        <field:display date="true" dateTimePattern="${merchantOffer_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_MerchantOffer_dateModified" object="${merchantoffer}" z="159854OKw8Rg1n2vvRD1cV1G/10="/>
+        <field:display field="merchantSource" id="s_com_lela_data_domain_entity_MerchantOffer_merchantSource" object="${merchantoffer}" z="eRsV5IX9VgdqfalApXRyTMqAnkg="/>
+        <field:display field="merchantSourceType" id="s_com_lela_data_domain_entity_MerchantOffer_merchantSourceType" object="${merchantoffer}" z="rqfPkly6n0l3OiVLsxmVfAedCek="/>
+        <field:display field="conditionType" id="s_com_lela_data_domain_entity_MerchantOffer_conditionType" object="${merchantoffer}" z="w+oAO0f7c/ywppR+9DIxxzNdZJg="/>
+        <field:display field="reviewStatus" id="s_com_lela_data_domain_entity_MerchantOffer_investigationStatus" object="${merchantoffer}" z="k3addwsu3YsU/3sU9pZ8dHCWZmg="/>
+        <field:display field="item" id="s_com_lela_data_domain_entity_MerchantOffer_item" object="${merchantoffer}" z="WXLsjS3AOKA9a5vCl6r/6ayurig="/>
+        <field:display field="merchant" id="s_com_lela_data_domain_entity_MerchantOffer_merchant" object="${merchantoffer}" z="AkYSwixXC47E4iSPYAOkFMzBlFk="/>
+        <field:display field="brand" id="s_com_lela_data_domain_entity_MerchantOffer_brand" object="${merchantoffer}" z="p9jPgJLLukdjIcBzCwUPVJ+Ced0="/>
+        <field:display field="sourceKey" id="s_com_lela_data_domain_entity_MerchantOffer_sourceKey" object="${merchantoffer}" z="CTueYiizo6s3iLuLeYggcBjM75A="/>
+        <field:display field="merchantName" id="s_com_lela_data_domain_entity_MerchantOffer_merchantName" object="${merchantoffer}" z="R605yglYuX19DV6U//xLABSXjUs="/>
+        <field:display field="offerItemName" id="s_com_lela_data_domain_entity_MerchantOffer_offerItemName" object="${merchantoffer}" z="URedrQKM1EzY79KRv4eGweytovo="/>
+        <field:display field="modelNumber" id="s_com_lela_data_domain_entity_MerchantOffer_modelNumber" object="${merchantoffer}" z="D83I4n0+xe1siWdKi4L7JwVa7f8="/>
+        <field:display field="upc" id="s_com_lela_data_domain_entity_MerchantOffer_upc" object="${merchantoffer}" z="XRwJS//6y3IkpoxxoVlVRxmc2PE="/>
+        <field:display field="color" id="s_com_lela_data_domain_entity_MerchantOffer_color" object="${merchantoffer}" z="z2Jt9cTMcHRmxQH+8QL5ztX3b58="/>
+        <field:display field="offerUrl" id="s_com_lela_data_domain_entity_MerchantOffer_offerUrl" object="${merchantoffer}" z="GQ9vTw1wfsGCAQ7cCzNgP0LSGwo="/>
+        <field:display field="offerPrice" id="s_com_lela_data_domain_entity_MerchantOffer_offerPrice" object="${merchantoffer}" z="sfVmBZcNBWU8ca2JgZIfrSql2Ks="/>
+        <field:display field="offerSalePrice" id="s_com_lela_data_domain_entity_MerchantOffer_offerSalePrice" object="${merchantoffer}" z="YfSaDBSnex7+F+Lg9/0LI95hOyY="/>
+        <field:display field="offerDate" id="s_com_lela_data_domain_entity_MerchantOffer_offerDate" object="${merchantoffer}" z="D9TJ/CwvkR9gMngzy5SaMebBrLw="/>
+        <field:display field="available" id="s_com_lela_data_domain_entity_MerchantOffer_available" object="${merchantoffer}" z="XCiE3OdWJreUh32PH+Wa8uN+UnU="/>
+        <field:display field="loadDateId" id="s_com_lela_data_domain_entity_MerchantOffer_loadDateId" object="${merchantoffer}" z="7ULs4NhI0C5r5lOxQGiK9N5mw3s="/>
+        <field:display field="doNotUse" id="s_com_lela_data_domain_entity_MerchantOffer_doNotUse" object="${merchantoffer}" z="L/wd6CjllM+PU0XceJQwVoTHVuo="/>
+        <field:display field="useThisOffer" id="s_com_lela_data_domain_entity_MerchantOffer_useThisOffer" object="${merchantoffer}" z="YyRLY+0CHw0DzrGPTZorCgb29rM="/>
+        <field:display field="reviewStatus" id="s_com_lela_data_domain_entity_MerchantOffer_reviewStatus" object="${merchantoffer}" z="WfaU7URBCuwH7DR+RAm4OeXxAUc="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_MerchantOffer_dirty" object="${merchantoffer}" z="xZRUw5ZLVF3ivl+Hi/x6FvPU6D4="/>
+    </page:show>
+</div>

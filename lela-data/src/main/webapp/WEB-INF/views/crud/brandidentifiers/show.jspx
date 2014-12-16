@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_BrandIdentifier" object="${brandidentifier}" path="/crud/brandidentifiers" z="8h8q0azusqTMUUddiCjYDUAsOIk=">
+        <field:display date="true" dateTimePattern="${brandIdentifier_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_BrandIdentifier_dateCreated" object="${brandidentifier}" z="NYZ0xOZb5olZ4Ru5i90zj58j+U0="/>
+        <field:display date="true" dateTimePattern="${brandIdentifier_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_BrandIdentifier_dateModified" object="${brandidentifier}" z="9v5DQqr+/xdrLQUQ+gwXK03h7Gc="/>
+        <field:display field="brand" id="s_com_lela_data_domain_entity_BrandIdentifier_brand" object="${brandidentifier}" z="iKyjdBU3qQvKnHTUXBCv/mdLOdA="/>
+        <field:display field="identifierType" id="s_com_lela_data_domain_entity_BrandIdentifier_identifierType" object="${brandidentifier}" z="QgJZZOQe86YSrM7w6LzgcqA3WrA="/>
+        <field:display field="identifierValue" id="s_com_lela_data_domain_entity_BrandIdentifier_identifierValue" object="${brandidentifier}" z="mzrhDNP0DwainteAsqVQbSZ/rgE="/>
+    </page:show>
+</div>

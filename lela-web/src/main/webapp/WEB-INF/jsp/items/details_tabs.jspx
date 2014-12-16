@@ -1,0 +1,75 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+    <tiles:importAttribute name="item" ignore="true"/>
+    <tiles:importAttribute name="stores" ignore="stores"/>
+
+    <lela:findUser/>
+
+    <script type="text/javascript">
+        var returnItem = null;
+    </script>
+
+    <div id="p-details">
+
+        <c:if test="${empty domainAffiliate or domainAffiliate.showStores}">
+            <div class="nav-section" data-type="Stores and Prices" data-id="p-details">
+                <h2 class="s-head">All Stores &amp; Prices</h2>
+
+                <div id="tab-pr" class="tab-content">
+
+                    <div id="buy-t">
+
+                        <a href="#buy-tbl-online" id="buy-tab1" data-type="online stores" rel="nofollow"><spring:message code="item.where.buy.online"/> <span class="store-count"><!--  --></span></a>
+                        <a href="#loc-data" id="buy-tab2" data-type="local stores" rel="nofollow"><spring:message code="item.where.buy.local"/> <span class="store-count"><!-- --></span></a>
+                        <c:choose>
+                            <c:when test="${loggedInUser != 'anonymousUser'}">
+                                <a rel="nofollow" href="#buy-tbl-favorite" id="buy-tab3" data-type="favorite stores"><spring:message code="item.where.buy.favorite"/> <span class="store-count"><!-- --></span></a>
+                            </c:when>
+                            <c:otherwise>
+                                <span id="buy-tab3"><spring:message code="item.where.buy.favorite"/> <span class="store-count"><!-- --></span></span>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+
+                    <tiles:insertTemplate template="/WEB-INF/jsp/items/details_buy.jspx" flush="true">
+                        <tiles:putAttribute name="stores" value="${stores}" />
+                        <tiles:putAttribute name="type" value="online" />
+                        <tiles:putAttribute name="item" value="${item}" />
+                    </tiles:insertTemplate>
+
+                    <c:if test="${loggedInUser != 'anonymousUser'}">
+                        <tiles:insertTemplate template="/WEB-INF/jsp/items/details_buy.jspx" flush="true">
+                            <tiles:putAttribute name="stores" value="${stores}" />
+                            <tiles:putAttribute name="type" value="favorite" />
+                            <tiles:putAttribute name="item" value="${item}" />
+                        </tiles:insertTemplate>
+                    </c:if>
+
+                    <div id="loc-data" class="lc-data buy-content">
+                        <tiles:insertTemplate template="/WEB-INF/jsp/items/details_stores.jspx" flush="true">
+                            <tiles:putAttribute name="zipcode" value="${zipcode}" />
+                            <tiles:putAttribute name="branches" value="${branches}" />
+                            <tiles:putAttribute name="item" value="${item}" />
+                        </tiles:insertTemplate>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+
+    </div>
+</jsp:root>

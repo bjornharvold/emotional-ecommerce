@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_SeriesAttributeMap" items="${seriesattributemaps}" z="qboKOcbLHsGS6HC4Nq3XeES0pT4=">
+        <table:table data="${seriesattributemaps}" id="l_com_lela_data_domain_entity_SeriesAttributeMap" path="/crud/seriesattributemaps" z="MgKqPgXWkr5Rg5VTZIiztFOW6yw=">
+            <table:column date="true" dateTimePattern="${seriesAttributeMap_datecreated_date_format}" id="c_com_lela_data_domain_entity_SeriesAttributeMap_dateCreated" property="dateCreated" z="VMAPoCKpN1S6x6TMQSwdIWuDXHs="/>
+            <table:column date="true" dateTimePattern="${seriesAttributeMap_datemodified_date_format}" id="c_com_lela_data_domain_entity_SeriesAttributeMap_dateModified" property="dateModified" z="PgpR5gQMC5En0PhOOKIW87yDYWo="/>
+            <table:column id="c_com_lela_data_domain_entity_SeriesAttributeMap_category" property="category" z="WaNAKhgvOhrndKhpcqekuYzxdKQ="/>
+            <table:column id="c_com_lela_data_domain_entity_SeriesAttributeMap_seriesType" property="seriesType" z="WP/32OJPbmc9iR+WzrPuSp9acLg="/>
+            <table:column id="c_com_lela_data_domain_entity_SeriesAttributeMap_attributeType" property="attributeType" z="SM428f4EmomqdZ0ydJCCfX877/8="/>
+        </table:table>
+    </page:list>
+</div>

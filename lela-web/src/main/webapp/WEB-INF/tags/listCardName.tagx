@@ -1,0 +1,144 @@
+<!--
+~ Copyright (c) 2012. Lela.com
+-->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          version="2.0">
+
+    <jsp:directive.tag body-content="empty"/>
+    <jsp:directive.attribute name="listCard" rtexprvalue="true" required="true" type="com.lela.domain.document.ListCard" />
+    <jsp:directive.attribute name="type" rtexprvalue="true" required="false"/>
+
+    <!-- this tag helps to consolidate name, url, image for different types of cards (item, store, owner) -->
+
+    <c:choose>
+        <c:when test="${listCard.tp eq 'ITEM'}">
+            <c:set var="item" value="${listCard.item}"/>
+            <c:if test="${empty listCard.item}">
+                <c:set var="item" value="${listCard.relevantItem}"/>
+            </c:if>
+            <c:choose>
+                <c:when test="${type eq 'url'}">
+                    <spring:url value="/${item.srlnm}/p?rlnm=${item.rlnm}"/>
+                </c:when>
+                <c:when test="${type eq 'name'}">
+                    ${item.subAttributes['Brand']} ${item.nm}
+                </c:when>
+                <c:when test="${type eq 'img'}">
+                    ${item.imgs[0].sz['medium']}
+                </c:when>
+                <c:when test="${type eq 'imgLarge'}">
+                    ${item.imgs[0].sz['large']}
+                </c:when>
+                <c:when test="${type eq 'imgList'}">
+                    ${item.imgs[0].sz['list']}
+                </c:when>
+                <c:when test="${type eq 'shareDescription'}">
+                    Lela.com is the best way to find <spring:message code="nav.cat.${item.ctgry.rlnm}"/> you'll love.
+                </c:when>
+            </c:choose>
+        </c:when>
+        <c:when test="${listCard.tp eq 'STORE'}">
+            <c:choose>
+                <c:when test="${type eq 'url'}">
+                    <spring:url value="/store/${listCard.store.rlnm}"/>
+                </c:when>
+                <c:when test="${type eq 'name'}">
+                    ${listCard.store.nm}
+                </c:when>
+                <c:when test="${type eq 'img'}">
+                    ${listCard.store.lgrl}
+                </c:when>
+                <c:when test="${type eq 'imgLarge'}">
+                    ${listCard.store.lgrl}
+                </c:when>
+                <c:when test="${type eq 'imgList'}">
+                    ${listCard.store.lgrl}
+                </c:when>
+                <c:when test="${type eq 'shareDescription'}">
+                    Lela.com is the best way to find the products you'll love.
+                </c:when>
+            </c:choose>
+        </c:when>
+        <c:when test="${listCard.tp eq 'OWNER'}">
+            <c:choose>
+                <c:when test="${type eq 'url'}">
+                    <spring:url value="/brand/${listCard.owner.rlnm}"/>
+                </c:when>
+                <c:when test="${type eq 'name'}">
+                    ${listCard.owner.nm}
+                </c:when>
+                <c:when test="${type eq 'img'}">
+                    <!-- TBD no brand image yet available -->
+                </c:when>
+                <c:when test="${type eq 'imgLarge'}">
+                    <!-- TBD no brand image yet available -->
+                </c:when>
+                <c:when test="${type eq 'imgList'}">
+                    <!-- TBD no brand image yet available -->
+                </c:when>
+                <c:when test="${type eq 'shareDescription'}">
+                    Lela.com is the best way to find the products you'll love.
+                </c:when>
+            </c:choose>
+        </c:when>
+        <c:when test="${listCard.tp eq 'EXTERNAL'}">
+            <c:choose>
+                <c:when test="${type eq 'url'}">
+                    <c:choose>
+                        <c:when test="${!empty listCard.rl}">
+                            <spring:url value="${listCard.rl}"/>
+                        </c:when>
+                        <c:otherwise>
+                            // TBD
+                        </c:otherwise>
+                    </c:choose>
+                </c:when>
+                <c:when test="${type eq 'name'}">
+                    ${listCard.nm}
+                </c:when>
+                <c:when test="${type eq 'img'}">
+                    <c:choose>
+                        <c:when test="${!empty listCard.pctrs[0].rl}">
+                            ${listCard.pctrs[0].rl}
+                        </c:when>
+                        <c:otherwise>
+                            ${listCard.pctrs[0].mg['medium']}
+                        </c:otherwise>
+                    </c:choose>
+                </c:when>
+                <c:when test="${type eq 'imgLarge'}">
+                    <c:choose>
+                        <c:when test="${!empty listCard.pctrs[0].rl}">
+                            ${listCard.pctrs[0].rl}
+                        </c:when>
+                        <c:otherwise>
+                            ${listCard.pctrs[0].mg['large']}
+                        </c:otherwise>
+                    </c:choose>
+                </c:when>
+                <c:when test="${type eq 'imgList'}">
+                    <c:choose>
+                        <c:when test="${!empty listCard.pctrs[0].rl}">
+                            ${listCard.pctrs[0].rl}
+                        </c:when>
+                        <c:otherwise>
+                            ${listCard.pctrs[0].mg['list']}
+                        </c:otherwise>
+                    </c:choose>
+                </c:when>
+                <c:when test="${type eq 'shareDescription'}">
+                    Lela.com is the best way to find the products you'll love.
+                </c:when>
+            </c:choose>
+        </c:when>
+    </c:choose>
+
+</jsp:root>

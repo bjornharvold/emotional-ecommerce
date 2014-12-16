@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ItemVideo" items="${itemvideos}" z="dJrruaOOwzr116+YCqKaPEi9Up0=">
+        <table:table data="${itemvideos}" id="l_com_lela_data_domain_entity_ItemVideo" path="/crud/itemvideos" z="QK+QduSyjN7DBUjxr889LuHgQbg=">
+            <table:column date="true" dateTimePattern="${itemVideo_datecreated_date_format}" id="c_com_lela_data_domain_entity_ItemVideo_dateCreated" property="dateCreated" z="OMzUjDPCueg/rghX2rka9PEonUM="/>
+            <table:column date="true" dateTimePattern="${itemVideo_datemodified_date_format}" id="c_com_lela_data_domain_entity_ItemVideo_dateModified" property="dateModified" z="YZCGQzTxW8SwxyNqr1YkefysQJU="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemVideo_item" property="item" z="QrB2k5sjp5hEyteSYdgktv6oypY="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemVideo_videoUrl" property="videoUrl" z="2hur+RX4VamQ3yxAuHsUDXnW8YE="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemVideo_videoSubscribers" property="videoSubscribers" z="UQr1RNSvwQMNs7v7u8005ZYoDPI="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemVideo_videoViews" property="videoViews" z="LNjnp5iG4Tk9dTlM+0UC7Ofwcko="/>
+        </table:table>
+    </page:list>
+</div>

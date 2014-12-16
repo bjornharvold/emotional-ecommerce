@@ -1,0 +1,104 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="link.delete" var="delete"/>
+    <h1><spring:message code="affiliate.accounts.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/affiliateaccount/form" var="newUrl"/>
+        <a class="action" href="${newUrl}"><spring:message code="affiliate.account.create.entry"/></a>
+
+        <spring:message code="affiliate.account.show.inactive"/>
+        <c:choose>
+            <c:when test="${includeInactive}">
+                <input id="include-inactive-checkbox" type="checkbox" checked="true"/>
+            </c:when>
+            <c:otherwise>
+                <input id="include-inactive-checkbox" type="checkbox"/>
+            </c:otherwise>
+        </c:choose>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <c:if test="${empty affiliateAccounts.content}">
+        <p><spring:message code="affiliate.account.list.empty"/></p>
+    </c:if>
+
+    <c:if test="${not empty affiliateAccounts.content}">
+        <table width="100%"  id="datatable" class="tablesorter">
+            <thead>
+            <tr>
+                <th width="10%" align="left"><spring:message code="affiliate.account.active"/></th>
+                <th width="15%" align="left"><spring:message code="affiliate.account.name"/></th>
+                <th width="15%" align="left"><spring:message code="affiliate.account.url.name"/></th>
+                <th width="10%">&#160;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${affiliateAccounts.content}" var="application">
+                <tr>
+                    <td>${application.ctv}</td>
+                    <td>${application.nm}</td>
+                    <td>${application.rlnm}</td>
+                    <td>
+                        <spring:url value="/administration/affiliateaccount/${application.rlnm}" var="viewUrl"/>
+                        <a class="action" href="${viewUrl}"><spring:message code="link.view"/></a>
+
+                        <spring:url value="/administration/affiliateaccount/form" var="editUrl">
+                            <spring:param name="urlName" value="${application.rlnm}"/>
+                        </spring:url>
+                        <a class="action" href="${editUrl}"><spring:message code="link.edit"/></a>
+
+                        <spring:url value="/administration/affiliateaccount/${application.rlnm}" var="deleteUrl"/>
+                        <spring-form:form action="${deleteUrl}" method="DELETE">
+                            <input type="submit" name="${delete}" value="${delete}"/>
+                        </spring-form:form>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+        <c:choose>
+            <c:when test="${includeInactive}">
+                <lela:lelaPagination url="/administration/affiliateaccount/list?includeInactive=true" totalElements="${affiliateAccounts.totalElements}" totalPages="${affiliateAccounts.totalPages}" pageNumber="${affiliateAccounts.number}" pageSize="${affiliateAccounts.size}"/>
+            </c:when>
+            <c:otherwise>
+                <lela:lelaPagination url="/administration/affiliateaccount/list?includeInactive=false" totalElements="${affiliateAccounts.totalElements}" totalPages="${affiliateAccounts.totalPages}" pageNumber="${affiliateAccounts.number}" pageSize="${affiliateAccounts.size}"/>
+            </c:otherwise>
+        </c:choose>        
+        
+    </c:if>
+    <script type="text/javascript">
+        if($('#datatable').length > 0) {
+            $('#datatable').tablesorter({
+                widgets: ['zebra'],
+                sortList: [[0,0]],
+                headers: {
+                    4: {
+                        sorter: false
+                    }
+                }
+            });
+        }
+    </script>
+    
+</div>

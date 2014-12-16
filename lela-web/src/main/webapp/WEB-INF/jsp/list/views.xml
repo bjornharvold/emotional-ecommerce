@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+~ Copyright (c) 2011. Purple Door Systems, BV.
+-->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="user.list" extends="template.page.master">
+        <put-attribute type="string" name="title" value="page.list.name" />
+        <put-attribute type="string" name="description" value="meta.description.list" />
+        <put-attribute type="string" name="keywords" value="meta.keywords.list" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/list/grid.css" />
+            <add-attribute type="string" value="/static/styles/common/list.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/waypoints.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui-sortable.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.masonry.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.form.js" />
+            <add-attribute type="string" value="/static/js/plugins/raty/jquery.raty.js" />
+            <add-attribute type="string" value="/static/js/common/list.js" />
+            <add-attribute type="string" value="/static/js/list/grid.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/common/facebook_api.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/user/task_alerts.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/list/grid.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="user.list.data" template="/WEB-INF/jsp/list/grid.jspx" preparer="userSupplementPreparer"/>
+    <definition name="user.list.card" template="/WEB-INF/jsp/list/card.jspx" preparer="userSupplementPreparer"/>
+    <definition name="user.list.card.review" template="/WEB-INF/jsp/list/form_review.jspx" preparer="userSupplementPreparer"/>
+    <definition name="user.list.card.note" template="/WEB-INF/jsp/list/form_note.jspx" preparer="userSupplementPreparer"/>
+    <definition name="user.list.card.alert" template="/WEB-INF/jsp/list/form_alert.jspx" preparer="userSupplementPreparer"/>
+    <definition name="user.list.card.picture" template="/WEB-INF/jsp/list/form_picture.jspx" preparer="userSupplementPreparer"/>
+    <definition name="user.list.external.form" template="/WEB-INF/jsp/list/form_external.jspx" preparer="userSupplementPreparer"/>
+    <definition name="user.list.external.images" template="/WEB-INF/jsp/list/external_images.jspx" preparer="userSupplementPreparer"/>
+    <definition name="user.list.card.comment" template="/WEB-INF/jsp/list/card_comment.jspx" preparer="userSupplementPreparer"/>
+    <definition name="user.list.create" template="/WEB-INF/jsp/list/form_create.jspx" preparer="userSupplementPreparer"/>
+    <definition name="user.list.names" template="/WEB-INF/jsp/list/list_names.jspx" preparer="userSupplementPreparer"/>
+
+    <definition name="user.board" extends="template.page.master">
+        <put-attribute type="string" name="title" value="page.list.name" />
+        <put-attribute type="string" name="description" value="meta.description.list" />
+        <put-attribute type="string" name="keywords" value="meta.keywords.list" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/common/list.css" />
+            <add-attribute type="string" value="/static/styles/list/board.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.form.js" />
+            <add-attribute type="string" value="/static/js/plugins/raty/jquery.raty.js" />
+            <add-attribute type="string" value="/static/js/common/list.js" />
+            <add-attribute type="string" value="/static/js/list/board.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/common/facebook_api.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/user/task_alerts.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/list/board.jspx" />
+        </put-list-attribute>
+    </definition>
+
+</tiles-definitions>

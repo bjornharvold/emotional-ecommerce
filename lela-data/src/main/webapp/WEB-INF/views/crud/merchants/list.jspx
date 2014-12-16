@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_Merchant" items="${merchants}" z="GYPJWC3ViEztRlBcrWpcCF0yw1Y=">
+        <table:table data="${merchants}" id="l_com_lela_data_domain_entity_Merchant" path="/crud/merchants" z="LRL9c4zxVS7uqkdmk2d8i/cc6N4=">
+            <table:column date="true" dateTimePattern="${merchant_datecreated_date_format}" id="c_com_lela_data_domain_entity_Merchant_dateCreated" property="dateCreated" z="NjnqxHyrFlAMjI0M/NokbcgXNg0="/>
+            <table:column date="true" dateTimePattern="${merchant_datemodified_date_format}" id="c_com_lela_data_domain_entity_Merchant_dateModified" property="dateModified" z="piOI5UoyPpfBSI78vv73eQ8jdKg="/>
+            <table:column id="c_com_lela_data_domain_entity_Merchant_networkId" property="networkId" z="ZoRWsXhQDpRsZQyge+415s0n7qA="/>
+            <table:column id="c_com_lela_data_domain_entity_Merchant_merchantName" property="merchantName" z="ZLhxH54lf0c4K3vRdn4DjE9w1H0="/>
+            <table:column id="c_com_lela_data_domain_entity_Merchant_logoUrl" property="logoUrl" z="04QprYaISg9kicS2T4WGS+7CYJo="/>
+            <table:column id="c_com_lela_data_domain_entity_Merchant_url" property="url" z="ueIQlWZRPnWacGMHQY7WNemNTi4="/>
+        </table:table>
+    </page:list>
+</div>

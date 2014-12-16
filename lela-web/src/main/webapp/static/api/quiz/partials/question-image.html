@@ -1,0 +1,12 @@
+<div ng-controller="Lela.QuestionController">
+    <div id="image-tip">{{question.nm}}</div>
+    <div class="quiz-images quiz-questions">
+        <div id="image-container">
+            <div class="quiz-image" ng-repeat="answer in question.nswrs">
+                <a href="#" ng-click="clicked($event, answer)" class="{{'img-'+$index}}" ng-class="{'i-selected':answer.isSelected}">
+                    <img ng-src="{{answer.mg}}" alt="{{answer.nm}}"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

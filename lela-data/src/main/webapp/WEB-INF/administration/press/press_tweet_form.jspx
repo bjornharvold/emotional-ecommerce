@@ -1,0 +1,118 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="press.tweet"/></h1>
+
+    <spring:url value="/administration/press/${urlName}" var="pressUrl"/>
+    <spring:url value="/administration/press/list" var="pressListUrl"/>
+    <spring:url value="/administration/press/${urlName}/tweet" var="pressTweetUrl">
+        <c:if test="${tweet.tid != null}">
+            <spring:param name="id" value="${tweet.tid}"/>
+        </c:if>
+    </spring:url>
+
+    <div class="actions">
+        <a class="action" href="${pressListUrl}">&lt; <spring:message code="press.back.to.list"/> </a>
+        <a class="action" href="${pressUrl}"><spring:message code="press.back.to.press"/> </a>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <spring-form:form action="${pressTweetUrl}" commandName="tweet" method="POST" modelAttribute="tweet">
+
+        <div class="h-row even">
+            <div class="h-col"><label for="pblshdt"><spring:message code="press.tweet.publish.date"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="pblshdt" path="pblshdt"/>&#160;<spring-form:errors path="pblshdt" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+        
+        <div class="h-row odd">
+            <div class="h-col"><label for="dt"><spring:message code="press.tweet.date"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="dt" path="dt"/>&#160;<spring-form:errors path="dt" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="nm"><spring:message code="press.tweet.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="nm" path="nm"/>&#160;<spring-form:errors path="nm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="hndl"><spring:message code="press.tweet.handle"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="hndl" path="hndl"/>&#160;<spring-form:errors path="hndl" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="mgrl"><spring:message code="press.tweet.image.url"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="mgrl" path="mgrl"/>&#160;<spring-form:errors path="mgrl" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="rl"><spring:message code="press.tweet.url"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="rl" path="rl"/>&#160;<spring-form:errors path="rl" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="txt"><spring:message code="press.tweet.text"/></label></div>
+
+            <div class="h-col">
+                <spring-form:textarea id="txt" path="txt"/>&#160;<spring-form:errors path="txt" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="rdr"><spring:message code="press.tweet.order"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="rdr" path="rdr"/>&#160;<spring-form:errors path="rdr" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="s-row">
+            <spring-form:hidden path="tid"/>
+            <spring-form:hidden path="rlnm"/>
+            <spring:message code="button.save" var="save"/>
+            <div class="s-col"><input type="submit" value="${save}"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+    </spring-form:form>
+
+</div>

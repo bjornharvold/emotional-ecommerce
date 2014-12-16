@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /static/images/quiz/photos/
+Allow: /static/images/
+Disallow: /item/loc-data
+Disallow: /*buy-tbl-online
+Disallow: /*loc-data
+Disallow: /item/*stores
+Disallow: /giggle/
+Disallow: /quiz/
+Disallow: /quiz*
+Disallow: /merchant*
+Disallow: /list/store*
+Disallow: /list/item*
+Disallow: /search/
+Sitemap: http://www.lela.com/Sitemap.xml

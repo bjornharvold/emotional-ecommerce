@@ -1,0 +1,125 @@
+h2 {font-weight:normal; font-size:18px;}
+
+.error { display:none; color:red; }
+.errors { color:red; font-size:14px; }
+
+
+.cp-buffer {
+    clear:both;
+    border-top:5px dashed #ff9900;
+}
+
+#cp-header h1 {
+    font-size:20px;
+    color:#ff9900;
+    padding:20px 0 0 20px;
+    float:left;
+    margin:0;
+}
+
+#cp-header span {
+    display:block;
+}
+
+.cp-offer {
+    float:right;
+}
+
+.cp-offer img {
+    display:block;
+}
+
+.cp-content {
+    padding:60px 60px 20px 60px;
+    text-align:center;
+}
+
+#create-steps { margin:30px 0 0 10px;}
+
+#create-steps td {
+    text-align:left;
+    font-size:18px;
+    vertical-align:middle;
+    color:#464646;
+    padding:8px;
+    background:#f5f5f5;
+    border-bottom:#fff 10px solid;
+}
+
+#create-steps td.step-c {
+    padding:8px 30px;
+}
+#create-steps td.step-c ul, #create-steps td.step-c li {
+    list-style:decimal;
+    overflow:visible;
+}
+
+td.step-c p { margin:0 0 0 40px; }
+td.step-c span.error { margin:0; }
+td.step-c input { width:100px; }
+td.step-c .jqTransformInputWrapper { margin:0 5px 5px 0; }
+
+
+#cp-confirmation, #cp-redeem { padding-top:20px;}
+#cp-confirmation table { width:90%; margin-top:20px; }
+#cp-confirmation table td { text-align:left; padding: 5px 20px; font-size:16px; }
+
+#cp-confirmation h2, #cp-redeem h2, #cp-redeem-success h2 {
+    color:#ff9900;
+    font-weight:bold;
+    font-size:45px;
+    line-height:45px;
+}
+
+#cp-redeem h1, #cp-redeem-success h1, #cp-confirmation h1 {
+    font-size:40px;
+    line-height:40px;
+    margin:10px 20px 40px 20px;
+    color:#999;
+}
+
+#cp-redeem input {
+    width:300px;
+    font-size:20px;
+    text-align:center;
+    margin:0 auto;
+}
+
+#cp-redeem .jqTransformInputWrapper {
+    display:block;
+    float:none;
+    margin:20px auto;
+}
+
+#cp-redeem { padding-bottom:50px;}
+#cp-redeem .error, #cp-redeem .errors {
+    font-size:16px;
+    margin:10px 0 0 0;
+}
+
+#cp-redeem-success .cp-image {
+    background:#ff9900;
+    padding:10px;
+    width:296px;
+    overflow:hidden;
+    margin:40px auto 0 auto;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#cp-redeem-success .cp-image img {
+    padding:10px;
+    border:3px dashed #fff;
+    background:#ff9900;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#footer-content a {
+    float:right;
+}
+
+.cp-footer {
+    padding:20px;
+    text-align:center;
+}

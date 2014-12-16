@@ -1,0 +1,18 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+<groups xmlns="http://www.isdc.ro/wro">
+    <!-- Examples for Juho -->
+    <group name="global" abstract="true">
+        <js>/static/js/1.js</js>
+        <css>/static/css/1.css</css>
+    </group>
+
+    <group name="homepage">
+        <group-ref>global</group-ref>
+        <js>http://www.site.com/static/plugin.js</js>
+        <css>classpath:/static/css/2.css</css>
+        <js>/static/js/homepage/*.js</js>
+    </group>
+
+</groups>

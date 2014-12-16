@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ProductDetailGroup" object="${productdetailgroup}" path="/crud/productdetailgroups" z="QY6tv7FE4Y+zqMFC5uJiUlfzclU=">
+        <field:display date="true" dateTimePattern="${productDetailGroup_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ProductDetailGroup_dateCreated" object="${productdetailgroup}" z="SaMJw5mnI8I4Ny0oWJ8YcNxFpVM="/>
+        <field:display date="true" dateTimePattern="${productDetailGroup_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ProductDetailGroup_dateModified" object="${productdetailgroup}" z="DASWYIKcoOXr8E5xCFRt8Zb6vZ4="/>
+        <field:display field="section" id="s_com_lela_data_domain_entity_ProductDetailGroup_section" object="${productdetailgroup}" z="NmaBe7HFTlW/JkfrD3F4A0yjNzs="/>
+        <field:display field="groupId" id="s_com_lela_data_domain_entity_ProductDetailGroup_groupId" object="${productdetailgroup}" z="WXokZK+gXmgNjRpFMxT9RYWfC0M="/>
+        <field:display field="groupName" id="s_com_lela_data_domain_entity_ProductDetailGroup_groupName" object="${productdetailgroup}" z="eOhcd7hW1Vfdn3FbMs99mOgFFOg="/>
+        <field:display field="groupOrder" id="s_com_lela_data_domain_entity_ProductDetailGroup_groupOrder" object="${productdetailgroup}" z="t2NAJ1STpZCuErMhVFGDOkaSfVE="/>
+        <field:display field="productDetailGroupAttributes" id="s_com_lela_data_domain_entity_ProductDetailGroup_productDetailGroupAttributes" object="${productdetailgroup}" z="rrySgPZFVhetcpzHZjRkrilCo3Q="/>
+        <field:display field="productDetailGroupLabel" id="s_com_lela_data_domain_entity_ProductDetailGroup_productDetailGroupLabel" object="${productdetailgroup}" z="F5z2mLPg+f2eWBgAsjlrFEjnuq0="/>
+    </page:show>
+</div>

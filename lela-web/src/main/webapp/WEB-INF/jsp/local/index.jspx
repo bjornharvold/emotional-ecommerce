@@ -1,0 +1,80 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <!-- Temporary Deals Landing page with hardcoded data for Giggle Pilot Offers -->
+    
+    <div id="categories">
+        <div id="quiz-header">
+            <p>Lela Local Deals<br/><br/></p>
+            
+            <h1>Shop on Lela,<br/>save in your<br/>neighborhood.</h1>
+
+            <p>Lela shoppers, we’ve got incredible deals just for you, right in your hometown.
+            Now you can enjoy online savings with face-to-face service. It’s easy:</p>
+
+            <p>1. Get your Lela Local deal code from our site.<br/>
+            2. Bring it to a Lela Local store in your city.<br/>
+            3. Get a super duper deal!</p>
+        </div>
+
+        <div class="cat-c">
+            <spring:url value="/static/images/placeholders/local/giggle_landing.gif" var="categoryImgUrl"/>
+            <div class="cat-img" style="background:#fff url('${categoryImgUrl}') no-repeat right top"><!-- --></div>
+
+            <h2>New Yorkers,<br/>
+            you’re first.<br/>
+            Lucky you.</h2>
+
+            <p>Lela shoppers get $50 off any $500 purchase at these <a href="http://www.giggle.com/" target="_blank"><strong>giggle&#8482;</strong></a> stores:</p>
+
+            <spring:url value="/user/local/coupon/create" var="localOfferUrl"/>
+            
+            <form action="${localOfferUrl}" method="GET" class="custom" id="create-cp">
+
+                <select name="offerUrlName" id="offerUrlName">
+                    <option value="gigglesoho-offer1">giggle&#8482; Soho</option>
+                    <option value="giggleuppereastside-offer1">giggle&#8482; Upper West Side</option>
+                    <option value="giggleupperwestside-offer1">giggle&#8482; Upper East Side</option>
+                </select>
+
+                <div style="clear:both; padding-top:30px;">
+                    <a href="#" id="submit-cp">Get your $50 deal code</a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $('form.custom').jqTransform();
+
+        $('#submit-cp').click(function() {
+
+            if(loggedIn == 'false') {
+                $('#nav-register')
+                        .attr('href', $('#nav-register').attr('href')+'?type=local&amp;rt='+encodeURI('${localOfferUrl}?offerUrlName='+$('#offerUrlName').val()))
+                        .fancybox().trigger('click');
+            } else {
+                $('#create-cp').submit();
+            }
+
+            return false;
+        });
+    </script>
+
+</jsp:root>

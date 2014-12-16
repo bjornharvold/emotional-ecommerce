@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Question" object="${question}" path="/crud/questions" z="wg6iBOnpji/bgYNgLT4tPuxlaeU=">
+        <field:display date="true" dateTimePattern="${question_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Question_dateCreated" object="${question}" z="Axm+JKPD1TcYey9aBObstgwq9MY="/>
+        <field:display date="true" dateTimePattern="${question_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Question_dateModified" object="${question}" z="8pUCUHT7H+Jgco39rm6Fe8o1g0g="/>
+        <field:display field="questionType" id="s_com_lela_data_domain_entity_Question_questionType" object="${question}" z="MqgN6CYhhpmtZjTRIXiP7ISWdRU="/>
+        <field:display field="questionGroup" id="s_com_lela_data_domain_entity_Question_questionGroup" object="${question}" z="OvpcovLwUZ3Chz55RHk0lslXzMw="/>
+        <field:display field="localization" id="s_com_lela_data_domain_entity_Question_localization" object="${question}" z="JWkQVs3ea6d91/szz4Fw7tCYqHY="/>
+        <field:display field="active" id="s_com_lela_data_domain_entity_Question_active" object="${question}" z="pIrWDTmBsCG3jTC73WyER7ULYCQ="/>
+        <field:display field="questionText" id="s_com_lela_data_domain_entity_Question_questionText" object="${question}" z="phthy43sRuQ3fb338nX11m4o0bU="/>
+    </page:show>
+</div>

@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="AspectJ" name="AspectJ">
+      <configuration>
+        <option name="overrideAspectPath" value="true" />
+        <option name="aspectPath">
+          <projectLibrary>
+            <option name="name" value="Maven: org.springframework:spring-aspects:3.2.0.RELEASE" />
+          </projectLibrary>
+        </option>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
+          <root url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring" relative="WEB-INF/spring" />
+          <root url="file://$MODULE_DIR$/talend/job" relative="WEB-INF/lib" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+          <root url="file://$MODULE_DIR$/talend/job" />
+        </sourceRoots>
+      </configuration>
+    </facet>
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="" />
+        <datasource-mapping>
+          <factory-entry name="persistenceUnit" />
+          <factory-entry name="testPersistenceUnit" />
+        </datasource-mapping>
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
+      </configuration>
+    </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset1" name="XML Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring/constants.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring/security.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring/services.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/test/resources/META-INF/spring-test/security-test.xml</file>
+          <file>file://$MODULE_DIR$/src/test/resources/META-INF/spring-test/applicationContext-test.xml</file>
+          <file>file://$MODULE_DIR$/src/test/resources/META-INF/spring/webmvc-config-test.xml</file>
+          <file>file://$MODULE_DIR$/src/test/resources/META-INF/spring/security.xml</file>
+          <file>file://$MODULE_DIR$/src/test/resources/META-INF/spring/mocks.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/test/resources/META-INF/spring/disable-bootstrap.xml</file>
+          <file>file://$MODULE_DIR$/src/test/resources/META-INF/spring/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring/webmvc-component-scan.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring/webmvc-async.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring/webmvc-tiles.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring/webmvc-config.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/talend/job" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" scope="TEST">
+      <library name="maven-surefire-plugin urls">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/talend/job/babymonitormotivator_a_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/babymonitormotivator_b_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/babymonitormotivator_c_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/babymonitormotivator_d_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/babymonitormotivator_e_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/babymonitormotivator_f_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/babymonitormotivator_g_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carriermotivator_a_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carriermotivator_b_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carriermotivator_c_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carriermotivator_d_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carriermotivator_e_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carriermotivator_f_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carriermotivator_g_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carseatsmotivator_a_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carseatsmotivator_b_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carseatsmotivator_c_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carseatsmotivator_e_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carseatsmotivator_f_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/carseatsmotivator_g_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/digicammotivator_b_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/digicammotivator_c_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/digicammotivator_d_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/digicammotivator_e_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/digicammotivator_f_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/digicammotivator_g_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/checkpopshopsavailable_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/checkpopshopsavailable_cnet_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/cnet_pricefetchamazon_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/cribmotivator_a_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/cribmotivator_b_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/cribmotivator_c_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/cribmotivator_e_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/cribmotivator_g_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/downloadaffiliatereportingdata_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getfacebooklikes_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getpopshopsdeals_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getpopshopproducturls_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getpopshopproducturls_cnet_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/gettwitterfollowers_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/highchairmotivator_a_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/highchairmotivator_b_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/highchairmotivator_c_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/highchairmotivator_d_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/highchairmotivator_e_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/highchairmotivator_f_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/highchairmotivator_g_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/pricefetchamazon_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/refreshpopshopspricescnet_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/refreshpopshopsprices_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/runbabymonitormotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/runcarriermotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/runcarseatsmotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/runcribmotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/runhighchairmotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/rundigicammotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/runstrollermotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/storesfetchamazon_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/strollermotivator_a_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/strollermotivator_b_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/strollermotivator_c_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/strollermotivator_d_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/strollermotivator_e_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/strollermotivator_f_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/strollermotivator_g_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/throwexception_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/resizeandstoreimage_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/brandcategorymotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/brandcategoryitemtypemotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/brandmotivatormaster_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/brandmotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/updateitembrandmotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/dtrulescategoryallmotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/dtrulesitemmotivatorforquery_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/runalldtrulesmotivators_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/eav_cnet_resizeandstoreimage_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/eav_cnet_resizeandstoreimage_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/eav_cnet_resizeandstoreimage_1_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/brandcategoryitemtypemotivators_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/brandcategorymotivators_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/brandmotivators_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/updateitembrandmotivators_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/dtrulescategoryallmotivators_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/dtrulesitemmotivatorforquery_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/eav_resizeandstoreimage_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/eav_assignimagestoitems_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/eav_loadimagefromcnet_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/eav_loadimagefromoffers_0_3.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/uploadaffiliatereportingdata_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/importaffiliatereportingdata_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/loadlinkshareftp_all_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/loadlinkshareftp_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/loadlscleanfile_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getcnetattributetypes_1_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/loadamazon_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/loadamazonaapfiles_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/loadamazonoffers_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getcnetbrands_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getcnetbrands_1_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getcnetitems_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getcnetitems_1_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getcnetattributesfull_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getcnetattributesfull_1_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getcnetattributesfull_2_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/getcnetattributesfull_3_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/setderivedattributes_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/eav_loadcnetdigitaldata_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/eav_loadcnetdigitaldatasub_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/eav_loaddescriptions_1_0.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/eav_loaddescriptionssub_0_1.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/eav_markduplicateimagesdriver_0_2.jar" />
+          <root url="file://$MODULE_DIR$/talend/job/reviewfeedfromalatest_0_2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Maven: com.googlecode.flyway:flyway-core:1.7" level="project" />
+    <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.1.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.flexjson:flexjson:2.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.springframework.roo:org.springframework.roo.annotations:1.2.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.5" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:4.2.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.0.0.GA" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.1" level="project" />
+    <orderEntry type="library" name="Maven: cglib:cglib-nodep:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.transaction:jta:1.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.6" level="project" />
+    <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:1.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.webflow:spring-js-resources:2.2.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:com.springsource.org.apache.commons.fileupload:1.2.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:com.springsource.javax.servlet.jsp.jstl:1.2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.taglibs:com.springsource.org.apache.taglibs.standard:1.1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.web:jstl-impl:1.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet.jsp:jsp-api:2.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet.jsp.jstl:jstl-api:1.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.el:el-api:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:3.6.9.Final" level="project" />
+    <orderEntry type="library" name="Maven: antlr:antlr:2.7.6" level="project" />
+    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.1" level="project" />
+    <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-commons-annotations:3.2.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:3.6.9.Final" level="project" />
+    <orderEntry type="library" name="Maven: javassist:javassist:3.12.0.GA" level="project" />
+    <orderEntry type="library" name="Maven: displaytag:displaytag:1.2" level="project" />
+    <orderEntry type="library" name="Maven: com.lowagie:itext:1.3" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.7.0" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.1" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" name="Maven: displaytag:displaytag-export-poi:1.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.h2database:h2:1.3.164" level="project" />
+    <orderEntry type="module" module-name="lela-commons" />
+    <orderEntry type="module" module-name="lela-domain" />
+    <orderEntry type="library" name="Maven: com.mysema.querydsl:querydsl-apt:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: com.mysema.querydsl:querydsl-codegen:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: com.mysema.querydsl:querydsl-core:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:13.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:1.3.9" level="project" />
+    <orderEntry type="library" name="Maven: com.mysema.commons:mysema-commons-lang:0.2.4" level="project" />
+    <orderEntry type="library" name="Maven: com.mysema.codegen:codegen:0.5.4" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jdt.core.compiler:ecj:3.7.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="module" module-name="lela-util" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-test:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-web:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" name="Maven: imagej:imagej:1.44" level="project" />
+    <orderEntry type="library" name="Maven: com.thebuzzmedia:imgscalr-lib:4.2" level="project" />
+    <orderEntry type="library" name="Maven: com.bearchoke.imaging:jai-core:1.1.3" level="project" />
+    <orderEntry type="library" name="Maven: com.bearchoke.imaging:jai-codec:1.1.3" level="project" />
+    <orderEntry type="library" name="Maven: com.bearchoke.imaging:mlibwrapper:1.1.3" level="project" />
+    <orderEntry type="library" name="Maven: net.java.dev.jets3t:jets3t:0.8.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-httpclient:commons-httpclient:3.1" level="project" />
+    <orderEntry type="library" name="Maven: com.jamesmurty.utils:java-xmlbuilder:0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-mongodb:1.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons-core:1.4.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:2.9.1" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.4" level="project" />
+    <orderEntry type="library" name="Maven: com.maxmind:geoip:1.2.5" level="project" />
+    <orderEntry type="library" name="Maven: com.icegreen:greenmail:1.3.1b" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mail:1.4" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.sanselan:sanselan:0.97-incubator" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.2.1" level="project" />
+    <orderEntry type="library" name="Maven: nl.bitwalker:UserAgentUtils:1.6" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.uuid:java-uuid-generator:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.social:spring-social-core:1.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.social:spring-social-facebook:1.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:3.1.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:3.1.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.solr:solr-solrj:3.5.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.codehaus.woodstox:wstx-asl:3.2.7" level="project" />
+    <orderEntry type="library" name="Maven: commons-validator:commons-validator:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-digester:commons-digester:1.7" level="project" />
+    <orderEntry type="library" name="Maven: org.jasypt:jasypt:1.9.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jasypt:jasypt-spring31:1.9.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jasypt:jasypt-springsecurity3:1.9.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:com.springsource.javax.mail:1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: net.mailjimp:mailjimp-core:0.3" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-client:1.4" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-core:1.4" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-json:1.9.1" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jettison:jettison:1.1" level="project" />
+    <orderEntry type="library" name="Maven: stax:stax-api:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-impl:2.2.3-1" level="project" />
+    <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.xml.stream:stax-api:1.0-2" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-jaxrs:1.8.5" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-xc:1.8.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.velocity:velocity:1.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.velocity:velocity-tools:2.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-chain:commons-chain:1.1" level="project" />
+    <orderEntry type="library" name="Maven: sslext:sslext:1.2-0" level="project" />
+    <orderEntry type="library" name="Maven: org.dom4j:com.springsource.org.dom4j:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.xml.stream:com.springsource.javax.xml.stream:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.jaxen:com.springsource.org.jaxen:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:com.springsource.javax.activation:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.jdom:com.springsource.org.jdom:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.6.12" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.6.12" level="project" />
+    <orderEntry type="library" name="Maven: org.swinglabs:swingx-core:1.6.2-2" level="project" />
+    <orderEntry type="library" name="Maven: org.swinglabs:swingx-beaninfo:1.6.2-2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aspects:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-orm:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.mobile:spring-mobile-device:1.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.wurfl:wurfl:1.4.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.webflow:spring-js:2.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:3.1.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-acl:3.1.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-taglibs:3.1.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security.oauth:spring-security-oauth2:1.0.0.M5" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-mongodb-log4j:1.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.mysema.querydsl:querydsl-mongodb:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: cglib:cglib:2.2" level="project" />
+    <orderEntry type="library" name="Maven: asm:asm:3.1" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-core:2.6.0" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-web:2.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.terracotta:ehcache-probe:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.poi:poi:3.8" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml:3.8" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml-schemas:3.8" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.xmlbeans:xmlbeans:2.3.0" level="project" />
+    <orderEntry type="library" name="Maven: com.polarrose:amazon-core:1.99d" level="project" />
+    <orderEntry type="library" name="Maven: com.polarrose:amazon-spring:1.99d" level="project" />
+    <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.0.b2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.social:spring-social-web:1.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.social:spring-social-twitter:1.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:3.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-api:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-jsp:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-servlet:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-core:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-template:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-servlet-wildcard:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tiles:tiles-el:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: edu.emory.mathcs.backport:com.springsource.edu.emory.mathcs.backport:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:com.springsource.javax.validation:1.0.0.GA" level="project" />
+    <orderEntry type="library" name="Maven: javax.transaction:com.springsource.javax.transaction:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.el:com.springsource.org.apache.el:6.0.20" level="project" />
+    <orderEntry type="library" name="Maven: javax.annotation:com.springsource.javax.annotation:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:com.springsource.org.apache.commons.collections:3.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.oro:com.springsource.org.apache.oro:2.0.8" level="project" />
+    <orderEntry type="library" name="Maven: com.thoughtworks.xstream:xstream:1.4.3" level="project" />
+    <orderEntry type="library" name="Maven: xmlpull:xmlpull:1.1.3.1" level="project" />
+    <orderEntry type="library" name="Maven: xpp3:xpp3_min:1.1.4c" level="project" />
+    <orderEntry type="library" name="Maven: org.quartz-scheduler:quartz:1.8.5" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.dozer:dozer:5.3.2" level="project" />
+    <orderEntry type="library" name="Maven: joda-time:joda-time:1.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:fluent-hc:4.2.1" level="project" />
+    <orderEntry type="library" name="Maven: com.amazon:sdk:1.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpmime:4.2.1" level="project" />
+    <orderEntry type="library" name="Maven: stax:stax:1.2.0" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.9" level="project" />
+    <orderEntry type="library" name="Maven: com.jeraff.kissmetrics:jeraff-kissmetrics:1.3.1" level="project" />
+    <orderEntry type="library" name="Maven: com.ning:async-http-client:1.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.netty:netty:3.2.4.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.mixpanel:mixpanel-java:0.1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20090211" level="project" />
+    <orderEntry type="library" name="Maven: ro.isdc.wro4j:wro4j-core:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: ro.isdc.wro4j:wro4j-extensions:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:1.6" level="project" />
+    <orderEntry type="library" name="Maven: com.google.javascript:closure-compiler:r2180" level="project" />
+    <orderEntry type="library" name="Maven: args4j:args4j:2.0.16" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:2.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.ant:ant:1.8.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.ant:ant-launcher:1.8.4" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.jarjar:jarjar:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mozilla:rhino:1.7R3" level="project" />
+    <orderEntry type="library" name="Maven: com.github.lltyk:dojo-shrinksafe:1.7.2" level="project" />
+    <orderEntry type="library" name="Maven: org.jruby:jruby-complete:1.6.8" level="project" />
+    <orderEntry type="library" name="Maven: me.n4u.sass:sass-gems:3.1.19" level="project" />
+    <orderEntry type="library" name="Maven: nz.co.edmi:bourbon-gem-jar:2.1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.sommeri:less4j:0.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:antlr:3.4" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:antlr-runtime:3.4" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:stringtemplate:3.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:ST4:4.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.gmaven.runtime:gmaven-runtime-1.7:1.3" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.gmaven.feature:gmaven-feature-support:1.3" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.gmaven.feature:gmaven-feature-api:1.3" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.gmaven.runtime:gmaven-runtime-support:1.3" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.gmaven.runtime:gmaven-runtime-api:1.3" level="project" />
+    <orderEntry type="library" name="Maven: org.sonatype.gshell:gshell-io:2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:2.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.thoughtworks.qdox:qdox:1.10" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-all:1.7.4" level="project" />
+    <orderEntry type="library" name="Maven: jline:jline:0.9.94" level="project" />
+    <orderEntry type="library" name="Maven: com.mattwilliamsnyc:remix:0.1.1" level="project" />
+    <orderEntry type="module" module-name="lela-motivator-rules" />
+    <orderEntry type="library" name="Maven: com.dtrules:dtrules-engine:5.0.M1" level="project" />
+    <orderEntry type="library" name="Maven: com.dtrules:el:5.0.M1" level="project" />
+    <orderEntry type="library" name="Maven: com.dtrules:compilerutil:5.0.M1" level="project" />
+    <orderEntry type="library" name="Maven: de.jflex:jflex:1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: edu.princeton.cup:java-cup:10k" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:com.springsource.javax.servlet:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.talend:systemroutines:4.2.3" level="project" />
+    <orderEntry type="library" name="Maven: com.talend:userroutines:4.2.3.b" level="project" />
+    <orderEntry type="library" name="Maven: com.talend:advancedpersistentlookup:4.2.3" level="project" />
+    <orderEntry type="library" name="Maven: com.talend:jsonpath:4.2.3" level="project" />
+    <orderEntry type="library" name="Maven: com.enterprisedt:edtftpj:2.3.0" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.json-simple:json-simple:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.tukaani:xz:1.0" level="project" />
+    <orderEntry type="library" name="Maven: ch.ethz.ganymed:ganymed-ssh2:build210" level="project" />
+    <orderEntry type="library" name="Maven: jboss:jboss-serialization:4.2.2.GA" level="project" />
+    <orderEntry type="library" name="Maven: trove:trove:1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.talend:talend-file-enhanced:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.talend:talend-sax:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.talend:talend-filecopy:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.javacsv:javacsv:2.0" level="project" />
+    <orderEntry type="library" name="Maven: feed4j:feed4j:1.0" level="project" />
+    <orderEntry type="library" name="Maven: nekohtml:nekohtml:1.9.6.2" level="project" />
+    <orderEntry type="library" name="Maven: xerces:xercesImpl:2.8.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-core:1.9.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.objenesis:objenesis:1.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.powermock:powermock-api-mockito:1.4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-all:1.9.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.powermock:powermock-api-support:1.4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.powermock:powermock-core:1.4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.powermock:powermock-reflect:1.4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.javassist:javassist:3.16.1-GA" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.powermock:powermock-module-junit4:1.4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.powermock:powermock-module-junit4-common:1.4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: net.sourceforge.htmlunit:htmlunit:2.9" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: xalan:xalan:2.7.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: xalan:serializer:2.7.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: net.sourceforge.htmlunit:htmlunit-core-js:2.9" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: net.sourceforge.nekohtml:nekohtml:1.9.15" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: net.sourceforge.cssparser:cssparser:0.9.5" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.w3c.css:sac:1.3" level="project" />
+  </component>
+</module>
+

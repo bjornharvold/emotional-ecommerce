@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ItemStatus" items="${itemstatuses}" z="yZ333YId64TsVxHopNAbuZtidaQ=">
+        <table:table data="${itemstatuses}" id="l_com_lela_data_domain_entity_ItemStatus" path="/crud/itemstatus" z="1LNlNVqhCJgl6bCzlEVi6yBSrRo=">
+            <table:column date="true" dateTimePattern="${itemStatus_datecreated_date_format}" id="c_com_lela_data_domain_entity_ItemStatus_dateCreated" property="dateCreated" z="osdf2y4ig25nMXCH3ZDje7myIj4="/>
+            <table:column date="true" dateTimePattern="${itemStatus_datemodified_date_format}" id="c_com_lela_data_domain_entity_ItemStatus_dateModified" property="dateModified" z="jLCGKGa6P6jgAJO7TetiajCryLE="/>
+            <table:column id="c_com_lela_data_domain_entity_ItemStatus_itemStatusName" property="itemStatusName" z="Lk0BFdEw1tdla6O5vL1Z9t9DSk8="/>
+        </table:table>
+    </page:list>
+</div>

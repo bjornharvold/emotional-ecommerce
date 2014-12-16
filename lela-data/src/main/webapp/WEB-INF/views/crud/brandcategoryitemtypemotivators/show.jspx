@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator" object="${brandcategoryitemtypemotivator}" path="/crud/brandcategoryitemtypemotivators" z="Fo5LqOHuvHTU4ryuTgo8MYsgTfc=">
+        <field:display date="true" dateTimePattern="${brandCategoryItemtypeMotivator_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_dateCreated" object="${brandcategoryitemtypemotivator}" z="61n4zcyiXkj9IixcdCMZLM2f3hg="/>
+        <field:display date="true" dateTimePattern="${brandCategoryItemtypeMotivator_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_dateModified" object="${brandcategoryitemtypemotivator}" z="Z95FdOLw7zyYpgRoHUwhZo4DrgQ="/>
+        <field:display field="category" id="s_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_category" object="${brandcategoryitemtypemotivator}" z="DUNWIVN3Xr31JEUjX4tfiyp/FSo="/>
+        <field:display field="brand" id="s_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_brand" object="${brandcategoryitemtypemotivator}" z="00kcngP92r6k+kL9elWeiUraHsQ="/>
+        <field:display field="itemType" id="s_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_itemType" object="${brandcategoryitemtypemotivator}" z="ya1C5az9y039bAqFSl8+sIMktd4="/>
+        <field:display field="motivator" id="s_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_motivator" object="${brandcategoryitemtypemotivator}" z="lTJM7zHj38YvXWo6DrRef7f8x+I="/>
+        <field:display field="motivatorScore" id="s_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_motivatorScore" object="${brandcategoryitemtypemotivator}" z="w3kSa3FbuccSUE4IbDBwxbay8fs="/>
+    </page:show>
+</div>

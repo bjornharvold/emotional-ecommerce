@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <!-- here we define the custom entity-2-dto mappings for our business domain -->
+    <configuration>
+        <stop-on-errors>true</stop-on-errors>
+        <date-format>MM/dd/yyyy HH:mm</date-format>
+        <wildcard>true</wildcard>
+        <trim-strings>false</trim-strings>
+
+        <!--
+        <custom-converters>
+
+
+            <converter type="com.tps.tpi.converter.AddressConverter">
+                <class-a>com.tps.tpi.model.objects.entity.Address</class-a>
+                <class-b>com.tps.tpi.model.objects.dto.AddressDto</class-b>
+            </converter>
+
+
+        </custom-converters>
+        -->
+        
+    </configuration>
+
+    <!--
+    <mapping>
+        <class-a>com.lela.domain.document.Quiz</class-a>
+        <class-b>com.lela.domain.dto.quiz.QuizDto</class-b>
+    </mapping>
+    -->
+</mappings>

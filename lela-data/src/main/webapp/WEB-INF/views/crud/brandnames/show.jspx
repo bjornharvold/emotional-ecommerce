@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_BrandName" object="${brandname}" path="/crud/brandnames" z="3eWBmbaL63xaalNJyBI8ZIXMXFQ=">
+        <field:display date="true" dateTimePattern="${brandName_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_BrandName_dateCreated" object="${brandname}" z="1gR4FErHutIYput6fcU01XiOHv0="/>
+        <field:display date="true" dateTimePattern="${brandName_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_BrandName_dateModified" object="${brandname}" z="s+1gkdg4GgjuRvJZX81g1eLx254="/>
+        <field:display field="brand" id="s_com_lela_data_domain_entity_BrandName_brand" object="${brandname}" z="EdJtIUcD6ATzUR9sI43LeJq1PAw="/>
+        <field:display field="locale" id="s_com_lela_data_domain_entity_BrandName_locale" object="${brandname}" z="M1kjueXmSj0EPDuS5cCBGPPqgz8="/>
+        <field:display field="brandName" id="s_com_lela_data_domain_entity_BrandName_brandName" object="${brandname}" z="+xKCIyvKlDUSECIZ1NxSMdnN/Eo="/>
+        <field:display field="mainName" id="s_com_lela_data_domain_entity_BrandName_mainName" object="${brandname}" z="DqSa03fKzyUNQCZmq4f7h/DVlD8="/>
+    </page:show>
+</div>

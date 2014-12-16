@@ -1,0 +1,19 @@
+Amazon S3 Support Status
+========================
+
++---------------------+---------+
+| Opeation            | Status  |
++---------------------+---------+
+| Service GET         |   no    |
++---------------------+---------+
+| Bucket GET          |   no    |
+| Bucket PUT          |   yes   |
+| Bucket DELETE       |   yes   |
++---------------------+---------+
+| Object GET          |   yes   |
+| Object PUT          |   yes   |
+| Object Head         |   yes   |
+| Object DELETE       |   yes   |
++---------------------+---------+
+| ACL setting         | yes/no  | one can use standard PUT with ?acl suffix, but it can be done better
++---------------------+---------+

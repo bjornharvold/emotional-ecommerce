@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.1.xsd
+       http://www.springframework.org/schema/jee
+       http://www.springframework.org/schema/jee/spring-jee-3.1.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task-3.1.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+    <!--
+        TALEND JOB EXECUTION
+    -->
+    <bean id="talendJobExecutor" class="com.lela.commons.jobs.talend.TalendJobExecutor">
+        <constructor-arg ref="ingestJobScheduler"/>
+        <constructor-arg ref="ingestJobService"/>
+
+        <!-- Default Context Params -->
+        <constructor-arg>
+            <map>
+                <entry key="LelaETL_Server" value="${etl.server}"/>
+                <entry key="LelaETL_Port" value="${etl.port}"/>
+                <entry key="LelaETL_Database" value="${etl.database}"/>
+                <entry key="LelaETL_Login" value="${etl.username}"/>
+                <entry key="LelaETL_Password" value="${etl.password}"/>
+                <entry key="LelaETL_AdditionalParams" value="${etl.additionalParams}"/>
+                <entry key="LelaETL_S3_Access" value="${amazon.access.key}"/>
+                <entry key="LelaETL_S3_Secret" value="${amazon.secret.key}"/>
+                <entry key="LelaETL_S3_Affiliate_Bucket" value="${reporting.affiliate.bucketName}"/>
+		        <entry key="LelaETL_Environment" value="${environment}"/>
+                <entry key="LocalFilePath" value="${feeds.location}"/>
+                <entry key="threadCount" value="1"/>
+            </map>
+        </constructor-arg>
+
+        <!-- List of Talend Jobs -->
+        <constructor-arg>
+            <list>
+                <ref bean="UploadAffiliateReportingData"/>
+                <ref bean="ImportAffiliateReportingData"/>
+                <!--<ref bean="RunBabyMonitorMotivators"/>-->
+                <ref bean="GetPopshopsDeals"/>
+                <ref bean="GetDeals"/>
+                <ref bean="GetFacebookLikes"/>
+                <ref bean="GetTwitterFollowers"/>
+                <ref bean="ReviewFeedFromAlaTest"/>
+				
+		<!-- CNet Jobs -->
+                <ref bean="GetCNETAttributeTypes"/>
+                <ref bean="GetCNETBrands"/>
+                <ref bean="GetCNETItems"/>
+                <ref bean="GetCNETAttributes"/>
+                <ref bean="LoadCNETDigitalData"/>
+                <ref bean="LoadCNETDescriptions"/>
+
+                <!-- EAV Jobs -->
+                <ref bean="RunBrandMotivators"/>
+                <ref bean="RunAllNewMotivators"/>
+                <ref bean="EavResizeAndStoreImage"/>
+                <ref bean="EavLoadImageFromOffers"/>
+                <ref bean="EavLoadImageFromCNET"/>
+                <ref bean="EavAssignImagesToItems"/>
+                <ref bean="EAVMarkDuplicateImages"/>
+                <ref bean="ParameterizedRunMotivators"/>
+                <ref bean="ParameterizedEavCnetResizeAndStoreImage"/>
+                <ref bean="EavCnetResizeAndStoreImageAll"/>
+                
+                <!-- Offer Jobs -->
+                <ref bean="OffersAmazon"/>
+                <ref bean="OffersBabyAge"/>
+                <ref bean="OffersBBY"/>
+                <ref bean="OffersCJ"/>
+                <ref bean="OffersGAN"/>               
+                <ref bean="OffersLinkShareLoad"/>
+                <ref bean="OffersShareASaleLoad"/>
+		        <ref bean="OffersShareASaleOffers"/>
+                
+                <!-- <ref bean="ThrowExceptionTest"/> -->
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Run a category from a User entered parameters -->
+    <bean id="ParameterizedRunMotivators" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="EAV - Run Motivators for Category"/>
+        <property name="groupName" value="EAV Jobs"/>
+        <property name="talendClass" value="lelaetl.dtrulescategoryallmotivators_0_2.DTRulesCategoryAllMotivators"/>
+        <property name="parameters">
+            <list>
+                <bean class="com.lela.commons.jobs.JobParameter" p:name="CategoryID" p:label="Category ID" p:type="TEXT" p:required="true"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Run a category from a pre-defined context argument -->
+    <!--
+    <bean id="RunBabyMonitorMotivators" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="RunBabyMonitorMotivators"/>
+        <property name="talendClass" value="lelaetl.dtrulescategoryallmotivators_0_2.DTRulesCategoryAllMotivators"/>
+        <property name="context">
+            <map>
+                <entry key="CategoryID" value="14"/>
+            </map>
+        </property>
+    </bean>
+    -->
+
+    <bean id="UploadAffiliateReportingData" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="UploadAffiliateReportingData"/>
+        <property name="talendClass" value="lelaetl.uploadaffiliatereportingdata_0_1.UploadAffiliateReportingData"/>
+    </bean>
+
+    <bean id="ImportAffiliateReportingData" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="ImportAffiliateReportingData"/>
+        <property name="talendClass" value="lelaetl.importaffiliatereportingdata_0_1.ImportAffiliateReportingData"/>
+    </bean>
+
+    <bean id="GetPopshopsDeals" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="GetPopshopsDeals"/>
+        <property name="talendClass" value="lelaetl.getpopshopsdeals_0_2.GetPopshopsDeals"/>
+    </bean>
+
+    <bean id="GetDeals" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="GetDeals"/>
+        <property name="talendClass" value="lelaetl.loaddeals_0_1.LoadDeals"/>
+    </bean>
+
+    <bean id="GetFacebookLikes" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="GetFacebookLikes"/>
+        <property name="talendClass" value="lelaetl.getfacebooklikes_0_3.GetFacebookLikes"/>
+    </bean>
+
+    <bean id="GetTwitterFollowers" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="GetTwitterFollowers"/>
+        <property name="talendClass" value="lelaetl.gettwitterfollowers_0_4.GetTwitterFollowers"/>
+    </bean>
+
+    <bean id="RunBrandMotivators" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="EAV - Run Brand Motivators"/>
+        <property name="groupName" value="EAV Jobs"/>
+        <property name="talendClass" value="lelaetl.brandmotivatormaster_0_1.BrandMotivatorMaster"/>
+    </bean>
+
+    <bean id="RunAllNewMotivators" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="EAV - Run DTRules Motivators"/>
+        <property name="groupName" value="EAV Jobs"/>
+        <property name="talendClass" value="lelaetl.runalldtrulesmotivators_0_1.RunAllDTRulesMotivators"/>
+    </bean>
+
+    <!-- EavCnetResizeAndStoreImage a category from a User entered parameters -->
+    <bean id="ParameterizedEavCnetResizeAndStoreImage" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="EAV - CNET Resize and Store Image for a Category"/>
+        <property name="groupName" value="EAV Jobs"/>
+        <property name="talendClass" value="lelaetl.eav_cnet_resizeandstoreimage_1_1.EAV_CNET_ResizeAndStoreImage"/>
+        <property name="parameters">
+            <list>
+                <bean class="com.lela.commons.jobs.JobParameter" p:name="CategoryID" p:label="Category ID" p:type="TEXT" p:required="true"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="EavCnetResizeAndStoreImageAll" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="EAV - CNET Resize and Store Image All"/>
+        <property name="groupName" value="EAV Jobs"/>
+        <property name="talendClass" value="lelaetl.eav_cnet_resizeandstoreimageall_1_2.EAV_CNET_ResizeAndStoreImageAll"/>
+    </bean>
+
+    <bean id="EavResizeAndStoreImage" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="EAV - Resize and Store Image"/>
+        <property name="groupName" value="EAV Jobs"/>
+        <property name="talendClass" value="lelaetl.eav_resizeandstoreimage_0_2.EAV_ResizeAndStoreImage"/>
+    </bean>
+
+    <bean id="EavLoadImageFromOffers" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="EAV - Load Images from Offers"/>
+        <property name="groupName" value="EAV Jobs"/>
+        <property name="talendClass" value="lelaetl.eav_loadimagefromoffers_0_3.EAV_LoadImageFromOffers"/>
+    </bean>
+
+    <bean id="EavLoadImageFromCNET" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="EAV - Load Images from CNET"/>
+        <property name="groupName" value="EAV Jobs"/>
+        <property name="talendClass" value="lelaetl.eav_loadimagefromcnet_0_2.EAV_LoadImageFromCNET"/>
+    </bean>
+
+    <bean id="EavAssignImagesToItems" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="EAV - Assign Images to Items"/>
+        <property name="groupName" value="EAV Jobs"/>
+        <property name="talendClass" value="lelaetl.eav_assignimagestoitems_0_3.EAV_AssignImagesToItems"/>
+    </bean>
+	
+    <bean id="GetCNETAttributeTypes" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Get CNet Attribute Types"/>
+        <property name="groupName" value="CNet Jobs"/>
+        <property name="talendClass" value="lelaetl.getcnetattributetypes_1_1.GetCNETAttributeTypes"/>
+    </bean>
+
+    <bean id="GetCNETBrands" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Get CNet Brands"/>
+	<property name="groupName" value="CNet Jobs"/>        
+        <property name="talendClass" value="lelaetl.getcnetbrands_1_0.GetCNETBrands"/>
+    </bean>
+
+    <bean id="GetCNETItems" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Get CNet Items"/>
+	<property name="groupName" value="CNet Jobs"/>        
+        <property name="talendClass" value="lelaetl.getcnetitems_1_0.GetCNetItems"/>
+    </bean>
+
+   <bean id="GetCNETAttributes" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Get CNet Attributes"/>
+	<property name="groupName" value="CNet Jobs"/>        
+        <property name="talendClass" value="lelaetl.getcnetattributesfull_1_0.GetCNetAttributesFull"/>
+    </bean>
+
+    <bean id="LoadCNETDigitalData" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Get CNet Digital Data (Images)"/>
+	<property name="groupName" value="CNet Jobs"/>        
+        <property name="talendClass" value="lelaetl.eav_loadcnetdigitaldata_1_0.EAV_LoadCNETDigitalData"/>
+    </bean>
+
+    <bean id="LoadCNETDescriptions" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Get CNet Descriptions"/>
+	    <property name="groupName" value="CNet Jobs"/>
+        <property name="talendClass" value="lelaetl.eav_loaddescriptions_1_0.EAV_LoadDescriptions"/>
+    </bean>
+
+    <bean id="priceOfferLinkshareTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="name" value="Scheduled - Offers Load - LinkShare"/>
+        <property name="jobDetail" ref="OffersLinkShareLoad"/>
+        <property name="cronExpression" value="${ingest.priceOfferLinkShare}"/>
+    </bean>
+
+    <bean id="OffersLinkShareLoad" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Offers Load - LinkShare"/>
+	    <property name="groupName" value="Offer Jobs"/>
+        <property name="talendClass" value="lelaetl.loadlinkshareftp_all_0_2.LoadLinkShareFTP_All"/>
+        <property name="allowConcurrentRuns" value="false"/>
+    </bean>
+
+    <bean id="OffersAmazon" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Offers - Amazon"/>
+	    <property name="groupName" value="Offer Jobs"/>
+        <property name="talendClass" value="lelaetl.loadamazonaapfiles_0_2.LoadAmazonAAPFiles"/>
+    </bean>
+    
+    <bean id="OffersBabyAge" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Offers - BabyAge"/>
+	<property name="groupName" value="Offer Jobs"/>        
+        <property name="talendClass" value="lelaetl.loadbabyageweb_0_2.LoadBabyAgeWeb"/>
+    </bean>
+
+    <bean id="OffersBBY" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Offers - Best Buy"/>
+	<property name="groupName" value="Offer Jobs"/>        
+        <property name="talendClass" value="lelaetl.loadbbyfiles_0_2.LoadBBYFiles"/>
+    </bean>
+
+    <bean id="OffersCJ" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Offers - Commission Junction"/>
+	<property name="groupName" value="Offer Jobs"/>        
+        <property name="talendClass" value="lelaetl.loadcjfiles_0_2.LoadCJFiles"/>
+    </bean>
+
+    <bean id="OffersGAN" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Offers - Google Affiliate Network"/>
+	<property name="groupName" value="Offer Jobs"/>        
+        <property name="talendClass" value="lelaetl.loadganfiles_0_2.LoadGANFiles"/>
+    </bean>    
+
+    <bean id="OffersShareASaleLoad" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Offers Load - Share-A-Sale"/>
+	<property name="groupName" value="Offer Jobs"/>        
+        <property name="talendClass" value="lelaetl.loadsasftp_all_0_2.LoadSASFTP_All"/>
+    </bean>    
+
+    <bean id="OffersShareASaleOffers" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Offers - Share-A-Sale"/>
+	<property name="groupName" value="Offer Jobs"/>        
+        <property name="talendClass" value="lelaetl.loadsasoffers_0_1.LoadSASOffers"/>
+    </bean>    
+
+    <bean id="EAVMarkDuplicateImages" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="Mark Duplicate Images"/>
+	<property name="groupName" value="EAV Jobs"/>        
+        <property name="talendClass" value="lelaetl.eav_markduplicateimagesdriver_0_2.EAV_MarkDuplicateImagesDriver"/>
+    </bean>    
+
+    <bean id="ReviewFeedFromAlaTest" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="AlaTest Review Feed"/>
+		<property name="groupName" value="EAV Jobs"/>        
+        <property name="talendClass" value="lelaetl.reviewfeedfromalatest_0_2.ReviewFeedFromAlatest"/>
+    </bean>    
+
+    <!--
+    <bean id="ThrowExceptionTest" class="com.lela.commons.jobs.talend.TalendJobDetail">
+        <property name="name" value="ThrowExceptionTest"/>
+        <property name="talendClass" value="lelaetl.throwexception_0_1.ThrowException"/>
+    </bean>
+    -->
+
+</beans>

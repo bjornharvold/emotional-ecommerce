@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_ManufacturerName" items="${manufacturernames}" z="9kvo9se3dmiqU6C9GD7Oware51Y=">
+        <table:table data="${manufacturernames}" id="l_com_lela_data_domain_entity_ManufacturerName" path="/crud/manufacturernames" z="W/eIxf7topG4G+ohjmsytTCV+64=">
+            <table:column date="true" dateTimePattern="${manufacturerName_datecreated_date_format}" id="c_com_lela_data_domain_entity_ManufacturerName_dateCreated" property="dateCreated" z="rCIkCvV9MBBfUwxNfzeyc8bWtkw="/>
+            <table:column date="true" dateTimePattern="${manufacturerName_datemodified_date_format}" id="c_com_lela_data_domain_entity_ManufacturerName_dateModified" property="dateModified" z="bpioz7iGecMdJencwA3V5DbHVHY="/>
+            <table:column id="c_com_lela_data_domain_entity_ManufacturerName_locale" property="locale" z="mr+0adTfAjDHZD6+Q1DJ5l54fB4="/>
+            <table:column id="c_com_lela_data_domain_entity_ManufacturerName_manufacturer" property="manufacturer" z="fS8ZnyyQE9E897BCu4FqPYh9yYA="/>
+            <table:column id="c_com_lela_data_domain_entity_ManufacturerName_manufacturerName" property="manufacturerName" z="ZHOCUIZoDcoTDigVp3bHXK4pRjg="/>
+        </table:table>
+    </page:list>
+</div>

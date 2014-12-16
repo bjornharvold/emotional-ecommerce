@@ -1,0 +1,90 @@
+#_lelalist_overlay {
+    background: #fff;
+    opacity: 0.9;
+    width: 100%;
+    position: absolute;
+    top:0;
+    margin: 0;
+    z-index: 10000;
+}
+
+#_lelalist_wrapper {
+    z-index: 100000;
+    width: 100%;
+    position: absolute;
+    top:0;
+    margin: 0;
+}
+
+#_lelalist_header {
+    padding: 10px;
+    text-align: center;
+    background: #3f3f3f;
+    color: #fff;
+    font-size: 24px;
+    font-weight: normal;
+    border-bottom: 1px solid #aaa;
+}
+
+#_lelalist_header a {
+    font-size: 14px;
+    color: #666;
+    background: #eee;
+    padding: 5px 20px;
+    float: right;
+}
+#_lelalist_header a:hover {
+    background: #666;
+    color: #fff;
+}
+
+#_lelalist_main {
+    width: 700px;
+    margin: 20px auto;
+}
+
+._lelalist_img {
+    display: block;
+    /* margin-top: -20px;
+    margin-left: -20px; */
+}
+
+._lelalist_link {
+    float: left;
+    display: block;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin: 10px;
+    border: 1px solid #aaa;
+    position: relative;
+}
+
+._lelalist_link span {
+    position: absolute;
+    display: none;
+    top:55px;
+    left:15px;
+    width: 80px;
+    text-align: center;
+    padding: 5px 20px;
+    background: #fff;
+    color: #999;
+    font-weight: bold;
+    border: 1px solid #aaa;
+}
+
+._lelalist_link span em {
+    font-size: 12px !important;
+    font-weight: normal !important;
+    display: block;
+    text-align: center;
+}
+
+._lelalist_link:hover span {
+    display: block;
+}
+
+._lelalist_link.selected, ._lelalist_link:hover {
+    border: 1px solid #ff9900;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_CategoryDataSource" object="${categorydatasource}" path="/crud/categorydatasources" z="1TwvM8KqrGU2kZPJKdBJFuckImA=">
+        <field:display date="true" dateTimePattern="${categoryDataSource_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_CategoryDataSource_dateCreated" object="${categorydatasource}" z="gaqsXfqEbDcF86FBcCCSvO/6PYA="/>
+        <field:display date="true" dateTimePattern="${categoryDataSource_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_CategoryDataSource_dateModified" object="${categorydatasource}" z="nB7C07c2D/IkacC66wGBpoqYkUY="/>
+        <field:display field="category" id="s_com_lela_data_domain_entity_CategoryDataSource_category" object="${categorydatasource}" z="ynFWy+NJ+JVDJtzq3HxlP733pcE="/>
+        <field:display field="dataSourceType" id="s_com_lela_data_domain_entity_CategoryDataSource_dataSourceType" object="${categorydatasource}" z="OKUv7Z0a0BobNiC7/OElJHfmz+c="/>
+        <field:display field="dataSourceString" id="s_com_lela_data_domain_entity_CategoryDataSource_dataSourceString" object="${categorydatasource}" z="dSD/rVaNgzxEWoN3uoUdr2wvqlQ="/>
+        <field:display field="canCreate" id="s_com_lela_data_domain_entity_CategoryDataSource_canCreate" object="${categorydatasource}" z="fmy3q1fq5bruH218Z7fX0t/9pJA="/>
+        <field:display field="hasLelaId" id="s_com_lela_data_domain_entity_CategoryDataSource_hasLelaId" object="${categorydatasource}" z="BBYi8w52PptNb+/zXcjcu8M1r8M="/>
+        <field:display field="isPrimaryFromSource" id="s_com_lela_data_domain_entity_CategoryDataSource_isPrimaryFromSource" object="${categorydatasource}" z="oZuzu5B5EZxx/Bn5PTPcWZS/skw="/>
+        <field:display field="getAttributesFromSource" id="s_com_lela_data_domain_entity_CategoryDataSource_getAttributesFromSource" object="${categorydatasource}" z="89EGGmEKkEZsLyZha5Sy4XLba6o="/>
+        <field:display field="getImagesFromSource" id="s_com_lela_data_domain_entity_CategoryDataSource_getImagesFromSource" object="${categorydatasource}" z="J88NUwXXluEAMUio82KF6LMFMEc="/>
+        <field:display field="getDescriptionsFromSource" id="s_com_lela_data_domain_entity_CategoryDataSource_getDescriptionsFromSource" object="${categorydatasource}" z="leCeuB/V/+XhaGJDLWu8kqPVOgU="/>
+        <field:display field="useCategoryDataSourceMap" id="s_com_lela_data_domain_entity_CategoryDataSource_useCategoryDataSourceMap" object="${categorydatasource}" z="2FJCQSjW88/RnkfJtK/IL4tToRM="/>
+        <field:display field="allowCategoryChange" id="s_com_lela_data_domain_entity_CategoryDataSource_allowCategoryChange" object="${categorydatasource}" z="14r34j5Tr1NaAECGmzCpMowYuOk="/>
+    </page:show>
+</div>

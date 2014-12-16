@@ -1,0 +1,45 @@
+<!--
+~ Copyright (c) 2012. Lela.com
+-->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <tiles:importAttribute name="category" ignore="true"/>
+    <tiles:importAttribute name="currentDepartment" ignore="true"/>
+    <tiles:importAttribute name="navGroup" ignore="true"/>
+    <tiles:importAttribute name="selectedDepartment" ignore="true"/>
+
+    <c:if test="${categoryUrlName eq category.rlnm}">
+        <c:choose>
+            <c:when test="${fn:length(currentDepartment) > 0}">
+                <script type="text/javascript">
+                    $('#${currentDepartment}').addClass('selected-on');
+                </script>
+            </c:when>
+            <c:otherwise>
+                <c:if test="${selectedDepartment == 'false'}">
+                    <script type="text/javascript">
+                        $('#${navGroup.rlnm}').addClass('selected-on');
+                    </script>
+                    <c:set var="selectedDepartment" value="true" scope="session" />
+                </c:if>
+            </c:otherwise>
+        </c:choose>
+    </c:if>
+
+    <spring:url value="/${category.srlnm}/c?rlnm=${category.rlnm}&amp;drlnm=${navGroup.rlnm}" var="categoryUrl" />
+    <spring:message code="nav.cat.${category.rlnm}" var="categoryName" />
+    <li><a navGroup="${navGroup.rlnm}" rlnm="${category.rlnm}" href="${categoryUrl}" title="${categoryName}" class="${fn:length(navGroup.ctgrs) eq status.count ? 'no-line' : ''}">${categoryName}</a></li>
+
+</jsp:root>

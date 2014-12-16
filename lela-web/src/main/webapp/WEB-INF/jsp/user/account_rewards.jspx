@@ -1,0 +1,67 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <ul id="account-nav">
+        <li>
+            <!-- Left nav content -->
+            <tiles:insertTemplate template="/WEB-INF/jsp/user/account_nav.jspx" flush="true">
+            </tiles:insertTemplate>
+        </li>
+    </ul>
+    <div id="account-content">
+        <div id="lela-friendship" class="d-section">
+            <h2><spring:message code="user.account.overview.lela.friendship"/></h2>
+            <div id="lela-friend-img">
+                <spring:url value="/static/images/icons/lela_knowsme.gif" var="lelaKnowsMeImg" />
+                <img src="${lelaKnowsMeImg}" alt=""/>
+            </div>
+            <div id="lela-friend-status">
+                <lela:lelaBar value="${rewards.frndlvlnmbr}" format="text"/><br/>
+                <span id="lela-friend-since"><spring:message code="user.account.overview.friend.since"/> <lela:dateFormat date="${rewards.cdt}"/></span>
+            </div>
+            <div id="lela-friend-rebate">
+                <spring:message code="tag.lelebar.rebate.${rewards.frndlvlnmbr}"/><br/>
+                <a href="#"><spring:message code="user.account.rewards.get.more"/></a>
+            </div>
+        </div>
+        <div id="lela-rewards" class="d-section">
+            <h2><spring:message code="user.account.rewards.rewards"/></h2>
+            <div>
+                <table>
+                    <tr>
+                        <th><spring:message code="user.account.rewards.product.name"/></th>
+                        <th><spring:message code="user.account.rewards.purchase.date"/></th>
+                        <th><spring:message code="user.account.rewards.sale.price"/></th>
+                        <th><spring:message code="user.account.rewards.reward.ammount"/></th>
+                        <th><spring:message code="user.account.rewards.claim.date"/></th>
+                        <th><spring:message code="user.account.rewards.claim.status"/></th>
+                    </tr>
+                    <c:forEach var="reward" items="${rewards.rwrds}" varStatus="status">
+                        <tr>
+                            <td>${reward.prdctnm}</td>
+                            <td><lela:dateFormat date="${reward.prchsdt}"/></td>
+                            <td><fmt:formatNumber type="CURRENCY" value="${reward.slprc}"/></td>
+                            <td><fmt:formatNumber type="CURRENCY" value="${reward.rwrdamnt}"/></td>
+                            <td><lela:dateFormat date="${reward.clmdt}"/></td>
+                            <td><spring:message code="user.account.rewards.claim.status.${reward.clmstts}"/></td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

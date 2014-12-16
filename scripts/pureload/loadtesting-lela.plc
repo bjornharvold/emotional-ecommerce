@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PureLoad version="1.1">
+  <!--This document is automatically generated. Be careful when editing!-->
+  <Scenarios>
+    <Scenario Name="HTTP Session 0" LogicalNames="none">
+      <Distribution Type="none">
+        <Param Key="param.stop">1</Param>
+        <Param Key="param.points">4</Param>
+        <Param Key="param.instances">1</Param>
+        <Param Key="param.start">0</Param>
+        <Param Key="none.weight">0</Param>
+      </Distribution>
+      <Task Name="HttpInitTask" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpInitTask">
+        <TaskParameter Method="UserAgent">Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:7.0.1) Gecko/20100101 Firefox/7.0.1</TaskParameter>
+        <TaskParameter Method="contentTypes">text/</TaskParameter>
+        <TaskParameter Method="AuthUser"></TaskParameter>
+        <TaskParameter Method="AuthPw"></TaskParameter>
+        <TaskParameter Method="UseURLRewriting">false</TaskParameter>
+        <TaskParameter Method="PreIDPattern">;$sessionid$</TaskParameter>
+        <TaskParameter Method="LocalHost"></TaskParameter>
+        <TaskParameter Method="ProxyHost"></TaskParameter>
+        <TaskParameter Method="ProxyPort">-1</TaskParameter>
+        <TaskParameter Method="ProxyAuthUser"></TaskParameter>
+        <TaskParameter Method="ProxyAuthPw"></TaskParameter>
+        <TaskParameter Method="enableSSLProtocols"></TaskParameter>
+        <TaskParameter Method="enableSSLCipherSuites"></TaskParameter>
+        <TaskParameter Method="http10">false</TaskParameter>
+        <TaskParameter Method="kbps">-1</TaskParameter>
+      </Task>
+      <TaskSequence Name="/lela/" Instances="1" ExecCondition="none">
+        <Task Name="/lela/" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/</TaskParameter>
+          <TaskParameter Method="RequestParameters" />
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...les/quiz/quiz.css" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/styles/quiz/quiz.css</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...styles/global.css" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/styles/global.css</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...ancybox-1.3.4.css" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/fancybox/jquery.fancybox-1.3.4.css</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...nsform_custom.css" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/jqtransform/jqtransform_custom.css</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...styles/header.css" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/styles/header.css</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name=".../quiz/sliders.css" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/styles/quiz/sliders.css</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...fancybox-1.3.4.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/fancybox/jquery.fancybox-1.3.4.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...c/js/swfobject.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/swfobject.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...atic/js/global.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/global.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...jquery.blockUI.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/jquery.blockUI.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...ry.jqtransform.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/jqtransform/jquery.jqtransform.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...c/js/quiz/quiz.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/quiz/quiz.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...s/quiz/sliders.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/quiz/sliders.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...ery.easing.1.3.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/jquery.easing.1.3.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...s/jquery-1.6.2.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/jquery-1.6.2.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="/lela/quiz/answer" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/quiz/answer</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="_">1317831490897</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="image" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://www.google-analytics.com/__utm.gif</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="utmwv">5.1.7</KeyValue>
+            <KeyValue Key="utms">3</KeyValue>
+            <KeyValue Key="utmn">1751418908</KeyValue>
+            <KeyValue Key="utmhn">dev.lelaknows.com</KeyValue>
+            <KeyValue Key="utmcs">UTF-8</KeyValue>
+            <KeyValue Key="utmsr">1920x1200</KeyValue>
+            <KeyValue Key="utmsc">24-bit</KeyValue>
+            <KeyValue Key="utmul">en-us</KeyValue>
+            <KeyValue Key="utmje">1</KeyValue>
+            <KeyValue Key="utmfl">10.3 r183</KeyValue>
+            <KeyValue Key="utmdt">Lela : Home |</KeyValue>
+            <KeyValue Key="utmhid">1938466638</KeyValue>
+            <KeyValue Key="utmr">-</KeyValue>
+            <KeyValue Key="utmp">/lela/</KeyValue>
+            <KeyValue Key="utmac">UA-25440324-1</KeyValue>
+            <KeyValue Key="utmcc">__utma=121984670.873479367.1317069044.1317823513.1317831396.10;+__utmz=121984670.1317069044.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none);</KeyValue>
+            <KeyValue Key="utmu">H~</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="application" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://www.youtube.com/e/U4SjR7D6fCk</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="enablejsapi">1</KeyValue>
+            <KeyValue Key="amp;playerapiid">ytplayer</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+      </TaskSequence>
+      <TaskSequence Name="/lela/quiz/answer" Instances="1" ExecCondition="none">
+        <Task Name="application" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpPostBinaryContentTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/quiz/answer</TaskParameter>
+          <TaskParameter Method="ContentType">application/json; charset=UTF-8</TaskParameter>
+          <TaskParameter Method="Content">{"list":[{"questionUrlName":"whichdreamhousefeelsmostinvitingtoyou","answerKey":"3"}]}</TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="/lela/quiz/answer" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/quiz/answer</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="step">2</KeyValue>
+            <KeyValue Key="_">1317831499063</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+      </TaskSequence>
+      <TaskSequence Name="/lela/quiz/answer" Instances="1" ExecCondition="none">
+        <Task Name="application" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpPostBinaryContentTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/quiz/answer</TaskParameter>
+          <TaskParameter Method="ContentType">application/json; charset=UTF-8</TaskParameter>
+          <TaskParameter Method="Content">{"list":[{"questionUrlName":"whichofthefantasyvehicleswouldyouliketotakeoutforaspin","answerKey":"1"}]}</TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="/lela/quiz/answer" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/quiz/answer</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="step">2</KeyValue>
+            <KeyValue Key="_">1317831506403</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+      </TaskSequence>
+      <TaskSequence Name="/lela/quiz/answer" Instances="1" ExecCondition="none">
+        <Task Name="application" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpPostBinaryContentTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/quiz/answer</TaskParameter>
+          <TaskParameter Method="ContentType">application/json; charset=UTF-8</TaskParameter>
+          <TaskParameter Method="Content">{"list":[{"questionUrlName":"onanairplane","answerKey":"2"}]}</TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="application" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpPostBinaryContentTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/quiz/answer</TaskParameter>
+          <TaskParameter Method="ContentType">application/json; charset=UTF-8</TaskParameter>
+          <TaskParameter Method="Content">{"list":[{"questionUrlName":"idefinemygreatestsuccessinlife","answerKey":"5"}]}</TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="application" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpPostBinaryContentTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/quiz/answer</TaskParameter>
+          <TaskParameter Method="ContentType">application/json; charset=UTF-8</TaskParameter>
+          <TaskParameter Method="Content">{"list":[{"questionUrlName":"myshoppingphilosophy","answerKey":"8"}]}</TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="application" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpPostBinaryContentTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/quiz/answer</TaskParameter>
+          <TaskParameter Method="ContentType">application/json; charset=UTF-8</TaskParameter>
+          <TaskParameter Method="Content">{"list":[{"questionUrlName":"iwanttobelike","answerKey":"9"}]}</TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="application" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpPostBinaryContentTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/quiz/answer</TaskParameter>
+          <TaskParameter Method="ContentType">application/json; charset=UTF-8</TaskParameter>
+          <TaskParameter Method="Content">{"list":[{"questionUrlName":"selfindulgence","answerKey":"5"}]}</TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="/lela/quiz/answer" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/quiz/answer</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="step">3</KeyValue>
+            <KeyValue Key="_">1317831519587</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="image" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/images/quiz/personal_profile/p-profile-B13.png</TaskParameter>
+          <TaskParameter Method="RequestParameters" />
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="image" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/images/quiz/img_tip_profile.gif</TaskParameter>
+          <TaskParameter Method="RequestParameters" />
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+      </TaskSequence>
+      <TaskSequence Name="...category/stroller" Instances="1" ExecCondition="none">
+        <Task Name="...category/stroller" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/category/stroller</TaskParameter>
+          <TaskParameter Method="RequestParameters" />
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...styles/header.css" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/styles/header.css</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...ancybox-1.3.4.css" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/fancybox/jquery.fancybox-1.3.4.css</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...-ui/jquery-ui.css" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/jquery-ui/jquery-ui.css</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...styles/global.css" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/styles/global.css</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...nsform_custom.css" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/jqtransform/jqtransform_custom.css</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...fancybox-1.3.4.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/fancybox/jquery.fancybox-1.3.4.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...s/jquery-1.6.2.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/jquery-1.6.2.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...s/items/items.css" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/styles/items/items.css</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...js/items/items.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/items/items.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...y-ui/jquery-ui.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/jquery-ui/jquery-ui.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...ery.easing.1.3.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/jquery.easing.1.3.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...uery.quicksand.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/jquery.quicksand.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...jquery.blockUI.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/jquery.blockUI.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...atic/js/global.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/global.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...ry.jqtransform.js" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/static/js/plugins/jqtransform/jquery.jqtransform.js</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="ver">0.1.0-SNAPSHOT.r577</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="image" Instances="1" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://www.google-analytics.com/__utm.gif</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="utmwv">5.1.7</KeyValue>
+            <KeyValue Key="utms">5</KeyValue>
+            <KeyValue Key="utmn">688748997</KeyValue>
+            <KeyValue Key="utmhn">dev.lelaknows.com</KeyValue>
+            <KeyValue Key="utmcs">UTF-8</KeyValue>
+            <KeyValue Key="utmsr">1920x1200</KeyValue>
+            <KeyValue Key="utmsc">24-bit</KeyValue>
+            <KeyValue Key="utmul">en-us</KeyValue>
+            <KeyValue Key="utmje">1</KeyValue>
+            <KeyValue Key="utmfl">10.3 r183</KeyValue>
+            <KeyValue Key="utmdt">Lela : Item List |</KeyValue>
+            <KeyValue Key="utmhid">1979723679</KeyValue>
+            <KeyValue Key="utmr">-</KeyValue>
+            <KeyValue Key="utmp">/lela/category/stroller</KeyValue>
+            <KeyValue Key="utmac">UA-25440324-1</KeyValue>
+            <KeyValue Key="utmcc">__utma=121984670.873479367.1317069044.1317823513.1317831396.10;+__utmz=121984670.1317069044.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none);</KeyValue>
+            <KeyValue Key="utmu">H~</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+        <Task Name="...category/stroller" Instances="1000" Class="com.pureload.task.tasks.newhttp.HttpGetTask">
+          <TaskParameter Method="Timeout">-1</TaskParameter>
+          <TaskParameter Method="ReportResult">true</TaskParameter>
+          <TaskParameter Method="URL">http://dev.lelaknows.com:8080/lela/category/stroller</TaskParameter>
+          <TaskParameter Method="RequestParameters">
+            <KeyValue Key="page">0</KeyValue>
+            <KeyValue Key="size">12</KeyValue>
+          </TaskParameter>
+          <TaskParameter Method="ResponseCode">200</TaskParameter>
+          <TaskParameter Method="ExtractVariables"></TaskParameter>
+        </Task>
+      </TaskSequence>
+    </Scenario>
+  </Scenarios>
+  <ParameterGenerators />
+  <WorkerManagers>
+    <Manager HostName="localhost">
+      <Worker Threads="1" LogicalNames="none" Threading="normal" Ratio="10" Delay="60" />
+    </Manager>
+  </WorkerManagers>
+</PureLoad>
+

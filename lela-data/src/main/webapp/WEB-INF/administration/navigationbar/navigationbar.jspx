@@ -1,0 +1,89 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="link.view" var="view"/>
+    <spring:message code="link.edit" var="edit"/>
+    <spring:message code="link.delete" var="delete"/>
+
+    <h1><spring:message code="page.admin.navigationbar.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/navigationbar/list" var="navigationBarListUrl"/>
+        <a class="action" href="${navigationBarListUrl}">&lt; <spring:message code="navigationbar.back.to.list"/> </a>
+
+        <spring:url value="/administration/navigationbar/form" var="editNavigationBarUrl">
+            <spring:param name="urlName" value="${navigationBar.rlnm}"/>
+        </spring:url>
+        <a class="action" href="${editNavigationBarUrl}"><spring:message code="link.edit"/></a>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <h3><spring:message code="navigationbar.overview"/></h3>
+
+    <div id="account-details">
+        <dl>
+            <dt><spring:message code="navigationbar.url.name"/></dt>
+            <dd>${navigationBar.rlnm}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="navigationbar.default"/></dt>
+            <dd>${navigationBar.dflt}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="navigationbar.locale"/></dt>
+            <dd>${navigationBar.lcl}</dd>
+        </dl>
+    </div>
+
+    <hr/>
+
+    <div class="actions">
+        <spring:url value="/administration/navigationbar/${navigationBar.rlnm}/categorygroup/form" var="newUrl"/>
+        <a class="action" href="${newUrl}"><spring:message code="categorygroup.create.entry"/> </a>
+        <div class="clear"><!-- --></div>
+    </div>
+    <h3><spring:message code="categorygroup.list.title"/></h3>
+    <c:if test="${empty navigationBar.grps}">
+        <spring:message code="categorygroup.list.empty"/>
+    </c:if>
+
+    <c:if test="${not empty navigationBar.grps}">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th width="20%"><spring:message code="categorygroup.parent"/></th>
+                <th width="20%"><spring:message code="categorygroup.name"/></th>
+                <th width="20%"><spring:message code="categorygroup.url.name"/></th>
+                <th width="20%"><spring:message code="categorygroup.seo.url.name"/></th>
+                <th width="5%"><spring:message code="categorygroup.order"/></th>
+                <th width="10%"><spring:message code="categorygroup.status"/></th>
+                <th width="10%"><spring:message code="categorygroup.children"/></th>
+                <th width="10%">&#160;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:set var="categoryGroupList" value="${navigationBar.grps}" scope="request"/>
+            <jsp:include page="categorygroop_loop.jspx" flush="true"/>
+            </tbody>
+        </table>
+    </c:if>
+</div>

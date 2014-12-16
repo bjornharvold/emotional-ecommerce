@@ -1,0 +1,74 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+<jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+<spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+<spring:url value="/list/store" var="lelaStoreUrl" />
+<spring:url value="/user/list/card/delete" var="lelaStoreDeleteUrl" />
+
+    <lela:findUser/>
+
+    <tiles:importAttribute name="branches" ignore="true"/>
+
+    <c:forEach var="store" items="${branches.stores}" varStatus="storeStatus">
+
+        <div class="lela-stores-item">
+
+            <c:if test="${empty domainAffiliate or domainAffilate.shwlsts}">
+            <a rel="nofollow" href="${lelaStoreDeleteUrl}" method="POST" rlnm="${store.store.rlnm}" class="added-to-faves l-remove-online remove-now l-list ${loggedInUser eq 'anonymousUser' or (loggedInUser != 'anonymousUser' and empty us.savedStores[store.store.rlnm]) ? 'hidden' : ''}"><!-- --></a>
+            <a rel="nofollow" href="${lelaStoreUrl}" method="PUT" rlnm="${store.store.rlnm}" class="add-to-faves l-add-online save-now l-list ${loggedInUser != 'anonymousUser' and !empty us.savedStores[store.store.rlnm] ? 'hidden' : ''}"><!-- --></a>
+            </c:if>
+
+            <spring:url var="storeUrl" value="/${store.store.srlnm}/s?rlnm=${store.store.rlnm}" />
+
+            <div class="img-container">
+                <a href="${storeUrl}"><img src="${store.store.lgrl}" /></a>
+            </div>
+            <div class="store-info">
+                ${store.store.nm}<br/>
+
+                ${store.branchDistance.branch.ddrss}<br/>
+                ${store.branchDistance.branch.cty}, ${store.branchDistance.branch.st} ${store.branchDistance.branch.zp}<br/>
+                <fmt:formatNumber type="number" maxFractionDigits="2"  value="${store.branchDistance.distance}" />${nbsp}<spring:message code="item.where.buy.miles" htmlEscape="false"/>
+
+            </div>
+            <div class="store-categories">
+                <c:set var="catSize" value="${fn:length(store.categories) - 1}"/>
+                <h4><a href="${storeUrl}"><spring:message code="button.view.all" />${nbsp}(${store.cnt})</a></h4>
+
+                <c:forEach var="cat" items="${store.categories}" varStatus="catStatus" begin="0" end="10">
+                    <spring:url var="catUrl" value="/${store.store.srlnm}/${cat.category.srlnm}/s?rlnm=${store.store.rlnm}&amp;crlnm=${cat.category.rlnm}" />
+                    <c:choose>
+                        <c:when test="${catStatus.index lt catSize}">
+                            <a href="${catUrl}"><spring:message code="nav.cat.${cat.category.rlnm}" /> (${cat.count})</a>,
+                        </c:when>
+                        <c:otherwise>
+                            <a href="${catUrl}"><spring:message code="nav.cat.${cat.category.rlnm}" /> (${cat.count})</a>
+                        </c:otherwise>
+                    </c:choose>
+                    <c:set var="catNo" value="${catStatus.index}" />
+                </c:forEach>
+                <c:if test="${catNo != catSize}"><a href="${storeUrl}"><spring:message code="item.stores.more" /></a></c:if>
+            </div>
+
+        </div>
+
+    </c:forEach>
+
+
+
+</jsp:root>

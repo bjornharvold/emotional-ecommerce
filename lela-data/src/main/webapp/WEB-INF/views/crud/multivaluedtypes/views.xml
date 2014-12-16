@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="crud/multivaluedtypes/list">
+        <put-attribute name="body" value="/WEB-INF/views/crud/multivaluedtypes/list.jspx"/>
+    </definition>
+<definition extends="default" name="crud/multivaluedtypes/show">
+        <put-attribute name="body" value="/WEB-INF/views/crud/multivaluedtypes/show.jspx"/>
+    </definition>
+<definition extends="default" name="crud/multivaluedtypes/create">
+        <put-attribute name="body" value="/WEB-INF/views/crud/multivaluedtypes/create.jspx"/>
+    </definition>
+<definition extends="default" name="crud/multivaluedtypes/update">
+        <put-attribute name="body" value="/WEB-INF/views/crud/multivaluedtypes/update.jspx"/>
+    </definition>
+</tiles-definitions>

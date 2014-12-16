@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_DesignStyleMotivator" object="${designstylemotivator}" path="/crud/designstylemotivators" z="qYjl0wnvIi+pWwF/+DhYYXmqId0=">
+        <field:display date="true" dateTimePattern="${designStyleMotivator_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_DesignStyleMotivator_dateCreated" object="${designstylemotivator}" z="F5NS+Bn9m8Wh6Ero/rQlhFYerqY="/>
+        <field:display date="true" dateTimePattern="${designStyleMotivator_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_DesignStyleMotivator_dateModified" object="${designstylemotivator}" z="uaOdEAb5hEZVs2fx/buWzuL8JHE="/>
+        <field:display field="category" id="s_com_lela_data_domain_entity_DesignStyleMotivator_category" object="${designstylemotivator}" z="N9NjEMazfUx8nrK8yMG+LkMEjoQ="/>
+        <field:display field="designStyle" id="s_com_lela_data_domain_entity_DesignStyleMotivator_designStyle" object="${designstylemotivator}" z="Ly3CPCdY4g3L0qP2E4xPT02m0ZA="/>
+        <field:display field="h" id="s_com_lela_data_domain_entity_DesignStyleMotivator_h" object="${designstylemotivator}" z="NjJL21CmKoLsC9qW9PjhxXf/3zo="/>
+        <field:display field="i" id="s_com_lela_data_domain_entity_DesignStyleMotivator_i" object="${designstylemotivator}" z="MGjD7wtED4xYD1AVttrCCDZr4Yo="/>
+        <field:display field="j" id="s_com_lela_data_domain_entity_DesignStyleMotivator_j" object="${designstylemotivator}" z="pA/+Kh8psu9LEOJu8Sjn8hAuNDA="/>
+        <field:display field="k" id="s_com_lela_data_domain_entity_DesignStyleMotivator_k" object="${designstylemotivator}" z="cqNxy/NMAhLhWCNUitI0p+p2hmQ="/>
+        <field:display field="l" id="s_com_lela_data_domain_entity_DesignStyleMotivator_l" object="${designstylemotivator}" z="3USoxV6RqufJIRICwV1g4d/UCuQ="/>
+    </page:show>
+</div>

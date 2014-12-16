@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="mapper" class="org.dozer.DozerBeanMapper">
+        <property name="mappingFiles">
+            <list>
+                <value>dozer-bean-mappings.xml</value>
+            </list>
+        </property>
+        <!--
+        <property name="customConverters">
+            <list>
+                <bean class="com.tps.tpi.converter.AddressConverter">
+                    <property name="dao" ref="addressDao"/>
+                    <property name="mapper" ref="mapper"/>
+                </bean>
+            </list>
+        </property>
+        -->
+    </bean>
+
+</beans>

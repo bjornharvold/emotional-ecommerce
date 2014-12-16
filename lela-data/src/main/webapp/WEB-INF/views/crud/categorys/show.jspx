@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Category" object="${category}" path="/crud/categorys" z="O38p4IVsH6mWFhAvsC5SJODoyMQ=">
+        <field:display date="true" dateTimePattern="${category_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Category_dateCreated" object="${category}" z="jOUJlGGfIZ0s55y/U68D5lmdsR0="/>
+        <field:display date="true" dateTimePattern="${category_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Category_dateModified" object="${category}" z="Ui4RSDxTwPXSrO+qtk0PnM8KwAo="/>
+        <field:display field="dataSourceType" id="s_com_lela_data_domain_entity_Category_dataSourceType" object="${category}" z="AwIOHZrLs0GLkblvVXodfo4rF8o="/>
+        <field:display field="categoryCategoryGroup" id="s_com_lela_data_domain_entity_Category_categoryCategoryGroup" object="${category}" z="Cr/EY4UuVc+lTUpgmIx71Tv2oiA="/>
+        <field:display field="categoryName" id="s_com_lela_data_domain_entity_Category_categoryName" object="${category}" z="aySx/HE/j7A3QksQ2MfR4MnvrD4="/>
+        <field:display field="categoryOrder" id="s_com_lela_data_domain_entity_Category_categoryOrder" object="${category}" z="smSwPeH1AYUTWqvRBd9syRtEpkM="/>
+        <field:display field="urlname" id="s_com_lela_data_domain_entity_Category_urlname" object="${category}" z="nZH1nnNxLqp0okAHa+H/35u8QDQ="/>
+        <field:display field="lelaUrl" id="s_com_lela_data_domain_entity_Category_lelaUrl" object="${category}" z="V2wU34PXMFFsapdkkHyrIm+8tZ0="/>
+        <field:display field="categoryObjectId" id="s_com_lela_data_domain_entity_Category_categoryObjectId" object="${category}" z="OWj0YrXsgPWO9jsebKB9uT06Lls="/>
+        <field:display field="catalogKey" id="s_com_lela_data_domain_entity_Category_catalogKey" object="${category}" z="zE5jGpMS0PkUkYZTZZ0awJLX/Lg="/>
+        <field:display field="categoryNavbar" id="s_com_lela_data_domain_entity_Category_categoryNavbar" object="${category}" z="QWJzOyoNDS6bc4XcFLBBrNA1SXE="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_Category_dirty" object="${category}" z="HfNhgG1uPPwdX/j8yyKAVrc4e54="/>
+        <field:display field="objectId" id="s_com_lela_data_domain_entity_Category_objectId" object="${category}" z="cs8JkGb10/8BwFs+7fD9CY9BG8A="/>
+        <field:display field="dataSourceString" id="s_com_lela_data_domain_entity_Category_dataSourceString" object="${category}" z="Z3sQ5YZm7w2pOpoklgfOgegk3L4="/>
+        <field:display field="visible" id="s_com_lela_data_domain_entity_Category_visible" object="${category}" z="WlZs92T/thBEEmabtf6SuoI5XxY="/>
+        <field:display field="enableBrandFilter" id="s_com_lela_data_domain_entity_Category_enableBrandFilter" object="${category}" z="swFmo+GLKrhkb14Ww0zPsrFUCUY="/>
+        <field:display field="enableBrandAveragedMotivators" id="s_com_lela_data_domain_entity_Category_enableBrandAveragedMotivators" object="${category}" z="iSLlL1TYCg1M5OnA2gsXcDSGOW8="/>
+        <field:display field="retentionLimitMonths" id="s_com_lela_data_domain_entity_Category_retentionLimitMonths" object="${category}" z="/Ih3iWMo9kPersb70CUS4nFn6Rs="/>
+    </page:show>
+</div>

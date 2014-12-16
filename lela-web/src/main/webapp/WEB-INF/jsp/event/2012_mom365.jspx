@@ -1,0 +1,104 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+
+    <spring:url value="/event/${event.rlnm}" var="redirectUrl" />
+    <spring:url value="/login?rt=${redirectUrl}" var="loginUrl" />
+    <spring:url value="/register?rt=${redirectUrl}" var="registerUrl" />
+    <spring:url value="/event/${event.rlnm}/agree" var="termsUrl" />
+    <spring:url value="/static/styles/events/${event.rlnm}.css" var="cssUrl"/>
+    <link href="${cssUrl}" type="text/css" rel="stylesheet"/>
+
+    <c:set var="userEvent" value="false"/>
+    <c:if test="${loggedInUser != 'anonymousUser'}">
+        <c:forEach items="${us.vnts}" var="currentEvent">
+            <c:if test="${currentEvent.rlnm eq event.rlnm}">
+                <c:set var="userEvent" value="true"/>
+            </c:if>
+        </c:forEach>
+    </c:if>
+
+    <div id="ev-main">
+
+        <div id="ev-before" class="${userEvent eq true ? 'hidden' : ''}">
+            <h1>Win a <strong>$500 Shopping Spree</strong><br/>from your Lela List</h1>
+            <h2><strong>Plus!</strong> 100 winners receive a Baby Onesie!</h2>
+
+
+            <div class="instructions">
+                <h3>How it works:</h3>
+                <p><a href="${loginUrl}">Login</a> or <a href="${registerUrl}">Signup</a> and create your profile with Lela</p>
+                <p>Add the items you want to win to your Lela List by clicking the hearts
+                    <spring:url var="hearImgUrl" value="/static/images/events/holiday2012/sample_fave_hearts.png"/>
+                    <img id="heart" src="${hearImgUrl}" style="vertical-align: top; margin-left: 15px; margin-top: 15px;"/>
+                </p>
+
+            </div>
+
+
+            <div id="terms-form">
+                <label><input type="checkbox" value="1" name="terms-agree" id="terms-agree"/>
+                    <span class="label-text">I agree with the <a href="#event-terms" class="l-terms">Terms &amp; Conditions</a></span></label>
+
+                <div class="ev-actions">
+                    <span id="terms-lk-disabled">Sign Up or Login</span>
+                    <a href="${termsUrl}" id="terms-lk">Sign Up or Login</a>
+                </div>
+
+                <p class="end-date">Contest ends 11:59 PST, December 16, 2012</p>
+            </div>
+        </div>
+        <div id="ev-after" class="${userEvent eq true ? '' : 'hidden'}">
+
+            <h1 style="margin-top: 60px;">Thank you!</h1>
+            <h2>You've been entered to win!</h2>
+
+
+            <div class="instructions" style="margin-top: 20px;">
+                <p style="width: 500px; text-align: center;">Now you need to create your Lela list.</p>
+                <p style="width: 500px; text-align: center;">Add the items you want to win<br/>to your Lela List by clicking the hearts:</p>
+                <spring:url var="tiles2Img" value="/static/images/events/holiday2012/sample_fave_tiles_2.png" />
+                <p style="width: 500px; text-align: center;"><img src="${tiles2Img}" /></p>
+                <p style="width: 500px; margin-bottom: 0px; text-align: center;">What's first on your list?</p>
+
+                <spring:url var="babyUrl" value="/Baby/d?rlnm=baby" />
+                <spring:url var="toysUrl" value="/Toys/d?rlnm=toys" />
+                <spring:url var="electronicsUrl" value="/Electronics/d?rlnm=electronics" />
+
+                <p style="width: 500px; text-align: center;">
+                    <a href="${babyUrl}">Shop Baby</a> | <a href="${toysUrl}">Shop Toys</a> | <a href="${electronicsUrl}">Shop Electronics</a>
+                </p>
+
+                <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"><!-- --></script>
+                <script type="text/javascript">
+                    stLight.options({publisher:'f780c832-2c8e-4a0e-8494-6cf43f8b1ef8'});
+                </script>
+            </div>
+
+        </div>
+
+        <div style="display:none;">
+            <div id="event-terms">
+                <h3>${event.nm} - Terms and Conditions</h3>
+                ${event.trms}
+            </div>
+        </div>
+
+    </div>
+</jsp:root>

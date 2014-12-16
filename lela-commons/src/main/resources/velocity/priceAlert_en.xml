@@ -1,0 +1,101 @@
+<!--
+~ Copyright (c) 2011. Purple Door Systems, BV.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Price Alert</title>
+    </head>
+
+    <body>
+
+        <div style="background:#efefef; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+            <table id="Table_01" width="680" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+                <tr>
+                    <td valign="top" width="135" style="padding: 20px 5px 0 20px;">
+                        <a href="" style="padding-right: 5px;"><img src="${baseUrl}/static/images/emails/alert_logo.gif" width="61" height="68" alt="Lela.com" align="top" border="0"/></a>
+                        <img src="${baseUrl}/static/images/emails/alert_icon.gif" width="61" height="61" alt="Lela.com" border="0" align="top"/>
+                    </td>
+                    <td valign="top">
+                        <div style="color:#333333; font-size:27px; line-height:27px; text-align:left; padding:56px 0 0 0;">
+                            Good news:
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div style="color:#333333; font-size:27px; line-height:32px; text-align:left; padding:10px 20px 20px 90px;">
+                            <strong>The price for <a href="${baseUrl}/${item.srlnm}/p?rlnm=${item.rlnm}" style="color: #ff9900; text-decoration: none;">${item.nm}</a> has dropped below $number.currency(${priceAlert.prc})!</strong>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table style="margin: 20px 0 40px 90px;">
+                            <tr>
+                                <td style="padding-right: 25px;" valign="top">
+                                    <a href="${baseUrl}/${item.srlnm}/p?rlnm=${item.rlnm}" style="position: relative; display: block;">
+
+                                        #if( $itemRelevancy > 1 )
+                                            <img src="${baseUrl}/static/images/icons/rating/relevancy_meter_${itemRelevancy}.png" style="display: block; position: absolute; top:0; left: 0; width: 35px;"/>
+                                        #end
+
+                                        <img src="${item.clrs[0].sz['large']}" alt="${item.nm}" width="240px;" style="border: 1px solid #d2cccc"/>
+                                    </a>
+                                </td>
+                                <td style="padding-right: 25px;" valign="top">
+
+                                    <strong style="font-size: 18px;">Best Price</strong>
+                                    <span style="color:#999; font-size: 12px; display: block;">as of September 27, 2012 1:07PM EST</span>
+
+                                    <p style="margin-top: 5px;"><strong style="font-size: 30px;">$number.currency(${item.subAttributes['LowestPrice']})</strong>
+
+                                        from <a href="${baseUrl}/merchant/redirect?merchantId=${item.subAttributes['MerchantId']}&amp;itemId=${item.rlnm}" style="color:#ff9900; text-decoration: none;">${item.subAttributes['MerchantName']}</a></p>
+
+                                    <p><a href="${baseUrl}/merchant/redirect?merchantId=${item.subAttributes['MerchantId']}&amp;itemId=${item.rlnm}"><img src="${baseUrl}/static/images/emails/alert_btn.png"/></a></p>
+
+
+                                    <p style="color: #999; font-size:12px; font-weight:bold; margin-top:20px;">Prices at other stores:</p>
+                                    <table cellpadding="0" cellspacing="0" border="0" style="font-size:12px;">
+                                        #foreach( $store in ${stores} )
+                                            #if ( $velocityCount < 4 )
+                                                <tr>
+                                                    <td style="padding: 0 20px 10px 0;"><a href="${baseUrl}/merchant/redirect?merchantId=${store.mrchntd}&amp;itemId=${item.rlnm}" style="color: #0065bf; text-decoration: none;">${store.nm}</a></td>
+                                                    <td style="padding: 0 10px 10px 0;">$number.currency(${store.tms[0].subAttributes['ListPrice']})</td>
+                                                </tr>
+                                            #end
+                                        #end
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" style="background: #333333; padding: 15px 20px; color: #fff; font-size: 12px;">
+                        <!-- PROVIDE PROPER IMG URL
+                        #if( ${us.mg['50']} != '' )
+                            <img src="${us.mg['50']}" style="float:left; display:block; margin-right:10px;"/>
+                        #end
+                        -->
+                        <span style="float:left;">This alert was added to your <a href="${baseUrl}/user/list" style="color:#ff9900; text-decoration: none;">Lela List</a> on $date.format('medium', ${priceAlert.dt})</span>
+                        <a href="${baseUrl}/user/list?alert=${item.rlnm}" style="float: right; color:#ff9900; text-decoration: none;">Manage this alert ></a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <p style="color:#635f5f; font-size:11px; padding:30px 20px; text-align:center;">
+                            Pricing and availability subject to <strong><a href="${baseUrl}/sc/terms" style="color:#d08310;">Terms of Use</a></strong>. *Prices change frequently. Go to stores for current price.<br/><br/>
+                            You received this email because you created a product alert with <strong><a href="" style="color:#d08310;">lela.com</a></strong> with the email address: ${to}. <br/>
+                            We respect your privacy. View our <strong><a href="${baseUrl}/sc/privacy" style="color:#d08310;">privacy policy</a></strong>.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

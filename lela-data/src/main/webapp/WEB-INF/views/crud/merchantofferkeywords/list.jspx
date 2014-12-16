@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_MerchantOfferKeyword" items="${merchantofferkeywords}" z="5DXjCi+3bKaKVVgsvxneGogz4VQ=">
+        <table:table data="${merchantofferkeywords}" id="l_com_lela_data_domain_entity_MerchantOfferKeyword" path="/crud/merchantofferkeywords" z="vT5bEIRy5YRo9MdORbwL+20FHG0=">
+            <table:column date="true" dateTimePattern="${merchantOfferKeyword_datecreated_date_format}" id="c_com_lela_data_domain_entity_MerchantOfferKeyword_dateCreated" property="dateCreated" z="WfGPLS8sCtRigORariikOm/2zpg="/>
+            <table:column date="true" dateTimePattern="${merchantOfferKeyword_datemodified_date_format}" id="c_com_lela_data_domain_entity_MerchantOfferKeyword_dateModified" property="dateModified" z="oZn0d2Wi/AEDmqLvoGCbgmVCW9k="/>
+            <table:column id="c_com_lela_data_domain_entity_MerchantOfferKeyword_category" property="category" z="kfM3+yTjA/HJMqWN9MgDm7Fr2OI="/>
+            <table:column id="c_com_lela_data_domain_entity_MerchantOfferKeyword_actionType" property="actionType" z="s+Lck/8zBvDY7bEfo0erIUgrXIo="/>
+            <table:column id="c_com_lela_data_domain_entity_MerchantOfferKeyword_offerKeyword" property="offerKeyword" z="f/lgLxstUCZDQQPbeLiReeiZ77A="/>
+        </table:table>
+    </page:list>
+</div>

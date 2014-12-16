@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_AttributeFormula" items="${attributeformulas}" z="Mr00/AocVFl6tgloYi+Im0693oo=">
+        <table:table data="${attributeformulas}" id="l_com_lela_data_domain_entity_AttributeFormula" path="/crud/attributeformulas" z="1sUyao+TDE9MRuu+UifvimXb+ts=">
+            <table:column date="true" dateTimePattern="${attributeFormula_datecreated_date_format}" id="c_com_lela_data_domain_entity_AttributeFormula_dateCreated" property="dateCreated" z="/MlhBwSGa5F35l1A7YF5/75zwSM="/>
+            <table:column date="true" dateTimePattern="${attributeFormula_datemodified_date_format}" id="c_com_lela_data_domain_entity_AttributeFormula_dateModified" property="dateModified" z="H99rW18H3J90t6jI5GfTUs6eFi0="/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeFormula_attributeType" property="attributeType" z="dM3sZcvwdlcTNLojJVR8YQn80nA="/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeFormula_category" property="category" z="OSfzEW8lG/Y5D8B/SfxBtW8026M="/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeFormula_selectClause" property="selectClause" z="U/zIv42R1DkfDO3X4or2wbgWmTI="/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeFormula_attributeFormulaAttributeTypes" property="attributeFormulaAttributeTypes" z="TL7pSQ2AaBkkQbuRe2Ztvbn+bJs="/>
+        </table:table>
+    </page:list>
+</div>

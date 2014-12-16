@@ -1,0 +1,2188 @@
+Ingestion workflow
+
+Create content producer and content producer role
+- /ingest/initialize
+- method: GET
+
+
+============================================= BEGIN: CATEGORY ==================================================
+
+Insert categories
+- /ingest/category 
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "nm":"Strollers",
+         "tld":"2",
+         "id":null,
+         "rdr":"1",
+         "rlnm":"stroller",
+         "ctlgky":"dzf9zud0kmw1scufr4eqzr601"
+      }
+   ]
+}
+
+Update categories
+- /ingest/category
+- method: PUT
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "nm":"Strollers",
+         "tld":"2",
+         "id":"4ec5376303644759be431f19",
+         "rdr":"1",
+         "rlnm":"stroller2",
+         "ctlgky":"dzf9zud0kmw1scufr4eqzr601"
+      }
+   ]
+}
+
+Delete categories
+- /ingest/category/remove
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "id":"4ec5376303644759be431f19"
+      }
+   ]
+}
+
+============================================= END: CATEGORY ==================================================
+============================================= BEGIN: FUNCTIONAL FILTER =======================================
+
+Insert functional filters
+- /ingest/functionalfilter
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+        "rlnm":"stroller",
+        "ky":"price.range",
+        "ptns":[
+           {
+              "ky":"high",
+              "rdr":2
+           },
+           {
+              "ky":"low",
+              "rdr":1
+           }
+        ],
+        "tp":"DYNAMIC_RANGE",
+        "lcl":"en_US",
+        "rdr":1,
+        "dtky":"ListPrice"
+     }
+   ]
+}
+
+Update functional filters
+- /ingest/functionalfilter
+- method: PUT
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+        "id":"4ec53e690364565ad441abe3",
+        "rlnm":"stroller",
+        "ky":"price.range",
+        "ptns":[
+           {
+              "ky":"high",
+              "rdr":2
+           },
+           {
+              "ky":"low",
+              "rdr":1
+           }
+        ],
+        "tp":"DYNAMIC_RANGE",
+        "lcl":"en_US",
+        "rdr":1,
+        "dtky":"ListPrice"
+     }
+   ]
+}
+
+Delete functional filters
+- /ingest/functionalfilter/remove
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "id":"4ec53e690364565ad441abe3"
+      }
+   ]
+}
+
+============================================= END: FUNCTIONAL FILTER =======================================
+============================================= BEGIN: ROLE ==================================================
+
+Insert roles
+- /ingest/role
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+        "rlnm":"appuser",
+        "nm":"Application user",
+        "rghts":["RIGHT_LOGIN_USER", "RIGHT_READ_USER", "RIGHT_UPDATE_USER", "RIGHT_INSERT_USER", "RIGHT_OAUTH_ACCESS"]
+     }
+   ]
+}
+
+Update roles
+- /ingest/role
+- method: PUT
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+        "id":"4ec53e690364565ad441abe3",
+        "rlnm":"appuser",
+        "nm":"Application user",
+        "rghts":["RIGHT_LOGIN_USER", "RIGHT_READ_USER", "RIGHT_UPDATE_USER", "RIGHT_INSERT_USER", "RIGHT_OAUTH_ACCESS"]
+     }
+   ]
+}
+
+Delete roles
+- /ingest/role/remove
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "id":"4ec53e690364565ad441abe3"
+      }
+   ]
+}
+
+============================================= END: ROLE ==================================================
+============================================= BEGIN: QUESTION ============================================
+
+Insert questions
+- /ingest/question
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{"list":[
+    {
+        "rlnm":"onanairplane",
+        "nm":"On an airplane?",
+        "nswrs":[
+            {
+                "nm":"I feel at peace",
+                "ky":"1",
+                "mtvtrs" : {
+                    "A":"1",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"2",
+                "mtvtrs" : {
+                    "A":"2",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"3",
+                "mtvtrs" : {
+                    "A":"3",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"4",
+                "mtvtrs" : {
+                    "A":"4",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"5",
+                "mtvtrs" : {
+                    "A":"5",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"6",
+                "mtvtrs" : {
+                    "A":"6",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"7",
+                "mtvtrs" : {
+                    "A":"7",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"8",
+                "mtvtrs" : {
+                    "A":"8",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":"I feel afraid",
+                "ky":"9",
+                "mtvtrs" : {
+                    "A":"9",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            }
+        ],
+        "tp":"SLIDER",
+        "grp":"2",
+        "lcl":"en_US",
+        "tld":"6"
+    }
+	]
+}
+
+Update question
+- /ingest/question
+- method: PUT
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{"list":[
+    {
+		"id":"4ec53e690364565ad441abe3",
+        "rlnm":"onanairplane",
+        "nm":"On an airplane?",
+        "nswrs":[
+            {
+                "nm":"I feel at peace",
+                "ky":"1",
+                "mtvtrs" : {
+                    "A":"1",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"2",
+                "mtvtrs" : {
+                    "A":"2",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"3",
+                "mtvtrs" : {
+                    "A":"3",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"4",
+                "mtvtrs" : {
+                    "A":"4",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"5",
+                "mtvtrs" : {
+                    "A":"5",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"6",
+                "mtvtrs" : {
+                    "A":"6",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"7",
+                "mtvtrs" : {
+                    "A":"7",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":null,
+                "ky":"8",
+                "mtvtrs" : {
+                    "A":"8",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            },
+            {
+                "nm":"I feel afraid",
+                "ky":"9",
+                "mtvtrs" : {
+                    "A":"9",
+                    "B":"0",
+                    "C":"0",
+                    "D":"0",
+                    "E":"0",
+                    "F":"0",
+                    "G":"0"
+                },
+                "mg":null
+            }
+        ],
+        "tp":"SLIDER",
+        "grp":"2",
+        "lcl":"en_US",
+        "tld":"6"
+    }
+	]
+}
+
+Delete questions
+- /ingest/question/remove
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "id":"4ec53e690364565ad441abe3"
+      }
+   ]
+}
+
+============================================= END: QUESTION ============================================
+============================================= BEGIN: OWNER ==================================================
+
+Insert owners
+- /ingest/owner
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "nm":"Abiie",
+         "tld":"1",
+         "rlnm":"abiie",
+         "id":null,
+         "attrs":[
+            {
+               "ky":"FacebookURL",
+               "vl":"https://graph.facebook.com/229616457048929"
+            },
+            {
+               "ky":"TwitterURL",
+               "vl":"http://twitter.com/myabiie"
+            },
+            {
+               "ky":"TwitterName",
+               "vl":"@myabiie"
+            },
+            {
+               "ky":"FacebookLikes",
+               "vl":"1092"
+            },
+            {
+               "ky":"TwitterFollowers",
+               "vl":"431"
+            },
+            {
+               "ky":"PopshopsBrandID",
+               "vl":"867975"
+            }
+         ]
+      }
+   ]
+}
+
+Update owners
+- /ingest/owner
+- method: PUT
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+		"id":"4ec53e690364565ad441abe3",
+         "nm":"Abiie",
+         "tld":"1",
+         "rlnm":"abiie",
+         "id":null,
+         "attrs":[
+            {
+               "ky":"FacebookURL",
+               "vl":"https://graph.facebook.com/229616457048929"
+            },
+            {
+               "ky":"TwitterURL",
+               "vl":"http://twitter.com/myabiie"
+            },
+            {
+               "ky":"TwitterName",
+               "vl":"@myabiie"
+            },
+            {
+               "ky":"FacebookLikes",
+               "vl":"1092"
+            },
+            {
+               "ky":"TwitterFollowers",
+               "vl":"431"
+            },
+            {
+               "ky":"PopshopsBrandID",
+               "vl":"867975"
+            }
+         ]
+      }
+   ]
+}
+
+Delete owner
+- /ingest/owner/remove
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "id":"4ec53e690364565ad441abe3"
+      }
+   ]
+}
+
+============================================= END: OWNER ==================================================
+============================================= BEGIN: BRANCH ==================================================
+
+Insert branches
+- /ingest/branch
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{ 
+	"list": [
+		{ 
+			"tld":"1",
+			"mrchntnm":"Bed Bath and Beyond",
+			"rlnm":"bedbathandbeyond-11107-1",
+			"mrchntd":"11107",
+			"strnmbr":"1",
+			"nm":"Springfield",
+			"cty":"Springfield",
+			"ddrss":"715 Morris Turnpike",
+			"st":"NJ",
+			"zp":"07081",
+			"pprvd":"false",
+			"attrs": [
+				{ 
+					"ky": "phn", 
+					"vl": "(973) 379-4203" }], 
+					"lc": [-74.329795, 40.718954]
+				}
+			]
+		}
+	]
+}
+
+Update branches
+- /ingest/branch
+- method: PUT
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{ 
+	"list": [
+		{ 
+			"tld":"1",
+			"id":"4ebafb319676e7735dd22e79",
+			"mrchntnm":"Bed Bath and Beyond",
+			"rlnm":"bedbathandbeyond-11107-1",
+			"mrchntd":"11107",
+			"strnmbr":"1",
+			"nm":"Springfield",
+			"cty":"Springfield",
+			"ddrss":"715 Morris Turnpike",
+			"st":"NJ",
+			"zp":"07081",
+			"pprvd":"false",
+			"attrs": [
+				{ 
+					"ky": "phn", 
+					"vl": "(973) 379-4203" }], 
+					"lc": [-74.329795, 40.718954]
+				}
+			]
+		}
+	]
+}
+
+Delete branches
+- /ingest/branch/remove
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "id":"4ec53e690364565ad441abe3"
+      }
+   ]
+}
+
+============================================= END: BRANCH ==================================================
+============================================= BEGIN: STORE ==================================================
+
+Insert stores
+- /ingest/store
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{ "list": [
+	{
+		"nm":"GoToBaby.com",
+		"tld":"68",
+		"rlnm":"gotobabycom",
+		"tp":["ONLINE"],
+		"tms":null,
+		"valid":true,
+		"mrchntd":"68",
+		"lgrl":"http://i.popshops.com/merchants/68-gotobaby-com.gif",
+		"mgqlty":null,
+		"ntwrkd":"1",
+		"pprvd":"true",
+		"rl":"http://r.popshops.com/r/NjIweGcvRGZmMUw3STVvekZZTkVFYUZHQ1hLaTdjN21RYlZPVDgwQUduND0K"
+	}]
+}
+
+Update stores
+- /ingest/store
+- method: PUT
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{ 
+	"list": [
+		{
+		"nm":"GoToBaby.com",
+		"tld":"68",
+		"rlnm":"gotobabycom",
+		"id":"4ebc436be2e892be154639d3",
+		"tp":["ONLINE"],
+		"tms":null,
+		"valid":true,
+		"mrchntd":"68",
+		"lgrl":"http://i.popshops.com/merchants/68-gotobaby-com.gif",
+		"mgqlty":null,
+		"ntwrkd":"1",
+		"pprvd":"true",
+		"rl":"http://r.popshops.com/r/NjIweGcvRGZmMUw3STVvekZZTkVFYUZHQ1hLaTdjN21RYlZPVDgwQUduND0K"
+		}
+	]
+}
+
+Delete store
+- /ingest/store/remove
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "id":"4ec53e690364565ad441abe3"
+      }
+   ]
+}
+
+============================================= END: STORE ==================================================
+============================================= BEGIN: ITEM ==================================================
+
+Insert items
+- /ingest/item
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{ "list": [
+	{ 
+	  "mtvtrs" : { "A" : 6,
+	    "B" : 6,
+	    "C" : 7,
+	    "D" : 8,
+	    "E" : 1,
+	    "F" : 9,
+	    "G" : 4 },
+	  "attrs" : [ 
+	    { "ky" : "ColorCount",
+	      "vl" : "5" }, 
+	    { "ky" : "Manufacturer" }, 
+	    { "grp" : "attribute.group.safetybuzzrecentrecalls",
+	      "grprdr" : 1,
+	      "ky" : "ProductModelName",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.brandbuzz",
+	      "sctnrdr" : 5,
+	      "vl" : "Tri-Mode EX" }, 
+	    { "ky" : "ProductModelNo" }, 
+	    { "ky" : "ProductImageUrl",
+	      "vl" : "http://lelaimages.s3.amazonaws.com/201111132244_rHkGyEaPbpjotjMJ.jpg" }, 
+	    { "ky" : "ProductUrl",
+	      "vl" : "http%3A%2F%2Fwww%2Evalcobaby%2Ecom%2Fproducts%2Fstrollers%2Fmodel%2Ftri%2Dmode%2Dex%2Ehtml" }, 
+	    { "ky" : "BestForTallParents",
+	      "vl" : "true" }, 
+	    { "ky" : "BestForInfants",
+	      "vl" : "true" }, 
+	    { "ky" : "BestForMultipleAgedChildren",
+	      "vl" : "true" }, 
+	    { "ky" : "BestForToddlersOlderKids",
+	      "vl" : "false" }, 
+	    { "ky" : "BestForGrowingFamily",
+	      "vl" : "true" }, 
+	    { "ky" : "BestForAirplaneTravel",
+	      "vl" : "false" }, 
+	    { "ky" : "BestForUrbanLiving",
+	      "vl" : "false" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "BestForSummary_1",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.overview",
+	      "sctnrdr" : 2,
+	      "vl" : "Tall Parents, Infants, Multiple Ages, Growing Family" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "BestForSummary_2",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Tall Parents, Infants, Multiple Ages, Growing Family" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "BestForSummary_3",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Tall Parents, Infants, Multiple Ages, Growing Family" }, 
+	    { "ky" : "ThingsMatterModernStyle",
+	      "vl" : "false" }, 
+	    { "ky" : "ThingsMatterSportyStyle",
+	      "vl" : "true" }, 
+	    { "ky" : "ThingsMatterInnovativeDesign",
+	      "vl" : "true" }, 
+	    { "ky" : "ThingsMatterLightweight",
+	      "vl" : "false" }, 
+	    { "ky" : "ThingsMatterEZManeuver",
+	      "vl" : "false" }, 
+	    { "ky" : "ThingsMatterCompact",
+	      "vl" : "false" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "ThingsMatterSummary_1",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.overview",
+	      "sctnrdr" : 2,
+	      "vl" : "Sporty Style, Innovative Design" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "ThingsMatterSummary_2",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Sporty Style, Innovative Design" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "ThingsMatterSummary_3",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Sporty Style, Innovative Design" }, 
+	    { "ky" : "NumberSeats_1",
+	      "vl" : "true" }, 
+	    { "ky" : "UPC",
+	      "vl" : "855484000103" }, 
+	    { "ky" : "GTIN" }, 
+	    { "ky" : "Country",
+	      "vl" : "Australia" }, 
+	    { "ky" : "JPMACertified",
+	      "vl" : "Y" }, 
+	    { "ky" : "ASTMF833Tested",
+	      "vl" : "Y" }, 
+	    { "ky" : "TUVTested",
+	      "vl" : "N" }, 
+	    { "ky" : "EN1888Tested",
+	      "vl" : "N" }, 
+	    { "ky" : "SOR85_379Tested",
+	      "vl" : "Y" }, 
+	    { "ky" : "CPSIA2008Tested",
+	      "vl" : "N" }, 
+	    { "grp" : "attribute.group.safety",
+	      "grprdr" : 6,
+	      "ky" : "SafetyCertification",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "JPMA Certified, ASTM F833 Tested, SOR 85-379 Tested" }, 
+	    { "ky" : "ConsumerReportsRated",
+	      "vl" : "Don't Buy - Safety Risk" }, 
+	    { "ky" : "CRSafety" }, 
+	    { "ky" : "RecallEvent",
+	      "vl" : "Y" }, 
+	    { "grp" : "attribute.group.safetybuzzrecentrecalls",
+	      "grprdr" : 1,
+	      "ky" : "RecallDate",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.brandbuzz",
+	      "sctnrdr" : 5,
+	      "vl" : "2010-10-06" }, 
+	    { "grp" : "attribute.group.safetybuzzrecentrecalls",
+	      "grprdr" : 1,
+	      "ky" : "RecallUnits",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.brandbuzz",
+	      "sctnrdr" : 5,
+	      "vl" : "12000" }, 
+	    { "grp" : "attribute.group.safetybuzzrecentrecalls",
+	      "grprdr" : 1,
+	      "ky" : "RecallHazard",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.brandbuzz",
+	      "sctnrdr" : 5,
+	      "vl" : "The opening between the grab bar and seat bottom of the stroller can allow an infant's body to pass through and become entrapped at the neck by the grab bar, posing a strangulation hazard to young children when a child is not harnessed. When using a stroller, parents and caregivers are encouraged always to secure children by using the safety harness and never to leave them unattended" }, 
+	    { "grp" : "attribute.group.safetybuzzrecentrecalls",
+	      "grprdr" : 1,
+	      "ky" : "RecallIncidentsInjuries",
+	      "rdr" : 5,
+	      "sctn" : "attribute.section.brandbuzz",
+	      "sctnrdr" : 5,
+	      "vl" : "None reported." }, 
+	    { "ky" : "RecallSeverity",
+	      "vl" : "Severe - No Injuries Reported" }, 
+	    { "ky" : "StrollerTypeTraditional",
+	      "vl" : "false" }, 
+	    { "ky" : "StrollerTypeMultiFunction",
+	      "vl" : "true" }, 
+	    { "ky" : "StrollerTypePrams",
+	      "vl" : "false" }, 
+	    { "ky" : "StrollerTypeLightwtUmbrella",
+	      "vl" : "false" }, 
+	    { "ky" : "StrollerTypeJogging",
+	      "vl" : "false" }, 
+	    { "ky" : "StrollerTypeAllTerrain",
+	      "vl" : "true" }, 
+	    { "ky" : "StrollerTypeMultiple",
+	      "vl" : "false" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "SummaryStrollerType_1",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.overview",
+	      "sctnrdr" : 2,
+	      "vl" : "Multi-function, All-terrain" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "SummaryStrollerType_2",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Multi-function, All-terrain" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "SummaryStrollerType_3",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Multi-function, All-terrain" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "NumberSeats",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.overview",
+	      "sctnrdr" : 2,
+	      "vl" : "1" }, 
+	    { "ky" : "Multiplekids",
+	      "vl" : "Yes with accessory" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "FootBoardPrice",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "NewbornToToddler",
+	      "vl" : "Y" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "Bassinet",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "BassinetPrice",
+	      "vl" : "180.00" }, 
+	    { "ky" : "BassinetAdaptorPrice" }, 
+	    { "grp" : "attribute.group.infantfeatures",
+	      "grprdr" : 7,
+	      "ky" : "RecliningSeat",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Full" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "CarSeatAdaptable",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "NumberOfCarSeatBrands",
+	      "vl" : "4" }, 
+	    { "ky" : "NumberOfCarSeatModels",
+	      "vl" : "4" }, 
+	    { "grp" : "attribute.group.carseats",
+	      "grprdr" : 5,
+	      "ky" : "CarSeatLists",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Graco (Snugride, Snugride 30, Snugride 32, Snugride 35, Infant SafeSeat), Peg Perego (Primo Viaggio SIP 30-30), Britax (B-Safe, Chaperone, Companion, Romer), Maxicosi (Pebble, Cabrio Fix, Citi SPS, Opal, Mico)" }, 
+	    { "grp" : "attribute.group.weightdimensions",
+	      "grprdr" : 10,
+	      "ky" : "WeightLbs",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "23 lbs" }, 
+	    { "grp" : "attribute.group.weightdimensions",
+	      "grprdr" : 10,
+	      "ky" : "MaximumWeightOfChildLbs",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "45 lbs" }, 
+	    { "ky" : "DimensionsInchesFull_W",
+	      "vl" : "26" }, 
+	    { "ky" : "DimensionsInchesFull_D",
+	      "vl" : "36" }, 
+	    { "ky" : "DimensionsInchesFull_H",
+	      "vl" : "44" }, 
+	    { "grp" : "attribute.group.weightdimensions",
+	      "grprdr" : 10,
+	      "ky" : "DimensionsInchesFull_HWD",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "44 x 26 x 36 inches" }, 
+	    { "ky" : "DimensionsInchesFolded_W",
+	      "vl" : "26" }, 
+	    { "ky" : "DimensionsInchesFolded_D",
+	      "vl" : "29" }, 
+	    { "ky" : "DimensionsInchesFolded_H",
+	      "vl" : "18" }, 
+	    { "grp" : "attribute.group.weightdimensions",
+	      "grprdr" : 10,
+	      "ky" : "DimensionsInchesFolded_HWD",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "18 x 26 x 29 inches" }, 
+	    { "grp" : "attribute.group.parentfeatures",
+	      "grprdr" : 3,
+	      "ky" : "FoldType",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Flat" }, 
+	    { "grp" : "attribute.group.fabric",
+	      "grprdr" : 5,
+	      "ky" : "ReplaceableFabric",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Removable Inserts Only" }, 
+	    { "grp" : "attribute.group.fabric",
+	      "grprdr" : 5,
+	      "ky" : "MachineWashable",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "No" }, 
+	    { "ky" : "ListPriceRange",
+	      "vl" : "$500-$650" }, 
+	    { "ky" : "ListPrice",
+	      "vl" : 500 }, 
+	    { "ky" : "SalePrice",
+	      "vl" : "500.00" }, 
+	    { "ky" : "NewModelDiscount",
+	      "vl" : "0" }, 
+	    { "ky" : "ResaleValue",
+	      "vl" : "None--New Product" }, 
+	    { "ky" : "NumberOfColorsOrPatternsAvailableNeon" }, 
+	    { "ky" : "NumberOfColorsOrPatternsAvailableVeryBrightOrPrimary",
+	      "vl" : "2" }, 
+	    { "ky" : "NumberOfColorsOrPatternsAvailableNeutralEarthTones",
+	      "vl" : "1" }, 
+	    { "ky" : "NumberOfColorsOrPatternsAvailableDeepBluePurples" }, 
+	    { "ky" : "NumberOfColorsOrPatternsAvailableGrayOrBlack",
+	      "vl" : "2" }, 
+	    { "ky" : "ManufacturerColor",
+	      "vl" : "Candy Apple, Hot Chocolate,Arctic, Raven, Brilliant Black" }, 
+	    { "grp" : "attribute.group.infantfeatures",
+	      "grprdr" : 7,
+	      "ky" : "RearForwardFacing",
+	      "rdr" : 5,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Forward Facing" }, 
+	    { "grp" : "attribute.group.wheels",
+	      "grprdr" : 8,
+	      "ky" : "FrontWheelMaterial",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Tread" }, 
+	    { "grp" : "attribute.group.wheels",
+	      "grprdr" : 8,
+	      "ky" : "FrontWheelType",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Swivel" }, 
+	    { "grp" : "attribute.group.wheels",
+	      "grprdr" : 8,
+	      "ky" : "BackWheelMaterial",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Tread" }, 
+	    { "grp" : "attribute.group.wheels",
+	      "grprdr" : 8,
+	      "ky" : "BackWheelType",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Fixed" }, 
+	    { "grp" : "attribute.group.parentfeatures",
+	      "grprdr" : 3,
+	      "ky" : "AdjustableHandle",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Yes" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "AdultCupHolder",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "AdultCupHolderPrice",
+	      "vl" : "20.00" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "ChildsFoodTray",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "ChildsFoodTrayPrice",
+	      "vl" : "20.00" }, 
+	    { "grp" : "attribute.group.kidfeatures",
+	      "grprdr" : 4,
+	      "ky" : "CushionedOrPaddedSeat",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Yes" }, 
+	    { "grp" : "attribute.group.weatherprotection",
+	      "grprdr" : 9,
+	      "ky" : "CanopyType",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Oversized" }, 
+	    { "grp" : "attribute.group.parentfeatures",
+	      "grprdr" : 3,
+	      "ky" : "PeekabooWindow",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Yes" }, 
+	    { "grp" : "attribute.group.kidfeatures",
+	      "grprdr" : 4,
+	      "ky" : "LegRest",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Fixed Leg Rest" }, 
+	    { "grp" : "attribute.group.kidfeatures",
+	      "grprdr" : 4,
+	      "ky" : "FootRest",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Y-Fixed" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "InfantHeadRest",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "ShoulderPads",
+	      "vl" : "Yes" }, 
+	    { "grp" : "attribute.group.stdaccessories",
+	      "grprdr" : 2,
+	      "ky" : "RainProtection",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Standard Accessory Included" }, 
+	    { "ky" : "RainProtectionPrice" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "UVProtection",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "UVProtectionPrice",
+	      "vl" : "20.00" }, 
+	    { "grp" : "attribute.group.parentfeatures",
+	      "grprdr" : 3,
+	      "ky" : "StorageBasket",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Large" }, 
+	    { "grp" : "attribute.group.safety",
+	      "grprdr" : 6,
+	      "ky" : "Harness",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "5 points" }, 
+	    { "grp" : "attribute.group.safety",
+	      "grprdr" : 6,
+	      "ky" : "OneTouchBrakesFoot",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Yes" }, 
+	    { "grp" : "attribute.group.safety",
+	      "grprdr" : 6,
+	      "ky" : "OneTouchBrakesHand",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "No" }, 
+	    { "ky" : "CREaseOfUse" }, 
+	    { "ky" : "CRManeuverability" }, 
+	    { "ky" : "CRFoldedSize" }, 
+	    { "ky" : "BestUses",
+	      "vl" : "All-Terrain,City,Jogging,Shopping,Travel,Walking" }, 
+	    { "ky" : "Extras" }, 
+	    { "grp" : "attribute.group.about",
+	      "grprdr" : 2,
+	      "ky" : "ProductOverview",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.overview",
+	      "sctnrdr" : 2,
+	      "vl" : "Valco Baby is a family owned and operated company from Australia.  The company has been manufacturing and distributing baby products for more than 30 years.  Within those 30 years there have been a lot of babies that have been born, many of them into the Valco Baby family.  What better way to truly test the products Valco Baby manufactures than among the employees and their families and friends.  Valco Baby offers a complete selection of strollers, which have a variety of accessories that grow and change with the consumers needs. The Tri-Mode is an all terrain stroller with a compact fold, allowing you to take it anywhere. From newborn to the toddler years this stroller will grow with your family. The stroller performs well in the city, rugged terrain and whatever the weather may bring.  This stroller offers flexibility to build and customize your package to benefit you and fit your lifestyle. Add the bassinet to make it a 3 wheel pram for newborn or the toddler seat to turn it into a stroller for two." }, 
+	    { "ky" : "FacebookURL",
+	      "vl" : "https://graph.facebook.com/ValcoBaby" }, 
+	    { "ky" : "BrandFacebookLikes",
+	      "vl" : "1646" }, 
+	    { "ky" : "TwitterName",
+	      "vl" : "@Valcobaby" }, 
+	    { "ky" : "TwitterURL",
+	      "vl" : "http://twitter.com/#!/valcobaby" }, 
+	    { "ky" : "BrandTwitterFollowers",
+	      "vl" : "723" }, 
+	    { "ky" : "BabiesRUSTopSelling",
+	      "vl" : "Not a Top Seller" }, 
+	    { "grp" : "attribute.group.bestrated",
+	      "grprdr" : 3,
+	      "ky" : "BabyGagaParentRating",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.ratingsandreview",
+	      "sctnrdr" : 1,
+	      "vl" : "NR" }, 
+	    { "grp" : "attribute.group.bestrated",
+	      "grprdr" : 3,
+	      "ky" : "BabyBargainsRating",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.ratingsandreview",
+	      "sctnrdr" : 1,
+	      "vl" : "A" }, 
+	    { "ky" : "BabyGagaDurability",
+	      "vl" : "NR" }, 
+	    { "ky" : "NAPPARecipient" }, 
+	    { "ky" : "JPMARecipient" }, 
+	    { "grp" : "attribute.group.bestrated",
+	      "grprdr" : 3,
+	      "ky" : "CROverallScore",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.ratingsandreview",
+	      "sctnrdr" : 1,
+	      "vl" : "0" }, 
+	    { "ky" : "CRComment" }, 
+	    { "grp" : "attribute.group.bestrated",
+	      "grprdr" : 3,
+	      "ky" : "BabiesRUsParentRating",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.ratingsandreview",
+	      "sctnrdr" : 1,
+	      "vl" : "NR" }, 
+	    { "ky" : "DesignStyle",
+	      "vl" : "Sporty - Stylized" }, 
+	    { "ky" : "MediaSpotlight",
+	      "vl" : "1-Mention (primarily blogs & web with some newspaper)" }, 
+	    { "ky" : "CelebritySightings",
+	      "vl" : "N" }, 
+	    { "ky" : "GiggleListed",
+	      "vl" : "N" }, 
+	    { "grp" : "attribute.group.bestrated",
+	      "grprdr" : 3,
+	      "ky" : "BabbleRecognition",
+	      "rdr" : 5,
+	      "sctn" : "attribute.section.ratingsandreview",
+	      "sctnrdr" : 1,
+	      "vl" : "2011 Readers Choice" }, 
+	    { "ky" : "BabyBargainsRecognition" } ],
+	  "clrs" : [ 
+	    { "hx" : "696B72",
+	      "nm" : "",
+	      "sz" : { "large" : "http://lelaimages.s3.amazonaws.com/201111132244_eoerJNkRCarNXHrR.jpg",
+	        "medium" : "http://lelaimages.s3.amazonaws.com/201111132244_IcSIihNDKFWgsJtE.jpg",
+	        "small" : "http://lelaimages.s3.amazonaws.com/201111132244_pXtUnmDWGJxnaSNO.jpg" } }, 
+	    { "hx" : "62595B",
+	      "nm" : "",
+	      "sz" : { "large" : "http://lelaimages.s3.amazonaws.com/201111132244_TyVTUKqpIqstUBoW.jpg",
+	        "medium" : "http://lelaimages.s3.amazonaws.com/201111132244_EtiYsgzvQvUagGKq.jpg",
+	        "small" : "http://lelaimages.s3.amazonaws.com/201111132244_BYTlMZqqByGfdwPT.jpg" } }, 
+	    { "hx" : "A12B43",
+	      "nm" : "",
+	      "sz" : { "medium" : "http://lelaimages.s3.amazonaws.com/201111132244_YmimeyGbHhguOpwo.jpg",
+	        "small" : "http://lelaimages.s3.amazonaws.com/201111132244_APEdeNSQWvJejxPm.jpg",
+	        "large" : "http://lelaimages.s3.amazonaws.com/201111132244_WVNaFoUluMRTqVFP.jpg" } }, 
+	    { "hx" : "49474B",
+	      "nm" : "",
+	      "sz" : { "large" : "http://lelaimages.s3.amazonaws.com/201111132244_zLkNTPHdSNFffOLt.jpg",
+	        "medium" : "http://lelaimages.s3.amazonaws.com/201111132244_TrbkFXGgKBIVbeAI.jpg",
+	        "small" : "http://lelaimages.s3.amazonaws.com/201111132244_ypynXgrFxWKftnEl.jpg" } }, 
+	    { "hx" : "4E4E56",
+	      "nm" : "",
+	      "sz" : { "large" : "http://lelaimages.s3.amazonaws.com/201111132244_EegxEasHsNcItiCA.jpg",
+	        "medium" : "http://lelaimages.s3.amazonaws.com/201111132244_drEBmuPsVtqkFddr.jpg",
+	        "small" : "http://lelaimages.s3.amazonaws.com/201111132244_wLHMfLZXGzCOKQCg.jpg" } } ],
+	  "ctgry" : { "ctlgky" : "dzf9zud0kmw1scufr4eqzr601",
+	    "nm" : "Strollers",
+	    "rdr" : 1,
+	    "rlnm" : "stroller",
+	    "tld" : 2 },
+	  "lcl" : "en_US",
+	  "mrchnts" : [ 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "214305502" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "214305503" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "214305504" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "214305505" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "372908751" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "476697141" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "476704332" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "476706833" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "476710970" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "524489353" } ],
+	  "nm" : "Tri-Mode EX",
+	  "rlnm" : "valcotrimodeex",
+	  "sbttrs" : [ 
+	    { "ky" : "Brand",
+	      "vl" : "Valco" }, 
+	    { "ky" : "ProductModelName",
+	      "vl" : "Tri-Mode EX" }, 
+	    { "ky" : "ListPrice",
+	      "vl" : 500 }, 
+	    { "ky" : "LowestPrice",
+	      "vl" : 449.99 }, 
+	    { "ky" : "ProductImageUrl",
+	      "vl" : "http://lelaimages.s3.amazonaws.com/201111132244_rHkGyEaPbpjotjMJ.jpg" } ],
+	  "tp" : "PRODUCT",
+	  "wnr" : { "attrs" : [ 
+	      { "ky" : "FacebookURL",
+	        "vl" : "https://graph.facebook.com/ValcoBaby" }, 
+	      { "ky" : "TwitterURL",
+	        "vl" : "http://twitter.com/#!/valcobaby" }, 
+	      { "ky" : "TwitterName",
+	        "vl" : "@Valcobaby" }, 
+	      { "ky" : "FacebookLikes",
+	        "vl" : "1646" }, 
+	      { "ky" : "TwitterFollowers",
+	        "vl" : "723" }, 
+	      { "ky" : "PopshopsBrandID",
+	        "vl" : "152676" } ],
+	    "nm" : "Valco",
+	    "rlnm" : "valco",
+	    "tld" : 40 },
+	  "tld" : 251,
+	  "cdt" : Date( 1321493224472 ),
+	  "ldt" : Date( 1321493224472 ) 
+	}
+	]
+}
+
+Update items
+- /ingest/item
+- method: PUT
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{ "list": [
+	{ 
+	  "id" : "4ec462e8c2d3fb9edb19e25c",
+	  "mtvtrs" : { "A" : 6,
+	    "B" : 6,
+	    "C" : 7,
+	    "D" : 8,
+	    "E" : 1,
+	    "F" : 9,
+	    "G" : 4 },
+	  "attrs" : [ 
+	    { "ky" : "ColorCount",
+	      "vl" : "5" }, 
+	    { "ky" : "Manufacturer" }, 
+	    { "grp" : "attribute.group.safetybuzzrecentrecalls",
+	      "grprdr" : 1,
+	      "ky" : "ProductModelName",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.brandbuzz",
+	      "sctnrdr" : 5,
+	      "vl" : "Tri-Mode EX" }, 
+	    { "ky" : "ProductModelNo" }, 
+	    { "ky" : "ProductImageUrl",
+	      "vl" : "http://lelaimages.s3.amazonaws.com/201111132244_rHkGyEaPbpjotjMJ.jpg" }, 
+	    { "ky" : "ProductUrl",
+	      "vl" : "http%3A%2F%2Fwww%2Evalcobaby%2Ecom%2Fproducts%2Fstrollers%2Fmodel%2Ftri%2Dmode%2Dex%2Ehtml" }, 
+	    { "ky" : "BestForTallParents",
+	      "vl" : "true" }, 
+	    { "ky" : "BestForInfants",
+	      "vl" : "true" }, 
+	    { "ky" : "BestForMultipleAgedChildren",
+	      "vl" : "true" }, 
+	    { "ky" : "BestForToddlersOlderKids",
+	      "vl" : "false" }, 
+	    { "ky" : "BestForGrowingFamily",
+	      "vl" : "true" }, 
+	    { "ky" : "BestForAirplaneTravel",
+	      "vl" : "false" }, 
+	    { "ky" : "BestForUrbanLiving",
+	      "vl" : "false" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "BestForSummary_1",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.overview",
+	      "sctnrdr" : 2,
+	      "vl" : "Tall Parents, Infants, Multiple Ages, Growing Family" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "BestForSummary_2",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Tall Parents, Infants, Multiple Ages, Growing Family" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "BestForSummary_3",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Tall Parents, Infants, Multiple Ages, Growing Family" }, 
+	    { "ky" : "ThingsMatterModernStyle",
+	      "vl" : "false" }, 
+	    { "ky" : "ThingsMatterSportyStyle",
+	      "vl" : "true" }, 
+	    { "ky" : "ThingsMatterInnovativeDesign",
+	      "vl" : "true" }, 
+	    { "ky" : "ThingsMatterLightweight",
+	      "vl" : "false" }, 
+	    { "ky" : "ThingsMatterEZManeuver",
+	      "vl" : "false" }, 
+	    { "ky" : "ThingsMatterCompact",
+	      "vl" : "false" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "ThingsMatterSummary_1",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.overview",
+	      "sctnrdr" : 2,
+	      "vl" : "Sporty Style, Innovative Design" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "ThingsMatterSummary_2",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Sporty Style, Innovative Design" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "ThingsMatterSummary_3",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Sporty Style, Innovative Design" }, 
+	    { "ky" : "NumberSeats_1",
+	      "vl" : "true" }, 
+	    { "ky" : "UPC",
+	      "vl" : "855484000103" }, 
+	    { "ky" : "GTIN" }, 
+	    { "ky" : "Country",
+	      "vl" : "Australia" }, 
+	    { "ky" : "JPMACertified",
+	      "vl" : "Y" }, 
+	    { "ky" : "ASTMF833Tested",
+	      "vl" : "Y" }, 
+	    { "ky" : "TUVTested",
+	      "vl" : "N" }, 
+	    { "ky" : "EN1888Tested",
+	      "vl" : "N" }, 
+	    { "ky" : "SOR85_379Tested",
+	      "vl" : "Y" }, 
+	    { "ky" : "CPSIA2008Tested",
+	      "vl" : "N" }, 
+	    { "grp" : "attribute.group.safety",
+	      "grprdr" : 6,
+	      "ky" : "SafetyCertification",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "JPMA Certified, ASTM F833 Tested, SOR 85-379 Tested" }, 
+	    { "ky" : "ConsumerReportsRated",
+	      "vl" : "Don't Buy - Safety Risk" }, 
+	    { "ky" : "CRSafety" }, 
+	    { "ky" : "RecallEvent",
+	      "vl" : "Y" }, 
+	    { "grp" : "attribute.group.safetybuzzrecentrecalls",
+	      "grprdr" : 1,
+	      "ky" : "RecallDate",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.brandbuzz",
+	      "sctnrdr" : 5,
+	      "vl" : "2010-10-06" }, 
+	    { "grp" : "attribute.group.safetybuzzrecentrecalls",
+	      "grprdr" : 1,
+	      "ky" : "RecallUnits",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.brandbuzz",
+	      "sctnrdr" : 5,
+	      "vl" : "12000" }, 
+	    { "grp" : "attribute.group.safetybuzzrecentrecalls",
+	      "grprdr" : 1,
+	      "ky" : "RecallHazard",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.brandbuzz",
+	      "sctnrdr" : 5,
+	      "vl" : "The opening between the grab bar and seat bottom of the stroller can allow an infant's body to pass through and become entrapped at the neck by the grab bar, posing a strangulation hazard to young children when a child is not harnessed. When using a stroller, parents and caregivers are encouraged always to secure children by using the safety harness and never to leave them unattended" }, 
+	    { "grp" : "attribute.group.safetybuzzrecentrecalls",
+	      "grprdr" : 1,
+	      "ky" : "RecallIncidentsInjuries",
+	      "rdr" : 5,
+	      "sctn" : "attribute.section.brandbuzz",
+	      "sctnrdr" : 5,
+	      "vl" : "None reported." }, 
+	    { "ky" : "RecallSeverity",
+	      "vl" : "Severe - No Injuries Reported" }, 
+	    { "ky" : "StrollerTypeTraditional",
+	      "vl" : "false" }, 
+	    { "ky" : "StrollerTypeMultiFunction",
+	      "vl" : "true" }, 
+	    { "ky" : "StrollerTypePrams",
+	      "vl" : "false" }, 
+	    { "ky" : "StrollerTypeLightwtUmbrella",
+	      "vl" : "false" }, 
+	    { "ky" : "StrollerTypeJogging",
+	      "vl" : "false" }, 
+	    { "ky" : "StrollerTypeAllTerrain",
+	      "vl" : "true" }, 
+	    { "ky" : "StrollerTypeMultiple",
+	      "vl" : "false" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "SummaryStrollerType_1",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.overview",
+	      "sctnrdr" : 2,
+	      "vl" : "Multi-function, All-terrain" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "SummaryStrollerType_2",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Multi-function, All-terrain" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "SummaryStrollerType_3",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Multi-function, All-terrain" }, 
+	    { "grp" : "attribute.group.overview",
+	      "grprdr" : 1,
+	      "ky" : "NumberSeats",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.overview",
+	      "sctnrdr" : 2,
+	      "vl" : "1" }, 
+	    { "ky" : "Multiplekids",
+	      "vl" : "Yes with accessory" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "FootBoardPrice",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "NewbornToToddler",
+	      "vl" : "Y" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "Bassinet",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "BassinetPrice",
+	      "vl" : "180.00" }, 
+	    { "ky" : "BassinetAdaptorPrice" }, 
+	    { "grp" : "attribute.group.infantfeatures",
+	      "grprdr" : 7,
+	      "ky" : "RecliningSeat",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Full" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "CarSeatAdaptable",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "NumberOfCarSeatBrands",
+	      "vl" : "4" }, 
+	    { "ky" : "NumberOfCarSeatModels",
+	      "vl" : "4" }, 
+	    { "grp" : "attribute.group.carseats",
+	      "grprdr" : 5,
+	      "ky" : "CarSeatLists",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Graco (Snugride, Snugride 30, Snugride 32, Snugride 35, Infant SafeSeat), Peg Perego (Primo Viaggio SIP 30-30), Britax (B-Safe, Chaperone, Companion, Romer), Maxicosi (Pebble, Cabrio Fix, Citi SPS, Opal, Mico)" }, 
+	    { "grp" : "attribute.group.weightdimensions",
+	      "grprdr" : 10,
+	      "ky" : "WeightLbs",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "23 lbs" }, 
+	    { "grp" : "attribute.group.weightdimensions",
+	      "grprdr" : 10,
+	      "ky" : "MaximumWeightOfChildLbs",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "45 lbs" }, 
+	    { "ky" : "DimensionsInchesFull_W",
+	      "vl" : "26" }, 
+	    { "ky" : "DimensionsInchesFull_D",
+	      "vl" : "36" }, 
+	    { "ky" : "DimensionsInchesFull_H",
+	      "vl" : "44" }, 
+	    { "grp" : "attribute.group.weightdimensions",
+	      "grprdr" : 10,
+	      "ky" : "DimensionsInchesFull_HWD",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "44 x 26 x 36 inches" }, 
+	    { "ky" : "DimensionsInchesFolded_W",
+	      "vl" : "26" }, 
+	    { "ky" : "DimensionsInchesFolded_D",
+	      "vl" : "29" }, 
+	    { "ky" : "DimensionsInchesFolded_H",
+	      "vl" : "18" }, 
+	    { "grp" : "attribute.group.weightdimensions",
+	      "grprdr" : 10,
+	      "ky" : "DimensionsInchesFolded_HWD",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "18 x 26 x 29 inches" }, 
+	    { "grp" : "attribute.group.parentfeatures",
+	      "grprdr" : 3,
+	      "ky" : "FoldType",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Flat" }, 
+	    { "grp" : "attribute.group.fabric",
+	      "grprdr" : 5,
+	      "ky" : "ReplaceableFabric",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Removable Inserts Only" }, 
+	    { "grp" : "attribute.group.fabric",
+	      "grprdr" : 5,
+	      "ky" : "MachineWashable",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "No" }, 
+	    { "ky" : "ListPriceRange",
+	      "vl" : "$500-$650" }, 
+	    { "ky" : "ListPrice",
+	      "vl" : 500 }, 
+	    { "ky" : "SalePrice",
+	      "vl" : "500.00" }, 
+	    { "ky" : "NewModelDiscount",
+	      "vl" : "0" }, 
+	    { "ky" : "ResaleValue",
+	      "vl" : "None--New Product" }, 
+	    { "ky" : "NumberOfColorsOrPatternsAvailableNeon" }, 
+	    { "ky" : "NumberOfColorsOrPatternsAvailableVeryBrightOrPrimary",
+	      "vl" : "2" }, 
+	    { "ky" : "NumberOfColorsOrPatternsAvailableNeutralEarthTones",
+	      "vl" : "1" }, 
+	    { "ky" : "NumberOfColorsOrPatternsAvailableDeepBluePurples" }, 
+	    { "ky" : "NumberOfColorsOrPatternsAvailableGrayOrBlack",
+	      "vl" : "2" }, 
+	    { "ky" : "ManufacturerColor",
+	      "vl" : "Candy Apple, Hot Chocolate,Arctic, Raven, Brilliant Black" }, 
+	    { "grp" : "attribute.group.infantfeatures",
+	      "grprdr" : 7,
+	      "ky" : "RearForwardFacing",
+	      "rdr" : 5,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Forward Facing" }, 
+	    { "grp" : "attribute.group.wheels",
+	      "grprdr" : 8,
+	      "ky" : "FrontWheelMaterial",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Tread" }, 
+	    { "grp" : "attribute.group.wheels",
+	      "grprdr" : 8,
+	      "ky" : "FrontWheelType",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Swivel" }, 
+	    { "grp" : "attribute.group.wheels",
+	      "grprdr" : 8,
+	      "ky" : "BackWheelMaterial",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Tread" }, 
+	    { "grp" : "attribute.group.wheels",
+	      "grprdr" : 8,
+	      "ky" : "BackWheelType",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Fixed" }, 
+	    { "grp" : "attribute.group.parentfeatures",
+	      "grprdr" : 3,
+	      "ky" : "AdjustableHandle",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Yes" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "AdultCupHolder",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "AdultCupHolderPrice",
+	      "vl" : "20.00" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "ChildsFoodTray",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "ChildsFoodTrayPrice",
+	      "vl" : "20.00" }, 
+	    { "grp" : "attribute.group.kidfeatures",
+	      "grprdr" : 4,
+	      "ky" : "CushionedOrPaddedSeat",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Yes" }, 
+	    { "grp" : "attribute.group.weatherprotection",
+	      "grprdr" : 9,
+	      "ky" : "CanopyType",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Oversized" }, 
+	    { "grp" : "attribute.group.parentfeatures",
+	      "grprdr" : 3,
+	      "ky" : "PeekabooWindow",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Yes" }, 
+	    { "grp" : "attribute.group.kidfeatures",
+	      "grprdr" : 4,
+	      "ky" : "LegRest",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Fixed Leg Rest" }, 
+	    { "grp" : "attribute.group.kidfeatures",
+	      "grprdr" : 4,
+	      "ky" : "FootRest",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Y-Fixed" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "InfantHeadRest",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "ShoulderPads",
+	      "vl" : "Yes" }, 
+	    { "grp" : "attribute.group.stdaccessories",
+	      "grprdr" : 2,
+	      "ky" : "RainProtection",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Standard Accessory Included" }, 
+	    { "ky" : "RainProtectionPrice" }, 
+	    { "grp" : "attribute.group.optaccessories",
+	      "grprdr" : 3,
+	      "ky" : "UVProtection",
+	      "rdr" : 0,
+	      "sctn" : "attribute.section.accessories",
+	      "sctnrdr" : 4,
+	      "vl" : "Optional Accessory" }, 
+	    { "ky" : "UVProtectionPrice",
+	      "vl" : "20.00" }, 
+	    { "grp" : "attribute.group.parentfeatures",
+	      "grprdr" : 3,
+	      "ky" : "StorageBasket",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Large" }, 
+	    { "grp" : "attribute.group.safety",
+	      "grprdr" : 6,
+	      "ky" : "Harness",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "5 points" }, 
+	    { "grp" : "attribute.group.safety",
+	      "grprdr" : 6,
+	      "ky" : "OneTouchBrakesFoot",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "Yes" }, 
+	    { "grp" : "attribute.group.safety",
+	      "grprdr" : 6,
+	      "ky" : "OneTouchBrakesHand",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.featuresandspecs",
+	      "sctnrdr" : 3,
+	      "vl" : "No" }, 
+	    { "ky" : "CREaseOfUse" }, 
+	    { "ky" : "CRManeuverability" }, 
+	    { "ky" : "CRFoldedSize" }, 
+	    { "ky" : "BestUses",
+	      "vl" : "All-Terrain,City,Jogging,Shopping,Travel,Walking" }, 
+	    { "ky" : "Extras" }, 
+	    { "grp" : "attribute.group.about",
+	      "grprdr" : 2,
+	      "ky" : "ProductOverview",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.overview",
+	      "sctnrdr" : 2,
+	      "vl" : "Valco Baby is a family owned and operated company from Australia.  The company has been manufacturing and distributing baby products for more than 30 years.  Within those 30 years there have been a lot of babies that have been born, many of them into the Valco Baby family.  What better way to truly test the products Valco Baby manufactures than among the employees and their families and friends.  Valco Baby offers a complete selection of strollers, which have a variety of accessories that grow and change with the consumers needs. The Tri-Mode is an all terrain stroller with a compact fold, allowing you to take it anywhere. From newborn to the toddler years this stroller will grow with your family. The stroller performs well in the city, rugged terrain and whatever the weather may bring.  This stroller offers flexibility to build and customize your package to benefit you and fit your lifestyle. Add the bassinet to make it a 3 wheel pram for newborn or the toddler seat to turn it into a stroller for two." }, 
+	    { "ky" : "FacebookURL",
+	      "vl" : "https://graph.facebook.com/ValcoBaby" }, 
+	    { "ky" : "BrandFacebookLikes",
+	      "vl" : "1646" }, 
+	    { "ky" : "TwitterName",
+	      "vl" : "@Valcobaby" }, 
+	    { "ky" : "TwitterURL",
+	      "vl" : "http://twitter.com/#!/valcobaby" }, 
+	    { "ky" : "BrandTwitterFollowers",
+	      "vl" : "723" }, 
+	    { "ky" : "BabiesRUSTopSelling",
+	      "vl" : "Not a Top Seller" }, 
+	    { "grp" : "attribute.group.bestrated",
+	      "grprdr" : 3,
+	      "ky" : "BabyGagaParentRating",
+	      "rdr" : 2,
+	      "sctn" : "attribute.section.ratingsandreview",
+	      "sctnrdr" : 1,
+	      "vl" : "NR" }, 
+	    { "grp" : "attribute.group.bestrated",
+	      "grprdr" : 3,
+	      "ky" : "BabyBargainsRating",
+	      "rdr" : 1,
+	      "sctn" : "attribute.section.ratingsandreview",
+	      "sctnrdr" : 1,
+	      "vl" : "A" }, 
+	    { "ky" : "BabyGagaDurability",
+	      "vl" : "NR" }, 
+	    { "ky" : "NAPPARecipient" }, 
+	    { "ky" : "JPMARecipient" }, 
+	    { "grp" : "attribute.group.bestrated",
+	      "grprdr" : 3,
+	      "ky" : "CROverallScore",
+	      "rdr" : 3,
+	      "sctn" : "attribute.section.ratingsandreview",
+	      "sctnrdr" : 1,
+	      "vl" : "0" }, 
+	    { "ky" : "CRComment" }, 
+	    { "grp" : "attribute.group.bestrated",
+	      "grprdr" : 3,
+	      "ky" : "BabiesRUsParentRating",
+	      "rdr" : 4,
+	      "sctn" : "attribute.section.ratingsandreview",
+	      "sctnrdr" : 1,
+	      "vl" : "NR" }, 
+	    { "ky" : "DesignStyle",
+	      "vl" : "Sporty - Stylized" }, 
+	    { "ky" : "MediaSpotlight",
+	      "vl" : "1-Mention (primarily blogs & web with some newspaper)" }, 
+	    { "ky" : "CelebritySightings",
+	      "vl" : "N" }, 
+	    { "ky" : "GiggleListed",
+	      "vl" : "N" }, 
+	    { "grp" : "attribute.group.bestrated",
+	      "grprdr" : 3,
+	      "ky" : "BabbleRecognition",
+	      "rdr" : 5,
+	      "sctn" : "attribute.section.ratingsandreview",
+	      "sctnrdr" : 1,
+	      "vl" : "2011 Readers Choice" }, 
+	    { "ky" : "BabyBargainsRecognition" } ],
+	  "clrs" : [ 
+	    { "hx" : "696B72",
+	      "nm" : "",
+	      "sz" : { "large" : "http://lelaimages.s3.amazonaws.com/201111132244_eoerJNkRCarNXHrR.jpg",
+	        "medium" : "http://lelaimages.s3.amazonaws.com/201111132244_IcSIihNDKFWgsJtE.jpg",
+	        "small" : "http://lelaimages.s3.amazonaws.com/201111132244_pXtUnmDWGJxnaSNO.jpg" } }, 
+	    { "hx" : "62595B",
+	      "nm" : "",
+	      "sz" : { "large" : "http://lelaimages.s3.amazonaws.com/201111132244_TyVTUKqpIqstUBoW.jpg",
+	        "medium" : "http://lelaimages.s3.amazonaws.com/201111132244_EtiYsgzvQvUagGKq.jpg",
+	        "small" : "http://lelaimages.s3.amazonaws.com/201111132244_BYTlMZqqByGfdwPT.jpg" } }, 
+	    { "hx" : "A12B43",
+	      "nm" : "",
+	      "sz" : { "medium" : "http://lelaimages.s3.amazonaws.com/201111132244_YmimeyGbHhguOpwo.jpg",
+	        "small" : "http://lelaimages.s3.amazonaws.com/201111132244_APEdeNSQWvJejxPm.jpg",
+	        "large" : "http://lelaimages.s3.amazonaws.com/201111132244_WVNaFoUluMRTqVFP.jpg" } }, 
+	    { "hx" : "49474B",
+	      "nm" : "",
+	      "sz" : { "large" : "http://lelaimages.s3.amazonaws.com/201111132244_zLkNTPHdSNFffOLt.jpg",
+	        "medium" : "http://lelaimages.s3.amazonaws.com/201111132244_TrbkFXGgKBIVbeAI.jpg",
+	        "small" : "http://lelaimages.s3.amazonaws.com/201111132244_ypynXgrFxWKftnEl.jpg" } }, 
+	    { "hx" : "4E4E56",
+	      "nm" : "",
+	      "sz" : { "large" : "http://lelaimages.s3.amazonaws.com/201111132244_EegxEasHsNcItiCA.jpg",
+	        "medium" : "http://lelaimages.s3.amazonaws.com/201111132244_drEBmuPsVtqkFddr.jpg",
+	        "small" : "http://lelaimages.s3.amazonaws.com/201111132244_wLHMfLZXGzCOKQCg.jpg" } } ],
+	  "ctgry" : { "ctlgky" : "dzf9zud0kmw1scufr4eqzr601",
+	    "nm" : "Strollers",
+	    "rdr" : 1,
+	    "rlnm" : "stroller",
+	    "tld" : 2 },
+	  "lcl" : "en_US",
+	  "mrchnts" : [ 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "214305502" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "214305503" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "214305504" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "214305505" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "372908751" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "476697141" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "476704332" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "476706833" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "476710970" }, 
+	    { "asin" : "B004M2RBI6",
+	      "prdd" : "524489353" } ],
+	  "nm" : "Tri-Mode EX",
+	  "rlnm" : "valcotrimodeex",
+	  "sbttrs" : [ 
+	    { "ky" : "Brand",
+	      "vl" : "Valco" }, 
+	    { "ky" : "ProductModelName",
+	      "vl" : "Tri-Mode EX" }, 
+	    { "ky" : "ListPrice",
+	      "vl" : 500 }, 
+	    { "ky" : "LowestPrice",
+	      "vl" : 449.99 }, 
+	    { "ky" : "ProductImageUrl",
+	      "vl" : "http://lelaimages.s3.amazonaws.com/201111132244_rHkGyEaPbpjotjMJ.jpg" } ],
+	  "tp" : "PRODUCT",
+	  "wnr" : { "attrs" : [ 
+	      { "ky" : "FacebookURL",
+	        "vl" : "https://graph.facebook.com/ValcoBaby" }, 
+	      { "ky" : "TwitterURL",
+	        "vl" : "http://twitter.com/#!/valcobaby" }, 
+	      { "ky" : "TwitterName",
+	        "vl" : "@Valcobaby" }, 
+	      { "ky" : "FacebookLikes",
+	        "vl" : "1646" }, 
+	      { "ky" : "TwitterFollowers",
+	        "vl" : "723" }, 
+	      { "ky" : "PopshopsBrandID",
+	        "vl" : "152676" } ],
+	    "nm" : "Valco",
+	    "rlnm" : "valco",
+	    "tld" : 40 },
+	  "tld" : 251,
+	  "cdt" : Date( 1321493224472 ),
+	  "ldt" : Date( 1321493224472 ) 
+	}
+	]
+}
+
+Delete item
+- /ingest/item/remove
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "id":"4ec53e690364565ad441abe3"
+      }
+   ]
+}
+
+============================================= END: ITEM ==================================================
+============================================= BEGIN: USER ==================================================
+
+Insert users
+- /ingest/user
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{ "list": [
+	{
+        "rrlnms":["superadmin", "developer"],
+        "psswrd":"bkOz38W9e16v:7B'-D0Y",
+        "ml":"bjorn@lelaknows.com",
+        "lcl":"en_US",
+        "fnm":"Bjorn",
+        "lnm":"Harvold"
+	 }
+	]
+}
+
+Update users
+- /ingest/user
+- method: PUT
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{ "list": [
+	{
+		"id":"4ebc436be2e892be154639d3",
+        "rrlnms":["superadmin", "developer"],
+        "psswrd":"bkOz38W9e16v:7B'-D0Y",
+        "ml":"bjorn@lelaknows.com",
+        "lcl":"en_US",
+        "fnm":"Bjorn",
+        "lnm":"Harvold"
+	 }
+	]
+}
+
+Delete users
+- /ingest/user/remove
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "id":"4ec53e690364565ad441abe3"
+      }
+   ]
+}
+
+============================================= END: USER ==================================================
+============================================= BEGIN: POSTAL CODE ==================================================
+
+Insert postal codes
+- /ingest/postalcode
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{ "list": [
+	{ 
+		"tld":"9909",
+		"cd":"10001",
+		"lc": [-73.996122, 40.7508],
+		"st":"NY",
+		"stnm":"New York",
+		"ct":"NEW YORK"
+	}
+	]
+}
+
+Update postal codes
+- /ingest/postalcode
+- method: PUT
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{ "list": [
+	{ 
+		"id":"4ebc436be2e892be154639d3",
+		"tld":"9909",
+		"cd":"10001",
+		"lc": [-73.996122, 40.7508],
+		"st":"NY",
+		"stnm":"New York",
+		"ct":"NEW YORK"
+	}
+	]
+}
+
+Delete postal codes
+- /ingest/postalcode/remove
+- method: POST
+- header entries:
+	- iu : username
+	- ip : password
+- example content:
+{
+   "list":[
+      {
+         "id":"4ec53e690364565ad441abe3"
+      }
+   ]
+}
+
+============================================= END: POSTAL CODE ==================================================

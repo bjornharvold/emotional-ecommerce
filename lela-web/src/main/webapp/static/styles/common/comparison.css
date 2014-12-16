@@ -1,0 +1,45 @@
+.alert {
+    line-height: 18px;
+    padding: 40px;
+    width: 200px;
+    height: 160px;
+    overflow: hidden;
+}
+
+.alert p {
+    margin: 10px 0 10px 0;
+}
+
+.alert a {
+    display: block;
+    float: none;
+    margin: 10px 0 0 0;
+    width: 72px;
+    position: relative;
+    top: 10px;
+    left: -1px;
+}
+
+/*
+.compare-btn {
+    float: right;
+    position: relative;
+    top: -13px;
+    right: -2px;
+    padding: 10px 30px 10px 10px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background: #3594ca url('/static/images/buttons/blue_arrow.png') no-repeat 80px 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid white;
+}
+
+.compare-btn:hover, .waiting {
+    background: white url('/static/images/buttons/blue_arrow_over.png') no-repeat 80px 10px;
+    color: #3594ca;
+    border: 1px solid #3594ca;
+}
+*/

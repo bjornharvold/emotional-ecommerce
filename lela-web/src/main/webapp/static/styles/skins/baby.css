@@ -1,0 +1,133 @@
+.nav .g-tab.selected, .nav .g-tab.selected-on {
+    background:#57b7b1 url('../../images/skins/baby/caret_grp_down.gif') no-repeat right ;
+}
+
+a.jqTransformCheckbox {
+    background: transparent url(../../images/skins/baby/checkbox_alt.gif) no-repeat center top;
+}
+
+#p-nav a.selected {
+    color:#57b7b1;
+}
+.color-img a.selected {
+    border: 3px solid #666;
+}
+
+.tbl tr.row-even td {
+    background:#efefef;
+}
+
+a.l-list-add, a.l-list-saved {
+    color:#57b7b1;
+}
+
+.l-compare:hover, .page-grid .compare-btn:hover, .page-grid .waiting {
+    color:white;
+    text-decoration: none !important;
+    background: #d6d6d6 url('/static/images/skins/baby/Compare_Button_ON.png') no-repeat 5px 3px !important;
+}
+
+.l-compare, .l-compare-waiting, .l-compare-saved, .page-grid .compare-btn {
+    color:white;
+    background: #57b7b1 url('/static/images/skins/baby/Compare_Button_ON.png') no-repeat 5px 3px;
+}
+
+#buy-t a, #buy-t span#buy-tab3 {
+    background-repeat: no-repeat;
+    color:#ff8800;
+}
+
+#buy-t a.selected {
+    background-repeat: no-repeat;
+    color:#666;
+}
+
+table.specs th { background:#f6f6f6; }
+
+#zip-f a { background:#ff9900; }
+
+
+.save-now, .remove-now {
+    background:url('../../images/skins/baby/Add_lela_list_OFF.png') no-repeat left center;
+}
+
+.remove-now {
+    background:url('../../images/skins/baby/Add_lela_list_RM.png') no-repeat left center;
+}
+
+
+#quiz-start-compat .lquiz {
+    background:#ff9900 url('../../images/buttons/s_quiz.png') no-repeat right 14px;
+}
+
+#product-info .c-btn {
+    background: transparent url('../../images/skins/baby/Compare_unchecked.png') no-repeat top left;
+}
+
+#product-info .c-btn-checked {
+    background: transparent url('../../images/skins/baby/Compare_checked.png') no-repeat top left;
+}
+
+#product-info .c-btn, .page-grid .c-btn {
+    background: transparent url('../../images/skins/baby/Compare_unchecked.png') no-repeat top left;
+}
+
+#product-info .c-btn-checked, .page-grid .c-btn-checked {
+    background: transparent url('../../images/skins/baby/Compare_checked.png') no-repeat top left !important;
+}
+
+.page-grid .lela-page-header h1 {
+    color: white;
+}
+
+#price-range .ui-slider-range {
+    background:#ddf1ef url('/static/images/skins/baby/slide_back1.png') repeat-x !important;
+}
+
+#price-range .ui-slider-handle {
+    background: transparent url('/static/images/skins/baby/slider_handle.png') no-repeat 0px 0px !important;
+}
+
+.filter-options .filter-option-selected {
+    border-color: #57b7b1;
+    background-color: #57b7b1;
+    color: white !important;
+}
+
+.filter-options .filter-option:hover {
+    border-color: #57b7b1;
+    -webkit-box-shadow:  0px 0px 0px 3px rgba(113, 179, 175, 1);
+    box-shadow:  0px 0px 0px 3px rgba(113, 179, 175, 1);
+    color: #3f3f3f;
+}
+
+#data-sort .jqTransformSelectWrapper {
+    background: transparent url('/static/images/skins/baby/select_left.png') repeat-x 0px 0px !important;
+}
+
+#data-sort .jqTransformSelectOpen {
+    background: transparent url('/static/images/skins/baby/select_right.png') no-repeat 0px 0px !important;
+}
+
+.page-grid .color-header {
+    background-image: linear-gradient(bottom, rgb(73,163,158) 25%, rgb(81,200,188) 75%);
+    background-image: -o-linear-gradient(bottom, rgb(73,163,158) 25%, rgb(81,200,188) 75%);
+    background-image: -moz-linear-gradient(bottom, rgb(73,163,158) 25%, rgb(81,200,188) 75%);
+    background-image: -webkit-linear-gradient(bottom, rgb(73,163,158) 25%, rgb(81,200,188) 75%);
+    background-image: -ms-linear-gradient(bottom, rgb(73,163,158) 25%, rgb(81,200,188) 75%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.25, rgb(73,163,158)),
+        color-stop(0.75, rgb(81,200,188))
+    );
+    background-color: #57b7b1;
+}
+
+#p-filters h2.filters-enabled {
+    background-color: #57b7b1;
+}
+
+.brand-header h1 { color:#57b7b1 !important; }

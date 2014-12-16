@@ -1,0 +1,39 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:data="http://www.lela.com/jsp/data" version="2.0" >
+  <jsp:output omit-xml-declaration="yes"/>
+
+  <jsp:directive.attribute name="name" type="java.lang.String" required="true" rtexprvalue="true" description="The identifier for this tag (do not change!)"/>
+  <jsp:directive.attribute name="items" type="java.util.Collection" required="true" rtexprvalue="true" description="The identifier for this tag (do not change!)"/>
+  <jsp:directive.attribute name="selected" type="java.lang.Object" required="false" rtexprvalue="true" description="The name of the model attribute for form binding"/>
+  <jsp:directive.attribute name="defaultOption" type="java.lang.String" required="false" rtexprvalue="true" description="Specify the relative URL path (wit leading /)" />
+  <jsp:directive.attribute name="optionValue" type="java.lang.String" required="true" rtexprvalue="true" description="Specify the relative URL path (wit leading /)" />
+  <jsp:directive.attribute name="optionLabel" type="java.lang.String" required="true" rtexprvalue="true" description="Specify the relative URL path (wit leading /)" />
+  <jsp:directive.attribute name="id" type="java.lang.String" required="false" rtexprvalue="true" />
+  <jsp:directive.attribute name="dojo" type="java.lang.Boolean" required="false" rtexprvalue="true" />
+
+  <select name="${name}" id="${id}" dojoType="${dojo==true?'dijit.form.Select':''}">
+    <c:if test="${defaultOption != null}">
+      <option value="">${defaultOption}</option>
+    </c:if>
+    <c:forEach var="option" items="${items}" >
+      <c:set var="value">
+        <spring:eval expression="option.${optionValue}"/>
+      </c:set>
+      <c:set var="label">
+        <spring:eval expression="option.${optionLabel}"/>
+      </c:set>
+      <c:choose>
+        <c:when test="${ selected eq value }">
+          <option value="${value}" selected="selected">${label}</option>
+        </c:when>
+      <c:otherwise>
+        <option value="${value}">${label}</option>
+      </c:otherwise>
+      </c:choose>
+    </c:forEach>
+  </select>
+
+</jsp:root>

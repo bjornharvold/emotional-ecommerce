@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_ProductDetailGroupAttribute" modelAttribute="productDetailGroupAttribute" path="/crud/productdetailgroupattributes" versionField="Version" z="SKWklloVu394E/SXc3fAilF4pZ0=">
+        <field:datetime dateTimePattern="${productDetailGroupAttribute_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_ProductDetailGroupAttribute_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${productDetailGroupAttribute_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_ProductDetailGroupAttribute_dateModified" render="false" z="user-managed"/>
+        <field:select field="productDetailGroup" id="c_com_lela_data_domain_entity_ProductDetailGroupAttribute_productDetailGroup" itemValue="id" items="${productdetailgroups}" path="/productdetailgroups" z="user-managed"/>
+        <field:select field="productDetailAttributeValueTypeId" id="c_com_lela_data_domain_entity_ProductDetailGroupAttribute_productDetailAttributeValueTypeId" itemValue="id" items="${productdetailattributevaluetypes}" path="/productdetailattributevaluetypes" z="user-managed"/>
+        <field:input field="orderInGroup" id="c_com_lela_data_domain_entity_ProductDetailGroupAttribute_orderInGroup" validationMessageCode="field_invalid_integer" z="HwRZy7xrKX7Y6RRtQypVv0oyybQ="/>
+        <field:input field="attrLabel" id="c_com_lela_data_domain_entity_ProductDetailGroupAttribute_attrLabel" z="abEfeD87lEVwZZr3EtRkMpr/GMo="/>
+        <field:input field="attrName" id="c_com_lela_data_domain_entity_ProductDetailGroupAttribute_attrName" z="paRoCzJRCbSbl69s75FbZemU6Pg="/>
+        <field:input field="productDetailAttributeTypes" id="c_com_lela_data_domain_entity_ProductDetailGroupAttribute_productDetailAttributeTypes" z="/T6MF+HsYZRq+LZ5pSHOlhyApsw="/>
+        <field:input field="productDetailParts" id="c_com_lela_data_domain_entity_ProductDetailGroupAttribute_productDetailParts" z="h6poM18njzljjSL1WMFCQIXoBiU="/>
+    </form:update>
+</div>

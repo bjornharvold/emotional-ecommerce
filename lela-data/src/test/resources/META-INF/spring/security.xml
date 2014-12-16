@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+    <!-- spring security for the domain layer -->
+    <security:global-method-security secured-annotations="enabled" jsr250-annotations="enabled"
+                                     pre-post-annotations="enabled">
+        <!--<security:expression-handler ref="expressionHandler"/>-->
+        <!--
+        <security:expression-handler ref="oauthExpressionHandler" />
+        -->
+    </security:global-method-security>
+
+    <!-- spring security for the web layer -->
+    <security:http auto-config="false" use-expressions="true" realm="Lela Secure Realm" disable-url-rewriting="true">
+
+        <!-- Access to login page -->
+        <security:intercept-url pattern="/login" access="permitAll" requires-channel="any"/>
+        <security:intercept-url pattern="/login/**" access="permitAll" requires-channel="any"/>
+
+        <!-- Access to ingest API -->
+        <security:intercept-url pattern="/ingest/**" access="permitAll" requires-channel="any"/>
+
+        <!-- TODO When we go live the channels should be set to HTTPS -->
+        <!--<security:intercept-url pattern="/administration/**" access="hasRole('ROLE_SUPER_ADMINISTRATOR') and hasIpAddress('localhost')" requires-channel="any"/>-->
+        <security:intercept-url pattern="/oauth/token" access="isAnonymous()" />
+        <security:intercept-url pattern="/oauth/authorize" access="isAnonymous()" />
+        <security:intercept-url pattern="/oauth/**" access="hasAnyRole('RIGHT_CONTENT_INGEST')" requires-channel="any"/>
+
+        <security:intercept-url pattern="/static/**" access="permitAll" requires-channel="any"/>
+        <security:intercept-url pattern="/js/**" access="permitAll" requires-channel="any"/>
+        <security:intercept-url pattern="/img/**" access="permitAll" requires-channel="any"/>
+        <security:intercept-url pattern="/images/**" access="permitAll" requires-channel="any"/>
+        <security:intercept-url pattern="/styles/**" access="permitAll" requires-channel="any"/>
+        <security:intercept-url pattern="/resources/**" access="permitAll" requires-channel="any"/>
+
+        <!-- admins are only allowed to log in from localhost -->
+        <security:intercept-url pattern="/**" access="hasRole('RIGHT_CONTENT_INGEST')" requires-channel="any"/>
+
+        <security:access-denied-handler error-page="/403"/>
+
+        <security:form-login login-page="/login" authentication-failure-url="/login?success=false"
+                             always-use-default-target="false" default-target-url="/"/>
+        <security:logout logout-success-url="/" delete-cookies="JSESSIONID"/>
+
+        <!-- this will save a cookie on the client side and the system will auto-login a user -->
+        <!--
+        <security:remember-me key="SPRING_SECURITY_REMEMBER_ME_COOKIE" services-ref="persistentTokenBasedRememberMeServices"/>
+        -->
+        <!--
+        <security:session-management session-authentication-strategy-ref="sas"/>
+        -->
+
+        <!--
+        <security:session-management>
+            <security:concurrency-control max-sessions="10" error-if-maximum-exceeded="true"
+                                          expired-url="/login" session-registry-ref="sessionRegistry"/>
+        </security:session-management>
+        -->
+        <!--
+        <security:port-mappings>
+            <security:port-mapping http="8080" https="8443"/>
+        </security:port-mappings>
+        -->
+
+        <!--
+        <security:custom-filter ref="oauth2ProviderFilter" after="EXCEPTION_TRANSLATION_FILTER" />
+        -->
+        <!-- all non-authenticated users will automatically receive an anonymous user -->
+        <security:anonymous/>
+    </security:http>
+
+    <!-- Automatically receives AuthenticationEvent messages -->
+    <bean id="loggerListener" class="org.springframework.security.authentication.event.LoggerListener"/>
+
+    <!--
+    <bean id="sas" class="org.springframework.security.web.authentication.session.ConcurrentSessionControlStrategy">
+        <constructor-arg name="sessionRegistry" ref="sessionRegistry"/>
+        <property name="maximumSessions" value="10"/>
+    </bean>
+    -->
+    <!--
+    <bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl"/>
+    -->
+
+    <!--
+    <security:authentication-manager alias="authenticationManager">
+        <security:authentication-provider user-service-ref="userService">
+            <security:password-encoder ref="passwordEncoder"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+    -->
+
+    <!--
+    <bean id="accessDecisionManager" class="org.springframework.security.access.vote.UnanimousBased">
+        <constructor-arg>
+            <list>
+                <bean class="org.springframework.security.oauth2.provider.vote.ScopeVoter" />
+                <bean class="org.springframework.security.access.vote.RoleVoter" />
+                <bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
+            </list>
+        </constructor-arg>
+    </bean>
+    -->
+
+    <!-- custom programmatic permission evaluator -->
+    <!--
+    <bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+        <property name="permissionEvaluator">
+            <bean class="com.lela.commons.spring.security.CustomPermissionEvaluator"/>
+        </property>
+    </bean>
+    -->
+
+    <!-- remember me -->
+<!--
+    <bean id="rememberMeFilter" class="org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter">
+        <constructor-arg index="0" ref="authenticationManager"/>
+        <constructor-arg index="1" ref="persistentTokenBasedRememberMeServices"/>
+    </bean>
+
+    <bean id="rememberMeAuthenticationProvider" class="org.springframework.security.authentication.RememberMeAuthenticationProvider">
+        <constructor-arg index="0" value="SPRING_SECURITY_REMEMBER_ME_COOKIE"/>
+    </bean>
+          -->
+    <!--
+    <bean id="persistentTokenBasedRememberMeServices" class="org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices">
+        <constructor-arg index="0" value="SPRING_SECURITY_REMEMBER_ME_COOKIE"/>
+        <constructor-arg index="1" ref="userService"/>
+        <constructor-arg index="2" ref="tokenRepository"/>
+        <property name="alwaysRemember" value="true"/>
+    </bean>
+    -->
+    <!--
+    <bean id='tokenRepository' class='com.lela.commons.spring.security.PersistentTokenRepositoryImpl'
+          c:rememberMeRepository-ref="rememberMeRepository"/>
+          -->
+    <!-- Oauth 2 provider configuration below -->
+<!--
+    <oauth:resource-server id="oauth2ProviderFilter" resource-id="lela" token-services-ref="tokenServices" />
+
+    <bean id="tokenServices" class="org.springframework.security.oauth2.provider.token.RandomValueTokenServices">
+        <property name="tokenStore">
+            <bean class="com.lela.commons.spring.security.oauth2.OAuth2ProviderTokenStore">
+                <constructor-arg index="0" ref="oAuthAccessTokenRepository"/>
+            </bean>
+        </property>
+        <property name="supportRefreshToken" value="true" />
+    </bean>
+
+    <oauth:expression-handler id="oauthExpressionHandler" />
+-->
+
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="admin" password="admin" authorities="RIGHT_CONTENT_INGEST" />
+                <security:user name="user" password="user" authorities="RIGHT_LOGIN_USER" />
+                <security:user name="test" password="test" authorities="RIGHT_LOGIN_USER" />
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
+</beans>

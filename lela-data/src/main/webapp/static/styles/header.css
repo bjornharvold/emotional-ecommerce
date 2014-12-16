@@ -1,0 +1,175 @@
+
+
+/*
+ * Copyright (c) 2011. Purple Door Systems, BV.
+ */
+
+/* header */
+#head {
+    overflow:visible;
+    height:130px;
+    font-size:11px;
+    position:relative;
+}
+
+#head h1 {
+    float:left;
+}
+
+#head h1 a {
+    display:block;
+    margin-top:1px;
+    width:133px;
+    height:123px;
+    background:url('../images/layout/lela_logo_preview.png') no-repeat;
+}
+
+.nav {
+    float:right;
+    position:relative;
+    overflow:visible;
+    width:788px;
+}
+
+.nav a, .nav span {
+    height:32px;
+    background-color:#333;
+    padding:18px 0 0 10px;
+    color:#fff;
+    border-top:1px solid #efefef;
+    border-right:1px solid #efefef;
+    float:left;
+}
+
+.nav span { color:#999; }
+.nav .s-tab { width:88px; }
+.nav .m-tab { width:185px; }
+.nav .l-tab { width:285px; }
+
+.nav a:hover, .nav a.on-nav {
+    background-color:#bedae8;
+    color:#333;
+}
+
+.nav .a-tab {
+    background-image:url(../images/icons/caret_off.gif);
+    background-position:180px 22px;
+    background-repeat:no-repeat;
+}
+
+.nav .a-tab:hover {
+    background-image:url(../images/icons/caret_over.gif);
+}
+
+.nav .ad-tab {
+    background-image:url(../images/icons/caret_down.gif) !important;
+    background-color:#333 !important;
+    color:#fff !important;
+}
+
+.nav .ad-or-tab {
+    background-image:url(../images/icons/caret_or_down.gif) !important;
+    color:#fff !important;
+}
+
+#nav-search {
+    padding:0px;
+    height:50px;
+    width:295px;
+    position:relative;
+    margin-left:296px;
+    background:url(../images/layout/nav_search_back.gif) no-repeat left;
+}
+
+#search-form {
+    display:inline;
+}
+
+#nav-search input {
+   position:relative;
+   top:10px;
+   left:5px;
+   padding: 5px;
+   width:230px;
+   line-height: 20px;
+   font-size:18px;
+   font-weight:normal;
+   border:none;
+   height:20px;
+   background:transparent;
+}
+
+#nav-search a {
+    border:none;
+    width:32px;
+    height:32px;
+    padding:0;
+    float:right;
+    position:absolute;
+    top:10px;
+    right:8px;
+    background:url(../images/buttons/nav_search_off.gif) no-repeat;
+}
+
+#nav-search a:hover {
+    background:url(../images/buttons/nav_search_on.gif) no-repeat;
+}
+
+.t-quiz-nav {
+    background:transparent;
+    float:left;
+    position:absolute;
+    left:195px;
+    top:10px;
+    color:#999;
+    z-index:10;
+}
+
+.t-quiz-nav a {
+    text-decoration:underline;
+    background:url('../images/icons/caret_bl_t.gif') no-repeat right;
+    padding-right:10px;
+}
+
+#user-nav {
+    position:absolute;
+    width: 197px;
+    top:51px;
+    right:-1px;
+    z-index:10;
+    border-left:1px solid #fff;
+    display:none;
+}
+
+#user-nav a {
+    background-image:none;
+}
+
+#lela-tab {
+    background-color:#ff9900;
+    font-size:18px;
+    padding-top:14px;
+    height:36px;
+    background-image:url(../images/icons/caret_or_off.gif);
+}
+
+#lela-nav a:hover {
+    color:#fff !important;
+}
+
+#lela-nav1 {
+    width:57px;
+    height:40px;
+    background:#ff9900 url(../images/icons/buddy-ic.gif) no-repeat 12px 13px;
+    padding-left:40px;
+    padding-top:10px;
+}
+
+#lela-nav2 {
+    width:57px;
+    height:40px;
+    border-right:none;
+    background:#ff9900 url(../images/icons/list-ic.gif) no-repeat 6px 11px;
+    padding-left:40px;
+    padding-top:10px;
+}

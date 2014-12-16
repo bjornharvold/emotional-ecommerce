@@ -1,0 +1,135 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+
+    <c:choose>
+        <c:when test="${!empty card and !empty message}">
+
+            <!-- Common listCard template -->
+            <tiles:insertTemplate template="/WEB-INF/jsp/list/list_card.jspx" flush="true">
+                <tiles:putAttribute name="publicList" value="false" />
+                <tiles:putAttribute name="listCard" value="${card}" />
+            </tiles:insertTemplate>
+
+            <script type="text/javascript">
+                $().ready(function($) {
+                    var newCard = $('#card-${card.rlnm}');
+                    $('#list-container').prepend( newCard );
+                    $('#list-container').imagesLoaded( function(){
+                        $('#list-container').masonry('reload');
+                        $.fancybox.close( true );
+                        initModal();
+                    });
+                });
+            </script>
+        </c:when>
+        <c:otherwise>
+
+            <div class="card-modal">
+
+                <h4 class="card-header form-header">
+                    <c:set var="uploadImgUrl" value="/static/images/list/upload_icon100100.png"/>
+                    <img alt="" src="${uploadImgUrl}" class="img-header"/>
+                    <span class="header-l">Add an item to your Lela List</span>
+
+                    <span class="ext-categories">
+                        <spring:url value="/Baby/d?rlnm=baby" var="babyCatUrl"/>
+                        <spring:url value="/Toys/d?rlnm=toys" var="toysCatUrl"/>
+                        <spring:url value="/Electronics/d?rlnm=electronics" var="electronicsCatUrl"/>
+                        To add an item from Lela.com, visit <a href="${toysCatUrl}">Toys</a>, <a href="${electronicsCatUrl}">Electronics</a> or <a href="${babyCatUrl}">Baby</a>.
+                    </span>
+
+                </h4>
+
+
+                <spring:url value="/user/list/picture/ext" var="parseUrl" />
+                <spring:url value="/user/list/external" var="postImageUrl" />
+
+                <spring-form:form commandName="externalListCard" modelAttribute="picture" action="${postImageUrl}" class="custom" id="external-form" enctype="multipart/form-data" method="POST">
+
+                    <c:choose>
+                        <c:when test="${!empty param.remoteImg}">
+                            <fieldset class="fetch-section" style="border:none; padding-bottom: 0;">
+
+                                <legend>1: Review your image</legend>
+
+                                <img src="${param.remoteImg}" alt="${param.remoteTitle}" style="display: block; width: 200px; margin: 0 auto;"/>
+
+                                <input name="imageUrl" type="hidden" id="imageUrl" value="${param.remoteImg}"/>
+                                <input name="externalUrl" type="hidden" id="externalUrl" value="${param.remoteUrl}"/>
+                                <input name="width" type="hidden" id="imageWidth" value="${param.remoteWidth}"/>
+                            </fieldset>
+                        </c:when>
+                        <c:otherwise>
+                            <span class="card-help">To add an item from other websites or your computer:</span>
+
+                            <fieldset class="fetch-section" style="border:none; padding-bottom: 0;">
+                                <legend>1: Choose an image from a website...</legend>
+
+                                <div class="external-images" style="display: none;"><!-- --></div>
+
+                                <p style="clear: both;">
+                                    <input id="externalUrl" name="externalUrl" style="width:350px;" value="http://"/>
+                                    <a href="${parseUrl}" class="list-button fetch-img">Find Images</a>
+                                    <input name="imageUrl" type="hidden" id="imageUrl"/>
+                                    <input name="width" type="hidden" id="imageWidth"/>
+                                </p>
+
+                            </fieldset>
+
+                            <fieldset class="upload-section">
+
+                                <legend>... or upload an image from your computer:</legend>
+                                <p><input name="multipartFile" type="file" id="multipartFile" style="font-size: 16px;"/></p>
+
+                            </fieldset>
+                        </c:otherwise>
+                    </c:choose>
+
+                    <fieldset>
+                        <legend>2: Write a custom title/note (optional)</legend>
+
+                        <p>
+                            <label style="width: 45px;">Title:</label>
+                            <input name="name" id="imageTitle" style="width: 400px;" value="${!empty param.remoteTitle ? param.remoteTitle : ''}"/>
+                            <spring-form:errors path="name" cssClass="error"/>
+                        </p>
+
+                        <p>
+                            <label style="width: 45px;">Note:</label>
+                            <spring-form:textarea path="note" cssStyle="width:400px; height: 50px;"/>
+                        </p>
+                    </fieldset>
+
+                    <input type="hidden" value="${param.boardCode}" name="boardCode"/>
+                    <a href="#" class="list-button upload-img">Add to list</a>
+                    <a href="#" onclick="$.fancybox.close( true ); return false;" class="list-button cancel-btn">Cancel</a>
+                </spring-form:form>
+            </div>
+
+            <script type="text/javascript">
+                $().ready(function($) {
+                    initExternal();
+                });
+            </script>
+
+        </c:otherwise>
+    </c:choose>
+
+</jsp:root>

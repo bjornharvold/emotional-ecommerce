@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.1.xsd
+       http://www.springframework.org/schema/jee
+       http://www.springframework.org/schema/jee/spring-jee-3.1.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task-3.1.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+    <util:map id="classToRepositoryMapping" key-type="java.lang.Class" value-type="org.springframework.data.repository.CrudRepository">
+        <entry key="com.lela.domain.document.AffiliateAccount" value-ref="affiliateAccountRepository"/>
+        <entry key="com.lela.domain.document.Blog" value-ref="blogRepository"/>
+        <entry key="com.lela.domain.document.Branch" value-ref="branchRepository"/>
+        <entry key="com.lela.domain.document.Campaign" value-ref="campaignRepository"/>
+        <entry key="com.lela.domain.document.Category" value-ref="categoryRepository"/>
+        <entry key="com.lela.domain.document.Event" value-ref="eventRepository"/>
+        <entry key="com.lela.domain.document.FunctionalFilter" value-ref="functionalFilterRepository"/>
+        <entry key="com.lela.domain.document.Item" value-ref="itemRepository"/>
+        <entry key="com.lela.domain.document.Metric" value-ref="metricRepository"/>
+        <entry key="com.lela.domain.document.NavigationBar" value-ref="navigationBarRepository"/>
+        <entry key="com.lela.domain.document.OAuthClientDetail" value-ref="oAuthClientDetailsRepository"/>
+        <entry key="com.lela.domain.document.Offer" value-ref="offerRepository"/>
+        <entry key="com.lela.domain.document.Owner" value-ref="ownerRepository"/>
+        <entry key="com.lela.domain.document.PostalCode" value-ref="postalCodeRepository"/>
+        <entry key="com.lela.domain.document.Question" value-ref="questionRepository"/>
+        <entry key="com.lela.domain.document.RememberMe" value-ref="rememberMeRepository"/>
+        <entry key="com.lela.domain.document.Role" value-ref="roleRepository"/>
+        <entry key="com.lela.domain.document.StaticContent" value-ref="staticContentRepository"/>
+        <entry key="com.lela.domain.document.Store" value-ref="storeRepository"/>
+        <entry key="com.lela.domain.document.User" value-ref="userRepository"/>
+        <entry key="com.lela.domain.document.ProductReview" value-ref="productReviewRepository"/>
+    </util:map>
+
+</beans>

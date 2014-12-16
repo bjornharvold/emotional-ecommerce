@@ -1,0 +1,65 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1>Update/Create Trigger</h1>
+
+    <spring:url value="/administration/job/trigger/list" var="triggerListUrl"/>
+    <div class="actions">
+        <a class="action" href="${triggerListUrl}">&lt; Back to trigger list</a>
+        <div class="clear"><!-- --></div>
+    </div>
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>    
+    
+
+    <spring:url value="/administration/job/trigger" var="updateUrl"/>
+    <spring-form:form class="" action="${updateUrl}" method="POST" modelAttribute="trigger">
+
+        <div class="h-row even">
+            <div class="h-col"><spring-form:label path="rlnm">URL</spring-form:label></div>
+            <div class="h-col"><spring-form:input path="rlnm" size="150"/></div>
+            <spring-form:errors path="rlnm" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+
+        <div class="h-row odd">
+            <div class="h-col"><spring-form:label path="dscrptn">Description</spring-form:label></div>
+            <div class="h-col"><spring-form:input path="dscrptn" size="150"/></div>
+            <spring-form:errors path="dscrptn" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+        
+        <div class="h-row even">
+            <div class="h-col"><spring-form:label path="crnxprsn">CRON Expression</spring-form:label></div>
+            <div class="h-col"><spring-form:input path="crnxprsn" size="150"/></div>
+            <spring-form:errors path="crnxprsn" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+        
+        <div class="s-row">
+            <div class="s-col"><input type="submit" name="Submit" value="Save"/></div>
+        </div>
+        <spring-form:hidden path="id"/>
+    </spring-form:form>
+
+
+</div>

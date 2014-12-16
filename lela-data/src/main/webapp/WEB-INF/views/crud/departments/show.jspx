@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Department" object="${department}" path="/crud/departments" z="WbcswfAVZCFCzBqKE9vgeRggzCA=">
+        <field:display date="true" dateTimePattern="${department_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Department_dateCreated" object="${department}" z="bI3g8crZK8V+n7vCIJ9BsyjgozQ="/>
+        <field:display date="true" dateTimePattern="${department_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Department_dateModified" object="${department}" z="GVmPEClJ9Rsju6p7AZEmkjIRc4U="/>
+        <field:display field="departmentName" id="s_com_lela_data_domain_entity_Department_departmentName" object="${department}" z="/mvgnh90QHFXywpZhWb7GxWbffM="/>
+        <field:display field="departmentURLName" id="s_com_lela_data_domain_entity_Department_departmentURLName" object="${department}" z="IqQJ5oOulRHjLEnmWpp+bTw/uoE="/>
+        <field:display field="departmentOrder" id="s_com_lela_data_domain_entity_Department_departmentOrder" object="${department}" z="krPO5NF8pXd11bfpPy5a0fUNJz0="/>
+        <field:display field="departmentStatus" id="s_com_lela_data_domain_entity_Department_departmentStatus" object="${department}" z="zrjO8JHlWi6tQhtsUkxiTBSVFjY="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_Department_dirty" object="${department}" z="C8CXFJ8AgGR7AMUo/2lCXXZX8rU="/>
+        <field:display field="navbar" id="s_com_lela_data_domain_entity_Department_navbar" object="${department}" z="UTWhhdhGAOkUb9vQnU53sFI9Ae4="/>
+        <field:display field="lelaUrl" id="s_com_lela_data_domain_entity_Department_lelaUrl" object="${department}" z="SV+U8xTl9jI7jp5GmqsupFHskRQ="/>
+    </page:show>
+</div>

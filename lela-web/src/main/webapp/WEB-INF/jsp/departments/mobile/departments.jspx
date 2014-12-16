@@ -1,0 +1,62 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+
+    <ul id="cat-menu-dept">
+
+        <c:forEach var="navGroup" items="${navigationBar.grps}" varStatus="groupStatus">
+
+            <c:if test="${navGroup.rlnm eq currentDepartment}">
+
+                <li class="cat-children" id="fav-l"><a href="${lelaListUrl}">
+                    My Faves
+                    <c:set var="lelaListCount" value="${us.itemCount + us.storeCount}" scope="session"/>
+                    ${loggedInUser != 'anonymousUser' ? lelaListCount : ''}
+                </a></li>
+
+                <spring:url value="/static/mobile/images/icons/nav_cat_dept/head_img_${navGroup.rlnm}.png" var="deptImgUrl"/>
+                <spring:url value="/static/mobile/images/icons/nav_cat_dept/head_dept_${navGroup.rlnm}.png" var="deptHeadImgUrl"/>
+                <li class="dept-head" style="background-image: url('${deptImgUrl}');">
+                    <h1 title="${navGroup.nm}"><img src="${deptHeadImgUrl}" alt="${navGroup.nm}"/></h1>
+                </li>
+
+                <c:forEach var="children" items="${navGroup.chldrn}">
+                    <c:forEach var="category" items="${children.ctgrs}">
+                        <spring:url value="/${category.srlnm}/c?rlnm=${category.rlnm}" var="categoryUrl" />
+                        <spring:message code="nav.cat.${category.rlnm}.mobile" var="categoryName"/>
+                        <spring:url value="/static/mobile/images/icons/nav_cat_dept/${navGroup.rlnm}_${category.rlnm}.png" var="catImgUrl"/>
+                        <li class="cat-children" style="background-image:url('${catImgUrl}');">
+                            <a href="${categoryUrl}">${categoryName}</a>
+                        </li>
+                    </c:forEach>
+                </c:forEach>
+                <c:forEach var="category" items="${navGroup.ctgrs}" varStatus="status">
+                    <spring:url value="/${category.srlnm}/c?rlnm=${category.rlnm}" var="categoryUrl" />
+                    <spring:message code="nav.cat.${category.rlnm}" var="categoryName"/>
+                    <spring:url value="/static/mobile/images/icons/nav_cat_dept/${navGroup.rlnm}_${category.rlnm}.png" var="catImgUrl"/>
+                    <li class="cat-children" style="background-image:url('${catImgUrl}');">
+                        <a href="${categoryUrl}">${categoryName}</a>
+                    </li>
+                </c:forEach>
+            </c:if>
+
+        </c:forEach>
+    </ul>
+
+</jsp:root>

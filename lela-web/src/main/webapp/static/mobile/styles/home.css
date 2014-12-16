@@ -1,0 +1,136 @@
+#quiz-l img {
+    clear: both;
+    width: 100%;
+    display: block;
+}
+
+#quiz-l span {
+    display: none;
+}
+
+#depts a {
+    display: block;
+    width:50%;
+    text-align: center;
+    float:left;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+#depts a:first-child {
+    margin-right: 0px;
+}
+
+#depts a img {
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+#depts {
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 3px;
+    overflow: hidden;
+}
+
+#depts h3, #mc-subscribe h3 {
+    margin-top: 3px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: normal;
+    margin-top: 10px;
+    font-size: 1.4em;
+}
+
+#mc-subscribe {
+    width:320px;
+    margin:10px auto;
+    background:#fff;
+    overflow:hidden;
+    position: relative;
+}
+
+#categories h3 {
+    text-align: center;
+    font-weight: normal;
+    margin-top: 10px;
+    font-size: 1.4em;
+}
+
+#email {
+    padding: 8px 8px;
+    font-size: 14px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    border-top: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    position: relative;
+    top: -2px;
+    left: 10px;
+}
+
+#mc-submit {
+    height:27px;
+    background:#ff9900;
+    color:#fff;
+    display:block;
+    float:right;
+    font-size:14px;
+    font-weight:bold;
+    width: 50px;
+    padding:9px 20px 0 20px;
+    margin-left:0px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+#mc-subscribe p#row-email input {
+    width:190px;
+    color:#999;
+}
+
+/* #email { width: 200px !important; } */
+#mc-error, #mc-success { display:none; font-size:16px !important; padding:8px 0 5px 0px;}
+#mc-error { color:red; text-align: center; float:none !important; padding:0; clear: both; }
+#mc-success { color:green; }
+
+#categories {
+    display: block;
+    position: relative;
+    margin: 0px;
+}
+
+#banner-marquee {
+    position: relative;
+    background-color: #ff9900;
+    z-index: 1;
+}
+
+#banner-marquee a {
+    display: block;
+    width: 100%;
+    padding-bottom: 0px;
+}
+
+#banner-marquee a img {
+    padding-bottom: 0px;
+    margin-bottom: -3px;
+}
+
+.marqueectacontainer {
+    position: relative;
+    top: -3px;
+}
+
+.marqueecta {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+}

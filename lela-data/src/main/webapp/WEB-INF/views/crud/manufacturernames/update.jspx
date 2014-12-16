@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_ManufacturerName" modelAttribute="manufacturerName" path="/crud/manufacturernames" versionField="Version" z="soDP2q4XLWxIegwXfBKGcoayOic=">
+      <field:datetime dateTimePattern="${manufacturerName_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_ManufacturerName_dateCreated"  z="user-managed" render="false"/>
+      <field:datetime dateTimePattern="${manufacturerName_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_ManufacturerName_dateModified"  z="user-managed" render="false"/>
+      <field:select field="locale" id="c_com_lela_data_domain_entity_ManufacturerName_locale" itemValue="id" items="${locales}" path="/locales" z="user-managed"/>
+      <field:select field="manufacturer" id="c_com_lela_data_domain_entity_ManufacturerName_manufacturer" itemValue="id" items="${manufacturers}" path="/manufacturers" z="user-managed"/>
+      <field:input field="manufacturerName" id="c_com_lela_data_domain_entity_ManufacturerName_manufacturerName" required="true" z="0N4jjSIZTPqKb9bCWIYnvuEiOrU="/>
+    </form:update>
+</div>

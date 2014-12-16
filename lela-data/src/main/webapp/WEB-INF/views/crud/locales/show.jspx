@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Locale" object="${locale}" path="/crud/locales" z="o/NDgqKNzU6MFE4DtJ2MxbMA/wg=">
+        <field:display date="true" dateTimePattern="${locale_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Locale_dateCreated" object="${locale}" z="sVk7aT+hkhXX8VxtiaWhLsh+7xY="/>
+        <field:display date="true" dateTimePattern="${locale_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Locale_dateModified" object="${locale}" z="dEyQ8GGNrCJ20hU7iZZqSCg3acY="/>
+        <field:display field="localeName" id="s_com_lela_data_domain_entity_Locale_localeName" object="${locale}" z="y4I8w/1HqznzGkv7l6mbas8qG7s="/>
+    </page:show>
+</div>

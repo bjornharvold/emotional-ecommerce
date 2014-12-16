@@ -1,0 +1,75 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="link.delete" var="delete"/>
+
+    <h1><spring:message code="page.admin.navigationbars.title"/></h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/navigationbar/form" var="newNavigationBarUrl"/>
+        <a class="action" href="${newNavigationBarUrl}"><spring:message code="navigationbar.create.entry"/></a>
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <c:if test="${empty navigationBars.content}">
+        <p><spring:message code="navigationbar.list.empty"/></p>
+    </c:if>
+
+    <c:if test="${not empty navigationBars.content}">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th width="20%"><spring:message code="navigationbar.url.name"/></th>
+                <th width="5%"><spring:message code="navigationbar.default"/></th>
+                <th width="5%"><spring:message code="navigationbar.locale"/></th>
+                <th width="5%"><spring:message code="navigationbar.groups"/></th>
+                <th width="5%">&#160;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${navigationBars.content}" var="navigationbar">
+                <tr>
+                    <td>${navigationbar.rlnm}</td>
+                    <td>${navigationbar.dflt}</td>
+                    <td>${navigationbar.lcl}</td>
+                    <td>${fn:length(navigationbar.grps)}</td>
+                    <td>
+                        <spring:url value="/administration/navigationbar/${navigationbar.rlnm}" var="navigationBarUrl"/>
+                        <a class="action" href="${navigationBarUrl}"><spring:message code="link.view"/></a>
+
+                        <spring:url value="/administration/navigationbar/form" var="editNavigationBarUrl">
+                            <spring:param name="urlName" value="${navigationbar.rlnm}"/>
+                        </spring:url>
+                        <a class="action" href="${editNavigationBarUrl}"><spring:message code="link.edit"/></a>
+
+                        <spring:url value="/administration/navigationbar/${navigationbar.rlnm}" var="deleteNavigationBarUrl"/>
+                        <spring-form:form action="${deleteNavigationBarUrl}" method="DELETE">
+                            <input type="submit" name="${delete}" value="${delete}"/>
+                        </spring-form:form>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+
+        <lela:lelaPagination url="/administration/navigationbar/list" totalElements="${navigationBars.totalElements}" totalPages="${navigationBars.totalPages}" pageNumber="${navigationBars.number}" pageSize="${navigationBars.size}"/>
+    </c:if>
+</div>

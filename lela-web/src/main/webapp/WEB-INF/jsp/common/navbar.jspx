@@ -1,0 +1,246 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+<tiles:importAttribute name="wideLayout" ignore="true" scope="session" />
+<spring:message code="page.header.tagline" var="lelaTagline"/>
+<spring:message code="nav.label.search" var="searchText"/>
+<spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+<spring:url value="/" var="indexUrl" />
+
+<c:set var="loginUrlWithReturn">/login/<lela:referralUrl format="rt" /></c:set>
+<c:set var="registerUrlWithReturn">/register/<lela:referralUrl format="rt" /></c:set>
+<c:set var="currentUrl"><lela:referralUrl format="current" /></c:set>
+<c:set var="urlQuery"><lela:referralUrl format="query" /></c:set>
+
+<c:choose>
+    <c:when test="${fn:startsWith(loginUrlWithReturn, '/login/?rt=/login')}">
+        <spring:url value="${currentUrl}" var="loginUrl" />
+        <spring:url value="${currentUrl}" var="registerUrl" />
+    </c:when>
+    <c:when test="${fn:startsWith(loginUrlWithReturn, '/login/?rt=/register')}">
+        <spring:url value="/login/${urlQuery}" var="loginUrl" />
+        <spring:url value="/register/${urlQuery}" var="registerUrl" />
+    </c:when>
+    <c:otherwise>
+        <spring:url value="${loginUrlWithReturn}" var="loginUrl" />
+        <spring:url value="${registerUrlWithReturn}" var="registerUrl" />
+    </c:otherwise>
+</c:choose>
+
+<spring:url value="/register?rt=/quiz" var="registerUrl" />
+<spring:url value="/invitation" var="invitationUrl" />
+<spring:url value="/question/ask" var="askQuestionUrl" />
+<spring:url value="/user/dashboard/overview" var="dashboardUrl" />
+<spring:url value="/user/profile" var="profileUrl" />
+<spring:url var="logoutUrl" value="/logout"/>
+<spring:url value="/search/item" var="searchUrl" />
+<spring:url value="/page/blog" var="aboutUrl" />
+<spring:url value="/store/giggle" var="dealsUrl" />
+<spring:message code="environment" var="environment"/>
+<spring:url value="/quiz" var="quizUrlVideo" />
+<spring:url value="/quiz" var="launchQuizUrl" />
+
+<lela:findUser/>
+
+<spring:url value="/user/lists" var="lelaListUrl" />
+<spring:url var="navSubmitImg" value="/static/images/buttons/nav-search-submit-off.png" />
+<spring:url var="navSubmitImgOn" value="/static/images/buttons/nav-search-submit-on.png" />
+<c:set var="selectedDepartment" value="false" scope="session" />
+
+<script type="text/javascript">
+    var messages = {
+           "search.input": '${searchText}'
+     };
+    var searchOffButton = '${navSubmitImg}';
+    var searchOnButton = '${navSubmitImgOn}';
+</script>
+
+    <div id="head">
+
+        <a href="${indexUrl}" id="theme-logo" class="theme-el"><!-- --></a>
+        <div id="theme-top" class="theme-el"><!-- --></div>
+        <div id="theme-search" class="theme-el"><!-- --></div>
+        <div id="theme-panel1" class="theme-el"><!-- --></div>
+
+        <!-- <h2 title="${lelaTagline}" id="l-logo"><a href="${indexUrl}"><span class="h-text">${lelaTagline}</span></a></h2> -->
+
+        <div id="lela-nav">
+
+            <h2 title="${lelaTagline}" class="lela-logo"><a href="${indexUrl}"><span class="h-text">${lelaTagline}</span></a></h2>
+            <div class="nav-container">
+
+                <div class="nav-categories">
+                    <c:forEach var="navGroup" items="${navigationBar.grps}" varStatus="status">
+
+                        <div class="nav-group" id="nav-group-${navGroup.rlnm}">
+                            <spring:message code="nav.group.${navGroup.rlnm}" var="categoryGroupName" htmlEscape="false"/>
+                            <spring:url value="/${navGroup.srlnm}/d?rlnm=${navGroup.rlnm}" var="departmentUrl" />
+                            <a href="${departmentUrl}" class="g-tab g-tab-${navGroup.rlnm}" id="${navGroup.rlnm}" title="${categoryGroupName}">${categoryGroupName}</a>
+                            <spring:url value="/static/images/placeholders/nav/group-${navGroup.rlnm}.png" var="navImg" />
+                            <div class="nav-group-contents nav-group-${navGroup.rlnm}">
+                                <!-- <img src="${navImg}" width="221" class="navImg" /> -->
+                                <div class="cat-hdr-imgs">
+                                    <c:set var="index" value="0" />
+                                    <ul>
+                                    <c:forEach var="children" items="${navGroup.chldrn}">
+                                        <c:forEach var="category" items="${children.ctgrs}" varStatus="cstatus">
+                                            <spring:url var="img" value="/static/images/placeholders/nav/nav-img/${navGroup.rlnm}_${category.rlnm}.png"/>
+                                            <spring:message code="nav.cat.${category.rlnm}" var="categoryName"/>
+                                            <li><a href="${departmentUrl}"><img navGroup="${navGroup.rlnm}" src="${img}" alt="${categoryName}" class="cat-hdr-img cat-hdr-img-${category.rlnm} ${cstatus.index == 0 ? 'on' : ''}" num="${cstatus.index}" rlnm="${category.rlnm}" /></a></li>
+                                            <c:set var="index" value="${cstatus.index + 1}" />
+                                        </c:forEach>
+                                    </c:forEach>
+                                    <c:forEach var="category" items="${navGroup.ctgrs}" varStatus="status">
+                                        <spring:url var="img" value="/static/images/placeholders/nav/nav-img/${navGroup.rlnm}_${category.rlnm}.png"/>
+                                        <spring:message code="nav.cat.${category.rlnm}" var="categoryName"/>
+                                        <li><a href="${departmentUrl}"><img navGroup="${navGroup.rlnm}" src="${img}" alt="${categoryName}" class="cat-hdr-img cat-hdr-img-${category.rlnm} ${index + status.index == 0 ? 'on' : ''}" num="${index + status.index}" rlnm="${category.rlnm}" /></a></li>
+                                    </c:forEach>
+                                    </ul>
+                                </div>
+                                <ul class="nav-group-subnav">
+
+                                    <c:set var="loadCategoryGroupCss" value="none" scope="session"/>
+
+                                    <c:forEach var="children" items="${navGroup.chldrn}">
+
+                                        <spring:message code="nav.cat.${children.nm}" var="categoryName" />
+
+                                        <li class="noborder"><span class="children-header">${categoryName}</span>
+                                            <ul class="nav-group-subnav-children noborder">
+
+                                            <c:forEach var="category" items="${children.ctgrs}">
+
+                                                <tiles:insertTemplate template="/WEB-INF/jsp/common/navbar_category.jspx" flush="true">
+                                                    <tiles:putAttribute name="currentDepartment" value="${currentDepartment}" />
+                                                    <tiles:putAttribute name="category" value="${category}" />
+                                                    <tiles:putAttribute name="navGroup" value="${navGroup}" />
+                                                </tiles:insertTemplate>
+
+                                            </c:forEach>
+
+                                            </ul>
+                                        </li>
+
+                                    </c:forEach>
+
+                                    <c:forEach var="category" items="${navGroup.ctgrs}" varStatus="status">
+
+                                        <tiles:insertTemplate template="/WEB-INF/jsp/common/navbar_category.jspx" flush="true">
+                                            <tiles:putAttribute name="currentDepartment" value="${currentDepartment}" />
+                                            <tiles:putAttribute name="category" value="${category}" />
+                                            <tiles:putAttribute name="navGroup" value="${navGroup}" />
+                                        </tiles:insertTemplate>
+
+                                    </c:forEach>
+                                </ul>
+                                <div class="clearfix"><!-- --></div>
+                            </div>
+                            <div class="clearfix"><!-- --></div>
+                        </div>
+                    </c:forEach>
+                </div>
+
+                <c:set var="lelaListCount" value="${us.listCardCount}" scope="session"/>
+
+                <c:if test="${loggedInUser != 'anonymousUser'}">
+                    <div class="nav-login nav-login-loggedin">
+                        <a class="user-list" href="#">Hello, <lela:truncate text="${!empty us.fnm ? us.fnm : us.ml}" maxLength="12"/></a>
+                        <a class="nav-list" href="${lelaListUrl}"><spring:message code="nav.label.myfaves" /> (<span id="myFavesCount">${lelaListCount}</span>)</a>
+
+                        <div class="menu-container">
+                            <ul class="menu">
+                                <li><a href="${dashboardUrl}" class="m-tab a-tab"><spring:message code="user.account.nav.account.overview"/></a></li>
+                                <li><a href="${logoutUrl}" class="m-tab a-tab"><spring:message code="nav.logout"/></a></li>
+                            </ul>
+                            <div class="clearfix"><!-- --></div>
+                        </div>
+
+                    </div>
+
+                </c:if>
+
+                <c:if test="${loggedInUser == 'anonymousUser'}">
+                    <div class="nav-login">
+                        <span class="guest"><a href="${registerUrl}" id="nav-register"><spring:message code="button.register" /></a> <strong>|</strong> <a class="login" href="${loginUrl}"><spring:message code="button.login" /></a></span>
+                        <a class="nav-list" href="${lelaListUrl}"><spring:message code="nav.label.myfaves" /></a>
+                    </div>
+
+                </c:if>
+
+                <div class="nav-search toggle-search" id="nav-search-btn">
+                    <span><spring:message code="nav.label.search" /></span>
+                </div>
+
+            </div>
+
+            <div class="search-container">
+                <form action="${searchUrl}" method="GET" id="search-form">
+                <div class="search-categories" id="search-categories">
+
+                    <spring:message code="nav.label.departments.all" var="allDepartments" />
+
+                    <input value="${!empty param.cat ? param.cat : ''}" name="cat" type="hidden" id="s-cat"/>
+                    <spring:message code="nav.cat.${param.cat}" var="searchCatName"/>
+                    <a href="#" id="cat-dd">${!empty param.cat ? searchCatName : allDepartments}</a>
+                    <div class="clearfix"><!-- --></div>
+
+                    <div class="menu-container">
+                        <ul id="cat-dd-data" class="menu">
+
+                            <li><a href="#" title="${allDepartments}" cat="">${allDepartments}</a></li>
+
+                            <c:forEach var="category" items="${categories}" varStatus="status">
+                                <spring:message code="nav.cat.${category.rlnm}" var="categoryName"/>
+                                <li><a href="${categoryUrl}" title="${categoryName}" cat="${category.rlnm}" class="${fn:length(categories) eq status.count ? 'no-line' : ''}">${categoryName}</a></li>
+                            </c:forEach>
+                            <li class="clearfix"><!-- --></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-term">
+                       <span id="nav-search-text">${searchText}</span>
+                       <span id="nav-search">
+                           <input id="search-term-input" name="terms" value="${!empty param.terms ? fn:escapeXml(param.terms) : ''}"/>
+                       </span>
+                    <div class="search-close toggle-search"><!-- --></div>
+                    <input type="image" src="${navSubmitImg}" class="search-submit" />
+                    <div class="clearfix"><!-- --></div>
+                </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <c:choose>
+        <c:when test="${!empty param.terms}">
+            <script type="text/javascript">
+                var searchIsDisplayed = true;
+
+                $('.nav-container').hide();
+                $('#nav-search-text').hide();
+                $('.search-container').show();
+            </script>
+        </c:when>
+        <c:otherwise>
+            <script type="text/javascript">
+                var searchIsDisplayed = false;
+            </script>
+        </c:otherwise>
+    </c:choose>
+</div>

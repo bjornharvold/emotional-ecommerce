@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+    <bean id="validatorService" class="com.lela.commons.service.impl.ValidatorServiceImpl">
+        <!-- all validator profiles -->
+        <property name="profiles">
+            <map>
+                <entry key="userAttributes">
+                    <!-- User attribute profile -->
+                    <map>
+                        <!-- ddt is the key we are expecting -->
+                        <entry key="ddt" value-ref="dueDateValidator"/>
+
+                        <!-- crtv is the creative that the user was shown -->
+                        <entry key="crtv" value-ref="hasTextValidator"/>
+                    </map>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- Used for validating 'due date' -->
+    <bean id="dueDateValidator" class="com.lela.commons.validator.impl.SimpleDateValidator" c:dateFormat="yyyyMMdd"/>
+
+    <!-- Used for a string has some value -->
+    <bean id="hasTextValidator" class="com.lela.commons.validator.impl.HasTextValidator"/>
+
+</beans>

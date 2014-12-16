@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags"
+     xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0" xmlns:display="http://displaytag.sf.net/el">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <spring:message code="label_affiliatereporting_montly" htmlEscape="false" var="title"/>
+
+    <spring:message code="application_name" htmlEscape="false" var="app_name"/>
+
+    <spring:url value="/affiliatereporting/monthly" var="list_url"/>
+    <display:table name="salesTotals" id="item" style="width:85%" requestURI="${list_url}" export="true" defaultsort="1">
+      <display:setProperty name="export.excel.filename" value="SalesTotals.xls"/>
+      <display:column property="month" format="{0,date,MM-yyyy}" sortable="true" title="Month" />
+      <display:column property="salesTotal" sortable="true" title="Sales Total"/>
+      <display:column property="commissionTotal" sortable="true" title="Commission"/>
+      <display:column property="quantity" sortable="true" title="Total Items Sold"/>
+      <display:column sortable="true" title="Average Price Per Items Sold" >
+        <c:if test="${item.quantity > 0}">
+          ${item.salesTotal/item.quantity}
+        </c:if>
+      </display:column>
+
+
+    </display:table>
+</div>

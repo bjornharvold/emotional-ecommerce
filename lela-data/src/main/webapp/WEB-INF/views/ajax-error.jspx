@@ -1,0 +1,7 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:fn="http://java.sun.com/jsp/jstl/functions"  xmlns:spring="http://www.springframework.org/tags" xmlns:jsp="http://java.sun.com/JSP/Page" class="ajax-error">
+  <jsp:directive.page contentType="text/html;charset=UTF-8" />
+  <jsp:output omit-xml-declaration="yes" />
+  <c:out escapeXml="true" value=""/>
+  <spring:message code="${error_message}" arguments="${error_message_arguments}" argumentSeparator=";"/>
+</div>
+

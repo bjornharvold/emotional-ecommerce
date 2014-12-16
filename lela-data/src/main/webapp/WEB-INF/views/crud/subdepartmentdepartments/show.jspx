@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_SubdepartmentDepartment" object="${subdepartmentdepartment}" path="/crud/subdepartmentdepartments" z="8tsxHPHdjdV1xlDoNXmXOhYUUS4=">
+        <field:display date="true" dateTimePattern="${subdepartmentDepartment_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_SubdepartmentDepartment_dateCreated" object="${subdepartmentdepartment}" z="EIuc0Pu8pfIA3GEkuXFkVeks8xk="/>
+        <field:display date="true" dateTimePattern="${subdepartmentDepartment_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_SubdepartmentDepartment_dateModified" object="${subdepartmentdepartment}" z="Iqp60aV7EHQrbE1t5zsS3v4T/g0="/>
+        <field:display field="subdepartmentOrder" id="s_com_lela_data_domain_entity_SubdepartmentDepartment_subdepartmentOrder" object="${subdepartmentdepartment}" z="lRdBvVNsTvu5x+1sooYMDxiwDoo="/>
+        <field:display field="subdepartment" id="s_com_lela_data_domain_entity_SubdepartmentDepartment_subdepartment" object="${subdepartmentdepartment}" z="5mV50dcane5v3kHlyLOT95YP180="/>
+        <field:display field="department" id="s_com_lela_data_domain_entity_SubdepartmentDepartment_department" object="${subdepartmentdepartment}" z="/bYMSK9ckHYpsN0FWggumCi6Y6E="/>
+    </page:show>
+</div>

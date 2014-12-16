@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="administration.press.list" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.presses.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/press/press_list.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="administration.press" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.presses.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/press/press.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="administration.press.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.presses.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/press/press_form.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="administration.press.image.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.press.image.title"/>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/ckeditor/ckeditor.js" />
+            <add-attribute type="string" value="/static/js/plugins/ckeditor/adapters/jquery.js" />
+		</put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/press/press_image_form.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="administration.press.testimonial.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="press.testimonial"/>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/ckeditor/ckeditor.js" />
+            <add-attribute type="string" value="/static/js/plugins/ckeditor/adapters/jquery.js" />
+		</put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/press/press_testimonial_form.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="administration.press.tweet.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="press.tweet"/>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/ckeditor/ckeditor.js" />
+            <add-attribute type="string" value="/static/js/plugins/ckeditor/adapters/jquery.js" />
+		</put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/press/press_tweet_form.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+</tiles-definitions>

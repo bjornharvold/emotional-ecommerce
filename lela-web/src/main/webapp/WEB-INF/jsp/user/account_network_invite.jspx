@@ -1,0 +1,307 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="user.account.network.email" var="email"/>
+    <spring:message code="user.account.network.first.name" var="firstName"/>
+    <spring:message code="user.account.network.last.name" var="lastName"/>
+    <spring:message code="error.firstname.empty" var="firstnameEmpty"/>
+    <spring:message code="error.lastname.empty" var="lastnameEmpty"/>
+    <spring:message code="error.relation.empty" var="relationEmpty"/>
+    <spring:message code="error.email.empty" var="emailEmpty"/>
+    <spring:message code="error.email.invalid" var="emailInvalid"/>
+    <spring:url value="/user/dashboard/network" var="networkUrl" />
+    <spring:url value="/user/dashboard/network/request" var="sendRequestUrl"/>
+
+    <script type="text/javascript">
+        var messages = {
+            "user.account.network.email" : "${email}",
+            "user.account.network.first.name" : "${firstName}",
+            "user.account.network.last.name" : "${lastName}",
+            "error.firstname.empty" : "${firstnameEmpty}",
+            "error.lastname.empty" : "${lastnameEmpty}",
+            "error.relation.empty" : "${relationEmpty}",
+            "error.email.empty" : "${emailEmpty}",
+            "error.email.invalid" : "${emailInvalid}"
+        }
+
+        var networkUrl = "${networkUrl}";
+    </script>
+
+    <div id="account-nav">
+        <ul>
+            <li>
+                <!-- Left nav content -->
+                <tiles:insertTemplate template="/WEB-INF/jsp/user/account_nav.jspx" flush="true">
+                </tiles:insertTemplate>
+            </li>
+        </ul>
+    </div>
+    <div id="account-content">
+        <!--
+        <c:if test="${not empty socialInvite.sclPrvdrPrfls}">
+            <div id="lela-network-facebook-invitation" class="d-section">
+                <h2><spring:message code="user.account.network.friends.family.facebook.invite"/></h2>
+                <div id="toggle-checkboxes">
+                    <a id="select-all" href="#"><spring:message code="user.account.network.friends.select"/></a> / <a id="unselect-all" href="#"><spring:message code="user.account.network.friends.unselect"/></a>
+                </div>
+                <div id="facebook-invitation">
+                    <c:forEach var="socialProviderProfile" items="${socialInvite.sclPrvdrPrfls}">
+                        <div class="facebook-profile">
+                            <img src="https://graph.facebook.com/${socialProviderProfile.prfld}/picture" alt=""/>
+                            <input class="select-profile" type="checkbox"/>
+                            <br/>
+                            ${socialProviderProfile.fllnm}
+                            <input class="profile-email" type="hidden" value="${socialProviderProfile.ml}"/>
+                            <input class="profile-first-name" type="hidden" value="${socialProviderProfile.fnm}"/>
+                            <input class="profile-last-name" type="hidden" value="${socialProviderProfile.lnm}"/>
+                            <input class="profile-relation" type="hidden" value="${socialProviderProfile.rltn}"/>
+                        </div>
+                    </c:forEach>
+                </div>
+                <div class="s-row">
+                    <a class="i-submit submit-facebook-invitation" href="${sendRequestUrl}"><spring:message code="button.save.send.invitation"/></a>
+                </div>
+            </div>
+        </c:if>
+        -->
+        <div id="lela-network-invitation" class="d-section">
+            <h2><spring:message code="user.account.network.friends.family.email.invite"/></h2>
+            <div id="email-invitation">
+                <table>
+                    <tr>
+                        <th id="email-title"><spring:message code="user.account.network.email"/></th>
+                        <th id="name-title"><spring:message code="user.account.network.name"/></th>
+                        <th id="relation-title"><spring:message code="user.account.network.relation"/></th>
+                    </tr>
+                    <tr class="invitee">
+                        <td><input class="email-input" type="text" value="${email}"/></td>
+                        <td><input class="first-name-input" type="text" value="${firstName}"/><input class="last-name-input" type="text" value="${lastName}"/></td>
+                        <td>
+                            <select class="relation">
+                                <spring:message code="dropdown.relation.select" var="select"/>
+                                <option value="">${select}</option>
+                                <spring:message code="dropdown.relation.FRIEND" var="friend"/>
+                                <option value="FRIEND">${friend}</option>
+                                <spring:message code="dropdown.relation.COLLEAGUE" var="colleague"/>
+                                <option value="COLLEAGUE">${colleague}</option>
+                                <spring:message code="dropdown.relation.HUSBAND" var="husband"/>
+                                <option value="HUSBAND">${husband}</option>
+                                <spring:message code="dropdown.relation.WIFE" var="wife"/>
+                                <option value="WIFE">${wife}</option>
+                                <spring:message code="dropdown.relation.FATHER" var="father"/>
+                                <option value="FATHER">${father}</option>
+                                <spring:message code="dropdown.relation.MOTHER" var="mother"/>
+                                <option value="MOTHER">${mother}</option>
+                                <spring:message code="dropdown.relation.PARENT" var="parent"/>
+                                <option value="MOTHER">${parent}</option>
+                                <spring:message code="dropdown.relation.SON" var="son"/>
+                                <option value="SON">${son}</option>
+                                <spring:message code="dropdown.relation.DAUGHTER" var="daughter"/>
+                                <option value="DAUGHTER">${daughter}</option>
+                                <spring:message code="dropdown.relation.BROTHER" var="brother"/>
+                                <option value="BROTHER">${brother}</option>
+                                <spring:message code="dropdown.relation.SISTER" var="sister"/>
+                                <option value="SISTER">${sister}</option>
+                                <spring:message code="dropdown.relation.SIBLING" var="sibling"/>
+                                <option value="MOTHER">${sibling}</option>
+                                <spring:message code="dropdown.relation.GRANDFATHER" var="grandfather"/>
+                                <option value="GRANDFATHER">${grandfather}</option>
+                                <spring:message code="dropdown.relation.GRANDMOTHER" var="grandmother"/>
+                                <option value="GRANDMOTHER">${grandmother}</option>
+                                <spring:message code="dropdown.relation.UNCLE" var="uncle"/>
+                                <option value="UNCLE">${uncle}</option>
+                                <spring:message code="dropdown.relation.AUNT" var="aunt"/>
+                                <option value="AUNT">${aunt}</option>
+                                <spring:message code="dropdown.relation.UNCLE_AUNT" var="uncleAunt"/>
+                                <option value="MOTHER">${uncleAunt}</option>
+                                <spring:message code="dropdown.relation.NEPHEW" var="nephew"/>
+                                <option value="MOTHER">${nephew}</option>
+                                <spring:message code="dropdown.relation.NIECE" var="niece"/>
+                                <option value="MOTHER">${niece}</option>
+                                <spring:message code="dropdown.relation.NEPHEW_NIECE" var="nephewNiece"/>
+                                <option value="MOTHER">${nephewNiece}</option>
+                                <spring:message code="dropdown.relation.COUSIN" var="cousin"/>
+                                <option value="COUSIN">${cousin}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="invitee">
+                        <td><input class="email-input" type="text" value="${email}"/></td>
+                        <td><input class="first-name-input" type="text" value="${firstName}"/><input class="last-name-input" type="text" value="${lastName}"/></td>
+                        <td>
+                            <select class="relation">
+                                <spring:message code="dropdown.relation.select" var="select"/>
+                                <option value="">${select}</option>
+                                <spring:message code="dropdown.relation.FRIEND" var="friend"/>
+                                <option value="FRIEND">${friend}</option>
+                                <spring:message code="dropdown.relation.COLLEAGUE" var="colleague"/>
+                                <option value="COLLEAGUE">${colleague}</option>
+                                <spring:message code="dropdown.relation.HUSBAND" var="husband"/>
+                                <option value="HUSBAND">${husband}</option>
+                                <spring:message code="dropdown.relation.WIFE" var="wife"/>
+                                <option value="WIFE">${wife}</option>
+                                <spring:message code="dropdown.relation.FATHER" var="father"/>
+                                <option value="FATHER">${father}</option>
+                                <spring:message code="dropdown.relation.MOTHER" var="mother"/>
+                                <option value="MOTHER">${mother}</option>
+                                <spring:message code="dropdown.relation.PARENT" var="parent"/>
+                                <option value="MOTHER">${parent}</option>
+                                <spring:message code="dropdown.relation.SON" var="son"/>
+                                <option value="SON">${son}</option>
+                                <spring:message code="dropdown.relation.DAUGHTER" var="daughter"/>
+                                <option value="DAUGHTER">${daughter}</option>
+                                <spring:message code="dropdown.relation.BROTHER" var="brother"/>
+                                <option value="BROTHER">${brother}</option>
+                                <spring:message code="dropdown.relation.SISTER" var="sister"/>
+                                <option value="SISTER">${sister}</option>
+                                <spring:message code="dropdown.relation.SIBLING" var="sibling"/>
+                                <option value="MOTHER">${sibling}</option>
+                                <spring:message code="dropdown.relation.GRANDFATHER" var="grandfather"/>
+                                <option value="GRANDFATHER">${grandfather}</option>
+                                <spring:message code="dropdown.relation.GRANDMOTHER" var="grandmother"/>
+                                <option value="GRANDMOTHER">${grandmother}</option>
+                                <spring:message code="dropdown.relation.UNCLE" var="uncle"/>
+                                <option value="UNCLE">${uncle}</option>
+                                <spring:message code="dropdown.relation.AUNT" var="aunt"/>
+                                <option value="AUNT">${aunt}</option>
+                                <spring:message code="dropdown.relation.UNCLE_AUNT" var="uncleAunt"/>
+                                <option value="MOTHER">${uncleAunt}</option>
+                                <spring:message code="dropdown.relation.NEPHEW" var="nephew"/>
+                                <option value="MOTHER">${nephew}</option>
+                                <spring:message code="dropdown.relation.NIECE" var="niece"/>
+                                <option value="MOTHER">${niece}</option>
+                                <spring:message code="dropdown.relation.NEPHEW_NIECE" var="nephewNiece"/>
+                                <option value="MOTHER">${nephewNiece}</option>
+                                <spring:message code="dropdown.relation.COUSIN" var="cousin"/>
+                                <option value="COUSIN">${cousin}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="invitee">
+                        <td><input class="email-input" type="text" value="${email}"/></td>
+                        <td><input class="first-name-input" type="text" value="${firstName}"/><input class="last-name-input" type="text" value="${lastName}"/></td>
+                        <td>
+                            <select class="relation">
+                                <spring:message code="dropdown.relation.select" var="select"/>
+                                <option value="">${select}</option>
+                                <spring:message code="dropdown.relation.FRIEND" var="friend"/>
+                                <option value="FRIEND">${friend}</option>
+                                <spring:message code="dropdown.relation.COLLEAGUE" var="colleague"/>
+                                <option value="COLLEAGUE">${colleague}</option>
+                                <spring:message code="dropdown.relation.HUSBAND" var="husband"/>
+                                <option value="HUSBAND">${husband}</option>
+                                <spring:message code="dropdown.relation.WIFE" var="wife"/>
+                                <option value="WIFE">${wife}</option>
+                                <spring:message code="dropdown.relation.FATHER" var="father"/>
+                                <option value="FATHER">${father}</option>
+                                <spring:message code="dropdown.relation.MOTHER" var="mother"/>
+                                <option value="MOTHER">${mother}</option>
+                                <spring:message code="dropdown.relation.PARENT" var="parent"/>
+                                <option value="MOTHER">${parent}</option>
+                                <spring:message code="dropdown.relation.SON" var="son"/>
+                                <option value="SON">${son}</option>
+                                <spring:message code="dropdown.relation.DAUGHTER" var="daughter"/>
+                                <option value="DAUGHTER">${daughter}</option>
+                                <spring:message code="dropdown.relation.BROTHER" var="brother"/>
+                                <option value="BROTHER">${brother}</option>
+                                <spring:message code="dropdown.relation.SISTER" var="sister"/>
+                                <option value="SISTER">${sister}</option>
+                                <spring:message code="dropdown.relation.SIBLING" var="sibling"/>
+                                <option value="MOTHER">${sibling}</option>
+                                <spring:message code="dropdown.relation.GRANDFATHER" var="grandfather"/>
+                                <option value="GRANDFATHER">${grandfather}</option>
+                                <spring:message code="dropdown.relation.GRANDMOTHER" var="grandmother"/>
+                                <option value="GRANDMOTHER">${grandmother}</option>
+                                <spring:message code="dropdown.relation.UNCLE" var="uncle"/>
+                                <option value="UNCLE">${uncle}</option>
+                                <spring:message code="dropdown.relation.AUNT" var="aunt"/>
+                                <option value="AUNT">${aunt}</option>
+                                <spring:message code="dropdown.relation.UNCLE_AUNT" var="uncleAunt"/>
+                                <option value="MOTHER">${uncleAunt}</option>
+                                <spring:message code="dropdown.relation.NEPHEW" var="nephew"/>
+                                <option value="MOTHER">${nephew}</option>
+                                <spring:message code="dropdown.relation.NIECE" var="niece"/>
+                                <option value="MOTHER">${niece}</option>
+                                <spring:message code="dropdown.relation.NEPHEW_NIECE" var="nephewNiece"/>
+                                <option value="MOTHER">${nephewNiece}</option>
+                                <spring:message code="dropdown.relation.COUSIN" var="cousin"/>
+                                <option value="COUSIN">${cousin}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="cloneable-invitee">
+                        <td><input class="email-input" type="text" value="${email}"/></td>
+                        <td><input class="first-name-input" type="text" value="${firstName}"/><input class="last-name-input" type="text" value="${lastName}"/></td>
+                        <td>
+                            <select class="relation">
+                                <spring:message code="dropdown.relation.select" var="select"/>
+                                <option value="">${select}</option>
+                                <spring:message code="dropdown.relation.FRIEND" var="friend"/>
+                                <option value="FRIEND">${friend}</option>
+                                <spring:message code="dropdown.relation.COLLEAGUE" var="colleague"/>
+                                <option value="COLLEAGUE">${colleague}</option>
+                                <spring:message code="dropdown.relation.HUSBAND" var="husband"/>
+                                <option value="HUSBAND">${husband}</option>
+                                <spring:message code="dropdown.relation.WIFE" var="wife"/>
+                                <option value="WIFE">${wife}</option>
+                                <spring:message code="dropdown.relation.FATHER" var="father"/>
+                                <option value="FATHER">${father}</option>
+                                <spring:message code="dropdown.relation.MOTHER" var="mother"/>
+                                <option value="MOTHER">${mother}</option>
+                                <spring:message code="dropdown.relation.PARENT" var="parent"/>
+                                <option value="PARENT">${parent}</option>
+                                <spring:message code="dropdown.relation.SON" var="son"/>
+                                <option value="SON">${son}</option>
+                                <spring:message code="dropdown.relation.DAUGHTER" var="daughter"/>
+                                <option value="DAUGHTER">${daughter}</option>
+                                <spring:message code="dropdown.relation.BROTHER" var="brother"/>
+                                <option value="BROTHER">${brother}</option>
+                                <spring:message code="dropdown.relation.SISTER" var="sister"/>
+                                <option value="SISTER">${sister}</option>
+                                <spring:message code="dropdown.relation.SIBLING" var="sibling"/>
+                                <option value="SIBLING">${sibling}</option>
+                                <spring:message code="dropdown.relation.GRANDFATHER" var="grandfather"/>
+                                <option value="GRANDFATHER">${grandfather}</option>
+                                <spring:message code="dropdown.relation.GRANDMOTHER" var="grandmother"/>
+                                <option value="GRANDMOTHER">${grandmother}</option>
+                                <spring:message code="dropdown.relation.UNCLE" var="uncle"/>
+                                <option value="UNCLE">${uncle}</option>
+                                <spring:message code="dropdown.relation.AUNT" var="aunt"/>
+                                <option value="AUNT">${aunt}</option>
+                                <spring:message code="dropdown.relation.UNCLE_AUNT" var="uncleAunt"/>
+                                <option value="UNCLE_AUNT">${uncleAunt}</option>
+                                <spring:message code="dropdown.relation.NEPHEW" var="nephew"/>
+                                <option value="NEPHEW">${nephew}</option>
+                                <spring:message code="dropdown.relation.NIECE" var="niece"/>
+                                <option value="NIECE">${niece}</option>
+                                <spring:message code="dropdown.relation.NEPHEW_NIECE" var="nephewNiece"/>
+                                <option value="NEPHEW_NIECE">${nephewNiece}</option>
+                                <spring:message code="dropdown.relation.COUSIN" var="cousin"/>
+                                <option value="COUSIN">${cousin}</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <div id="add-more-invitee"><a href="#"><spring:message code="user.account.network.add.more"/></a></div>
+                <div class="error"><!-- --></div>
+                <div class="s-row">
+                    <a class="i-submit submit-email-invitation" href="${sendRequestUrl}"><spring:message code="button.save.send.invitation"/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

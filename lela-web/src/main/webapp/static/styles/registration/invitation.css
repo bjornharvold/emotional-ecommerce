@@ -1,0 +1,265 @@
+/*
+ * Copyright (c) 2011. Purple Door Systems, BV.
+ */
+
+body {
+    margin:0;
+    padding:0;
+    color:#333333;
+    font-size:11px;
+    font-family: "Helvetica Neue";
+}
+
+li, ul, p, form {
+    overflow:hidden;
+}
+
+table {
+    border-collapse:collapse;
+}
+
+table td, table th {
+    padding:0;
+    border:none;
+}
+
+h1, h2, h3, h4, h5, ul, li {
+    margin:0;
+    padding:0;
+}
+
+a {
+    color:#4ca7d8;
+    text-decoration:none;
+}
+
+img {
+    border:none;
+}
+
+input:focus, a {
+    outline: none;
+}
+
+.h-text {
+    display:none;
+}
+
+#main {
+    width:456px;
+    position:absolute;
+    overflow:hidden;
+}
+
+h1#form-logo {
+    width:132px;
+    height:151px;
+    background:url('../../images/invitation/logo.png');
+    position:absolute;
+}
+
+#main h2 {
+    font-size:30px;
+    line-height:32px;
+}
+
+#main h2 span {
+    color:#999;
+    display:block;
+}
+
+#main h3 {
+    color:red;
+    margin-top:15px;
+    font-size:24px;
+}
+
+.c-input {
+    display:block;
+    padding:0px;
+    margin-top:5px;
+    height:71px;
+    width:380px;
+    position:relative;
+    background:url('../../images/invitation/nav_search_back.png') no-repeat left;
+}
+
+.c-input input {
+   position:relative;
+   top:14px;
+   left:10px;
+   padding: 5px;
+   width:280px;
+   line-height: 20px;
+   font-size:25px;
+   font-weight:normal;
+   border:none;
+   color:#fff;
+   background:transparent;
+}
+
+.c-input span {
+    display:block;
+    border:none;
+    width:66px;
+    height:70px;
+    padding:0;
+    float:right;
+    position:relative;
+    top:0px;
+    right:0px;
+    background:url('../../images/invitation/nav_search_off.png') no-repeat;
+}
+
+#page {
+    margin:20px;
+}
+
+#page h1 {
+    width:101px;
+    height:115px;
+    float:left;
+    background:url('../../images/invitation/logo.gif') no-repeat;
+}
+
+#content {
+    float:left;
+    margin-left:20px;
+    color:#555;
+    font-size:12px;
+    width:800px;
+}
+
+
+
+/* more */
+#wrapper {
+    height:722px;
+    background:#fbfaf8 url('../../images/invitation/background3.jpg') no-repeat top left;
+}
+
+#main {
+    top:200px;
+    left:640px;
+}
+
+h1 {
+    top:45px;
+    left:570px;
+}
+
+#main h2 {
+    color:#3f3f3f;
+}
+
+#main h2 span {
+    color:#999;
+}
+
+.c-input input {
+   color:#fff;
+}
+
+.c-input {
+    background:url(../../images/invitation/nav_search_back.png) no-repeat left;
+    clear:both;
+}
+
+.c-input span.check {
+    background:url(../../images/invitation/nav_search_off.png) no-repeat;
+}
+
+.c-input span.uncheck {
+    background:url(../../images/invitation/nav_search_unchecked.png) no-repeat;
+}
+
+#submit {
+    float:right;
+    margin-top:5px;
+    display:none;
+}
+
+#password-info {
+    display:block;
+    clear: both;
+    font-size:14px;
+    padding:3px 17px;
+}
+
+#email-type {
+    margin-top:30px;
+}
+
+#password-type {
+    float:left;
+}
+
+#launch-video {
+    display:block;
+    width:375px;
+    height:55px;
+    font-size:20px;
+    font-weight:bold;
+    color:#3f3f3f;
+    line-height:18px;
+    background:url('../../images/icons/info_question.gif') no-repeat 0 3px;
+    margin-top:40px;
+    padding-left:30px;
+}
+
+#launch-video strong {
+    display:block;
+    font-size:15px;
+    color:#666;
+}
+
+#launch-video:hover strong {
+    color:#ff9900;    
+}
+
+
+#lela-video {
+    width:720px;
+    height:410px;
+    padding:45px 10px 10px 10px;
+    background:#fff;
+}
+
+#fancybox-close {
+	top: 10px;
+	right: 10px;
+	width: 25px;
+	height: 25px;
+	background: transparent url('../../images/buttons/modal_close.png');
+}
+
+#footer {
+    position:absolute;
+    top:667px;
+    left:210px;
+    width:985px;
+    background:#333;
+    padding:16px 11px 10px 11px;
+    color:#ddd;
+    overflow:hidden;
+    clear:both;
+}
+
+#footer a {
+    color:#ddd;
+    float:left;
+    padding:0 15px 0 0;
+}
+
+#footer .copyright {
+    color:#999;
+    float:left;
+    width:190px;
+    margin:0;
+}
+
+#footer .social-link {
+    float:right;
+}
+
+#footer .social-link img { vertical-align:middle; padding-right:5px; }

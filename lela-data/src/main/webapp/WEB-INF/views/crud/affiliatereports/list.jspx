@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_AffiliateReport" items="${affiliatereports}" z="GMYR8MzHx498JOYedygDmkoN8RI=">
+        <table:table data="${affiliatereports}" id="l_com_lela_data_domain_entity_AffiliateReport" path="/crud/affiliatereports" z="zpWB+8U4iMSOUXlvCk0lrh4sIV8=">
+            <table:column date="true" dateTimePattern="${affiliateReport_datecreated_date_format}" id="c_com_lela_data_domain_entity_AffiliateReport_dateCreated" property="dateCreated" z="nYhNOGCKI4CqgkgzvX01uvtuXIk="/>
+            <table:column date="true" dateTimePattern="${affiliateReport_datemodified_date_format}" id="c_com_lela_data_domain_entity_AffiliateReport_dateModified" property="dateModified" z="6+ZEXli8R/ZbNW4vJLm4P1A721M="/>
+            <table:column id="c_com_lela_data_domain_entity_AffiliateReport_fileName" property="fileName" z="BfP3h46aTz/DUuZG+VoxVrz19Yw="/>
+            <table:column date="true" dateTimePattern="${affiliateReport_receiveddate_date_format}" id="c_com_lela_data_domain_entity_AffiliateReport_receivedDate" property="receivedDate" z="DWgCGCPkbgoSg9pOhTcdw5BMD/8="/>
+            <table:column id="c_com_lela_data_domain_entity_AffiliateReport_affiliateTransaction" property="affiliateTransaction" z="ubnslRyENJnyVemUj+CsjuFpqmc="/>
+            <table:column id="c_com_lela_data_domain_entity_AffiliateReport_filePath" property="filePath" z="uyBKIPItosP8Ha72+SoUSqc74pU="/>
+        </table:table>
+    </page:list>
+</div>

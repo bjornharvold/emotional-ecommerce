@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_CategoryMotivator" modelAttribute="categoryMotivator" path="/crud/categorymotivators" versionField="Version" z="cg1JNPiNyTQaBYRCGZycjS67NC4=">
+        <field:datetime dateTimePattern="${categoryMotivator_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_CategoryMotivator_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${categoryMotivator_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_CategoryMotivator_dateModified" render="false" z="user-managed"/>
+        <field:input field="category" id="c_com_lela_data_domain_entity_CategoryMotivator_category" z="7X03MDIqVEQY+Ti75hZeDezRgR0="/>
+        <field:input field="motivator" id="c_com_lela_data_domain_entity_CategoryMotivator_motivator" z="yKLy12pQ5od4AtEQJJDQuf4ccIU="/>
+        <field:input field="dtRulesQuery" id="c_com_lela_data_domain_entity_CategoryMotivator_dtRulesQuery" required="true" z="LgkI2NMefJEUaj0Mjzm65zAXI/s="/>
+        <field:input field="dtRuleSet" id="c_com_lela_data_domain_entity_CategoryMotivator_dtRuleSet" required="true" z="l0tB3y518a00kKpOvb/e0M/C3b0="/>
+        <field:input field="dtRuleSheet" id="c_com_lela_data_domain_entity_CategoryMotivator_dtRuleSheet" required="true" z="GWubGCO58jG9SSMwJLertkVjQ4Q="/>
+        <field:input field="dtRuleDataTag" id="c_com_lela_data_domain_entity_CategoryMotivator_dtRuleDataTag" required="true" z="rj0e5ZpBRUg7vqugu70YJNwfHbA="/>
+    </form:update>
+</div>

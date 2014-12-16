@@ -1,0 +1,73 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="user.form.input.tip" var="inputTip" htmlEscape="false"/>
+    <spring:message code="user.form.email.tip" var="emailTip" htmlEscape="false"/>
+    <spring:message code="user.form.question.tip" var="questionTip" htmlEscape="false"/>
+    <spring:message code="user.form.answer.tip" var="answerTip" htmlEscape="false"/>
+    <spring:message code="user.form.error.email" var="userErrorEmail" htmlEscape="false"/>
+    <spring:message code="user.form.error.empty" var="userErrorEmpty" htmlEscape="false"/>
+    <spring:url value="/login" var="loginUrl" />
+    <spring:message code="environment" var="environment"/>
+
+    <div class="r-form">
+
+        <c:if test="${not empty message}">
+            <h3 style="color:green;">${message}</h3>
+        </c:if>
+
+        <c:if test="${!empty param.message}">
+            <h3 style="color:green;"><br/><spring:message code="${param.message}" htmlEscape="false"/></h3>
+        </c:if>
+
+        <c:if test="${not empty param.success}">
+
+          <script type="text/javascript">
+              var serverError = true;
+          </script>
+
+          <span style="color:red;">
+            <spring:message code="security.login.unsuccessful"/>
+            <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.
+          </span>
+        </c:if>
+
+        <spring:url value='/j_spring_security_check' var="form_url"/>
+        <form name="loginForm" action="${form_url}" id="reg-form" method="POST" class="custom">
+            <div class="f-row">
+                <label for="j_username"><spring:message code="user.email"/>:</label>
+                <input id="j_username" type='text' name='j_username' class="email-type required"/>
+                <div class="error"><!-- --></div>
+            </div>
+
+            <div class="f-row">
+                <label for="j_password"><spring:message code="user.password"/>:</label>
+                <input id="j_password" type='password' name='j_password' class="password-type required"/>
+                <div class="error"><!-- --></div>
+            </div>
+
+            <div class="f-row">
+                <!--
+                <a id="loginNow" href="#" class="r-submit"><spring:message code="button.login"/></a>
+                -->
+                <spring:message code="button.login" var="login"/>
+                <input type="submit" value="${login}"/>
+            </div>
+        </form>
+    </div>
+</div>

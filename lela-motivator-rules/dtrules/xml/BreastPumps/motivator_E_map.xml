@@ -1,0 +1,37 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='BPumpID' RAttribute='BPumpID' enclosure='job' type='integer' subtype=''/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer' subtype=''/>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date' subtype=''/>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string' subtype=''/>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer' subtype=''/>
+
+			<setattribute tag='BabbleMentioned' RAttribute='BabbleMentioned' enclosure='breastpump' type='string' subtype=''/>
+			<setattribute tag='BPumpID' RAttribute='BPumpID' enclosure='breastpump' type='integer' subtype=''/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='breastpump' type='integer' subtype=''/>
+			<setattribute tag='JPMAInnovationAwardWinner' RAttribute='JPMAInnovationAwardWinner' enclosure='breastpump' type='string' subtype=''/>
+			<setattribute tag='ListPrice' RAttribute='ListPrice' enclosure='breastpump' type='double' subtype=''/>
+			<setattribute tag='motivatorTotal' RAttribute='motivatorTotal' enclosure='breastpump' type='integer' subtype=''/>
+			<setattribute tag='NAPPAAwardWinner' RAttribute='NAPPAAwardWinner' enclosure='breastpump' type='string' subtype=''/>
+
+
+			<createentity entity='breastpump' tag='breastpump' id='id'/>
+			<createentity entity='constants' tag='constants' id='id'/>
+			<createentity entity='job' tag='job' id='id'/>
+		</map>
+
+		<entities>
+
+			<entity name='breastpump' number='*'/>
+			<entity name='constants' number='*'/>
+			<entity name='job' number='*'/>
+		</entities>
+
+		<initialization>
+			<initialentity entity='job' epush='true'/>
+			<initialentity entity='constants' epush='true'/>
+		</initialization>
+	</XMLtoEDD>
+</mapping>
+

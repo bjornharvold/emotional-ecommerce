@@ -1,0 +1,48 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+ 			<setattribute tag='BouncerID' RAttribute='BouncerID' enclosure='job' type='integer' subtype=''/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer' subtype=''/>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date' subtype=''/>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string' subtype=''/>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer' subtype=''/>
+
+			<setattribute tag='BabbleMentioned' RAttribute='BabbleMentioned' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='BabyBargainsMentionedForbouncers' RAttribute='BabyBargainsMentionedForbouncers' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='BabyBargainsModelRecommendedForswings' RAttribute='BabyBargainsModelRecommendedForswings' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='BouncerID' RAttribute='BouncerID' enclosure='bouncer' type='integer' subtype=''/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='bouncer' type='integer' subtype=''/>
+			<setattribute tag='CribsieAwardWinner' RAttribute='CribsieAwardWinner' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='HeadSupportWashable' RAttribute='HeadSupportWashable' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='JPMAInnovationAwardWinner' RAttribute='JPMAInnovationAwardWinner' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='MaximumAgebouncer' RAttribute='MaximumAgebouncer' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='MaximumAgeswing' RAttribute='MaximumAgeswing' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='motivatorTotal' RAttribute='motivatorTotal' enclosure='bouncer' type='integer' subtype=''/>
+			<setattribute tag='Multifunctional' RAttribute='Multifunctional' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='NAPPAAwardWinner' RAttribute='NAPPAAwardWinner' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='PTPAAwardWinner' RAttribute='PTPAAwardWinner' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='SeatCushionWashable' RAttribute='SeatCushionWashable' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='SeatFunction' RAttribute='SeatFunction' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='SeatWashable' RAttribute='SeatWashable' enclosure='bouncer' type='string' subtype=''/>
+			<setattribute tag='Type' RAttribute='Type' enclosure='bouncer' type='string' subtype=''/>
+
+
+			<createentity entity='bouncer' tag='bouncer' id='id'/>
+			<createentity entity='constants' tag='constants' id='id'/>
+			<createentity entity='job' tag='job' id='id'/>
+		</map>
+
+		<entities>
+			<entity name='bouncer' number='*'/>
+			<entity name='constants' number='1'/>
+			<entity name='job' number='1'/>
+		</entities>
+
+		<initialization>
+			<initialentity entity='job' epush='true'/>
+			<initialentity entity='constants' epush='true'/>
+		</initialization>
+	</XMLtoEDD>
+</mapping>
+
+

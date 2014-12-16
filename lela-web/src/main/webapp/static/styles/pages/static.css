@@ -1,0 +1,290 @@
+/*
+ * Copyright (c) 2011. Purple Door Systems, BV.
+ */
+
+#main {
+    margin-top: 10px;
+    /*background:#fff;*/
+    /*padding:40px;*/
+}
+
+#main a:hover {
+    text-decoration:underline;
+}
+
+#blog-content {
+    float:left;
+    width:700px;
+    font-size:14px;
+    line-height:20px;
+}
+
+#blog-content h1 {
+    font-size:36px;
+    line-height:36px;
+    margin-bottom:20px;
+}
+
+#blog-content h1 span {
+    color:#666;
+}
+
+#blog-archive {
+    float:right;
+    width:160px;
+}
+
+
+
+#survey {
+    float:left;
+    width:545px;
+    padding:20px 20px 0px 175px;
+    background:url('../../images/icons/q_ic.gif') no-repeat 135px 28px;
+}
+
+#survey h2 {
+    font-size:32px;
+    line-height:34px;
+    margin:0;
+    padding-left:20px;
+    color:#999;
+}
+
+#survey h2 span {
+    display:block;
+    color:#3f3f3f;
+}
+
+#survey p {
+    font-size:12px;
+    padding-left:20px;
+    margin:5px 0;
+    margin-bottom:20px;
+}
+
+.about-page {
+
+}
+
+.hidden {
+    display: none;
+}
+
+.about-lela-team-profile {
+    float: left;
+    width: 300px;
+    margin: 0 15px 100px 0 !important;
+    color: #3f3f3f;
+    font-size: 12px !important;
+    line-height: 18px !important;
+    padding: 0px 0 0 0;
+}
+
+.about-lela-team-profile h3 {
+    font-size: 14px !important;
+    line-height: 20px !important;
+    margin-bottom: 0px !important;
+    text-align: left;
+}
+
+.about-lela-team-profile img {
+    margin-bottom: 8px;
+}
+
+.about-lela-team-profile h4 {
+    color: #ff9900;
+    font-weight: normal;
+}
+
+.profile-robert { background-image: url(/static/images/about-lela/image-robert.png); background-repeat: no-repeat; }
+.profile-fanny { background-image: url(/static/images/about-lela/image-fanny.png); background-repeat: no-repeat; }
+.profile-carla { background-image: url(/static/images/about-lela/image-carla.png); background-repeat: no-repeat; }
+.profile-belinda { background-image: url(/static/images/about-lela/image-belinda.png); background-repeat: no-repeat; }
+.profile-manuel { background-image: url(/static/images/about-lela/image-manuel.png); background-repeat: no-repeat; }
+.profile-thao { background-image: url(/static/images/about-lela/image-thao.png); background-repeat: no-repeat; }
+.profile-bjorn { background-image: url(/static/images/about-lela/image-bjorn.png); background-repeat: no-repeat; }
+.profile-steven { background-image: url(/static/images/about-lela/image-steven.png); background-repeat: no-repeat; }
+
+.clear {
+    clear: both;
+}
+
+.static-about {
+    width: 1024px !important;
+    margin: 0 0 0 -10px;
+    /*
+    width: 983px !important;
+    */
+}
+
+.static-about h2:first-child {
+    display: none;
+}
+
+.static-about h2 {
+    font-size: 24px;
+    background-color: white;
+    padding: 0 0 0 15px;
+}
+
+.about-lela-top {
+    font-size: 14px;
+    line-height: 22px;
+    background-color: #FFFFFF;
+    padding: 30px 15px 18px 15px;
+    border-bottom: 10px solid #EFEFEF;
+}
+
+.about-lela-top ul {
+    list-style-type: none;
+    margin-left: 15px;
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
+
+.about-lela-top ul li {
+    float: left;
+    margin-right: 33px;
+}
+
+.about-lela-top ul li:last-child {
+    margin-right: 0px !important;
+}
+
+.about-lela-top ul li a {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3f3f3f;
+}
+
+.about-lela-top ul li a.selected, .about-lela-top ul li a:hover {
+    color: #56add8;
+}
+
+.about-page {
+    background-color: #FFFFFF;
+    padding: 15px 0px 0px 15px;
+}
+
+.about-page p {
+    color: #666666;
+    line-height: 18px;
+}
+
+.about-page h2 {
+    margin: 0 0 20px 0;
+    display: block !important;
+    color: #666666;
+    padding: 0;
+    font-size: 18px;
+}
+
+.about-lela-top-left {
+    width: 457px;
+    margin-right: 31px;
+    float: left;
+}
+
+.about-lela-top-right {
+    width: 457px;
+    float: left;
+}
+
+#page-about {
+    padding: 50px 50px 15px 50px;
+}
+
+#page-about h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#page-about h1 {
+    font-size: 48px;
+    margin: 0 0 30px 0;
+    text-align: center;
+}
+
+#page-about p, #page-whysignup p {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+#page-whysignup {
+    background: url(/static/images/about-lela/decoration_why_sign_up.jpg) no-repeat 5px center;
+    padding: 50px 50px 15px 360px;
+}
+
+.video {
+    margin: 0 0 30px 80px;
+}
+
+.l {
+    width: 45%;
+    margin-right: 5%;
+    float: left;
+}
+
+.static-techlicious {
+    width: 1024px !important;
+    margin: -10px 0 -30px -10px;
+}
+
+.static-techlicious .quiz-questions {
+    margin-top: 40px;
+}
+
+.techlicious-banner {
+    background: transparent url('/static/images/placeholders/techlicious.jpg') no-repeat 0px 0px;
+    width: 1024px;
+    height: 302px;
+    margin-bottom: 10px;
+}
+
+.page-static-techlicious .static-content {
+    display: none;
+}
+
+.page-static-techlicious #cat-e {
+    display: none;
+}
+
+.page-static-techlicious .department-contents {
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+.page-static-techlicious .techlicious-banner a {
+    background:#ff9900;
+    color:#fff;
+    text-align: center;
+    padding:7px 15px;
+    display: inline;
+    font-weight:bold;
+    margin-right: 20px;
+    font-size: 16px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    position: relative;
+    top: 218px;
+    left: 80px;
+    -webkit-transition:background 0.2s;
+    -moz-transition:background 0.2s;
+    -o-transition:background 0.2s;
+    transition:background 0.2s;
+}
+
+.page-static-techlicious .techlicious-banner a:hover {
+    background:#333;
+}
+
+.department-contents-techlicious h3 {
+    margin-top: 0px;
+    font-weight: normal;
+    text-align: left;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator" items="${brandcategoryitemtypemotivators}" z="UeHxWsB9+r3GvgghLgXo1k9I+RE=">
+        <table:table data="${brandcategoryitemtypemotivators}" id="l_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator" path="/crud/brandcategoryitemtypemotivators" z="aPU6ZhYFaLTMRy92tq8uvtCGajo=">
+            <table:column date="true" dateTimePattern="${brandCategoryItemtypeMotivator_datecreated_date_format}" id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_dateCreated" property="dateCreated" z="hpJ2M/UQ8wHB1fw5gVBicf9OntY="/>
+            <table:column date="true" dateTimePattern="${brandCategoryItemtypeMotivator_datemodified_date_format}" id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_dateModified" property="dateModified" z="PpVaAY10l5xFun5Y/uhq6ximdx8="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_category" property="category" z="wx34rUJiSZWvwlRsZduJDuH0AGY="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_brand" property="brand" z="o5Mfw4x8715PmL9Z9235aCbSCfw="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_itemType" property="itemType" z="WrOFJn7DlV3Rk9Lq+6KJdmvprbg="/>
+            <table:column id="c_com_lela_data_domain_entity_BrandCategoryItemtypeMotivator_motivator" property="motivator" z="pB9QvjoVt+zQC4LOG9yLk7H62Ak="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,150 @@
+body {
+    margin-top: -10px;
+}
+
+.next-steps {
+    width: 260px !important;
+}
+
+
+.anim-steps {
+    text-align: center;
+    background: #fff;
+    overflow: hidden;
+    padding-bottom: 20px;
+    margin: 10px 0;
+}
+
+.anim-steps h2 {
+    background-color: #3f3f3f;
+    text-align:center;
+    color:#fff;
+    font-size:16px;
+    line-height:20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 0px;
+    -moz-box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+}
+
+.anim-steps .next-steps {
+    background:#d8d8d8;
+    margin:20px auto;
+    overflow: hidden;
+    color:#fff;
+    display:block;
+    font-size:15px;
+    font-weight:bold;
+    text-align:center;
+    padding:15px 10px 15px 10px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor:default;
+    -moz-transition: background 0.2s ease 0s;
+}
+
+.anim-steps .next-steps span {
+    color:#fff;
+    padding-right:20px;
+    font-size:16px;
+    opacity:0.5;
+    background:url('/static/images/icons/caret_tr.png') no-repeat right;
+}
+
+.anim-steps .next-steps.active {
+    cursor:pointer;
+    background:#ff9900;
+}
+
+.anim-steps .next-steps.active:hover {
+    background:#3f3f3f;
+}
+
+.anim-steps .next-steps.active span {
+    opacity:1;
+}
+
+.anim-steps .task-alert strong, .anim-steps .task-alert em, .anim-steps .task-alert a, .anim-steps .task-alert .close-alert {display: none; }
+.anim-steps .task-alert {
+    margin: 0 auto;
+    width:300px;
+    background: none;
+    padding: 10px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.task-alert .p-progress {
+    width: 300px;
+    margin: 0 auto;
+    padding-top:0;
+}
+
+.task-alert {
+    overflow: hidden;
+    width: 300px;
+    margin: 20px auto 0 auto;
+    background: #fff3e0 url('/static/images/icons/comp_calc.png') no-repeat 100px 15px;
+    padding: 15px 15px 15px 200px;
+    display: none;
+    -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.075);
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.075);
+}
+
+.task-alert p {
+    margin: 0;
+    width: 300px;
+    float: left;
+}
+
+.task-alert em {
+    font-style: normal;
+}
+
+.task-alert p a {
+    font-weight: bold;
+    color: #ff9900;
+    display: block;
+    padding-top: 7px;
+}
+
+.task-alert .close-alert {
+    float:right;
+    display: block;
+    margin:5px 5px 0 0;
+    width:15px;
+    height: 15px;
+    background: url('/static/images/icons/alert_close.png') no-repeat;
+}
+
+.task-alert .p-progress {
+    clear: both;
+    display:block;
+    overflow: hidden;
+    padding-top:10px;
+}
+
+.task-alert .p-val {
+    display: block;
+    float: left;
+    padding-right: 10px;
+    color:#ff9900;
+    font-weight: bold;
+}
+
+.task-alert .p-bar {
+    width:400px;
+    height:15px;
+    display: block;
+    float: left;
+    background: #ececec;
+}
+
+.task-alert .p-bar-fill {
+    height: 15px;
+    background: #ff9900;
+    display: block;
+    width:0;
+    transition: width 1s;
+}

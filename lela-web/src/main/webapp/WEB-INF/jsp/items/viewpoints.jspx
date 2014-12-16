@@ -1,0 +1,86 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+<c:choose>
+<c:when test="${fn:length(itemProductReview.rdlst) gt 0}">
+
+    <lela:findUser/>
+    <tiles:importAttribute name="item" ignore="true"/>
+
+    <div id="p-vpreviews">
+
+        <div class="reviews-viewpoints">
+
+            <h2 class="s-head">Reviews</h2>
+            <spring:url value="${itemProductReview.prl}" var="vpUrl" />
+            <spring:url value="${itemProductReview.wrl}" var="vpWriteUrl" />
+            <a target="_blank" href="${vpUrl}" class="view-all-reviews hidden">View all ${itemProductReview.tvrvcnt} reviews on Viewpoints > </a>
+
+            <div class="reviews-container">
+                <div class="reviews-info">
+
+                    <img src="" id="review-img"/>
+
+                    <div class="reviews-scores">
+                        <h3>Consumer score: <strong class="score-consumer"><fmt:formatNumber value="${itemProductReview.rtg}" type="NUMBER" pattern="0"/></strong>/100</h3>
+                    </div>
+
+                    <c:if test="${fn:length(itemProductReview.ttrbrtg) gt 0}">
+                    <div class="reviews-bars">
+                        <ul>
+                            <c:forEach items="${itemProductReview.ttrbrtg}" var="pr">
+                                <c:set var="reviewValue"><fmt:formatNumber value="${pr.value}" type="NUMBER" pattern="0"/></c:set>
+
+                            <li><span class="review-bar-name">${pr.key}:</span><span class="review-bar review-bar-${reviewValue}"></span></li>
+                            </c:forEach>
+                        </ul>
+                    </div>
+                    </c:if>
+
+                    <div class="review-count-container">
+                        <a href="${vpWriteUrl}" target="_blank" class="review-it">Review it on Viewpoints > </a>
+                    </div>
+
+                </div>
+
+                <div class="reviews-content">
+                    <c:forEach items="${itemProductReview.rdlst}" var="ir" varStatus="irs" begin="0" end="5">
+                        <spring:url value="${ir.rlnm}" var="rUrl" />
+                        <div class="review">
+                            <div class="review-header"><a target="_blank" class="read-more" href="${rUrl}">${ir.sndbt}</a></div>
+                            <div class="review-person">- ${ir.srnm}</div>
+                            <div class="review-content">${ir.cntnt} <a target="_blank" class="read-more" href="${rUrl}">Read more</a></div>
+                        </div>
+                    </c:forEach>
+                </div>
+                <div class="reviews-gradient"><!-- --></div>
+                <div class="clear"><!-- --></div>
+            </div>
+
+            <a target="_blank" href="${vpUrl}"><div class="credit"><!-- --></div></a>
+            <div class="clear"><!-- --></div>
+
+        </div>
+        <div class="clear"><!-- --></div>
+
+    </div>
+
+</c:when>
+<c:otherwise>none</c:otherwise>
+</c:choose>
+
+</jsp:root>

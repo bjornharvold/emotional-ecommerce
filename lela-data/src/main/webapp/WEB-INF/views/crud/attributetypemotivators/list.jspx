@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_AttributeTypeMotivator" items="${attributetypemotivators}" z="fuXBRVXycvGySB534gOhLkD5+gs=">
+        <table:table data="${attributetypemotivators}" id="l_com_lela_data_domain_entity_AttributeTypeMotivator" path="/crud/attributetypemotivators" z="wiWaceL0qKYzv565gcA87YKvPrE=">
+            <table:column date="true" dateTimePattern="${attributeTypeMotivator_datecreated_date_format}" id="c_com_lela_data_domain_entity_AttributeTypeMotivator_dateCreated" property="dateCreated" z="oC0ZjNhccHUiKoXup168keEZFp8="/>
+            <table:column date="true" dateTimePattern="${attributeTypeMotivator_datemodified_date_format}" id="c_com_lela_data_domain_entity_AttributeTypeMotivator_dateModified" property="dateModified" z="zl7TNIzNvz/gK7VvALEjHGX06BE="/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeTypeMotivator_motivator" property="motivator" z="OLF9Eg8FALW3+ZYQ85INaEwpk4c="/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeTypeMotivator_eddDataType" property="eddDataType" z="fSYU6F7E+bjmfge0MHuolyy8D7M="/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeTypeMotivator_category" property="category" z="RQv+Ln4+wX8BQdyRUspZz1zA9P4="/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeTypeMotivator_attributeType" property="attributeType" z="juqIc7mphT/eF3r7Is7bMHIKVZA="/>
+        </table:table>
+    </page:list>
+</div>

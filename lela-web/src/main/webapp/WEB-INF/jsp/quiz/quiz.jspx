@@ -1,0 +1,48 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <script lela-url="/" src="/api/resource/quiz/quiz-loader.js?affiliateId=lela&amp;applicationId=lela-quiz-noreg" type="text/javascript"><!-- --></script>
+
+    <script type="text/javascript">
+        // Set return to URL.
+        if(document.referrer == '' || document.referrer.indexOf('/register') > 0) {
+            var rt = '/categories';
+        } else {
+            var rt = document.referrer;
+        }
+
+        var quizType = '${quizType}';
+    </script>
+
+    <c:if test="${!empty param.rt}">
+        <script type="text/javascript">var rt = '${param.rt}';</script>
+    </c:if>
+
+    <a href="#" id="quiz-close"><!-- --></a>
+    <div id="lela-quiz"><!-- Quiz content goes here --></div>
+
+    <div id="quiz-exit" style="display:none;">
+        <p><strong><spring:message code="quiz.alert.title" /></strong><br/>
+            <spring:message code="quiz.alert.content" /></p>
+        <a href="#" id="ex-qz"><spring:message code="quiz.alert.exit" /></a>
+        <a href="#" id="cmp-qz"><spring:message code="quiz.alert.continue" /></a>
+    </div>
+
+    <tiles:insertTemplate template="/WEB-INF/jsp/common/google_conversion.jspx" flush="true" />
+
+</jsp:root>

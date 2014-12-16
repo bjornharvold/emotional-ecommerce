@@ -1,0 +1,438 @@
+/*
+ * Copyright (c) 2011. Purple Door Systems, BV.
+ */
+
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #efefef !important;
+}
+
+.top-header {
+    z-index: 100;
+    position: relative;
+    background-color: #595959;
+    padding: 14px;
+    min-height: 66px;
+    padding-bottom: 15px;
+    box-shadow: rgba(0,0,0,0.55) 0px 0px 15px;
+    margin-bottom: 14px;
+    clear: both;
+}
+
+.top-header .logo {
+    background: url(/static/images/icons/Lela_Logo-143x59.png) no-repeat;
+    float: left;
+    width: 60px;
+    height: 68px;
+    margin-right: 14px;
+}
+
+.content {
+    padding: 28px;
+    position: relative;
+    z-index: 1;
+    padding-top: 7px;
+    padding-bottom: 30px;
+    margin-top: 7px;
+}
+
+.top-header h1 {
+    font-size: 20px;
+    margin: 0 0 6px 0;
+    color: white;
+}
+
+.top-header h1 span {
+    font-weight: normal;
+}
+
+.clear {
+    clear: both;
+}
+
+ul, li, p {
+    overflow: visible !important;
+}
+
+.top-header .logout {
+    float: right;
+    text-align: right;
+    color: white;
+    font-size: 14px;
+    margin-top: -14px;
+    margin-right: -14px;
+    padding: 18px 14px 10px 7px;
+    min-height: 66px;
+}
+
+.top-header .logout a {
+    font-weight: normal;
+    display: block;
+    background-color: #3f3f3f;
+    padding: 7px 14px 7px 14px;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    color: white;
+    float: right;
+    margin-top: 7px;
+    margin-right: 7px;
+    position: relative;
+    left: 7px;
+    z-index: 10;
+}
+
+.top-header .logout a:hover {
+    background-color: #ff9900;
+}
+
+.top-header .menu ul li {
+    float: left;
+    position: relative;
+}
+
+.top-header .menu ul li a {
+    float: left;
+    margin: 0 1px 1px 0;
+    background: #333;
+    padding: 7px;
+    font-size: 14px;
+    color: white;
+    background-repeat: no-repeat;
+    background-position: center right;
+    z-index: 1;
+}
+
+.top-header .menu ul li a:hover, .top-header .menu ul li.active a.secondary {
+    background-color: #ff9900;
+}
+
+.secondary {
+    z-index: 1;
+}
+
+.active {
+    z-index: 10 !important;
+}
+
+a.secondary {
+    background-image: url(/static/images/icons/white_arrow_padding.png) !important;
+    padding-right: 20px !important;
+}
+
+.top-header .menu ul li.active a.secondary {
+    background-image: url(/static/images/icons/white_arrow_padding_on.png) !important;
+    background-repeat: no-repeat;
+}
+
+div.secondary {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: -1px;
+    padding: 1px 0px 0 1px;
+}
+
+div.secondary ul li {
+    float: none !important;
+    display: block;
+}
+
+div.secondary ul li a {
+    width: 200px;
+}
+
+#affiliate-account-page h3 {
+    margin-top: 5px;
+}
+
+#affiliate-account-details {
+}
+
+#affiliate-list {
+    margin-top: 22px;
+}
+
+.affiliate-details {
+    padding: 5px;
+    margin: 8px 0 2px 0px;
+}
+
+#affiliate-account-page dt {
+    background:#5f9be3;
+    color:#fff;
+    float:left;
+    clear:left;
+    font-weight:bold;
+    width:140px;
+    padding: 2px 2px 2px 5px
+}
+
+#affiliate-account-page dd {
+    margin-left: 155px;
+    padding-bottom: 10px;
+    min-height: 18px;
+}
+
+#affiliate-details dl dt {
+    width: 150px;
+}
+
+#campaign-page dl dd {
+}
+
+#campaign-page h3 {
+    margin-top: 5px;
+}
+
+#campaign-details {
+}
+
+#campaign-list {
+    margin-top: 22px;
+}
+
+.campaign-details {
+    padding: 5px;
+    margin: 8px 0 2px 0px;
+}
+
+#campaign-page dt {
+    background:#5f9be3;
+    color:#fff;
+    float:left;
+    font-weight:bold;
+    margin-right:10px;
+    width:115px;
+    padding: 2px 2px 2px 5px
+}
+
+#campaign-page dl dd {
+}
+
+#facebook-data dt {
+    background:#5f9be3;
+    color:#fff;
+    float:left;
+    font-weight:bold;
+    margin-right:10px;
+    width:25px;
+    padding: 2px 2px 2px 3px
+}
+
+#facebook-data dl {
+    margin-bottom: 25px;
+}
+
+#facebook-data dd {
+    font-weight: bold;
+    margin: 2px 0;
+    padding: 3px 0;
+}
+
+.content h2, .content h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.actions {
+    height: auto;
+    overflow: visible;
+    margin: 0 0 14px 0;
+    clear: both;
+}
+
+.content ul {
+    padding: 0px 0 14px 0;
+}
+
+.content ul li {
+    font-size: 14px;
+    padding: 2px 4px 2px 4px;
+}
+
+.content ul li.odd, tr.odd, div.odd {
+    background-color: #ddd;
+}
+
+.action {
+    font-weight: bold;
+    background-color: #595959;
+    padding: 7px 14px 7px 14px;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    color: white;
+    float: left;
+    margin-right: 7px;
+}
+
+.action:hover {
+    background-color: #ff9900;
+}
+
+thead tr {
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+}
+
+thead {
+    position: relative;
+    top: -10px;
+}
+
+td {
+    padding: 5px 0 5px 0 !important;
+}
+
+.h-row label {
+    float: left;
+    width: 200px;
+    font-weight: bold;
+    padding: 3px 4px 3px 4px;
+}
+
+.h-col {
+    float: left;
+}
+
+.h-row {
+    padding: 10px 4px 3px 4px;
+}
+
+.s-row .s-col {
+    position: relative;
+    left: 210px;
+    top: 10px;
+    width: 200px;
+}
+
+.l-col span label {
+    float: none;
+}
+
+.l-col span:first-child {
+    margin: 0 7px 0 0;
+    display: block;
+}
+
+.h-col input, .h-col textarea, .h-col label, .h-col select, .h-col option {
+    font-size: 14px;
+}
+
+.h-col select, .h-col input {
+    height: 30px;
+    padding: 7px;
+    width: 400px;
+    border: 1px solid #909090;
+    margin-bottom: 7px;
+}
+
+.l-col input {
+    width: auto;
+    border: none;
+    height: auto;
+    padding: none;
+}
+
+.h-col textarea {
+    width: 400px;
+    padding: 7px;
+    border: 1px solid #595959;
+    border: 1px solid #909090;
+}
+
+th {
+    background-color: white;
+}
+
+th.headerSortUp {
+    background-image: url(/static/js/plugins/tablesorter/themes/blue/asc.gif) !important;
+    background-color: #ff9900 !important;
+}
+
+th.headerSortDown {
+    background-image: url(/static/js/plugins/tablesorter/themes/blue/desc.gif) !important;
+    background-color: #ff9900 !important;
+}
+
+th.header {
+    background-image: url(/static/js/plugins/tablesorter/themes/blue/bg.gif);
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding: 10px 10px 10px 20px;
+    border-right: 1px solid #dad9c7;
+    text-align: left;
+    margin-left: -1px;
+}
+
+tbody tr td:first-child {
+    padding-left: 7px !important;
+}
+
+a.dp-choose-date {
+    float: left;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 5px 3px 0;
+    display: block;
+    text-indent: -2000px;
+    overflow: hidden;
+    background: url(/static/js/plugins/datepicker/calendar.png) no-repeat;
+}
+
+a.dp-choose-date.dp-disabled {
+    background-position: 0 -20px;
+    cursor: default;
+}
+
+input.dp-applied {
+    float: left;
+}
+
+.dashboard {
+    width: 450px;
+    height: 512px;
+    margin: 14px auto 0 auto;
+    background: url(/static/images/layout/lela-dashboard-bg.png) no-repeat;
+}
+
+.dashboard .item {
+    width: 175px;
+    height: 177px;
+    padding: 23px;
+    color: white;
+    margin: 0 4px 4px 0;
+    float: left;
+}
+
+.dashboard .item ul li a {
+    color: white;
+}
+
+.dashboard .item ul li a:hover {
+    color: #595959;
+}
+
+.msg {
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    color: white;
+    background: green;
+    border: 1px solid #005500;
+    border-radius: 3px;
+}
+
+#pager {
+    position: relative !important;
+    top: 20px !important;
+}
+
+#productgrid-documentation {
+    overflow: visible;
+}

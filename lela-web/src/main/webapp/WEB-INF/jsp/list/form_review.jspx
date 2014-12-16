@@ -1,0 +1,67 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+
+    <div class="card-modal">
+
+        <tiles:insertTemplate template="/WEB-INF/jsp/list/form_header.jspx" flush="true">
+            <tiles:putAttribute name="listCard" value="${card}" />
+            <tiles:putAttribute name="formType" value="review" />
+        </tiles:insertTemplate>
+
+        <spring:url value="/user/list/${card.rlnm}/review?boardCode=${boardCode}" var="reviewUrl" />
+        <spring:url var="cardUrl" value="/list/card/${card.rlnm}?boardCode=${boardCode}&amp;view=review"/>
+
+        <form action="#" class="custom" id="review-form">
+
+            <h3>Write a public review</h3>
+
+            <p class="rating-wg"><strong>Rate this item: </strong><span class="star"><!-- --></span></p>
+            <script type="text/javascript">
+                $('.star').raty({
+                    size       : 24,
+                    starHalf   : 'star-half-big.png',
+                    starOff    : 'star-off-big.png',
+                    starOn     : 'star-on-big.png'
+                });
+            </script>
+
+            <p><input name="ttl" id="ttl" value="Title of your review"/></p>
+            <p><textarea name="txt" id="txt">Add your review here. It will be publicly viewable on the product detail page of Lela.com.</textarea></p>
+
+            <a href="${reviewUrl}" class="submit-note list-button" type="review">All done!</a>
+            <a href="${cardUrl}" class="list-button cancel-btn modal">Cancel</a>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        $().ready(function($) {
+            initModal();
+            $("form.custom").jqTransform();
+
+            $('#review-form input, #review-form textarea').focus(function() {
+                if(!$(this).hasClass('focus')) {
+                    $(this).val('').css('color', '#3f3f3f').addClass('focus');
+                }
+            });
+
+        });
+    </script>
+
+</jsp:root>

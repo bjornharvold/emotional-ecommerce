@@ -1,0 +1,91 @@
+<!--
+~ Copyright (c) 2012. Lela.com.
+-->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags" xmlns:sprig="http://java.sun.com/jsp/jstl/core">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:url value="/quiz" var="quizUrl" />
+    <spring:url value="/categories" var="shopUrl" />
+    <spring:url value="/subscribe" var="subscribeUrl" />
+    <spring:url value="/register" var="registerUrl" />
+    <spring:url value="/login" var="loginUrl" />
+    <spring:message code="environment" var="environment"/>
+
+    <lela:findUser/>
+
+    <script type="text/javascript">
+        var mcListId = '<spring:message code="mailchimp.list.id"/>';
+        var emptyQuiz = false;
+    </script>
+
+    <div id="categories">
+
+        <spring:url var="bannerUrl" value="/static/mobile/images/home/banner_wood.png" />
+
+        <c:choose>
+            <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                <spring:url var="marquee0" value="/static/mobile/images/home/banner_photo_JPG/banner_photo_img1.jpg" />
+                <spring:url var="marquee1" value="/static/mobile/images/home/banner_photo_JPG/banner_photo_img2.jpg" />
+                <spring:url var="marqueeCtaImg" value="/static/mobile/images/home/banner_photo_JPG/banner_text_guest.png" />
+                <spring:url var="marqueeUrl" value="/quiz" />
+
+                <spring:url var="ctaImg" value="/static/mobile/images/home/dept_tiles_PNG/dept_profile_cta.png" />
+                <spring:url var="ctaUrl" value="/quiz" />
+            </c:when>
+            <c:otherwise>
+                <spring:url var="marquee0" value="/static/mobile/images/home/banner_photo_JPG/banner_photo_img1.jpg" />
+                <spring:url var="marquee1" value="/static/mobile/images/home/banner_photo_JPG/banner_photo_img2.jpg" />
+                <spring:url var="marqueeCtaImg" value="/static/mobile/images/home/banner_photo_JPG/banner_text_registered.png" />
+                <spring:url var="marqueeUrl" value="/user/lists" />
+
+                <spring:url var="ctaImg" value="/static/mobile/images/home/dept_tiles_PNG/dept_orange.png" />
+                <spring:url var="ctaUrl" value="/user/lists" />
+            </c:otherwise>
+        </c:choose>
+
+        <table width="100%">
+            <tr><td width="100%" valign="top"><img width="100%" src="${bannerUrl}" /><br/></td></tr>
+            <tr><td width="100%" valign="top" class="marqueectacontainer">
+                <a width="100%" href="${marqueeUrl}" class="marqueecta"><img width="100%" src="${marqueeCtaImg}" /><br/></a>
+                <div id="banner-marquee" class="carousel"><a width="100%" href="${marqueeUrl}" class="carousel-row" row-num="0"><img width="100%" src="${marquee0}" /></a><a width="100%" href="${marqueeUrl}" class="carousel-row hidden" row-num="1"><img width="100%" src="${marquee1}" /></a></div>
+            </td></tr>
+        </table>
+
+    </div>
+
+    <div id="depts">
+
+        <h3><spring:message code="home.mobile.browse" /></h3>
+
+        <c:forEach var="navGroup" items="${navigationBar.grps}" varStatus="status">
+            <sprig:url var="deptImgUrl" value="/static/mobile/images/home/dept_tiles_PNG/dept_${navGroup.rlnm}.png"/>
+            <spring:url value="/department/${navGroup.rlnm}" var="deptUrl"/>
+            <a href="${deptUrl}" title="${navGroup.nm}"><img src="${deptImgUrl}" alt="${navGroup.nm}"/></a>
+        </c:forEach>
+        <a href="${ctaUrl}"><img src="${ctaImg}" /></a>
+    </div>
+
+    <form action="${subscribeUrl}" method="post" class="custom" id="mc-subscribe">
+
+        <h3><spring:message code="home.newsletter.header" /></h3>
+
+        <spring:message code="home.newsletter.enteremail" var="enterEmailTxt" />
+
+        <p id="row-email"><input name="email" value="${enterEmailTxt}" id="email"/>
+        <a href="#" class="f-submit" id="mc-submit"><spring:message code="button.submit" /></a></p>
+        <p id="mc-success"><spring:message code="home.newsletter.success" htmlEscape="false" /></p>
+        <p id="mc-error"><spring:message code="home.newsletter.error" htmlEscape="false" /></p>
+    </form>
+
+</div>

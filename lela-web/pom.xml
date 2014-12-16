@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>com.lela</groupId>
+        <artifactId>lela</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.lela</groupId>
+    <artifactId>lela-web</artifactId>
+    <packaging>war</packaging>
+    <name>LELA: Web</name>
+
+    <build>   
+        <defaultGoal>compile</defaultGoal>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.log</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.vm</include>
+                    <include>**/*.txt</include>
+                    <include>**/*.sql</include>
+                    <include>**/*.csv</include>
+                    <include>**/*.ics</include>
+                    <include>**/*.xslt</include>
+                    <include>**/*.swf</include>
+                    <include>**/*.json</include>
+                </includes>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>${basedir}/src/test/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.log</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.vm</include>
+                    <include>**/*.txt</include>
+                    <include>**/*.sql</include>
+                    <include>**/*.csv</include>
+                    <include>**/*.ics</include>
+                    <include>**/*.xslt</include>
+                    <include>**/*.swf</include>
+                    <include>**/*.jpg</include>
+                    <include>**/*.gif</include>
+                    <include>**/*.png</include>
+                    <include>**/*.json</include>
+                    <include>**/*.zip</include>
+                </includes>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven.war.plugin.version}</version>
+                <configuration>
+                    <warName>lela</warName>
+                    <webResources>
+                        <resource>
+                            <directory>${basedir}/src/main/webapp/WEB-INF/spring</directory>
+                            <includes>
+                                <include>**/*.xml</include>
+                            </includes>
+                            <filtering>true</filtering>
+                            <targetPath>WEB-INF/spring</targetPath>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4.3</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>
+                            jar-with-dependencies
+                        </descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>tomcat-maven-plugin</artifactId>
+                <version>1.1</version>
+                <configuration>
+                    <path>/</path>
+                    <port>8080</port>
+                    <httpsPort>8443</httpsPort>
+                    <keystoreFile>${basedir}/src/main/resources/.wildcard_keystore</keystoreFile>
+                    <keystorePass>importkey</keystorePass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>com.lela.commons.bootstrap.DataLoader</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12.4</version>
+                <configuration>
+                    <argLine>-Xms1024m -Xmx2048m -XX:MaxPermSize=256m</argLine>
+                    <junitArtifactName>junit:junit</junitArtifactName>
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>src/main/webapp</additionalClasspathElement>
+                    </additionalClasspathElements>
+                    <excludes>
+                        <exclude>**/integration/**/Test*.java</exclude>
+                    </excludes>
+                    <forkMode>once</forkMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>integration-tests</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skip>false</skip>
+                            <excludes>
+                                <exclude>none</exclude>
+                            </excludes>
+                            <includes>
+                                <include>**/integration/*Test.java</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- deployment specific configurations for beanstalk -->
+    <profiles>
+        <profile>
+            <id>sandbox</id>
+            <properties>
+                <ssl.certificate.id>arn:aws:iam::838918126352:server-certificate/lela_wildcard</ssl.certificate.id>
+                <autoscale.maxsize>1</autoscale.maxsize>
+                <availability.zones>Any 1</availability.zones>
+                <custom.availability.zones>us-east-1c</custom.availability.zones>
+                <application.name>lela</application.name>
+                <solution.stack>64bit Amazon Linux running Tomcat 6 (legacy)</solution.stack>
+                <instance.type>m1.large</instance.type>
+                <image.id>ami-c58a46ac</image.id>
+                <load.balancer.https.port>443</load.balancer.https.port>
+                <stickiness.cookie.expiration>0</stickiness.cookie.expiration>
+                <stickiness.policy>true</stickiness.policy>
+                <jvm.options.max.perm.size>256m</jvm.options.max.perm.size>
+                <jvm.options.xms>4096m</jvm.options.xms>
+                <jvm.options.xmx>4096m</jvm.options.xmx>
+            </properties>
+        </profile>
+        <profile>
+            <id>qa</id>
+            <properties>
+                <ssl.certificate.id>arn:aws:iam::838918126352:server-certificate/lela_wildcard</ssl.certificate.id>
+                <autoscale.maxsize>1</autoscale.maxsize>
+                <availability.zones>Any 1</availability.zones>
+                <custom.availability.zones>us-east-1c</custom.availability.zones>
+                <application.name>lela</application.name>
+                <solution.stack>64bit Amazon Linux running Tomcat 6 (legacy)</solution.stack>
+                <instance.type>m1.large</instance.type>
+                <image.id>ami-c58a46ac</image.id>
+                <load.balancer.https.port>443</load.balancer.https.port>
+                <stickiness.cookie.expiration>0</stickiness.cookie.expiration>
+                <stickiness.policy>true</stickiness.policy>
+                <jvm.options.max.perm.size>256m</jvm.options.max.perm.size>
+                <jvm.options.xms>4096m</jvm.options.xms>
+                <jvm.options.xmx>4096m</jvm.options.xmx>
+            </properties>
+        </profile>
+        <profile>
+            <id>www</id>
+            <properties>
+                <ssl.certificate.id>arn:aws:iam::838918126352:server-certificate/lela_www</ssl.certificate.id>
+                <autoscale.maxsize>2</autoscale.maxsize>
+                <availability.zones>Any 1</availability.zones>
+                <custom.availability.zones>us-east-1c</custom.availability.zones>
+                <application.name>lela</application.name>
+                <solution.stack>64bit Amazon Linux running Tomcat 6 (legacy)</solution.stack>
+                <instance.type>m2.xlarge</instance.type>
+                <image.id>ami-c58a46ac</image.id>
+                <load.balancer.https.port>443</load.balancer.https.port>
+                <stickiness.cookie.expiration>0</stickiness.cookie.expiration>
+                <stickiness.policy>true</stickiness.policy>
+                <jvm.options.max.perm.size>256m</jvm.options.max.perm.size>
+                <jvm.options.xms>4096m</jvm.options.xms>
+                <jvm.options.xmx>4096m</jvm.options.xmx>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <!-- LELA Dependencies -->
+        <dependency>
+            <groupId>com.lela</groupId>
+            <artifactId>lela-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lela</groupId>
+            <artifactId>lela-util</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>com.springsource.javax.servlet</artifactId>
+            <version>${javax.servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- unit testing -->
+        <dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>  
+			<version>${mockito.version}</version> 
+			<scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>com.springsource.org.jdom</artifactId>
+            <version>${jdom.version}</version>
+        </dependency>
+
+		<dependency>
+		    <groupId>rome</groupId>
+		    <artifactId>rome</artifactId>
+		    <version>${rome.version}</version>
+		</dependency>
+
+    </dependencies>
+
+</project>

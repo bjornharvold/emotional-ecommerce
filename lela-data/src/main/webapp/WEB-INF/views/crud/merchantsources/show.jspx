@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_MerchantSource" object="${merchantsource}" path="/crud/merchantsources" z="cwnwm7cMs5dQTQXuYg9VI0Jg9r8=">
+        <field:display date="true" dateTimePattern="${merchantSource_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_MerchantSource_dateCreated" object="${merchantsource}" z="M5IAYC1/+m6sEqHNG3t1JV5unTg="/>
+        <field:display date="true" dateTimePattern="${merchantSource_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_MerchantSource_dateModified" object="${merchantsource}" z="zLQliBGTxPduCKCWdwwlC/dVzes="/>
+        <field:display field="merchantSourceType" id="s_com_lela_data_domain_entity_MerchantSource_merchantSourceType" object="${merchantsource}" z="/edpUkFX8m6mo0QCUyojh+0qyhA="/>
+        <field:display field="sourceId" id="s_com_lela_data_domain_entity_MerchantSource_sourceId" object="${merchantsource}" z="QZuIVL0snzzHJPcUhCiyX+7oFlc="/>
+        <field:display field="sourceName" id="s_com_lela_data_domain_entity_MerchantSource_sourceName" object="${merchantsource}" z="NOuuSMQu5VSYP8sluojLrtGaEwg="/>
+    </page:show>
+</div>

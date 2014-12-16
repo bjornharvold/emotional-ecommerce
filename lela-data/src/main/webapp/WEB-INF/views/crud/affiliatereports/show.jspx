@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_AffiliateReport" object="${affiliatereport}" path="/crud/affiliatereports" z="lf31jDGkdRg9JCedBa/4OwJHxgc=">
+        <field:display date="true" dateTimePattern="${affiliateReport_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_AffiliateReport_dateCreated" object="${affiliatereport}" z="i3fi0f0yMASK5ui/mCjeat/E3gg="/>
+        <field:display date="true" dateTimePattern="${affiliateReport_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_AffiliateReport_dateModified" object="${affiliatereport}" z="j/nt5DEfL6vzSfxpnKTl7geFdYg="/>
+        <field:display field="fileName" id="s_com_lela_data_domain_entity_AffiliateReport_fileName" object="${affiliatereport}" z="Hd/LcjEnWrupyNl8/4vyL7pVYEo="/>
+        <field:display date="true" dateTimePattern="${affiliateReport_receiveddate_date_format}" field="receivedDate" id="s_com_lela_data_domain_entity_AffiliateReport_receivedDate" object="${affiliatereport}" z="AqNHVjS5smSAoAjzNhb+BBHpjNU="/>
+        <field:display field="affiliateTransaction" id="s_com_lela_data_domain_entity_AffiliateReport_affiliateTransaction" object="${affiliatereport}" z="6ZxNOZrJ6jr6geeuWPvt8tJRToc="/>
+        <field:display field="filePath" id="s_com_lela_data_domain_entity_AffiliateReport_filePath" object="${affiliatereport}" z="kowVDrxjZn4fbu7o+WAgTJqmiqY="/>
+    </page:show>
+</div>

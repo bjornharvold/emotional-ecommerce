@@ -1,0 +1,101 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+
+    <div class="card-modal" id="alert-${card.rlnm}">
+
+        <tiles:insertTemplate template="/WEB-INF/jsp/list/form_header.jspx" flush="true">
+            <tiles:putAttribute name="listCard" value="${card}" />
+            <tiles:putAttribute name="formType" value="alert" />
+        </tiles:insertTemplate>
+
+        <spring:url var="alertFormUrl" value="/user/list/${card.rlnm}/alert"/>
+        <spring:url var="cardUrl" value="/list/card/${card.rlnm}?view=alert"/>
+        <spring-form:form commandName="alert" action="${alertFormUrl}" cssClass="custom" id="alert-form">
+
+            <input type="hidden" value="${boardCode}" name="boardCode"/>
+
+            <fieldset>
+                <legend>Send me an alert if:</legend>
+                <p>
+                    <spring-form:checkbox path="prclrt"/>
+                    <label><spring:message code="list.card.alert.price.drop"/></label>
+                    <spring-form:input path="prc" cssStyle="width:100px;"/>
+                    <spring-form:errors path="prc" cssClass="error"/>
+                </p>
+
+                <!-- Recall alert is disabled for the time being -->
+                <p>
+                    <spring-form:checkbox path="mrlrt" value="true" disabled="true"/>
+                    <label style="color: #bbb;"><spring:message code="list.card.alert.manufacturer.recall"/></label>
+                    <span class="coming-soon">Recall alert will be available soon.</span>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Send me alerts to:</legend>
+                <p>
+                    <spring-form:hidden path="mllrt" value="true"/>
+                    <label><spring:message code="list.card.alert.via.email"/>:</label>
+                    <label>${us.ml}</label>
+                    <spring-form:input type="hidden" path="ml"/>
+                    <spring-form:errors path="ml" cssClass="error"/>
+                </p>
+            </fieldset>
+
+            <c:choose>
+                <c:when test="${!empty message}">
+                    <a href="#" class="submit-alert list-button" type="note">Save</a>
+                    <a href="${cardUrl}" class="list-button cancel-btn modal">Done</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="#" class="submit-alert list-button" type="note">Save</a>
+                    <a href="${cardUrl}" class="list-button cancel-btn modal">Cancel</a>
+                </c:otherwise>
+            </c:choose>
+
+        </spring-form:form>
+    </div>
+
+    <script type="text/javascript">
+        $().ready(function($) {
+            initModal();
+            $("form.custom").jqTransform();
+
+            $('#alert-${card.rlnm} .submit-alert').click(function() {
+                $('#alert-${card.rlnm} form.custom').submit();
+                return false;
+            });
+
+            $('#alert-${card.rlnm} form.custom').ajaxForm(function(responseText) {
+                $('#alert-${card.rlnm}').replaceWith($(responseText));
+            });
+        });
+    </script>
+
+    <c:if test="${!empty message}">
+
+        <script type="text/javascript">
+            $().ready(function($) {
+                $('.cancel-btn').trigger('click');
+            });
+        </script>
+    </c:if>
+
+</jsp:root>

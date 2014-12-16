@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="elasticBeanstalkClient" class="com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClient"
+          c:awsCredentials-ref="awsCredentials" c:clientConfiguration-ref="clientConfiguration"/>
+    
+    <bean id="awsCredentials" class="com.amazonaws.auth.BasicAWSCredentials"
+          c:accessKey="${amazon.access.key}" c:secretKey="${amazon.secret.key}"/>
+    
+    <bean id="clientConfiguration" class="com.amazonaws.ClientConfiguration">
+        <!-- Milliseconds -->
+        <property name="connectionTimeout" value="600"/>
+        <property name="maxConnections" value="2"/>
+        <property name="maxErrorRetry" value="3"/>
+        <!-- Milliseconds -->
+        <property name="socketTimeout" value="700"/>
+    </bean>
+</beans>

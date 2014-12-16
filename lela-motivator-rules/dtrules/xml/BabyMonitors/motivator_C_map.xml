@@ -1,0 +1,44 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BabyMonitorID' RAttribute='BabyMonitorID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='BabyMonitorID' RAttribute='BabyMonitorID' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='babymonitor' type='string'></setattribute>
+			<setattribute tag='BabbleRecomended' RAttribute='BabbleRecomended' enclosure='babymonitor' type='string'></setattribute>			
+			<setattribute tag='BBModelRecommended' RAttribute='BBModelRecommended' enclosure='babymonitor' type='string'></setattribute>			
+			<setattribute tag='iParentingMediaAwardWinner' RAttribute='iParentingMediaAwardWinner' enclosure='babymonitor' type='string'></setattribute>			
+			<setattribute tag='JPMAInnovationAwardWinner' RAttribute='JPMAInnovationAwardWinner' enclosure='babymonitor' type='string'></setattribute>			
+			<setattribute tag='MonitorType' RAttribute='MonitorType' enclosure='babymonitor' type='string'></setattribute>			
+			<setattribute tag='NAPPAAwardWinner' RAttribute='NAPPAAwardWinner' enclosure='babymonitor' type='string'></setattribute>			
+			<setattribute tag='PTPAAwardWinner' RAttribute='PTPAAwardWinner' enclosure='babymonitor' type='string'></setattribute>			
+			<setattribute tag='RechargeableBatteryLife' RAttribute='RechargeableBatteryLife' enclosure='babymonitor' type='string'></setattribute>			
+			<setattribute tag='SignalRange' RAttribute='SignalRange' enclosure='babymonitor' type='string'></setattribute>			
+			<setattribute tag='CRInterference' RAttribute='CRInterference' enclosure='babymonitor' type='string'></setattribute>			
+			<setattribute tag='CRRange' RAttribute='CRRange' enclosure='babymonitor' type='string'></setattribute>			
+			<setattribute tag='CRBatteryLife' RAttribute='CRBatteryLife' enclosure='babymonitor' type='string'></setattribute>						
+			
+			<createentity entity='job' 		tag='job' 		id='id'></createentity>
+			<createentity entity='babymonitor' 	tag='babymonitor' 	id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+			<entity name='babymonitor' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>
+
+
+
+

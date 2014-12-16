@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="admin.affiliate.account.list" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="affiliate.accounts.title"/>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/administration/affiliate/affiliate_account_list.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="admin.affiliate.account" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="affiliate.account.title"/>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/administration/affiliate/affiliate_account.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="admin.affiliate.account.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="affiliate.account.title"/>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/administration/affiliate/affiliate_account_form.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="admin.affiliate.account.application.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="affiliate.account.application.title"/>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/administration/affiliate/affiliate_account_application_form.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="admin.affiliate.account.style.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="affiliate.account.style.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/affiliate/affiliate_account_style_form.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.affiliate.account.store.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="affiliate.account.store.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/affiliate/affiliate_account_store_form.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.affiliate.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="affiliate.title"/>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/administration/affiliate/affiliate_form.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="admin.affiliate" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="affiliate.title"/>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/administration/affiliate/affiliate.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="campaign.list" extends="administration.page.template">
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/affiliate/campaign_list.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="campaign.form.view" extends="administration.page.template">
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/ckeditor/ckeditor.js" />
+            <add-attribute type="string" value="/static/js/plugins/ckeditor/adapters/jquery.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/affiliate/campaign_view.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="campaign.form.edit" extends="administration.page.template">
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/ckeditor/ckeditor.js" />
+            <add-attribute type="string" value="/static/js/plugins/ckeditor/adapters/jquery.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/affiliate/campaign_edit.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.report.status" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="report.status.title"/>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/administration/affiliate/report_status.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="admin.style.list" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.style.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/affiliate/style_list.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.style" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.style.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/affiliate/style.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.style.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.style.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/affiliate/style_form.jspx"/>
+        </put-list-attribute>
+    </definition>
+</tiles-definitions>

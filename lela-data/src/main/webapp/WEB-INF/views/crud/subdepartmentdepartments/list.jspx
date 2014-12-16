@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_SubdepartmentDepartment" items="${subdepartmentdepartments}" z="QrIIigKHAtNCLrhPaXcYXgzJAys=">
+        <table:table data="${subdepartmentdepartments}" id="l_com_lela_data_domain_entity_SubdepartmentDepartment" path="/crud/subdepartmentdepartments" z="q7tgYWyLtxhHUSiMKPL+lVHtkoc=">
+            <table:column date="true" dateTimePattern="${subdepartmentDepartment_datecreated_date_format}" id="c_com_lela_data_domain_entity_SubdepartmentDepartment_dateCreated" property="dateCreated" z="ep394Gs8uoWr1EhqFCcXKkP9eZA="/>
+            <table:column date="true" dateTimePattern="${subdepartmentDepartment_datemodified_date_format}" id="c_com_lela_data_domain_entity_SubdepartmentDepartment_dateModified" property="dateModified" z="BucSmmohXSbOdn6Pj6rAWuhxaN4="/>
+            <table:column id="c_com_lela_data_domain_entity_SubdepartmentDepartment_subdepartmentOrder" property="subdepartmentOrder" z="aSbE3pIayBZNpNjK1I+j/T/COyM="/>
+            <table:column id="c_com_lela_data_domain_entity_SubdepartmentDepartment_subdepartment" property="subdepartment" z="Hky+ZwI5H6a4tiL3+Jxsv5bBLNs="/>
+            <table:column id="c_com_lela_data_domain_entity_SubdepartmentDepartment_department" property="department" z="GsYW7vaxCiBf5kuGbBPHObJ95ks="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,132 @@
+package com.lela.data.web;
+
+import com.lela.data.domain.entity.${entity};
+import com.lela.data.domain.entity.${entity}DataOnDemand;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+
+import javax.servlet.http.HttpServletRequest;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
+
+public class ${entity}ControllerTest extends AbstractControllerTezt {
+
+    private ${entity}Controller ${entity.toLowerCase()}Controller = new ${entity}Controller();
+
+    @Autowired
+    private ${entity}DataOnDemand ${entity.toLowerCase()}DataOnDemand;
+
+    @Test
+    @Transactional
+    public void create() {
+        HttpServletRequest request = getHttpServletRequest();
+        BindingResult results = getBindingResult();
+        Model model = getModel();
+
+        ${entity} ${entity.toLowerCase()} = ${entity.toLowerCase()}DataOnDemand.getRandom${entity}();
+
+        String result = ${entity.toLowerCase()}Controller.create(${entity.toLowerCase()}, results, model, request);
+        assertEquals("The form was not returned", "redirect:/crud/${entity.toLowerCase()}${entity.endsWith('s')?'':'s'}/"+${entity.toLowerCase()}.getId(), result);
+    }
+
+    @Test
+    @Transactional
+    public void createWithBindingErrors() {
+        HttpServletRequest request = getHttpServletRequest();
+        BindingResult results = getBindingResultErrors();
+        Model model = getModel();
+
+        ${entity} ${entity.toLowerCase()} = ${entity.toLowerCase()}DataOnDemand.getRandom${entity}();
+
+        String result = ${entity.toLowerCase()}Controller.create(${entity.toLowerCase()}, results, model, request);
+        assertEquals("The form was not returned", "crud/${entity.toLowerCase()}${entity.endsWith('s')?'':'s'}/create", result);
+    }
+
+
+    @Test
+    @Transactional
+    public void createForm() {
+        Model model = getModel();
+        String result = ${entity.toLowerCase()}Controller.createForm(model);
+        assertEquals("The form was not returned", "crud/${entity.toLowerCase()}${entity.endsWith('s')?'':'s'}/create", result);
+    }
+
+    @Test
+    public void show() {
+        ${entity} ${entity.toLowerCase()} = ${entity.toLowerCase()}DataOnDemand.getRandom${entity}();
+        Long id = ${entity.toLowerCase()}.getId();
+        Model model = getModel();
+        String result = ${entity.toLowerCase()}Controller.show(id, model);
+        assertEquals("The show view was not returned", "crud/${entity.toLowerCase()}${entity.endsWith('s')?'':'s'}/show", result);
+    }
+
+    @Test
+     public void list() {
+        Model model = getModel();
+        Integer page = 1;
+        Integer size = 10;
+        String result = ${entity.toLowerCase()}Controller.list(page, size, model);
+        assertEquals("The list view was not returned", "crud/${entity.toLowerCase()}${entity.endsWith('s')?'':'s'}/list", result);
+    }
+
+    @Test
+    public void listAllEntities() {
+        Model model = getModel();
+        Integer page = null;
+        Integer size = null;
+        String result = ${entity.toLowerCase()}Controller.list(page, size, model);
+        assertEquals("The list view was not returned", "crud/${entity.toLowerCase()}${entity.endsWith('s')?'':'s'}/list", result);
+    }
+
+    @Test
+    @Transactional
+    public void update() {
+        ${entity} ${entity.toLowerCase()} = ${entity.toLowerCase()}DataOnDemand.getRandom${entity}();
+        BindingResult results = getBindingResult();
+        Model model = getModel();
+        HttpServletRequest request = getHttpServletRequest();
+        String result = ${entity.toLowerCase()}Controller.update(${entity.toLowerCase()}, results, model, request);
+        assertEquals("The update view was not returned", "redirect:/crud/${entity.toLowerCase()}${entity.endsWith('s')?'':'s'}/"+${entity.toLowerCase()}.getId(), result);
+    }
+
+    @Test
+    @Transactional
+    public void updateWithBindingErrors() {
+        ${entity} ${entity.toLowerCase()} = ${entity.toLowerCase()}DataOnDemand.getRandom${entity}();
+        BindingResult results = getBindingResultErrors();
+        Model model = getModel();
+        HttpServletRequest request = getHttpServletRequest();
+        String result = ${entity.toLowerCase()}Controller.update(${entity.toLowerCase()}, results, model, request);
+        assertEquals("The update view was not returned", "crud/${entity.toLowerCase()}${entity.endsWith('s')?'':'s'}/update", result);
+    }
+
+    @Test
+    @Transactional
+    public void updateForm() {
+        ${entity} ${entity.toLowerCase()} = ${entity.toLowerCase()}DataOnDemand.getRandom${entity}();
+        Long id = ${entity.toLowerCase()}.getId();
+        Model model = getModel();
+        String result = ${entity.toLowerCase()}Controller.updateForm(id, model);
+        assertEquals("The update view was not returned", "crud/${entity.toLowerCase()}${entity.endsWith('s')?'':'s'}/update", result);
+    }
+
+    @Test
+    @Transactional
+    public void delete() {
+        ${entity} ${entity.toLowerCase()} = ${entity.toLowerCase()}DataOnDemand.getRandom${entity}();
+        Long id = ${entity.toLowerCase()}.getId();
+        Model model = getModel();
+        int page = 1;
+        int size = 10;
+        String result = ${entity.toLowerCase()}Controller.delete(id, page, size, model);
+        assertEquals("The delete view was not returned", "redirect:/crud/${entity.toLowerCase()}${entity.endsWith('s')?'':'s'}", result);
+
+        ${entity.toLowerCase()} = ${entity}.find${entity}(id);
+        assertNull("${entity} was not deleted", ${entity.toLowerCase()});
+    }
+}

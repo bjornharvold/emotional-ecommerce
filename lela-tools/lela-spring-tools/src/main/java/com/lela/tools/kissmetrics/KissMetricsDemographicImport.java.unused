@@ -1,0 +1,196 @@
+/*
+ * Copyright (c) 2012. Purple Door Systems, BV.
+ */
+package com.lela.tools.kissmetrics;
+
+import com.lela.commons.service.FacebookUserService;
+import com.lela.commons.service.KissMetricsService;
+import com.lela.commons.service.PostalCodeService;
+import com.lela.commons.service.RestartableProcessService;
+import com.lela.commons.service.UserService;
+import com.lela.commons.spring.ApplicationContextLoader;
+import com.lela.domain.ApplicationConstants;
+import com.lela.domain.document.FacebookSnapshot;
+import com.lela.domain.document.PostalCode;
+import com.lela.domain.document.User;
+import com.lela.domain.document.UserAnswer;
+import com.lela.domain.document.UserSupplement;
+import com.lela.domain.dto.user.Address;
+import com.lela.domain.enums.AddressType;
+import com.lela.domain.enums.Gender;
+import com.lela.domain.enums.QuestionType;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.Seconds;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
+import java.util.List;
+import java.util.Set;
+
+/**
+ * User: Chris Tallent
+ * Date: 9/24/12
+ * Time: 11:02 AM
+ *
+ * This tool can be run via Maven using the command - mvn exec:exec -Pkm-demo-import -Denvironment=development
+ */
+public class KissMetricsDemographicImport {
+    private static final String CLASSPATH_CONTEXT = "META-INF/spring/applicationContext.xml";
+    private static final int COUNT_LOG = 100;
+    private static final String PROCESS_NAME = "KM Demographic Import";
+
+    private static final DateTime IMPORT_BEFORE_DATE = new DateTime(2012, 9, 21, 10, 42, 36, 0, DateTimeZone.forOffsetHours(-4));
+
+    @Value("${environment}")
+    private String environment;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private FacebookUserService facebookUserService;
+
+    @Autowired
+    private RestartableProcessService restartableProcessService;
+
+    @Autowired
+    private PostalCodeService postalCodeService;
+
+    @Autowired
+    private KissMetricsService kissMetricsService;
+
+    public void run() {
+
+        out("Kissmetrics User Import - Environment: " + environment);
+
+        out("Loading previously tracked");
+        Set<String> userCodes = restartableProcessService.findAllKeys(PROCESS_NAME);
+        out("Previously processed " + userCodes.size() + " unique users");
+
+        out("Loading Users");
+        List<User> users = userService.findUsersCreatedBetween(null, IMPORT_BEFORE_DATE.toDate());
+
+        /*
+         - City, State, Zip
+            - Get from Facebook Snapshot
+            - Get from UserSupplement attributes (Eyeon)
+         - Gender
+            - Get from Facebook Snapshot
+            - Get from UserSupplement Quiz answers
+         - Age
+            - Get from Facebook Snapshot
+        */
+
+        out("Beginning Kissmetrics Demographics Import");
+        DateTime startTime = new DateTime();
+        int count = 0;
+        int skipped = 0;
+        for (User user : users) {
+            if (!userCodes.contains(user.getCd())) {
+                UserSupplement us = userService.findUserSupplement(user.getCd());
+                FacebookSnapshot fb = facebookUserService.findFacebookSnapshot(user);
+
+                if (++count % COUNT_LOG == 0) {
+                    float average = Seconds.secondsBetween(startTime, new DateTime()).getSeconds() / (float)count;
+                    out(String.format("Processed %d and skipped %d of %d users at %.3f seconds/user", count, skipped, users.size(), average));
+                }
+
+                // City, State, Zip
+                // Check for User Attributes then Check Facebook
+                if (us.getAttrs() != null &&
+                        (us.getAttrs().containsKey(ApplicationConstants.USER_ATTRIBUTE_ADDRESS) ||
+                         us.getAttrs().containsKey(ApplicationConstants.USER_ATTRIBUTE_CITY) ||
+                         us.getAttrs().containsKey(ApplicationConstants.USER_ATTRIBUTE_STATE) ||
+                         us.getAttrs().containsKey(ApplicationConstants.USER_ATTRIBUTE_ZIPCODE))) {
+                    kissMetricsService.saveAddress(
+                            user.getCd(),
+                            new Address(AddressType.HOME,
+                                    getAttr(us, ApplicationConstants.USER_ATTRIBUTE_ADDRESS),
+                                    null,
+                                    getAttr(us, ApplicationConstants.USER_ATTRIBUTE_CITY),
+                                    getAttr(us, ApplicationConstants.USER_ATTRIBUTE_STATE),
+                                    getAttr(us, ApplicationConstants.USER_ATTRIBUTE_ZIPCODE)
+                            ));
+                } else if (fb != null && fb.getCurrentLocation() != null) {
+                    Address address = new Address();
+                    address.setTp(AddressType.HOME);
+                    address.setCt(fb.getCurrentLocation().getCity());
+                    address.setSt(fb.getCurrentLocation().getState());
+                    PostalCode postalCode = postalCodeService.findPostalCodeByCityAndStateName(fb.getCurrentLocation().getCity(), fb.getCurrentLocation().getState());
+                    if (postalCode != null) {
+                        address.setZp(postalCode.getCd());
+                    }
+
+                    kissMetricsService.saveAddress(user.getCd(), address);
+                }
+
+                // Gender
+                boolean foundGender = false;
+                if (us.getNswrs() != null) {
+                    for (UserAnswer answer : us.getNswrs()) {
+                        if (answer != null && answer.getQstn() != null && QuestionType.GENDER.equals(answer.getQstn().getTp())) {
+                            // IF there was a gender question, save the gender
+                            if (answer != null && answer.getNm() != null) {
+                                if ("male".equals(answer.getNm().toLowerCase())) {
+                                    kissMetricsService.saveGender(user.getCd(), Gender.MALE);
+                                } else if ("female".equals(answer.getNm().toLowerCase())) {
+                                    kissMetricsService.saveGender(user.getCd(), Gender.FEMALE);
+                                }
+
+                                foundGender = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (!foundGender) {
+                    // Check Facebook
+                    if (fb != null && fb.getGender() != null) {
+                        kissMetricsService.saveGender(user.getCd(), fb.getGender());
+                    }
+                }
+
+                // Age
+                if (fb != null && fb.getAge() != null) {
+                    kissMetricsService.saveAge(user.getCd(), fb.getAge());
+                }
+
+
+                userCodes.add(user.getCd());
+                restartableProcessService.trackKey(PROCESS_NAME, user.getCd());
+            } else {
+                skipped++;
+            }
+        }
+
+        out("Processed " + count + " total users");
+    }
+
+    private String getAttr(UserSupplement us, String attribute) {
+        List<String> values = us.getAttrs().get(attribute);
+        return values != null && !values.isEmpty() ? values.get(0) : null;
+    }
+
+    private void out(String message) {
+        System.out.println(message);
+    }
+
+    public static void main(String[] args) {
+        try {
+            ApplicationContextLoader loader = new ApplicationContextLoader();
+            KissMetricsDemographicImport process = new KissMetricsDemographicImport();
+            loader.load(process, CLASSPATH_CONTEXT);
+
+            process.run();
+
+            loader.getApplicationContext().close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        } finally {
+            System.exit(0);
+        }
+    }
+}

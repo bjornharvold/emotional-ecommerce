@@ -1,0 +1,155 @@
+<!--
+  ~ Copyright (c) 2012. Lela.com.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+    <spring:url value="/login" var="loginUrl" />
+    <spring:url value="/list/store" var="lelaStoreUrl" />
+    <spring:url value="/user/list/card/delete" var="lelaStoreDeleteUrl" />
+    <spring:url var="addListItem" value="/user/list/names?type=store"/>
+
+    <lela:findUser/>
+
+    <div class="lela-page-container page-stores">
+
+        <div class="lela-page-header">
+            <h2><spring:message code="stores.on.lela.title" /></h2>
+            <spring:url value="/static/images/layout/stores/llheart_outline.png" var="faveImg" />
+            <spring:url value="/user/lists" var="listUrl" />
+            <h3><spring:message code="stores.on.lela.lead" htmlEscape="false" arguments="${faveImg}, ${listUrl}" /></h3>
+
+            <div class="deals-header">
+
+                <ul>
+                <c:forEach var="store" items="${stores.stores}" varStatus="storeStatus">
+                    <c:if test="${fn:startsWith(store.store.rlnm, 'walmart')==true or fn:startsWith(store.store.rlnm, 'target')==true or fn:startsWith(store.store.rlnm, 'amazon')==true and fn:startsWith(store.store.rlnm, 'amazonmarketplace') == false}">
+                            <li class="d">
+                               <a href="#" class="logo-link" target="_blank" rlnm="${store.store.rlnm}"><img src="${store.store.lgrl}" /></a>
+                               <a rel="nofollow" href="${addListItem}" class="l-list l-list-add" rlnm="${store.store.rlnm}">Add to favorites</a>
+                                <spring:url var="dealsUrl" value="/${store.store.srlnm}/s/deals?rlnm=${store.store.rlnm}" />
+                                <a rel="nofollow" href="${dealsUrl}" class="view-deals">View deals</a>
+                            </li>
+                    </c:if>
+                </c:forEach>
+                </ul>
+
+            </div>
+
+            <spring:url value="/stores" var="onlineLink" />
+            <spring:url value="/local" var="localLink" />
+            <div class="horizontal">
+                <spring:message code="stores.on.lela.online" /> <a style="margin-left: 30px;" href="${localLink}"><spring:message code="stores.on.lela.local" /></a>
+            </div>
+            <div class="horizontal-shade"><!-- --></div>
+
+            <ul class="alphabet">
+                <li><a href="${onlineLink}" class="alphabet-all selected"><spring:message code="stores.on.lela.all" /></a></li>
+                <c:forEach var="a" items="${stores.alphabet}" varStatus="alphabetStatus">
+                    <spring:url var="alphaLink" value="/stores/${a.nm}" />
+                    <c:choose>
+                        <c:when test="${a.selected == 'true'}">
+                            <li><a class="selected ${selectedLetter eq a.nm ? 'current-letter' : ''}" href="${alphaLink}">${a.nm}</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li>${a.nm}</li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+            </ul>
+
+        </div>
+
+        <div class="lela-page-content">
+
+            <c:set var="itemTotal" value="0" />
+
+            <c:forEach var="a" items="${stores.alphabet}" varStatus="alphabetStatus">
+                <a name="${a.nm}"><!-- --></a>
+                <div class="lela-page-divider" nm="${a.nm}">${a.nm}</div>
+                <c:set var="i" value="0" />
+
+                <c:forEach var="store" items="${stores.stores}" varStatus="storeStatus">
+
+                    <c:if test="${fn:startsWith(store.store.rlnm, a.nm)==true}">
+                        <div class="lela-stores-item">
+
+                            <c:if test="${empty domainAffiliate or domainAffilate.shwlsts}">
+                            <spring:url var="addListItem" value="/user/list/names?type=store"/>
+                            <a rel="nofollow" href="${addListItem}" class="l-list l-list-add" rlnm="${store.store.rlnm}"><!-- --></a>
+                            </c:if>
+
+                            <spring:url var="storeUrl" value="/${store.store.srlnm}/s?rlnm=${store.store.rlnm}" />
+
+                            <div class="store-info">
+                                <h4>${store.store.nm}<br/><a href="${storeUrl}">View all (${store.cnt})</a></h4>
+
+                                <c:set var="catSize" value="${fn:length(store.categories) - 1}"/>
+
+                                <c:forEach var="cat" items="${store.categories}" varStatus="catStatus" begin="0" end="3">
+                                    <spring:url var="catUrl" value="/${store.store.srlnm}/${cat.category.srlnm}/s?rlnm=${store.store.rlnm}&amp;crlnm=${cat.category.rlnm}" />
+                                    <c:choose>
+                                        <c:when test="${catStatus.index lt catSize}">
+                                            <a href="${catUrl}"><spring:message code="nav.cat.${cat.category.rlnm}.full" /> (${cat.count})</a>,
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="${catUrl}"><spring:message code="nav.cat.${cat.category.rlnm}.full" /> (${cat.count})</a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:set var="catNo" value="${catStatus.index}" />
+                                </c:forEach>
+
+                                <c:if test="${catNo != catSize}"><a href="${storeUrl}"><spring:message code="item.stores.more" /></a></c:if>
+                            </div>
+                            <div class="img-container">
+                                <a href="${storeUrl}"><img src="${store.store.lgrl}" /></a><br/>
+                                <c:if test="${fn:startsWith(store.store.rlnm, 'amazonmarketplace') == false}">
+                                    <spring:url var="dealsUrl" value="/${store.store.srlnm}/s/deals?rlnm=${store.store.rlnm}" />
+                                    <a rel="nofollow" href="${dealsUrl}" class="view-deals">View deals</a>
+                                </c:if>
+                            </div>
+                        </div>
+
+                        <c:set var="i" value="${i + 1}" />
+                        <c:set var="itemTotal" value="${itemTotal + 1}" />
+
+                    </c:if>
+                </c:forEach>
+
+                <c:if test="${i == 0}">
+                    <script type="text/javascript">
+                        $('.lela-page-divider[nm=${a.nm}]').remove();
+                    </script>
+                </c:if>
+
+            </c:forEach>
+
+            <c:if test="${itemTotal == 0}">
+
+                <div class="data-not-found">
+                    No stores starting with <span style="text-transform: uppercase;">${selectedLetter}</span>.
+                </div>
+
+            </c:if>
+
+            <div class="clearfix"><!-- --></div>
+
+        </div>
+
+    </div>
+
+</jsp:root>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_lela_data_domain_entity_Category" modelAttribute="category" path="/crud/categorys" render="${empty dependencies}" z="sfKdystpZ4vrXC6GFO97EyVLtR0=">
+        <field:datetime dateTimePattern="${category_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_Category_dateCreated" render="false" required="true" z="user-managed"/>
+        <field:datetime dateTimePattern="${category_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_Category_dateModified" render="false" required="true" z="user-managed"/>
+        <field:select field="dataSourceType" id="c_com_lela_data_domain_entity_Category_dataSourceType" itemLabel="dataSourceTypeName" itemValue="id" items="${datasourcetypes}" path="/datasourcetypes" z="user-managed"/>
+        <field:input field="categoryCategoryGroup" id="c_com_lela_data_domain_entity_Category_categoryCategoryGroup" render="false" z="user-managed"/>
+        <field:input field="functionalFilter" id="c_com_lela_data_domain_entity_Category_functionalFilter" render="false" z="user-managed"/>
+        <field:input field="categoryName" id="c_com_lela_data_domain_entity_Category_categoryName" required="true" z="HSLDc1CZl41rh+mW/MelRQ5GVI4="/>
+        <field:input field="categoryOrder" id="c_com_lela_data_domain_entity_Category_categoryOrder" validationMessageCode="field_invalid_integer" z="Q419iQglTO7WvdBVHysIyckozJU="/>
+        <field:input field="urlname" id="c_com_lela_data_domain_entity_Category_urlname" z="/LOeo04mkfIa9L53EyGv/5M9tOM="/>
+        <field:input field="lelaUrl" id="c_com_lela_data_domain_entity_Category_lelaUrl" z="vSItREQv6uICM/H/T8DyqRcq4KQ="/>
+        <field:input field="categoryObjectId" id="c_com_lela_data_domain_entity_Category_categoryObjectId" z="oQBxiEniPQi8bNLeuxoZRWERGDY="/>
+        <field:input field="catalogKey" id="c_com_lela_data_domain_entity_Category_catalogKey" z="q66sbMgdNAIhtHvvpZbnkBqSwzA="/>
+        <field:input field="categoryNavbar" id="c_com_lela_data_domain_entity_Category_categoryNavbar" validationMessageCode="field_invalid_integer" z="l6gTaMx6l46KN0kXLnQubC5LiOs="/>
+        <field:checkbox field="dirty" id="c_com_lela_data_domain_entity_Category_dirty" z="RMUByaca8XD5ibSJq3UddsJVDYU="/>
+        <field:input field="objectId" id="c_com_lela_data_domain_entity_Category_objectId" z="yAV/I9i+JutKJ7yxUjNuESE1IRw="/>
+        <field:input field="dataSourceString" id="c_com_lela_data_domain_entity_Category_dataSourceString" z="htpL41IdSNBSBGaUazu/0qyckvY="/>
+        <field:checkbox field="visible" id="c_com_lela_data_domain_entity_Category_visible" z="WNfVTVkg/mYcVpft3eCxTI1wgsY="/>
+        <field:checkbox field="enableBrandFilter" id="c_com_lela_data_domain_entity_Category_enableBrandFilter" z="qgwolicQe9PWE+3gmO6OwSiO5Jw="/>
+        <field:checkbox field="enableBrandAveragedMotivators" id="c_com_lela_data_domain_entity_Category_enableBrandAveragedMotivators" z="eqMPH31JT48Rxs9FYjLxpQnz3VU="/>
+        <field:input field="retentionLimitMonths" id="c_com_lela_data_domain_entity_Category_retentionLimitMonths" validationMessageCode="field_invalid_integer" z="ukb3Sf18bCe0zFr4YoHLqL73HdM="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_lela_data_domain_entity_Category" render="${not empty dependencies}" z="R5JZRC78y5TTW8TJ45kE8JZtckg="/>
+</div>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_Network" items="${networks}" z="40NghZR57Bs+MYuAeZg3b8IFrX8=">
+        <table:table data="${networks}" id="l_com_lela_data_domain_entity_Network" path="/crud/networks" z="/keHl+fvlc+dFxeY8KPlzzKoCD4=">
+            <table:column date="true" dateTimePattern="${network_datecreated_date_format}" id="c_com_lela_data_domain_entity_Network_dateCreated" property="dateCreated" z="dwUX4twMPlnRss5ti4eW3wwreoE="/>
+            <table:column date="true" dateTimePattern="${network_datemodified_date_format}" id="c_com_lela_data_domain_entity_Network_dateModified" property="dateModified" z="7bhgKx04JJ+BdSVn8lAe+rm8sUU="/>
+            <table:column id="c_com_lela_data_domain_entity_Network_networkName" property="networkName" z="Fpa1qurGYKnZ5n6cTfCeQlIM6n0="/>
+            <table:column id="c_com_lela_data_domain_entity_Network_popshopsDesignator" property="popshopsDesignator" z="+Mo1IUgWhGSAOhBAjeyR/zae5Fs="/>
+            <table:column id="c_com_lela_data_domain_entity_Network_enabled" property="enabled" z="Tetz53lam8RVQSWT/ht9xdslCoQ="/>
+        </table:table>
+    </page:list>
+</div>

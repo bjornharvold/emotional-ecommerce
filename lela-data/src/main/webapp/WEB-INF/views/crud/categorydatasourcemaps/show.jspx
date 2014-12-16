@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_CategoryDataSourceMap" object="${categorydatasourcemap}" path="/crud/categorydatasourcemaps" z="xmGBheb9N4nVOrb364RKVGGlKtU=">
+        <field:display date="true" dateTimePattern="${categoryDataSourceMap_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_CategoryDataSourceMap_dateCreated" object="${categorydatasourcemap}" z="xsi4rHDZZ0r1/5CKsmh5H8wwZSo="/>
+        <field:display date="true" dateTimePattern="${categoryDataSourceMap_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_CategoryDataSourceMap_dateModified" object="${categorydatasourcemap}" z="q5SC2nIc7QoMcFahCJDIfHnx3MI="/>
+        <field:display field="dataSource" id="s_com_lela_data_domain_entity_CategoryDataSourceMap_dataSource" object="${categorydatasourcemap}" z="m8fVOq27UohLyBsCpcHTsgcsGF0="/>
+        <field:display field="dataSoureceString" id="s_com_lela_data_domain_entity_CategoryDataSourceMap_dataSoureceString" object="${categorydatasourcemap}" z="+rVe0cV6IFsXTRaib/fR3GUeTIo="/>
+        <field:display field="attributeName" id="s_com_lela_data_domain_entity_CategoryDataSourceMap_attributeName" object="${categorydatasourcemap}" z="dmffrCiKktyGIgWji+JbOBlTsz8="/>
+        <field:display field="attributeValue" id="s_com_lela_data_domain_entity_CategoryDataSourceMap_attributeValue" object="${categorydatasourcemap}" z="LMfecEXnoRe4fql+OshiqQYZl4Q="/>
+        <field:display field="category" id="s_com_lela_data_domain_entity_CategoryDataSourceMap_category" object="${categorydatasourcemap}" z="MSKQaQQg+uB5tGYPGI6ouOL06Gw="/>
+    </page:show>
+</div>

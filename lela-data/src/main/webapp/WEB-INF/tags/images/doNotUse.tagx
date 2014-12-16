@@ -1,0 +1,40 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags"
+          version="2.0">
+  <jsp:output omit-xml-declaration="yes" />
+
+  <jsp:directive.attribute name="productImageItem" type="com.lela.data.domain.entity.ProductImageItem" required="true" rtexprvalue="true" description="The Merchant Image Item" />
+  <jsp:directive.attribute name="do_not_use_image_url" type="java.lang.String" required="true" rtexprvalue="true" description="The url to send the request to" />
+  <jsp:directive.attribute name="location" type="java.lang.String" required="true" rtexprvalue="true" description="The url to send the request to" />
+
+  <div>
+  <label for="doNotUse_${productImageItem.id}_${productImageItem.productImage.id}_${location}">Do Not Use</label>
+  <button dojoType="dijit.form.CheckBox" id="doNotUse_${productImageItem.id}_${productImageItem.productImage.id}_${location}"
+          name="doNotUse_${productImageItem.productImage.id}" value="${productImageItem.productImage.id}"
+          checked="${productImageItem.productImage.doNotUse?'true':'false'}">
+
+    <script type="dojo/method" event="onClick" args="evt">
+      dojo.xhrPost({
+      url:"${do_not_use_image_url}",
+      content:{id:this.value},
+      load: function(data, ioArgs){
+        console.log('loaded ${location}' + data);
+        var nodes = dojo.query('[name=\"doNotUse_${productImageItem.productImage.id}\"] [value=\"'+ this.value +'\"]');
+        console.log('found ' + nodes.length + ' other checkboxes');
+        dojo.forEach(nodes,function(node)
+        {dijit.getEnclosingWidget(node).set("checked",true);});
+      },
+      error: function(err, ioArgs){
+      // again, ioArgs is useful, but not in simple cases
+      var errorDialog = new dijit.Dialog({
+      title: "Error Dialog",
+      content: "An error occurred"
+      });
+      errorDialog.show();
+
+      }
+      });
+    </script>
+  </button>
+</div>
+</jsp:root>

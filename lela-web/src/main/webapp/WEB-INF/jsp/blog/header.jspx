@@ -1,0 +1,61 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+
+    <spring:url value="/blog/${blog.rlnm}" var="returnToUrl" />
+    <c:if test="${empty blog}">
+        <spring:url value="/blog" var="returnToUrl" />
+    </c:if>
+    <spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+    <spring:url value="/login?rt=${returnToUrl}" var="loginUrl" />
+    <spring:url var="logoutUrl" value="/logout"/>
+    <spring:url value="/register?rt=${returnToUrl}" var="registerUrl" />
+    <spring:url value="/" var="indexUrl" />
+    <spring:message code="page.header.tagline" var="lelaTagline"/>
+    <spring:message code="nav.label.search" var="searchText"/>
+
+    <spring:message code="page.header.tagline" var="lelaTagline"/>
+    <spring:message code="nav.label.search" var="searchText"/>
+    <spring:url value="/blog" var="blogIndexUrl" />
+
+    <lela:findUser/>
+
+    <div id="menu">
+        <div id="head">
+
+            <div style="float:left;">
+                <h2 title="${lelaTagline}" id="blog-logo"><a href="${blogIndexUrl}"><span class="h-text">${lelaTagline}</span></a></h2>
+                <h3><spring:message code="blog.four.comparison.reviews.title" /></h3>
+            </div>
+
+            <div id="blog-user">
+                <a href="${indexUrl}" class="lela-b"><spring:message code="company.domain.name" /></a>
+
+                <c:if test="${loggedInUser == 'anonymousUser'}">
+                    <a href="${loginUrl}" id="log-in"><spring:message code="button.login" /></a>
+                    <a href="${registerUrl}" id="nav-register"><spring:message code="button.signin" /></a>
+                </c:if>
+
+                <c:if test="${loggedInUser != 'anonymousUser'}">
+                    <div id="user-name"><spring:message code="nav.welcome.user" htmlEscape="false" />${nbsp}${us.fnm}
+                        <a href="${logoutUrl}"><spring:message code="nav.logout" /></a></div>
+                </c:if>
+
+            </div>
+        </div>
+    </div>
+</jsp:root>

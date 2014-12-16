@@ -1,0 +1,114 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <tiles:importAttribute name="item" ignore="true"/>
+
+    <lela:findUser/>
+
+    <spring:url value="/quiz" var="quizUrl" />
+    <spring:message code="grid.results.category.${item.ctgry.rlnm}" var="userCategoryText" text="${item.ctgry.rlnm}"/>
+
+    <div class="nav-section" data-type="Compatibility" data-id="p-comp">
+        <c:choose>
+            <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+
+                <h2 class="s-head" id="p-comp" style="margin-top: 10px;">
+                    <spring:url value="/static/images/icons/rating_q.jpg" var="lelaRatingImgUrl" />
+                    <a href="${quizUrl}" quiz-location="Quiz-PD-Bottom" rel="nofollow"><img src="${lelaRatingImgUrl}" alt="?" class="rating-anim"/></a>
+                    Your Compatibility Rating&#8482;
+                </h2>
+
+                <div class="tab-content">
+
+                    <p class="header-in">What's your Compatibility Rating&#8482; with this product</p>
+
+                    <spring:url value="/static/images/quiz/st_p_sl1_t.gif" var="stUrl1"/>
+                    <spring:url value="/static/images/quiz/st_p_sl2_t.gif" var="stUrl2"/>
+                    <spring:url value="/static/images/quiz/st_p_${currentDepartment}_t.gif" var="stUrl5"/>
+                    <spring:url value="/static/images/quiz/st_p_${currentDepartment}_t_2.gif" var="stUrl3"/>
+                    <spring:url value="/static/images/quiz/st_p_sl4.gif" var="stUrl4"/>
+
+                    <div id="quiz-start-compat">
+                        <table>
+                            <tr>
+                                <td><img src="${stUrl1}" alt=""/></td>
+                                <td><img src="${stUrl4}" alt=""/></td>
+                                <td><img src="${stUrl5}" alt=""/></td>
+                                <td><img src="${stUrl4}" alt=""/></td>
+                                <td><img src="${stUrl2}" alt=""/></td>
+                                <td><img src="${stUrl4}" alt=""/></td>
+                                <td><img src="${stUrl3}" alt=""/></td>
+                            </tr>
+                            <tr class="info">
+                                <td><spring:message code="modal.quiz.start.step1.${currentDepartment}.t" htmlEscape="false"/></td>
+                                <td><!-- --></td>
+                                <td><spring:message code="modal.quiz.start.step2.${currentDepartment}.t" htmlEscape="false"/></td>
+                                <td><!-- --></td>
+                                <td><spring:message code="modal.quiz.start.step3.${currentDepartment}.t" htmlEscape="false"/></td>
+                                <td><!-- --></td>
+                                <td><spring:message code="modal.quiz.start.step4.${currentDepartment}.t" htmlEscape="false"/></td>
+                            </tr>
+                        </table>
+
+                        <a href="${quizUrl}" class="lquiz" quiz-location="Quiz-PD-Bottom" rel="nofollow">Get yours now</a>
+                    </div>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <h2 class="s-head" id="p-comp" style="margin-top: 10px;">
+                    <spring:url value="/static/images/icons/rating/relevancy_meter_${itemDetails.rlvnttm.ttlrlvncynmbr}.png" var="lelaRatingImgUrl" />
+                    <img src="${lelaRatingImgUrl}" alt="${itemDetails.rlvnttm.ttlrlvncynmbr}%" />
+                    Your Compatibility Rating&#8482;
+                </h2>
+
+                <div class="tab-content">
+
+                    <div class="col-m col">
+                        <div class="compat-info">
+
+                            <spring:message code="grid.results.category.${item.ctgry.rlnm}" var="userCategoryText" text="${item.ctgry.rlnm}"/>
+                            <h3><spring:message code="item.tabs.compat.header.rating" htmlEscape="false" arguments="${userCategoryText}"/></h3>
+
+                            <table id="compat-chart">
+                                <tr class="c-num">
+                                    <td class="c-first ${itemDetails.rlvnttm.ttlrlvncynmbr lt 25 ? 'selected' : ''}">0-24</td>
+                                    <td class="${itemDetails.rlvnttm.ttlrlvncynmbr lt 50 and itemDetails.rlvnttm.ttlrlvncynmbr gt 24 ? 'selected' : ''}">25-49</td>
+                                    <td class="${itemDetails.rlvnttm.ttlrlvncynmbr lt 75 and itemDetails.rlvnttm.ttlrlvncynmbr gt 49 ? 'selected' : ''}">50-74</td>
+                                    <td class="c-last ${itemDetails.rlvnttm.ttlrlvncynmbr gt 74 ? 'selected' : ''}">75-100</td>
+                                </tr>
+                                <tr class="c-def">
+                                    <td class="${itemDetails.rlvnttm.ttlrlvncynmbr lt 25 ? 'selected' : ''}"><spring:message code="item.tabs.ratings.chart.4.2" htmlEscape="false"/></td>
+                                    <td class="${itemDetails.rlvnttm.ttlrlvncynmbr lt 50 and itemDetails.rlvnttm.ttlrlvncynmbr gt 24 ? 'selected' : ''}"><spring:message code="item.tabs.ratings.chart.3.2" htmlEscape="false"/></td>
+                                    <td class="${itemDetails.rlvnttm.ttlrlvncynmbr lt 75 and itemDetails.rlvnttm.ttlrlvncynmbr gt 49 ? 'selected' : ''}"><spring:message code="item.tabs.ratings.chart.2.2" htmlEscape="false"/></td>
+                                    <td class="${itemDetails.rlvnttm.ttlrlvncynmbr gt 74 ? 'selected' : ''}"><spring:message code="item.tabs.ratings.chart.1.2" htmlEscape="false"/></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+
+                    <div class="col-m col compat-calc">
+                        <tiles:insertTemplate template="/WEB-INF/jsp/items/details_motivators.jspx" flush="true">
+                            <tiles:putAttribute name="categoryUrlName" value="${item.ctgry.rlnm}" />
+                        </tiles:insertTemplate>
+                    </div>
+                </div>
+            </c:otherwise>
+        </c:choose>
+    </div>
+</jsp:root>

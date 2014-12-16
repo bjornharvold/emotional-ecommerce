@@ -1,0 +1,135 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="blog.blog"/></h1>
+
+    <spring:url value="/administration/blog" var="blogUrl"/>
+    <spring:url value="/administration/blog/list" var="blogListUrl"/>
+    <div class="actions">
+        <a class="action" href="${blogListUrl}">&lt; <spring:message code="blog.back.to.list"/> </a>
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <spring-form:form action="${blogUrl}" commandName="blogEntry" method="POST" modelAttribute="blogEntry" enctype="multipart/form-data">
+
+        <div class="h-row even">
+            <div class="h-col"><label for="ctgry"><spring:message code="blog.category"/></label></div>
+            <div class="h-col">
+            <spring-form:select id="ctgry" path="ctgry">
+                <spring-form:options items="${categories}" itemLabel="nm" itemValue="id"/>
+            </spring-form:select>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="nm"><spring:message code="blog.name.example"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="nm" path="nm"/>&#160;<spring-form:errors path="nm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="rlnm"><spring:message code="blog.url.name.example"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="rlnm" path="rlnm"/>&#160;<spring-form:errors path="rlnm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="mtkywrd"><spring:message code="blog.meta.keywords"/></label></div>
+            <div class="h-col"><spring-form:textarea id="mtkywrd" path="mtkywrd" cols="50" rows="5"/>&#160;<spring-form:errors path="mtkywrd" cssClass="red"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="mtdscrptn"><spring:message code="blog.meta.description"/></label></div>
+            <div class="h-col"><spring-form:textarea id="mtdscrptn" path="mtdscrptn" cols="50" rows="5"/>&#160;<spring-form:errors path="mtdscrptn" cssClass="red"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="multipartFile"><spring:message code="blog.cover.picture"/></label></div>
+            <div class="h-col l-col"><input type="file" id="multipartFile" name="multipartFile"/>&#160;<spring-form:errors path="multipartFile" cssClass="red"/><br/>
+
+            <c:if test="${!empty blogEntry.mgrl}">
+                <spring:message code="blog.image.url"/>: &#160;${blogEntry.mgrl}
+                <spring-form:hidden path="mgrl"/>
+            </c:if>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="stts"><spring:message code="blog.status"/></label></div>
+            <div class="h-col l-col"><spring-form:radiobuttons id="stts" path="stts" items="${publishStatuses}"/>&#160;<spring-form:errors path="stts" cssClass="red"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="tms"><spring:message code="blog.products"/></label></div>
+
+            <div class="h-col">
+                <c:set var="counter" value="0"/>
+
+                <c:if test="${not empty blogEntry.tms}">
+                    <c:set var="counter" value="${fn:length(blogEntry.tms)}"/>
+                    <c:forEach items="${blogEntry.tms}" var="item" varStatus="status">
+                        <spring-form:input id="tms" path="tms[${status.index}]" size="50"/>&#160;<spring-form:errors path="tms[${status.index}]" cssClass="red"/><br/>
+                    </c:forEach>
+                </c:if>
+
+                <!-- add empty form fields if necessary - we can quickly extend the number of url names by increasing the counter here -->
+                <c:if test="${counter lt 4}">
+                    <c:forEach begin="${counter}" end="3" varStatus="status">
+                        <input type="text" id="tms" name="tms[${status.index}]" value="" size="50"/><br/>
+                    </c:forEach>
+                </c:if>
+            </div>
+
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><spring-form:label path="hdr"><spring:message code="blog.header"/></spring-form:label></div>
+            <div class="h-col"><spring-form:input path="hdr" size="60"/>  <spring-form:errors path="hdr" cssClass="error"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><spring-form:label path="cntn"><spring:message code="blog.content"/></spring-form:label></div>
+            <div class="h-col"><spring-form:textarea path="cntn" cols="80" rows="15"/>  <spring-form:errors path="cntn" cssClass="error"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="s-row">
+            <spring-form:hidden path="id"/>
+            <spring:message code="button.save" var="save"/>
+            <div class="s-col"><input type="submit" value="${save}"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+    </spring-form:form>
+
+    <script type="text/javascript">
+        $( 'textarea#cntn' ).ckeditor();
+    </script>
+
+</div>

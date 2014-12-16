@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_IdentifierType" modelAttribute="identifierType" path="/crud/identifiertypes" versionField="Version" z="VwqZ4DCJCCJIe4SYVmvWAZ+X630=">
+        <field:datetime dateTimePattern="${identifierType_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_IdentifierType_dateCreated" z="user-managed" render="false"/>
+        <field:datetime dateTimePattern="${identifierType_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_IdentifierType_dateModified" z="user-managed" render="false"/>
+        <field:select field="attributeType" id="c_com_lela_data_domain_entity_IdentifierType_attributeType" itemValue="id" items="${attributetypes}" path="/crud/attributetypes" z="vHxvhhfdDYcMjN2kKD1UK9wi9/o="/>
+        <field:input field="identifierTypeName" id="c_com_lela_data_domain_entity_IdentifierType_identifierTypeName" required="true" z="YDo7ifLx/HfTSaS57GgPM/6F8zo="/>
+        <field:checkbox field="multiValued" id="c_com_lela_data_domain_entity_IdentifierType_multiValued" z="BvWQ/HI3R9gfAYwL5zpcRQLvYQQ="/>
+    </form:update>
+</div>

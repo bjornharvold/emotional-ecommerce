@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_AdvertiserNameMerchant" items="${advertisernamemerchants}" z="FduXm/fuUn74pGFK0Y1jfARDGp8=">
+        <table:table data="${advertisernamemerchants}" id="l_com_lela_data_domain_entity_AdvertiserNameMerchant" path="/crud/advertisernamemerchants" z="mvGjJh9y3S/dVzVe4Qfl7yR1aM4=">
+            <table:column date="true" dateTimePattern="${advertiserNameMerchant_datecreated_date_format}" id="c_com_lela_data_domain_entity_AdvertiserNameMerchant_dateCreated" property="dateCreated" z="l8emln/LdV4A4LxVjTuHxJcMwZs="/>
+            <table:column date="true" dateTimePattern="${advertiserNameMerchant_datemodified_date_format}" id="c_com_lela_data_domain_entity_AdvertiserNameMerchant_dateModified" property="dateModified" z="onJf9ddv2b8HiregnH1Tjh0CkB8="/>
+            <table:column id="c_com_lela_data_domain_entity_AdvertiserNameMerchant_merchant" property="merchant" z="yA2c1ALbvim6q4gD0vPmv37fIqc="/>
+            <table:column id="c_com_lela_data_domain_entity_AdvertiserNameMerchant_advertiserName" property="advertiserName" z="Xufv/iekaiCcDFnQzNeosd4QXP0="/>
+        </table:table>
+    </page:list>
+</div>

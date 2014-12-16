@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_AttributeType" object="${attributetype}" path="/crud/attributetypes" z="n9dI8+KGJtF6RGe2K2NUv+L9A7U=">
+        <field:display date="true" dateTimePattern="${attributeType_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_AttributeType_dateCreated" object="${attributetype}" z="jgaWR/KGYIPr6MfGyzmaq9x7ZGY="/>
+        <field:display date="true" dateTimePattern="${attributeType_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_AttributeType_dateModified" object="${attributetype}" z="VQZz04p/3rbU2WYUu1HszuSJRp8="/>
+        <field:display field="validationType" id="s_com_lela_data_domain_entity_AttributeType_validationType" object="${attributetype}" z="CWKF9GZNwVaAnT9l9Wg0khxdzFA="/>
+        <field:display field="attributeTypeSource" id="s_com_lela_data_domain_entity_AttributeType_attributeTypeSource" object="${attributetype}" z="ED/1hcBKnENPq8VWeSTZXGWNOBU="/>
+        <field:display field="cleanseRule" id="s_com_lela_data_domain_entity_AttributeType_cleanseRule" object="${attributetype}" z="K5Od9Nya7qOmzaTxQm+lFDffHr4="/>
+        <field:display field="attributeName" id="s_com_lela_data_domain_entity_AttributeType_attributeName" object="${attributetype}" z="TVQKsXyw7tHphw4VxE0DEEswlt0="/>
+        <field:display field="attributeSourceName" id="s_com_lela_data_domain_entity_AttributeType_attributeSourceName" object="${attributetype}" z="vdaU9gBuZ4jBIa8Ccj7vC8dfO3w="/>
+        <field:display field="accessory" id="s_com_lela_data_domain_entity_AttributeType_accessory" object="${attributetype}" z="J1OUmEWhZaPQPp3lfOjlG7NUvPA="/>
+        <field:display field="lelaAttributeName" id="s_com_lela_data_domain_entity_AttributeType_lelaAttributeName" object="${attributetype}" z="6JIGbO2WsUivh4GffJVmgwvUnsE="/>
+        <field:display field="accessoryType" id="s_com_lela_data_domain_entity_AttributeType_accessoryType" object="${attributetype}" z="37mRrdAokKDA2qstVtp6zNhqFHM="/>
+    </page:show>
+</div>

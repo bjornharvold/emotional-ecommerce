@@ -1,0 +1,25 @@
+
+<job>
+    <currentdate>9/12/2011</currentdate>
+    <motivator>C</motivator>
+    <television>
+        <TV_ID>S8489699</TV_ID>
+        <BrandID>182</BrandID>
+        <General_TimerFunctions>Sleep</General_TimerFunctions>
+        <Display_ViewingAngle>176 degrees</Display_ViewingAngle>
+        <Display_DisplayMenuLanguage>English, French, Spanish</Display_DisplayMenuLanguage>
+        <Display_DisplayMenuLanguage_Count>3</Display_DisplayMenuLanguage_Count>
+        <Display_ViewingAngleVertical>176 degrees</Display_ViewingAngleVertical>
+        <VideoFeatures_ExtendedDataServiceXDS>(null)</VideoFeatures_ExtendedDataServiceXDS>
+        <VideoFeatures_ClosedCaptionCapability>Yes</VideoFeatures_ClosedCaptionCapability>
+        <AudioSystem_AudioControls>Sound mode</AudioSystem_AudioControls>
+        <AudioSystem_Equalizer>(null)</AudioSystem_Equalizer>
+        <StandsMounts_WallMountIncluded>(null)</StandsMounts_WallMountIncluded>
+        <CRRemoteEaseOfUse>Good</CRRemoteEaseOfUse>
+        <CROnScreenMenuEaseOfUse>Very Good</CROnScreenMenuEaseOfUse>
+        <CRViewingAngle>Moderate</CRViewingAngle>
+        <StandsMounts_StandFeatures>Swivel, tilt</StandsMounts_StandFeatures>
+        <StandsMounts_Stand>Included</StandsMounts_Stand>
+        <NetworkInternetMultimedia_Connectivity>Wireless, wired</NetworkInternetMultimedia_Connectivity>
+    </television>
+</job>

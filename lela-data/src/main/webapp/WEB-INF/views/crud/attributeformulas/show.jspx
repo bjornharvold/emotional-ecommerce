@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_AttributeFormula" object="${attributeformula}" path="/crud/attributeformulas" z="dgTZJkY1YOxAHViYwIPUU01Cp6Q=">
+        <field:display date="true" dateTimePattern="${attributeFormula_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_AttributeFormula_dateCreated" object="${attributeformula}" z="T6Y8wAUilEl7EaDM48c8ny/wx6g="/>
+        <field:display date="true" dateTimePattern="${attributeFormula_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_AttributeFormula_dateModified" object="${attributeformula}" z="8Oxhg5BFXTtXpO1WKMgcyTZVIq0="/>
+        <field:display field="attributeType" id="s_com_lela_data_domain_entity_AttributeFormula_attributeType" object="${attributeformula}" z="JRrWGbh/HVeJSr+d0f7LB53GoWg="/>
+        <field:display field="category" id="s_com_lela_data_domain_entity_AttributeFormula_category" object="${attributeformula}" z="UYVTMFlJOqdweZt5MHOto8vMqLk="/>
+        <field:display field="selectClause" id="s_com_lela_data_domain_entity_AttributeFormula_selectClause" object="${attributeformula}" z="OLxC5c9bWXiklDM+Ymk66ecC+eI="/>
+        <field:display field="fromClause" id="s_com_lela_data_domain_entity_AttributeFormula_fromClause" object="${attributeformula}" z="4bxBPTn+pI9m1N1ATRt1QhIDE24="/>
+        <field:display field="whereClause" id="s_com_lela_data_domain_entity_AttributeFormula_whereClause" object="${attributeformula}" z="MRAI6+zgM7flHb6e46qP8JOOOX8="/>
+        <field:display field="sequenceGroup" id="s_com_lela_data_domain_entity_AttributeFormula_sequenceGroup" object="${attributeformula}" z="lcn07xtKj6oMv+B6ppkbSDwkq28="/>
+        <field:display field="description" id="s_com_lela_data_domain_entity_AttributeFormula_description" object="${attributeformula}" z="6G+PeIDcNulOAyiv+ZBk5JNYOR4="/>
+        <field:display field="attributeFormulaAttributeTypes" id="s_com_lela_data_domain_entity_AttributeFormula_attributeFormulaAttributeTypes" object="${attributeformula}" z="9k271cb1QKRRxYHn3Bx56FDss8g="/>
+    </page:show>
+</div>

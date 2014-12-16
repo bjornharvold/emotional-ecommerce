@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Merchant" object="${merchant}" path="/crud/merchants" z="v0pBJjaIkNvstRUGux7eZX+KZQM=">
+        <field:display date="true" dateTimePattern="${merchant_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Merchant_dateCreated" object="${merchant}" z="Waintt8k07AigQUbnroj1iQR13g="/>
+        <field:display date="true" dateTimePattern="${merchant_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Merchant_dateModified" object="${merchant}" z="cqTssza2tlcpcaIkIFAPKmu7YqE="/>
+        <field:display field="networkId" id="s_com_lela_data_domain_entity_Merchant_networkId" object="${merchant}" z="5LwkyY4+/efky778qjqP/EjT+Zc="/>
+        <field:display field="merchantName" id="s_com_lela_data_domain_entity_Merchant_merchantName" object="${merchant}" z="DA3YIoyOHbpT+ahorkjERolgsws="/>
+        <field:display field="logoUrl" id="s_com_lela_data_domain_entity_Merchant_logoUrl" object="${merchant}" z="ZeWYWDzuOvGzGNfBGjfPlS3lcGI="/>
+        <field:display field="url" id="s_com_lela_data_domain_entity_Merchant_url" object="${merchant}" z="dmtW6MzuIyp063U87siSb/eOULw="/>
+        <field:display field="imageQuality" id="s_com_lela_data_domain_entity_Merchant_imageQuality" object="${merchant}" z="B1VK49Arn6pMJ4rOZkO9Ij21byA="/>
+        <field:display field="merchantValid" id="s_com_lela_data_domain_entity_Merchant_merchantValid" object="${merchant}" z="mpRvdaM2/GTPkNSGC1yzO8Sb414="/>
+        <field:display field="merchantApproved" id="s_com_lela_data_domain_entity_Merchant_merchantApproved" object="${merchant}" z="peoOiU+oIt3LtDZUqwoTY4F/naw="/>
+        <field:display field="objectId" id="s_com_lela_data_domain_entity_Merchant_objectId" object="${merchant}" z="LFzZZ3LrCErlzXVwWM2GkdmZCYo="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_Merchant_dirty" object="${merchant}" z="oxGi30odsK5lk+4IYSGEKSDeCoY="/>
+        <field:display field="alwaysShowLocal" id="s_com_lela_data_domain_entity_Merchant_alwaysShowLocal" object="${merchant}" z="A3rpiHyVvE2NrWO31XuwD4DmQAU="/>
+        <field:display field="lelaUrl" id="s_com_lela_data_domain_entity_Merchant_lelaUrl" object="${merchant}" z="Md0MyeGVK7hnfArG+o6nJYrR5wU="/>
+        <field:display field="popshopsId" id="s_com_lela_data_domain_entity_Merchant_popshopsId" object="${merchant}" z="OqDdoghmJ1jqmC7KquVBBwU6EJ4="/>
+        <field:display field="urlName" id="s_com_lela_data_domain_entity_Merchant_urlName" object="${merchant}" z="MCNSAvyNXHRrL+rurvhv0LJRy70="/>
+        <field:display field="returnPolicy" id="s_com_lela_data_domain_entity_Merchant_returnPolicy" object="${merchant}" z="NQNiQsHpIAat7/FxI03cxqJZdwM="/>
+    </page:show>
+</div>

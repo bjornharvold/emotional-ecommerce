@@ -1,0 +1,55 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <c:set var="currentCategoryParent" value="${categoryGroupParent}"/>
+
+    <c:if test="${not empty categoryGroupList}">
+        <c:forEach items="${categoryGroupList}" var="child">
+            <tr>
+                <td>
+                    <c:if test="${categoryGroupParent == null}">&#160;</c:if>
+                    <c:if test="${categoryGroupParent != null}">${categoryGroupParent}</c:if>
+                </td>
+                <td>${child.nm}</td>
+                <td>${child.rlnm}</td>
+                <td>${child.srlnm}</td>
+                <td>${child.rdr}</td>
+                <td>${child.stts}</td>
+                <td>${fn:length(child.chldrn)}</td>
+                <td>
+                    <spring:url value="/administration/navigationbar/${navigationBar.rlnm}/categorygroup/form" var="editUrl">
+                        <spring:param name="categoryGroupId" value="${child.d}"/>
+                    </spring:url>
+                    <a class="action" href="${editUrl}"><spring:message code="link.edit"/></a>
+
+                    <spring:message code="link.delete" var="delete"/>
+                    <spring:url value="/administration/navigationbar/${navigationBar.rlnm}/categorygroup/${child.d}" var="deleteUrl"/>
+                    <spring-form:form action="${deleteUrl}" method="DELETE">
+                        <input type="submit" name="${delete}" value="${delete}"/>
+                    </spring-form:form>
+                </td>
+            </tr>
+            <c:if test="${not empty child.chldrn}">
+                <c:set var="categoryGroupList" value="${child.chldrn}" scope="request"/>
+                <c:set var="categoryGroupParent" value="${child.nm}" scope="request"/>
+                <jsp:include page="categorygroop_loop.jspx" flush="true"/>
+            </c:if>
+            <c:set var="categoryGroupParent" value="${currentCategoryParent}" scope="request"/>
+        </c:forEach>
+    </c:if>
+</jsp:root>

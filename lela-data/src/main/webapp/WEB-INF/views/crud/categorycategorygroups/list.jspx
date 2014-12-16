@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_CategoryCategoryGroup" items="${categorycategorygroups}" z="txYhdNTq0rBCYladajy/ttLisAU=">
+        <table:table data="${categorycategorygroups}" id="l_com_lela_data_domain_entity_CategoryCategoryGroup" path="/crud/categorycategorygroups" z="5DDMzICixawOKsVdCtqf2eJ3wAc=">
+            <table:column date="true" dateTimePattern="${categoryCategoryGroup_datecreated_date_format}" id="c_com_lela_data_domain_entity_CategoryCategoryGroup_dateCreated" property="dateCreated" z="yzoRY0cqDlpw0nUeEDsogdZT1Nc="/>
+            <table:column date="true" dateTimePattern="${categoryCategoryGroup_datemodified_date_format}" id="c_com_lela_data_domain_entity_CategoryCategoryGroup_dateModified" property="dateModified" z="9lZSUX1gT6zg0o4L3WL27WGSDbw="/>
+            <table:column id="c_com_lela_data_domain_entity_CategoryCategoryGroup_category" property="category" z="3MoIogFi4vsp26Ov7wtxGqT574M="/>
+            <table:column id="c_com_lela_data_domain_entity_CategoryCategoryGroup_categoryGroup" property="categoryGroup" z="tiY4wAHZj5UTkoRXmzrZCmwAfZY="/>
+        </table:table>
+    </page:list>
+</div>

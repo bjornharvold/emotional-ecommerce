@@ -1,0 +1,98 @@
+.p-block {
+    float:left;
+    padding:0;
+    min-height: 1px;
+}
+
+.item {
+    clear:both;
+    position: relative;
+    padding:15px 0 10px 10px;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.lela-rating {
+
+    width:5%;
+    float:left;
+    padding-right: 10px;
+}
+
+.lela-rating img {
+    width:25px;
+}
+
+.p-img {
+    float:left;
+    width:35%;
+    text-align: center;
+}
+
+.p-img img {
+    width:80%;
+    height:auto;
+}
+
+.p-info {
+    color:#3f3f3f;
+    position: relative;
+    float:left;
+    width:47%;
+    display: block;
+}
+
+.p-more {
+    float:right;
+    width:10%;
+}
+
+.p-more a {
+    display: block;
+    background: url('../images/icons/caret_g_r.png') no-repeat 10px 40px;
+    background-size: 8px 13px;
+    width:27px; height: 90px;
+}
+
+.item-details { padding-bottom: 5px; display: block;  }
+.item-details a { color:#3f3f3f; }
+.brand-name { display: block; }
+.store-nm { color:#4ca7d8; }
+.p-price { display: block; overflow: hidden; }
+.p-price strong { font-size:18px; display: block; }
+.price-old { font-size: 13px; font-weight: normal; text-decoration: line-through; padding-left: 10px; }
+
+
+#ctrls-total { text-align: center; }
+
+#sort-ctrls {
+    padding:10px;
+}
+
+#sort-ctrls a, #sort-ctrls span {
+    font-size: 11px;
+    float:left;
+    display: block;
+    background:url('../images/layout/sort_back.gif') repeat-x bottom;
+    text-align: center;
+    border-right:1px solid #cdcdcd;
+    border-top:1px solid #cdcdcd;
+    border-bottom:1px solid #cdcdcd;
+    padding:6px 0 5px 0;
+    width:25%;
+    font-weight: bold;
+}
+
+#sort-ctrls .sort-comp {
+    border-left:1px solid #cdcdcd;
+    width:48%;
+}
+
+#sort-ctrls a.selected {
+    background:url('../images/layout/sort_back_on.gif') repeat-x bottom;
+    color:#3f3f3f;
+}
+
+#sort-ctrls span.sort-comp {
+    color:#ccc;
+}

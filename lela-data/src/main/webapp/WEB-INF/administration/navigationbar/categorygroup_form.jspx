@@ -1,0 +1,100 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="categorygroup.title"/></h1>
+
+    <spring:url value="/administration/navigationbar/list" var="navigationbarListUrl"/>
+    <div class="actions">
+        <a class="action" href="${navigationbarListUrl}">&lt; <spring:message code="navigationbar.back.to.list"/> </a>
+
+        <c:if test="${navigationBar.id != null}">
+            <spring:url value="/administration/navigationbar/${navigationBar.rlnm}" var="navigationbarUrl"/>
+            <a class="action" href="${navigationbarUrl}">&lt; <spring:message code="navigationbar.back.to.navigationbar"/> </a>
+        </c:if>
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <spring:url value="/administration/navigationbar/${urlName}/categorygroup/form" var="formUrl"/>
+    <spring-form:form action="${formUrl}" method="POST" commandName="categoryGroup" modelAttribute="categoryGroup">
+
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="parentCategoryGroupId"><spring:message code="categorygroup.parent"/></label></div>
+
+            <div class="h-col">
+                <spring:message code="choose.parent" var="chooseParent"/>
+                <spring-form:select id="parentCategoryGroupId" path="parentCategoryGroupId">
+                    <spring-form:option value="" label="${chooseParent}"/>
+                    <spring-form:options items="${categoryGroupParents}" itemLabel="nm" itemValue="d"/>
+                </spring-form:select><br/><spring-form:errors path="parentCategoryGroupId" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="nm"><spring:message code="categorygroup.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="nm" path="nm"/>&#160;<spring-form:errors path="nm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="rlnm"><spring:message code="categorygroup.url.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="rlnm" path="rlnm"/>&#160;<spring-form:errors path="rlnm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="srlnm"><spring:message code="categorygroup.seo.url.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="srlnm" path="srlnm"/>&#160;<spring-form:errors path="srlnm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="rdr"><spring:message code="categorygroup.order"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="rdr" path="rdr"/>&#160;<spring-form:errors path="rdr" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="stts"><spring:message code="categorygroup.status"/></label></div>
+
+            <div class="h-col">
+                <spring-form:select id="stts" path="stts" items="${publishStatuses}"/><br/><spring-form:errors path="stts" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="s-row">
+            <spring-form:hidden path="d"/>
+            <spring:message code="button.save" var="save"/>
+            <div class="s-col"><input type="submit" value="${save}"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+    </spring-form:form>
+</div>

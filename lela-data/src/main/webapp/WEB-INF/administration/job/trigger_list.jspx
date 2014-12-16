@@ -1,0 +1,88 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <security:authentication property="principal.user" var="testUser"/>
+
+    <h2>Trigger List</h2>
+    <spring:url value="/administration/job/trigger" var="triggerCreateUrl"/>
+    <div class="actions">
+        <a class="action" href="${triggerCreateUrl}">Create Trigger ></a>
+        <div class="clear"><!-- --></div>
+    </div>
+    
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+    <c:if test="${empty triggers.content}">
+        No triggers have been created yet
+    </c:if>
+
+    <c:if test="${!empty triggers.content}">
+        <table width="100%" id="datatable" class="tablesorter">
+            <thead>
+            <tr>
+                <th width="25%">URL</th>
+                <th width="25%">Description</th>
+                <th width="20%">CRON Expression</th>
+                <th width="10%">&#160;</th>
+                <th width="10%">&#160;</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <c:forEach items="${triggers.content}" var="trigger">
+                <spring:url value="/administration/job/trigger?urlName=${trigger.rlnm}" var="triggerEditUrl"/>
+                <spring:url value="/administration/job/trigger/${trigger.rlnm}" var="triggerDeleteUrl"/>
+                <tr>
+                    <td><a href="${triggerEditUrl}">${trigger.rlnm}</a></td>
+					<td>${trigger.dscrptn}</td>
+					<td>${trigger.crnxprsn}</td>
+                    <td>
+                        <a class="action" href="${triggerEditUrl}">Edit</a>
+                    </td>
+                    <td>
+                        <spring-form:form action="${triggerDeleteUrl}" method="DELETE">
+                            <input type="submit" name="Delete" value="Delete"/>
+                        </spring-form:form>                    
+                    </td>                    
+                </tr>
+
+            </c:forEach>
+
+            </tbody>
+
+        </table>
+
+    </c:if>
+
+    <script type="text/javascript">
+        if($('#datatable').length > 0) {
+            $('#datatable').tablesorter({
+                widgets: ['zebra'],
+                sortList: [[0,0]],
+                headers: {
+                    3: {
+                        sorter: false
+                    },
+                    4: {
+                        sorter: false
+                    }                    
+                }
+            });
+        }
+    </script>
+
+</div>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_MerchantOfferItem" modelAttribute="merchantOfferItem" path="/crud/merchantofferitems" versionField="Version" z="jkGnpPX8bvFEa92/BvjJ0aG6u3k=">
+      <field:datetime dateTimePattern="${merchantOfferItem_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_MerchantOfferItem_dateCreated"  z="user-managed" render="false"/>
+      <field:datetime dateTimePattern="${merchantOfferItem_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_MerchantOfferItem_dateModified"  z="user-managed" render="false"/>
+      <field:select field="merchantOffer" id="c_com_lela_data_domain_entity_MerchantOfferItem_merchantOffer" itemValue="id" items="${merchantoffers}" path="/merchantoffers" z="user-managed" />
+      <field:select field="category" id="c_com_lela_data_domain_entity_MerchantOfferItem_category" itemValue="id" items="${categorys}" path="/categorys" z="user-managed"/>
+      <field:select field="item" id="c_com_lela_data_domain_entity_MerchantOfferItem_item" itemValue="id" items="${items}" path="/items" z="user-managed"/>
+      <field:input field="itemId" id="c_com_lela_data_domain_entity_MerchantOfferItem_itemId" required="false" validationMessageCode="field_invalid_integer" z="user-managed" render="false"/>
+    </form:update>
+</div>

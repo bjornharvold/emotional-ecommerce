@@ -1,0 +1,202 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="error.email.empty" var="emailEmpty" htmlEscape="false"/>
+    <spring:message code="error.email.invalid" var="emailInvalid" htmlEscape="false"/>
+    <spring:message code="error.firstname.empty" var="firstnameEmpty" htmlEscape="false"/>
+    <spring:message code="error.lastname.empty" var="lastnameEmpty" htmlEscape="false"/>
+    <spring:message code="error.password.mismatch" var="passwordMismatch" htmlEscape="false"/>
+    <spring:url value="/static/images/icons/fb_icon.png" var="facebookIcon" />
+
+    <lela:findUser/>
+
+    <script type="text/javascript">
+        var messages = {
+            "error.email.empty" : "${emailEmpty}",
+            "error.email.invalid" : "${emailInvalid}",
+            "error.firstname.empty" : "${firstnameEmpty}",
+            "error.lastname.empty" : "${lastnameEmpty}",
+            "error.password.mismatch" : "${passwordMismatch}"
+        }
+
+        function clearPasswordInput() {
+            $('input:password').val('');
+        }
+        window.setTimeout("clearPasswordInput()", 100);
+    </script>
+
+    <div id="account-nav">
+        <ul>
+            <li>
+                <!-- Left nav content -->
+                <tiles:insertTemplate template="/WEB-INF/jsp/user/account_nav.jspx" flush="true">
+                    <tiles:putAttribute name="page" value="overview" />
+                </tiles:insertTemplate>
+            </li>
+        </ul>
+    </div>
+    <div id="account-content">
+        <!-- Right content -->
+        <spring:url value="/user/dashboard/overview/update" var="updateUrl"/>
+        <spring-form:form id="account-overview-form" action="${updateUrl}" method="PUT" modelAttribute="userAccountDto" class="custom" autocomplete="off">
+            <div id="account-content-1">
+                <div id="lela-account" class="d-section">
+                    <h2><spring:message code="user.account.overview.lela.account"/></h2>
+                    <c:choose>
+                        <c:when test="${facebookConnected == false}">
+                            <div >
+                              <div >                          
+                                <spring-form:label path="fnm" cssClass="account-label"><spring:message code="user.account.overview.first.name"/></spring-form:label>
+                                <spring-form:input path="fnm" class="first-name-type"/> <spring-form:errors path="fnm" cssClass="error"/>
+                                <div class="error"><!-- --></div>
+                              </div>
+                              <div>
+                                <spring-form:label path="lnm" cssClass="account-label"><spring:message code="user.account.overview.last.name"/></spring-form:label>
+                                <spring-form:input path="lnm" class="last-name-type"/> <spring-form:errors path="lnm" cssClass="error"/>
+                                <div class="error"><!-- --></div>
+                              </div>
+                              <div>
+                                <spring-form:label path="ml" cssClass="account-label"><spring:message code="user.account.overview.email"/></spring-form:label>
+                                <spring-form:input path="ml" class="email-type" size="50"/> <spring-form:errors path="ml" cssClass="error"/>
+                                <div class="error"><!-- --></div>
+                              </div>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="f-row lela-account-section">
+                                <span class="facebook-icon"><img src="${facebookIcon}" alt=""/></span>
+                                <span class="account-label"><spring:message code="user.account.overview.full.name"/></span><br/>
+                                <span>${userAccountDto.fnm} ${userAccountDto.lnm}</span>
+                                <spring-form:hidden path="fnm"/>
+                                <spring-form:hidden path="lnm"/>
+                            </div>
+                            <div class="f-row lela-account-section">
+                                <span class="facebook-icon"><img src="${facebookIcon}" alt=""/></span>
+                                <span class="account-label"><spring:message code="user.account.overview.email"/></span><br/>
+                                <span>${userAccountDto.ml}</span>
+                                <spring-form:hidden path="ml"/>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+                <!--
+                <div id="lela-password-security" class="d-section">
+                    <h2><spring:message code="user.account.overview.lela.password.security"/></h2>
+
+                    <div class="f-row">
+                        <spring-form:label path="psswrdrmndrqstn"><spring:message code="user.account.overview.security.question"/></spring-form:label>
+                        <spring-form:input path="psswrdrmndrqstn"/>
+                    </div>
+                    <div class="f-row">
+                        <spring-form:label path="psswrdrmndrnswr"><spring:message code="user.account.overview.security.question.answer"/></spring-form:label>
+                        <spring-form:input path="psswrdrmndrnswr"/>
+                    </div>
+                    <div id="lela-account-change-password">
+                        <a id="change-password" href="#"><spring:message code="user.account.overview.change.password"/></a>
+
+                        <div id="lela-account-password">
+                            <div class="f-row">
+                                <spring-form:label path="psswrd"><spring:message code="user.account.overview.new.password"/></spring-form:label>
+                                <spring-form:password path="psswrd" class="password-type"/> <spring-form:errors path="psswrd" cssClass="error"/>
+                            </div>
+                            <div class="f-row">
+                                <spring-form:label path="cnfrmpsswrd"><spring:message code="user.account.overview.confirm.password"/></spring-form:label>
+                                <spring-form:password path="cnfrmpsswrd" class="confirm-password-type"/> <spring-form:errors path="cnfrmpsswrd" cssClass="error"/>
+
+                                <div class="error">< ! - - - - ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
+                <c:if test="${facebookConnected == false}">
+                    <div id="lela-account-change-password">
+                        <a id="change-password" href="#"><spring:message code="user.account.overview.change.password"/></a>
+
+                        <div id="lela-account-password">
+                            <div class="f-row">
+                                <spring-form:label path="psswrd"><spring:message code="user.account.overview.new.password"/></spring-form:label>
+                                <spring-form:password path="psswrd" class="password-type" autocomplete="off"/> <spring-form:errors path="psswrd" cssClass="error"/>
+                            </div>
+                            <div class="f-row">
+                                <spring-form:label path="cnfrmpsswrd"><spring:message code="user.account.overview.confirm.password"/></spring-form:label>
+                                <spring-form:password path="cnfrmpsswrd" class="confirm-password-type"/> <spring-form:errors path="cnfrmpsswrd" cssClass="error"/>
+                                <div class="error"><!-- --></div>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+
+            </div>
+            <div id="account-content-2">
+
+                <div id="connections-to-other-sites" class="d-section">
+                    <h2><spring:message code="user.account.overview.connections.other.sites"/></h2>
+
+                    <table>
+                        <c:forEach items="${socialNetworks}" var="globalSocialEntry">
+                            <spring:url value="/connect/${globalSocialEntry}" var="connectUrl"/>
+                            <tr>
+                                <td><b><spring:message code="${globalSocialEntry}"/></b></td>
+                                <c:choose>
+                                    <c:when test="${socialNetworksConnected == false}">
+                                        <td><a href="${connectUrl}"><spring:message code="user.account.overview.connect"/></a></td>
+                                        <td><spring:message code="user.account.overview.disconnect"/></td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:forEach items="${userSocialNetworks}" var="social">
+                                            <c:if test="${globalSocialEntry eq social.providerId}">
+                                                <c:set value="true" var="foundExisting"/>
+                                                <td><spring:message code="user.account.overview.connect"/></td>
+                                                <td><a href="${connectUrl}"><spring:message code="user.account.overview.disconnect"/></a></td>
+                                            </c:if>
+                                        </c:forEach>
+                                        <c:if test="${foundExisting != 'true'}">
+                                            <td><a href="${connectUrl}"><spring:message code="user.account.overview.connect"/></a></td>
+                                            <td><spring:message code="user.account.overview.disconnect"/></td>
+                                        </c:if>
+                                        <c:set value="false" var="foundExisting"/>
+                                    </c:otherwise>
+                                </c:choose>
+                                <!--<td><spring:message code="user.account.overview.why"/></td>-->
+                            </tr>
+                        </c:forEach>
+                        <tr>
+                                <td colspan="3">&#160;</td>
+                        </tr>                      
+                    </table>
+                </div>
+                <div>
+                     <h2>NewsLetter Subscription</h2>
+                     <label>
+                                        <span class="label optin-label"><spring:message code="page.register.newsletter" htmlEscape="false" />
+                                        <spring-form:checkbox id="optin" path="optin" class="optin-type"/>
+                                        </span>
+                                        
+                     </label>
+                </div>                   
+                <div class="s-row">
+                    <a href="#" class="o-submit"><spring:message code="button.save.updates"/></a>
+                </div>
+
+            </div>
+        </spring-form:form>
+
+    </div>
+    <div class="clear"><!-- --></div>
+
+</div>

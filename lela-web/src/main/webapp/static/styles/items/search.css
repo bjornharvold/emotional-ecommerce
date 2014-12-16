@@ -1,0 +1,109 @@
+/*
+ * Copyright (c) 2012. Lela.com.
+ */
+
+#main {
+    margin-top: 15px;
+}
+
+#p-grid {
+    display:block;
+}
+
+#p-filters {
+    margin-top:0;
+}
+
+.f-sec, #p-filters li a {
+    border-left: 1px solid #e8e6e7;
+    border-right: 1px solid #e8e6e7;
+}
+
+#p-filters li a {
+    display:block;
+    padding:17px 10px;
+    color:#3f3f3f;
+    font-size:14px;
+    border-bottom:1px solid #e8e6e7;
+    position:relative;
+}
+
+#p-filters li a:hover, #p-filters li a.selected {
+    background:#333;
+    color:#fff;
+}
+
+#p-filters a span {
+    color:#ff9900;
+    padding-left:5px;
+}
+
+.item-over {
+    margin-top: 0px;
+}
+
+.category-item {
+    clear:both;
+    float:none;
+    background:#e3e3e3;
+    padding:10px;
+    margin-bottom:10px;
+    margin-right:10px;
+}
+
+.category-item h2 {
+    font-size:14px;
+}
+
+.category-item h2 span {
+    color:#999;
+}
+
+.category-item h2 a {
+    float:right;
+}
+
+.data-info {
+    width:585px!important;
+    margin-bottom:10px;
+}
+
+.s-term a {
+    display:block;
+    float:left;
+    height:17px;
+    background:url('../../images/icons/r-term.gif') no-repeat 0 0;
+    padding-left:22px;
+    padding-top:1px;
+    color:#3f3f3f;
+    margin-right:5px;
+}
+
+.s-term {
+    border-bottom: 1px solid #e8e6e7;
+}
+
+.store-logo {
+    text-align:center;
+    padding:20px 0;
+    border-left: 1px solid #e8e6e7;
+    border-right: 1px solid #e8e6e7;
+}
+
+.search-pagination {
+    float:right;
+    width: 743px;
+    font-size: 14px;
+}
+
+.compareButton {
+    display: none !important;
+}
+
+.item-over .l-list {
+    top:10px !important;
+}
+
+.add-form {
+    top:40px !important;
+}

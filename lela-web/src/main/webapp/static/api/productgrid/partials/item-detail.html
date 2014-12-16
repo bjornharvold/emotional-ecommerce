@@ -1,0 +1,10 @@
+<div>
+	{{item.nm}}
+	<p>${{item.attrmp.LowestPrice.vl}} - {{item.srlnm}}</p>
+	<img ng-src="{{itemImageUrl}}"/>
+	<div>
+		<span ng-repeat="clr in item.clrs">
+			<img ng-src="{{clr.sz.small}}" ng-mouseenter="setImage(clr.sz.large)" style="border: solid black 1px;"/>
+		</span>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="crud/items/list">
+        <put-attribute name="body" value="/WEB-INF/views/crud/items/list.jspx"/>
+    </definition>
+    <definition extends="default" name="crud/items/show">
+        <put-attribute name="body" value="/WEB-INF/views/crud/items/show.jspx"/>
+    </definition>
+    <definition extends="default" name="crud/items/create">
+        <put-attribute name="body" value="/WEB-INF/views/crud/items/create.jspx"/>
+    </definition>
+    <definition extends="default" name="crud/items/update">
+        <put-attribute name="body" value="/WEB-INF/views/crud/items/update.jspx"/>
+    </definition>
+    <definition extends="default" name="crud/items/findItemsByLelaUrl">
+        <put-attribute name="body" value="/WEB-INF/views/crud/items/findItemsByLelaUrl.jspx"/>
+    </definition>
+    <definition extends="default" name="crud/items/attributes">
+        <put-attribute name="body" value="/WEB-INF/views/crud/items/attributes.jspx"/>
+    </definition>
+</tiles-definitions>

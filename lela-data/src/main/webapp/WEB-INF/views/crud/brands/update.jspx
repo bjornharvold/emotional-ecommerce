@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_Brand" modelAttribute="brand" path="/crud/brands" versionField="Version" z="Qn5q5k1Ryimprx+20/fm7rZjsug=">
+      <field:datetime dateTimePattern="${brand_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_Brand_dateCreated" render="false" z="user-managed"/>
+      <field:datetime dateTimePattern="${brand_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_Brand_dateModified" render="false" z="user-managed"/>
+      <field:input field="brandCategories" id="c_com_lela_data_domain_entity_Brand_brandCategories" render="false" z="user-managed"/>
+      <field:input field="brandCategoryMotivators" id="c_com_lela_data_domain_entity_Brand_brandCategoryMotivators" render="false" z="user-managed"/>
+      <field:input field="brandCountries" id="c_com_lela_data_domain_entity_Brand_brandCountries" render="false" z="user-managed"/>
+      <field:input field="brandHistories" id="c_com_lela_data_domain_entity_Brand_brandHistories" render="false" z="user-managed"/>
+      <field:input field="brandIdentifiers" id="c_com_lela_data_domain_entity_Brand_brandIdentifiers" render="false" z="user-managed"/>
+      <field:input field="brandMotivators" id="c_com_lela_data_domain_entity_Brand_brandMotivators" render="false" z="user-managed"/>
+      <field:input field="brandNames" id="c_com_lela_data_domain_entity_Brand_brandNames" render="false" z="user-managed"/>
+      <field:input field="brandName" id="c_com_lela_data_domain_entity_Brand_brandName" required="true" z="RSFOCUgUW5Duws5Mo9NVFXqS+sc="/>
+      <field:input field="manufacturerName" id="c_com_lela_data_domain_entity_Brand_manufacturerName" z="vvTmrgZmMXgrG099Xz0Oo+kes3w="/>
+      <field:input field="facebookUrl" id="c_com_lela_data_domain_entity_Brand_facebookUrl" z="37ouk7got4fCVfUUMhG99oCC94E="/>
+      <field:input field="facebookAccess" id="c_com_lela_data_domain_entity_Brand_facebookAccess" validationMessageCode="field_invalid_integer" z="YpBZdt5w/FFOsmBtBjR5izHraCg="/>
+      <field:input field="facebookLikes" id="c_com_lela_data_domain_entity_Brand_facebookLikes" validationMessageCode="field_invalid_integer" z="2+fCCWkN6BEkBU++Vd3aVfDTwz4="/>
+      <field:input field="twitterUrl" id="c_com_lela_data_domain_entity_Brand_twitterUrl" z="k6pReWiG0Kk7khMxwDuoiMHFx48="/>
+      <field:input field="twitterName" id="c_com_lela_data_domain_entity_Brand_twitterName" z="+n+sgpLnrlNYaFE/UcGgnKxiI0w="/>
+      <field:input field="twitterFollowers" id="c_com_lela_data_domain_entity_Brand_twitterFollowers" validationMessageCode="field_invalid_integer" z="Red4HtZm8FcyvFieYWqqp64j9HI="/>
+      <field:input field="popshopsBrandId" id="c_com_lela_data_domain_entity_Brand_popshopsBrandId" validationMessageCode="field_invalid_integer" z="w3xYXpB5uacF4aqpB1KEvXB8m24="/>
+      <field:input field="urlname" id="c_com_lela_data_domain_entity_Brand_urlname" z="kYxN3V7JUjgTd4nUTSMCHm1Em8c="/>
+      <field:input field="lelaUrl" id="c_com_lela_data_domain_entity_Brand_lelaUrl" z="IpK0pSnDRlimSV9JsNu+ICW88lE="/>
+      <field:input field="objectId" id="c_com_lela_data_domain_entity_Brand_objectId" z="qPARLq2lkAqDzHYq1DYYJvblVxg="/>
+      <field:checkbox field="popshopsSuccess" id="c_com_lela_data_domain_entity_Brand_popshopsSuccess" z="IyhBFJRLF10GwKKiIe2m8hbcCw8="/>
+      <field:checkbox field="isDirty" id="c_com_lela_data_domain_entity_Brand_isDirty" z="s2dly85s8SwCVqMvl9hJHuHfYOg="/>
+      <field:select field="manufacturer" id="c_com_lela_data_domain_entity_Brand_manufacturer" itemValue="id" items="${manufacturers}" path="/manufacturers" z="user-managed"/>
+    </form:update>
+</div>

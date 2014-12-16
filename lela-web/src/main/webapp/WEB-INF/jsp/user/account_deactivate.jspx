@@ -1,0 +1,63 @@
+<!--
+  ~ Copyright (c) 2012. Lela.com.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <ul id="account-nav">
+        <li>
+            <!-- Left nav content -->
+            <tiles:insertTemplate template="/WEB-INF/jsp/user/account_nav.jspx" flush="true">
+                <tiles:putAttribute name="page" value="deactivate" />
+            </tiles:insertTemplate>
+        </li>
+    </ul>
+    <div id="account-content">
+
+        <div style="margin-bottom: 100px;">
+            <h2><spring:message code="user.deactivate.tag"/></h2>
+            <p>Click the link below to deactivate your account with Lela.<br/><a href="#popupdeactivate" id="deactivate"><spring:message code="user.deactivate"/></a></p>
+        </div>
+
+        <div style="display: none;">
+            <div id="popupdeactivate">
+
+                <h2><spring:message code="user.deactivate.title"/></h2>
+
+                <div>
+                    <p><spring:message code="user.deactivate.text"/></p>
+
+                    <p style="font-weight: bold;"><spring:message code="user.deactivate.why"/></p>
+
+                    <spring:url value="/user/deactivate" var="deactivateUrl" />
+                    <spring:url value="/logout" var="logoutUrl" />
+                    <script type="text/javascript">
+                        var deactivateUrl = '${deactivateUrl}';
+                        var logoutUrl = '${logoutUrl}';
+                    </script>
+
+                    <form id="deactivateform" class="deactivateform" name="deactivateform" action="${deactivateUrl}" method="POST">
+                        <textarea name="rsn" cols="70" rows="2" id="rsn" class="jqtransformdone"><!-- --></textarea>
+                        <spring:message code="user.deactivate.button" var="submitBtn" />
+                        <button type="submit" class="deactivate button jqtransformdone">${submitBtn}</button>
+                    </form>
+                    <a href="#" class="cancel button"><spring:message code="user.deactivate.cancel"/></a>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

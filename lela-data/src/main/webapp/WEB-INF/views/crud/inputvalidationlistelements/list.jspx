@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_InputValidationListElement" items="${inputvalidationlistelements}" z="HDq0FyWzV72xCVdp2v6YWSX5CW8=">
+        <table:table data="${inputvalidationlistelements}" id="l_com_lela_data_domain_entity_InputValidationListElement" path="/crud/inputvalidationlistelements" z="i4LTv3bff7H50a468bIXQzppVCU=">
+            <table:column date="true" dateTimePattern="${inputValidationListElement_datecreated_date_format}" id="c_com_lela_data_domain_entity_InputValidationListElement_dateCreated" property="dateCreated" z="0ZgyPQmvZAlxszrIBDOQtKY3iUM="/>
+            <table:column date="true" dateTimePattern="${inputValidationListElement_datemodified_date_format}" id="c_com_lela_data_domain_entity_InputValidationListElement_dateModified" property="dateModified" z="tkVNyD+p9nKVkgoOw+UB26nQcnc="/>
+            <table:column id="c_com_lela_data_domain_entity_InputValidationListElement_inputValidationList" property="inputValidationList" z="VmVF1rr5kkxcSlVPMzWC+J2hTyA="/>
+            <table:column id="c_com_lela_data_domain_entity_InputValidationListElement_inputValue" property="inputValue" z="JxJNkWzRpk7gZpbkAu+UBfYbJrY="/>
+            <table:column id="c_com_lela_data_domain_entity_InputValidationListElement_validForNew" property="validForNew" z="+v1EuP8ym1ORb5a4UfPsknkxadM="/>
+        </table:table>
+    </page:list>
+</div>

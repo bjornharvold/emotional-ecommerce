@@ -1,0 +1,25 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags"
+          version="2.0">
+  <jsp:output omit-xml-declaration="yes" />
+
+  <jsp:directive.attribute name="item" type="com.lela.data.domain.entity.Item" required="true" rtexprvalue="true" description="The Merchant Image Item" />
+  <jsp:directive.attribute name="productImageItem" type="com.lela.data.domain.entity.ProductImageItem" required="true" rtexprvalue="true" description="The Merchant Image Item" />
+  <jsp:directive.attribute name="primary_image_url" type="java.lang.String" required="true" rtexprvalue="true" description="The url to send the request to" />
+  <jsp:directive.attribute name="location" type="java.lang.String" required="true" rtexprvalue="true" description="The url to send the request to" />
+
+  <button dojoType="dijit.form.RadioButton" id="primary_${item.id}_${productImageItem.id}_${location}"
+        name="primary_${item.id}_${location}" value="${productImageItem.id}" checked="${productImageItem.primary?'true':'false'}">
+  <script type="dojo/method" event="onClick" args="evt">
+    dojo.xhrPost({
+    url:"${primary_image_url}",
+    content:{id: this.value},
+    load: function(data, ioArgs){
+
+    },
+    error: function(err, ioArgs){
+    }
+    });
+  </script>
+</button>
+</jsp:root>

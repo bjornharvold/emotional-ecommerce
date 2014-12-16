@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ProductDetailPart" object="${productdetailpart}" path="/crud/productdetailparts" z="xB6+elZ0PViXpxup3luz9CPawXI=">
+        <field:display date="true" dateTimePattern="${productDetailPart_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ProductDetailPart_dateCreated" object="${productdetailpart}" z="RKIYf9q5EjokhJZJos9RqBLhvVg="/>
+        <field:display date="true" dateTimePattern="${productDetailPart_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ProductDetailPart_dateModified" object="${productdetailpart}" z="fSBcOhYjejcBfRmiTcFHIzBpQek="/>
+        <field:display field="productDetailGroupAttribute" id="s_com_lela_data_domain_entity_ProductDetailPart_productDetailGroupAttribute" object="${productdetailpart}" z="NwMwpPN5as6ZsUCqnxHevBgx3ME="/>
+        <field:display field="partSeq" id="s_com_lela_data_domain_entity_ProductDetailPart_partSeq" object="${productdetailpart}" z="HiKLRA5eNeVeAJegi5ZNNjNyt94="/>
+        <field:display field="partName" id="s_com_lela_data_domain_entity_ProductDetailPart_partName" object="${productdetailpart}" z="a+Qzcz1TJwJYJbY6T24rT7UeScY="/>
+        <field:display field="productDetailPartValue" id="s_com_lela_data_domain_entity_ProductDetailPart_productDetailPartValue" object="${productdetailpart}" z="yue86H4xMquR6C4sAawUe7KbLLo="/>
+    </page:show>
+</div>

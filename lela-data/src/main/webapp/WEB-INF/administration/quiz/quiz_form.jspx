@@ -1,0 +1,147 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="page.admin.quiz.title"/></h1>
+
+    <spring:url value="/administration/quiz/list" var="quizListUrl"/>
+    <div class="actions">
+        <a class="action" href="${quizListUrl}">&lt; <spring:message code="quiz.back.to.list"/> </a>
+
+        <c:if test="${quiz.id != null}">
+            <spring:url value="/administration/quiz/${quiz.rlnm}" var="quizUrl"/>
+            <a class="action" href="${quizUrl}">&lt; <spring:message code="quiz.back.to.quiz"/> </a>
+        
+            <spring:url value="/administration/quiz/duplicate/${quiz.rlnm}" var="duplicateQuizUrl"/>
+            <a class="action" href="${duplicateQuizUrl}"><spring:message code="quiz.duplicate"/> </a>     
+        </c:if>           
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <spring:url value="/administration/quiz/form" var="formUrl"/>
+    <spring-form:form action="${formUrl}" method="POST" commandName="quiz" modelAttribute="quiz">
+        <div class="h-row even">
+            <div class="h-col"><label for="nm"><spring:message code="quiz.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="nm" path="nm"/>&#160;<spring-form:errors path="nm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="rlnm"><spring:message code="quiz.url.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="rlnm" path="rlnm"/>&#160;<spring-form:errors path="rlnm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="srlnm"><spring:message code="quiz.seo.url.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="srlnm" path="srlnm"/>&#160;<spring-form:errors path="srlnm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="lng"><spring:message code="quiz.locale"/></label></div>
+
+            <div class="h-col">
+                <spring-form:select id="lng" path="lng" items="${locales}" itemLabel="value" itemValue="key"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="thm"><spring:message code="quiz.theme"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="thm" path="thm"/>&#160;<spring-form:errors path="thm" cssClass="red"/>
+                <spring:message code="quiz.theme.note"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="cmpltrl"><spring:message code="quiz.complete.url"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="cmpltrl" path="cmpltrl"/>&#160;<spring-form:errors path="cmpltrl" cssClass="red"/>
+                <spring:message code="quiz.complete.url.note" htmlEscape="false"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="cmpltcntnt"><spring:message code="quiz.entry.complete.static.content"/></label></div>
+
+            <div class="h-col">
+                <spring-form:select id="cmpltcntnt" path="cmpltcntnt">
+                    <spring-form:option  value="" label=""/>
+                    <spring-form:options items="${staticContents}" itemLabel="nameType" itemValue="rlnm"/>
+                </spring-form:select>
+                &#160;<spring-form:errors path="cmpltcntnt" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="rtrncntnt"><spring:message code="quiz.entry.return.static.content"/></label></div>
+
+            <div class="h-col">
+                <spring-form:select id="rtrncntnt" path="rtrncntnt">
+                    <spring-form:option value="" label=""/>
+                    <spring-form:options items="${staticContents}" itemLabel="nameType" itemValue="rlnm"/>
+                </spring-form:select>
+                &#160;<spring-form:errors path="rtrncntnt" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="pblshd"><spring:message code="quiz.published"/></label></div>
+
+            <div class="h-col">
+                <spring-form:radiobutton id="pblshd" path="pblshd" value="true"/> <spring:message code="radio.button.true"/>,
+                <spring-form:radiobutton id="pblshd" path="pblshd" value="false"/> <spring:message code="radio.button.false"/><br/>
+                <spring-form:errors path="pblshd" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="dflt"><spring:message code="quiz.default"/></label></div>
+
+            <div class="h-col">
+                <spring-form:radiobutton id="dflt" path="dflt" value="true"/> <spring:message code="radio.button.true"/>,
+                <spring-form:radiobutton id="dflt" path="dflt" value="false"/> <spring:message code="radio.button.false"/><br/>
+                <spring-form:errors path="dflt" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="s-row">
+            <spring-form:hidden path="id"/>
+            <spring:message code="button.save" var="save"/>
+            <div class="s-col"><input type="submit" value="${save}"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+    </spring-form:form>
+</div>

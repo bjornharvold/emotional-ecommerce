@@ -1,0 +1,177 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <div class="f-row">
+        <spring-form:label path="lcl" cssClass="account-label"><spring:message code="user.account.personal.info.preferred.language"/></spring-form:label>
+        <spring-form:select path="lcl">
+            <spring:message code="user.account.personal.info.please.select" var="pleaseSelect"/>
+            <spring-form:option value="" label="${pleaseSelect}"/>
+            <spring:message code="dropdown.data.language.af_ZA" var="af_ZA"/>
+            <spring-form:option value="af_ZA" label="${af_ZA}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ar_AR" var="ar_AR"/>
+            <spring-form:option value="ar_AR" label="${ar_AR}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.az_AZ" var="az_AZ"/>
+            <spring-form:option value="az_AZ" label="${az_AZ}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.be_BY" var="be_BY"/>
+            <spring-form:option value="be_BY" label="${be_BY}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.bg_BG" var="bg_BG"/>
+            <spring-form:option value="bg_BG" label="${bg_BG}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.bn_IN" var="bn_IN"/>
+            <spring-form:option value="bn_IN" label="${bn_IN}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.bs_BA" var="bs_BA"/>
+            <spring-form:option value="bs_BA" label="${bs_BA}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ca_ES" var="ca_ES"/>
+            <spring-form:option value="ca_ES" label="${ca_ES}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.cs_CZ" var="cs_CZ"/>
+            <spring-form:option value="cs_CZ" label="${cs_CZ}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.cy_GB" var="cy_GB"/>
+            <spring-form:option value="cy_GB" label="${cy_GB}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.da_DK" var="da_DK"/>
+            <spring-form:option value="da_DK" label="${da_DK}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.de_DE" var="de_DE"/>
+            <spring-form:option value="de_DE" label="${de_DE}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.el_GR" var="el_GR"/>
+            <spring-form:option value="el_GR" label="${el_GR}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.en_GB" var="en_GB"/>
+            <spring-form:option value="en_GB" label="${en_GB}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.en_PI" var="en_PI"/>
+            <spring-form:option value="en_PI" label="${en_PI}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.en_UD" var="en_UD"/>
+            <spring-form:option value="en_UD" label="${en_UD}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.en_US" var="en_US"/>
+            <spring-form:option value="en_US" label="${en_US}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.eo_EO" var="eo_EO"/>
+            <spring-form:option value="eo_EO" label="${eo_EO}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.es_ES" var="es_ES"/>
+            <spring-form:option value="es_ES" label="${es_ES}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.es_LA" var="es_LA"/>
+            <spring-form:option value="es_LA" label="${es_LA}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.et_EE" var="et_EE"/>
+            <spring-form:option value="et_EE" label="${et_EE}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.eu_ES" var="eu_ES"/>
+            <spring-form:option value="eu_ES" label="${eu_ES}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.fa_IR" var="fa_IR"/>
+            <spring-form:option value="fa_IR" label="${fa_IR}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.fb_LT" var="fb_LT"/>
+            <spring-form:option value="fb_LT" label="${fb_LT}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.fi_FI" var="fi_FI"/>
+            <spring-form:option value="fi_FI" label="${fi_FI}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.fo_FO" var="fo_FO"/>
+            <spring-form:option value="fo_FO" label="${fo_FO}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.fr_CA" var="fr_CA"/>
+            <spring-form:option value="fr_CA" label="${fr_CA}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.fr_FR" var="fr_FR"/>
+            <spring-form:option value="fr_FR" label="${fr_FR}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.fy_NL" var="fy_NL"/>
+            <spring-form:option value="fy_NL" label="${fy_NL}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ga_IE" var="ga_IE"/>
+            <spring-form:option value="ga_IE" label="${ga_IE}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.gl_ES" var="gl_ES"/>
+            <spring-form:option value="gl_ES" label="${gl_ES}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.he_IL" var="he_IL"/>
+            <spring-form:option value="he_IL" label="${he_IL}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.hi_IN" var="hi_IN"/>
+            <spring-form:option value="hi_IN" label="${hi_IN}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.hr_HR" var="hr_HR"/>
+            <spring-form:option value="hr_HR" label="${hr_HR}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.hu_HU" var="hu_HU"/>
+            <spring-form:option value="hu_HU" label="${hu_HU}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.hy_AM" var="hy_AM"/>
+            <spring-form:option value="hy_AM" label="${hy_AM}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.id_ID" var="id_ID"/>
+            <spring-form:option value="id_ID" label="${id_ID}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.is_IS" var="is_IS"/>
+            <spring-form:option value="is_IS" label="${is_IS}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.it_IT" var="it_IT"/>
+            <spring-form:option value="it_IT" label="${it_IT}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ja_JP" var="ja_JP"/>
+            <spring-form:option value="ja_JP" label="${ja_JP}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ka_GE" var="ka_GE"/>
+            <spring-form:option value="ka_GE" label="${ka_GE}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ko_KR" var="ko_KR"/>
+            <spring-form:option value="ko_KR" label="${ko_KR}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ku_TR" var="ku_TR"/>
+            <spring-form:option value="ku_TR" label="${ku_TR}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.la_VA" var="la_VA"/>
+            <spring-form:option value="la_VA" label="${la_VA}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.lt_LT" var="lt_LT"/>
+            <spring-form:option value="lt_LT" label="${lt_LT}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.lv_LV" var="lv_LV"/>
+            <spring-form:option value="lv_LV" label="${lv_LV}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.mk_MK" var="mk_MK"/>
+            <spring-form:option value="mk_MK" label="${mk_MK}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ml_IN" var="ml_IN"/>
+            <spring-form:option value="ml_IN" label="${ml_IN}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ms_MY" var="ms_MY"/>
+            <spring-form:option value="ms_MY" label="${ms_MY}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.nb_NO" var="nb_NO"/>
+            <spring-form:option value="nb_NO" label="${nb_NO}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ne_NP" var="ne_NP"/>
+            <spring-form:option value="ne_NP" label="${ne_NP}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.nl_NL" var="nl_NL"/>
+            <spring-form:option value="nl_NL" label="${nl_NL}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.nn_NO" var="nn_NO"/>
+            <spring-form:option value="nn_NO" label="${nn_NO}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.pa_IN" var="pa_IN"/>
+            <spring-form:option value="pa_IN" label="${pa_IN}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.pl_PL" var="pl_PL"/>
+            <spring-form:option value="pl_PL" label="${pl_PL}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ps_AF" var="ps_AF"/>
+            <spring-form:option value="ps_AF" label="${ps_AF}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.pt_BR" var="pt_BR"/>
+            <spring-form:option value="pt_BR" label="${pt_BR}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.pt_PT" var="pt_PT"/>
+            <spring-form:option value="pt_PT" label="${pt_PT}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ro_RO" var="ro_RO"/>
+            <spring-form:option value="ro_RO" label="${ro_RO}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ru_RU" var="ru_RU"/>
+            <spring-form:option value="ru_RU" label="${ru_RU}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.sk_SK" var="sk_SK"/>
+            <spring-form:option value="sk_SK" label="${sk_SK}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.sl_SI" var="sl_SI"/>
+            <spring-form:option value="sl_SI" label="${sl_SI}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.sq_AL" var="sq_AL"/>
+            <spring-form:option value="sq_AL" label="${sq_AL}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.sr_RS" var="sr_RS"/>
+            <spring-form:option value="sr_RS" label="${sr_RS}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.sv_SE" var="sv_SE"/>
+            <spring-form:option value="sv_SE" label="${sv_SE}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.sw_KE" var="sw_KE"/>
+            <spring-form:option value="sw_KE" label="${sw_KE}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.ta_IN" var="ta_IN"/>
+            <spring-form:option value="ta_IN" label="${ta_IN}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.te_IN" var="te_IN"/>
+            <spring-form:option value="te_IN" label="${te_IN}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.th_TH" var="th_TH"/>
+            <spring-form:option value="th_TH" label="${th_TH}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.tl_PH" var="tl_PH"/>
+            <spring-form:option value="tl_PH" label="${tl_PH}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.tr_TR" var="tr_TR"/>
+            <spring-form:option value="tr_TR" label="${tr_TR}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.uk_UA" var="uk_UA"/>
+            <spring-form:option value="uk_UA" label="${uk_UA}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.vi_VN" var="vi_VN"/>
+            <spring-form:option value="vi_VN" label="${vi_VN}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.zh_CN" var="zh_CN"/>
+            <spring-form:option value="zh_CN" label="${zh_CN}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.zh_HK" var="zh_HK"/>
+            <spring-form:option value="zh_HK" label="${zh_HK}" htmlEscape="false"/>
+            <spring:message code="dropdown.data.language.zh_TW" var="zh_TW"/>
+            <spring-form:option value="zh_TW" label="${zh_TW}" htmlEscape="false"/>
+        </spring-form:select>
+    </div>
+</jsp:root>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="manage/categorys/initiator/index">
+        <put-attribute name="body" value="/WEB-INF/views/manage/categorys/initiator/index.jspx"/>
+    </definition>
+    <definition extends="default" name="manage/categorys/initiator/create">
+        <put-attribute type="string" name="title" value="categoryInitiatorQuery.create"/>
+        <put-attribute name="body" value="/WEB-INF/views/manage/categorys/initiator/create.jspx"/>
+    </definition>
+    <definition extends="default" name="manage/categorys/initiator/update">
+        <put-attribute type="string" name="title" value="categoryInitiatorQuery.update"/>
+        <put-attribute name="body" value="/WEB-INF/views/manage/categorys/initiator/create.jspx"/>
+    </definition>
+    <definition extends="default" name="manage/categorys/initiator/results">
+        <put-attribute name="body" value="/WEB-INF/views/manage/categorys/initiator/results.jspx"/>
+    </definition>
+</tiles-definitions>

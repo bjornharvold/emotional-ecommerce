@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+	<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+	<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="index" extends="template.page.master">
+		<put-attribute type="string" name="title" value="page.home.name" />
+        <put-attribute type="string" name="description" value="meta.description.home" />
+        <put-attribute type="string" name="keywords" value="meta.keywords.home" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/pages/home.css" />
+            <add-attribute type="string" value="/static/styles/items/categories.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/pages/home.js" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/index.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="index.mobile" extends="template.mobile.master">
+        <put-attribute type="string" name="title" value="page.home.name" />
+        <put-attribute type="string" name="description" value="meta.description.home" />
+        <put-attribute type="string" name="keywords" value="meta.keywords.home" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/mobile/styles/home.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/pages/home.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/index_mobile.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="sitemap" template="/WEB-INF/jsp/sitemap.jspx"/>
+
+    <definition name="error.master" extends="template.page.master">
+		<put-attribute type="string" name="title" value="page.error.404" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/pages/errors.css" />
+            <add-attribute type="string" value="/static/styles/items/categories.css" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="exception.generic" extends="error.master">
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/common/500.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="uncaughtException" extends="error.master">
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/common/500.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="dataAccessFailure" extends="error.master">
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/common/500.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="internalServerError" extends="error.master">
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/common/500.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="403" extends="error.master">
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/common/403.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="resourceNotFound" extends="error.master">
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/common/404.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="resourceNotFound.mobile" extends="error.master">
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/common/404.jspx" />
+        </put-list-attribute>
+    </definition>
+
+</tiles-definitions>

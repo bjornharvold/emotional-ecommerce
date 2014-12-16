@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_Country" items="${countrys}" z="jQK7x/jccVWUIaPjUo/15RfWl/4=">
+        <table:table data="${countrys}" id="l_com_lela_data_domain_entity_Country" path="/crud/countrys" z="lLHLaMevHPx+u1rN5r2I8WfLKL8=">
+            <table:column date="true" dateTimePattern="${country_datecreated_date_format}" id="c_com_lela_data_domain_entity_Country_dateCreated" property="dateCreated" z="9CDvD2ASqS+Lea6YjQoiizD8af0="/>
+            <table:column date="true" dateTimePattern="${country_datemodified_date_format}" id="c_com_lela_data_domain_entity_Country_dateModified" property="dateModified" z="SOkdBFSeqxnecfXvrJ7srZM2598="/>
+            <table:column id="c_com_lela_data_domain_entity_Country_countryName" property="countryName" z="odUv40rQS4qDcccg57jayGLsNF8="/>
+            <table:column id="c_com_lela_data_domain_entity_Country_iso2" property="iso2" z="KyqHaOgEcN+YyjbOfNyQDIhet/s="/>
+            <table:column id="c_com_lela_data_domain_entity_Country_lelaActive" property="lelaActive" z="XyNVXnXIQ+eTTpR1YjpXJ0MYdKs="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_Answer" modelAttribute="answer" path="/crud/answers" versionField="Version" z="Y/f3FBRwI6SpJlYRHv9HPq2JfH4=">
+      <field:datetime dateTimePattern="${answer_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_Answer_dateCreated" z="user-managed" render="false"/>
+      <field:datetime dateTimePattern="${answer_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_Answer_dateModified" z="user-managed" render="false"/>
+      <field:select field="question" id="c_com_lela_data_domain_entity_Answer_question" itemValue="id" items="${questions}" path="/crud/questions" z="user-managed"/>
+      <field:input field="answerKey" id="c_com_lela_data_domain_entity_Answer_answerKey" required="true" validationMessageCode="field_invalid_integer" z="bPebwGzweZcR8h8dSr+cswTcsYw="/>
+        <field:input field="answer" id="c_com_lela_data_domain_entity_Answer_answer" z="ErH4FTdqu2eAchnwV3ZmlO64Ht0="/>
+        <field:input field="image" id="c_com_lela_data_domain_entity_Answer_image" z="Rsez8YmvbKIkLop2EjAwi1MCGXo="/>
+        <field:input field="q" id="c_com_lela_data_domain_entity_Answer_q" validationMessageCode="field_invalid_integer" z="CF6rWi8YXjoXKw5CWRytpPlxjT8="/>
+        <field:input field="a" id="c_com_lela_data_domain_entity_Answer_a" validationMessageCode="field_invalid_integer" z="D0Ye5pIrrkjeVCgoJ/6QmINDU5A="/>
+        <field:input field="b" id="c_com_lela_data_domain_entity_Answer_b" validationMessageCode="field_invalid_integer" z="oeTPCjWAdKSplYcCsB5evUT2yMI="/>
+        <field:input field="c" id="c_com_lela_data_domain_entity_Answer_c" validationMessageCode="field_invalid_integer" z="0wEH4KyudlRJv4IH3AUhE00/BgQ="/>
+        <field:input field="d" id="c_com_lela_data_domain_entity_Answer_d" validationMessageCode="field_invalid_integer" z="2/bjhE5uGTJEY7izxMUghMxSYp0="/>
+        <field:input field="e" id="c_com_lela_data_domain_entity_Answer_e" validationMessageCode="field_invalid_integer" z="IfJrYWyh+XLf+eTQrhOjLvAEtK0="/>
+        <field:input field="f" id="c_com_lela_data_domain_entity_Answer_f" validationMessageCode="field_invalid_integer" z="XJbpboxUgUtXCWz3O2G0zxx/VS0="/>
+        <field:input field="g" id="c_com_lela_data_domain_entity_Answer_g" validationMessageCode="field_invalid_integer" z="CT6eX7hVN+pNxAAykPLDLT8LpWI="/>
+        <field:input field="h" id="c_com_lela_data_domain_entity_Answer_h" validationMessageCode="field_invalid_integer" z="qi5JhBq6Y3LjeV75po1LN99tXsI="/>
+        <field:input field="i" id="c_com_lela_data_domain_entity_Answer_i" validationMessageCode="field_invalid_integer" z="wZv7YJGpgVhA+sQwDaCMhprfpRY="/>
+        <field:input field="j" id="c_com_lela_data_domain_entity_Answer_j" validationMessageCode="field_invalid_integer" z="7P2YZQLtYOtPuj4jQOTToqknRcs="/>
+        <field:input field="k" id="c_com_lela_data_domain_entity_Answer_k" validationMessageCode="field_invalid_integer" z="6SIfi/jUP+cwrlfSHYJB+yrMEgk="/>
+        <field:input field="l" id="c_com_lela_data_domain_entity_Answer_l" validationMessageCode="field_invalid_integer" z="kiP3bUIKJUXf/qUP3VE66aURj+U="/>
+    </form:update>
+</div>

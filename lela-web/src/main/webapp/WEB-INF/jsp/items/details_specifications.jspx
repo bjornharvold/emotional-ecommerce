@@ -1,0 +1,88 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <lela:findUser/>
+    <tiles:importAttribute name="item" ignore="true"/>
+    <div class="nav-section" data-id="p-specs" data-type="Specifications">
+        <h2 class="s-head" id="p-specs">Specifications</h2>
+
+        <c:forEach var="section" items="${itemDetails.sctns}" varStatus="status">
+
+            <c:if test="${section.nm != 'attribute.section.brandbuzz' and section.nm != 'attribute.section.ratingsandreview'}">
+
+                <fmt:formatNumber var="grpCount" value="${(fn:length(section.grps))/2}" maxFractionDigits="0" />
+
+                <div id="tab${status.count}" class="tab-content spec-content">
+
+                    <!-- 1st column -->
+                    <div class="col-m col">
+                        <c:forEach var="group" items="${section.grps}" varStatus="statusGrp" begin="0" end="${grpCount eq 0 ? 0 : grpCount-1}" >
+                            <table class="specs">
+                                <tr><th colspan="2"><spring:message code="${group.nm}"/></th></tr>
+                                <c:forEach var="attr" items="${group.attrs}">
+                                    <c:if test="${!empty attr.vl}">
+                                        <tr>
+                                            <c:choose>
+                                                <c:when test="${group.nm != 'attribute.group.about'}">
+                                                    <td class="attr-ky"><spring:message code="attribute.attr.${attr.ky}"/></td>
+                                                    <td class="attr-vl">${attr.vl}</td>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <td class="attr-vl" colspan="2" style="border:none;">${attr.vl}</td>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </tr>
+                                    </c:if>
+                                </c:forEach>
+                            </table>
+                        </c:forEach>
+                    </div>
+
+                    <!-- 2nd column -->
+                    <div class="col-m col">
+                        <c:forEach var="group" items="${section.grps}" varStatus="statusGrp" begin="${grpCount eq 0 ? 1 : grpCount}" >
+                            <table class="specs">
+                                <tr><th colspan="2"><spring:message code="${group.nm}"/></th></tr>
+                                <c:forEach var="attr" items="${group.attrs}">
+                                    <c:if test="${!empty attr.vl}">
+                                        <tr>
+                                            <c:choose>
+                                                <c:when test="${group.nm != 'attribute.group.about'}">
+                                                    <td class="attr-ky"><spring:message code="attribute.attr.${attr.ky}"/></td>
+                                                    <td class="attr-vl">${attr.vl}</td>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <td class="attr-vl" colspan="2" style="border:none;">${attr.vl}</td>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </tr>
+                                    </c:if>
+                                </c:forEach>
+                            </table>
+                        </c:forEach>
+                    </div>
+
+                    <div class="spec-div"><!-- --></div>
+                </div>
+
+            </c:if>
+
+        </c:forEach>
+    </div>
+
+
+</jsp:root>

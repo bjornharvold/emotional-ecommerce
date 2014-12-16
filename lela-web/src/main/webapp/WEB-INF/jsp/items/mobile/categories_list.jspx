@@ -1,0 +1,78 @@
+<!--
+~ Copyright (c) 2011. Purple Door Systems, BV.
+-->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <tiles:importAttribute name="categories" ignore="true"/>
+    <tiles:importAttribute name="onlyDepartment" ignore="true"/>
+
+    <lela:findUser/>
+
+    <div id="cat-e">
+        <span><spring:message code="categories.browsefor.mobile" htmlEscape="false"/></span>
+    </div>
+
+    <div id="categories-list">
+
+        <c:set var="printThisDepartment" value="false" />
+
+        <c:forEach var="navGroup" items="${navigationBar.grps}" varStatus="status">
+
+            <c:choose>
+                <c:when test="${!empty onlyDepartment}">
+                    <c:choose>
+                        <c:when test="${navGroup.rlnm == onlyDepartment}">
+                            <c:set var="printThisDepartment" value="true" />
+                        </c:when>
+                        <c:otherwise>
+                            <c:set var="printThisDepartment" value="false" />
+                        </c:otherwise>
+                    </c:choose>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="printThisDepartment" value="true" />
+                </c:otherwise>
+            </c:choose>
+
+            <c:if test="${printThisDepartment eq true}">
+                <c:forEach var="children" items="${navGroup.chldrn}">
+                    <c:forEach var="category" items="${children.ctgrs}" varStatus="status">
+                        <spring:url value="/static/mobile/images/icons/cat_landing_dept/${navGroup.rlnm}_${category.rlnm}.png" var="categoryImgUrl" />
+                        <div id="cat-d-${category.rlnm}" class="cat">
+                            <spring:url value="/${category.srlnm}/c?rlnm=${category.rlnm}" var="categoryUrl" />
+                            <a href="${categoryUrl}">
+                                <img class="cat-img" src="${categoryImgUrl}" />
+                                <span class="cat-name"><spring:message code="nav.cat.${category.rlnm}.full" /></span>
+                            </a>
+                        </div>
+                    </c:forEach>
+                </c:forEach>
+                <c:forEach var="category" items="${navGroup.ctgrs}" varStatus="status">
+                    <spring:url value="/static/mobile/images/icons/cat_landing_dept/${navGroup.rlnm}_${category.rlnm}.png" var="categoryImgUrl" />
+                    <div id="cat-d-${category.rlnm}" class="cat">
+                        <spring:url value="/${category.srlnm}/c?rlnm=${category.rlnm}" var="categoryUrl" />
+                        <a href="${categoryUrl}">
+                            <img class="cat-img" src="${categoryImgUrl}" />
+                            <span class="cat-name"><spring:message code="nav.cat.${category.rlnm}.full" /></span>
+                        </a>
+                    </div>
+                </c:forEach>
+            </c:if>
+        </c:forEach>
+        <div class="clear"><!-- --></div>
+
+    </div>
+
+</jsp:root>

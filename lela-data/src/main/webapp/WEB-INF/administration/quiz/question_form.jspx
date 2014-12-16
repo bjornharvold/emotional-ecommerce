@@ -1,0 +1,68 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="page.admin.question.title"/></h1>
+
+    <spring:url value="/administration/question/list" var="questionListUrl"/>
+    <div class="actions">
+        <a class="action" href="${questionListUrl}">&lt; <spring:message code="question.back.to.list"/> </a>
+
+        <c:if test="${question.id != null}">
+            <spring:url value="/administration/question/${question.rlnm}" var="questionUrl"/>
+            <a class="action" href="${questionUrl}">&lt; <spring:message code="question.back.to.question"/> </a>
+        </c:if>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <spring:url value="/administration/question/form" var="formUrl"/>
+    <spring-form:form action="${formUrl}" method="POST" commandName="question" modelAttribute="question">
+        <div class="h-row even">
+            <div class="h-col"><label for="nm"><spring:message code="question.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="nm" path="nm"/>&#160;<spring-form:errors path="nm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row odd">
+            <div class="h-col"><label for="rlnm"><spring:message code="question.url.name"/></label></div>
+
+            <div class="h-col">
+                <spring-form:input id="rlnm" path="rlnm"/>&#160;<spring-form:errors path="rlnm" cssClass="red"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="tp"><spring:message code="question.type"/></label></div>
+
+            <div class="h-col">
+                <spring-form:select id="tp" path="tp" items="${questionTypes}"/>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="s-row">
+            <spring-form:hidden path="id"/>
+            <spring:message code="button.save" var="save"/>
+            <div class="s-col"><input type="submit" value="${save}"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+    </spring-form:form>
+</div>

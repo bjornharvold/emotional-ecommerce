@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+	<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+	<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="categories" extends="template.page.master">
+        <put-attribute type="string" name="title" value="meta.title.categories" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/common/list.css" />
+            <add-attribute type="string" value="/static/styles/items/categories.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/common/list.js" />
+            <add-attribute type="string" value="/static/js/items/categories.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/items/categories.jspx" />
+        </put-list-attribute>
+    </definition>
+
+	<definition name="category.page" extends="template.page.master">
+		<put-attribute type="string" name="km-enabled" value="true" />
+		<put-attribute type="string" name="title" value="" />
+        <put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/items/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.css" />
+            <add-attribute type="string" value="/static/styles/items/items.css" />
+            <add-attribute type="string" value="/static/styles/common/comparison.css" />
+            <add-attribute type="string" value="/static/styles/common/list.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/common/comparison-common.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.ui.touch-punch.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/waypoints.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.form.js" />
+            <add-attribute type="string" value="/static/js/plugins/raty/jquery.raty.js" />
+            <add-attribute type="string" value="/static/js/common/list.js" />
+            <add-attribute type="string" value="/static/js/items/items.js" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/common/facebook_api.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/user/task_alerts.jspx" />
+			<add-attribute type="template" value="/WEB-INF/jsp/items/page.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="category.print" extends="template.page.master">
+        <put-attribute type="string" name="title" value="" />
+        <put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/items/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/items/items.css" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/items/data_print.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="category.data" template="/WEB-INF/jsp/items/data.jspx">
+        <put-attribute type="string" name="listType" value="false" />
+        <put-attribute type="string" name="ajax" value="true" />
+    </definition>
+
+    <definition name="merchant.products" template="/WEB-INF/jsp/items/details_buy.jspx"/>
+    <definition name="merchant.stores" template="/WEB-INF/jsp/items/details_stores.jspx"/>
+    <definition name="item.details.lite" template="/WEB-INF/jsp/items/details_snapshot.jspx"/>
+
+    <definition name="item.details" extends="template.page.master">
+        <put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/items/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/items/details.css" />
+            <add-attribute type="string" value="/static/styles/common/comparison.css" />
+            <add-attribute type="string" value="/static/styles/common/list.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/common/comparison-common.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/waypoints.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.form.js" />
+            <add-attribute type="string" value="/static/js/plugins/raty/jquery.raty.js" />
+            <add-attribute type="string" value="/static/js/common/list.js" />
+            <add-attribute type="string" value="/static/js/items/details.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/common/facebook_api.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/user/task_alerts.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/items/details.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="item.comparison" extends="template.page.master">
+        <put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/items/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/items/comparison.css" />
+            <add-attribute type="string" value="/static/styles/common/list.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/common/comparison-common.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.form.js" />
+            <add-attribute type="string" value="/static/js/items/comparison.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/common/list.js" />
+            <add-attribute type="string" value="/static/js/items/items.js" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/common/facebook_api.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/user/task_alerts.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/items/comparison.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="item.details.print" extends="template.simple.master">
+        <put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/items/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/items/details-print.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="false">
+            <add-attribute type="string" value="/static/js/jquery-1.7.1.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/items/details_print.jspx" />
+		</put-list-attribute>
+	</definition>
+
+
+	<definition name="search.result" extends="template.page.master">
+		<put-attribute type="string" name="title" value="page.search.name" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.css" />
+            <add-attribute type="string" value="/static/styles/items/items.css" />
+            <add-attribute type="string" value="/static/styles/items/search.css" />
+            <add-attribute type="string" value="/static/styles/common/comparison.css" />
+            <add-attribute type="string" value="/static/styles/common/list.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.form.js" />
+            <add-attribute type="string" value="/static/js/items/items.js" />
+            <add-attribute type="string" value="/static/js/common/comparison-common.js" />
+            <add-attribute type="string" value="/static/js/common/list.js" />
+            <add-attribute type="string" value="/static/js/items/search.js" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/common/facebook_api.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/user/task_alerts.jspx" />
+			<add-attribute type="template" value="/WEB-INF/jsp/items/search_results.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="store.index" extends="template.page.master">
+		<put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/items/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.css" />
+            <add-attribute type="string" value="/static/styles/items/items.css" />
+            <add-attribute type="string" value="/static/styles/items/search.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/items/items.js" />
+            <add-attribute type="string" value="/static/js/items/search.js" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/task_alerts.jspx" />
+			<add-attribute type="template" value="/WEB-INF/jsp/items/grouped_search_results.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="store.category" extends="template.page.master">
+		<put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/items/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.css" />
+            <add-attribute type="string" value="/static/styles/items/items.css" />
+            <add-attribute type="string" value="/static/styles/items/search.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/items/items.js" />
+            <add-attribute type="string" value="/static/js/items/search.js" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/items/search_results.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="owner.index" extends="template.page.master">
+		<put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/items/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.css" />
+            <add-attribute type="string" value="/static/styles/items/items.css" />
+            <add-attribute type="string" value="/static/styles/items/search.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/items/items.js" />
+            <add-attribute type="string" value="/static/js/items/search.js" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/user/task_alerts.jspx" />
+			<add-attribute type="template" value="/WEB-INF/jsp/items/grouped_search_results.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="owner.category" extends="template.page.master">
+		<put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/items/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.css" />
+            <add-attribute type="string" value="/static/styles/items/items.css" />
+            <add-attribute type="string" value="/static/styles/items/search.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-ui/jquery-ui.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.tooltips.min.js" />
+            <add-attribute type="string" value="/static/js/items/items.js" />
+            <add-attribute type="string" value="/static/js/items/search.js" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/items/search_results.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="item.reviews" template="/WEB-INF/jsp/items/viewpoints.jspx">
+    </definition>
+
+</tiles-definitions>

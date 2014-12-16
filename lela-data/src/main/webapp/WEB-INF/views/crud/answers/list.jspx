@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_Answer" items="${answers}" z="dnXMNdxI35j5H5aTmI8OkyyZglk=">
+        <table:table data="${answers}" id="l_com_lela_data_domain_entity_Answer" path="/crud/answers" z="XSs6z1kHKiNcByr0/Opsp1AXgCs=">
+            <table:column date="true" dateTimePattern="${answer_datecreated_date_format}" id="c_com_lela_data_domain_entity_Answer_dateCreated" property="dateCreated" z="ui2g1thTzOl2zohxuj5XUcwyhos="/>
+            <table:column date="true" dateTimePattern="${answer_datemodified_date_format}" id="c_com_lela_data_domain_entity_Answer_dateModified" property="dateModified" z="lAvBGT9OiPBMMqjZ//Yo4FTe8hM="/>
+            <table:column id="c_com_lela_data_domain_entity_Answer_question" property="question" z="aXsUry7eXt5nA6HQayVUetdlB3A="/>
+            <table:column id="c_com_lela_data_domain_entity_Answer_answerKey" property="answerKey" z="lavVCNTSzElmrknjw8wRXcEnoAY="/>
+            <table:column id="c_com_lela_data_domain_entity_Answer_answer" property="answer" z="QHFv/eRjSUp4gnxdx5FubFEG1/c="/>
+            <table:column id="c_com_lela_data_domain_entity_Answer_image" property="image" z="9IrJw2399qmFzywzfpbQtuuhigw="/>
+        </table:table>
+    </page:list>
+</div>

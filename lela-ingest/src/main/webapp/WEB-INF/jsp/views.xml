@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+	<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+	<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="index" extends="template.page.master">
+		<put-attribute type="string" name="title" value="page.home.name" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/pages/home.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/pages/home.js" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/index.jspx" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="exception.generic" template="/WEB-INF/jsp/common/safe_error.jspx" />
+
+	<definition name="uncaughtException" template="/WEB-INF/jsp/common/safe_error.jspx" />
+
+	<definition name="dataAccessFailure" template="/WEB-INF/jsp/common/safe_error.jspx" />
+
+    <definition name="403" extends="template.page.master">
+		<put-attribute type="string" name="title" value="page.error.403" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/pages/errors.css" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/common/403.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="resourceNotFound" extends="template.page.master">
+		<put-attribute type="string" name="title" value="page.error.404" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/pages/errors.css" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/common/404.jspx" />
+		</put-list-attribute>
+	</definition>
+
+</tiles-definitions>

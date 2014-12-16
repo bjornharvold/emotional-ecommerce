@@ -1,0 +1,68 @@
+<!--
+  ~ Copyright (c) 2012. Lela.com.
+  -->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          version="2.0">
+    <jsp:output doctype-root-element="html" doctype-system="about:legacy-compat" />
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" />
+    <jsp:output omit-xml-declaration="true" />
+
+    <lela:findUser/>
+    <spring:url value="/categories" var="categoriesUrl"/>
+    <spring:url value="/quiz" var="quizUrl"/>
+
+    <div id="task-alerts">
+        <c:forEach items="${tasks}" var="task" varStatus="status">
+            <div class="task-alert progress" id="${task.id}_progress" task-id="${task.id}" task-tp="${task.tp}">
+                <p>
+                    <c:choose>
+                        <c:when test="${task.tp eq 'FACEBOOK_DATA_AGGREGATION'}">
+                            <strong><spring:message code="task.alerts.progress.title" htmlEscape="false"/></strong><br/>
+                            <em><spring:message code="task.alerts.progress.copy" htmlEscape="false"/></em>
+                            <span class="p-progress"><span class="p-val">0% </span><span class="p-bar"><span class="p-bar-fill"><!-- --></span></span></span>
+                        </c:when>
+                    </c:choose>
+                </p>
+
+                <a href="#" class="close-alert"><!-- --></a>
+            </div>
+
+            <div class="task-alert done" id="${task.id}_done" task-id="${task.id}" task-tp="${task.tp}">
+                <p>
+                    <c:choose>
+                        <c:when test="${task.tp eq 'FACEBOOK_DATA_AGGREGATION'}">
+                            <strong><spring:message code="task.alerts.complete.title" htmlEscape="false"/></strong><br/>
+                            <em><spring:message code="task.alerts.complete.copy" htmlEscape="false"/></em>
+                            <a href="${categoriesUrl}"><spring:message code="task.alerts.complete.link" htmlEscape="false"/></a>
+                        </c:when>
+                    </c:choose>
+                </p>
+
+                <a href="#" class="close-alert"><!-- --></a>
+            </div>
+        </c:forEach>
+
+        <!-- Specific alert to take partial quiz -->
+        <c:if test="${empty tasks and loggedInUser != 'anonymousUser' and (us.profileStatus == 'PARTIAL' or us.profileStatus == 'MISSING')}">
+            <div class="task-alert" id="partial-quiz-take" task-id="partial-quiz-take">
+                <p>
+                    <strong><spring:message code="task.alerts.incomplete.title" htmlEscape="false"/></strong><br/>
+                    <em><spring:message code="task.alerts.incomplete.copy" htmlEscape="false"/></em>
+                    <a href="${quizUrl}"><spring:message code="task.alerts.incomplete.link" htmlEscape="false"/></a>
+                </p>
+                <a href="#" class="close-alert"><!-- --></a>
+            </div>
+        </c:if>
+    </div>
+
+</jsp:root>

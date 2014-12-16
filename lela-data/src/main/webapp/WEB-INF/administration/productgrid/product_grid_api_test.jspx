@@ -1,0 +1,77 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+        id="productgrid-documentation">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h3>Affiliate and Appliation Ids</h3>
+    <p>Your Affiliate ID: <strong>${affiliate}</strong></p>
+    <p>Your Application ID: <strong>${application}</strong></p>
+
+    <spring:url var="docUrl" value="http://${header['host']}/sc/api-grid"/>
+    <h3>Full Documentation</h3>
+    <p>
+    Full documentation for the Product Grid API can be found <a href="${docUrl}" target="_blank">${docUrl}</a>
+    </p>
+
+    <h3>Script tag place in HTML Head to load the Product Grid API</h3>
+    <pre>
+    <![CDATA[
+    &lt;script
+        lela-url="http://${header['host']}"
+        src="http://${header['host']}/api/resource/productgrid/productgrid.js?affiliateId=${affiliate}&amp;applicationId=${application}">&lt;/script>
+    ]]>
+    </pre>
+
+    <h3>DIV and Script tag required to create the Product Grid</h3>
+    <pre>
+    <![CDATA[
+    &lt;div id="lela-target">&lt;!-- GRID TARGET -->&lt;/div>
+    &lt;script type="text/javascript">
+        (function() {
+            Lela.createGrid({
+                affiliateId: &quot;${affiliate}&quot;,
+                applicationId: &quot;${application}&quot;,
+                targetSelector: &quot;#lela-target&quot;,
+                maxItems: 6,
+                gridCreated: function() { /* handle gridCreated() callback here if necessary */ }
+            });
+        })();
+    &lt;/script>
+    ]]>
+    </pre>
+
+    <h3>Example of running Product Grid</h3>
+    <!--
+        !! WHEN USING ON THIRD PARTY SITE, USE THIS VERSION !!
+    <script lela-url="http://${header['host']}" src="/api/resource/productgrid/productgrid.js?affiliateId=${affiliate}&amp;applicationId=${application}">
+    -->
+    <script
+            type="text/javascript"
+            lela-url="http://${header['host']}"
+            src="http://${header['host']}/api/resource/productgrid/productgrid.js?affiliateId=${affiliate}&amp;applicationId=${application}"><!-- --></script>
+
+    <div id="lela-target"><!-- GRID TARGET --></div>
+    <script type="text/javascript">
+        (function() {
+            Lela.createGrid({
+                affiliateId: '${affiliate}',
+                applicationId: '${application}',
+                targetSelector: '#lela-target',
+                maxItems: 6,
+                gridCreated: function() { /* handle gridCreated() callback here if necessary */ }
+            });
+        })();
+    </script>
+</div>

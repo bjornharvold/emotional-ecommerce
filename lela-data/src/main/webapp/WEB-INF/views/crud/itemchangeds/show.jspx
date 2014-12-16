@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_ItemChanged" object="${itemchanged}" path="/crud/itemchangeds" z="gN/JMGex18VITvKrRuuTpe1Sndc=">
+        <field:display date="true" dateTimePattern="${itemChanged_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ItemChanged_dateCreated" object="${itemchanged}" z="DeI4s5Vg8i8g2hqF0TPoTOI3a1o="/>
+        <field:display date="true" dateTimePattern="${itemChanged_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ItemChanged_dateModified" object="${itemchanged}" z="l/W6wCYQymP3vMmsgMtMRDr+TpM="/>
+        <field:display field="item" id="s_com_lela_data_domain_entity_ItemChanged_item" object="${itemchanged}" z="iClWiU0Riipnrg20HcWEgecsocQ="/>
+        <field:display field="dirty" id="s_com_lela_data_domain_entity_ItemChanged_dirty" object="${itemchanged}" z="nR08w7vIe0pkGnA7xBsi7X5ld+s="/>
+        <field:display field="dirtyInDevelopment" id="s_com_lela_data_domain_entity_ItemChanged_dirtyInDevelopment" object="${itemchanged}" z="S4WcwAC3VjRFx8fI/v1CDoBIhEM="/>
+        <field:display field="dirtyInLatest" id="s_com_lela_data_domain_entity_ItemChanged_dirtyInLatest" object="${itemchanged}" z="WLy5/X/7MXzGx8VeGj+Tmed158A="/>
+        <field:display field="dirtyInQA" id="s_com_lela_data_domain_entity_ItemChanged_dirtyInQA" object="${itemchanged}" z="BCEXLmUY5uf7euwju6R1BT8TjfU="/>
+        <field:display field="dirtyInWWW" id="s_com_lela_data_domain_entity_ItemChanged_dirtyInWWW" object="${itemchanged}" z="8hkpPqzZBunKh17JAV/OSALQsEg="/>
+        <field:display field="dirtyInSandbox" id="s_com_lela_data_domain_entity_ItemChanged_dirtyInSandbox" object="${itemchanged}" z="sqKzuMJ6PGovpklaR4F6xdKWKL8="/>
+    </page:show>
+</div>

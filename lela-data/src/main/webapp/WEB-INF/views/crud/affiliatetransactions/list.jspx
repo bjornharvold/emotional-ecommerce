@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_AffiliateTransaction" items="${affiliatetransactions}" z="r9i6FK71cIEJNuMOkX0BBtWEz4Y=">
+        <table:table data="${affiliatetransactions}" id="l_com_lela_data_domain_entity_AffiliateTransaction" path="/crud/affiliatetransactions" z="w8y8K1LaUKwg5xpZjEKfvapbxIw=">
+            <table:column date="true" dateTimePattern="${affiliateTransaction_datecreated_date_format}" id="c_com_lela_data_domain_entity_AffiliateTransaction_dateCreated" property="dateCreated" z="hccCuKI6tIX+KCHkNGpBib/iN1s="/>
+            <table:column date="true" dateTimePattern="${affiliateTransaction_datemodified_date_format}" id="c_com_lela_data_domain_entity_AffiliateTransaction_dateModified" property="dateModified" z="iW55/nYyLE0srYth9m5JuAfN60g="/>
+            <table:column id="c_com_lela_data_domain_entity_AffiliateTransaction_network" property="network" z="PQSagRimT7pYVri0/mz8iiFa5EQ="/>
+            <table:column id="c_com_lela_data_domain_entity_AffiliateTransaction_orderId" property="orderId" z="37stWrO7C1XHtqVLD5RyGZYqax0="/>
+            <table:column date="true" dateTimePattern="${affiliateTransaction_transactiondate_date_format}" id="c_com_lela_data_domain_entity_AffiliateTransaction_transactionDate" property="transactionDate" z="QUNvPnidSyn4k+CsEd6jM0oB7A4="/>
+            <table:column date="true" dateTimePattern="${affiliateTransaction_referraldate_date_format}" id="c_com_lela_data_domain_entity_AffiliateTransaction_referralDate" property="referralDate" z="4qB6RwRSTl6Ew8cBjjGIWRMibGk="/>
+        </table:table>
+    </page:list>
+</div>

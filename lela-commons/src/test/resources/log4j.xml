@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<!DOCTYPE log4j:configuration SYSTEM "/Users/crash/svn/lela/lela-commons/src/test/resources/log4j.dtd">
+<log4j:configuration>
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <!--<param name="ConversionPattern" value="%d{ISO8601} %-5p %x%m%n"/>-->
+            <param name="ConversionPattern" value="%d{ISO8601} [%-5p] %C{1}.%M():%L - %x%m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="TRACE"/>
+            <param name="LevelMax" value="INFO"/>
+        </filter>
+    </appender>
+    <appender name="STDERR" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.err"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%-5p] %C{1}.%M():%L - %x%m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="WARN"/>
+            <param name="LevelMax" value="FATAL"/>
+        </filter>
+    </appender>
+    <appender name="TEXT" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="lela.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%-5p] %C{1}.%M():%L - %x%m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="TRACE"/>
+            <param name="LevelMax" value="FATAL"/>
+        </filter>
+    </appender>
+    <!--<appender name="MONGO" class="org.springframework.data.document.mongodb.log4j.MongoLog4jAppender">-->
+        <!--<param name="host" value="localhost"/>-->
+        <!--<param name="port" value="27017"/>-->
+        <!--<param name="database" value="logs"/>-->
+        <!--<param name="collectionPattern" value="%X{year}%X{month}"/>-->
+        <!--<param name="applicationId" value="lela"/>-->
+        <!--<param name="warnOrHigherWriteConcern" value="FSYNC_SAFE"/>-->
+        <!--<layout class="org.apache.log4j.PatternLayout">-->
+            <!--<param name="ConversionPattern" value="%d %p [%c] - %x%m%n"/>-->
+        <!--</layout>-->
+    <!--</appender>-->
+
+    <!--                          -->
+    <!-- Declare the SMTPAppender -->
+    <!--                          -->
+    <!--
+    <appender name="EMAIL"  class="org.apache.log4j.net.SMTPAppender">
+        <param name="BufferSize" value="512" />
+        <param name="SMTPHost" value="smtp.1and1.com" />
+        <param name="SMTPUsername" value="m38911600-1" />
+        <param name="SMTPPassword" value="lactose8" />
+        <param name="From" value="log4j@hxcel.com" />
+        <param name="To" value="bjorn@hxcel.com" />
+        <param name="Subject" value="[DEV] Log4J Error" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} %x%m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="ERROR"/>
+            <param name="LevelMax" value="FATAL"/>
+        </filter>
+    </appender>
+    -->
+
+    <logger name="jsp" additivity="false">
+        <level value="trace"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="com.lela" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="com.lela.commons.cache" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="com.lela.commons.bootstrap.impl" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="com.lela.commons.service.impl" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="com.lela.commons.repository.impl" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="com.lela.commons.test" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="com.lela.commons.bootstrap" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="com.lela.commons.mail" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="org.springframework.data.mongodb" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="org.apache" additivity="false">
+        <level value="error"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="com.polarrose" additivity="false">
+        <level value="error"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="org.springframework.data" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+         <!--<appender-ref ref="MONGO"/>-->
+    </logger>
+
+    <logger name="org.springframework.security" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="org.springframework.web.client" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="org.springframework.http.converter.json" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="org.springframework" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="org.hibernate" additivity="false">
+        <level value="error"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="net.sf" additivity="false">
+        <level value="error"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <logger name="org.junit" additivity="false">
+        <level value="error"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL"/> -->
+    </logger>
+
+    <!--                           -->
+    <!-- setup log4j's root logger -->
+    <!--                           -->
+    <root>
+        <level value="error"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="TEXT"/>
+        <!-- <appender-ref ref="EMAIL" /> -->
+    </root>
+</log4j:configuration>

@@ -1,0 +1,50 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <tiles:importAttribute name="listCard" ignore="true"/>
+    <tiles:importAttribute name="location" ignore="true"/>
+
+    <!-- Addl Image Carousel BEGIN -->
+    <c:if test="${(!empty listCard.pctrs and listCard.tp != 'EXTERNAL') or (fn:length(listCard.pctrs) gt 1 and listCard.tp eq 'EXTERNAL')}">
+        <div class="list-carousel-cont">
+            <a href="#" class="list-c-prev ${(fn:length(listCard.pctrs) lt 5 and listCard.tp eq 'EXTERNAL') or (fn:length(listCard.pctrs) lt 4 and listCard.tp != 'EXTERNAL') ? 'list-c-hidden' : ''}" data-location="${location}" ><!-- --></a>
+            <div class="list-carousel">
+                <div class="addl-img">
+
+                    <!-- Default card image -->
+                    <c:set var="cardImglUrl"><lela:listCardName listCard="${listCard}" type="img"/></c:set>
+                    <c:set var="cardImgLargelUrl"><lela:listCardName listCard="${listCard}" type="imgLarge"/></c:set>
+                    <c:set var="cardImgListUrl"><lela:listCardName listCard="${listCard}" type="imgList"/></c:set>
+                    <a href="${cardImgLargelUrl}" rel="nofollow" class="selected" data-location="${location}"><img src="${cardImglUrl}" alt="" /></a>
+
+                    <c:forEach items="${listCard.pctrs}" var="picture" varStatus="status">
+                        <c:if test="${!(listCard.tp eq 'EXTERNAL' and status.count eq 1)}">
+                            <a href="${picture.mg['large']}" rel="nofollow" data-location="${location}">
+                                <img src="${picture.mg['medium']}" alt=""/>
+                            </a>
+                        </c:if>
+                    </c:forEach>
+                </div>
+            </div>
+            <a href="#" class="list-c-next ${(fn:length(listCard.pctrs) lt 5 and listCard.tp eq 'EXTERNAL') or (fn:length(listCard.pctrs) lt 4 and listCard.tp != 'EXTERNAL') ? 'list-c-hidden' : ''}" data-index="1" data-location="${location}" ><!-- --></a>
+        </div>
+        <a class="show-pictures" href="#">Show all ${listCard.tp eq 'EXTERNAL' ? fn:length(listCard.pctrs) : fn:length(listCard.pctrs) + 1} images</a>
+    </c:if>
+    <!-- Addl Image Carousel END -->
+
+</jsp:root>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_MerchantImageItem" object="${merchantimageitem}" path="/crud/merchantimageitems" z="QsHHEgkuzlIgjGlLKimr9TKfAQQ=">
+        <field:display date="true" dateTimePattern="${merchantImageItem_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_MerchantImageItem_dateCreated" object="${merchantimageitem}" z="1xwt5ItKFyz7PS2/IkZrGGkMGEA="/>
+        <field:display date="true" dateTimePattern="${merchantImageItem_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_MerchantImageItem_dateModified" object="${merchantimageitem}" z="XQl9ZMaGItXH32KZE2e+zrRkDG8="/>
+        <field:display field="item" id="s_com_lela_data_domain_entity_MerchantImageItem_item" object="${merchantimageitem}" z="+/DwRLPWyaGL9aocXrpJZwIidOs="/>
+        <field:display field="productImage" id="s_com_lela_data_domain_entity_MerchantImageItem_merchantImage" object="${merchantimageitem}" z="RaOkbJoQbTTQgjSojliS14cT1tU="/>
+        <field:display field="primary" id="s_com_lela_data_domain_entity_MerchantImageItem_primary" object="${merchantimageitem}" z="zjNupWNayR6b57N4kc3CTTCtFPw="/>
+        <field:display field="doNotUse" id="s_com_lela_data_domain_entity_MerchantImageItem_doNotUse" object="${merchantimageitem}" z="S4i8mRw3N5GfwNPrOw+9u8k0+kw="/>
+    </page:show>
+</div>

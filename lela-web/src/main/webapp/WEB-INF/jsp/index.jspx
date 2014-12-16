@@ -1,0 +1,358 @@
+<!--
+~ Copyright (c) 2012. Lela.com.
+-->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:lela="urn:jsptagdir:/WEB-INF/tags">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:url value="/quiz" var="quizUrl" />
+    <spring:url value="/categories" var="shopUrl" />
+    <spring:url value="/subscribe" var="subscribeUrl" />
+    <spring:url value="/user/list" var="lelaListUrl" />
+    <spring:url value="/register" var="registerUrl" />
+    <spring:url value="/static/images/buttons/h_video.jpg" var="launchVideoUrl" />
+    <spring:url value="/login" var="loginUrl" />
+    <spring:url value="/press" var="pressUrl" />
+    <spring:url value="/register" var="registerUrl" />
+    <spring:message code="environment" var="environment"/>
+
+    <lela:findUser/>
+
+    <script type="text/javascript">
+        var mcListId = '<spring:message code="mailchimp.list.id"/>';
+        var emptyQuiz = false;
+    </script>
+
+    <spring:message code="meta.title.home.intent" var="pageTitle" htmlEscape="false" />
+    <h1 title="${pageTitle}">${pageTitle}</h1>
+
+    <div id="categories">
+
+        <c:choose>
+            <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                <div class="copy copy-prequiz">
+                    <div id="copy-marquee">
+                        <div class="carousel-row copy-row carousel-row-0" row-num="0">
+                            <h3><span><spring:message code="home.copy.header0.prequiz" htmlEscape="false" /></span><br/><spring:message code="home.copy.subheader0.prequiz" htmlEscape="false" /></h3>
+                            <h4><spring:message code="home.copy.content0.prequiz" htmlEscape="false" /></h4>
+                        </div>
+                        <div class="carousel-row copy-row carousel-row-1 hidden" row-num="1">
+                            <h3><span><spring:message code="home.copy.header0.prequiz" htmlEscape="false" /></span><br/><spring:message code="home.copy.subheader0.prequiz" htmlEscape="false" /></h3>
+                            <h4><spring:message code="home.copy.content0.prequiz" htmlEscape="false" /></h4>
+                        </div>
+                        <div class="carousel-row copy-row carousel-row-2 hidden" row-num="2">
+                            <h3><span><spring:message code="home.copy.header0.prequiz" htmlEscape="false" /></span><br/><spring:message code="home.copy.subheader0.prequiz" htmlEscape="false" /></h3>
+                            <h4><spring:message code="home.copy.content0.prequiz" htmlEscape="false" /></h4>
+                        </div>
+                        <div class="carousel-row copy-row carousel-row-3 hidden" row-num="3">
+                            <h3><span><spring:message code="home.copy.header0.prequiz" htmlEscape="false" /></span><br/><spring:message code="home.copy.subheader0.prequiz" htmlEscape="false" /></h3>
+                            <h4><spring:message code="home.copy.content0.prequiz" htmlEscape="false" /></h4>
+                        </div>
+                    </div>
+                    <a id="km-quiz-anchor" href="${quizUrl}" quiz-location="Quiz-Animation" class="lq" rel="nofollow"><spring:message code="home.copy.button.prequiz" htmlEscape="false" /></a>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div class="copy copy-afterquiz">
+                    <div id="copy-marquee">
+                        <div class="carousel-row copy-row carousel-row-0" row-num="0">
+                            <h3><span><spring:message code="home.copy.header0.prequiz" htmlEscape="false" /></span><br/><spring:message code="home.copy.subheader0.prequiz" htmlEscape="false" /></h3>
+                            <h4><spring:message code="home.copy.content0.prequiz" htmlEscape="false" /></h4>
+                        </div>
+                        <div class="carousel-row copy-row carousel-row-1 hidden" row-num="1">
+                            <h3><span><spring:message code="home.copy.header0.prequiz" htmlEscape="false" /></span><br/><spring:message code="home.copy.subheader0.prequiz" htmlEscape="false" /></h3>
+                            <h4><spring:message code="home.copy.content0.prequiz" htmlEscape="false" /></h4>
+                        </div>
+                        <div class="carousel-row copy-row carousel-row-2 hidden" row-num="2">
+                            <h3><span><spring:message code="home.copy.header0.prequiz" htmlEscape="false" /></span><br/><spring:message code="home.copy.subheader0.prequiz" htmlEscape="false" /></h3>
+                            <h4><spring:message code="home.copy.content0.prequiz" htmlEscape="false" /></h4>
+                        </div>
+                        <div class="carousel-row copy-row carousel-row-3 hidden" row-num="3">
+                            <h3><span><spring:message code="home.copy.header0.prequiz" htmlEscape="false" /></span><br/><spring:message code="home.copy.subheader0.prequiz" htmlEscape="false" /></h3>
+                            <h4><spring:message code="home.copy.content0.prequiz" htmlEscape="false" /></h4>
+                        </div>
+                    </div>
+
+                    <spring:url var="babyUrl" value="/Baby/d?rlnm=baby" />
+                    <spring:url var="toysUrl" value="/Toys/d?rlnm=toys" />
+                    <spring:url var="electronicsUrl" value="/Electronics/d?rlnm=electronics" />
+
+                    <div class="afterquizlinks">
+                        <a href="${babyUrl}">Shop Baby</a> | <a href="${toysUrl}">Shop Toys</a> | <a href="${electronicsUrl}">Shop Electronics</a>
+                    </div>
+                    <!-- <a id="startLelaList" href="${lelaListUrl}" class="lq aq" rel="nofollow" style="display: none;"><spring:message code="home.copy.button0.afterquiz" htmlEscape="false" /></a> -->
+                    <!-- <a id="goToLelaList" href="${lelaListUrl}" class="lq aq" rel="nofollow" style="display: none;"><spring:message code="home.copy.button1.afterquiz" htmlEscape="false" /></a> -->
+                </div>
+            </c:otherwise>
+        </c:choose>
+
+        <div id="marquee-controls">
+            <div class="carousel-control selected" row-num="0"><!-- --></div>
+            <div class="carousel-control" row-num="1"><!-- --></div>
+            <div class="carousel-control" row-num="2"><!-- --></div>
+            <div class="carousel-control" row-num="3"><!-- --></div>
+        </div>
+
+    </div>
+
+    <div class="cat home-quotes" id="home-quotes">
+        <c:forEach items="${testimonials}" varStatus="status" var="testimonial">
+            <div class="home-quote-tile carousel-row" row-num="${status.index}">
+                <a class="q" href="${pressUrl}">&quot;${testimonial.hdr}&quot; <strong>- ${testimonial.pstdb}</strong></a>
+            </div>
+        </c:forEach>
+    </div>
+
+    <div class="lela-page-content">
+        <div class="horizontal-shade"><!-- --></div>
+
+        <div class="curated-wrapper">
+            <div class="curated-container">
+                <div class="curated-header-baby curated-header">
+                    <spring:url var="hdrImg" value="/static/images/home/curated/hdr0.png" />
+                    <img src="${hdrImg}" alt="" />
+                    <h3><spring:message code="home.departments.0.title" htmlEscape="false" /></h3>
+                </div>
+
+                <div class="curated-content">
+                    <spring:url var="contentImg" value="/static/images/home/curated/crib.png" />
+                    <spring:url var="contentLink" value="/Crib/c?rlnm=crib" />
+                    <div class="curated-content-img">
+                        <a href="${contentLink}"><img src="${contentImg}" /></a>
+                    </div>
+                    <div class="curated-content-info">
+                        <div class="curated-content-copy">
+                            <h4>Cribs</h4>
+                            <p>If you’ve got a small nursery, you need a crib that won’t max out your space. Looking to save? Cribs that grow with your child can transition from crib to day bed.</p>
+                        </div>
+                        <a href="${contentLink}">Find cribs compatible with me &gt;</a>
+                    </div>
+                </div>
+
+                <div class="curated-content">
+                    <spring:url var="contentImg" value="/static/images/home/curated/carseat.png" />
+                    <spring:url var="contentLink" value="/Car-Seat/c?rlnm=carseat" />
+                    <div class="curated-content-img">
+                        <a href="${contentLink}"><img src="${contentImg}" /></a>
+                    </div>
+                    <div class="curated-content-info">
+                        <div class="curated-content-copy">
+                            <h4>Car Seats</h4>
+                            <p>Rear-facing, front-facing, 5-point harness? There are a ton of features to consider and safety regulations to note.</p>
+                        </div>
+                        <a href="${contentLink}">Find car seats compatible with me &gt;</a>
+                    </div>
+                </div>
+
+                <div class="curated-content">
+                    <spring:url var="contentImg" value="/static/images/home/curated/stroller.png" />
+                    <spring:url var="contentLink" value="/Stroller/c?rlnm=stroller" />
+                    <div class="curated-content-img">
+                        <a href="${contentLink}"><img src="${contentImg}" /></a>
+                    </div>
+                    <div class="curated-content-info">
+                        <div class="curated-content-copy">
+                            <h4>Strollers</h4>
+                            <p>Do you live in the city? Love to jog with your little one? Need to cart around more than one kid? You need a stroller that fits your lifestyle.</p>
+                        </div>
+                        <a href="${contentLink}">Find strollers compatible with me &gt;</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="curated-container norightmargin">
+                <div class="curated-header-electronics curated-header">
+                    <spring:url var="hdrImg" value="/static/images/home/curated/hdr1.png" />
+                    <img src="${hdrImg}" alt="" />
+                    <h3><spring:message code="home.departments.1.title" htmlEscape="false" /></h3>
+                </div>
+
+                <div class="curated-content">
+                    <spring:url var="contentImg" value="/static/images/home/curated/ilccamera.png" />
+                    <spring:url var="contentLink" value="/High-Video-Quality-Cameras/cad/ilccamera?filters[camera.features]=FeatureHighVideoQuality" />
+                    <div class="curated-content-img">
+                        <a href="${contentLink}"><img src="${contentImg}" /></a>
+                    </div>
+                    <div class="curated-content-info">
+                        <div class="curated-content-copy">
+                            <h4>High Video Quality Cameras</h4>
+                            <p>Beautiful photos are great, but beautiful video is in even better! Streamline your efforts with a camera that can do both.</p>
+                        </div>
+                        <a href="${contentLink}">Find cameras compatible with me &gt;</a>
+                    </div>
+                </div>
+
+                <div class="curated-content">
+                    <spring:url var="contentImg" value="/static/images/home/curated/tv.png" />
+                    <spring:url var="contentLink" value="/TV/c?rlnm=television" />
+                    <div class="curated-content-img">
+                        <a href="${contentLink}"><img src="${contentImg}" /></a>
+                    </div>
+                    <div class="curated-content-info">
+                        <div class="curated-content-copy">
+                            <h4>TVs</h4>
+                            <p>Whether your family is full of gamers, movie buffs, or music fans, there’s a TV that can rock your world.</p>
+                        </div>
+                        <a href="${contentLink}">Find TVs compatible with me &gt;</a>
+                    </div>
+                </div>
+
+                <div class="curated-content">
+                    <spring:url var="contentImg" value="/static/images/home/curated/bluray.png" />
+                    <spring:url var="contentLink" value="/Blu-ray-DVD/c?rlnm=brdvd" />
+                    <div class="curated-content-img">
+                        <a href="${contentLink}"><img src="${contentImg}" /></a>
+                    </div>
+                    <div class="curated-content-info">
+                        <div class="curated-content-copy">
+                            <h4>Blu-Ray/DVD Players</h4>
+                            <p>Watching movies, streaming Netflix or Hulu... find the DVD player that will fit right in with your family.</p>
+                        </div>
+                        <a href="${contentLink}">Find Blu-Ray/DVD Players compatible with me &gt;</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="curated-container">
+                <div class="curated-header-baby curated-header">
+                    <spring:url var="hdrImg" value="/static/images/home/curated/hdr2.png" />
+                    <img src="${hdrImg}" alt="" />
+                    <h3><spring:message code="home.departments.2.title" htmlEscape="false" /></h3>
+                </div>
+
+                <div class="curated-content">
+                    <spring:url var="contentImg" value="/static/images/home/curated/doublestroller.png" />
+                    <spring:url var="contentLink" value="/Double-Strollers/cad/stroller?filters[seat.number]=NumberSeats_2&amp;filters[seat.number]=NumberSeats_2Plus" />
+                    <div class="curated-content-img">
+                        <a href="${contentLink}"><img src="${contentImg}" /></a>
+                    </div>
+                    <div class="curated-content-info">
+                        <div class="curated-content-copy">
+                            <h4>Double Strollers</h4>
+                            <p>Traveling with two in tow can be twice as hard! Double strollers can accommodate an infant and a toddler or two kids of the same age. </p>
+                        </div>
+                        <a href="${contentLink}">Find double strollers compatible with me &gt;</a>
+                    </div>
+                </div>
+
+                <div class="curated-content">
+                    <spring:url var="contentImg" value="/static/images/home/curated/boosterseat.png" />
+                    <spring:url var="contentLink" value="/Booster-Seats/cad/highchair?filters[highchair.type]=HighChairTypeBooster" />
+                    <div class="curated-content-img">
+                        <a href="${contentLink}"><img src="${contentImg}" /></a>
+                    </div>
+                    <div class="curated-content-info">
+                        <div class="curated-content-copy">
+                            <h4>Booster Seats</h4>
+                            <p>Isn’t it fun to dine with your little one? Whether you need easy-cleaning or an ergonomic seat, there’s a booster seat you’ll love.</p>
+                        </div>
+                        <a href="${contentLink}">Find booster seats compatible with me &gt;</a>
+                    </div>
+                </div>
+
+                <div class="curated-content">
+                    <spring:url var="contentImg" value="/static/images/home/curated/toddlercarseat.png" />
+                    <spring:url var="contentLink" value="/Toddler-Car-Seats/cad/carseat?filters[carseat.type]=CarSeatTypeGrowsWithChild" />
+                    <div class="curated-content-img">
+                        <a href="${contentLink}"><img src="${contentImg}" /></a>
+                    </div>
+                    <div class="curated-content-info">
+                        <div class="curated-content-copy">
+                            <h4>Toddler Car Seats</h4>
+                            <p>As your baby gets bigger, you need to upgrade your car seat. Find safe, reliable car seats that have just what you’re looking for.</p>
+                        </div>
+                        <a href="${contentLink}">Find toddler car seats compatible with me &gt;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="curated-container norightmargin">
+                <div class="curated-header-toys curated-header">
+                    <spring:url var="hdrImg" value="/static/images/home/curated/hdr3.png" />
+                    <img src="${hdrImg}" alt="" />
+                    <h3><spring:message code="home.departments.3.title" htmlEscape="false" /></h3>
+                </div>
+
+                <div class="curated-content">
+                    <spring:url var="contentImg" value="/static/images/home/curated/balancebike.png" />
+                    <spring:url var="contentLink" value="/Balance-Bike-Scooter/c?rlnm=balancebikescooter" />
+                    <div class="curated-content-img">
+                        <a href="${contentLink}"><img src="${contentImg}" /></a>
+                    </div>
+                    <div class="curated-content-info">
+                        <div class="curated-content-copy">
+                            <h4>Balance Bikes &amp; Scooters</h4>
+                            <p>Let your kid cruise around! There's a bike that they'll never want to stop riding.</p>
+                        </div>
+                        <a href="${contentLink}">Find bikes &amp; scooters compatible with me &gt;</a>
+                    </div>
+                </div>
+
+                <div class="curated-content">
+                    <spring:url var="contentImg" value="/static/images/home/curated/rideons.png" />
+                    <spring:url var="contentLink" value="/Ride-On-Rocker-Trike/c?rlnm=rideonrockertrike" />
+                    <div class="curated-content-img">
+                        <a href="${contentLink}"><img src="${contentImg}" /></a>
+                    </div>
+                    <div class="curated-content-info">
+                        <div class="curated-content-copy">
+                            <h4>Ride Ons &amp; Rockers</h4>
+                            <p>Get your kid rocking and riding! Whether you're inside or outdoors, find the most fun way for your kid to move around.</p>
+                        </div>
+                        <a href="${contentLink}">Find ride ons &amp; rockers compatible with me &gt;</a>
+                    </div>
+                </div>
+
+                <div class="curated-content">
+                    <spring:url var="contentImg" value="/static/images/home/curated/pulltoys.png" />
+                    <spring:url var="contentLink" value="/Push-Pull/c?rlnm=pushpull" />
+                    <div class="curated-content-img">
+                        <a href="${contentLink}"><img src="${contentImg}" /></a>
+                    </div>
+                    <div class="curated-content-info">
+                        <div class="curated-content-copy">
+                            <h4>Push &amp; Pull Toys</h4>
+                            <p>Keep your little one busy with something fun to pull around. Exciting sounds or quiet playtime? See which pull toy your kid won't stop playing with.</p>
+                        </div>
+                        <a href="${contentLink}">Find pull toys compatible with me &gt;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"><!-- --></div>
+
+        </div>
+
+        <div id="lela-banner">
+            <h2><spring:message code="home.stores" htmlEscape="false"/></h2>
+            <spring:url value="/Amazon.com-Books/s?rlnm=amazon" var="amazonUrl" />
+            <spring:url value="/giggle/s?rlnm=giggle" var="giggleUrl" />
+            <spring:url value="/Diapers.com/s?rlnm=diaperscom" var="diaperscomUrl" />
+            <spring:url value="/Walmart/s?rlnm=walmart" var="walmartUrl" />
+            <spring:url value="/Target/s?rlnm=target" var="targetUrl" />
+            <spring:url value="/Best-Buy/s?rlnm=bestbuy" var="bestBuyUrl" />
+            <a class="amazon" href="${amazonUrl}">Amazon.com</a>
+            <a class="giggle" href="${giggleUrl}">giggle</a>
+            <a class="diaperscom" href="${diaperscomUrl}">diapers.com</a>
+            <a class="walmart" href="${walmartUrl}">Wal-Mart</a>
+            <a class="target" href="${targetUrl}">Target</a>
+            <a class="bestbuy" href="${bestBuyUrl}">Best Buy</a>
+        </div>
+
+    </div>
+
+    <tiles:insertTemplate template="/WEB-INF/jsp/common/google_conversion.jspx" flush="true" />
+
+</div>

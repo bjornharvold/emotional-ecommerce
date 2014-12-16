@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_AttributeTypeSource" items="${attributetypesources}" z="6DA7Z9oHuAifCOAHYKLVqNNyeLM=">
+        <table:table data="${attributetypesources}" id="l_com_lela_data_domain_entity_AttributeTypeSource" path="/crud/attributetypesources" z="NpEYWj9hBz3cfWkgE9uEshC3tSY=">
+            <table:column date="true" dateTimePattern="${attributeTypeSource_datecreated_date_format}" id="c_com_lela_data_domain_entity_AttributeTypeSource_dateCreated" property="dateCreated" z="AvVRAQkCfvrPEqUwC2kAFakJiGc="/>
+            <table:column date="true" dateTimePattern="${attributeTypeSource_datemodified_date_format}" id="c_com_lela_data_domain_entity_AttributeTypeSource_dateModified" property="dateModified" z="9A13hs5rdTkRSaqGWqV+oaiyYvk="/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeTypeSource_attributeTypeSourceName" property="attributeTypeSourceName" z="1YUFufE4tMxKbaeIjEvTX6Nf4nI="/>
+        </table:table>
+    </page:list>
+</div>

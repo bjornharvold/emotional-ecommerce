@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <page:show id="ps_com_lela_data_domain_entity_ProductImage" object="${productimage}" path="/crud/productimages" z="JiNhx4QTGU29BIkDG0n7azAfNKw=">
+    <field:display date="true" dateTimePattern="${productImage_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_ProductImage_dateCreated" object="${productimage}" z="Jx8fqWk0dRSN/7SlxL5uJXnBmY4="/>
+    <field:display date="true" dateTimePattern="${productImage_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_ProductImage_dateModified" object="${productimage}" z="rLZx78uosCv40Trei47xYWjH+vo="/>
+    <field:display field="imageSource" id="s_com_lela_data_domain_entity_ProductImage_imageSource" object="${productimage}" z="g8/tkGdjvl7MD4SWUci0w5o1R6U="/>
+    <field:display field="sourceKey" id="s_com_lela_data_domain_entity_ProductImage_sourceKey" object="${productimage}" z="1SgtyfOXV6qzFFas78UNcAMawWE="/>
+    <field:display field="imageUrl" id="s_com_lela_data_domain_entity_ProductImage_imageUrl" object="${productimage}" z="DVloLAist4u2PAeHnQsibmvIOBM="/>
+    <field:display field="resizedUrl" id="s_com_lela_data_domain_entity_ProductImage_resizedUrl" object="${productimage}" z="wFqYwtxyJGelzZWnJxfdLMwhGyQ="/>
+    <field:display field="imageDate" id="s_com_lela_data_domain_entity_ProductImage_imageDate" object="${productimage}" z="/KdGqnZADppE9m5ca4Jwy48BhnY="/>
+    <field:display field="RValue" id="s_com_lela_data_domain_entity_ProductImage_rValue" object="${productimage}" z="Yvtt1+PBFhWqfXegzGh7EeRuObs="/>
+    <field:display field="GValue" id="s_com_lela_data_domain_entity_ProductImage_gValue" object="${productimage}" z="+o2rNoijjJW7tN80fiQguEj7is0="/>
+    <field:display field="BValue" id="s_com_lela_data_domain_entity_ProductImage_bValue" object="${productimage}" z="B7rILxGkI8lGeh1Fa8YK/fXr7oM="/>
+    <field:display field="hexValue" id="s_com_lela_data_domain_entity_ProductImage_hexValue" object="${productimage}" z="0FzeXWGjnQYum/ohtPtcvwkCUpM="/>
+    <field:display field="imageURLSmall" id="s_com_lela_data_domain_entity_ProductImage_imageURLSmall" object="${productimage}" z="ZZCr/DW+fjGMrJWvErjERxXLZ9w="/>
+    <field:display field="imageURLMedium" id="s_com_lela_data_domain_entity_ProductImage_imageURLMedium" object="${productimage}" z="W1SsrK94yKMP9Kos0ggLG2zGAMo="/>
+    <field:display field="imageURLLarge" id="s_com_lela_data_domain_entity_ProductImage_imageURLLarge" object="${productimage}" z="zF71lRn83oInwNXaCy9/u492vA0="/>
+    <field:display field="doNotUse" id="s_com_lela_data_domain_entity_ProductImage_doNotUse" object="${productimage}" z="218zU/GZI/arlLqm9AD12hphj3s="/>
+    <field:display field="imageAngle" id="s_com_lela_data_domain_entity_ProductImage_imageAngle" object="${productimage}" z="931NADgn0fJRU92UcQGk00P0Ri8="/>
+    <field:display field="imageType" id="s_com_lela_data_domain_entity_ProductImage_imageType" object="${productimage}" z="lQO7Ba6xARNneWVUt0kAnXcKgro="/>
+    <field:display field="resolution" id="s_com_lela_data_domain_entity_ProductImage_resolution" object="${productimage}" z="HeMjgHp27786FpSxZsj5htSm634="/>
+    <field:display field="preferred" id="s_com_lela_data_domain_entity_ProductImage_preferred" object="${productimage}" z="gsykZgJVDhb6gfJSHEbkm6NK78U="/>
+    <field:display field="uploadReason" id="s_com_lela_data_domain_entity_ProductImage_uploadReason" object="${productimage}" z="pIx9+QlqKncszYpn5t075QuLTRE="/>
+    <field:display field="imageHeight" id="s_com_lela_data_domain_entity_ProductImage_imageHeight" object="${productimage}" z="g80jrB8/dJmT3ji7BQsgDfVHwAE="/>
+    <field:display field="imageWidth" id="s_com_lela_data_domain_entity_ProductImage_imageWidth" object="${productimage}" z="imnFRKVykxogaMvDjcs37VxY/GQ="/>
+    <field:display field="imageURLScaled" id="s_com_lela_data_domain_entity_ProductImage_imageURLScaled" object="${productimage}" z="07s06znReRINyeUfGulAYzBAfww="/>
+  </page:show>
+</div>

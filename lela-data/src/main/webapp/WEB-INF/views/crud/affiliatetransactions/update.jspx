@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_AffiliateTransaction" modelAttribute="affiliateTransaction" path="/crud/affiliatetransactions" versionField="Version" z="wWNdM8y7jBEPzUXe3Wu+DWvxz4s=">
+        <field:datetime dateTimePattern="${affiliateTransaction_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_AffiliateTransaction_dateCreated" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${affiliateTransaction_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_AffiliateTransaction_dateModified" render="false" z="user-managed"/>
+        <field:input field="network" id="c_com_lela_data_domain_entity_AffiliateTransaction_network" z="7mAeZB/U5iDlvrihDokYDt/i2IY="/>
+        <field:input field="orderId" id="c_com_lela_data_domain_entity_AffiliateTransaction_orderId" z="1SAjbCwc1vjdJ3hOQ5DhM59lIFs="/>
+        <field:datetime dateTimePattern="${affiliateTransaction_transactiondate_date_format}" field="transactionDate" id="c_com_lela_data_domain_entity_AffiliateTransaction_transactionDate" z="6p4sBjs3OMcMAKvpBjuqYMSfkkU="/>
+        <field:datetime dateTimePattern="${affiliateTransaction_referraldate_date_format}" field="referralDate" id="c_com_lela_data_domain_entity_AffiliateTransaction_referralDate" z="b2vy6d6Kdjdta95gn8RYJc7iZ3I="/>
+        <field:input field="advertiserName" id="c_com_lela_data_domain_entity_AffiliateTransaction_advertiserName" z="6+KP7LBS3CrKWnR4uu45s9/BVoE="/>
+        <field:input field="salesAmount" id="c_com_lela_data_domain_entity_AffiliateTransaction_salesAmount" validationMessageCode="field_invalid_number" z="0sD2LMrVGpxswK5TqhEa61mywUo="/>
+        <field:input field="commissionAmount" id="c_com_lela_data_domain_entity_AffiliateTransaction_commissionAmount" validationMessageCode="field_invalid_number" z="pEQ27tgGuSuom5keip0UE53NxrE="/>
+        <field:datetime dateTimePattern="${affiliateTransaction_processdate_date_format}" field="processDate" id="c_com_lela_data_domain_entity_AffiliateTransaction_processDate" z="0BvkKG4QfRvrkhL4LsjMZ3wLoq4="/>
+        <field:input field="revenueId" id="c_com_lela_data_domain_entity_AffiliateTransaction_revenueId" validationMessageCode="field_invalid_integer" z="JqaZdPZ4aMU3trDAucTQIA9m/lU="/>
+        <field:input field="providerId" id="c_com_lela_data_domain_entity_AffiliateTransaction_providerId" validationMessageCode="field_invalid_integer" z="hiy1Q0uL8p9b54o/A1iLaRj5tIY="/>
+        <field:input field="provider" id="c_com_lela_data_domain_entity_AffiliateTransaction_provider" z="qYIrNv4lo048sEHLGI/n/iEWpfg="/>
+        <field:input field="organizationId" id="c_com_lela_data_domain_entity_AffiliateTransaction_organizationId" validationMessageCode="field_invalid_integer" z="UglMEs/yXMME9ufQ3Jv9g4FcpLI="/>
+        <field:datetime dateTimePattern="${affiliateTransaction_eventdate_date_format}" field="eventDate" id="c_com_lela_data_domain_entity_AffiliateTransaction_eventDate" z="XU+kFTLXtNg8x1EMCMV8wyaICtw="/>
+        <field:datetime dateTimePattern="${affiliateTransaction_clickdate_date_format}" field="clickDate" id="c_com_lela_data_domain_entity_AffiliateTransaction_clickDate" z="v5NOsgfSHq6wTrTlBPYyccWUQBo="/>
+        <field:input field="productName" id="c_com_lela_data_domain_entity_AffiliateTransaction_productName" z="dMhiUMNawKB6mkFuJWoCqYhcCxc="/>
+        <field:input field="productCategory" id="c_com_lela_data_domain_entity_AffiliateTransaction_productCategory" z="6+PniCRvkCHchHFiwYE965Xar7k="/>
+        <field:input field="quantity" id="c_com_lela_data_domain_entity_AffiliateTransaction_quantity" validationMessageCode="field_invalid_integer" z="j2HzbthyT9e0Nu9pK9uMADSxibs="/>
+        <field:input field="subId" id="c_com_lela_data_domain_entity_AffiliateTransaction_subId" z="qrlCtVL0+MKDX8PNbrW24/YccTk="/>
+        <field:input field="trackingId" id="c_com_lela_data_domain_entity_AffiliateTransaction_trackingId" z="lV2yfU+2c8c/t3M7c+rDjzgtBq8="/>
+        <field:input field="referringProductId" id="c_com_lela_data_domain_entity_AffiliateTransaction_referringProductId" z="z1OhGGj64DVKZI4A0OO+vD9XkOA="/>
+        <field:input field="redirectId" id="c_com_lela_data_domain_entity_AffiliateTransaction_redirectId" z="so+FIOaCrWOyIIiHfbpLpTw6c5Q="/>
+        <field:select field="affiliateReport" id="c_com_lela_data_domain_entity_AffiliateTransaction_affiliateReport" items="${affiliatereports}" path="/crud/affiliatereports" z="user-managed"/>
+        <field:input field="productId" id="c_com_lela_data_domain_entity_AffiliateTransaction_productId" z="riyMEbsWXRbfroA71rz40fFSQJU="/>
+        <field:input field="userId" id="c_com_lela_data_domain_entity_AffiliateTransaction_userId" z="VjosTjYdDn+pteZVJ4Q3yWjHAvE="/>
+        <field:input field="redirectUrl" id="c_com_lela_data_domain_entity_AffiliateTransaction_redirectUrl" z="5oLRvGYd6ynkhuujiKfAzHGiuPA="/>
+        <field:input field="firstName" id="c_com_lela_data_domain_entity_AffiliateTransaction_firstName" z="xpnbVo2GPb/L+k/nofKDB84e2dY="/>
+        <field:input field="lastName" id="c_com_lela_data_domain_entity_AffiliateTransaction_lastName" z="M+C33vJVTRevyw1Wvh1KY4AIgv0="/>
+        <field:input field="association" id="c_com_lela_data_domain_entity_AffiliateTransaction_association" z="LcjbrAckSlYGiL9zLYIRzpqRrgQ="/>
+        <field:input field="email" id="c_com_lela_data_domain_entity_AffiliateTransaction_email" validationMessageCode="field_invalid_email" z="n/0Tv/QuXDkA/GQGPHJK1r7ptp8="/>
+        <field:checkbox field="syncdMongo" id="c_com_lela_data_domain_entity_AffiliateTransaction_syncdMongo" z="hWXvANuetuo53fLOhnBqG0oHXAM="/>
+    </form:update>
+</div>

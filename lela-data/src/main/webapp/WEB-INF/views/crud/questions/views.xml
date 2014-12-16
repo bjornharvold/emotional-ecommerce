@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="crud/questions/list">
+        <put-attribute name="body" value="/WEB-INF/views/crud/questions/list.jspx"/>
+    </definition>
+<definition extends="default" name="crud/questions/show">
+        <put-attribute name="body" value="/WEB-INF/views/crud/questions/show.jspx"/>
+    </definition>
+<definition extends="default" name="crud/questions/create">
+        <put-attribute name="body" value="/WEB-INF/views/crud/questions/create.jspx"/>
+    </definition>
+<definition extends="default" name="crud/questions/update">
+        <put-attribute name="body" value="/WEB-INF/views/crud/questions/update.jspx"/>
+    </definition>
+</tiles-definitions>

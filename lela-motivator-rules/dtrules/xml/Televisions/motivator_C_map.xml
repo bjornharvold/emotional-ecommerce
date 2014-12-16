@@ -1,0 +1,53 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='TV_ID' RAttribute='TV_ID' enclosure='job' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+			
+			<setattribute tag='TV_ID' RAttribute='TV_ID' enclosure='television' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='television' type='integer'></setattribute>
+			<setattribute tag='CNETEditorsRating' RAttribute='CNETEditorsRating' enclosure='television' type='string'></setattribute>
+			<setattribute tag='CNETPerformance' RAttribute='CNETPerformance' enclosure='television' type='integer'></setattribute>
+			<setattribute tag='CRHDPictureQuality' RAttribute='CRHDPictureQuality' enclosure='television' type='string'></setattribute>
+			<setattribute tag='CRSoundQuality' RAttribute='CRSoundQuality' enclosure='television' type='string'></setattribute>
+			<setattribute tag='CRTested' RAttribute='CRTested' enclosure='television' type='string'></setattribute>
+			<setattribute tag='AudioSystem_SoundOutputMode' RAttribute='AudioSystem_SoundOutputMode' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Television_Technology' RAttribute='Television_Technology' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Television_DiagonalSize' RAttribute='Television_DiagonalSize' enclosure='television' type='double'></setattribute>
+			<setattribute tag='Television_Type' RAttribute='Television_Type' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Television_Resolution' RAttribute='Television_Resolution' enclosure='television' type='string'></setattribute>
+			<setattribute tag='NetworkInternetMultimedia_Connectivity' RAttribute='NetworkInternetMultimedia_Connectivity' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Television_HDCPCompatible' RAttribute='Television_HDCPCompatible' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Television_LCDBacklightTechnology' RAttribute='Television_LCDBacklightTechnology' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Television_DisplayFormat' RAttribute='Television_DisplayFormat' enclosure='television' type='string'></setattribute>
+			<setattribute tag='EnvironmentalStandards_ENERGYSTARQualified' RAttribute='EnvironmentalStandards_ENERGYSTARQualified' enclosure='television' type='string'></setattribute>
+			<setattribute tag='EnvironmentalStandards_ENERGYSTARVersion' RAttribute='EnvironmentalStandards_ENERGYSTARVersion' enclosure='television' type='double'></setattribute>
+			<setattribute tag='Power_PowerConsumptionStandbySleep' RAttribute='Power_PowerConsumptionStandbySleep' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Television_HDMIPortsQty' RAttribute='Television_HDMIPortsQty' enclosure='television' type='integer'></setattribute>
+			<setattribute tag='Display_AdditionalFeatures' RAttribute='Display_AdditionalFeatures' enclosure='television' type='string'></setattribute>
+			<setattribute tag='MediaPlayer_USBPort' RAttribute='MediaPlayer_USBPort' enclosure='television' type='string'></setattribute>
+			<setattribute tag='MediaPlayer_SupportedFlashMemoryCards' RAttribute='MediaPlayer_SupportedFlashMemoryCards' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Display_PixelResponseTime' RAttribute='Display_PixelResponseTime' enclosure='television' type='string'></setattribute>
+			<setattribute tag='Display_MotionEnhancementTechnology' RAttribute='Display_MotionEnhancementTechnology' enclosure='television' type='string'></setattribute>			
+			<setattribute tag='ManufacturerWarranty_ServiceSupport' RAttribute='ManufacturerWarranty_ServiceSupport' enclosure='television' type='string'></setattribute>		
+
+			<createentity entity='job' 			tag='job'			id='id'></createentity>
+			<createentity entity='television' 	tag='television' 	id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+			<entity name='television' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

@@ -1,0 +1,66 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          version="2.0">
+
+    <spring:url value="/static/images/icons/tooltip.gif" var="tooltipImgUrl" />
+    <jsp:directive.tag body-content="empty"/>
+    <jsp:directive.attribute name="item" type="com.lela.domain.document.RelevantItem" required="true"/>
+
+    <ul id="l-rtg">
+        <c:if test="${item.mtvtrs['A'] gt 0}">
+            <li>
+                <span><spring:message code="item.tabs.rating.safety"/><img src="${tooltipImgUrl}" class="trigger" alt="tooltip"/></span>
+                <div class="tooltip"><strong><spring:message code="item.tabs.rating.safety"/></strong><spring:message code="item.tabs.rating.safety.tooltip"/></div>
+                <div class="rtg-b">
+                    <div class="rtg-v" style="width:${item.mtvtrs['A'] * 19}px;"><!-- --></div>
+                </div>
+            </li>
+        </c:if>
+        <c:if test="${item.mtvtrs['B'] gt 0}">
+            <li>
+                <span><spring:message code="item.tabs.rating.popularity"/><img src="${tooltipImgUrl}" class="trigger" alt="tooltip"/></span>
+                <div class="tooltip"><strong><spring:message code="item.tabs.rating.popularity"/></strong><spring:message code="item.tabs.rating.popularity.tooltip"/></div>
+                <div class="rtg-b">
+                    <div class="rtg-v" style="width:${item.mtvtrs['B'] * 19}px;"><!-- --></div>
+                </div>
+            </li>
+        </c:if>
+        <c:if test="${item.mtvtrs['C'] gt 0}">
+            <li>
+                <span><spring:message code="item.tabs.rating.quality"/><img src="${tooltipImgUrl}" class="trigger" alt="tooltip"/></span>
+                <div class="tooltip"><strong><spring:message code="item.tabs.rating.quality"/></strong><spring:message code="item.tabs.rating.quality.tooltip"/></div>
+                <div class="rtg-b">
+                    <div class="rtg-v" style="width:${item.mtvtrs['C'] * 19}px;"><!-- --></div>
+                </div>
+            </li>
+        </c:if>
+        <c:if test="${item.mtvtrs['D'] gt 0}">
+            <li>
+                <span><spring:message code="item.tabs.rating.stylish"/><img src="${tooltipImgUrl}" class="trigger" alt="tooltip"/></span>
+                <div class="tooltip"><strong><spring:message code="item.tabs.rating.stylish"/></strong><spring:message code="item.tabs.rating.stylish.tooltip"/></div>
+                <div class="rtg-b">
+                    <div class="rtg-v" style="width:${item.mtvtrs['D'] * 19}px;"><!-- --></div>
+                </div>
+            </li>
+        </c:if>
+        <c:if test="${item.mtvtrs['F'] gt 0}">
+            <li>
+                <span><spring:message code="item.tabs.rating.comfort"/><img src="${tooltipImgUrl}" class="trigger" alt="tooltip"/></span>
+                <div class="tooltip"><strong><spring:message code="item.tabs.rating.comfort"/></strong><spring:message code="item.tabs.rating.comfort.tooltip"/></div>
+                <div class="rtg-b">
+                    <div class="rtg-v" style="width:${item.mtvtrs['F'] * 19}px;"><!-- --></div>
+                </div>
+            </li>
+        </c:if>
+    </ul>
+</jsp:root>

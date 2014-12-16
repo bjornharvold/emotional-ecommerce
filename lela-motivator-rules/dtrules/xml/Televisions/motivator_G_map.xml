@@ -1,0 +1,36 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'></setattribute>
+			<setattribute tag='TV_ID' RAttribute='TV_ID' enclosure='job' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'></setattribute>
+			
+			<setattribute tag='TV_ID' RAttribute='TV_ID' enclosure='television' type='string'></setattribute>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='television' type='integer'></setattribute>
+            <setattribute tag='General_TimerFunctions' RAttribute='General_TimerFunctions' enclosure='television' type='string'></setattribute>
+            <setattribute tag='Power_PowerConsumptionOperational' RAttribute='Power_PowerConsumptionOperational' enclosure='television' type='string'></setattribute>
+            <setattribute tag='Power_PowerConsumptionStandbySleep' RAttribute='Power_PowerConsumptionStandbySleep' enclosure='television' type='string'></setattribute>
+            <setattribute tag='EnvironmentalStandards_ENERGYSTARVersion' RAttribute='EnvironmentalStandards_ENERGYSTARVersion' enclosure='television' type='double'></setattribute>
+            <setattribute tag='EnvironmentalStandards_ENERGYSTARQualified' RAttribute='EnvironmentalStandards_ENERGYSTARQualified' enclosure='television' type='string'></setattribute>
+            <setattribute tag='CREnergyCostYr' RAttribute='CREnergyCostYr' enclosure='television' type='double'></setattribute>
+            <setattribute tag='ListPrice' RAttribute='ListPrice' enclosure='television' type='double'></setattribute>
+
+			<createentity entity='job' 			tag='job'			id='id'></createentity>
+			<createentity entity='television' 	tag='television' 	id='id'></createentity>
+			<createentity entity='constants' 	tag='constants' 	id='id'></createentity>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'></entity>
+			<entity name='job'		 	number='1'></entity>
+			<entity name='television' 	number='*'></entity>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'></initialentity>
+			<initialentity entity='job' 		epush='true'></initialentity>
+        </initialization>
+    </XMLtoEDD>
+</mapping>

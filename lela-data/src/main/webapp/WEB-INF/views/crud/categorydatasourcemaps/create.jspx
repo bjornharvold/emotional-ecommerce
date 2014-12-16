@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_lela_data_domain_entity_CategoryDataSourceMap" modelAttribute="categoryDataSourceMap" path="/crud/categorydatasourcemaps" render="${empty dependencies}" z="Kovm8Jo4sa3ImCa0t8R87iuoHPI=">
+        <field:datetime dateTimePattern="${categoryDataSourceMap_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_CategoryDataSourceMap_dateCreated" z="JjtA74w7nGoje4G+ALEABAOz1DE="/>
+        <field:datetime dateTimePattern="${categoryDataSourceMap_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_CategoryDataSourceMap_dateModified" z="OPIImN/Q+C1Os0MGjk5gMEjaEbY="/>
+        <field:select field="dataSource" id="c_com_lela_data_domain_entity_CategoryDataSourceMap_dataSource" itemValue="id" items="${datasourcetypes}" path="/crud/datasourcetypes" z="72/RWC1rJsNQgYglITOvxOm8RM8="/>
+        <field:input field="dataSoureceString" id="c_com_lela_data_domain_entity_CategoryDataSourceMap_dataSoureceString" z="feasPIaxRManueMIx85L12hvW0A="/>
+        <field:input field="attributeName" id="c_com_lela_data_domain_entity_CategoryDataSourceMap_attributeName" z="+u32/Vz14Hr0pe1XcbzIJWUbbNQ="/>
+        <field:input field="attributeValue" id="c_com_lela_data_domain_entity_CategoryDataSourceMap_attributeValue" z="69eISYEaZ14zk1r/Ed3+Dr4WWrI="/>
+        <field:select field="category" id="c_com_lela_data_domain_entity_CategoryDataSourceMap_category" itemValue="id" items="${categorys}" path="/crud/categorys" z="sBqjErwEFnxoAqXxuYfP5/1xYsY="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_lela_data_domain_entity_CategoryDataSourceMap" render="${not empty dependencies}" z="e5O07El1X/3z6cu5FButJVNztNw="/>
+</div>

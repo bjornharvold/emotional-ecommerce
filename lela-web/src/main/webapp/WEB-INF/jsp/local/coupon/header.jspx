@@ -1,0 +1,35 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <div id="cp-header">
+        <h1>
+            <span>Lela Local</span>
+            <spring:url value="/static/images/local/branches/header_${offer.brnchrlnm}.png" var="headerImgUrl"/>
+            <img src="${headerImgUrl}" alt="Giggle - Lela Local"/>
+        </h1>
+
+        <div class="cp-offer">
+            <spring:url value="/static/images/local/branches/offer_${offer.rlnm}.png" var="offerImgUrl"/>
+            <img src="${offerImgUrl}" alt="Giggle - Lela Local"/>
+        </div>
+    </div>
+
+    <div class="cp-buffer"><!-- --></div>
+
+
+</jsp:root>

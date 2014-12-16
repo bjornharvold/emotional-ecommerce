@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_BrandName" modelAttribute="brandName" path="/crud/brandnames" versionField="Version" z="bKEZ7A+Q8WxTJXC7tONVqMCbFMY=">
+      <field:datetime dateTimePattern="${brandName_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_BrandName_dateCreated" z="user-managed" render="false"/>
+      <field:datetime dateTimePattern="${brandName_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_BrandName_dateModified" z="user-managed" render="false"/>
+      <field:select field="brand" id="c_com_lela_data_domain_entity_BrandName_brand" itemValue="id" items="${brands}" path="/brands" z="user-managed"/>
+      <field:select field="locale" id="c_com_lela_data_domain_entity_BrandName_locale" itemValue="id" items="${locales}" path="/locales" z="user-managed"/>
+      <field:input field="brandName" id="c_com_lela_data_domain_entity_BrandName_brandName" required="true" z="sFnAnONiAUWvVzFUIOwTWUlG4Jc="/>
+      <field:input field="mainName" id="c_com_lela_data_domain_entity_BrandName_mainName" required="true" validationMessageCode="field_invalid_integer" z="+iU+8/MG++whqPpw5oH07KzjbVY="/>
+    </form:update>
+</div>

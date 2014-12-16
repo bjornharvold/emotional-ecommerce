@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Grid API Test</title>
+    <script lela-url="" src="/api/resource/productgrid/productgrid.js?affiliateId=lela&applicationId=test-grid"></script>
+</head>
+<body>
+<div id="productgrid-container"></div>
+<script type="text/javascript">
+    Lela.createGrid({
+        affiliateId: 'lela',
+        applicationId: 'test-grid',
+        targetSelector: '#productgrid-container',
+        maxItems: 12,
+        user: {
+            email: "chris@tallented.net"
+        },
+        gridCreated: function(options) { console.log('Grid created callback'); }
+    });
+</script>
+</body>
+</html>

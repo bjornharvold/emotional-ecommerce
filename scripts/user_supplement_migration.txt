@@ -1,0 +1,43 @@
+# move all properties over to UserSupplement
+
+db.user.find({cd : {$exists : true}}).forEach(function(a) {
+var data = {
+  "_class" : "com.lela.domain.document.UserSupplement",
+  "cdt" : a.cdt,
+  "ldt" : a.ldt,
+  "cd" : a.cd
+};
+if (a.mtvtrmp) {
+   data.mtvtrmp = {};
+   for (var index in a.mtvtrmp) {
+      var obj = a.mtvtrmp[index];
+      data.mtvtrmp[index] = {"tp" : index, "mtvtrs" : obj};
+   }
+}
+if (a.fltrprsts && a.fltrprsts.length > 0) data.fltrprsts = a.fltrprsts;
+if (a.lrts && a.lrts > 0) data.lrts = a.lrts;
+if (a.attrs && a.attrs.length > 0) data.attrs = a.attrs;
+if (a.ssctns && a.ssctns.length > 0) data.ssctns = a.ssctns;
+if (a.fdbck) data.fdbck = a.fdbck;
+if (a.vnts && a.vnts.length > 0) data.vnts = a.vnts;
+if (a.cpns && a.cpns.length > 0) data.cpns = a.cpns;
+if (a.nswrs && a.nswrs.length > 0) data.nswrs = a.nswrs;
+if (a.scls && a.scls.length > 0) data.scls = a.scls;
+if (a.mtrcs) data.mtrcs = a.mtrcs;
+if (a.strs && a.strs.length > 0) data.strs = a.strs;
+if (a.tms && a.tms.length > 0) data.tms = a.tms;
+if (a.wndtms && a.wndtms.length > 0) data.wndtms = a.wndtms;
+if (a.rwrds && a.rwrds.length > 0) data.rwrds = a.rwrds;
+if (a.frndlvl) data.frndlvl = a.frndlvl;
+if (a.czp) data.czp = a.czp;
+if (a.cntry) data.cntry = a.cntry;
+if (a.db) data.db = a.db;
+if (a.gndr) data.gndr = a.gndr;
+if (a.hzp) data.hzp = a.hzp;
+if (a.phn) data.phn = a.phn;
+db.userSupplement.insert(data);
+});
+
+# remove same properties on user collection
+
+db.user.update({cd : {$exists : true}}, {$unset : {mtvtrmp : 1, fltrprsts : 1, srtprst : 1, lrts : 1, attrs : 1, ssctns : 1, fdbck : 1, vnts : 1, cpns : 1, nswrs : 1, scls : 1, mtrcs : 1, strs : 1, tms : 1, wndtms : 1, rwrds : 1, frndlvl : 1, czp : 1, cntry : 1, db : 1, gndr : 1, hzp : 1, phn : 1, ctgrs : 1, nvttns : 1}}, false, true);

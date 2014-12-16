@@ -1,0 +1,130 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <h1><spring:message code="static.content.title"/></h1>
+
+    <spring:url value="/administration/static/content/list" var="staticListUrl"/>
+    <div class="actions">
+        <a class="action" href="${staticListUrl}">&lt; <spring:message code="static.content.back.to.list"/></a>
+        <div class="clear"><!-- --></div>
+    </div>
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if> 
+    <spring:url value="/administration/static/content" var="updateUrl"/>
+    <spring-form:form class="" action="${updateUrl}" method="POST" modelAttribute="staticContent"  commandName="staticContent"  enctype="multipart/form-data">
+
+        <div class="h-row even">
+            <div class="h-col"><spring-form:label path="staticContent.nm"><spring:message code="static.content.name"/></spring-form:label></div>
+            <div class="h-col"><spring-form:input path="staticContent.nm" size="60"/></div>
+            <spring-form:errors path="staticContent.nm" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+        
+        <div class="h-row odd">
+            <div class="h-col"><spring-form:label path="staticContent.rlnm"><spring:message code="static.content.url"/></spring-form:label></div>
+            <div class="h-col"><spring-form:input path="staticContent.rlnm" size="60"/></div>
+            <spring-form:errors path="staticContent.rlnm" cssClass="error"/>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+
+        <div class="h-row even">
+            <div class="h-col"><label for="multipartFile"><spring:message code="image.text"/></label></div>
+            <div class="h-col l-col"><input type="file" id="multipartFile" name="multipartFile"/>&#160;<spring-form:errors path="multipartFile" cssClass="red"/><br/>
+
+			<c:if test="${!empty imageUrl }" >
+                <spring:message code="image.url"/>: &#160; ${imageUrl}
+       		</c:if>
+            </div>
+            <div class="clear"><!-- --></div>
+        </div>
+        
+        <div class="h-row odd">
+
+            <div class="h-col">
+            <div class="v-col">
+            	<spring-form:label path="staticContent.bdy"><spring:message code="static.content.body"/></spring-form:label>
+            	<spring-form:label path="staticContent.vlctytmplt">
+            	     <spring:message code="static.content.is.velocity.template"/>
+            	     <a href="javascript:toggleDiv('velocityInstructions');">(Instructions)</a>
+            	</spring-form:label>
+            	<spring-form:checkbox id="vlctytmplt" path="staticContent.vlctytmplt" /> 
+            </div>
+            
+	
+            <div id="velocityInstructions" class="v-col" style="background-color: #ccc; padding: 5px 10px;" >  
+
+               <p> 
+               To specify values in the velocity template, use the dot notation for properties.
+               </p>
+               <p>
+               For example:
+               </p>
+               <p>
+               \${o.a.b}
+               where the 'o' is a required value.
+               </p>
+               <li>a - can be 'campaign',  affilaite' or 'parameter' </li>
+               <li>b - is a property of the campaign or affilate or a parameter</li>
+               <li>In the case of a parameter, the name of the parameter. </li>
+               <li>A parameter can be : </li>
+               <ul>
+                     <li> An attribute on the request or session </li>
+                     <li> A request parameter passed on the url </li>
+               </ul>
+               <p> For example </p>
+               <p> 
+               <p>This static content is for \${o.campaign.rlnm} belonging to affliate \${o.affiliate.nm}.</p>
+               <p>The parameter value for the parameter 'foo' in the request is \${o.parameter.foo} and that 
+               for the parameter 'bar' in the session is \${o.parameter.bar}</p>
+               </p>
+               </div>         
+            </div>
+            
+                
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+        
+        <div class="h-row even">
+            <div class="h-col"><spring-form:textarea id="id" path="staticContent.bdy" cols="150" rows="15"/> <spring-form:errors path="staticContent.bdy" cssClass="error"/>   </div>
+            <div class="error"><!-- --></div>
+            <div class="clear"><!-- --></div>
+        </div>
+        
+        
+        <div class="s-row">
+            <spring-form:hidden path="staticContent.id"/>
+            <div class="s-col"><input type="submit" name="Submit" value="Save"/></div>
+            <div class="clear"><!-- --></div>
+        </div>
+        
+    </spring-form:form>
+
+    <script type="text/javascript">
+        $('textarea#id').ckeditor();
+    </script>
+    <script type="text/javascript">
+        function toggleDiv(divId) {
+             $("#"+divId).toggle();
+        }
+        toggleDiv("velocityInstructions");
+    </script>
+
+</div>

@@ -1,0 +1,180 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+    <tiles:importAttribute name="type" ignore="true"/>
+    <tiles:importAttribute name="item" ignore="true"/>
+    <tiles:importAttribute name="stores" ignore="true"/>
+
+    <lela:findUser/>
+
+    <spring:url value="/sc/terms" var="termsUrl" />
+    <spring:url value="/list/store" var="lelaStoreUrl" />
+    <spring:url value="/user/list/card/delete" var="lelaStoreDeleteUrl" />
+    <spring:url value="/item/${item.rlnm}/stores" var="localStoreUrl" />
+
+    <script type="text/javascript">
+        var localStoreUrl = '${localStoreUrl}';
+    </script>
+
+    <div id="buy-tbl-${type}" class="buy-content">
+        <table class="tbl" border="0" cellpadding="0" cellspacing="0">
+
+            <c:choose>
+                <c:when test="${!empty stores}">
+
+                    <thead>
+                        <tr>
+                            <th class="new-window-hd">
+                                <a href="#"><spring:message code="button.compare"/></a>
+                                <span><spring:message code="button.compare"/></span>
+                            </th>
+                            <th><spring:message code="item.where.buy.seller"/></th>
+                            <th><spring:message code="item.where.buy.price"/></th>
+                            <th class="buy-deals"><spring:message code="item.where.buy.promotions" htmlEscape="false"/></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:set var="favoriteStores" value="false"/>
+                        <c:set var="storeCount" value="1"/>
+                        <c:forEach var="store" items="${stores}" varStatus="status">
+
+                            <c:if test="${type eq 'online' or (type eq 'favorite' and !empty us.savedStores[store.rlnm])}">
+
+                                <c:if test="${type eq 'favorite' and !empty us.savedStores[store.rlnm]}">
+                                    <script type="text/javascript">var favoriteStores = true;</script>
+                                    <c:set var="favoriteStores" value="true"/>
+                                </c:if>
+
+                                <tr class="row-${store.rlnm} ${(storeCount) % 2 == 1 ? 'row-even' : 'row-odd'}">
+                                    <td class="new-window"><input type="checkbox" value="${store.nm}" /></td>
+                                    <td class="buy-store">
+
+                                        <div class="buy-store-cont">
+
+                                            <spring:url value="/merchant/redirect" var="redirectPurchaseUrl">
+                                                <spring:param name="merchantId" value="${store.mrchntd}" />
+                                                <spring:param name="itemId" value="${item.rlnm}" />
+                                            </spring:url>
+                                            <a href="${redirectPurchaseUrl}" target="_blank" class="buy-now" data-type="bottom" store="${store.nm}" rel="nofollow">See it at <strong>${store.nm}</strong></a>
+
+                                            <c:if test="${empty domainAffiliate or domainAffilate.shwlsts}">
+                                            <spring:url var="addListItem" value="/user/list/names?type=store"/>
+                                            <a rel="nofollow" href="${addListItem}" class="l-list l-list-add" rlnm="${store.rlnm}"><!-- --></a>
+                                            </c:if>
+
+                                        </div>
+
+                                    </td>
+                                    <td class="list-price">
+                                        <c:choose>
+                                            <c:when test="${!empty store.tms[0].subAttributes['ListPrice']}">
+                                                <!-- Online Store price -->
+                                                <fmt:formatNumber type="CURRENCY" value="${store.tms[0].subAttributes['ListPrice']}" />
+
+                                                <!-- TBC
+                                                <c:forEach items="${store.tms}" var="storeItem">
+                                                    <fmt:formatNumber type="CURRENCY" value="${storeItem.subAttributes['ListPrice']}" /><br/>
+                                                </c:forEach>
+                                                -->
+
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span><spring:message code="item.where.buy.pricing"/></span>
+                                            </c:otherwise>
+                                        </c:choose>
+
+                                    </td>
+                                    <td class="buy-deals">
+                                        <c:if test="${!empty store.dls}">
+                                            <ul>
+                                                <c:forEach items="${store.dls}" var="deal" end="0">
+                                                    <c:set var="dealName" value="Go to store for deal details"/>
+                                                    <c:if test="${!empty deal.nm}">
+                                                        <c:set var="dealName" value="${deal.nm}"/>
+                                                    </c:if>
+                                                    <li class="deal-item">${dealName}
+                                                        <c:if test="${fn:length(store.dls) gt 1}">
+                                                            <br/><a href="#deal-${store.rlnm}" class="more-deals" rel="nofollow"><spring:message code="button.seemore.deals"/></a>
+                                                        </c:if>
+                                                    </li>
+                                                </c:forEach>
+                                            </ul>
+                                        </c:if>
+                                    </td>
+                                </tr>
+
+                                <c:set var="storeCount" value="${storeCount + 1}"/>
+                            </c:if>
+                        </c:forEach>
+
+                        <c:if test="${type eq 'favorite' and favoriteStores eq 'false'}">
+                            <tr class="no-favorite-stores"><td><p class="no-stores"><spring:message code="item.where.favorite.empty" htmlEscape="false"/></p></td></tr>
+                        </c:if>
+
+                    </tbody>
+
+                </c:when>
+                <c:otherwise>
+                    <tr><td>
+                        <p class="no-stores"><spring:message code="item.where.online.empty" htmlEscape="false"/></p>
+                    </td></tr>
+                </c:otherwise>
+            </c:choose>
+        </table>
+
+        <div id="buy-disclaimer">
+            <spring:message code="item.where.terms" arguments="${termsUrl}" htmlEscape="false"/>
+            <span id="price-footnote"><spring:message code="item.where.price.footnote"/></span>
+        </div>
+    </div>
+
+    <!-- Deals modals (create 1 modal for each store that has more than 1 deal) -->
+    <c:if test="${type eq 'online'}">
+        <c:forEach var="store" items="${stores}">
+            <c:if test="${fn:length(store.dls) gt 1}">
+                <div style="display:none;">
+                    <div id="deal-${store.rlnm}" class="deal-modal">
+                        <h2>
+                            <spring:message code="item.details.dealsandpromotions" htmlEscape="false"/>
+
+                            <spring:url value="/merchant/redirect" var="redirectPurchaseUrl">
+                                <spring:param name="merchantId" value="${store.mrchntd}" />
+                                <spring:param name="itemId" value="${item.rlnm}" />
+                                <spring:param name="url" value="${store.tms[0].subAttributes['PurchaseUrl']}" />
+                            </spring:url>
+                            <a href="${redirectPurchaseUrl}" target="_blank" class="buy-now" data-type="deals" store="${store.nm}" rel="nofollow">at ${store.nm}</a>
+                        </h2>
+
+                        <ul>
+                            <c:forEach items="${store.dls}" var="deal" varStatus="status">
+                                <li><a href="${deal.rl}" class="buy-now" data-type="deals" store="${store.nm}" target="_blank" rel="nofollow">${deal.nm}</a></li>
+                            </c:forEach>
+                        </ul>
+                    </div>
+                </div>
+            </c:if>
+        </c:forEach>
+    </c:if>
+
+    <script type="text/javascript">
+        <c:if test="${type eq 'favorite' and favoriteStores eq 'false'}">
+            $('#buy-tbl-favorite thead').hide();
+        </c:if>
+    </script>
+    
+</jsp:root>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+
+    <context:component-scan base-package="com.lela.commons"/>
+
+    <import resource="classpath:META-INF/spring/spring-config.xml"/>
+    <import resource="classpath:META-INF/spring/spring-property-configurer.xml"/>
+    <import resource="classpath:META-INF/spring/email.xml"/>
+    <import resource="classpath:META-INF/spring/velocity.xml"/>
+    <import resource="classpath:META-INF/spring/encryption.xml"/>
+    <import resource="classpath:META-INF/spring/mongodb.xml"/>
+    <import resource="security.xml"/>
+    <import resource="classpath:META-INF/spring/cache.xml"/>
+    <import resource="classpath:META-INF/spring/social.xml"/>
+    <!-- <import resource="classpath:META-INF/spring/bootstrap.xml"/> -->
+    <import resource="classpath:META-INF/spring/geoip.xml"/>
+    <import resource="classpath:META-INF/spring/merchants.xml"/>
+    <import resource="classpath:META-INF/spring/dozer.xml"/>
+    <import resource="classpath:mailjimp-spring-config.xml"/>
+    <import resource="classpath:META-INF/spring/queue.xml"/>
+    <import resource="classpath:META-INF/spring/redirect.xml"/>
+    <import resource="classpath:META-INF/spring/s3-storage.xml"/>
+    <import resource="classpath:META-INF/spring/attribute-validator.xml"/>
+    <!-- search related beans. this file is located in lela-commons -->
+    <import resource="classpath:META-INF/spring/search.xml"/>
+    
+</beans>

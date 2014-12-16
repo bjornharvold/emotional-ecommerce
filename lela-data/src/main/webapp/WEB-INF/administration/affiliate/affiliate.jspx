@@ -1,0 +1,118 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:tags="urn:jsptagdir:/WEB-INF/tags"
+     id="affiliate-account-page">
+    <jsp:output omit-xml-declaration="yes"/>
+    <c:set var="dateFormat" value="MM/dd/yyyy HH:mm.ss"/>
+
+    <spring:message code="link.delete" var="delete"/>
+    <spring:url value="/administration/affiliateaccount/list" var="listUrl"/>
+    <spring:url value="/administration/affiliateaccount" var="updateUrl"/>
+    <spring:url var="affiliateUserUrl" value="/administration/affiliateaccount/${urlName}"/>
+
+    <h1>${affiliate.nm}</h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/affiliateaccount/list" var="listUrl"/>
+        <a class="action" href="${listUrl}">&lt; <spring:message code="affiliate.account.back.to.list"/> </a>
+
+        <spring:url value="/administration/affiliateaccount/${urlName}" var="affiliateAccountUrl"/>
+        <a class="action" href="${affiliateAccountUrl}">&lt; <spring:message code="affiliate.back.to.affiliate.account"/> </a>
+
+        <spring:url value="/administration/affiliateaccount/${urlName}/affiliate/form" var="editUrl">
+            <spring:param name="affiliateUrlName" value="${affiliate.rlnm}"/>
+        </spring:url>
+        <a class="action" href="${editUrl}"><spring:message code="link.edit"/> </a>
+
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <div id="affiliate-details">
+        <dl>
+            <dt><spring:message code="affiliate.name"/></dt>
+            <dd>${affiliate.nm}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="affiliate.url.name"/></dt>
+            <dd>${affiliate.rlnm}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="affiliate.url"/></dt>
+            <dd>${affiliate.rl}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="affiliate.lela.commission"/></dt>
+            <dd>${affiliate.cmmssn}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="affiliate.customer.commission"/></dt>
+            <dd>${affiliate.cstmrcmmssn}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="affiliate.payment.type"/></dt>
+            <dd>${affiliate.pymntmthd}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="affiliate.active"/></dt>
+            <dd>${affiliate.ctv}</dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="affiliate.start.date"/></dt>
+            <dd><fmt:formatDate value="${affiliate.strtdt}" pattern="${dateFormat}"/></dd>
+        </dl>
+        <dl>
+            <dt><spring:message code="affiliate.end.date"/></dt>
+            <dd><fmt:formatDate value="${affiliate.nddt}" pattern="${dateFormat}"/></dd>
+        </dl>
+    </div>
+
+    <hr/>
+
+    <div class="action">${users.totalElements}</div>
+    <h3><spring:message code="affiliate.users"/></h3>
+    <c:if test="${empty users.content}">
+        <spring:message code="affiliate.list.empty"/>
+    </c:if>
+
+    <c:if test="${not empty users.content}">
+
+        <table width="100%">
+            <thead>
+            <tr>
+                <th width="10%"><spring:message code="user.name.first"/></th>
+                <th width="15%"><spring:message code="user.name.last"/></th>
+                <th width="15%"><spring:message code="user.email"/></th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="user" items="${users.content}">
+                <tr>
+                    <td>${user.fnm}</td>
+                    <td>${user.lnm}</td>
+                    <td>${user.ml}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+
+        <tags:lelaPagination url="/administration/affiliateaccount/${urlName}/affiliate/${affiliate.rlnm}" totalElements="${users.totalElements}" totalPages="${users.totalPages}" pageNumber="${users.number}" pageSize="${users.size}"/>
+    </c:if>
+
+</div>

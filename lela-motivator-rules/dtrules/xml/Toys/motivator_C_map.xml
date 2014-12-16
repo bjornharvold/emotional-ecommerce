@@ -1,0 +1,35 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date' subtype=''></setattribute>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string' subtype=''></setattribute>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer' subtype=''></setattribute>
+			<setattribute tag='toyID' RAttribute='toyID' enclosure='job' type='integer' subtype=''></setattribute>
+			
+			<setattribute tag='JPMAInnovationAwardWinner' RAttribute='JPMAInnovationAwardWinner' enclosure='toy' type='string' subtype=''></setattribute>
+			<setattribute tag='motivatorTotal' RAttribute='motivatorTotal' enclosure='toy' type='integer' subtype=''></setattribute>
+			<setattribute tag='motivatorTotalDecimal' RAttribute='motivatorTotalDecimal' enclosure='toy' type='double' subtype=''></setattribute>
+			<setattribute tag='NAPPAAwardWinner' RAttribute='NAPPAAwardWinner' enclosure='toy' type='string' subtype=''></setattribute>
+			<setattribute tag='OppenheimToyPortfolio' RAttribute='OppenheimToyPortfolio' enclosure='toy' type='string' subtype=''></setattribute>
+			<setattribute tag='ParentsChoiceAward' RAttribute='ParentsChoiceAward' enclosure='toy' type='string' subtype=''></setattribute>
+			<setattribute tag='toyID' RAttribute='toyID' enclosure='toy' type='integer' subtype=''></setattribute>
+			<setattribute tag='YoYoPick' RAttribute='YoYoPick' enclosure='toy' type='string' subtype=''></setattribute>
+			
+			<createentity entity='constants' tag='constants' id='id'></createentity>
+			<createentity entity='job' tag='job' id='id'></createentity>
+			<createentity entity='toy' tag='toy' id='id'></createentity>
+		</map>
+		
+		<entities>
+			<entity name='constants' number='1'></entity>
+			<entity name='job' number='1'></entity>
+			<entity name='toy' number='*'></entity>
+		</entities>
+		
+		<initialization>
+			<initialentity entity='constants' epush='true'></initialentity>
+			<initialentity entity='job' epush='true'></initialentity>
+		</initialization>
+	</XMLtoEDD>
+</mapping>

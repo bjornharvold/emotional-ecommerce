@@ -1,0 +1,69 @@
+<!--
+  ~ Copyright (c) 2012. Lela.com.
+  -->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          version="2.0">
+
+    <jsp:directive.tag body-content="empty"/>
+    <jsp:directive.attribute name="format" required="false"/>
+    <jsp:directive.attribute name="category" required="false"/>
+
+    <c:if test="${empty format}">
+        <c:set var="format" value="wide"/>
+    </c:if>
+
+    <spring:url value="/quiz" var="quizUrl" />
+    <spring:url value="/static/images/icons/caret_right_w.png" var="caret" />
+
+    <lela:findUser/>
+
+    <c:choose>
+        <c:when test="${format == 'wide'}">
+
+            <div class="quiz-promo-bar quiz-promo-bar-wide">
+
+                <div class="quiz-banner">
+                    <strong><spring:message code="embeds.quizbanner.text" /></strong>
+                    <c:choose>
+                        <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                            <a href="${quizUrl}" class="lq" quiz-location="Quiz-PD-Top"><spring:message code="quiz.take" htmlEscape="false"/></a>
+                        </c:when>
+                        <c:when test="${loggedInUser != 'anonymousUser' and us.profileStatus == 'PARTIAL'}">
+                            <a href="${quizUrl}" class="lq" quiz-location="Quiz-PD-Top"><spring:message code="quiz.complete" htmlEscape="false"/></a>
+                        </c:when>
+                    </c:choose>
+                </div>
+
+            </div>
+
+        </c:when>
+        <c:when test="${format == 'blog'}">
+
+            <c:if test="${(loggedInUser != 'anonymousUser' and us.profileStatus == 'PARTIAL') or (loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING')}">
+                <div class="quiz-promo-bar quiz-promo-bar-blog">
+
+                    <a href="${quizUrl}" class="quiz-banner" quiz-location="Quiz-Blog">
+                        <c:choose>
+                            <c:when test="${loggedInUser == 'anonymousUser' or us.profileStatus == 'MISSING'}">
+                                <strong><spring:message code="blog.compatibility.text5" arguments="${category}" htmlEscape="false" /><img src="${caret}" /></strong>
+                            </c:when>
+                            <c:when test="${loggedInUser != 'anonymousUser' and us.profileStatus == 'PARTIAL'}">
+                                <strong><spring:message code="blog.compatibility.text6" arguments="${category}" htmlEscape="false" /><img src="${caret}" /></strong>
+                            </c:when>
+                        </c:choose>
+                    </a>
+
+                </div>
+            </c:if>
+
+        </c:when>
+    </c:choose>
+</jsp:root>

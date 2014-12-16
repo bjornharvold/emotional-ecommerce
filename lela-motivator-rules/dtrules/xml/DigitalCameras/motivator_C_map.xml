@@ -1,0 +1,50 @@
+<mapping>
+	<XMLtoEDD>
+		<map>
+			<setattribute tag='currentdate' RAttribute='currentdate' enclosure='job' type='date'/>
+			<setattribute tag='motivator' RAttribute='motivator' enclosure='job' type='string'/>
+			<setattribute tag='result' RAttribute='result' enclosure='job' type='integer'/>
+			<setattribute tag='CameraID' RAttribute='CameraID' enclosure='job' type='integer'/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='job' type='integer'/>
+
+			<setattribute tag='CameraID' RAttribute='CameraID' enclosure='camera' type='string'/>
+			<setattribute tag='BrandID' RAttribute='BrandID' enclosure='camera' type='string'/>
+			<setattribute tag='Brand' RAttribute='Brand' enclosure='camera' type='string'/>
+			<setattribute tag='CNETEditorRating' RAttribute='CNETEditorRating' enclosure='camera' type='double'/>
+			<setattribute tag='CNETImageQuality' RAttribute='CNETImageQuality' enclosure='camera' type='double'/>
+			<setattribute tag='CRImageQuality' RAttribute='CRImageQuality' enclosure='camera' type='string'/>
+			<setattribute tag='CRTested' RAttribute='CRTested' enclosure='camera' type='string'/>
+			<setattribute tag='dpreviewRating' RAttribute='dpreviewRating' enclosure='camera' type='string'/>
+			<setattribute tag='TechliciousRated' RAttribute='TechliciousRated' enclosure='camera' type='string'/>
+			<setattribute tag='BabbleRecommended' RAttribute='BabbleRecommended' enclosure='camera' type='string'/>
+			<setattribute tag='LensSystem_LensAperture' RAttribute='LensSystem_LensAperture' enclosure='camera' type='string'/>
+			<setattribute tag='ApertureLo' RAttribute='ApertureLo' enclosure='camera' type='double'/>
+			<setattribute tag='ApertureHi' RAttribute='ApertureHi' enclosure='camera' type='double'/>
+			<setattribute tag='LensSystem_OpticalZoom' RAttribute='LensSystem_OpticalZoom' enclosure='camera' type='double'/>
+			<setattribute tag='face_tracking' RAttribute='face_tracking' enclosure='camera' type='integer'/>
+			<setattribute tag='MainFeatures_ContinuousShootingSpeed' RAttribute='MainFeatures_ContinuousShootingSpeed' enclosure='camera' type='string'/>
+			<setattribute tag='TopFramesPS' RAttribute='TopFramesPS' enclosure='camera' type='double'/>
+			<setattribute tag='MainFeatures_FaceDetection' RAttribute='MainFeatures_FaceDetection' enclosure='camera' type='string'/>
+			<setattribute tag='MaxVideoResolution' RAttribute='MaxVideoResolution' enclosure='camera' type='string'/>
+			<setattribute tag='MinFocusRange' RAttribute='MinFocusRange' enclosure='camera' type='double'/>
+						
+			<createentity entity='job' 			tag='job' 			id='id'/>
+			<createentity entity='camera' 		tag='camera' 		id='id'/>
+			<createentity entity='constants' 	tag='constants' 	id='id'/>
+			
+        </map>
+		<entities>
+			<entity name='constants' 	number='1'/>
+			<entity name='job'		 	number='1'/>
+			<entity name='camera' 		number='*'/>
+        </entities>
+
+		<initialization>
+			<initialentity entity='constants' 	epush='true'/>
+			<initialentity entity='job' 		epush='true'/>
+        </initialization>
+    </XMLtoEDD>
+</mapping>
+
+
+

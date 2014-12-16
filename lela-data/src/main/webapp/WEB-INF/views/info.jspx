@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+
+<jsp:directive.page import="java.util.*"/>
+
+<c:set var="currPage" value="diagnostics" scope="request" />
+<c:set var="currSection" value="server" scope="request" />
+<c:set var="pageHeading" value="Server" scope="request" />
+<c:set var="pageSubheading" value="Diagnostics" scope="request" />
+<H2>About:</H2>
+<br/>
+Date = <jsp:scriptlet>out.print(new Date().toString());</jsp:scriptlet>
+<br/>
+<H2>JSP:</H2>
+<br/>
+buffer size = <jsp:scriptlet>out.print(response.getBufferSize());</jsp:scriptlet><BR/>
+
+servlet name = <jsp:scriptlet>out.print(config.getServletName());</jsp:scriptlet><BR/>
+
+servlet path = <jsp:scriptlet>out.print(request.getServletPath());</jsp:scriptlet><BR/>
+
+JSP context path = <jsp:scriptlet>out.print(request.getContextPath());</jsp:scriptlet><BR/>
+
+server = <jsp:scriptlet>out.print(request.getServerName());</jsp:scriptlet><jsp:scriptlet>out.print(request.getServerPort());</jsp:scriptlet><BR/>
+
+remote address = <jsp:scriptlet>out.print(request.getRemoteAddr());</jsp:scriptlet><BR/>
+
+remote host = <jsp:scriptlet>out.print(request.getRemoteHost());</jsp:scriptlet>
+<hr/>
+
+<H2>Runtime:</H2>
+<jsp:scriptlet>long meg = 1024 * 1024;</jsp:scriptlet>
+Available Processors: <jsp:scriptlet>out.print( Runtime.getRuntime().availableProcessors());</jsp:scriptlet><BR/>
+Used Memory: <jsp:scriptlet>out.print(  ((Runtime.getRuntime().totalMemory() -Runtime.getRuntime().freeMemory())/meg));</jsp:scriptlet> meg<BR/>
+Free Memory: <jsp:scriptlet>out.print(  (Runtime.getRuntime().freeMemory()/meg));</jsp:scriptlet> meg<BR/>
+Total Memory: <jsp:scriptlet>out.print(  (Runtime.getRuntime().totalMemory()/meg));</jsp:scriptlet> meg<BR/>
+Max Memory: <jsp:scriptlet>out.print(  (Runtime.getRuntime().maxMemory()/meg));</jsp:scriptlet> meg<BR/>
+<hr></hr>
+
+<H2>Parameters:</H2>
+<BR/>
+<jsp:scriptlet>
+  try {
+    Enumeration e = request.getParameterNames();
+    while (e.hasMoreElements()) {
+      Object o = e.nextElement();
+</jsp:scriptlet>
+<jsp:scriptlet>out.print(o);</jsp:scriptlet> = <jsp:scriptlet>out.print(request.getParameter(o.toString()));</jsp:scriptlet><BR/>
+<jsp:scriptlet>
+    }
+  } catch (Exception e) {
+    out.print("Problem: " + e.getClass().getName());
+    out.print(e.getMessage());
+  }
+</jsp:scriptlet>
+<hr></hr>
+
+<H2>Attributes:</H2>
+<BR/>
+<jsp:scriptlet>
+  try {
+    Enumeration e2 = request.getAttributeNames();
+    while (e2.hasMoreElements()) {
+      Object o = e2.nextElement();
+      out.print(o + " = " +request.getAttribute(o.toString()) + "&lt;BR/>");
+    }
+  } catch (Exception e) {
+    out.print("Problem: "+ e.getClass().getName() +" " + e.getMessage() + "&lt;BR/>");
+  }
+</jsp:scriptlet>
+<hr></hr>
+
+
+
+<H2>Cookie:</H2>
+<BR/>
+<jsp:scriptlet>
+  try {
+    Cookie [] cookies  = request.getCookies();
+    for(int j=0;j &lt; cookies.length;++j){
+      out.print(cookies[j] + " = &lt;BR/>");
+      out.print("&lt;ul>");
+      out.print("&lt;li> Comment = "+ cookies[j].getComment() + "&lt;BR/>&lt;/li>");
+      out.print("&lt;li> Domain = "+ cookies[j].getDomain()+ "&lt;BR/>&lt;/li>");
+      out.print("&lt;li> MaxAge = "+ cookies[j].getMaxAge()+ "&lt;BR/>&lt;/li>");
+      out.print("&lt;li> Name = "+ cookies[j].getName()+ "&lt;BR/>&lt;/li>");
+      out.print("&lt;li> Path = "+ cookies[j].getPath()+ "&lt;BR/>&lt;/li>");
+      out.print("&lt;li> Value = "+ cookies[j].getValue()+ "&lt;BR/>&lt;/li>");
+      out.print("&lt;li> Version = "+ cookies[j].getVersion()+ "&lt;BR/>&lt;/li>");
+      out.print("&lt;/ul>");
+    }
+  } catch (Exception e) {
+    out.print("Problem: "+ e.getClass().getName() + " " + e.getMessage() + "&lt;BR/>");
+  }
+</jsp:scriptlet>
+<hr></hr>
+
+<H2>Session:</H2>
+<BR/>
+<jsp:scriptlet>
+  try {
+    Enumeration e3 = session.getAttributeNames();
+    while (e3.hasMoreElements()) {
+      Object o = e3.nextElement();
+      out.print(o + " = " + session.getAttribute(o.toString()) + " &lt;BR/>");
+    }
+  } catch (Exception e) {
+    out.print("Problem: "+ e.getClass().getName()+" "+e.getMessage()+"&lt;BR/>");
+  }
+</jsp:scriptlet>
+<hr></hr>
+
+<H2>Headers:</H2>
+<BR/>
+<jsp:scriptlet>
+  try {
+    Enumeration e4 = request.getHeaderNames();
+    while (e4.hasMoreElements()) {
+      Object o = e4.nextElement();
+      out.print(o + " = " + request.getHeader(o.toString()) + "&lt;BR/>");
+    }
+  } catch (Exception e) {
+    out.print("Problem: " + e.getClass().getName() + " " + e.getMessage() + "&lt;BR/>");
+  }
+</jsp:scriptlet>
+<hr></hr>
+
+<H2>System Properties:</H2>
+<BR/>
+<jsp:scriptlet>try {
+  Iterator i = null;
+  java.util.Properties p = System.getProperties();
+  Collection c = p.keySet();
+  for (i = c.iterator(); i.hasNext(); ) {
+    Object o = i.next();
+    out.print(o + " = " + p.get(o) + "&lt;BR/>");
+  }
+} catch (Exception e) {
+  out.print("Problem: "+e.getClass().getName()+" "+e.getMessage() + "&lt;BR/>");
+}
+</jsp:scriptlet>
+<hr></hr>
+
+</div>

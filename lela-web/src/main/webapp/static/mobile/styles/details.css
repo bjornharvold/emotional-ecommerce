@@ -1,0 +1,265 @@
+.relevancy-mod {
+    width: 40px !important;
+    float: left !important;
+    margin-right: 10px;
+    margin-bottom: 10px !important;
+    margin-left: 10px !important;
+    margin-top: 12px;
+}
+
+.relevancy-mod img, #p-comp img {
+    width: 40px !important;
+}
+
+#p-comp {
+    border-top: 1px solid #e5e5e5;
+    padding: 10px 10px 30px 10px;
+    margin: 10px 0;
+}
+
+#p-comp img {
+    float: left;
+    margin-right: 10px;
+    border: none !important;
+}
+
+#p-comp h2 {
+    border: none !important;
+    margin-bottom: 0px;
+    padding-bottom: 7px;
+    font-size: 18px;
+}
+
+#p-comp .compat-info {
+    color: #ff9900;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 20px;
+    line-height: 22px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.product-price {
+    clear: left;
+    margin: 0 10px 10px 10px;
+}
+
+.product-price p {
+    margin: 0 0 5px 0;
+}
+
+.product-price strong {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.product-price strong .price-old {
+    text-decoration: line-through;
+    font-weight: normal;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.product-img, product-stores, product-specs {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.product-img, .product-img img {
+    width: 100%;
+    z-index: 1;
+}
+
+.product-img {
+    position: relative;
+}
+
+.product-stores h2, .product-specs h2 {
+    text-align: center;
+    padding: 0 10px 20px 10px;
+    margin: 20px 0 0px 0;
+    border-bottom: 1px dotted #e5e5e5;
+}
+
+.product-stores a.store-hdr {
+    display: block;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 18px;
+    background: transparent url('/static/mobile/images/icons/caret_d.png') no-repeat center right;
+    background-size: 32px 14px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.hdr-toggled {
+    color: #3f3f3f;
+    background: transparent url('/static/mobile/images/icons/caret_d_up.png') no-repeat center right !important;
+    background-size: 32px 14px;
+}
+
+.attr-ky {
+    width: 40%;
+    margin-right: 10%;
+}
+
+.attr-vl {
+    width: 50%;
+}
+
+.tbl {
+    width: 100%;
+}
+
+.tbl td {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.out-link {
+    padding-right: 18px;
+    background: transparent url('/static/mobile/images/icons/buy_now.gif') no-repeat center right;
+    background-size: 14px 10px;
+}
+
+.tbl tr {
+    border-bottom: 1px dotted #e5e5e5;
+}
+
+.hidden {
+    display: none;
+}
+
+.product-specs {
+    margin: 0 10px 10px 10px;
+}
+
+.product-specs h2 {
+    border-bottom: none;
+    padding-bottom: 10px;
+}
+
+.specs {
+    width: 100%;
+}
+
+.specs th {
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 0;
+}
+
+.specs td {
+    width: 50%;
+    padding: 5px 0;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.specs th {
+    text-align: left;
+}
+
+.specs tr {
+    border-bottom: 1px dotted #e5e5e5;
+}
+
+.btn {
+    height:27px;
+    background:#588cb7;
+    color:#fff;
+    display:block;
+    width: 150px;
+    text-align: center;
+    font-size:14px;
+    font-weight:bold;
+    padding:9px 20px 0 20px;
+    margin: 10px auto !important;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    clear: both;
+}
+
+.btn-in {
+    height:27px;
+    background:#588cb7;
+    color:#fff;
+    display: inline;
+    line-height: 45px;
+    text-align: center;
+    font-size:14px;
+    font-weight:bold;
+    padding:9px 20px 9px 20px;
+    margin-right: 10px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.prev-img {
+    width: 48px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    z-index: 50;
+    background: transparent url('/static/mobile/images/icons/caret_back.png') no-repeat center left;
+    cursor: pointer;
+}
+
+.next-img {
+    width: 48px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: -5px;
+    z-index: 50;
+    margin-right: 10px;
+    background: transparent url('/static/mobile/images/icons/caret_next.png') no-repeat center right;
+    cursor: pointer;
+}
+
+.buy-store strong {
+    font-weight: normal;
+}
+
+.buy-store p {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.buy-store span {
+    display: block;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+.buy-store h3 {
+    font-size: 22px;
+}
+
+.store-info {
+    font-weight: normal;
+}
+
+.no-stores {
+    text-align: center;
+    font-size: 14px;
+}

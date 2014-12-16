@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <definition name="admin.quiz.list" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.quizzes.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/quiz/quiz_list.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.quiz" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.quiz.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/quiz/quiz.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.quiz.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.quiz.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/quiz/quiz_form.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.quiz.preview" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.quiz.preview.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/quiz/quiz_preview.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.quiz.step.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.quiz.step.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/quiz/quiz_step_form.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.quiz.step" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.quiz.step.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/quiz/quiz_step.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.quiz.step.entry.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.quiz.step.entry.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/quiz/quiz_step_entry_form.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.question.list" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.questions.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/quiz/question_list.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.question" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.question.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/quiz/question.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.question.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.question.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/quiz/question_form.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="admin.question.answer.form" extends="administration.page.template">
+        <put-attribute type="string" name="title" value="page.admin.question.title"/>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/administration/quiz/question_answer_form.jspx"/>
+        </put-list-attribute>
+    </definition>
+
+</tiles-definitions>

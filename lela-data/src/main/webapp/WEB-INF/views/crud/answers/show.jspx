@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_lela_data_domain_entity_Answer" object="${answer}" path="/crud/answers" z="7x0VoRqaTlDWcE+v7kE8vWZKqzM=">
+        <field:display date="true" dateTimePattern="${answer_datecreated_date_format}" field="dateCreated" id="s_com_lela_data_domain_entity_Answer_dateCreated" object="${answer}" z="mFVJvGcWozufpPzMeAPHthdAgS8="/>
+        <field:display date="true" dateTimePattern="${answer_datemodified_date_format}" field="dateModified" id="s_com_lela_data_domain_entity_Answer_dateModified" object="${answer}" z="t7SxhOYDvH78IGb1BeKgFE9VNcg="/>
+        <field:display field="question" id="s_com_lela_data_domain_entity_Answer_question" object="${answer}" z="UfZEBXKgJSrcV54T4JEyxiXcIf4="/>
+        <field:display field="answerKey" id="s_com_lela_data_domain_entity_Answer_answerKey" object="${answer}" z="iKjpfbV9haR9xGx7zR+ciu0IZks="/>
+        <field:display field="answer" id="s_com_lela_data_domain_entity_Answer_answer" object="${answer}" z="cl7GKmhyT1KnaSpYIzBjTsxi21w="/>
+        <field:display field="image" id="s_com_lela_data_domain_entity_Answer_image" object="${answer}" z="7VQgYKr8Ku+dAEXugaDsS1a+g7Y="/>
+        <field:display field="q" id="s_com_lela_data_domain_entity_Answer_q" object="${answer}" z="SnZ1gpfnAs4MfpBrFqa4Q4xxGQM="/>
+        <field:display field="a" id="s_com_lela_data_domain_entity_Answer_a" object="${answer}" z="6cYwIvK5+In7dLmQDLVIWESqDkw="/>
+        <field:display field="b" id="s_com_lela_data_domain_entity_Answer_b" object="${answer}" z="kGMs+72DCTzFnAQSshchTL7EVvc="/>
+        <field:display field="c" id="s_com_lela_data_domain_entity_Answer_c" object="${answer}" z="Lf2Zjr7dgnFwQbPf8a5DbVUmpGM="/>
+        <field:display field="d" id="s_com_lela_data_domain_entity_Answer_d" object="${answer}" z="46lqO6kbR3ImK+RDD22U9VQkXkU="/>
+        <field:display field="e" id="s_com_lela_data_domain_entity_Answer_e" object="${answer}" z="LzeDDlaI5w+fq3QFhLYHK8V1bj8="/>
+        <field:display field="f" id="s_com_lela_data_domain_entity_Answer_f" object="${answer}" z="75ffkBOl60ueFQGQMVzW3hRfDmc="/>
+        <field:display field="g" id="s_com_lela_data_domain_entity_Answer_g" object="${answer}" z="LQUT71i3HE7vhSYE7TrP+4kACtw="/>
+        <field:display field="h" id="s_com_lela_data_domain_entity_Answer_h" object="${answer}" z="SJUXsSIc9wXIPz3uCurirMQW4Lk="/>
+        <field:display field="i" id="s_com_lela_data_domain_entity_Answer_i" object="${answer}" z="/yWBpHLlm5TTYXnYWmhsX+gpg0A="/>
+        <field:display field="j" id="s_com_lela_data_domain_entity_Answer_j" object="${answer}" z="Ax+8srF46iyonRhemUJYVTddeFE="/>
+        <field:display field="k" id="s_com_lela_data_domain_entity_Answer_k" object="${answer}" z="e6sZUb9bsig3+cTspvaitQgP6Gc="/>
+        <field:display field="l" id="s_com_lela_data_domain_entity_Answer_l" object="${answer}" z="5xUsMGgQT4n9PE9EIkACfS3y8+w="/>
+    </page:show>
+</div>

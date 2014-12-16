@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_lela_data_domain_entity_Motivator" modelAttribute="motivator" path="/crud/motivators" versionField="Version" z="hqL3QR9l34CDG4s3Rv6g+Ijb+tI=">
+        <field:datetime dateTimePattern="${motivator_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_Motivator_dateCreated" z="VkLx54WqHKzLE2ArUiip6sRX11o="/>
+        <field:datetime dateTimePattern="${motivator_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_Motivator_dateModified" z="S1kyV5q7jXCzI0Kv56K6zCRF3J4="/>
+        <field:input field="motivatorLabel" id="c_com_lela_data_domain_entity_Motivator_motivatorLabel" z="cWwN7MZBIfELuMfrDDRBnUKfo98="/>
+        <field:select field="category" id="c_com_lela_data_domain_entity_Motivator_category" itemValue="id" items="${categorys}" path="/crud/categorys" z="mL1reTUJn3auMYKXlUovc8SOrvI="/>
+        <field:input field="subCategoryId" id="c_com_lela_data_domain_entity_Motivator_subCategoryId" validationMessageCode="field_invalid_integer" z="Vh60DalXflzMyMTmonaPD5Z3jhw="/>
+        <field:input field="rulesEngineEdd" id="c_com_lela_data_domain_entity_Motivator_rulesEngineEdd" z="8Svt4SJIs6PMAIc05OvVUjs3tek="/>
+        <field:input field="rulesEngineDt" id="c_com_lela_data_domain_entity_Motivator_rulesEngineDt" z="jbSgVz3pB4dST93hEyiDMBJw1Go="/>
+    </form:update>
+</div>

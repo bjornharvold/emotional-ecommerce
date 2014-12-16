@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+	<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+	<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+    <!-- lela local content master  -->
+    <definition name="local.coupon.master" extends="template.page.master">
+        <put-attribute type="string" name="title" value="page.local.coupon" />
+
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/local/coupon.css" />
+		</put-list-attribute>
+
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/local/coupon.js" />
+		</put-list-attribute>
+
+		<put-list-attribute name="contents">
+			<add-attribute type="definition" value="template.local.create" />
+		</put-list-attribute>
+	</definition>
+
+    <!-- lela local content master  -->
+    <definition name="local.coupon.master.mobile" extends="template.simple.master">
+        <put-attribute type="string" name="title" value="page.local.coupon" />
+
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/global.css" />
+            <add-attribute type="string" value="/static/styles/local/coupon.css" />
+		</put-list-attribute>
+
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/global.js" />
+            <add-attribute type="string" value="/static/js/local/coupon.js" />
+		</put-list-attribute>
+
+        <put-list-attribute name="mobileStyles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-mobile/jquery.mobile-1.0.min.css" />
+			<add-attribute type="string" value="/static/styles/local/mobile.css" />
+		</put-list-attribute>
+
+		<put-list-attribute name="mobileJavascripts" inherit="true">
+			<add-attribute type="string" value="/static/js/plugins/jquery-mobile/jquery.mobile-1.0.min.js" />
+		</put-list-attribute>
+
+		<put-list-attribute name="contents">
+			<add-attribute type="definition" value="template.local.create" />
+		</put-list-attribute>
+	</definition>
+
+    <!-- Lela local create coupon -->
+    <definition name="local.coupon.create" extends="local.coupon.master">
+		<put-list-attribute name="contents">
+			<add-attribute type="definition" value="template.local.create" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="template.local.create" template="/WEB-INF/jsp/local/template.jspx">
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/local/coupon/header.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/local/coupon/create.jspx" />
+        </put-list-attribute>
+    </definition>
+
+        <!-- Lela local confirmation coupon -->
+    <definition name="local.coupon.confirmation" extends="local.coupon.master">
+		<put-list-attribute name="contents">
+			<add-attribute type="definition" value="template.local.confirmation" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="template.local.confirmation" template="/WEB-INF/jsp/local/template.jspx">
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/local/coupon/header.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/local/coupon/confirmation.jspx" />
+        </put-list-attribute>
+    </definition>
+
+        <!-- Lela local redeem coupon -->
+    <definition name="local.coupon.redeem" extends="local.coupon.master.mobile">
+		<put-list-attribute name="contents">
+			<add-attribute type="definition" value="template.local.redeem" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="template.local.redeem" template="/WEB-INF/jsp/local/template.jspx">
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/local/coupon/header.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/local/coupon/redeem.jspx" />
+        </put-list-attribute>
+    </definition>
+
+
+    <!-- Lela local redeem success coupon -->
+    <definition name="local.coupon.redeem.success" extends="local.coupon.master.mobile">
+		<put-list-attribute name="contents">
+			<add-attribute type="definition" value="template.local.redeem.success" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="template.local.redeem.success" template="/WEB-INF/jsp/local/template.jspx">
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/local/coupon/header.jspx" />
+            <add-attribute type="template" value="/WEB-INF/jsp/local/coupon/redeem_success.jspx" />
+        </put-list-attribute>
+    </definition>
+
+
+    <!-- Lela local deals landing page -->
+    <definition name="local.deals.index" extends="template.page.master">
+		<put-attribute type="string" name="title" value="page.deals.name" />
+        <put-attribute type="string" name="description" value="meta.description.deals" />
+        <put-attribute type="string" name="keywords" value="meta.keywords.home" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/pages/home.css" />
+            <add-attribute type="string" value="/static/styles/local/index.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/local/index.jspx" />
+		</put-list-attribute>
+	</definition>
+
+</tiles-definitions>

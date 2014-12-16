@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_lela_data_domain_entity_ProductImageItem" modelAttribute="productImageItem" path="/crud/productimageitems" render="${empty dependencies}" z="QvMkSWPph2l3IknautMJM+Qnnr4=">
+        <field:datetime dateTimePattern="${productImageItem_datecreated_date_format}" field="dateCreated" id="c_com_lela_data_domain_entity_ProductImageItem_dateCreated" z="S07bqMlxHGBvKZN5Q2oGwuMixow="/>
+        <field:datetime dateTimePattern="${productImageItem_datemodified_date_format}" field="dateModified" id="c_com_lela_data_domain_entity_ProductImageItem_dateModified" z="i9s+qGbrJJLWeh8qGU9De+FoIzA="/>
+        <field:input field="item" id="c_com_lela_data_domain_entity_ProductImageItem_item" z="olQWG3xbXI//kMpp1J1TYfTv/4w="/>
+        <field:input field="productImage" id="c_com_lela_data_domain_entity_ProductImageItem_productImage" z="Pf+b+vCHXHlFuXMFhZbRgv75R98="/>
+        <field:checkbox field="doNotUse" id="c_com_lela_data_domain_entity_ProductImageItem_doNotUse" z="/i5wHvPrp/4DDA9rmKOFkDHHpR0="/>
+        <field:checkbox field="duplicate" id="c_com_lela_data_domain_entity_ProductImageItem_duplicate" z="Mp39DPliwPXzG+zzro6cawRHoPY="/>
+        <field:input field="productImageItemStatus" id="c_com_lela_data_domain_entity_ProductImageItem_productImageItemStatus" z="B+RXPwERj2egmNs6jDF6BA9n1Mc="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_lela_data_domain_entity_ProductImageItem" render="${not empty dependencies}" z="qNShz+OYOLcvNKB/7/voR2eHpgM="/>
+</div>

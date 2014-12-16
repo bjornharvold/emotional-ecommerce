@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+	<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+	<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+	<definition name="facebook.page" extends="template.simple.master">
+		<put-attribute type="string" name="title" value="page.index.fb" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/global.css" />
+            <add-attribute type="string" value="/static/styles/embeds/facebook_page.css" />
+		</put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/embeds/facebook_page.js" />
+		</put-list-attribute>
+		<put-list-attribute name="contents">
+			<add-attribute type="template" value="/WEB-INF/jsp/embeds/facebook_page.jspx" />
+		</put-list-attribute>
+	</definition>
+
+    <definition name="affiliate.quiz" extends="template.simple.master">
+        <put-attribute type="string" name="title" value="page.index.affiliatequiz" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jqtransform_custom.css" />
+            <add-attribute type="string" value="/static/styles/global.css" />
+            <add-attribute type="string" value="/static/styles/embeds/facebook_page.css" />
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery.easing.1.3.js" />
+            <add-attribute type="string" value="/static/js/plugins/jquery.blockUI.js" />
+            <add-attribute type="string" value="/static/js/plugins/jqtransform/jquery.jqtransform.js" />
+            <add-attribute type="string" value="/static/js/embeds/affiliate_quiz.js" />
+        </put-list-attribute>
+        <put-list-attribute name="mobileStyles" inherit="true">
+            <add-attribute type="string" value="/static/js/plugins/jquery-mobile/jquery.mobile-1.0.min.css" />
+            <add-attribute type="string" value="/static/styles/embeds/mobile.css" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/embeds/affiliate_quiz.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="affiliate.z100" extends="template.simple.master">
+        <put-attribute type="string" name="title" value="" />
+        <put-attribute type="string" name="pageTitle" value="/WEB-INF/jsp/items/page_title.jspx" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/global.css" />
+            <add-attribute type="string" value="/static/styles/embeds/z100.css" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/embeds/z100.jspx" />
+        </put-list-attribute>
+    </definition>
+
+    <definition name="campaign.not.found.view" extends="template.page.master">
+        <put-attribute type="string" name="title" value="" />
+        <put-list-attribute name="styles" inherit="true">
+            <add-attribute type="string" value="/static/styles/global.css" />
+        </put-list-attribute>
+        <put-list-attribute name="contents">
+            <add-attribute type="template" value="/WEB-INF/jsp/embeds/campaignnotfound.jspx" />
+        </put-list-attribute>
+    </definition>
+</tiles-definitions>

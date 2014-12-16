@@ -1,0 +1,96 @@
+<!--
+  ~ Copyright (c) 2011. Purple Door Systems, BV.
+  -->
+
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:spring-form="http://www.springframework.org/tags/form"
+          xmlns:security="http://www.springframework.org/security/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:x="http://java.sun.com/jsp/jstl/xml"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:tiles="http://tiles.apache.org/tags-tiles"
+          xmlns:lela="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" version="2.0">
+        <jsp:directive.page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"/>
+
+        <spring:message var="nbsp" code="misc.nbsp" htmlEscape="false" />
+
+    <lela:findUser/>
+
+    <tiles:importAttribute name="listType" ignore="true"/>
+        <tiles:importAttribute name="page" ignore="true"/>
+        <tiles:importAttribute name="ajax" ignore="true"/>
+
+        <c:set var="items" value="${page.content}"/>
+
+        <script type="text/javascript">
+            window.itemNum = {
+                "total": '${page.totalElements}',
+                "count": '${fn:length(items)}'
+            };
+        </script>
+
+        <c:forEach var="item" varStatus="status" items="${items}">
+
+            <div class="item" id="${item.rlnm}">
+
+                <spring:url value="/${item.srlnm}/p?rlnm=${item.rlnm}&amp;dx=${status.count}&amp;tl=${fn:length(items)}&amp;pg=${page.number}&amp;sz=${page.size}" var="itemDetailUrl"/>
+
+                <div class="p-block lela-rating">
+                    <c:choose>
+                        <c:when test="${item.class.name eq 'com.lela.domain.document.RelevantItem' and item.ttlrlvncynmbr > 0}">
+                            <spring:url value="/static/images/icons/rating/relevancy_meter_${item.ttlrlvncynmbr}.png" var="lelaRatingImgUrl" />
+                            <a href="${itemDetailUrl}"><img src="${lelaRatingImgUrl}" alt="${item.ttlrlvncynmbr}%"/></a>
+                        </c:when>
+                        <c:otherwise>
+                            <spring:url value="/static/mobile/images/icons/rating_default.png" var="lelaRatingImgUrl" />
+                            <spring:url value="/quiz" var="quizUrl"/>
+                            <a href="${quizUrl}"><img src="${lelaRatingImgUrl}" alt="?"/></a>
+                        </c:otherwise>
+                    </c:choose>
+
+                </div>
+
+                <a href="${itemDetailUrl}" class="p-img p-block">
+                    <img src="${item.imgs[0].sz['large']}" alt="${item.nm} - ${item.subAttributes['Brand']}"/>
+                </a>
+
+                <a href="${itemDetailUrl}" class="p-info p-block">
+
+                    <span class="item-details">
+                        <span class="item-name"><strong><lela:lelaProductName item="${item}" /></strong></span>
+                        <span class="brand-name">${item.subAttributes['Brand']}</span>
+                    </span>
+
+                    <span class="p-price">
+
+                        <span class="store-name"><spring:message code="items.data.bestprice" htmlEscape="false"/>:${nbsp}<span class="store-nm">${item.subAttributes['MerchantName']}</span></span>
+
+                        <c:choose>
+                            <c:when test="${item.subAttributes['LowestPrice'] gt 0.0}">
+                                <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['LowestPrice']}" />
+                                    <c:if test="${item.subAttributes['LowestPrice'] lt item.subAttributes['ListPrice']}">
+                                        <span class="price-old"><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></span>
+                                    </c:if>
+                                </strong>
+                            </c:when>
+                            <c:otherwise>
+                                <spring:message code="item.details.listPrice"/><br/>
+                                <strong><fmt:formatNumber type="CURRENCY" value="${item.subAttributes['ListPrice']}" /></strong>
+                            </c:otherwise>
+                        </c:choose>
+                    </span>
+                </a>
+
+                <div class="p-block p-more"><a href="${itemDetailUrl}"><!-- --></a></div>
+
+            </div>
+
+        </c:forEach>
+
+
+
+</jsp:root>

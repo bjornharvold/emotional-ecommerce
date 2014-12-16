@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_lela_data_domain_entity_AttributeTypeCategory" items="${attributetypecategorys}" z="7EJHtWyEkrVXF+1Fxqi2zmuCR+U=">
+        <table:table data="${attributetypecategorys}" id="l_com_lela_data_domain_entity_AttributeTypeCategory" path="/crud/attributetypecategorys" z="0fwKxr2kxJ0Jx31hDmAzpd7RMcE=">
+            <table:column date="true" dateTimePattern="${attributeTypeCategory_datecreated_date_format}" id="c_com_lela_data_domain_entity_AttributeTypeCategory_dateCreated" property="dateCreated" z="DaqW//IrwGts5GI2+x57j2vrVNk="/>
+            <table:column date="true" dateTimePattern="${attributeTypeCategory_datemodified_date_format}" id="c_com_lela_data_domain_entity_AttributeTypeCategory_dateModified" property="dateModified" z="YGqIMyEfBZhcA26xMSvpn0fiWoA="/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeTypeCategory_inputValidationList" property="inputValidationList" z="user-managed"/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeTypeCategory_attributeType" property="attributeType" z="/YNXuCKIcYqSyNXdnfrsJzS65dM="/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeTypeCategory_category" property="category" z="rV1nug7xYlDIrLGEGY/s1A9Mbbc="/>
+            <table:column id="c_com_lela_data_domain_entity_AttributeTypeCategory_inputType" property="inputType" z="THHGuIeKgoc+JBSzYpnpDpUEvWE="/>
+        </table:table>
+    </page:list>
+</div>

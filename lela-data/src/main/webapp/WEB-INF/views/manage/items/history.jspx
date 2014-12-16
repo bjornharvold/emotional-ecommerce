@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:display="http://displaytag.sf.net/el"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:images="urn:jsptagdir:/WEB-INF/tags/images"
+     xmlns:input="urn:jsptagdir:/WEB-INF/tags/input"
+     xmlns:data="http://www.lela.com/jsp/data" version="2.0">
+<jsp:directive.page contentType="text/html;charset=UTF-8"/>
+<jsp:output omit-xml-declaration="yes"/>
+<script type="text/javascript">
+  dojo.require('dijit.form.Button');
+  dojo.require('dijit.form.Select');
+  dojo.require('dijit.form.MultiSelect');
+  dojo.require('dijit.Dialog');
+  dojo.require("dijit.form.CheckBox");
+  dojo.require("dijit.form.RadioButton");
+  dojo.require("dijit.Calendar");
+  dojo.require("dojo.io.iframe");
+  dojo.addOnLoad(
+      function()
+      {
+        new dijit.form.TimeTextBox({
+              name: "prog_val",
+              value: new Date(),
+              constraints: {
+                timePattern: 'HH:mm:ss',
+                clickableIncrement: 'T00:15:00',
+                visibleIncrement: 'T00:15:00',
+                visibleRange: 'T01:00:00'
+              }
+            },
+            "prog_val");
+      }
+  );
+</script>
+  <spring:url value="/manage/items/reporting/history/" var="item_history_url"/>
+  <spring:url value="/manage/items/reporting/history/download" var="item_history_download_url"/>
+  <form:form  method="POST" commandName="itemHistoryReportingCommand" id="itemHistoryReportingForm">
+    <div class="control-group">
+      <h4>Select date range:</h4>
+      <!--
+      <div>
+        <label><spring:message code="itemHistoryReportingCommand.categoryId"/></label>
+        <form:select multiple="false" path="categoryId" id="categoryId" label="categoryId" items="${categorys}" itemLabel="categoryName" itemValue="id"/>
+      </div>
+      -->
+      <div>
+        <label><spring:message code="itemHistoryReportingCommand.from"/></label>
+        <form:input id="_fromDateTime_id" path="from"/>
+        <form:errors path="from" cssClass="red"/>
+        <script type="text/javascript">
+          Spring.addDecoration(new Spring.ElementDecoration({elementId : '_fromDateTime_id', widgetType : 'dijit.form.DateTextBox', widgetAttrs : {promptMessage: 'Valid', invalidMessage: 'Invalid', required: true, constraints: {datePattern : 'yyy-MM-dd hh:mm:ss a', required : true}, datePattern : 'yyy-MM-dd hh:mm:ss a'}}));
+        </script>
+      </div>
+      <div>
+        <label><spring:message code="itemHistoryReportingCommand.to"/></label>
+        <form:input id="_toDateTime_id" path="to"/>
+        <form:errors path="to" cssClass="red"/>
+        <script type="text/javascript">
+          Spring.addDecoration(new Spring.ElementDecoration({elementId : '_toDateTime_id', widgetType : 'dijit.form.DateTextBox', widgetAttrs : {promptMessage: 'Valid', invalidMessage: 'Invalid', required: true, constraints: {datePattern : 'yyy-MM-dd hh:mm:ss a', required : true}, datePattern : 'yyy-MM-dd hh:mm:ss a'}}));
+        </script>
+      </div>
+      <div>
+        <h4><spring:message code="itemHistoryReportingCommand.reportType"/>:</h4>
+      </div>
+      <form:errors path="reportType" cssClass="red"/>
+      <div>
+        <label><spring:message code="itemHistoryReportingCommand.droppedFromProduction"/></label><form:radiobutton itemLabel="Dropped from Prod." path="reportType" value="DROPPED_FROM_PRODUCTION" delimiter="&lt;br/&gt;"/>
+      </div>
+      <br/>
+      <div>
+        <label><spring:message code="itemHistoryReportingCommand.addedToProduction"/></label><form:radiobutton itemLabel="Added to Prod." path="reportType" value="ADDED_TO_PRODUCTION" delimiter="&lt;br/&gt;"/>
+      </div>
+
+      <div>
+        <label><spring:message code="itemHistoryReportingCommand.custom"/></label><form:radiobutton itemLabel="Custom" path="reportType" value="CUSTOM" delimiter="&lt;br/&gt;"/>
+      </div>
+      <div style="padding-left:60px">
+      <div>
+        <label><spring:message code="itemHistoryReportingCommand.fromItemStatus"/></label>
+        <form:select path="fromItemStatus">
+          <form:options items="${itemStatuses}" />
+        </form:select>
+        <form:errors path="fromItemStatus" cssClass="red"/>
+      </div>
+      <div>
+        <label><spring:message code="itemHistoryReportingCommand.toItemStatus"/></label>
+        <form:select path="toItemStatus">
+          <form:options items="${itemStatuses}" />
+        </form:select>
+        <form:errors path="toItemStatus" cssClass="red"/>
+      </div>
+      </div>
+    </div>
+    <div class="control-group">
+      <button id="run" type="submit">
+        <spring:message code="label.runReport"/>
+      </button>
+      <div style="margin-top:10px">
+      <a href="${item_history_download_url}" id="export">
+        <spring:message code="label.exportReport"/>
+      </a>
+      </div>
+      <input type="hidden" id="export_flag" name="d-7661059-e" value="2" disabled="disabled"/>
+      <input type="hidden" id="export_key" name="6578706f7274" value="1" disabled="disabled"/>
+      <script type="text/javascript">
+        $('#export').click(function(){
+          $('#export_flag').removeAttr('disabled');
+          $('#export_key').removeAttr('disabled');
+          var parms = $('#itemHistoryReportingForm').serialize();
+          var url = '${item_history_download_url}';
+
+          var url = url + "?" + parms;
+          $('#export').attr('href', url);
+          $('#export_flag').attr('disabled', 'disabled');
+          $('#export_key').attr('disabled', 'disabled');
+          return true;
+        });
+        $('#run').click(function(){
+          $('#export_flag').attr('disabled', 'disabled');
+          $('#export_key').attr('disabled', 'disabled');
+          return true;
+        });
+      </script>
+    </div>
+  </form:form>
+
+  <c:if test="${itemHistories != null and fn:length(itemHistories) == 0}">
+    No results found.
+  </c:if>
+  <c:if test="${itemHistories != null and fn:length(itemHistories) > 0}">
+  ${fn:length(itemHistories)} results found:
+  <div class="displaytag">
+    <display:table name="itemHistories" id="itemHistory" export="true" requestURI="${item_history_download_url}" defaultsort="3" class="displaytag">
+      <c:if test="${itemHistory.itemStatus.id != itemHistory.item.itemStatus.id}">
+      <display:setProperty name="export.excel.filename" value="item_history.xls"/>
+      <display:column property="dateCreated" title="Item History Date Created"/>
+      <display:column property="item.dateCreated" title="Item Date Created"/>
+      <display:column property="dateModified" title="Date Modified"/>
+      <display:column property="item.id" title="UniqueItemId"/>
+      <display:column property="item.itemId" url="${item_url}" sortable="true" title="ID" sortName="o.itemId"/>
+      <display:column property="item.category.id" sortable="false" title="Category ID"/>
+      <display:column property="item.category.categoryName" sortable="false" title="Category"/>
+      <display:column sortable="false" title="Department">
+        ${data:getDepartment(itemHistory.item.category).departmentName}
+      </display:column>
+      <display:column property="item.productModelName" sortable="true" title="Product Name" sortName="o.productModelName" />
+      <display:column property="item.brand.brandName" sortable="true" title="Brand" sortName="o.brand.brandName"/>
+      <display:column property="item.itemStatus.itemStatusName" sortable="true" title="Item Status" sortName="o.itemStatus.itemStatusName"/>
+      <display:column property="itemStatus.itemStatusName" sortable="true" title="Previous Item Status" sortName="o.itemStatus.itemStatusName"/>
+      <display:column property="item.designStyle" title="Design Style" sortable="true"/>
+      <display:column property="item.itemType" title="Item Type" sortable="true"/>
+      <display:column property="item.priority" title="Priority" sortable="true"/>
+      <display:column property="item.researchComplete" title="Research Complete" sortable="true"/>
+      <display:column property="item.researcherInitials" title="Researcher Initials" sortable="true"/>
+      <display:column property="item.researcherNotes" title="Researcher Notes" sortable="true"/>
+      <display:column property="item.validated" title="Validated" sortable="true"/>
+      <display:column property="item.reviewStatus.reviewStatusName" title="Review Status" sortable="true"/>
+      <display:column property="item.siteStatus.siteStatusName" title="Status Name" sortable="true"/>
+      <display:column property="item.lastUpdateUser" title="Last Update User" sortable="true"/>
+      <display:column property="item.lastUpdateSystem" title="Last Update System" sortable="true"/>
+      <display:column title="Motivator B" sortable="true">${data:getMotivatorScore(itemHistory.item, 'B')}</display:column>
+      <display:column title="Total Offers" sortable="true">${data:getMerchantOffers(itemHistory.item)}</display:column>
+      <display:column title="Valid Offers" sortable="true">${data:getValidMerchantOffers(itemHistory.item)}</display:column>
+      <display:column title="Total Images" sortable="true">${data:getProductImages(itemHistory.item)}</display:column>
+      <display:column title="Valid Images" sortable="true">${data:getValidProductImages(itemHistory.item)}</display:column>
+      </c:if>
+    </display:table>
+  </div>
+  </c:if>
+</div>
+
+

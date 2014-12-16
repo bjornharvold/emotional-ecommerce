@@ -1,0 +1,233 @@
+<!--
+  ~ Copyright (c) 2012. Purple Door Systems, BV.
+  -->
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:spring-form="http://www.springframework.org/tags/form"
+     xmlns:security="http://www.springframework.org/security/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:x="http://java.sun.com/jsp/jstl/xml"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:tiles="http://tiles.apache.org/tags-tiles"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     id="affiliate-account-page">
+    <jsp:output omit-xml-declaration="yes"/>
+    <c:set var="dateFormat" value="MM/dd/yyyy HH:mm.ss"/>
+
+    <spring:message code="link.delete" var="delete"/>
+    <spring:url value="/administration/affiliateaccount/list" var="listUrl"/>
+    <spring:url value="/administration/affiliateaccount" var="updateUrl"/>
+
+    <h1>${affiliateAccount.affiliate.nm}</h1>
+
+    <c:if test="${not empty message}">
+        <div class="msg">${message}</div>
+    </c:if>
+
+    <div class="actions">
+        <spring:url value="/administration/affiliateaccount/list" var="listUrl"/>
+        <a class="action" href="${listUrl}">&lt; <spring:message code="affiliate.account.back.to.list"/> </a>
+
+        <spring:url value="/administration/affiliateaccount/form" var="editUrl">
+            <spring:param name="urlName" value="${affiliateAccount.affiliate.rlnm}"/>
+        </spring:url>
+        <a class="action" href="${editUrl}"><spring:message code="link.edit"/> </a>
+
+        <div class="clear"><!-- --></div>
+    </div>
+
+    <div id="affiliate-account-details">
+        <dl>
+            <dt><spring:message code="affiliate.account.name"/></dt>
+            <dd>${affiliateAccount.affiliate.nm}</dd>
+            <dt><spring:message code="affiliate.account.url.name"/></dt>
+            <dd>${affiliateAccount.affiliate.rlnm}</dd>
+            <dt><spring:message code="affiliate.logo.url"/></dt>
+            <dd>${affiliateAccount.affiliate.lgrl}</dd>
+            <dt>Banner Image</dt>
+            <dd><!-- --><a href="${affiliateAccount.affiliate.bnrrl}" target="_blank"> <img src="${affiliateAccount.affiliate.bnrmgrl}" height="100" width="900" /></a></dd>
+            <dt>Banner Target URL</dt>
+            <dd><!-- -->
+                ${affiliateAccount.affiliate.bnrrl}
+            </dd>
+            <dt><spring:message code="affiliate.account.active"/></dt>
+            <dd>${affiliateAccount.affiliate.ctv}</dd>
+            <dt>Excel User Report</dt>
+            <dd>
+                <spring:url var="downloadUrl" value="/administration/affiliateaccount/users/generate?urlName=${affiliateAccount.affiliate.rlnm}"/>
+                <a class="action" href="${downloadUrl}" id="download-affiliate-user-report">Download</a>
+                <c:if test="${usersReportFeedback}">
+                    <div>
+                        <spring:url value="/administration/affiliateaccount/users/download" var="downloadAffiliateUserReportUrl">
+            				<spring:param name="reportId" value="${reportId}"/>
+            				<spring:param name="urlName" value="${affiliateAccount.affiliate.rlnm}"/>
+        				</spring:url>                    
+	                    ${reportStatus} 
+	                    <a class="action" href="${downloadAffiliateUserReportUrl}" id="download-affiliate-user-report">Refresh</a>
+                    </div>
+                </c:if> 
+                <div class="clear"><!-- --></div>
+            </dd>
+            <dt>Partner Marketing Metrics Report (Excel)</dt>
+            <dd>
+                <spring:url var="downloadTrackingUrl" value="/administration/affiliateaccount/trackingreport/generate?urlName=${affiliateAccount.affiliate.rlnm}"/>
+                <a class="action" href="${downloadTrackingUrl}" id="download-affiliate-user-report">Download</a>
+                <c:if test="${trackingReportFeedback}">
+                    <div>
+                        <spring:url value="/administration/affiliateaccount/trackingreport/download" var="downloadAffiliateTrackingReportUrl">
+            				<spring:param name="reportId" value="${reportId}"/>
+            				<spring:param name="urlName" value="${affiliateAccount.affiliate.rlnm}"/>
+        				</spring:url>                    
+	                    ${reportStatus} 
+	                    <a class="action" href="${downloadAffiliateTrackingReportUrl}" id="download-affiliate-tracking-report">Refresh</a>
+                    </div>
+                </c:if> 
+                <div class="clear"><!-- --></div>
+            </dd>            
+        </dl>
+    </div>
+
+    <hr/>
+
+    <h2><spring:message code="affiliate.application.list.title"/></h2>
+    <div class="actions">
+        <spring:url value="/administration/affiliateaccount/${affiliateAccount.affiliate.rlnm}/application/form" var="newApplicationUrl"/>
+        <a class="action" href="${newApplicationUrl}"><spring:message code="affiliate.application.create.entry"/> </a>
+        <div class="clear"><!-- --></div>
+    </div>
+    <c:if test="${empty affiliateAccount.affiliate.pps}">
+        <spring:message code="affiliate.application.list.empty"/>
+    </c:if>
+
+    <c:if test="${not empty affiliateAccount.affiliate.pps}">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th width="30%"><spring:message code="application.url.name"/></th>
+                <th width="30%"><spring:message code="application.type"/></th>
+                <th width="30%"><spring:message code="application.test.url"/></th>
+                <th width="10%">&#160;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="application" items="${affiliateAccount.affiliate.pps}">
+
+                <spring:url var="previewUrlVar" value=""/>
+
+                <c:choose>
+                    <c:when test="${application.tp == 'PRODUCT_GRID'}">
+                        <spring:url var="previewUrlVar" value="${previewUrl}/api/grid/documentation">
+                            <spring:param name="applicationId" value="${application.rlnm}"/>
+                            <spring:param name="affiliateId" value="${affiliateAccount.affiliate.rlnm}"/>
+                        </spring:url>
+                        <spring:message code="application.test.url.grid" var="testUrl"/>
+                    </c:when>
+                    <c:when test="${application.tp == 'CURATED_PRODUCT_GRID'}">
+                        <spring:url var="previewUrlVar" value="${previewUrl}/not/done/yet"/>
+                        <spring:message code="application.test.url.curated.grid" var="testUrl"/>
+                    </c:when>
+                    <c:otherwise>
+                        <spring:url var="previewUrlVar" value="${previewUrl}/api/quiz/test">
+                            <spring:param name="applicationId" value="${application.rlnm}"/>
+                            <spring:param name="affiliateId" value="${affiliateAccount.affiliate.rlnm}"/>
+                        </spring:url>
+                        <spring:message code="application.test.url.quiz" var="testUrl"/>
+                    </c:otherwise>
+                </c:choose>
+                <tr>
+                    <td>${application.rlnm}</td>
+                    <td>${application.tp}</td>
+                    <td><a href="${previewUrlVar}" target="_blank">${testUrl}</a></td>
+                    <td>
+                        <spring:url value="/administration/affiliateaccount/${affiliateAccount.affiliate.rlnm}/application/${application.rlnm}" var="deleteUrl"/>
+                        <spring-form:form action="${deleteUrl}" method="DELETE">
+                            <input type="submit" name="${delete}" value="${delete}"/>
+                        </spring-form:form>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </c:if>
+
+    <hr/>
+
+    <h2><spring:message code="affiliate.style.list.title"/></h2>
+    <div class="actions">
+        <spring:url value="/administration/affiliateaccount/${affiliateAccount.affiliate.rlnm}/style/form" var="newStyleUrl"/>
+        <a class="action" href="${newStyleUrl}"><spring:message code="affiliate.style.create.entry"/> </a>
+        <div class="clear"><!-- --></div>
+    </div>
+    <c:if test="${empty affiliateAccount.affiliate.stls}">
+        <spring:message code="affiliate.style.list.empty"/>
+    </c:if>
+
+    <c:if test="${not empty affiliateAccount.affiliate.stls}">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th width="25%"><spring:message code="style.name"/></th>
+                <th width="65%"><spring:message code="style.value"/></th>
+                <th width="10%">&#160;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="style" items="${affiliateAccount.affiliate.stls}">
+                <tr>
+                    <td>${style.rlnm}</td>
+                    <td>{ ${style.vl} }</td>
+                    <td>
+                        <spring:url value="/administration/affiliateaccount/${affiliateAccount.affiliate.rlnm}/style/${style.rlnm}" var="styleDeleteUrl"/>
+                        <spring:url value="/administration/affiliateaccount/${affiliateAccount.affiliate.rlnm}/style/form?styleUrlName=${style.rlnm}" var="styleFormUrl"/>
+                        <spring-form:form action="${styleDeleteUrl}" method="DELETE">
+                            <input type="submit" class="action" name="${delete}" value="${delete}"/>
+                        </spring-form:form>
+                        <a href="${styleFormUrl}" class="action">Edit</a>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </c:if>
+
+    <hr/>
+
+    <h2><spring:message code="affiliate.store.list.title"/></h2>
+    <div class="actions">
+        <spring:url value="/administration/affiliateaccount/${affiliateAccount.affiliate.rlnm}/store/form" var="newStoreUrl"/>
+        <a class="action" href="${newStoreUrl}"><spring:message code="affiliate.store.create.entry"/> </a>
+        <div class="clear"><!-- --></div>
+    </div>
+    <c:if test="${empty affiliateAccount.affiliate.strs}">
+        <spring:message code="affiliate.store.list.empty"/>
+    </c:if>
+
+    <c:if test="${not empty affiliateAccount.affiliate.strs}">
+        <table width="100%">
+            <thead>
+            <tr>
+                <th width="40%"><spring:message code="store.name"/></th>
+                <th width="40%"><spring:message code="store.url.name"/></th>
+                <th width="20%">&#160;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="store" items="${affiliateAccount.affiliate.strs}">
+                <tr>
+                    <td>${store.nm}</td>
+                    <td>${store.rlnm}</td>
+                    <td>
+                        <spring:url value="/administration/affiliateaccount/${affiliateAccount.affiliate.rlnm}/store/${store.rlnm}" var="deleteStoreUrl"/>
+                        <spring-form:form action="${deleteStoreUrl}" method="DELETE">
+                            <input type="submit" name="${delete}" value="${delete}"/>
+                        </spring-form:form>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </c:if>
+
+</div>
